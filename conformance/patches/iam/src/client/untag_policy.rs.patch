@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UntagPolicyError>`](crate::operation::untag_policy::UntagPolicyError)
 -    pub fn untag_policy(&self) -> crate::operation::untag_policy::builders::UntagPolicyFluentBuilder {
 -        crate::operation::untag_policy::builders::UntagPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn untag_policy(&self) -> super::operation::untag_policy::builders::UntagPolicyFluentBuilder {
-+        super::operation::untag_policy::builders::UntagPolicyFluentBuilder::new(self.handle.clone())
++    pub fn untag_policy(&self) -> super::super::operation::untag_policy::builders::UntagPolicyFluentBuilder {
++        super::super::operation::untag_policy::builders::UntagPolicyFluentBuilder::new(self.handle.clone())
      }
  }

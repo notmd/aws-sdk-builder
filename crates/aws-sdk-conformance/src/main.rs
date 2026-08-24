@@ -61,6 +61,19 @@ fn run_conformance(arguments: &[OsString]) -> Result<bool, Box<dyn std::error::E
         return Ok(false);
     }
 
+    if arguments
+        .first()
+        .is_some_and(|argument| argument == "refresh-patches")
+    {
+        return match refresh_patches(&arguments[1..]) {
+            Ok(count) => {
+                eprintln!("refreshed {count} reference normalization patch(es)");
+                Ok(false)
+            }
+            Err(error) => Err(error),
+        };
+    }
+
     let manifest_path = optional_path(arguments, "--manifest")
         .unwrap_or_else(|| PathBuf::from(manifest::DEFAULT_PATH));
     let manifest = manifest::ServicesManifest::load(&manifest_path)?;
@@ -89,16 +102,16 @@ fn run_conformance(arguments: &[OsString]) -> Result<bool, Box<dyn std::error::E
         .iter()
         .map(|service| service.key.clone())
         .collect::<Vec<_>>();
-    let operation_count =
-        generate_conformance_snapshot(&generated, conformance_sources(&services)?)?;
+    let conformance = generate_conformance_snapshot(&generated, conformance_sources(&services)?)?;
     eprintln!(
         "generated {} all-operation service snapshot(s), {} operation(s)",
         services.len(),
-        operation_count
+        conformance.operation_count
     );
     let removed = normalize::strip_excluded(&generated, &manifest.comparison.exclude)?;
     eprintln!("removed {removed} excluded generated snapshot path(s)");
     let formatted_files = format_generated_sources(&generated)?;
+    restore_canonical_projection(&generated)?;
     eprintln!(
         "formatted {} generated Rust snapshot file(s) with rustfmt",
         formatted_files
@@ -146,10 +159,25 @@ fn conformance_sources(services: &[String]) -> Result<Vec<aws_sdk_builder::Servi
         .collect()
 }
 
+fn refresh_patches(arguments: &[OsString]) -> Result<usize, Box<dyn std::error::Error>> {
+    let manifest_path = optional_path(arguments, "--manifest")
+        .unwrap_or_else(|| PathBuf::from(manifest::DEFAULT_PATH));
+    let manifest = manifest::ServicesManifest::load(&manifest_path)?;
+    let reference = optional_path(arguments, "--reference")
+        .unwrap_or_else(|| manifest.root_path(&manifest_path, &manifest.roots.reference));
+    let patches = optional_path(arguments, "--patches")
+        .unwrap_or_else(|| manifest.root_path(&manifest_path, &manifest.roots.patches));
+    Ok(normalize::write_reference_patches(
+        &reference,
+        &patches,
+        &manifest.comparison.exclude,
+    )?)
+}
+
 fn generate_conformance_snapshot(
     output_dir: &Path,
     services: Vec<aws_sdk_builder::ServiceSource>,
-) -> Result<usize, String> {
+) -> Result<aws_sdk_builder::ConformanceSnapshot, String> {
     let parent = output_dir.parent().unwrap_or_else(|| Path::new("."));
     fs::create_dir_all(parent).map_err(|error| format!("{}: {error}", parent.display()))?;
     let stage = tempfile::Builder::new()
@@ -168,7 +196,14 @@ fn generate_conformance_snapshot(
                 scope.spawn(move || {
                     aws_sdk_builder::generate_all(&service_output, [service])
                         .map_err(|error| error.to_string())
-                        .map(|count| (count, service_output, service_key))
+                        .map(|snapshot| {
+                            let files = snapshot
+                                .service_files
+                                .get(&service_key)
+                                .cloned()
+                                .unwrap_or_default();
+                            (snapshot.operation_count, files, service_output, service_key)
+                        })
                 })
             })
             .collect::<Vec<_>>();
@@ -182,9 +217,13 @@ fn generate_conformance_snapshot(
             .collect::<Result<Vec<_>, String>>()
     })?;
     let mut operation_count = 0;
-    for (count, service_output, service_key) in counts {
+    let mut service_files = std::collections::BTreeMap::new();
+    for (count, files, service_output, service_key) in counts {
         operation_count += count;
         let generated_service = service_output.join(&service_key);
+        project_original(&generated_service, &files)
+            .map_err(|error| format!("{service_key}: {error}"))?;
+        service_files.insert(service_key.clone(), files);
         let destination = stage.path().join(&service_key);
         fs::rename(&generated_service, &destination)
             .map_err(|error| format!("{}: {error}", destination.display()))?;
@@ -217,7 +256,30 @@ fn generate_conformance_snapshot(
         fs::remove_dir_all(&backup).map_err(|error| format!("{}: {error}", backup.display()))?;
     }
 
-    Ok(operation_count)
+    Ok(aws_sdk_builder::ConformanceSnapshot {
+        operation_count,
+        service_files,
+    })
+}
+
+fn project_original(
+    generated_service: &Path,
+    files: &std::collections::BTreeSet<String>,
+) -> Result<(), String> {
+    let original_path = generated_service.join(aws_sdk_builder::ORIGINAL_FILE);
+    let original = fs::read_to_string(&original_path)
+        .map_err(|error| format!("{}: {error}", original_path.display()))?;
+    let split = aws_sdk_builder::split(&original, files)?;
+    for (relative, source) in split {
+        let source = normalize::prepare_canonical_projection(&source, Path::new(&relative))?;
+        let destination = generated_service.join("normalized").join(&relative);
+        if let Some(parent) = destination.parent() {
+            fs::create_dir_all(parent).map_err(|error| format!("{}: {error}", parent.display()))?;
+        }
+        fs::write(&destination, source)
+            .map_err(|error| format!("{}: {error}", destination.display()))?;
+    }
+    Ok(())
 }
 
 fn format_generated_sources(root: &Path) -> Result<usize, String> {
@@ -229,8 +291,8 @@ fn format_generated_sources(root: &Path) -> Result<usize, String> {
         return Ok(0);
     }
 
-    // `generate_all` owns this tree, so every Rust file here is generated
-    // source. Avoid reopening every file just to inspect its generated header.
+    // The canonical artifact is preserved byte-for-byte; only its normalized
+    // projection is formatted. Avoid reopening every file to inspect headers.
     for batch in files.chunks(128) {
         let output = Command::new("rustfmt")
             .args([
@@ -254,6 +316,41 @@ fn format_generated_sources(root: &Path) -> Result<usize, String> {
     Ok(files.len())
 }
 
+fn restore_canonical_projection(root: &Path) -> Result<usize, String> {
+    let mut files = Vec::new();
+    collect_rust_files(root, &mut files)?;
+    files.sort();
+    for path in files {
+        let service = path
+            .strip_prefix(root)
+            .map_err(|error| error.to_string())?
+            .components()
+            .next()
+            .and_then(|component| component.as_os_str().to_str())
+            .ok_or_else(|| {
+                format!(
+                    "generated projection has no service component: {}",
+                    path.display()
+                )
+            })?;
+        let projection_root = root.join(service).join("normalized");
+        let relative = path.strip_prefix(&projection_root).map_err(|error| {
+            format!(
+                "{} is outside normalized projection: {error}",
+                path.display()
+            )
+        })?;
+        if relative.as_os_str().is_empty() {
+            continue;
+        }
+        let source =
+            fs::read_to_string(&path).map_err(|error| format!("{}: {error}", path.display()))?;
+        let restored = normalize::restore_canonical_paths(&source, relative)?;
+        fs::write(&path, restored).map_err(|error| format!("{}: {error}", path.display()))?;
+    }
+    Ok(0)
+}
+
 fn collect_rust_files(root: &Path, files: &mut Vec<PathBuf>) -> Result<(), String> {
     for entry in fs::read_dir(root).map_err(|error| format!("{}: {error}", root.display()))? {
         let entry = entry.map_err(|error| format!("{}: {error}", root.display()))?;
@@ -265,6 +362,9 @@ fn collect_rust_files(root: &Path, files: &mut Vec<PathBuf>) -> Result<(), Strin
             collect_rust_files(&path, files)?;
         } else if file_type.is_file()
             && path.extension().and_then(|extension| extension.to_str()) == Some("rs")
+            && path
+                .file_name()
+                .is_some_and(|name| name != aws_sdk_builder::ORIGINAL_FILE)
         {
             files.push(path);
         }

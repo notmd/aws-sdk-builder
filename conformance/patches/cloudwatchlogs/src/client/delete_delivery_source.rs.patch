@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteDeliverySourceError>`](crate::operation::delete_delivery_source::DeleteDeliverySourceError)
 -    pub fn delete_delivery_source(&self) -> crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder {
 -        crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder::new(self.handle.clone())
-+    pub fn delete_delivery_source(&self) -> super::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder {
-+        super::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder::new(self.handle.clone())
++    pub fn delete_delivery_source(&self) -> super::super::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder {
++        super::super::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder::new(self.handle.clone())
      }
  }

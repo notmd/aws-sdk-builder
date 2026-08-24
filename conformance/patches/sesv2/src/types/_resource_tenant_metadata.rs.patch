@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ResourceTenantMetadata`](crate::types::ResourceTenantMetadata).
 -    pub fn builder() -> crate::types::builders::ResourceTenantMetadataBuilder {
 -        crate::types::builders::ResourceTenantMetadataBuilder::default()
-+    pub fn builder() -> super::types::builders::ResourceTenantMetadataBuilder {
-+        super::types::builders::ResourceTenantMetadataBuilder::default()
++    pub fn builder() -> super::super::types::builders::ResourceTenantMetadataBuilder {
++        super::super::types::builders::ResourceTenantMetadataBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ResourceTenantMetadata`](crate::types::ResourceTenantMetadata).
 -    pub fn build(self) -> crate::types::ResourceTenantMetadata {
 -        crate::types::ResourceTenantMetadata {
-+    pub fn build(self) -> super::types::ResourceTenantMetadata {
-+        super::types::ResourceTenantMetadata {
++    pub fn build(self) -> super::super::types::ResourceTenantMetadata {
++        super::super::types::ResourceTenantMetadata {
              tenant_name: self.tenant_name,
              tenant_id: self.tenant_id,
              resource_arn: self.resource_arn,

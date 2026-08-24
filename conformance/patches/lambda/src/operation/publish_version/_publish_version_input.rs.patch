@@ -5,7 +5,7 @@
      pub revision_id: ::std::option::Option<::std::string::String>,
      /// <p>Specifies where to publish the function version or configuration.</p>
 -    pub publish_to: ::std::option::Option<crate::types::FunctionVersionLatestPublished>,
-+    pub publish_to: ::std::option::Option<super::types::FunctionVersionLatestPublished>,
++    pub publish_to: ::std::option::Option<super::super::super::types::FunctionVersionLatestPublished>,
  }
  impl PublishVersionInput {
      /// <p>The name or ARN of the Lambda function.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>Specifies where to publish the function version or configuration.</p>
 -    pub fn publish_to(&self) -> ::std::option::Option<&crate::types::FunctionVersionLatestPublished> {
-+    pub fn publish_to(&self) -> ::std::option::Option<&super::types::FunctionVersionLatestPublished> {
++    pub fn publish_to(&self) -> ::std::option::Option<&super::super::super::types::FunctionVersionLatestPublished> {
          self.publish_to.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`PublishVersionInput`](crate::operation::publish_version::PublishVersionInput).
 -    pub fn builder() -> crate::operation::publish_version::builders::PublishVersionInputBuilder {
 -        crate::operation::publish_version::builders::PublishVersionInputBuilder::default()
-+    pub fn builder() -> super::operation::publish_version::builders::PublishVersionInputBuilder {
-+        super::operation::publish_version::builders::PublishVersionInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::publish_version::builders::PublishVersionInputBuilder {
++        super::super::super::operation::publish_version::builders::PublishVersionInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) description: ::std::option::Option<::std::string::String>,
      pub(crate) revision_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) publish_to: ::std::option::Option<crate::types::FunctionVersionLatestPublished>,
-+    pub(crate) publish_to: ::std::option::Option<super::types::FunctionVersionLatestPublished>,
++    pub(crate) publish_to: ::std::option::Option<super::super::super::types::FunctionVersionLatestPublished>,
  }
  impl PublishVersionInputBuilder {
      /// <p>The name or ARN of the Lambda function.</p>
@@ -41,19 +41,19 @@
      }
      /// <p>Specifies where to publish the function version or configuration.</p>
 -    pub fn publish_to(mut self, input: crate::types::FunctionVersionLatestPublished) -> Self {
-+    pub fn publish_to(mut self, input: super::types::FunctionVersionLatestPublished) -> Self {
++    pub fn publish_to(mut self, input: super::super::super::types::FunctionVersionLatestPublished) -> Self {
          self.publish_to = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies where to publish the function version or configuration.</p>
 -    pub fn set_publish_to(mut self, input: ::std::option::Option<crate::types::FunctionVersionLatestPublished>) -> Self {
-+    pub fn set_publish_to(mut self, input: ::std::option::Option<super::types::FunctionVersionLatestPublished>) -> Self {
++    pub fn set_publish_to(mut self, input: ::std::option::Option<super::super::super::types::FunctionVersionLatestPublished>) -> Self {
          self.publish_to = input;
          self
      }
      /// <p>Specifies where to publish the function version or configuration.</p>
 -    pub fn get_publish_to(&self) -> &::std::option::Option<crate::types::FunctionVersionLatestPublished> {
-+    pub fn get_publish_to(&self) -> &::std::option::Option<super::types::FunctionVersionLatestPublished> {
++    pub fn get_publish_to(&self) -> &::std::option::Option<super::super::super::types::FunctionVersionLatestPublished> {
          &self.publish_to
      }
      /// Consumes the builder and constructs a [`PublishVersionInput`](crate::operation::publish_version::PublishVersionInput).
@@ -61,8 +61,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::publish_version::PublishVersionInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::publish_version::PublishVersionInput {
-+    ) -> ::std::result::Result<super::operation::publish_version::PublishVersionInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::publish_version::PublishVersionInput {
++    ) -> ::std::result::Result<super::super::super::operation::publish_version::PublishVersionInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::publish_version::PublishVersionInput {
              function_name: self.function_name,
              code_sha256: self.code_sha256,
              description: self.description,

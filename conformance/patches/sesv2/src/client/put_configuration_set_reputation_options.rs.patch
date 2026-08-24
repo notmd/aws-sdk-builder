@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsFluentBuilder {
 -        crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsFluentBuilder::new(
-+    ) -> super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsFluentBuilder {
-+        super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsFluentBuilder::new(
++    ) -> super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsFluentBuilder {
++        super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsFluentBuilder::new(
              self.handle.clone(),
          )
      }

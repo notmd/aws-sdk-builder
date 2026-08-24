@@ -6,14 +6,14 @@
  ) -> std::result::Result<
 -    crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
 -    crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError,
-+    super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
-+    super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError,
++    super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
++    super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
@@ -22,7 +22,7 @@
          None => {
              return Err(
 -                crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled(generic),
-+                super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled(generic),
++                super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled(generic),
              )
          }
      };
@@ -31,15 +31,15 @@
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "ConflictException" => crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::ConflictException({
-+        "ConflictException" => super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::ConflictException({
++        "ConflictException" => super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::ConflictException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ConflictExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
-+                    let mut output = super::types::error::builders::ConflictExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
++                    let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -48,15 +48,15 @@
              tmp
          }),
 -        "NoSuchConfigurationRecorderException" => crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::NoSuchConfigurationRecorderException({
-+        "NoSuchConfigurationRecorderException" => super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::NoSuchConfigurationRecorderException({
++        "NoSuchConfigurationRecorderException" => super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::NoSuchConfigurationRecorderException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(_response_body, output).map_err(crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
-+                    let mut output = super::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(_response_body, output).map_err(super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
++                    let mut output = super::super::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(_response_body, output).map_err(super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -65,15 +65,15 @@
              tmp
          }),
 -        "ValidationException" => crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::ValidationException({
-+        "ValidationException" => super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::ValidationException({
++        "ValidationException" => super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::ValidationException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
-+                    let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
++                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -82,7 +82,7 @@
              tmp
          }),
 -        _ => crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::generic(generic)
-+        _ => super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::generic(generic)
++        _ => super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::generic(generic)
      })
  }
 
@@ -92,39 +92,39 @@
  ) -> std::result::Result<
 -    crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
 -    crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError,
-+    super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
-+    super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError,
++    super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
++    super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError,
  > {
      Ok({
          #[allow(unused_mut)]
          let mut output =
 -            crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder::default(
-+            super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder::default(
++            super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder::default(
              );
 -        output = crate::protocol_serde::shape_delete_service_linked_configuration_recorder::de_delete_service_linked_configuration_recorder(
-+        output = super::protocol_serde::shape_delete_service_linked_configuration_recorder::de_delete_service_linked_configuration_recorder(
++        output = super::super::protocol_serde::shape_delete_service_linked_configuration_recorder::de_delete_service_linked_configuration_recorder(
              _response_body,
              output,
          )
 -        .map_err(crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
-+        .map_err(super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
++        .map_err(super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        crate::serde_util::delete_service_linked_configuration_recorder_output_output_correct_errors(output)
-+        super::serde_util::delete_service_linked_configuration_recorder_output_output_correct_errors(output)
++        super::super::serde_util::delete_service_linked_configuration_recorder_output_output_correct_errors(output)
              .build()
 -            .map_err(crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?
-+            .map_err(super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?
++            .map_err(super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?
      })
  }
 
  pub fn ser_delete_service_linked_configuration_recorder_input(
 -    input: &crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput,
-+    input: &super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput,
++    input: &super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_delete_service_linked_configuration_recorder_input::ser_delete_service_linked_configuration_recorder_input_input(
-+    super::protocol_serde::shape_delete_service_linked_configuration_recorder_input::ser_delete_service_linked_configuration_recorder_input_input(
++    super::super::protocol_serde::shape_delete_service_linked_configuration_recorder_input::ser_delete_service_linked_configuration_recorder_input_input(
          &mut object,
          input,
      )?;
@@ -133,14 +133,14 @@
  pub(crate) fn de_delete_service_linked_configuration_recorder(
      _value: &[u8],
 -    mut builder: crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder,
-+    mut builder: super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder,
++    mut builder: super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder,
-+    super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder,
++    super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;

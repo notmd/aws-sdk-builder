@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder {
 -        crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder::new(
-+    ) -> super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder {
-+        super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder::new(
++    ) -> super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder {
++        super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder::new(
              self.handle.clone(),
          )
      }

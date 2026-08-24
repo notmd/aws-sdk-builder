@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EventResult`](crate::types::EventResult).
 -    pub fn builder() -> crate::types::builders::EventResultBuilder {
 -        crate::types::builders::EventResultBuilder::default()
-+    pub fn builder() -> super::types::builders::EventResultBuilder {
-+        super::types::builders::EventResultBuilder::default()
++    pub fn builder() -> super::super::types::builders::EventResultBuilder {
++        super::super::types::builders::EventResultBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EventResult`](crate::types::EventResult).
 -    pub fn build(self) -> crate::types::EventResult {
 -        crate::types::EventResult {
-+    pub fn build(self) -> super::types::EventResult {
-+        super::types::EventResult {
++    pub fn build(self) -> super::super::types::EventResult {
++        super::super::types::EventResult {
              payload: self.payload,
              truncated: self.truncated,
          }

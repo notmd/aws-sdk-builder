@@ -3,7 +3,109 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## codeartifact
-**Progress:** `490/490` files compared · `339` matched · `119` mismatches · `1` missing · `31` extra · `69.18%` match (100.00% means fully matched)
+**Progress:** `490/490` files compared · `262` matched · `196` mismatches · `1` missing · `31` extra · `53.47%` match (100.00% means fully matched)
+
+### `src/client/delete_repository_permissions_policy.rs`
+
+```diff
+--- reference/src/client/delete_repository_permissions_policy.rs
++++ generated/src/client/delete_repository_permissions_policy.rs
+@@ -13,6 +13,8 @@
+     pub fn delete_repository_permissions_policy(
+         &self,
+     ) -> super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder {
+-        super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
++        super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder::new(
++            self.handle.clone(),
++        )
+     }
+ }
+```
+
+### `src/client/get_associated_package_group.rs`
+
+```diff
+--- reference/src/client/get_associated_package_group.rs
++++ generated/src/client/get_associated_package_group.rs
+@@ -12,7 +12,9 @@
+     ///   - [`package_group(Option<PackageGroupDescription>)`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput::package_group): <p>The package group that is associated with the requested package.</p>
+     ///   - [`association_type(Option<PackageGroupAssociationType>)`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput::association_type): <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
+     /// - On failure, responds with [`SdkError<GetAssociatedPackageGroupError>`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupError)
+-    pub fn get_associated_package_group(&self) -> super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupFluentBuilder {
++    pub fn get_associated_package_group(
++        &self,
++    ) -> super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupFluentBuilder {
+         super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupFluentBuilder::new(self.handle.clone())
+     }
+ }
+```
+
+### `src/client/list_package_version_assets.rs`
+
+```diff
+--- reference/src/client/list_package_version_assets.rs
++++ generated/src/client/list_package_version_assets.rs
+@@ -22,7 +22,9 @@
+     ///   - [`next_token(Option<String>)`](crate::operation::list_package_version_assets::ListPackageVersionAssetsOutput::next_token): <p>If there are additional results, this is the token for the next set of results.</p>
+     ///   - [`assets(Option<Vec::<AssetSummary>>)`](crate::operation::list_package_version_assets::ListPackageVersionAssetsOutput::assets): <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a> objects.</p>
+     /// - On failure, responds with [`SdkError<ListPackageVersionAssetsError>`](crate::operation::list_package_version_assets::ListPackageVersionAssetsError)
+-    pub fn list_package_version_assets(&self) -> super::super::operation::list_package_version_assets::builders::ListPackageVersionAssetsFluentBuilder {
++    pub fn list_package_version_assets(
++        &self,
++    ) -> super::super::operation::list_package_version_assets::builders::ListPackageVersionAssetsFluentBuilder {
+         super::super::operation::list_package_version_assets::builders::ListPackageVersionAssetsFluentBuilder::new(self.handle.clone())
+     }
+ }
+```
+
+### `src/client/list_repositories_in_domain.rs`
+
+```diff
+--- reference/src/client/list_repositories_in_domain.rs
++++ generated/src/client/list_repositories_in_domain.rs
+@@ -14,7 +14,9 @@
+     ///   - [`repositories(Option<Vec::<RepositorySummary>>)`](crate::operation::list_repositories_in_domain::ListRepositoriesInDomainOutput::repositories): <p>The returned list of repositories.</p>
+     ///   - [`next_token(Option<String>)`](crate::operation::list_repositories_in_domain::ListRepositoriesInDomainOutput::next_token): <p>If there are additional results, this is the token for the next set of results.</p>
+     /// - On failure, responds with [`SdkError<ListRepositoriesInDomainError>`](crate::operation::list_repositories_in_domain::ListRepositoriesInDomainError)
+-    pub fn list_repositories_in_domain(&self) -> super::super::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainFluentBuilder {
++    pub fn list_repositories_in_domain(
++        &self,
++    ) -> super::super::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainFluentBuilder {
+         super::super::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainFluentBuilder::new(self.handle.clone())
+     }
+ }
+```
+
+### `src/config/endpoint.rs`
+
+```diff
+--- reference/src/config/endpoint.rs
++++ generated/src/config/endpoint.rs
+@@ -29,7 +29,10 @@
+ /// Endpoint resolver trait specific to CodeArtifact
+ pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
+     /// Resolve an endpoint with the given parameters
+-    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
++    fn resolve_endpoint<'a>(
++        &'a self,
++        params: &'a super::super::config::endpoint::Params,
++    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
+
+     /// Convert this service-specific resolver into a `SharedEndpointResolver`
+     ///
+@@ -268,7 +271,10 @@
+ }
+
+ impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
+-    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
++    fn resolve_endpoint<'a>(
++        &'a self,
++        params: &'a super::super::config::endpoint::Params,
++    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
+         // Check single-entry cache (lock-free read via ArcSwap)
+         let cached = self.endpoint_cache.load();
+         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
+```
 
 ### `src/lib.rs`
 
@@ -25,6 +127,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  //!     - A set of versions (for example, 1.0.0, 1.0.1, 1.0.2, etc.)
 ```
 
+### `src/operation/associate_external_connection/_associate_external_connection_input.rs`
+
+```diff
+--- reference/src/operation/associate_external_connection/_associate_external_connection_input.rs
++++ generated/src/operation/associate_external_connection/_associate_external_connection_input.rs
+@@ -223,11 +223,13 @@
+         super::super::super::operation::associate_external_connection::AssociateExternalConnectionInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::associate_external_connection::AssociateExternalConnectionInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            repository: self.repository,
+-            external_connection: self.external_connection,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::associate_external_connection::AssociateExternalConnectionInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                repository: self.repository,
++                external_connection: self.external_connection,
++            },
++        )
+     }
+ }
+```
+
 ### `src/operation/associate_external_connection.rs`
 
 ```diff
@@ -40,7 +169,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_associate_external_connection::ser_associate_external_connection_input(&input)?,
++            super::super::protocol_serde::shape_associate_external_connection::ser_associate_external_connection_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -49,6 +178,186 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/copy_package_versions/_copy_package_versions_input.rs`
+
+```diff
+--- reference/src/operation/copy_package_versions/_copy_package_versions_input.rs
++++ generated/src/operation/copy_package_versions/_copy_package_versions_input.rs
+@@ -399,8 +399,10 @@
+     /// Consumes the builder and constructs a [`CopyPackageVersionsInput`](crate::operation::copy_package_versions::CopyPackageVersionsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::copy_package_versions::CopyPackageVersionsInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::copy_package_versions::CopyPackageVersionsInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::copy_package_versions::CopyPackageVersionsInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+```
+
+### `src/operation/copy_package_versions/_copy_package_versions_output.rs`
+
+```diff
+--- reference/src/operation/copy_package_versions/_copy_package_versions_output.rs
++++ generated/src/operation/copy_package_versions/_copy_package_versions_output.rs
+@@ -4,7 +4,8 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct CopyPackageVersionsOutput {
+     /// <p>A list of the package versions that were successfully copied to your repository.</p>
+-    pub successful_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
++    pub successful_versions:
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
+     /// <p>A map of package versions that failed to copy and their error codes. The possible error codes are in the <code>PackageVersionError</code> data type. They are:</p>
+     /// <ul>
+     /// <li>
+@@ -45,7 +46,9 @@
+     /// <li>
+     /// <p><code>SKIPPED</code></p></li>
+     /// </ul>
+-    pub fn failed_versions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
++    pub fn failed_versions(
++        &self,
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
+         self.failed_versions.as_ref()
+     }
+ }
+@@ -67,7 +70,8 @@
+ pub struct CopyPackageVersionsOutputBuilder {
+     pub(crate) successful_versions:
+         ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
+-    pub(crate) failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
++    pub(crate) failed_versions:
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
+     _request_id: Option<String>,
+ }
+ impl CopyPackageVersionsOutputBuilder {
+@@ -76,7 +80,11 @@
+     /// To override the contents of this collection use [`set_successful_versions`](Self::set_successful_versions).
+     ///
+     /// <p>A list of the package versions that were successfully copied to your repository.</p>
+-    pub fn successful_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::SuccessfulPackageVersionInfo) -> Self {
++    pub fn successful_versions(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::SuccessfulPackageVersionInfo,
++    ) -> Self {
+         let mut hash_map = self.successful_versions.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.successful_versions = ::std::option::Option::Some(hash_map);
+@@ -115,7 +123,11 @@
+     /// <li>
+     /// <p><code>SKIPPED</code></p></li>
+     /// </ul>
+-    pub fn failed_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PackageVersionError) -> Self {
++    pub fn failed_versions(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::PackageVersionError,
++    ) -> Self {
+         let mut hash_map = self.failed_versions.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.failed_versions = ::std::option::Option::Some(hash_map);
+```
+
+### `src/operation/copy_package_versions.rs`
+
+```diff
+--- reference/src/operation/copy_package_versions.rs
++++ generated/src/operation/copy_package_versions.rs
+@@ -345,9 +345,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_copy_package_versions::ser_copy_package_versions_input(
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_copy_package_versions::ser_copy_package_versions_input(&input)?,
++        );
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/create_package_group/_create_package_group_input.rs`
+
+```diff
+--- reference/src/operation/create_package_group/_create_package_group_input.rs
++++ generated/src/operation/create_package_group/_create_package_group_input.rs
+@@ -158,8 +158,10 @@
+     /// Consumes the builder and constructs a [`CreatePackageGroupInput`](crate::operation::create_package_group::CreatePackageGroupInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::create_package_group::CreatePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::create_package_group::CreatePackageGroupInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::create_package_group::CreatePackageGroupInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+```
+
+### `src/operation/create_package_group.rs`
+
+```diff
+--- reference/src/operation/create_package_group.rs
++++ generated/src/operation/create_package_group.rs
+@@ -297,8 +297,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body =
+-            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_package_group::ser_create_package_group_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_package_group::ser_create_package_group_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/create_repository/_create_repository_input.rs`
+
+```diff
+--- reference/src/operation/create_repository/_create_repository_input.rs
++++ generated/src/operation/create_repository/_create_repository_input.rs
+@@ -166,7 +166,10 @@
+     /// Consumes the builder and constructs a [`CreateRepositoryInput`](crate::operation::create_repository::CreateRepositoryInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::create_repository::CreateRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::create_repository::CreateRepositoryInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::create_repository::CreateRepositoryInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+```
+
+### `src/operation/create_repository.rs`
+
+```diff
+--- reference/src/operation/create_repository.rs
++++ generated/src/operation/create_repository.rs
+@@ -303,7 +303,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_repository::ser_create_repository_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_repository::ser_create_repository_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/delete_domain.rs`
@@ -65,7 +374,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_domain::ser_delete_domain_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_domain::ser_delete_domain_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -75,12 +384,53 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/delete_domain_permissions_policy/_delete_domain_permissions_policy_input.rs`
+
+```diff
+--- reference/src/operation/delete_domain_permissions_policy/_delete_domain_permissions_policy_input.rs
++++ generated/src/operation/delete_domain_permissions_policy/_delete_domain_permissions_policy_input.rs
+@@ -90,10 +90,12 @@
+         super::super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            policy_revision: self.policy_revision,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                policy_revision: self.policy_revision,
++            },
++        )
+     }
+ }
+```
+
 ### `src/operation/delete_domain_permissions_policy.rs`
 
 ```diff
 --- reference/src/operation/delete_domain_permissions_policy.rs
 +++ generated/src/operation/delete_domain_permissions_policy.rs
-@@ -295,10 +295,16 @@
+@@ -223,9 +223,13 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            super::super::protocol_serde::shape_delete_domain_permissions_policy::de_delete_domain_permissions_policy_http_error(status, headers, body)
++            super::super::protocol_serde::shape_delete_domain_permissions_policy::de_delete_domain_permissions_policy_http_error(
++                status, headers, body,
++            )
+         } else {
+-            super::super::protocol_serde::shape_delete_domain_permissions_policy::de_delete_domain_permissions_policy_http_response(status, headers, body)
++            super::super::protocol_serde::shape_delete_domain_permissions_policy::de_delete_domain_permissions_policy_http_response(
++                status, headers, body,
++            )
+         };
+         super::super::protocol_serde::type_erase_result(parse_result)
+     }
+@@ -295,10 +299,16 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -90,7 +440,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_delete_domain_permissions_policy::ser_delete_domain_permissions_policy_input(&input)?,
++            super::super::protocol_serde::shape_delete_domain_permissions_policy::ser_delete_domain_permissions_policy_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -115,7 +465,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_package::ser_delete_package_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_package::ser_delete_package_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -123,6 +473,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/delete_package_group/_delete_package_group_input.rs`
+
+```diff
+--- reference/src/operation/delete_package_group/_delete_package_group_input.rs
++++ generated/src/operation/delete_package_group/_delete_package_group_input.rs
+@@ -87,8 +87,10 @@
+     /// Consumes the builder and constructs a [`DeletePackageGroupInput`](crate::operation::delete_package_group::DeletePackageGroupInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::delete_package_group::DeletePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::delete_package_group::DeletePackageGroupInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::delete_package_group::DeletePackageGroupInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
 ```
 
 ### `src/operation/delete_package_group.rs`
@@ -130,7 +500,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_package_group.rs
 +++ generated/src/operation/delete_package_group.rs
-@@ -295,10 +295,15 @@
+@@ -295,10 +295,16 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -139,8 +509,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body =
-+            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_package_group::ser_delete_package_group_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_package_group::ser_delete_package_group_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -150,12 +521,135 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/delete_package_versions/_delete_package_versions_input.rs`
+
+```diff
+--- reference/src/operation/delete_package_versions/_delete_package_versions_input.rs
++++ generated/src/operation/delete_package_versions/_delete_package_versions_input.rs
+@@ -302,8 +302,10 @@
+     /// Consumes the builder and constructs a [`DeletePackageVersionsInput`](crate::operation::delete_package_versions::DeletePackageVersionsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::delete_package_versions::DeletePackageVersionsInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::delete_package_versions::DeletePackageVersionsInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::delete_package_versions::DeletePackageVersionsInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+```
+
+### `src/operation/delete_package_versions/_delete_package_versions_output.rs`
+
+```diff
+--- reference/src/operation/delete_package_versions/_delete_package_versions_output.rs
++++ generated/src/operation/delete_package_versions/_delete_package_versions_output.rs
+@@ -4,7 +4,8 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DeletePackageVersionsOutput {
+     /// <p>A list of the package versions that were successfully deleted. The status of every successful version will be <code>Deleted</code>.</p>
+-    pub successful_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
++    pub successful_versions:
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
+     /// <p>A <code>PackageVersionError</code> object that contains a map of errors codes for the deleted package that failed. The possible error codes are:</p>
+     /// <ul>
+     /// <li>
+@@ -45,7 +46,9 @@
+     /// <li>
+     /// <p><code>SKIPPED</code></p></li>
+     /// </ul>
+-    pub fn failed_versions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
++    pub fn failed_versions(
++        &self,
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
+         self.failed_versions.as_ref()
+     }
+ }
+@@ -67,7 +70,8 @@
+ pub struct DeletePackageVersionsOutputBuilder {
+     pub(crate) successful_versions:
+         ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
+-    pub(crate) failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
++    pub(crate) failed_versions:
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
+     _request_id: Option<String>,
+ }
+ impl DeletePackageVersionsOutputBuilder {
+@@ -76,7 +80,11 @@
+     /// To override the contents of this collection use [`set_successful_versions`](Self::set_successful_versions).
+     ///
+     /// <p>A list of the package versions that were successfully deleted. The status of every successful version will be <code>Deleted</code>.</p>
+-    pub fn successful_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::SuccessfulPackageVersionInfo) -> Self {
++    pub fn successful_versions(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::SuccessfulPackageVersionInfo,
++    ) -> Self {
+         let mut hash_map = self.successful_versions.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.successful_versions = ::std::option::Option::Some(hash_map);
+@@ -115,7 +123,11 @@
+     /// <li>
+     /// <p><code>SKIPPED</code></p></li>
+     /// </ul>
+-    pub fn failed_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PackageVersionError) -> Self {
++    pub fn failed_versions(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::PackageVersionError,
++    ) -> Self {
+         let mut hash_map = self.failed_versions.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.failed_versions = ::std::option::Option::Some(hash_map);
+```
+
+### `src/operation/delete_package_versions.rs`
+
+```diff
+--- reference/src/operation/delete_package_versions.rs
++++ generated/src/operation/delete_package_versions.rs
+@@ -335,9 +335,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_package_versions::ser_delete_package_versions_input(
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_delete_package_versions::ser_delete_package_versions_input(&input)?,
++        );
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/delete_repository/_delete_repository_input.rs`
+
+```diff
+--- reference/src/operation/delete_repository/_delete_repository_input.rs
++++ generated/src/operation/delete_repository/_delete_repository_input.rs
+@@ -87,7 +87,10 @@
+     /// Consumes the builder and constructs a [`DeleteRepositoryInput`](crate::operation::delete_repository::DeleteRepositoryInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::delete_repository::DeleteRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::delete_repository::DeleteRepositoryInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::delete_repository::DeleteRepositoryInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+```
+
 ### `src/operation/delete_repository.rs`
 
 ```diff
 --- reference/src/operation/delete_repository.rs
 +++ generated/src/operation/delete_repository.rs
-@@ -295,10 +295,14 @@
+@@ -295,10 +295,16 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -164,7 +658,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_repository::ser_delete_repository_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_repository::ser_delete_repository_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -172,6 +668,45 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/delete_repository_permissions_policy/builders.rs`
+
+```diff
+--- reference/src/operation/delete_repository_permissions_policy/builders.rs
++++ generated/src/operation/delete_repository_permissions_policy/builders.rs
+@@ -59,7 +59,9 @@
+         }
+     }
+     /// Access the DeleteRepositoryPermissionsPolicy as a reference.
+-    pub fn as_input(&self) -> &super::super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyInputBuilder {
++    pub fn as_input(
++        &self,
++    ) -> &super::super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyInputBuilder {
+         &self.inner
+     }
+     /// Sends the request and returns the response.
+@@ -83,12 +85,14 @@
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+-        let runtime_plugins = super::super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicy::operation_runtime_plugins(
+-            self.handle.runtime_plugins.clone(),
+-            &self.handle.conf,
+-            self.config_override,
+-        );
+-        super::super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicy::orchestrate(&runtime_plugins, input).await
++        let runtime_plugins =
++            super::super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicy::operation_runtime_plugins(
++                self.handle.runtime_plugins.clone(),
++                &self.handle.conf,
++                self.config_override,
++            );
++        super::super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicy::orchestrate(&runtime_plugins, input)
++            .await
+     }
+
+     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 ```
 
 ### `src/operation/delete_repository_permissions_policy.rs`
@@ -189,7 +724,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_delete_repository_permissions_policy::ser_delete_repository_permissions_policy_input(&input)?,
++            super::super::protocol_serde::shape_delete_repository_permissions_policy::ser_delete_repository_permissions_policy_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -214,7 +749,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_describe_domain::ser_describe_domain_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_domain::ser_describe_domain_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -238,7 +773,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_describe_package::ser_describe_package_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_package::ser_describe_package_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -246,6 +781,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/describe_package_group/_describe_package_group_input.rs`
+
+```diff
+--- reference/src/operation/describe_package_group/_describe_package_group_input.rs
++++ generated/src/operation/describe_package_group/_describe_package_group_input.rs
+@@ -87,8 +87,10 @@
+     /// Consumes the builder and constructs a [`DescribePackageGroupInput`](crate::operation::describe_package_group::DescribePackageGroupInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::describe_package_group::DescribePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::describe_package_group::DescribePackageGroupInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::describe_package_group::DescribePackageGroupInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
 ```
 
 ### `src/operation/describe_package_group.rs`
@@ -262,9 +817,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_describe_package_group::ser_describe_package_group_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_describe_package_group::ser_describe_package_group_input(&input)?,
++        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -289,7 +844,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_describe_package_version::ser_describe_package_version_input(&input)?,
++            super::super::protocol_serde::shape_describe_package_version::ser_describe_package_version_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -300,12 +855,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/describe_repository/_describe_repository_input.rs`
+
+```diff
+--- reference/src/operation/describe_repository/_describe_repository_input.rs
++++ generated/src/operation/describe_repository/_describe_repository_input.rs
+@@ -87,7 +87,10 @@
+     /// Consumes the builder and constructs a [`DescribeRepositoryInput`](crate::operation::describe_repository::DescribeRepositoryInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::describe_repository::DescribeRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::describe_repository::DescribeRepositoryInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::describe_repository::DescribeRepositoryInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+```
+
 ### `src/operation/describe_repository.rs`
 
 ```diff
 --- reference/src/operation/describe_repository.rs
 +++ generated/src/operation/describe_repository.rs
-@@ -295,10 +295,14 @@
+@@ -295,10 +295,16 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -314,7 +888,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_describe_repository::ser_describe_repository_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_repository::ser_describe_repository_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -324,12 +900,91 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/disassociate_external_connection/_disassociate_external_connection_input.rs`
+
+```diff
+--- reference/src/operation/disassociate_external_connection/_disassociate_external_connection_input.rs
++++ generated/src/operation/disassociate_external_connection/_disassociate_external_connection_input.rs
+@@ -113,11 +113,13 @@
+         super::super::super::operation::disassociate_external_connection::DisassociateExternalConnectionInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::disassociate_external_connection::DisassociateExternalConnectionInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            repository: self.repository,
+-            external_connection: self.external_connection,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::disassociate_external_connection::DisassociateExternalConnectionInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                repository: self.repository,
++                external_connection: self.external_connection,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/disassociate_external_connection/builders.rs`
+
+```diff
+--- reference/src/operation/disassociate_external_connection/builders.rs
++++ generated/src/operation/disassociate_external_connection/builders.rs
+@@ -57,7 +57,9 @@
+         }
+     }
+     /// Access the DisassociateExternalConnection as a reference.
+-    pub fn as_input(&self) -> &super::super::super::operation::disassociate_external_connection::builders::DisassociateExternalConnectionInputBuilder {
++    pub fn as_input(
++        &self,
++    ) -> &super::super::super::operation::disassociate_external_connection::builders::DisassociateExternalConnectionInputBuilder {
+         &self.inner
+     }
+     /// Sends the request and returns the response.
+@@ -81,11 +83,12 @@
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+-        let runtime_plugins = super::super::super::operation::disassociate_external_connection::DisassociateExternalConnection::operation_runtime_plugins(
+-            self.handle.runtime_plugins.clone(),
+-            &self.handle.conf,
+-            self.config_override,
+-        );
++        let runtime_plugins =
++            super::super::super::operation::disassociate_external_connection::DisassociateExternalConnection::operation_runtime_plugins(
++                self.handle.runtime_plugins.clone(),
++                &self.handle.conf,
++                self.config_override,
++            );
+         super::super::super::operation::disassociate_external_connection::DisassociateExternalConnection::orchestrate(&runtime_plugins, input).await
+     }
+
+```
+
 ### `src/operation/disassociate_external_connection.rs`
 
 ```diff
 --- reference/src/operation/disassociate_external_connection.rs
 +++ generated/src/operation/disassociate_external_connection.rs
-@@ -317,10 +317,16 @@
+@@ -228,9 +228,13 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            super::super::protocol_serde::shape_disassociate_external_connection::de_disassociate_external_connection_http_error(status, headers, body)
++            super::super::protocol_serde::shape_disassociate_external_connection::de_disassociate_external_connection_http_error(
++                status, headers, body,
++            )
+         } else {
+-            super::super::protocol_serde::shape_disassociate_external_connection::de_disassociate_external_connection_http_response(status, headers, body)
++            super::super::protocol_serde::shape_disassociate_external_connection::de_disassociate_external_connection_http_response(
++                status, headers, body,
++            )
+         };
+         super::super::protocol_serde::type_erase_result(parse_result)
+     }
+@@ -317,10 +321,16 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -339,13 +994,106 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_disassociate_external_connection::ser_disassociate_external_connection_input(&input)?,
++            super::super::protocol_serde::shape_disassociate_external_connection::ser_disassociate_external_connection_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 +        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+     }
+ }
+```
+
+### `src/operation/dispose_package_versions/_dispose_package_versions_output.rs`
+
+```diff
+--- reference/src/operation/dispose_package_versions/_dispose_package_versions_output.rs
++++ generated/src/operation/dispose_package_versions/_dispose_package_versions_output.rs
+@@ -4,7 +4,8 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DisposePackageVersionsOutput {
+     /// <p>A list of the package versions that were successfully disposed.</p>
+-    pub successful_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
++    pub successful_versions:
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
+     /// <p>A <code>PackageVersionError</code> object that contains a map of errors codes for the disposed package versions that failed. The possible error codes are:</p>
+     /// <ul>
+     /// <li>
+@@ -45,7 +46,9 @@
+     /// <li>
+     /// <p><code>SKIPPED</code></p></li>
+     /// </ul>
+-    pub fn failed_versions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
++    pub fn failed_versions(
++        &self,
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
+         self.failed_versions.as_ref()
+     }
+ }
+@@ -67,7 +70,8 @@
+ pub struct DisposePackageVersionsOutputBuilder {
+     pub(crate) successful_versions:
+         ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
+-    pub(crate) failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
++    pub(crate) failed_versions:
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
+     _request_id: Option<String>,
+ }
+ impl DisposePackageVersionsOutputBuilder {
+@@ -76,7 +80,11 @@
+     /// To override the contents of this collection use [`set_successful_versions`](Self::set_successful_versions).
+     ///
+     /// <p>A list of the package versions that were successfully disposed.</p>
+-    pub fn successful_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::SuccessfulPackageVersionInfo) -> Self {
++    pub fn successful_versions(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::SuccessfulPackageVersionInfo,
++    ) -> Self {
+         let mut hash_map = self.successful_versions.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.successful_versions = ::std::option::Option::Some(hash_map);
+@@ -115,7 +123,11 @@
+     /// <li>
+     /// <p><code>SKIPPED</code></p></li>
+     /// </ul>
+-    pub fn failed_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PackageVersionError) -> Self {
++    pub fn failed_versions(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::PackageVersionError,
++    ) -> Self {
+         let mut hash_map = self.failed_versions.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.failed_versions = ::std::option::Option::Some(hash_map);
+```
+
+### `src/operation/get_associated_package_group/_get_associated_package_group_input.rs`
+
+```diff
+--- reference/src/operation/get_associated_package_group/_get_associated_package_group_input.rs
++++ generated/src/operation/get_associated_package_group/_get_associated_package_group_input.rs
+@@ -234,12 +234,14 @@
+         super::super::super::operation::get_associated_package_group::GetAssociatedPackageGroupInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::get_associated_package_group::GetAssociatedPackageGroupInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            format: self.format,
+-            namespace: self.namespace,
+-            package: self.package,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::get_associated_package_group::GetAssociatedPackageGroupInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                format: self.format,
++                namespace: self.namespace,
++                package: self.package,
++            },
++        )
      }
  }
 ```
@@ -365,7 +1113,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_get_associated_package_group::ser_get_associated_package_group_input(&input)?,
++            super::super::protocol_serde::shape_get_associated_package_group::ser_get_associated_package_group_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -374,6 +1122,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/get_authorization_token/_get_authorization_token_input.rs`
+
+```diff
+--- reference/src/operation/get_authorization_token/_get_authorization_token_input.rs
++++ generated/src/operation/get_authorization_token/_get_authorization_token_input.rs
+@@ -86,8 +86,10 @@
+     /// Consumes the builder and constructs a [`GetAuthorizationTokenInput`](crate::operation::get_authorization_token::GetAuthorizationTokenInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::get_authorization_token::GetAuthorizationTokenInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::get_authorization_token::GetAuthorizationTokenInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::get_authorization_token::GetAuthorizationTokenInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
 ```
 
 ### `src/operation/get_authorization_token.rs`
@@ -398,14 +1166,37 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_authorization_token::ser_get_authorization_token_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_get_authorization_token::ser_get_authorization_token_input(&input)?,
++        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 +        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+     }
+ }
+```
+
+### `src/operation/get_domain_permissions_policy/_get_domain_permissions_policy_input.rs`
+
+```diff
+--- reference/src/operation/get_domain_permissions_policy/_get_domain_permissions_policy_input.rs
++++ generated/src/operation/get_domain_permissions_policy/_get_domain_permissions_policy_input.rs
+@@ -69,9 +69,11 @@
+         super::super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++            },
++        )
      }
  }
 ```
@@ -425,7 +1216,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_get_domain_permissions_policy::ser_get_domain_permissions_policy_input(&input)?,
++            super::super::protocol_serde::shape_get_domain_permissions_policy::ser_get_domain_permissions_policy_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -459,7 +1250,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_get_package_version_asset::ser_get_package_version_asset_input(&input)?,
++            super::super::protocol_serde::shape_get_package_version_asset::ser_get_package_version_asset_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -485,7 +1276,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_get_package_version_readme::ser_get_package_version_readme_input(&input)?,
++            super::super::protocol_serde::shape_get_package_version_readme::ser_get_package_version_readme_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -494,6 +1285,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/get_repository_endpoint/_get_repository_endpoint_input.rs`
+
+```diff
+--- reference/src/operation/get_repository_endpoint/_get_repository_endpoint_input.rs
++++ generated/src/operation/get_repository_endpoint/_get_repository_endpoint_input.rs
+@@ -130,8 +130,10 @@
+     /// Consumes the builder and constructs a [`GetRepositoryEndpointInput`](crate::operation::get_repository_endpoint::GetRepositoryEndpointInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::get_repository_endpoint::GetRepositoryEndpointInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::get_repository_endpoint::GetRepositoryEndpointInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::get_repository_endpoint::GetRepositoryEndpointInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
 ```
 
 ### `src/operation/get_repository_endpoint.rs`
@@ -510,9 +1321,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_repository_endpoint::ser_get_repository_endpoint_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_get_repository_endpoint::ser_get_repository_endpoint_input(&input)?,
++        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -520,6 +1331,67 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/get_repository_permissions_policy/_get_repository_permissions_policy_input.rs`
+
+```diff
+--- reference/src/operation/get_repository_permissions_policy/_get_repository_permissions_policy_input.rs
++++ generated/src/operation/get_repository_permissions_policy/_get_repository_permissions_policy_input.rs
+@@ -91,10 +91,12 @@
+         super::super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            repository: self.repository,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                repository: self.repository,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/get_repository_permissions_policy/builders.rs`
+
+```diff
+--- reference/src/operation/get_repository_permissions_policy/builders.rs
++++ generated/src/operation/get_repository_permissions_policy/builders.rs
+@@ -57,7 +57,9 @@
+         }
+     }
+     /// Access the GetRepositoryPermissionsPolicy as a reference.
+-    pub fn as_input(&self) -> &super::super::super::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyInputBuilder {
++    pub fn as_input(
++        &self,
++    ) -> &super::super::super::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyInputBuilder {
+         &self.inner
+     }
+     /// Sends the request and returns the response.
+@@ -81,11 +83,12 @@
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+-        let runtime_plugins = super::super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicy::operation_runtime_plugins(
+-            self.handle.runtime_plugins.clone(),
+-            &self.handle.conf,
+-            self.config_override,
+-        );
++        let runtime_plugins =
++            super::super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicy::operation_runtime_plugins(
++                self.handle.runtime_plugins.clone(),
++                &self.handle.conf,
++                self.config_override,
++            );
+         super::super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicy::orchestrate(&runtime_plugins, input).await
+     }
+
 ```
 
 ### `src/operation/get_repository_permissions_policy.rs`
@@ -527,7 +1399,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_repository_permissions_policy.rs
 +++ generated/src/operation/get_repository_permissions_policy.rs
-@@ -301,10 +301,16 @@
+@@ -223,9 +223,13 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            super::super::protocol_serde::shape_get_repository_permissions_policy::de_get_repository_permissions_policy_http_error(status, headers, body)
++            super::super::protocol_serde::shape_get_repository_permissions_policy::de_get_repository_permissions_policy_http_error(
++                status, headers, body,
++            )
+         } else {
+-            super::super::protocol_serde::shape_get_repository_permissions_policy::de_get_repository_permissions_policy_http_response(status, headers, body)
++            super::super::protocol_serde::shape_get_repository_permissions_policy::de_get_repository_permissions_policy_http_response(
++                status, headers, body,
++            )
+         };
+         super::super::protocol_serde::type_erase_result(parse_result)
+     }
+@@ -301,10 +305,16 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -537,7 +1425,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_get_repository_permissions_policy::ser_get_repository_permissions_policy_input(&input)?,
++            super::super::protocol_serde::shape_get_repository_permissions_policy::ser_get_repository_permissions_policy_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -548,12 +1436,147 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/list_allowed_repositories_for_group/_list_allowed_repositories_for_group_input.rs`
+
+```diff
+--- reference/src/operation/list_allowed_repositories_for_group/_list_allowed_repositories_for_group_input.rs
++++ generated/src/operation/list_allowed_repositories_for_group/_list_allowed_repositories_for_group_input.rs
+@@ -112,7 +112,10 @@
+         self
+     }
+     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
+-    pub fn set_origin_restriction_type(mut self, input: ::std::option::Option<super::super::super::types::PackageGroupOriginRestrictionType>) -> Self {
++    pub fn set_origin_restriction_type(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::PackageGroupOriginRestrictionType>,
++    ) -> Self {
+         self.origin_restriction_type = input;
+         self
+     }
+```
+
+### `src/operation/list_allowed_repositories_for_group/builders.rs`
+
+```diff
+--- reference/src/operation/list_allowed_repositories_for_group/builders.rs
++++ generated/src/operation/list_allowed_repositories_for_group/builders.rs
+@@ -57,7 +57,9 @@
+         }
+     }
+     /// Access the ListAllowedRepositoriesForGroup as a reference.
+-    pub fn as_input(&self) -> &super::super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupInputBuilder {
++    pub fn as_input(
++        &self,
++    ) -> &super::super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupInputBuilder {
+         &self.inner
+     }
+     /// Sends the request and returns the response.
+@@ -81,12 +83,14 @@
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+-        let runtime_plugins = super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroup::operation_runtime_plugins(
+-            self.handle.runtime_plugins.clone(),
+-            &self.handle.conf,
+-            self.config_override,
+-        );
+-        super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroup::orchestrate(&runtime_plugins, input).await
++        let runtime_plugins =
++            super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroup::operation_runtime_plugins(
++                self.handle.runtime_plugins.clone(),
++                &self.handle.conf,
++                self.config_override,
++            );
++        super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroup::orchestrate(&runtime_plugins, input)
++            .await
+     }
+
+     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+@@ -111,8 +115,13 @@
+     /// Create a paginator for this request
+     ///
+     /// Paginators are used by calling [`send().await`](crate::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+-    pub fn into_paginator(self) -> super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator {
+-        super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator::new(self.handle, self.inner)
++    pub fn into_paginator(
++        self,
++    ) -> super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator {
++        super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator::new(
++            self.handle,
++            self.inner,
++        )
+     }
+     /// <p>The name of the domain that contains the package group from which to list allowed repositories.</p>
+     pub fn domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+@@ -162,7 +171,10 @@
+         self
+     }
+     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
+-    pub fn set_origin_restriction_type(mut self, input: ::std::option::Option<super::super::super::types::PackageGroupOriginRestrictionType>) -> Self {
++    pub fn set_origin_restriction_type(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::PackageGroupOriginRestrictionType>,
++    ) -> Self {
+         self.inner = self.inner.set_origin_restriction_type(input);
+         self
+     }
+```
+
+### `src/operation/list_allowed_repositories_for_group/paginator.rs`
+
+```diff
+--- reference/src/operation/list_allowed_repositories_for_group/paginator.rs
++++ generated/src/operation/list_allowed_repositories_for_group/paginator.rs
+@@ -31,7 +31,9 @@
+     ///
+     /// This paginator automatically flattens results using `allowed_repositories`. Queries to the underlying service
+     /// are dispatched lazily.
+-    pub fn items(self) -> super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginatorItems {
++    pub fn items(
++        self,
++    ) -> super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginatorItems {
+         super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginatorItems(self)
+     }
+
+@@ -65,12 +67,13 @@
+         // Move individual fields out of self for the borrow checker
+         let builder = self.builder;
+         let handle = self.handle;
+-        let runtime_plugins = super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroup::operation_runtime_plugins(
+-            handle.runtime_plugins.clone(),
+-            &handle.conf,
+-            ::std::option::Option::None,
+-        )
+-        .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
++        let runtime_plugins =
++            super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroup::operation_runtime_plugins(
++                handle.runtime_plugins.clone(),
++                &handle.conf,
++                ::std::option::Option::None,
++            )
++            .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
+         ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
+             move |tx| {
+                 ::std::boxed::Box::pin(async move {
+```
+
 ### `src/operation/list_allowed_repositories_for_group.rs`
 
 ```diff
 --- reference/src/operation/list_allowed_repositories_for_group.rs
 +++ generated/src/operation/list_allowed_repositories_for_group.rs
-@@ -323,10 +323,16 @@
+@@ -228,7 +228,9 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            super::super::protocol_serde::shape_list_allowed_repositories_for_group::de_list_allowed_repositories_for_group_http_error(status, headers, body)
++            super::super::protocol_serde::shape_list_allowed_repositories_for_group::de_list_allowed_repositories_for_group_http_error(
++                status, headers, body,
++            )
+         } else {
+             super::super::protocol_serde::shape_list_allowed_repositories_for_group::de_list_allowed_repositories_for_group_http_response(
+                 status, headers, body,
+@@ -323,10 +325,16 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -563,7 +1586,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_list_allowed_repositories_for_group::ser_list_allowed_repositories_for_group_input(&input)?,
++            super::super::protocol_serde::shape_list_allowed_repositories_for_group::ser_list_allowed_repositories_for_group_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -572,6 +1595,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/list_associated_packages/paginator.rs`
+
+```diff
+--- reference/src/operation/list_associated_packages/paginator.rs
++++ generated/src/operation/list_associated_packages/paginator.rs
+@@ -86,8 +86,11 @@
+                         }
+                     };
+                     loop {
+-                        let resp =
+-                            super::super::super::operation::list_associated_packages::ListAssociatedPackages::orchestrate(&runtime_plugins, input.clone()).await;
++                        let resp = super::super::super::operation::list_associated_packages::ListAssociatedPackages::orchestrate(
++                            &runtime_plugins,
++                            input.clone(),
++                        )
++                        .await;
+                         // If the input member is None or it was an error
+                         let done = match resp {
+                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_associated_packages.rs`
@@ -589,7 +1633,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_list_associated_packages::ser_list_associated_packages_input(&input)?,
++            super::super::protocol_serde::shape_list_associated_packages::ser_list_associated_packages_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -600,12 +1644,69 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/list_domains/_list_domains_input.rs`
+
+```diff
+--- reference/src/operation/list_domains/_list_domains_input.rs
++++ generated/src/operation/list_domains/_list_domains_input.rs
+@@ -62,7 +62,9 @@
+         &self.next_token
+     }
+     /// Consumes the builder and constructs a [`ListDomainsInput`](crate::operation::list_domains::ListDomainsInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_domains::ListDomainsInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::list_domains::ListDomainsInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::list_domains::ListDomainsInput {
+             max_results: self.max_results,
+             next_token: self.next_token,
+```
+
+### `src/operation/list_domains/paginator.rs`
+
+```diff
+--- reference/src/operation/list_domains/paginator.rs
++++ generated/src/operation/list_domains/paginator.rs
+@@ -139,7 +139,10 @@
+             >,
+         >,
+     > {
+-        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
+-            .flat_map(|page| super::super::super::lens::lens_list_domains_output_output_domains(page).unwrap_or_default().into_iter())
++        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
++            super::super::super::lens::lens_list_domains_output_output_domains(page)
++                .unwrap_or_default()
++                .into_iter()
++        })
+     }
+ }
+```
+
+### `src/operation/list_package_groups/_list_package_groups_input.rs`
+
+```diff
+--- reference/src/operation/list_package_groups/_list_package_groups_input.rs
++++ generated/src/operation/list_package_groups/_list_package_groups_input.rs
+@@ -128,7 +128,10 @@
+     /// Consumes the builder and constructs a [`ListPackageGroupsInput`](crate::operation::list_package_groups::ListPackageGroupsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::list_package_groups::ListPackageGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::list_package_groups::ListPackageGroupsInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::list_package_groups::ListPackageGroupsInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+```
+
 ### `src/operation/list_package_groups.rs`
 
 ```diff
 --- reference/src/operation/list_package_groups.rs
 +++ generated/src/operation/list_package_groups.rs
-@@ -304,10 +304,14 @@
+@@ -304,10 +304,16 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -614,7 +1715,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_package_groups::ser_list_package_groups_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_package_groups::ser_list_package_groups_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -622,6 +1725,65 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/list_package_version_assets/_list_package_version_assets_input.rs`
+
+```diff
+--- reference/src/operation/list_package_version_assets/_list_package_version_assets_input.rs
++++ generated/src/operation/list_package_version_assets/_list_package_version_assets_input.rs
+@@ -320,16 +320,18 @@
+         super::super::super::operation::list_package_version_assets::ListPackageVersionAssetsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::list_package_version_assets::ListPackageVersionAssetsInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            repository: self.repository,
+-            format: self.format,
+-            namespace: self.namespace,
+-            package: self.package,
+-            package_version: self.package_version,
+-            max_results: self.max_results,
+-            next_token: self.next_token,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::list_package_version_assets::ListPackageVersionAssetsInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                repository: self.repository,
++                format: self.format,
++                namespace: self.namespace,
++                package: self.package,
++                package_version: self.package_version,
++                max_results: self.max_results,
++                next_token: self.next_token,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/list_package_version_assets/paginator.rs`
+
+```diff
+--- reference/src/operation/list_package_version_assets/paginator.rs
++++ generated/src/operation/list_package_version_assets/paginator.rs
+@@ -86,9 +86,11 @@
+                         }
+                     };
+                     loop {
+-                        let resp =
+-                            super::super::super::operation::list_package_version_assets::ListPackageVersionAssets::orchestrate(&runtime_plugins, input.clone())
+-                                .await;
++                        let resp = super::super::super::operation::list_package_version_assets::ListPackageVersionAssets::orchestrate(
++                            &runtime_plugins,
++                            input.clone(),
++                        )
++                        .await;
+                         // If the input member is None or it was an error
+                         let done = match resp {
+                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_package_version_assets.rs`
@@ -639,7 +1801,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_list_package_version_assets::ser_list_package_version_assets_input(&input)?,
++            super::super::protocol_serde::shape_list_package_version_assets::ser_list_package_version_assets_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -650,12 +1812,99 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/list_package_version_dependencies/_list_package_version_dependencies_input.rs`
+
+```diff
+--- reference/src/operation/list_package_version_dependencies/_list_package_version_dependencies_input.rs
++++ generated/src/operation/list_package_version_dependencies/_list_package_version_dependencies_input.rs
+@@ -269,15 +269,17 @@
+         super::super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            repository: self.repository,
+-            format: self.format,
+-            namespace: self.namespace,
+-            package: self.package,
+-            package_version: self.package_version,
+-            next_token: self.next_token,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                repository: self.repository,
++                format: self.format,
++                namespace: self.namespace,
++                package: self.package,
++                package_version: self.package_version,
++                next_token: self.next_token,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/list_package_version_dependencies/builders.rs`
+
+```diff
+--- reference/src/operation/list_package_version_dependencies/builders.rs
++++ generated/src/operation/list_package_version_dependencies/builders.rs
+@@ -57,7 +57,9 @@
+         }
+     }
+     /// Access the ListPackageVersionDependencies as a reference.
+-    pub fn as_input(&self) -> &super::super::super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesInputBuilder {
++    pub fn as_input(
++        &self,
++    ) -> &super::super::super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesInputBuilder {
+         &self.inner
+     }
+     /// Sends the request and returns the response.
+@@ -81,11 +83,12 @@
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+-        let runtime_plugins = super::super::super::operation::list_package_version_dependencies::ListPackageVersionDependencies::operation_runtime_plugins(
+-            self.handle.runtime_plugins.clone(),
+-            &self.handle.conf,
+-            self.config_override,
+-        );
++        let runtime_plugins =
++            super::super::super::operation::list_package_version_dependencies::ListPackageVersionDependencies::operation_runtime_plugins(
++                self.handle.runtime_plugins.clone(),
++                &self.handle.conf,
++                self.config_override,
++            );
+         super::super::super::operation::list_package_version_dependencies::ListPackageVersionDependencies::orchestrate(&runtime_plugins, input).await
+     }
+
+```
+
 ### `src/operation/list_package_version_dependencies.rs`
 
 ```diff
 --- reference/src/operation/list_package_version_dependencies.rs
 +++ generated/src/operation/list_package_version_dependencies.rs
-@@ -358,10 +358,16 @@
+@@ -243,9 +243,13 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            super::super::protocol_serde::shape_list_package_version_dependencies::de_list_package_version_dependencies_http_error(status, headers, body)
++            super::super::protocol_serde::shape_list_package_version_dependencies::de_list_package_version_dependencies_http_error(
++                status, headers, body,
++            )
+         } else {
+-            super::super::protocol_serde::shape_list_package_version_dependencies::de_list_package_version_dependencies_http_response(status, headers, body)
++            super::super::protocol_serde::shape_list_package_version_dependencies::de_list_package_version_dependencies_http_response(
++                status, headers, body,
++            )
+         };
+         super::super::protocol_serde::type_erase_result(parse_result)
+     }
+@@ -358,10 +362,16 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -665,7 +1914,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_list_package_version_dependencies::ser_list_package_version_dependencies_input(&input)?,
++            super::super::protocol_serde::shape_list_package_version_dependencies::ser_list_package_version_dependencies_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -674,6 +1923,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/list_package_versions/_list_package_versions_input.rs`
+
+```diff
+--- reference/src/operation/list_package_versions/_list_package_versions_input.rs
++++ generated/src/operation/list_package_versions/_list_package_versions_input.rs
+@@ -357,8 +357,10 @@
+     /// Consumes the builder and constructs a [`ListPackageVersionsInput`](crate::operation::list_package_versions::ListPackageVersionsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::list_package_versions::ListPackageVersionsInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::list_package_versions::ListPackageVersionsInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::list_package_versions::ListPackageVersionsInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
 ```
 
 ### `src/operation/list_package_versions.rs`
@@ -690,9 +1959,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_package_versions::ser_list_package_versions_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_list_package_versions::ser_list_package_versions_input(&input)?,
++        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -716,7 +1985,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_packages::ser_list_packages_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_packages::ser_list_packages_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -726,12 +1995,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/list_repositories/_list_repositories_input.rs`
+
+```diff
+--- reference/src/operation/list_repositories/_list_repositories_input.rs
++++ generated/src/operation/list_repositories/_list_repositories_input.rs
+@@ -85,7 +85,10 @@
+     /// Consumes the builder and constructs a [`ListRepositoriesInput`](crate::operation::list_repositories::ListRepositoriesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::list_repositories::ListRepositoriesInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::list_repositories::ListRepositoriesInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::list_repositories::ListRepositoriesInput {
+             repository_prefix: self.repository_prefix,
+             max_results: self.max_results,
+```
+
 ### `src/operation/list_repositories.rs`
 
 ```diff
 --- reference/src/operation/list_repositories.rs
 +++ generated/src/operation/list_repositories.rs
-@@ -278,10 +278,14 @@
+@@ -278,10 +278,16 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -740,7 +2028,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_repositories::ser_list_repositories_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_repositories::ser_list_repositories_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -748,6 +2038,59 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/list_repositories_in_domain/_list_repositories_in_domain_input.rs`
+
+```diff
+--- reference/src/operation/list_repositories_in_domain/_list_repositories_in_domain_input.rs
++++ generated/src/operation/list_repositories_in_domain/_list_repositories_in_domain_input.rs
+@@ -153,13 +153,15 @@
+         super::super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            administrator_account: self.administrator_account,
+-            repository_prefix: self.repository_prefix,
+-            max_results: self.max_results,
+-            next_token: self.next_token,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                administrator_account: self.administrator_account,
++                repository_prefix: self.repository_prefix,
++                max_results: self.max_results,
++                next_token: self.next_token,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/list_repositories_in_domain/paginator.rs`
+
+```diff
+--- reference/src/operation/list_repositories_in_domain/paginator.rs
++++ generated/src/operation/list_repositories_in_domain/paginator.rs
+@@ -86,9 +86,11 @@
+                         }
+                     };
+                     loop {
+-                        let resp =
+-                            super::super::super::operation::list_repositories_in_domain::ListRepositoriesInDomain::orchestrate(&runtime_plugins, input.clone())
+-                                .await;
++                        let resp = super::super::super::operation::list_repositories_in_domain::ListRepositoriesInDomain::orchestrate(
++                            &runtime_plugins,
++                            input.clone(),
++                        )
++                        .await;
+                         // If the input member is None or it was an error
+                         let done = match resp {
+                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_repositories_in_domain.rs`
@@ -765,7 +2108,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_list_repositories_in_domain::ser_list_repositories_in_domain_input(&input)?,
++            super::super::protocol_serde::shape_list_repositories_in_domain::ser_list_repositories_in_domain_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -774,6 +2117,47 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/list_sub_package_groups/_list_sub_package_groups_input.rs`
+
+```diff
+--- reference/src/operation/list_sub_package_groups/_list_sub_package_groups_input.rs
++++ generated/src/operation/list_sub_package_groups/_list_sub_package_groups_input.rs
+@@ -129,8 +129,10 @@
+     /// Consumes the builder and constructs a [`ListSubPackageGroupsInput`](crate::operation::list_sub_package_groups::ListSubPackageGroupsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+```
+
+### `src/operation/list_sub_package_groups/paginator.rs`
+
+```diff
+--- reference/src/operation/list_sub_package_groups/paginator.rs
++++ generated/src/operation/list_sub_package_groups/paginator.rs
+@@ -86,8 +86,11 @@
+                         }
+                     };
+                     loop {
+-                        let resp =
+-                            super::super::super::operation::list_sub_package_groups::ListSubPackageGroups::orchestrate(&runtime_plugins, input.clone()).await;
++                        let resp = super::super::super::operation::list_sub_package_groups::ListSubPackageGroups::orchestrate(
++                            &runtime_plugins,
++                            input.clone(),
++                        )
++                        .await;
+                         // If the input member is None or it was an error
+                         let done = match resp {
+                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_sub_package_groups.rs`
@@ -790,9 +2174,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_sub_package_groups::ser_list_sub_package_groups_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_list_sub_package_groups::ser_list_sub_package_groups_input(&input)?,
++        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -800,6 +2184,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
+
+```diff
+--- reference/src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs
++++ generated/src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs
+@@ -44,8 +44,10 @@
+     /// Consumes the builder and constructs a [`ListTagsForResourceInput`](crate::operation::list_tags_for_resource::ListTagsForResourceInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput {
+             resource_arn: self.resource_arn,
+         })
 ```
 
 ### `src/operation/list_tags_for_resource.rs`
@@ -816,9 +2220,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_tags_for_resource::ser_list_tags_for_resource_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_list_tags_for_resource::ser_list_tags_for_resource_input(&input)?,
++        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -826,6 +2230,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/publish_package_version/_publish_package_version_input.rs`
+
+```diff
+--- reference/src/operation/publish_package_version/_publish_package_version_input.rs
++++ generated/src/operation/publish_package_version/_publish_package_version_input.rs
+@@ -276,8 +276,10 @@
+     /// Consumes the builder and constructs a [`PublishPackageVersionInput`](crate::operation::publish_package_version::PublishPackageVersionInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::publish_package_version::PublishPackageVersionInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::publish_package_version::PublishPackageVersionInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::publish_package_version::PublishPackageVersionInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
 ```
 
 ### `src/operation/publish_package_version.rs`
@@ -841,8 +2265,614 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
              builder
          };
--        let body = super::protocol_serde::shape_publish_package_version_input::ser_asset_content_http_payload(input.asset_content)?.into_inner();
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_publish_package_version::ser_publish_package_version_input(
+-        let body = super::super::protocol_serde::shape_publish_package_version_input::ser_asset_content_http_payload(input.asset_content)?.into_inner();
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_publish_package_version::ser_publish_package_version_input(&input)?,
++        );
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/put_domain_permissions_policy/_put_domain_permissions_policy_input.rs`
+
+```diff
+--- reference/src/operation/put_domain_permissions_policy/_put_domain_permissions_policy_input.rs
++++ generated/src/operation/put_domain_permissions_policy/_put_domain_permissions_policy_input.rs
+@@ -112,11 +112,13 @@
+         super::super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            policy_revision: self.policy_revision,
+-            policy_document: self.policy_document,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                policy_revision: self.policy_revision,
++                policy_document: self.policy_document,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/put_package_origin_configuration/_put_package_origin_configuration_input.rs`
+
+```diff
+--- reference/src/operation/put_package_origin_configuration/_put_package_origin_configuration_input.rs
++++ generated/src/operation/put_package_origin_configuration/_put_package_origin_configuration_input.rs
+@@ -233,14 +233,16 @@
+         super::super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            repository: self.repository,
+-            format: self.format,
+-            namespace: self.namespace,
+-            package: self.package,
+-            restrictions: self.restrictions,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                repository: self.repository,
++                format: self.format,
++                namespace: self.namespace,
++                package: self.package,
++                restrictions: self.restrictions,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/put_package_origin_configuration.rs`
+
+```diff
+--- reference/src/operation/put_package_origin_configuration.rs
++++ generated/src/operation/put_package_origin_configuration.rs
+@@ -233,9 +233,13 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            super::super::protocol_serde::shape_put_package_origin_configuration::de_put_package_origin_configuration_http_error(status, headers, body)
++            super::super::protocol_serde::shape_put_package_origin_configuration::de_put_package_origin_configuration_http_error(
++                status, headers, body,
++            )
+         } else {
+-            super::super::protocol_serde::shape_put_package_origin_configuration::de_put_package_origin_configuration_http_response(status, headers, body)
++            super::super::protocol_serde::shape_put_package_origin_configuration::de_put_package_origin_configuration_http_response(
++                status, headers, body,
++            )
+         };
+         super::super::protocol_serde::type_erase_result(parse_result)
+     }
+```
+
+### `src/operation/put_repository_permissions_policy/_put_repository_permissions_policy_input.rs`
+
+```diff
+--- reference/src/operation/put_repository_permissions_policy/_put_repository_permissions_policy_input.rs
++++ generated/src/operation/put_repository_permissions_policy/_put_repository_permissions_policy_input.rs
+@@ -134,12 +134,14 @@
+         super::super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            repository: self.repository,
+-            policy_revision: self.policy_revision,
+-            policy_document: self.policy_document,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                repository: self.repository,
++                policy_revision: self.policy_revision,
++                policy_document: self.policy_document,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/put_repository_permissions_policy/builders.rs`
+
+```diff
+--- reference/src/operation/put_repository_permissions_policy/builders.rs
++++ generated/src/operation/put_repository_permissions_policy/builders.rs
+@@ -58,7 +58,9 @@
+         }
+     }
+     /// Access the PutRepositoryPermissionsPolicy as a reference.
+-    pub fn as_input(&self) -> &super::super::super::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyInputBuilder {
++    pub fn as_input(
++        &self,
++    ) -> &super::super::super::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyInputBuilder {
+         &self.inner
+     }
+     /// Sends the request and returns the response.
+@@ -82,11 +84,12 @@
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+-        let runtime_plugins = super::super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicy::operation_runtime_plugins(
+-            self.handle.runtime_plugins.clone(),
+-            &self.handle.conf,
+-            self.config_override,
+-        );
++        let runtime_plugins =
++            super::super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicy::operation_runtime_plugins(
++                self.handle.runtime_plugins.clone(),
++                &self.handle.conf,
++                self.config_override,
++            );
+         super::super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicy::orchestrate(&runtime_plugins, input).await
+     }
+
+```
+
+### `src/operation/put_repository_permissions_policy.rs`
+
+```diff
+--- reference/src/operation/put_repository_permissions_policy.rs
++++ generated/src/operation/put_repository_permissions_policy.rs
+@@ -233,9 +233,13 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            super::super::protocol_serde::shape_put_repository_permissions_policy::de_put_repository_permissions_policy_http_error(status, headers, body)
++            super::super::protocol_serde::shape_put_repository_permissions_policy::de_put_repository_permissions_policy_http_error(
++                status, headers, body,
++            )
+         } else {
+-            super::super::protocol_serde::shape_put_repository_permissions_policy::de_put_repository_permissions_policy_http_response(status, headers, body)
++            super::super::protocol_serde::shape_put_repository_permissions_policy::de_put_repository_permissions_policy_http_response(
++                status, headers, body,
++            )
+         };
+         super::super::protocol_serde::type_erase_result(parse_result)
+     }
+```
+
+### `src/operation/tag_resource/_tag_resource_input.rs`
+
+```diff
+--- reference/src/operation/tag_resource/_tag_resource_input.rs
++++ generated/src/operation/tag_resource/_tag_resource_input.rs
+@@ -71,7 +71,9 @@
+         &self.tags
+     }
+     /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::tag_resource::TagResourceInput {
+             resource_arn: self.resource_arn,
+             tags: self.tags,
+```
+
+### `src/operation/update_package_group/_update_package_group_input.rs`
+
+```diff
+--- reference/src/operation/update_package_group/_update_package_group_input.rs
++++ generated/src/operation/update_package_group/_update_package_group_input.rs
+@@ -129,8 +129,10 @@
+     /// Consumes the builder and constructs a [`UpdatePackageGroupInput`](crate::operation::update_package_group::UpdatePackageGroupInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::update_package_group::UpdatePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::update_package_group::UpdatePackageGroupInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::update_package_group::UpdatePackageGroupInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+```
+
+### `src/operation/update_package_group.rs`
+
+```diff
+--- reference/src/operation/update_package_group.rs
++++ generated/src/operation/update_package_group.rs
+@@ -297,8 +297,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body =
+-            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_package_group::ser_update_package_group_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_package_group::ser_update_package_group_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/update_package_group_origin_configuration/_update_package_group_origin_configuration_input.rs`
+
+```diff
+--- reference/src/operation/update_package_group_origin_configuration/_update_package_group_origin_configuration_input.rs
++++ generated/src/operation/update_package_group_origin_configuration/_update_package_group_origin_configuration_input.rs
+@@ -11,7 +11,10 @@
+     pub package_group: ::std::option::Option<::std::string::String>,
+     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
+     pub restrictions: ::std::option::Option<
+-        ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
++        ::std::collections::HashMap<
++            super::super::super::types::PackageGroupOriginRestrictionType,
++            super::super::super::types::PackageGroupOriginRestrictionMode,
++        >,
+     >,
+     /// <p>The repository name and restrictions to add to the allowed repository list of the specified package group.</p>
+     pub add_allowed_repositories: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>>,
+@@ -35,7 +38,10 @@
+     pub fn restrictions(
+         &self,
+     ) -> ::std::option::Option<
+-        &::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
++        &::std::collections::HashMap<
++            super::super::super::types::PackageGroupOriginRestrictionType,
++            super::super::super::types::PackageGroupOriginRestrictionMode,
++        >,
+     > {
+         self.restrictions.as_ref()
+     }
+@@ -54,7 +60,8 @@
+ }
+ impl UpdatePackageGroupOriginConfigurationInput {
+     /// Creates a new builder-style object to manufacture [`UpdatePackageGroupOriginConfigurationInput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput).
+-    pub fn builder() -> super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationInputBuilder {
++    pub fn builder(
++    ) -> super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationInputBuilder {
+         super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationInputBuilder::default()
+     }
+ }
+@@ -67,7 +74,10 @@
+     pub(crate) domain_owner: ::std::option::Option<::std::string::String>,
+     pub(crate) package_group: ::std::option::Option<::std::string::String>,
+     pub(crate) restrictions: ::std::option::Option<
+-        ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
++        ::std::collections::HashMap<
++            super::super::super::types::PackageGroupOriginRestrictionType,
++            super::super::super::types::PackageGroupOriginRestrictionMode,
++        >,
+     >,
+     pub(crate) add_allowed_repositories: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>>,
+     pub(crate) remove_allowed_repositories: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>>,
+@@ -122,7 +132,11 @@
+     /// To override the contents of this collection use [`set_restrictions`](Self::set_restrictions).
+     ///
+     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
+-    pub fn restrictions(mut self, k: super::super::super::types::PackageGroupOriginRestrictionType, v: super::super::super::types::PackageGroupOriginRestrictionMode) -> Self {
++    pub fn restrictions(
++        mut self,
++        k: super::super::super::types::PackageGroupOriginRestrictionType,
++        v: super::super::super::types::PackageGroupOriginRestrictionMode,
++    ) -> Self {
+         let mut hash_map = self.restrictions.unwrap_or_default();
+         hash_map.insert(k, v);
+         self.restrictions = ::std::option::Option::Some(hash_map);
+@@ -132,7 +146,10 @@
+     pub fn set_restrictions(
+         mut self,
+         input: ::std::option::Option<
+-            ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
++            ::std::collections::HashMap<
++                super::super::super::types::PackageGroupOriginRestrictionType,
++                super::super::super::types::PackageGroupOriginRestrictionMode,
++            >,
+         >,
+     ) -> Self {
+         self.restrictions = input;
+@@ -142,7 +159,10 @@
+     pub fn get_restrictions(
+         &self,
+     ) -> &::std::option::Option<
+-        ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
++        ::std::collections::HashMap<
++            super::super::super::types::PackageGroupOriginRestrictionType,
++            super::super::super::types::PackageGroupOriginRestrictionMode,
++        >,
+     > {
+         &self.restrictions
+     }
+@@ -189,7 +209,9 @@
+         self
+     }
+     /// <p>The repository name and restrictions to remove from the allowed repository list of the specified package group.</p>
+-    pub fn get_remove_allowed_repositories(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>> {
++    pub fn get_remove_allowed_repositories(
++        &self,
++    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>> {
+         &self.remove_allowed_repositories
+     }
+     /// Consumes the builder and constructs a [`UpdatePackageGroupOriginConfigurationInput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput).
+```
+
+### `src/operation/update_package_group_origin_configuration/_update_package_group_origin_configuration_output.rs`
+
+```diff
+--- reference/src/operation/update_package_group_origin_configuration/_update_package_group_origin_configuration_output.rs
++++ generated/src/operation/update_package_group_origin_configuration/_update_package_group_origin_configuration_output.rs
+@@ -38,7 +38,8 @@
+ }
+ impl UpdatePackageGroupOriginConfigurationOutput {
+     /// Creates a new builder-style object to manufacture [`UpdatePackageGroupOriginConfigurationOutput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput).
+-    pub fn builder() -> super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder {
++    pub fn builder(
++    ) -> super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder {
+         super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder::default()
+     }
+ }
+@@ -92,7 +93,10 @@
+         input: ::std::option::Option<
+             ::std::collections::HashMap<
+                 super::super::super::types::PackageGroupOriginRestrictionType,
+-                ::std::collections::HashMap<super::super::super::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
++                ::std::collections::HashMap<
++                    super::super::super::types::PackageGroupAllowedRepositoryUpdateType,
++                    ::std::vec::Vec<::std::string::String>,
++                >,
+             >,
+         >,
+     ) -> Self {
+```
+
+### `src/operation/update_package_group_origin_configuration/builders.rs`
+
+```diff
+--- reference/src/operation/update_package_group_origin_configuration/builders.rs
++++ generated/src/operation/update_package_group_origin_configuration/builders.rs
+@@ -84,13 +84,16 @@
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+-        let runtime_plugins =
+-            super::super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfiguration::operation_runtime_plugins(
+-                self.handle.runtime_plugins.clone(),
+-                &self.handle.conf,
+-                self.config_override,
+-            );
+-        super::super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfiguration::orchestrate(&runtime_plugins, input).await
++        let runtime_plugins = super::super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfiguration::operation_runtime_plugins(
++                            self.handle.runtime_plugins.clone(),
++                            &self.handle.conf,
++                            self.config_override,
++                        );
++        super::super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfiguration::orchestrate(
++            &runtime_plugins,
++            input,
++        )
++        .await
+     }
+
+     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+@@ -160,7 +163,11 @@
+     /// To override the contents of this collection use [`set_restrictions`](Self::set_restrictions).
+     ///
+     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
+-    pub fn restrictions(mut self, k: super::super::super::types::PackageGroupOriginRestrictionType, v: super::super::super::types::PackageGroupOriginRestrictionMode) -> Self {
++    pub fn restrictions(
++        mut self,
++        k: super::super::super::types::PackageGroupOriginRestrictionType,
++        v: super::super::super::types::PackageGroupOriginRestrictionMode,
++    ) -> Self {
+         self.inner = self.inner.restrictions(k, v);
+         self
+     }
+@@ -168,7 +175,10 @@
+     pub fn set_restrictions(
+         mut self,
+         input: ::std::option::Option<
+-            ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
++            ::std::collections::HashMap<
++                super::super::super::types::PackageGroupOriginRestrictionType,
++                super::super::super::types::PackageGroupOriginRestrictionMode,
++            >,
+         >,
+     ) -> Self {
+         self.inner = self.inner.set_restrictions(input);
+@@ -178,7 +188,10 @@
+     pub fn get_restrictions(
+         &self,
+     ) -> &::std::option::Option<
+-        ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
++        ::std::collections::HashMap<
++            super::super::super::types::PackageGroupOriginRestrictionType,
++            super::super::super::types::PackageGroupOriginRestrictionMode,
++        >,
+     > {
+         self.inner.get_restrictions()
+     }
+@@ -223,7 +236,9 @@
+         self
+     }
+     /// <p>The repository name and restrictions to remove from the allowed repository list of the specified package group.</p>
+-    pub fn get_remove_allowed_repositories(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>> {
++    pub fn get_remove_allowed_repositories(
++        &self,
++    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>> {
+         self.inner.get_remove_allowed_repositories()
+     }
+ }
+```
+
+### `src/operation/update_package_group_origin_configuration.rs`
+
+```diff
+--- reference/src/operation/update_package_group_origin_configuration.rs
++++ generated/src/operation/update_package_group_origin_configuration.rs
+@@ -309,7 +309,9 @@
+             builder
+         };
+         let body = ::aws_smithy_types::body::SdkBody::from(
+-            super::super::protocol_serde::shape_update_package_group_origin_configuration::ser_update_package_group_origin_configuration_input(&input)?,
++            super::super::protocol_serde::shape_update_package_group_origin_configuration::ser_update_package_group_origin_configuration_input(
++                &input,
++            )?,
+         );
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+@@ -507,7 +509,9 @@
+         })
+     }
+ }
+-impl ::aws_types::request_id::RequestId for super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError {
++impl ::aws_types::request_id::RequestId
++    for super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError
++{
+     fn request_id(&self) -> Option<&str> {
+         self.meta().request_id()
+     }
+```
+
+### `src/operation/update_package_versions_status/_update_package_versions_status_input.rs`
+
+```diff
+--- reference/src/operation/update_package_versions_status/_update_package_versions_status_input.rs
++++ generated/src/operation/update_package_versions_status/_update_package_versions_status_input.rs
+@@ -312,17 +312,19 @@
+         super::super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput {
+-            domain: self.domain,
+-            domain_owner: self.domain_owner,
+-            repository: self.repository,
+-            format: self.format,
+-            namespace: self.namespace,
+-            package: self.package,
+-            versions: self.versions,
+-            version_revisions: self.version_revisions,
+-            expected_status: self.expected_status,
+-            target_status: self.target_status,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput {
++                domain: self.domain,
++                domain_owner: self.domain_owner,
++                repository: self.repository,
++                format: self.format,
++                namespace: self.namespace,
++                package: self.package,
++                versions: self.versions,
++                version_revisions: self.version_revisions,
++                expected_status: self.expected_status,
++                target_status: self.target_status,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/update_package_versions_status/_update_package_versions_status_output.rs`
+
+```diff
+--- reference/src/operation/update_package_versions_status/_update_package_versions_status_output.rs
++++ generated/src/operation/update_package_versions_status/_update_package_versions_status_output.rs
+@@ -4,7 +4,8 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct UpdatePackageVersionsStatusOutput {
+     /// <p>A list of <code>PackageVersionError</code> objects, one for each package version with a status that failed to update.</p>
+-    pub successful_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
++    pub successful_versions:
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
+     /// <p>A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version with a status that successfully updated.</p>
+     pub failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
+     _request_id: Option<String>,
+@@ -17,7 +18,9 @@
+         self.successful_versions.as_ref()
+     }
+     /// <p>A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version with a status that successfully updated.</p>
+-    pub fn failed_versions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
++    pub fn failed_versions(
++        &self,
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
+         self.failed_versions.as_ref()
+     }
+ }
+@@ -39,7 +42,8 @@
+ pub struct UpdatePackageVersionsStatusOutputBuilder {
+     pub(crate) successful_versions:
+         ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
+-    pub(crate) failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
++    pub(crate) failed_versions:
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
+     _request_id: Option<String>,
+ }
+ impl UpdatePackageVersionsStatusOutputBuilder {
+@@ -48,7 +52,11 @@
+     /// To override the contents of this collection use [`set_successful_versions`](Self::set_successful_versions).
+     ///
+     /// <p>A list of <code>PackageVersionError</code> objects, one for each package version with a status that failed to update.</p>
+-    pub fn successful_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::SuccessfulPackageVersionInfo) -> Self {
++    pub fn successful_versions(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::SuccessfulPackageVersionInfo,
++    ) -> Self {
+         let mut hash_map = self.successful_versions.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.successful_versions = ::std::option::Option::Some(hash_map);
+@@ -73,7 +81,11 @@
+     /// To override the contents of this collection use [`set_failed_versions`](Self::set_failed_versions).
+     ///
+     /// <p>A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version with a status that successfully updated.</p>
+-    pub fn failed_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PackageVersionError) -> Self {
++    pub fn failed_versions(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::PackageVersionError,
++    ) -> Self {
+         let mut hash_map = self.failed_versions.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.failed_versions = ::std::option::Option::Some(hash_map);
+```
+
+### `src/operation/update_repository/_update_repository_input.rs`
+
+```diff
+--- reference/src/operation/update_repository/_update_repository_input.rs
++++ generated/src/operation/update_repository/_update_repository_input.rs
+@@ -137,7 +137,10 @@
+     /// Consumes the builder and constructs a [`UpdateRepositoryInput`](crate::operation::update_repository::UpdateRepositoryInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::update_repository::UpdateRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::update_repository::UpdateRepositoryInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::update_repository::UpdateRepositoryInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+```
+
+### `src/operation/update_repository.rs`
+
+```diff
+--- reference/src/operation/update_repository.rs
++++ generated/src/operation/update_repository.rs
+@@ -303,7 +303,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_repository::ser_update_repository_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_repository::ser_update_repository_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -857,7 +2887,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/primitives/event_stream.rs
 @@ -1 +1,7 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-+pub use super::event_receiver::EventReceiver;
++pub use super::super::event_receiver::EventReceiver;
 +pub use ::aws_smithy_http::event_stream::EventStreamSender;
 +pub use ::aws_smithy_types::event_stream::Header;
 +pub use ::aws_smithy_types::event_stream::HeaderValue;
@@ -870,12 +2900,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_access_denied_exception.rs
 +++ generated/src/protocol_serde/shape_access_denied_exception.rs
-@@ -33,5 +33,7 @@
+@@ -2,7 +2,8 @@
+ pub(crate) fn de_access_denied_exception_json_err(
+     _value: &[u8],
+     mut builder: super::super::types::error::builders::AccessDeniedExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::AccessDeniedExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++) -> ::std::result::Result<super::super::types::error::builders::AccessDeniedExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+@@ -33,5 +34,7 @@
              "found more JSON tokens after completing parsing",
          ));
      }
 -    Ok(builder)
-+    Ok(super::serde_util::access_denied_exception_correct_errors(builder)
++    Ok(super::super::serde_util::access_denied_exception_correct_errors(builder)
 +        .build()
 +        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
  }
@@ -890,11 +2930,44 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        let key = key.to_unescaped().map(|u| super::types::HashAlgorithm::from(u.as_ref()))?;
+-                        let key = key.to_unescaped().map(|u| super::super::types::HashAlgorithm::from(u.as_ref()))?;
 +                        let key = key.to_unescaped().map(|u| u.into_owned())?;
                          let value = ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?;
+```
+
+### `src/protocol_serde/shape_asset_summary.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_asset_summary.rs
++++ generated/src/protocol_serde/shape_asset_summary.rs
+@@ -36,7 +36,11 @@
+                             );
+                         }
+                         "hashes" => {
+-                            builder = builder.set_hashes(super::super::protocol_serde::shape_asset_hashes::de_asset_hashes(tokens, _value, depth + 1)?);
++                            builder = builder.set_hashes(super::super::protocol_serde::shape_asset_hashes::de_asset_hashes(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+@@ -47,9 +51,9 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::asset_summary_correct_errors(builder).build().map_err(|err| {
+-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+-            })?))
++            Ok(Some(super::super::serde_util::asset_summary_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_associate_external_connection.rs`
@@ -903,12 +2976,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_associate_external_connection.rs
 +++ generated/src/protocol_serde/shape_associate_external_connection.rs
 @@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
+-                    .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -916,14 +2989,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::associate_external_connection::AssociateExternalConnectionError::ConflictException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
+         "ConflictException" => super::super::operation::associate_external_connection::AssociateExternalConnectionError::ConflictException({
+@@ -42,26 +43,31 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
+-                    .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -931,29 +3004,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::associate_external_connection::AssociateExternalConnectionError::InternalServerException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-        "InternalServerException" => super::super::operation::associate_external_connection::AssociateExternalConnectionError::InternalServerException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "InternalServerException" => {
++            super::super::operation::associate_external_connection::AssociateExternalConnectionError::InternalServerException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
+-                    .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
          "ResourceNotFoundException" => {
-@@ -72,10 +75,11 @@
-                         super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                             .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
+             super::super::operation::associate_external_connection::AssociateExternalConnectionError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+@@ -68,14 +74,17 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
+-                        .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -962,13 +3062,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -91,10 +95,11 @@
+@@ -91,10 +100,11 @@
                      )
-                     .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
+                     .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                    super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
+-                        .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -977,21 +3077,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -105,18 +110,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
+@@ -105,18 +115,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
+-                    .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -999,14 +3099,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::associate_external_connection::AssociateExternalConnectionError::ValidationException({
-@@ -127,10 +126,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
+         "ValidationException" => super::super::operation::associate_external_connection::AssociateExternalConnectionError::ValidationException({
+@@ -127,10 +131,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
+-                    .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1014,24 +3114,43 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::associate_external_connection::AssociateExternalConnectionError::generic(generic),
-@@ -156,6 +156,16 @@
+         _ => super::super::operation::associate_external_connection::AssociateExternalConnectionError::generic(generic),
+@@ -156,6 +161,16 @@
      })
  }
 
 +pub fn ser_associate_external_connection_input(
-+    input: &super::operation::associate_external_connection::AssociateExternalConnectionInput,
++    input: &super::super::operation::associate_external_connection::AssociateExternalConnectionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_associate_external_connection_input::ser_associate_external_connection_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_associate_external_connection_input::ser_associate_external_connection_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_associate_external_connection(
      _value: &[u8],
-     mut builder: super::operation::associate_external_connection::builders::AssociateExternalConnectionOutputBuilder,
+     mut builder: super::super::operation::associate_external_connection::builders::AssociateExternalConnectionOutputBuilder,
+```
+
+### `src/protocol_serde/shape_associated_package.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_associated_package.rs
++++ generated/src/protocol_serde/shape_associated_package.rs
+@@ -45,7 +45,10 @@
+                         "associationType" => {
+                             builder = builder.set_association_type(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::PackageGroupAssociationType::from(u.as_ref())))
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::PackageGroupAssociationType::from(u.as_ref()))
++                                    })
+                                     .transpose()?,
+                             );
+                         }
 ```
 
 ### `src/protocol_serde/shape_conflict_exception.rs`
@@ -1044,7 +3163,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
      }
 -    Ok(builder)
-+    Ok(super::serde_util::conflict_exception_correct_errors(builder)
++    Ok(super::super::serde_util::conflict_exception_correct_errors(builder)
 +        .build()
 +        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
  }
@@ -1055,13 +3174,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_copy_package_versions.rs
 +++ generated/src/protocol_serde/shape_copy_package_versions.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -28,10 +32,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1069,14 +3201,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::copy_package_versions::CopyPackageVersionsError::ConflictException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
+         "ConflictException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ConflictException({
+@@ -42,10 +47,11 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1084,14 +3216,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::copy_package_versions::CopyPackageVersionsError::InternalServerException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
+         "InternalServerException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::InternalServerException({
+@@ -56,10 +62,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1099,14 +3231,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::copy_package_versions::CopyPackageVersionsError::ResourceNotFoundException({
-@@ -70,10 +73,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ResourceNotFoundException({
+@@ -67,13 +74,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1114,14 +3254,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ServiceQuotaExceededException" => super::operation::copy_package_versions::CopyPackageVersionsError::ServiceQuotaExceededException({
-@@ -87,10 +91,11 @@
+         "ServiceQuotaExceededException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ServiceQuotaExceededException({
+@@ -87,10 +98,11 @@
                  )
-                 .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
+                 .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1129,22 +3269,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::copy_package_versions::CopyPackageVersionsError::ThrottlingException({
-@@ -100,18 +105,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
+         "ThrottlingException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ThrottlingException({
+@@ -100,18 +112,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::copy_package_versions::CopyPackageVersionsError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1152,14 +3292,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::copy_package_versions::CopyPackageVersionsError::ValidationException({
-@@ -122,10 +121,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
+         "ValidationException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ValidationException({
+@@ -122,10 +128,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1167,13 +3307,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::copy_package_versions::CopyPackageVersionsError::generic(generic),
-@@ -177,13 +177,6 @@
+         _ => super::super::operation::copy_package_versions::CopyPackageVersionsError::generic(generic),
+@@ -177,13 +184,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "failedVersions" => {
--                    builder = builder.set_failed_versions(super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
+-                    builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -1181,17 +3321,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
                  "successfulVersions" => {
                      builder = builder.set_successful_versions(
-                         super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
-@@ -193,6 +186,13 @@
+                         super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
+@@ -193,6 +193,11 @@
                          )?,
                      );
                  }
 +                "failedVersions" => {
-+                    builder = builder.set_failed_versions(super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
++                    builder = builder.set_failed_versions(
++                        super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?,
++                    );
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -1205,7 +3343,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_copy_package_versions_input.rs
 @@ -3,30 +3,51 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::copy_package_versions::CopyPackageVersionsInput,
+     input: &super::super::operation::copy_package_versions::CopyPackageVersionsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.allow_overwrite {
 -        object.key("allowOverwrite").boolean(*var_1);
@@ -1278,12 +3416,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_create_domain.rs
 +++ generated/src/protocol_serde/shape_create_domain.rs
 @@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_domain::CreateDomainError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_domain::CreateDomainError::unhandled)?
+-                    .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1291,14 +3429,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::create_domain::CreateDomainError::ConflictException({
+         "ConflictException" => super::super::operation::create_domain::CreateDomainError::ConflictException({
 @@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_domain::CreateDomainError::unhandled)?;
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_domain::CreateDomainError::unhandled)?
+-                    .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1306,14 +3444,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::create_domain::CreateDomainError::InternalServerException({
+         "InternalServerException" => super::super::operation::create_domain::CreateDomainError::InternalServerException({
 @@ -53,10 +55,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_domain::CreateDomainError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_domain::CreateDomainError::unhandled)?
+-                    .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1321,14 +3459,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::create_domain::CreateDomainError::ResourceNotFoundException({
-@@ -67,10 +70,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_domain::CreateDomainError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::create_domain::CreateDomainError::ResourceNotFoundException({
+@@ -64,13 +67,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_domain::CreateDomainError::unhandled)?
+-                    .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1336,14 +3482,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ServiceQuotaExceededException" => super::operation::create_domain::CreateDomainError::ServiceQuotaExceededException({
-@@ -84,10 +88,11 @@
+         "ServiceQuotaExceededException" => super::super::operation::create_domain::CreateDomainError::ServiceQuotaExceededException({
+@@ -84,10 +91,11 @@
                  )
-                 .map_err(super::operation::create_domain::CreateDomainError::unhandled)?;
+                 .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_domain::CreateDomainError::unhandled)?
+-                    .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1351,20 +3497,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::create_domain::CreateDomainError::ThrottlingException({
-@@ -97,16 +102,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_domain::CreateDomainError::unhandled)?;
+         "ThrottlingException" => super::super::operation::create_domain::CreateDomainError::ThrottlingException({
+@@ -97,16 +105,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::create_domain::CreateDomainError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::create_domain::CreateDomainError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_domain::CreateDomainError::unhandled)?
+-                    .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1372,14 +3518,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::create_domain::CreateDomainError::ValidationException({
-@@ -117,10 +118,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_domain::CreateDomainError::unhandled)?;
+         "ValidationException" => super::super::operation::create_domain::CreateDomainError::ValidationException({
+@@ -117,10 +121,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_domain::CreateDomainError::unhandled)?
+-                    .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1387,7 +3533,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::create_domain::CreateDomainError::generic(generic),
+         _ => super::super::operation::create_domain::CreateDomainError::generic(generic),
 ```
 
 ### `src/protocol_serde/shape_create_domain_input.rs`
@@ -1397,7 +3543,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_domain_input.rs
 @@ -3,20 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::create_domain::CreateDomainInput,
+     input: &super::super::operation::create_domain::CreateDomainInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.encryption_key {
 -        object.key("encryptionKey").string(var_1.as_str());
@@ -1416,10 +3562,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_5 = array_3.value().start_object();
--                super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
+-                super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
 -                object_5.finish();
 +                let mut object_6 = array_4.value().start_object();
-+                super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
++                super::super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
 +                object_6.finish();
              }
          }
@@ -1436,12 +3582,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_create_package_group.rs
 +++ generated/src/protocol_serde/shape_create_package_group.rs
 @@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1449,14 +3595,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::create_package_group::CreatePackageGroupError::ConflictException({
+         "ConflictException" => super::super::operation::create_package_group::CreatePackageGroupError::ConflictException({
 @@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1464,14 +3610,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::create_package_group::CreatePackageGroupError::InternalServerException({
+         "InternalServerException" => super::super::operation::create_package_group::CreatePackageGroupError::InternalServerException({
 @@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1479,14 +3625,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::create_package_group::CreatePackageGroupError::ResourceNotFoundException({
-@@ -70,10 +73,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::create_package_group::CreatePackageGroupError::ResourceNotFoundException({
+@@ -67,13 +70,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1494,14 +3648,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ServiceQuotaExceededException" => super::operation::create_package_group::CreatePackageGroupError::ServiceQuotaExceededException({
-@@ -87,10 +91,11 @@
+         "ServiceQuotaExceededException" => super::super::operation::create_package_group::CreatePackageGroupError::ServiceQuotaExceededException({
+@@ -87,10 +94,11 @@
                  )
-                 .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
+                 .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1509,22 +3663,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::create_package_group::CreatePackageGroupError::ThrottlingException({
-@@ -100,18 +105,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
+         "ThrottlingException" => super::super::operation::create_package_group::CreatePackageGroupError::ThrottlingException({
+@@ -100,18 +108,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::create_package_group::CreatePackageGroupError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::create_package_group::CreatePackageGroupError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1532,14 +3686,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::create_package_group::CreatePackageGroupError::ValidationException({
-@@ -122,10 +121,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
+         "ValidationException" => super::super::operation::create_package_group::CreatePackageGroupError::ValidationException({
+@@ -122,10 +124,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_package_group::CreatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1547,7 +3701,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::create_package_group::CreatePackageGroupError::generic(generic),
+         _ => super::super::operation::create_package_group::CreatePackageGroupError::generic(generic),
+@@ -178,11 +181,9 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "packageGroup" => {
+-                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
++                    builder = builder.set_package_group(
++                        super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?,
++                    );
+                 }
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+             },
 ```
 
 ### `src/protocol_serde/shape_create_package_group_input.rs`
@@ -1557,7 +3726,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_package_group_input.rs
 @@ -3,26 +3,32 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::create_package_group::CreatePackageGroupInput,
+     input: &super::super::operation::create_package_group::CreatePackageGroupInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.contact_info {
 -        object.key("contactInfo").string(var_1.as_str());
@@ -1587,10 +3756,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_7 = array_5.value().start_object();
--                super::protocol_serde::shape_tag::ser_tag(&mut object_7, item_6)?;
+-                super::super::protocol_serde::shape_tag::ser_tag(&mut object_7, item_6)?;
 -                object_7.finish();
 +                let mut object_9 = array_7.value().start_object();
-+                super::protocol_serde::shape_tag::ser_tag(&mut object_9, item_8)?;
++                super::super::protocol_serde::shape_tag::ser_tag(&mut object_9, item_8)?;
 +                object_9.finish();
              }
          }
@@ -1606,13 +3775,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_repository.rs
 +++ generated/src/protocol_serde/shape_create_repository.rs
-@@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?;
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::create_repository::CreateRepositoryOutput, super::super::operation::create_repository::CreateRepositoryError> {
++) -> std::result::Result<
++    super::super::operation::create_repository::CreateRepositoryOutput,
++    super::super::operation::create_repository::CreateRepositoryError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
+@@ -25,10 +28,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1620,14 +3801,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::create_repository::CreateRepositoryError::ConflictException({
-@@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?;
+         "ConflictException" => super::super::operation::create_repository::CreateRepositoryError::ConflictException({
+@@ -39,10 +43,11 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1635,14 +3816,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::create_repository::CreateRepositoryError::InternalServerException({
-@@ -53,10 +55,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?;
+         "InternalServerException" => super::super::operation::create_repository::CreateRepositoryError::InternalServerException({
+@@ -53,10 +58,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1650,14 +3831,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::create_repository::CreateRepositoryError::ResourceNotFoundException({
-@@ -67,10 +70,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::create_repository::CreateRepositoryError::ResourceNotFoundException({
+@@ -64,13 +70,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1665,14 +3854,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ServiceQuotaExceededException" => super::operation::create_repository::CreateRepositoryError::ServiceQuotaExceededException({
-@@ -84,10 +88,11 @@
+         "ServiceQuotaExceededException" => super::super::operation::create_repository::CreateRepositoryError::ServiceQuotaExceededException({
+@@ -84,10 +94,11 @@
                  )
-                 .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?;
+                 .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1680,22 +3869,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::create_repository::CreateRepositoryError::ThrottlingException({
-@@ -97,18 +102,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?;
+         "ThrottlingException" => super::super::operation::create_repository::CreateRepositoryError::ThrottlingException({
+@@ -97,18 +108,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::create_repository::CreateRepositoryError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::create_repository::CreateRepositoryError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1703,14 +3892,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::create_repository::CreateRepositoryError::ValidationException({
-@@ -119,10 +118,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?;
+         "ValidationException" => super::super::operation::create_repository::CreateRepositoryError::ValidationException({
+@@ -119,10 +124,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::create_repository::CreateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1718,7 +3907,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::create_repository::CreateRepositoryError::generic(generic),
+         _ => super::super::operation::create_repository::CreateRepositoryError::generic(generic),
+@@ -134,7 +140,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::create_repository::CreateRepositoryOutput, super::super::operation::create_repository::CreateRepositoryError> {
++) -> std::result::Result<
++    super::super::operation::create_repository::CreateRepositoryOutput,
++    super::super::operation::create_repository::CreateRepositoryError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::create_repository::builders::CreateRepositoryOutputBuilder::default();
 ```
 
 ### `src/protocol_serde/shape_create_repository_input.rs`
@@ -1728,7 +3929,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_repository_input.rs
 @@ -3,32 +3,41 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::create_repository::CreateRepositoryInput,
+     input: &super::super::operation::create_repository::CreateRepositoryInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.description {
 -        object.key("description").string(var_1.as_str());
@@ -1753,10 +3954,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_5 = array_3.value().start_object();
--                super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
+-                super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
 -                object_5.finish();
 +                let mut object_8 = array_6.value().start_object();
-+                super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_8, item_7)?;
++                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_8, item_7)?;
 +                object_8.finish();
              }
          }
@@ -1772,10 +3973,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_9 = array_7.value().start_object();
--                super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_9, item_8)?;
+-                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_9, item_8)?;
 -                object_9.finish();
 +                let mut object_12 = array_10.value().start_object();
-+                super::protocol_serde::shape_tag::ser_tag(&mut object_12, item_11)?;
++                super::super::protocol_serde::shape_tag::ser_tag(&mut object_12, item_11)?;
 +                object_12.finish();
              }
          }
@@ -1792,12 +3993,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_domain.rs
 +++ generated/src/protocol_serde/shape_delete_domain.rs
 @@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_domain::DeleteDomainError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_domain::DeleteDomainError::unhandled)?
+-                    .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1805,14 +4006,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::delete_domain::DeleteDomainError::ConflictException({
+         "ConflictException" => super::super::operation::delete_domain::DeleteDomainError::ConflictException({
 @@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_domain::DeleteDomainError::unhandled)?;
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_domain::DeleteDomainError::unhandled)?
+-                    .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1820,14 +4021,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::delete_domain::DeleteDomainError::InternalServerException({
+         "InternalServerException" => super::super::operation::delete_domain::DeleteDomainError::InternalServerException({
 @@ -53,10 +55,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_domain::DeleteDomainError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_domain::DeleteDomainError::unhandled)?
+-                    .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1835,20 +4036,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::delete_domain::DeleteDomainError::ThrottlingException({
+         "ThrottlingException" => super::super::operation::delete_domain::DeleteDomainError::ThrottlingException({
 @@ -66,16 +69,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_domain::DeleteDomainError::unhandled)?;
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::delete_domain::DeleteDomainError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::delete_domain::DeleteDomainError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_domain::DeleteDomainError::unhandled)?
+-                    .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1856,14 +4057,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::delete_domain::DeleteDomainError::ValidationException({
+         "ValidationException" => super::super::operation::delete_domain::DeleteDomainError::ValidationException({
 @@ -86,10 +85,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_domain::DeleteDomainError::unhandled)?;
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_domain::DeleteDomainError::unhandled)?
+-                    .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1871,24 +4072,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::delete_domain::DeleteDomainError::generic(generic),
+         _ => super::super::operation::delete_domain::DeleteDomainError::generic(generic),
 @@ -112,6 +112,16 @@
      })
  }
 
 +pub fn ser_delete_domain_input(
-+    input: &super::operation::delete_domain::DeleteDomainInput,
++    input: &super::super::operation::delete_domain::DeleteDomainInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_delete_domain_input::ser_delete_domain_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_delete_domain_input::ser_delete_domain_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_delete_domain(
      _value: &[u8],
-     mut builder: super::operation::delete_domain::builders::DeleteDomainOutputBuilder,
+     mut builder: super::super::operation::delete_domain::builders::DeleteDomainOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_delete_domain_permissions_policy.rs`
@@ -1896,28 +4097,50 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_domain_permissions_policy.rs
 +++ generated/src/protocol_serde/shape_delete_domain_permissions_policy.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+@@ -20,20 +20,23 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AccessDeniedException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::AccessDeniedException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "AccessDeniedException" => {
++            super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::AccessDeniedException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ConflictException" => super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ConflictException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+-                    .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ConflictException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ConflictException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -42,10 +45,11 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
+-                    .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -1926,13 +4149,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "InternalServerException" => {
-@@ -57,10 +59,11 @@
-                     output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                         .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+@@ -54,13 +58,15 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::internal_server_exception_correct_errors(output)
+-                    super::super::serde_util::internal_server_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -1941,13 +4170,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -74,10 +77,11 @@
-                         super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                             .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+@@ -70,52 +76,54 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -1956,61 +4194,93 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -88,18 +92,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+-        "ThrottlingException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ThrottlingException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ThrottlingException" => {
++            super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ThrottlingException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
-                 let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                let output = output.meta(generic);
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ValidationException" => super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ValidationException({
-@@ -110,10 +108,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                    .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ValidationException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ValidationException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ValidationException" => {
++            super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ValidationException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::generic(generic),
-@@ -139,6 +138,16 @@
+-                    .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         _ => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::generic(generic),
+     })
+ }
+@@ -139,6 +147,16 @@
      })
  }
 
 +pub fn ser_delete_domain_permissions_policy_input(
-+    input: &super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput,
++    input: &super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_delete_domain_permissions_policy_input::ser_delete_domain_permissions_policy_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_delete_domain_permissions_policy_input::ser_delete_domain_permissions_policy_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_delete_domain_permissions_policy(
      _value: &[u8],
-     mut builder: super::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyOutputBuilder,
+     mut builder: super::super::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_delete_package.rs`
@@ -2019,12 +4289,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_package.rs
 +++ generated/src/protocol_serde/shape_delete_package.rs
 @@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package::DeletePackageError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package::DeletePackageError::unhandled)?
+-                    .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2032,14 +4302,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::delete_package::DeletePackageError::ConflictException({
+         "ConflictException" => super::super::operation::delete_package::DeletePackageError::ConflictException({
 @@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package::DeletePackageError::unhandled)?;
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package::DeletePackageError::unhandled)?
+-                    .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2047,14 +4317,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::delete_package::DeletePackageError::InternalServerException({
+         "InternalServerException" => super::super::operation::delete_package::DeletePackageError::InternalServerException({
 @@ -53,10 +55,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package::DeletePackageError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package::DeletePackageError::unhandled)?
+-                    .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2062,14 +4332,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::delete_package::DeletePackageError::ResourceNotFoundException({
-@@ -67,10 +70,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package::DeletePackageError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::delete_package::DeletePackageError::ResourceNotFoundException({
+@@ -64,13 +67,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package::DeletePackageError::unhandled)?
+-                    .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2077,20 +4355,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::delete_package::DeletePackageError::ThrottlingException({
-@@ -80,16 +84,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package::DeletePackageError::unhandled)?;
+         "ThrottlingException" => super::super::operation::delete_package::DeletePackageError::ThrottlingException({
+@@ -80,16 +87,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::delete_package::DeletePackageError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::delete_package::DeletePackageError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package::DeletePackageError::unhandled)?
+-                    .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2098,14 +4376,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::delete_package::DeletePackageError::ValidationException({
-@@ -100,10 +100,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package::DeletePackageError::unhandled)?;
+         "ValidationException" => super::super::operation::delete_package::DeletePackageError::ValidationException({
+@@ -100,10 +103,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package::DeletePackageError::unhandled)?
+-                    .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2113,24 +4391,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::delete_package::DeletePackageError::generic(generic),
-@@ -126,6 +127,16 @@
+         _ => super::super::operation::delete_package::DeletePackageError::generic(generic),
+@@ -126,6 +130,16 @@
      })
  }
 
 +pub fn ser_delete_package_input(
-+    input: &super::operation::delete_package::DeletePackageInput,
++    input: &super::super::operation::delete_package::DeletePackageInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_delete_package_input::ser_delete_package_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_delete_package_input::ser_delete_package_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_delete_package(
      _value: &[u8],
-     mut builder: super::operation::delete_package::builders::DeletePackageOutputBuilder,
+     mut builder: super::super::operation::delete_package::builders::DeletePackageOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_delete_package_group.rs`
@@ -2139,12 +4417,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_package_group.rs
 +++ generated/src/protocol_serde/shape_delete_package_group.rs
 @@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2152,14 +4430,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::delete_package_group::DeletePackageGroupError::ConflictException({
+         "ConflictException" => super::super::operation::delete_package_group::DeletePackageGroupError::ConflictException({
 @@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2167,14 +4445,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::delete_package_group::DeletePackageGroupError::InternalServerException({
+         "InternalServerException" => super::super::operation::delete_package_group::DeletePackageGroupError::InternalServerException({
 @@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2182,14 +4460,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::delete_package_group::DeletePackageGroupError::ResourceNotFoundException({
-@@ -70,10 +73,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::delete_package_group::DeletePackageGroupError::ResourceNotFoundException({
+@@ -67,13 +70,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2197,14 +4483,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ServiceQuotaExceededException" => super::operation::delete_package_group::DeletePackageGroupError::ServiceQuotaExceededException({
-@@ -87,10 +91,11 @@
+         "ServiceQuotaExceededException" => super::super::operation::delete_package_group::DeletePackageGroupError::ServiceQuotaExceededException({
+@@ -87,10 +94,11 @@
                  )
-                 .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
+                 .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2212,22 +4498,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::delete_package_group::DeletePackageGroupError::ThrottlingException({
-@@ -100,18 +105,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
+         "ThrottlingException" => super::super::operation::delete_package_group::DeletePackageGroupError::ThrottlingException({
+@@ -100,18 +108,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::delete_package_group::DeletePackageGroupError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::delete_package_group::DeletePackageGroupError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2235,14 +4521,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::delete_package_group::DeletePackageGroupError::ValidationException({
-@@ -122,10 +121,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
+         "ValidationException" => super::super::operation::delete_package_group::DeletePackageGroupError::ValidationException({
+@@ -122,10 +124,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2250,24 +4536,39 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::delete_package_group::DeletePackageGroupError::generic(generic),
-@@ -151,6 +151,16 @@
+         _ => super::super::operation::delete_package_group::DeletePackageGroupError::generic(generic),
+@@ -151,6 +154,16 @@
      })
  }
 
 +pub fn ser_delete_package_group_input(
-+    input: &super::operation::delete_package_group::DeletePackageGroupInput,
++    input: &super::super::operation::delete_package_group::DeletePackageGroupInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_delete_package_group_input::ser_delete_package_group_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_delete_package_group_input::ser_delete_package_group_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_delete_package_group(
      _value: &[u8],
-     mut builder: super::operation::delete_package_group::builders::DeletePackageGroupOutputBuilder,
+     mut builder: super::super::operation::delete_package_group::builders::DeletePackageGroupOutputBuilder,
+@@ -168,11 +181,9 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "packageGroup" => {
+-                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
++                    builder = builder.set_package_group(
++                        super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?,
++                    );
+                 }
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+             },
 ```
 
 ### `src/protocol_serde/shape_delete_package_versions.rs`
@@ -2275,13 +4576,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_package_versions.rs
 +++ generated/src/protocol_serde/shape_delete_package_versions.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -28,10 +32,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2289,14 +4603,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::delete_package_versions::DeletePackageVersionsError::ConflictException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
+         "ConflictException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::ConflictException({
+@@ -42,10 +47,11 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2304,14 +4618,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::delete_package_versions::DeletePackageVersionsError::InternalServerException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
+         "InternalServerException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::InternalServerException({
+@@ -56,10 +62,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2319,14 +4633,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::delete_package_versions::DeletePackageVersionsError::ResourceNotFoundException({
-@@ -70,10 +73,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::ResourceNotFoundException({
+@@ -67,13 +74,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2334,22 +4656,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::delete_package_versions::DeletePackageVersionsError::ThrottlingException({
-@@ -83,18 +87,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
+         "ThrottlingException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::ThrottlingException({
+@@ -83,18 +94,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::delete_package_versions::DeletePackageVersionsError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2357,14 +4679,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::delete_package_versions::DeletePackageVersionsError::ValidationException({
-@@ -105,10 +103,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
+         "ValidationException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::ValidationException({
+@@ -105,10 +110,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2372,13 +4694,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::delete_package_versions::DeletePackageVersionsError::generic(generic),
-@@ -160,13 +159,6 @@
+         _ => super::super::operation::delete_package_versions::DeletePackageVersionsError::generic(generic),
+@@ -160,13 +166,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "failedVersions" => {
--                    builder = builder.set_failed_versions(super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
+-                    builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -2386,17 +4708,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
                  "successfulVersions" => {
                      builder = builder.set_successful_versions(
-                         super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
-@@ -176,6 +168,13 @@
+                         super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
+@@ -176,6 +175,11 @@
                          )?,
                      );
                  }
 +                "failedVersions" => {
-+                    builder = builder.set_failed_versions(super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
++                    builder = builder.set_failed_versions(
++                        super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?,
++                    );
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -2410,7 +4730,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_delete_package_versions_input.rs
 @@ -3,17 +3,35 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::delete_package_versions::DeletePackageVersionsInput,
+     input: &super::super::operation::delete_package_versions::DeletePackageVersionsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.expected_status {
 -        object.key("expectedStatus").string(var_1.as_str());
@@ -2458,13 +4778,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_repository.rs
 +++ generated/src/protocol_serde/shape_delete_repository.rs
-@@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::delete_repository::DeleteRepositoryOutput, super::super::operation::delete_repository::DeleteRepositoryError> {
++) -> std::result::Result<
++    super::super::operation::delete_repository::DeleteRepositoryOutput,
++    super::super::operation::delete_repository::DeleteRepositoryError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
+@@ -25,10 +28,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2472,14 +4804,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::delete_repository::DeleteRepositoryError::ConflictException({
-@@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
+         "ConflictException" => super::super::operation::delete_repository::DeleteRepositoryError::ConflictException({
+@@ -39,10 +43,11 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2487,14 +4819,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::delete_repository::DeleteRepositoryError::InternalServerException({
-@@ -53,10 +55,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
+         "InternalServerException" => super::super::operation::delete_repository::DeleteRepositoryError::InternalServerException({
+@@ -53,10 +58,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2502,14 +4834,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::delete_repository::DeleteRepositoryError::ResourceNotFoundException({
-@@ -67,10 +70,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::delete_repository::DeleteRepositoryError::ResourceNotFoundException({
+@@ -64,13 +70,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2517,22 +4857,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::delete_repository::DeleteRepositoryError::ThrottlingException({
-@@ -80,18 +84,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
+         "ThrottlingException" => super::super::operation::delete_repository::DeleteRepositoryError::ThrottlingException({
+@@ -80,18 +90,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::delete_repository::DeleteRepositoryError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::delete_repository::DeleteRepositoryError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2540,14 +4880,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::delete_repository::DeleteRepositoryError::ValidationException({
-@@ -102,10 +100,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
+         "ValidationException" => super::super::operation::delete_repository::DeleteRepositoryError::ValidationException({
+@@ -102,10 +106,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_repository::DeleteRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2555,24 +4895,36 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::delete_repository::DeleteRepositoryError::generic(generic),
-@@ -128,6 +127,16 @@
+         _ => super::super::operation::delete_repository::DeleteRepositoryError::generic(generic),
+@@ -117,7 +122,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::delete_repository::DeleteRepositoryOutput, super::super::operation::delete_repository::DeleteRepositoryError> {
++) -> std::result::Result<
++    super::super::operation::delete_repository::DeleteRepositoryOutput,
++    super::super::operation::delete_repository::DeleteRepositoryError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::delete_repository::builders::DeleteRepositoryOutputBuilder::default();
+@@ -128,6 +136,16 @@
      })
  }
 
 +pub fn ser_delete_repository_input(
-+    input: &super::operation::delete_repository::DeleteRepositoryInput,
++    input: &super::super::operation::delete_repository::DeleteRepositoryInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_delete_repository_input::ser_delete_repository_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_delete_repository_input::ser_delete_repository_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_delete_repository(
      _value: &[u8],
-     mut builder: super::operation::delete_repository::builders::DeleteRepositoryOutputBuilder,
+     mut builder: super::super::operation::delete_repository::builders::DeleteRepositoryOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_delete_repository_permissions_policy.rs`
@@ -2580,13 +4932,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_repository_permissions_policy.rs
 +++ generated/src/protocol_serde/shape_delete_repository_permissions_policy.rs
-@@ -29,10 +29,11 @@
-                     output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                         .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+@@ -15,7 +15,9 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled(generic))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -29,27 +31,31 @@
+                     output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                         .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::access_denied_exception_correct_errors(output)
+-                    super::super::serde_util::access_denied_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -2595,28 +4958,54 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -44,10 +45,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-        "ConflictException" => super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::ConflictException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ConflictException" => {
++            super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::ConflictException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
+-                    .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
          "InternalServerException" => {
-@@ -59,10 +61,11 @@
-                     output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                         .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+             super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::InternalServerException({
+                 #[allow(unused_mut)]
+@@ -56,13 +62,17 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(
++                                super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled,
++                            )?;
                      let output = output.meta(generic);
--                    super::serde_util::internal_server_exception_correct_errors(output)
+-                    super::super::serde_util::internal_server_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -2625,13 +5014,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -76,10 +79,11 @@
-                         super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                             .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+@@ -72,14 +82,17 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -2640,21 +5038,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -91,18 +95,12 @@
-                     let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                     output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                         .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+@@ -91,18 +104,12 @@
+                     let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                         .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled(
+-                        super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
 -                    );
                      let output = output.meta(generic);
--                    super::serde_util::throttling_exception_correct_errors(output)
+-                    super::super::serde_util::throttling_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -2663,13 +5061,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -115,10 +113,11 @@
-                     output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                         .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+@@ -115,10 +122,11 @@
+                     output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                         .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::validation_exception_correct_errors(output)
+-                    super::super::serde_util::validation_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -2678,16 +5076,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -145,6 +144,19 @@
+@@ -137,14 +145,29 @@
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder::default();
+-        output = super::super::protocol_serde::shape_delete_repository_permissions_policy::de_delete_repository_permissions_policy(_response_body, output)
+-            .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
++        let mut output =
++            super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder::default();
++        output =
++            super::super::protocol_serde::shape_delete_repository_permissions_policy::de_delete_repository_permissions_policy(_response_body, output)
++                .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
      })
  }
 
 +pub fn ser_delete_repository_permissions_policy_input(
-+    input: &super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyInput,
++    input: &super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_delete_repository_permissions_policy_input::ser_delete_repository_permissions_policy_input_input(
++    super::super::protocol_serde::shape_delete_repository_permissions_policy_input::ser_delete_repository_permissions_policy_input_input(
 +        &mut object,
 +        input,
 +    )?;
@@ -2697,7 +5108,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
  pub(crate) fn de_delete_repository_permissions_policy(
      _value: &[u8],
-     mut builder: super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder,
+     mut builder: super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_describe_domain.rs`
@@ -2705,13 +5116,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_describe_domain.rs
 +++ generated/src/protocol_serde/shape_describe_domain.rs
-@@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_domain::DescribeDomainError::unhandled)?;
+@@ -4,7 +4,8 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::describe_domain::DescribeDomainOutput, super::super::operation::describe_domain::DescribeDomainError> {
++) -> std::result::Result<super::super::operation::describe_domain::DescribeDomainOutput, super::super::operation::describe_domain::DescribeDomainError>
++{
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
+@@ -25,10 +26,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_domain::DescribeDomainError::unhandled)?
+-                    .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2719,14 +5140,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::describe_domain::DescribeDomainError::InternalServerException({
-@@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_domain::DescribeDomainError::unhandled)?;
+         "InternalServerException" => super::super::operation::describe_domain::DescribeDomainError::InternalServerException({
+@@ -39,10 +41,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_domain::DescribeDomainError::unhandled)?
+-                    .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2734,14 +5155,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::describe_domain::DescribeDomainError::ResourceNotFoundException({
-@@ -53,10 +55,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_domain::DescribeDomainError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::describe_domain::DescribeDomainError::ResourceNotFoundException({
+@@ -50,13 +53,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_domain::DescribeDomainError::unhandled)?
+-                    .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2749,22 +5178,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::describe_domain::DescribeDomainError::ThrottlingException({
-@@ -66,18 +69,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_domain::DescribeDomainError::unhandled)?;
+         "ThrottlingException" => super::super::operation::describe_domain::DescribeDomainError::ThrottlingException({
+@@ -66,18 +73,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::describe_domain::DescribeDomainError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::describe_domain::DescribeDomainError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_domain::DescribeDomainError::unhandled)?
+-                    .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2772,14 +5201,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::describe_domain::DescribeDomainError::ValidationException({
-@@ -88,10 +85,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_domain::DescribeDomainError::unhandled)?;
+         "ValidationException" => super::super::operation::describe_domain::DescribeDomainError::ValidationException({
+@@ -88,10 +89,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_domain::DescribeDomainError::unhandled)?
+-                    .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2787,24 +5216,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::describe_domain::DescribeDomainError::generic(generic),
-@@ -114,6 +112,16 @@
+         _ => super::super::operation::describe_domain::DescribeDomainError::generic(generic),
+@@ -103,7 +105,8 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::describe_domain::DescribeDomainOutput, super::super::operation::describe_domain::DescribeDomainError> {
++) -> std::result::Result<super::super::operation::describe_domain::DescribeDomainOutput, super::super::operation::describe_domain::DescribeDomainError>
++{
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::describe_domain::builders::DescribeDomainOutputBuilder::default();
+@@ -114,6 +117,16 @@
      })
  }
 
 +pub fn ser_describe_domain_input(
-+    input: &super::operation::describe_domain::DescribeDomainInput,
++    input: &super::super::operation::describe_domain::DescribeDomainInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_describe_domain_input::ser_describe_domain_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_describe_domain_input::ser_describe_domain_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_describe_domain(
      _value: &[u8],
-     mut builder: super::operation::describe_domain::builders::DescribeDomainOutputBuilder,
+     mut builder: super::super::operation::describe_domain::builders::DescribeDomainOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_describe_package.rs`
@@ -2812,13 +5251,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_describe_package.rs
 +++ generated/src/protocol_serde/shape_describe_package.rs
-@@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package::DescribePackageError::unhandled)?;
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::describe_package::DescribePackageOutput, super::super::operation::describe_package::DescribePackageError> {
++) -> std::result::Result<
++    super::super::operation::describe_package::DescribePackageOutput,
++    super::super::operation::describe_package::DescribePackageError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
+@@ -25,10 +28,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package::DescribePackageError::unhandled)?
+-                    .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2826,14 +5277,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::describe_package::DescribePackageError::InternalServerException({
-@@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package::DescribePackageError::unhandled)?;
+         "InternalServerException" => super::super::operation::describe_package::DescribePackageError::InternalServerException({
+@@ -39,10 +43,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package::DescribePackageError::unhandled)?
+-                    .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2841,14 +5292,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::describe_package::DescribePackageError::ResourceNotFoundException({
-@@ -53,10 +55,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package::DescribePackageError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::describe_package::DescribePackageError::ResourceNotFoundException({
+@@ -50,13 +55,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package::DescribePackageError::unhandled)?
+-                    .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2856,22 +5315,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::describe_package::DescribePackageError::ThrottlingException({
-@@ -66,18 +69,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package::DescribePackageError::unhandled)?;
+         "ThrottlingException" => super::super::operation::describe_package::DescribePackageError::ThrottlingException({
+@@ -66,18 +75,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::describe_package::DescribePackageError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::describe_package::DescribePackageError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package::DescribePackageError::unhandled)?
+-                    .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2879,14 +5338,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::describe_package::DescribePackageError::ValidationException({
-@@ -88,10 +85,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package::DescribePackageError::unhandled)?;
+         "ValidationException" => super::super::operation::describe_package::DescribePackageError::ValidationException({
+@@ -88,10 +91,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package::DescribePackageError::unhandled)?
+-                    .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2894,24 +5353,36 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::describe_package::DescribePackageError::generic(generic),
-@@ -114,6 +112,16 @@
+         _ => super::super::operation::describe_package::DescribePackageError::generic(generic),
+@@ -103,7 +107,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::describe_package::DescribePackageOutput, super::super::operation::describe_package::DescribePackageError> {
++) -> std::result::Result<
++    super::super::operation::describe_package::DescribePackageOutput,
++    super::super::operation::describe_package::DescribePackageError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::describe_package::builders::DescribePackageOutputBuilder::default();
+@@ -114,6 +121,16 @@
      })
  }
 
 +pub fn ser_describe_package_input(
-+    input: &super::operation::describe_package::DescribePackageInput,
++    input: &super::super::operation::describe_package::DescribePackageInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_describe_package_input::ser_describe_package_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_describe_package_input::ser_describe_package_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_describe_package(
      _value: &[u8],
-     mut builder: super::operation::describe_package::builders::DescribePackageOutputBuilder,
+     mut builder: super::super::operation::describe_package::builders::DescribePackageOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_describe_package_group.rs`
@@ -2919,13 +5390,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_describe_package_group.rs
 +++ generated/src/protocol_serde/shape_describe_package_group.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -28,10 +32,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2933,14 +5417,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::describe_package_group::DescribePackageGroupError::InternalServerException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
+         "InternalServerException" => super::super::operation::describe_package_group::DescribePackageGroupError::InternalServerException({
+@@ -42,10 +47,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2948,14 +5432,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::describe_package_group::DescribePackageGroupError::ResourceNotFoundException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::describe_package_group::DescribePackageGroupError::ResourceNotFoundException({
+@@ -53,13 +59,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2963,22 +5455,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::describe_package_group::DescribePackageGroupError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
+         "ThrottlingException" => super::super::operation::describe_package_group::DescribePackageGroupError::ThrottlingException({
+@@ -69,18 +79,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::describe_package_group::DescribePackageGroupError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::describe_package_group::DescribePackageGroupError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -2986,14 +5478,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::describe_package_group::DescribePackageGroupError::ValidationException({
-@@ -91,10 +88,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
+         "ValidationException" => super::super::operation::describe_package_group::DescribePackageGroupError::ValidationException({
+@@ -91,10 +95,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3001,24 +5493,39 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::describe_package_group::DescribePackageGroupError::generic(generic),
-@@ -120,6 +118,16 @@
+         _ => super::super::operation::describe_package_group::DescribePackageGroupError::generic(generic),
+@@ -120,6 +125,16 @@
      })
  }
 
 +pub fn ser_describe_package_group_input(
-+    input: &super::operation::describe_package_group::DescribePackageGroupInput,
++    input: &super::super::operation::describe_package_group::DescribePackageGroupInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_describe_package_group_input::ser_describe_package_group_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_describe_package_group_input::ser_describe_package_group_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_describe_package_group(
      _value: &[u8],
-     mut builder: super::operation::describe_package_group::builders::DescribePackageGroupOutputBuilder,
+     mut builder: super::super::operation::describe_package_group::builders::DescribePackageGroupOutputBuilder,
+@@ -137,11 +152,9 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "packageGroup" => {
+-                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
++                    builder = builder.set_package_group(
++                        super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?,
++                    );
+                 }
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+             },
 ```
 
 ### `src/protocol_serde/shape_describe_package_version.rs`
@@ -3027,12 +5534,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_describe_package_version.rs
 +++ generated/src/protocol_serde/shape_describe_package_version.rs
 @@ -32,10 +32,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3040,14 +5547,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::describe_package_version::DescribePackageVersionError::ConflictException({
+         "ConflictException" => super::super::operation::describe_package_version::DescribePackageVersionError::ConflictException({
 @@ -46,10 +47,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3055,14 +5562,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::describe_package_version::DescribePackageVersionError::InternalServerException({
+         "InternalServerException" => super::super::operation::describe_package_version::DescribePackageVersionError::InternalServerException({
 @@ -60,10 +62,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3070,14 +5577,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::describe_package_version::DescribePackageVersionError::ResourceNotFoundException({
-@@ -74,10 +77,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::describe_package_version::DescribePackageVersionError::ResourceNotFoundException({
+@@ -71,13 +74,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3085,22 +5600,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::describe_package_version::DescribePackageVersionError::ThrottlingException({
-@@ -87,18 +91,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
+         "ThrottlingException" => super::super::operation::describe_package_version::DescribePackageVersionError::ThrottlingException({
+@@ -87,18 +94,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::describe_package_version::DescribePackageVersionError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::describe_package_version::DescribePackageVersionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3108,14 +5623,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::describe_package_version::DescribePackageVersionError::ValidationException({
-@@ -109,10 +107,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
+         "ValidationException" => super::super::operation::describe_package_version::DescribePackageVersionError::ValidationException({
+@@ -109,10 +110,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3123,24 +5638,48 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::describe_package_version::DescribePackageVersionError::generic(generic),
-@@ -138,6 +137,16 @@
+         _ => super::super::operation::describe_package_version::DescribePackageVersionError::generic(generic),
+@@ -138,6 +140,16 @@
      })
  }
 
 +pub fn ser_describe_package_version_input(
-+    input: &super::operation::describe_package_version::DescribePackageVersionInput,
++    input: &super::super::operation::describe_package_version::DescribePackageVersionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_describe_package_version_input::ser_describe_package_version_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_describe_package_version_input::ser_describe_package_version_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_describe_package_version(
      _value: &[u8],
-     mut builder: super::operation::describe_package_version::builders::DescribePackageVersionOutputBuilder,
+     mut builder: super::super::operation::describe_package_version::builders::DescribePackageVersionOutputBuilder,
+@@ -153,16 +165,14 @@
+     loop {
+         match tokens.next().transpose()? {
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                match key.to_unescaped()?.as_ref() {
+-                    "packageVersion" => {
+-                        builder = builder.set_package_version(
+-                            super::super::protocol_serde::shape_package_version_description::de_package_version_description(tokens, _value, depth + 1)?,
+-                        );
+-                    }
+-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                "packageVersion" => {
++                    builder = builder.set_package_version(
++                        super::super::protocol_serde::shape_package_version_description::de_package_version_description(tokens, _value, depth + 1)?,
++                    );
+                 }
+-            }
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
+             other => {
+                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                     "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_describe_repository.rs`
@@ -3149,12 +5688,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_describe_repository.rs
 +++ generated/src/protocol_serde/shape_describe_repository.rs
 @@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_repository::DescribeRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3162,14 +5701,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::describe_repository::DescribeRepositoryError::InternalServerException({
+         "InternalServerException" => super::super::operation::describe_repository::DescribeRepositoryError::InternalServerException({
 @@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_repository::DescribeRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3177,14 +5716,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::describe_repository::DescribeRepositoryError::ResourceNotFoundException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::describe_repository::DescribeRepositoryError::ResourceNotFoundException({
+@@ -53,13 +55,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_repository::DescribeRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3192,22 +5739,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::describe_repository::DescribeRepositoryError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
+         "ThrottlingException" => super::super::operation::describe_repository::DescribeRepositoryError::ThrottlingException({
+@@ -69,18 +75,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::describe_repository::DescribeRepositoryError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::describe_repository::DescribeRepositoryError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_repository::DescribeRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3215,14 +5762,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::describe_repository::DescribeRepositoryError::ValidationException({
-@@ -91,10 +88,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
+         "ValidationException" => super::super::operation::describe_repository::DescribeRepositoryError::ValidationException({
+@@ -91,10 +91,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::describe_repository::DescribeRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3230,24 +5777,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::describe_repository::DescribeRepositoryError::generic(generic),
-@@ -120,6 +118,16 @@
+         _ => super::super::operation::describe_repository::DescribeRepositoryError::generic(generic),
+@@ -120,6 +121,16 @@
      })
  }
 
 +pub fn ser_describe_repository_input(
-+    input: &super::operation::describe_repository::DescribeRepositoryInput,
++    input: &super::super::operation::describe_repository::DescribeRepositoryInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_describe_repository_input::ser_describe_repository_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_describe_repository_input::ser_describe_repository_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_describe_repository(
      _value: &[u8],
-     mut builder: super::operation::describe_repository::builders::DescribeRepositoryOutputBuilder,
+     mut builder: super::super::operation::describe_repository::builders::DescribeRepositoryOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_disassociate_external_connection.rs`
@@ -3255,28 +5802,50 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_disassociate_external_connection.rs
 +++ generated/src/protocol_serde/shape_disassociate_external_connection.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+@@ -20,20 +20,23 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AccessDeniedException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::AccessDeniedException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "AccessDeniedException" => {
++            super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::AccessDeniedException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ConflictException" => super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ConflictException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+-                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ConflictException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ConflictException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -42,10 +45,11 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
+-                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3285,13 +5854,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "InternalServerException" => {
-@@ -57,10 +59,11 @@
-                     output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                         .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+@@ -54,13 +58,15 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::internal_server_exception_correct_errors(output)
+-                    super::super::serde_util::internal_server_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
+-                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -3300,13 +5875,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -74,10 +77,11 @@
-                         super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                             .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+@@ -70,14 +76,17 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
+-                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -3315,13 +5899,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -93,10 +97,11 @@
+@@ -93,48 +102,48 @@
                      )
-                     .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+                     .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                    super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
+-                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -3330,61 +5914,93 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -107,18 +112,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+-        "ThrottlingException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ThrottlingException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ThrottlingException" => {
++            super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ThrottlingException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
-                 let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                let output = output.meta(generic);
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ValidationException" => super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ValidationException({
-@@ -129,10 +128,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ValidationException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ValidationException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ValidationException" => {
++            super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ValidationException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::operation::disassociate_external_connection::DisassociateExternalConnectionError::generic(generic),
-@@ -158,6 +158,16 @@
+-                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         _ => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::generic(generic),
+     })
+ }
+@@ -158,6 +167,16 @@
      })
  }
 
 +pub fn ser_disassociate_external_connection_input(
-+    input: &super::operation::disassociate_external_connection::DisassociateExternalConnectionInput,
++    input: &super::super::operation::disassociate_external_connection::DisassociateExternalConnectionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_disassociate_external_connection_input::ser_disassociate_external_connection_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_disassociate_external_connection_input::ser_disassociate_external_connection_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_disassociate_external_connection(
      _value: &[u8],
-     mut builder: super::operation::disassociate_external_connection::builders::DisassociateExternalConnectionOutputBuilder,
+     mut builder: super::super::operation::disassociate_external_connection::builders::DisassociateExternalConnectionOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_dispose_package_versions.rs`
@@ -3393,12 +6009,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_dispose_package_versions.rs
 +++ generated/src/protocol_serde/shape_dispose_package_versions.rs
 @@ -32,10 +32,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3406,14 +6022,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::dispose_package_versions::DisposePackageVersionsError::ConflictException({
+         "ConflictException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::ConflictException({
 @@ -46,10 +47,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3421,14 +6037,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::dispose_package_versions::DisposePackageVersionsError::InternalServerException({
+         "InternalServerException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::InternalServerException({
 @@ -60,10 +62,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3436,14 +6052,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::dispose_package_versions::DisposePackageVersionsError::ResourceNotFoundException({
-@@ -74,10 +77,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::ResourceNotFoundException({
+@@ -71,13 +74,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3451,22 +6075,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::dispose_package_versions::DisposePackageVersionsError::ThrottlingException({
-@@ -87,18 +91,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
+         "ThrottlingException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::ThrottlingException({
+@@ -87,18 +94,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3474,14 +6098,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::dispose_package_versions::DisposePackageVersionsError::ValidationException({
-@@ -109,10 +107,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
+         "ValidationException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::ValidationException({
+@@ -109,10 +110,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3489,13 +6113,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::dispose_package_versions::DisposePackageVersionsError::generic(generic),
-@@ -164,13 +163,6 @@
+         _ => super::super::operation::dispose_package_versions::DisposePackageVersionsError::generic(generic),
+@@ -164,13 +166,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "failedVersions" => {
--                    builder = builder.set_failed_versions(super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
+-                    builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -3503,17 +6127,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
                  "successfulVersions" => {
                      builder = builder.set_successful_versions(
-                         super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
-@@ -180,6 +172,13 @@
+                         super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
+@@ -180,6 +175,11 @@
                          )?,
                      );
                  }
 +                "failedVersions" => {
-+                    builder = builder.set_failed_versions(super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
++                    builder = builder.set_failed_versions(
++                        super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?,
++                    );
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -3527,7 +6149,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_dispose_package_versions_input.rs
 @@ -3,27 +3,45 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::dispose_package_versions::DisposePackageVersionsInput,
+     input: &super::super::operation::dispose_package_versions::DisposePackageVersionsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.expected_status {
 -        object.key("expectedStatus").string(var_1.as_str());
@@ -3591,13 +6213,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_associated_package_group.rs
 +++ generated/src/protocol_serde/shape_get_associated_package_group.rs
-@@ -32,10 +32,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -32,40 +28,51 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3605,14 +6240,79 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::get_associated_package_group::GetAssociatedPackageGroupError::InternalServerException({
-@@ -46,10 +47,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-        "InternalServerException" => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::InternalServerException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "InternalServerException" => {
++            super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::InternalServerException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ResourceNotFoundException" => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::ResourceNotFoundException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ResourceNotFoundException" => {
++            super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
+                     .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    .build()
+-                    .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
+-            };
+-            tmp
+-        }),
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ValidationException" => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::ValidationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -74,10 +81,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
+                 let output = output.meta(generic);
+-                super::super::serde_util::validation_exception_correct_errors(output)
+-                    .build()
+-                    .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3620,74 +6320,46 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::get_associated_package_group::GetAssociatedPackageGroupError::ResourceNotFoundException({
-@@ -60,10 +62,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
--                    .build()
--                    .map_err(super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ValidationException" => super::operation::get_associated_package_group::GetAssociatedPackageGroupError::ValidationException({
-@@ -74,10 +77,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
--                    .build()
--                    .map_err(super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::operation::get_associated_package_group::GetAssociatedPackageGroupError::generic(generic),
-@@ -103,6 +107,16 @@
+         _ => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::generic(generic),
+@@ -103,6 +111,16 @@
      })
  }
 
 +pub fn ser_get_associated_package_group_input(
-+    input: &super::operation::get_associated_package_group::GetAssociatedPackageGroupInput,
++    input: &super::super::operation::get_associated_package_group::GetAssociatedPackageGroupInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_get_associated_package_group_input::ser_get_associated_package_group_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_get_associated_package_group_input::ser_get_associated_package_group_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_associated_package_group(
      _value: &[u8],
-     mut builder: super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder,
-@@ -119,6 +133,13 @@
+     mut builder: super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder,
+@@ -119,20 +137,21 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 +                "packageGroup" => {
-+                    builder = builder.set_package_group(super::protocol_serde::shape_package_group_description::de_package_group_description(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
++                    builder = builder.set_package_group(
++                        super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?,
++                    );
 +                }
                  "associationType" => {
                      builder = builder.set_association_type(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -126,13 +147,6 @@
+-                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageGroupAssociationType::from(u.as_ref())))
++                            .map(|s| {
++                                s.to_unescaped()
++                                    .map(|u| super::super::types::PackageGroupAssociationType::from(u.as_ref()))
++                            })
                              .transpose()?,
                      );
                  }
 -                "packageGroup" => {
--                    builder = builder.set_package_group(super::protocol_serde::shape_package_group_description::de_package_group_description(
+-                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -3703,13 +6375,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_authorization_token.rs
 +++ generated/src/protocol_serde/shape_get_authorization_token.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -28,10 +32,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
+-                    .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3717,14 +6402,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::get_authorization_token::GetAuthorizationTokenError::InternalServerException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
+         "InternalServerException" => super::super::operation::get_authorization_token::GetAuthorizationTokenError::InternalServerException({
+@@ -42,10 +47,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
+-                    .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3732,14 +6417,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::get_authorization_token::GetAuthorizationTokenError::ResourceNotFoundException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::get_authorization_token::GetAuthorizationTokenError::ResourceNotFoundException({
+@@ -53,13 +59,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
+-                    .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3747,22 +6440,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::get_authorization_token::GetAuthorizationTokenError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
+         "ThrottlingException" => super::super::operation::get_authorization_token::GetAuthorizationTokenError::ThrottlingException({
+@@ -69,18 +79,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
+-                    .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3770,14 +6463,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::get_authorization_token::GetAuthorizationTokenError::ValidationException({
-@@ -91,10 +88,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
+         "ValidationException" => super::super::operation::get_authorization_token::GetAuthorizationTokenError::ValidationException({
+@@ -91,10 +95,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
+-                    .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3785,24 +6478,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::get_authorization_token::GetAuthorizationTokenError::generic(generic),
-@@ -120,6 +118,16 @@
+         _ => super::super::operation::get_authorization_token::GetAuthorizationTokenError::generic(generic),
+@@ -120,6 +125,16 @@
      })
  }
 
 +pub fn ser_get_authorization_token_input(
-+    input: &super::operation::get_authorization_token::GetAuthorizationTokenInput,
++    input: &super::super::operation::get_authorization_token::GetAuthorizationTokenInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_get_authorization_token_input::ser_get_authorization_token_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_get_authorization_token_input::ser_get_authorization_token_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_authorization_token(
      _value: &[u8],
-     mut builder: super::operation::get_authorization_token::builders::GetAuthorizationTokenOutputBuilder,
+     mut builder: super::super::operation::get_authorization_token::builders::GetAuthorizationTokenOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_domain_permissions_policy.rs`
@@ -3810,13 +6503,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_domain_permissions_policy.rs
 +++ generated/src/protocol_serde/shape_get_domain_permissions_policy.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
+@@ -28,40 +28,51 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
+-                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3824,52 +6517,87 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::InternalServerException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-        "InternalServerException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::InternalServerException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "InternalServerException" => {
++            super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::InternalServerException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ResourceNotFoundException" => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ResourceNotFoundException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ResourceNotFoundException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ResourceNotFoundException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ResourceNotFoundException" => {
++            super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
+                     .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ThrottlingException" => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
+-                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ThrottlingException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ThrottlingException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -69,18 +80,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
+-                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3877,14 +6605,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ValidationException({
-@@ -91,10 +88,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
+         "ValidationException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ValidationException({
+@@ -91,10 +96,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
+-                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3892,24 +6620,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::generic(generic),
-@@ -120,6 +118,16 @@
+         _ => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::generic(generic),
+@@ -120,6 +126,16 @@
      })
  }
 
 +pub fn ser_get_domain_permissions_policy_input(
-+    input: &super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
++    input: &super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_get_domain_permissions_policy_input::ser_get_domain_permissions_policy_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_get_domain_permissions_policy_input::ser_get_domain_permissions_policy_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_domain_permissions_policy(
      _value: &[u8],
-     mut builder: super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,
+     mut builder: super::super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_package_version_asset.rs`
@@ -3923,8 +6651,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub fn de_get_package_version_asset_http_response(
 -    response: &mut ::aws_smithy_runtime_api::http::Response,
 -) -> std::result::Result<
--    super::operation::get_package_version_asset::GetPackageVersionAssetOutput,
--    super::operation::get_package_version_asset::GetPackageVersionAssetError,
+-    super::super::operation::get_package_version_asset::GetPackageVersionAssetOutput,
+-    super::super::operation::get_package_version_asset::GetPackageVersionAssetError,
 -> {
 -    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
 -    std::mem::swap(&mut _response_body, response.body_mut());
@@ -3934,27 +6662,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    let _response_headers = response.headers();
 -    Ok({
 -        #[allow(unused_mut)]
--        let mut output = super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default();
--        output = output.set_asset(Some(super::protocol_serde::shape_get_package_version_asset_output::de_asset_payload(
+-        let mut output = super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default();
+-        output = output.set_asset(Some(super::super::protocol_serde::shape_get_package_version_asset_output::de_asset_payload(
 -            _response_body,
 -        )?));
 -        output = output.set_asset_name(
--            super::protocol_serde::shape_get_package_version_asset_output::de_asset_name_header(_response_headers).map_err(|_| {
--                super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
+-            super::super::protocol_serde::shape_get_package_version_asset_output::de_asset_name_header(_response_headers).map_err(|_| {
+-                super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
 -                    "Failed to parse assetName from header `X-AssetName",
 -                )
 -            })?,
 -        );
 -        output = output.set_package_version(
--            super::protocol_serde::shape_get_package_version_asset_output::de_package_version_header(_response_headers).map_err(|_| {
--                super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
+-            super::super::protocol_serde::shape_get_package_version_asset_output::de_package_version_header(_response_headers).map_err(|_| {
+-                super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
 -                    "Failed to parse packageVersion from header `X-PackageVersion",
 -                )
 -            })?,
 -        );
 -        output = output.set_package_version_revision(
--            super::protocol_serde::shape_get_package_version_asset_output::de_package_version_revision_header(_response_headers).map_err(|_| {
--                super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
+-            super::super::protocol_serde::shape_get_package_version_asset_output::de_package_version_revision_header(_response_headers).map_err(|_| {
+-                super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
 -                    "Failed to parse packageVersionRevision from header `X-PackageVersionRevision",
 -                )
 -            })?,
@@ -3968,13 +6696,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn de_get_package_version_asset_http_error(
      _response_status: u16,
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -77,10 +32,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
+@@ -60,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -77,10 +28,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
+-                    .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3982,14 +6723,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::get_package_version_asset::GetPackageVersionAssetError::ConflictException({
-@@ -91,10 +47,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
+         "ConflictException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ConflictException({
+@@ -91,10 +43,11 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
+-                    .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -3997,14 +6738,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::get_package_version_asset::GetPackageVersionAssetError::InternalServerException({
-@@ -105,10 +62,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
+         "InternalServerException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::InternalServerException({
+@@ -105,10 +58,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
+-                    .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4012,14 +6753,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::get_package_version_asset::GetPackageVersionAssetError::ResourceNotFoundException({
-@@ -119,10 +77,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ResourceNotFoundException({
+@@ -116,13 +70,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
+-                    .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4027,22 +6776,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::get_package_version_asset::GetPackageVersionAssetError::ThrottlingException({
-@@ -132,18 +91,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
+         "ThrottlingException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ThrottlingException({
+@@ -132,18 +90,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
+-                    .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4050,14 +6799,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::get_package_version_asset::GetPackageVersionAssetError::ValidationException({
-@@ -154,12 +107,99 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
+         "ValidationException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ValidationException({
+@@ -154,12 +106,99 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
+-                    .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4065,7 +6814,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::get_package_version_asset::GetPackageVersionAssetError::generic(generic),
+         _ => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::generic(generic),
      })
  }
 +
@@ -4075,37 +6824,37 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    _response_headers: &::aws_smithy_runtime_api::http::Headers,
 +    _response_body: &[u8],
 +) -> std::result::Result<
-+    super::operation::get_package_version_asset::GetPackageVersionAssetOutput,
-+    super::operation::get_package_version_asset::GetPackageVersionAssetError,
++    super::super::operation::get_package_version_asset::GetPackageVersionAssetOutput,
++    super::super::operation::get_package_version_asset::GetPackageVersionAssetError,
 +> {
 +    Ok({
 +        #[allow(unused_mut)]
-+        let mut output = super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default();
-+        output = super::protocol_serde::shape_get_package_version_asset::de_get_package_version_asset(_response_body, output)
-+            .map_err(super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
++        let mut output = super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default();
++        output = super::super::protocol_serde::shape_get_package_version_asset::de_get_package_version_asset(_response_body, output)
++            .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
 +        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 +        output.build()
 +    })
 +}
 +
 +pub fn ser_get_package_version_asset_input(
-+    input: &super::operation::get_package_version_asset::GetPackageVersionAssetInput,
++    input: &super::super::operation::get_package_version_asset::GetPackageVersionAssetInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_get_package_version_asset_input::ser_get_package_version_asset_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_get_package_version_asset_input::ser_get_package_version_asset_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_get_package_version_asset(
 +    _value: &[u8],
-+    mut builder: super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder,
++    mut builder: super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder,
++    super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -4161,13 +6910,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_package_version_readme.rs
 +++ generated/src/protocol_serde/shape_get_package_version_readme.rs
-@@ -32,10 +32,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -32,10 +28,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
+-                    .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4175,14 +6937,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::get_package_version_readme::GetPackageVersionReadmeError::InternalServerException({
-@@ -46,10 +47,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
+         "InternalServerException" => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::InternalServerException({
+@@ -46,26 +43,33 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
+-                    .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4190,37 +6952,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::get_package_version_readme::GetPackageVersionReadmeError::ResourceNotFoundException({
-@@ -60,10 +62,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-        "ResourceNotFoundException" => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::ResourceNotFoundException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ResourceNotFoundException" => {
++            super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
+                     .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ThrottlingException" => super::operation::get_package_version_readme::GetPackageVersionReadmeError::ThrottlingException({
-@@ -73,18 +76,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
+-                    .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
+-            };
+-            tmp
+-        }),
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ThrottlingException" => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::ThrottlingException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -73,18 +77,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
+-                    .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4228,14 +7009,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::get_package_version_readme::GetPackageVersionReadmeError::ValidationException({
-@@ -95,10 +92,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
+         "ValidationException" => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::ValidationException({
+@@ -95,10 +93,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
+-                    .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4243,25 +7024,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::get_package_version_readme::GetPackageVersionReadmeError::generic(generic),
-@@ -124,6 +122,16 @@
+         _ => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::generic(generic),
+@@ -124,6 +123,16 @@
      })
  }
 
 +pub fn ser_get_package_version_readme_input(
-+    input: &super::operation::get_package_version_readme::GetPackageVersionReadmeInput,
++    input: &super::super::operation::get_package_version_readme::GetPackageVersionReadmeInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_get_package_version_readme_input::ser_get_package_version_readme_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_get_package_version_readme_input::ser_get_package_version_readme_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_package_version_readme(
      _value: &[u8],
-     mut builder: super::operation::get_package_version_readme::builders::GetPackageVersionReadmeOutputBuilder,
-@@ -161,22 +169,22 @@
+     mut builder: super::super::operation::get_package_version_readme::builders::GetPackageVersionReadmeOutputBuilder,
+@@ -161,22 +170,22 @@
                              .transpose()?,
                      );
                  }
@@ -4297,13 +7078,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_repository_endpoint.rs
 +++ generated/src/protocol_serde/shape_get_repository_endpoint.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -28,10 +32,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
+-                    .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4311,14 +7105,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::get_repository_endpoint::GetRepositoryEndpointError::InternalServerException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
+         "InternalServerException" => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::InternalServerException({
+@@ -42,10 +47,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
+-                    .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4326,14 +7120,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::get_repository_endpoint::GetRepositoryEndpointError::ResourceNotFoundException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::ResourceNotFoundException({
+@@ -53,13 +59,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
+-                    .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4341,22 +7143,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::get_repository_endpoint::GetRepositoryEndpointError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
+         "ThrottlingException" => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::ThrottlingException({
+@@ -69,18 +79,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
+-                    .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4364,14 +7166,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::get_repository_endpoint::GetRepositoryEndpointError::ValidationException({
-@@ -91,10 +88,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
+         "ValidationException" => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::ValidationException({
+@@ -91,10 +95,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
+-                    .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4379,24 +7181,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::get_repository_endpoint::GetRepositoryEndpointError::generic(generic),
-@@ -120,6 +118,16 @@
+         _ => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::generic(generic),
+@@ -120,6 +125,16 @@
      })
  }
 
 +pub fn ser_get_repository_endpoint_input(
-+    input: &super::operation::get_repository_endpoint::GetRepositoryEndpointInput,
++    input: &super::super::operation::get_repository_endpoint::GetRepositoryEndpointInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_get_repository_endpoint_input::ser_get_repository_endpoint_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_get_repository_endpoint_input::ser_get_repository_endpoint_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_repository_endpoint(
      _value: &[u8],
-     mut builder: super::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder,
+     mut builder: super::super::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_repository_permissions_policy.rs`
@@ -4404,28 +7206,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_repository_permissions_policy.rs
 +++ generated/src/protocol_serde/shape_get_repository_permissions_policy.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+@@ -20,20 +20,23 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AccessDeniedException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::AccessDeniedException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "AccessDeniedException" => {
++            super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::AccessDeniedException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
+-                    .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
          "InternalServerException" => {
-@@ -43,10 +44,11 @@
-                     output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                         .map_err(super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
+             super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::InternalServerException({
+                 #[allow(unused_mut)]
+@@ -40,13 +43,15 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::internal_server_exception_correct_errors(output)
+-                    super::super::serde_util::internal_server_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -4434,13 +7264,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -60,10 +62,11 @@
-                         super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                             .map_err(super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
+@@ -56,52 +61,54 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -4449,61 +7288,96 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -74,18 +77,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
+-        "ThrottlingException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ThrottlingException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ThrottlingException" => {
++            super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ThrottlingException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
-                 let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                let output = output.meta(generic);
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ValidationException" => super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ValidationException({
-@@ -96,10 +93,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                    .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ValidationException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ValidationException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ValidationException" => {
++            super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ValidationException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::generic(generic),
-@@ -125,6 +123,16 @@
+-                    .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         _ => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::generic(generic),
+     })
+ }
+@@ -125,6 +132,19 @@
      })
  }
 
 +pub fn ser_get_repository_permissions_policy_input(
-+    input: &super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput,
++    input: &super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_get_repository_permissions_policy_input::ser_get_repository_permissions_policy_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_get_repository_permissions_policy_input::ser_get_repository_permissions_policy_input_input(
++        &mut object,
++        input,
++    )?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_repository_permissions_policy(
      _value: &[u8],
-     mut builder: super::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyOutputBuilder,
+     mut builder: super::super::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_internal_server_exception.rs`
@@ -4511,12 +7385,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_internal_server_exception.rs
 +++ generated/src/protocol_serde/shape_internal_server_exception.rs
-@@ -33,5 +33,7 @@
+@@ -2,7 +2,10 @@
+ pub(crate) fn de_internal_server_exception_json_err(
+     _value: &[u8],
+     mut builder: super::super::types::error::builders::InternalServerExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::InternalServerExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++) -> ::std::result::Result<
++    super::super::types::error::builders::InternalServerExceptionBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+@@ -33,5 +36,7 @@
              "found more JSON tokens after completing parsing",
          ));
      }
 -    Ok(builder)
-+    Ok(super::serde_util::internal_server_exception_correct_errors(builder)
++    Ok(super::super::serde_util::internal_server_exception_correct_errors(builder)
 +        .build()
 +        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
  }
@@ -4528,12 +7414,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_allowed_repositories_for_group.rs
 +++ generated/src/protocol_serde/shape_list_allowed_repositories_for_group.rs
 @@ -29,10 +29,11 @@
-                     output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                         .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+                     output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                         .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::access_denied_exception_correct_errors(output)
+-                    super::super::serde_util::access_denied_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
+-                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -4542,13 +7428,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -45,10 +46,11 @@
-                     output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                         .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+@@ -42,13 +43,15 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::internal_server_exception_correct_errors(output)
+-                    super::super::serde_util::internal_server_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
+-                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -4557,13 +7449,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -62,10 +64,11 @@
-                         super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                             .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+@@ -58,14 +61,17 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
+-                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -4572,13 +7473,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -81,10 +84,11 @@
+@@ -81,48 +87,48 @@
                      )
-                     .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+                     .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                    super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
+-                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -4587,61 +7488,149 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -95,18 +99,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+-        "ThrottlingException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ThrottlingException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ThrottlingException" => {
++            super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ThrottlingException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
-                 let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                let output = output.meta(generic);
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ValidationException" => super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ValidationException({
-@@ -117,10 +115,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ValidationException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ValidationException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ValidationException" => {
++            super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ValidationException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::generic(generic),
-@@ -146,6 +145,16 @@
+-                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         _ => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::generic(generic),
+     })
+ }
+@@ -138,14 +144,29 @@
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default();
+-        output = super::super::protocol_serde::shape_list_allowed_repositories_for_group::de_list_allowed_repositories_for_group(_response_body, output)
+-            .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++        let mut output =
++            super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default();
++        output =
++            super::super::protocol_serde::shape_list_allowed_repositories_for_group::de_list_allowed_repositories_for_group(_response_body, output)
++                .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
      })
  }
 
 +pub fn ser_list_allowed_repositories_for_group_input(
-+    input: &super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupInput,
++    input: &super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_allowed_repositories_for_group_input::ser_list_allowed_repositories_for_group_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_allowed_repositories_for_group_input::ser_list_allowed_repositories_for_group_input_input(
++        &mut object,
++        input,
++    )?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_allowed_repositories_for_group(
      _value: &[u8],
-     mut builder: super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder,
+     mut builder: super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder,
+@@ -161,23 +182,23 @@
+     loop {
+         match tokens.next().transpose()? {
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                "allowedRepositories" => {
+-                    builder = builder.set_allowed_repositories(super::super::protocol_serde::shape_repository_name_list::de_repository_name_list(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
+-                }
+-                "nextToken" => {
+-                    builder = builder.set_next_token(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                match key.to_unescaped()?.as_ref() {
++                    "allowedRepositories" => {
++                        builder = builder.set_allowed_repositories(
++                            super::super::protocol_serde::shape_repository_name_list::de_repository_name_list(tokens, _value, depth + 1)?,
++                        );
++                    }
++                    "nextToken" => {
++                        builder = builder.set_next_token(
++                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                .transpose()?,
++                        );
++                    }
++                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                 }
+-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-            },
++            }
+             other => {
+                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                     "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_list_associated_packages.rs`
@@ -4650,12 +7639,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_associated_packages.rs
 +++ generated/src/protocol_serde/shape_list_associated_packages.rs
 @@ -32,10 +32,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
+-                    .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4663,14 +7652,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::list_associated_packages::ListAssociatedPackagesError::InternalServerException({
+         "InternalServerException" => super::super::operation::list_associated_packages::ListAssociatedPackagesError::InternalServerException({
 @@ -46,10 +47,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
+-                    .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4678,14 +7667,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::list_associated_packages::ListAssociatedPackagesError::ResourceNotFoundException({
-@@ -60,10 +62,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::list_associated_packages::ListAssociatedPackagesError::ResourceNotFoundException({
+@@ -57,13 +59,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
+-                    .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4693,14 +7690,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::list_associated_packages::ListAssociatedPackagesError::ValidationException({
-@@ -74,10 +77,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
+         "ValidationException" => super::super::operation::list_associated_packages::ListAssociatedPackagesError::ValidationException({
+@@ -74,10 +80,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
+-                    .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4708,30 +7705,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::list_associated_packages::ListAssociatedPackagesError::generic(generic),
-@@ -103,6 +107,16 @@
+         _ => super::super::operation::list_associated_packages::ListAssociatedPackagesError::generic(generic),
+@@ -103,6 +110,16 @@
      })
  }
 
 +pub fn ser_list_associated_packages_input(
-+    input: &super::operation::list_associated_packages::ListAssociatedPackagesInput,
++    input: &super::super::operation::list_associated_packages::ListAssociatedPackagesInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_associated_packages_input::ser_list_associated_packages_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_associated_packages_input::ser_list_associated_packages_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_associated_packages(
      _value: &[u8],
-     mut builder: super::operation::list_associated_packages::builders::ListAssociatedPackagesOutputBuilder,
-@@ -119,6 +133,13 @@
+     mut builder: super::super::operation::list_associated_packages::builders::ListAssociatedPackagesOutputBuilder,
+@@ -119,6 +136,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 +                "packages" => {
-+                    builder = builder.set_packages(super::protocol_serde::shape_associated_package_list::de_associated_package_list(
++                    builder = builder.set_packages(super::super::protocol_serde::shape_associated_package_list::de_associated_package_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -4740,12 +7737,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -126,13 +147,6 @@
+@@ -126,13 +150,6 @@
                              .transpose()?,
                      );
                  }
 -                "packages" => {
--                    builder = builder.set_packages(super::protocol_serde::shape_associated_package_list::de_associated_package_list(
+-                    builder = builder.set_packages(super::super::protocol_serde::shape_associated_package_list::de_associated_package_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -4762,12 +7759,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_domains.rs
 +++ generated/src/protocol_serde/shape_list_domains.rs
 @@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_domains::ListDomainsError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_domains::ListDomainsError::unhandled)?
+-                    .map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4775,14 +7772,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::list_domains::ListDomainsError::InternalServerException({
+         "InternalServerException" => super::super::operation::list_domains::ListDomainsError::InternalServerException({
 @@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_domains::ListDomainsError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_domains::ListDomainsError::unhandled)?
+-                    .map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4790,20 +7787,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::list_domains::ListDomainsError::ThrottlingException({
+         "ThrottlingException" => super::super::operation::list_domains::ListDomainsError::ThrottlingException({
 @@ -52,16 +54,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_domains::ListDomainsError::unhandled)?;
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_domains::ListDomainsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_domains::ListDomainsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_domains::ListDomainsError::unhandled)?
+-                    .map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4811,14 +7808,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::list_domains::ListDomainsError::ValidationException({
+         "ValidationException" => super::super::operation::list_domains::ListDomainsError::ValidationException({
 @@ -72,10 +70,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_domains::ListDomainsError::unhandled)?;
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_domains::ListDomainsError::unhandled)?
+-                    .map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4826,7 +7823,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::list_domains::ListDomainsError::generic(generic),
+         _ => super::super::operation::list_domains::ListDomainsError::generic(generic),
+@@ -111,8 +110,10 @@
+ pub(crate) fn de_list_domains(
+     _value: &[u8],
+     mut builder: super::super::operation::list_domains::builders::ListDomainsOutputBuilder,
+-) -> ::std::result::Result<super::super::operation::list_domains::builders::ListDomainsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+-{
++) -> ::std::result::Result<
++    super::super::operation::list_domains::builders::ListDomainsOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
 ```
 
 ### `src/protocol_serde/shape_list_package_groups.rs`
@@ -4834,13 +7844,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_package_groups.rs
 +++ generated/src/protocol_serde/shape_list_package_groups.rs
-@@ -26,10 +26,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
+@@ -4,8 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_package_groups::ListPackageGroupsOutput, super::super::operation::list_package_groups::ListPackageGroupsError>
+-{
++) -> std::result::Result<
++    super::super::operation::list_package_groups::ListPackageGroupsOutput,
++    super::super::operation::list_package_groups::ListPackageGroupsError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
+@@ -26,10 +28,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4848,14 +7871,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::list_package_groups::ListPackageGroupsError::InternalServerException({
-@@ -40,10 +41,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
+         "InternalServerException" => super::super::operation::list_package_groups::ListPackageGroupsError::InternalServerException({
+@@ -40,10 +43,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4863,14 +7886,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::list_package_groups::ListPackageGroupsError::ResourceNotFoundException({
-@@ -54,10 +56,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::list_package_groups::ListPackageGroupsError::ResourceNotFoundException({
+@@ -51,13 +55,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4878,22 +7909,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::list_package_groups::ListPackageGroupsError::ThrottlingException({
-@@ -67,18 +70,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
+         "ThrottlingException" => super::super::operation::list_package_groups::ListPackageGroupsError::ThrottlingException({
+@@ -67,18 +75,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_package_groups::ListPackageGroupsError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_package_groups::ListPackageGroupsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4901,14 +7932,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::list_package_groups::ListPackageGroupsError::ValidationException({
-@@ -89,10 +86,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
+         "ValidationException" => super::super::operation::list_package_groups::ListPackageGroupsError::ValidationException({
+@@ -89,10 +91,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4916,44 +7947,55 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::list_package_groups::ListPackageGroupsError::generic(generic),
-@@ -116,6 +114,16 @@
+         _ => super::super::operation::list_package_groups::ListPackageGroupsError::generic(generic),
+@@ -104,8 +107,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_package_groups::ListPackageGroupsOutput, super::super::operation::list_package_groups::ListPackageGroupsError>
+-{
++) -> std::result::Result<
++    super::super::operation::list_package_groups::ListPackageGroupsOutput,
++    super::super::operation::list_package_groups::ListPackageGroupsError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_package_groups::builders::ListPackageGroupsOutputBuilder::default();
+@@ -116,6 +121,16 @@
      })
  }
 
 +pub fn ser_list_package_groups_input(
-+    input: &super::operation::list_package_groups::ListPackageGroupsInput,
++    input: &super::super::operation::list_package_groups::ListPackageGroupsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_package_groups_input::ser_list_package_groups_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_package_groups_input::ser_list_package_groups_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_package_groups(
      _value: &[u8],
-     mut builder: super::operation::list_package_groups::builders::ListPackageGroupsOutputBuilder,
-@@ -132,6 +140,13 @@
+     mut builder: super::super::operation::list_package_groups::builders::ListPackageGroupsOutputBuilder,
+@@ -132,6 +147,11 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 +                "packageGroups" => {
-+                    builder = builder.set_package_groups(super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
++                    builder = builder.set_package_groups(
++                        super::super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(tokens, _value, depth + 1)?,
++                    );
 +                }
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -139,13 +154,6 @@
+@@ -139,13 +159,6 @@
                              .transpose()?,
                      );
                  }
 -                "packageGroups" => {
--                    builder = builder.set_package_groups(super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(
+-                    builder = builder.set_package_groups(super::super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -4969,13 +8011,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_package_version_assets.rs
 +++ generated/src/protocol_serde/shape_list_package_version_assets.rs
-@@ -32,10 +32,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -32,10 +28,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4983,14 +8038,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::list_package_version_assets::ListPackageVersionAssetsError::InternalServerException({
-@@ -46,10 +47,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
+         "InternalServerException" => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::InternalServerException({
+@@ -46,26 +43,33 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -4998,37 +8053,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::list_package_version_assets::ListPackageVersionAssetsError::ResourceNotFoundException({
-@@ -60,10 +62,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-        "ResourceNotFoundException" => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::ResourceNotFoundException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ResourceNotFoundException" => {
++            super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
+                     .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ThrottlingException" => super::operation::list_package_version_assets::ListPackageVersionAssetsError::ThrottlingException({
-@@ -73,18 +76,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
+-                    .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
+-            };
+-            tmp
+-        }),
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ThrottlingException" => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::ThrottlingException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -73,18 +77,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5036,14 +8110,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::list_package_version_assets::ListPackageVersionAssetsError::ValidationException({
-@@ -95,10 +92,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
+         "ValidationException" => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::ValidationException({
+@@ -95,10 +93,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5051,30 +8125,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::list_package_version_assets::ListPackageVersionAssetsError::generic(generic),
-@@ -124,6 +122,16 @@
+         _ => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::generic(generic),
+@@ -124,6 +123,16 @@
      })
  }
 
 +pub fn ser_list_package_version_assets_input(
-+    input: &super::operation::list_package_version_assets::ListPackageVersionAssetsInput,
++    input: &super::super::operation::list_package_version_assets::ListPackageVersionAssetsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_package_version_assets_input::ser_list_package_version_assets_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_package_version_assets_input::ser_list_package_version_assets_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_package_version_assets(
      _value: &[u8],
-     mut builder: super::operation::list_package_version_assets::builders::ListPackageVersionAssetsOutputBuilder,
-@@ -140,13 +148,6 @@
+     mut builder: super::super::operation::list_package_version_assets::builders::ListPackageVersionAssetsOutputBuilder,
+@@ -140,13 +149,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "assets" => {
--                    builder = builder.set_assets(super::protocol_serde::shape_asset_summary_list::de_asset_summary_list(
+-                    builder = builder.set_assets(super::super::protocol_serde::shape_asset_summary_list::de_asset_summary_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -5083,7 +8157,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "format" => {
                      builder = builder.set_format(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -161,13 +162,6 @@
+@@ -161,13 +163,6 @@
                              .transpose()?,
                      );
                  }
@@ -5097,7 +8171,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "package" => {
                      builder = builder.set_package(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -189,6 +183,20 @@
+@@ -189,6 +184,20 @@
                              .transpose()?,
                      );
                  }
@@ -5109,7 +8183,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
 +                }
 +                "assets" => {
-+                    builder = builder.set_assets(super::protocol_serde::shape_asset_summary_list::de_asset_summary_list(
++                    builder = builder.set_assets(super::super::protocol_serde::shape_asset_summary_list::de_asset_summary_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -5125,28 +8199,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_package_version_dependencies.rs
 +++ generated/src/protocol_serde/shape_list_package_version_dependencies.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+@@ -20,20 +20,23 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AccessDeniedException" => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::AccessDeniedException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "AccessDeniedException" => {
++            super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::AccessDeniedException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
+-                    .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
          "InternalServerException" => {
-@@ -43,10 +44,11 @@
-                     output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                         .map_err(super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
+             super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::InternalServerException({
+                 #[allow(unused_mut)]
+@@ -40,13 +43,15 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::internal_server_exception_correct_errors(output)
+-                    super::super::serde_util::internal_server_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
+-                        .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -5155,13 +8257,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -60,10 +62,11 @@
-                         super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                             .map_err(super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
+@@ -56,52 +61,54 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
+-                        .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -5170,67 +8281,102 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -74,18 +77,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
+-        "ThrottlingException" => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::ThrottlingException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ThrottlingException" => {
++            super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::ThrottlingException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
-                 let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                let output = output.meta(generic);
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ValidationException" => super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::ValidationException({
-@@ -96,10 +93,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                    .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ValidationException" => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::ValidationException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ValidationException" => {
++            super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::ValidationException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::generic(generic),
-@@ -125,6 +123,16 @@
+-                    .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         _ => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::generic(generic),
+     })
+ }
+@@ -125,6 +132,19 @@
      })
  }
 
 +pub fn ser_list_package_version_dependencies_input(
-+    input: &super::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput,
++    input: &super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_package_version_dependencies_input::ser_list_package_version_dependencies_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_package_version_dependencies_input::ser_list_package_version_dependencies_input_input(
++        &mut object,
++        input,
++    )?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_package_version_dependencies(
      _value: &[u8],
-     mut builder: super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder,
-@@ -141,13 +149,6 @@
+     mut builder: super::super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder,
+@@ -141,13 +161,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "dependencies" => {
--                    builder = builder.set_dependencies(super::protocol_serde::shape_package_dependency_list::de_package_dependency_list(
+-                    builder = builder.set_dependencies(super::super::protocol_serde::shape_package_dependency_list::de_package_dependency_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -5239,7 +8385,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "format" => {
                      builder = builder.set_format(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -162,13 +163,6 @@
+@@ -162,13 +175,6 @@
                              .transpose()?,
                      );
                  }
@@ -5253,7 +8399,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "package" => {
                      builder = builder.set_package(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -190,6 +184,20 @@
+@@ -190,6 +196,20 @@
                              .transpose()?,
                      );
                  }
@@ -5265,7 +8411,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
 +                }
 +                "dependencies" => {
-+                    builder = builder.set_dependencies(super::protocol_serde::shape_package_dependency_list::de_package_dependency_list(
++                    builder = builder.set_dependencies(super::super::protocol_serde::shape_package_dependency_list::de_package_dependency_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -5281,13 +8427,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_package_versions.rs
 +++ generated/src/protocol_serde/shape_list_package_versions.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -28,10 +32,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5295,14 +8454,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::list_package_versions::ListPackageVersionsError::InternalServerException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
+         "InternalServerException" => super::super::operation::list_package_versions::ListPackageVersionsError::InternalServerException({
+@@ -42,10 +47,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5310,14 +8469,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::list_package_versions::ListPackageVersionsError::ResourceNotFoundException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::list_package_versions::ListPackageVersionsError::ResourceNotFoundException({
+@@ -53,13 +59,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5325,22 +8492,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::list_package_versions::ListPackageVersionsError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
+         "ThrottlingException" => super::super::operation::list_package_versions::ListPackageVersionsError::ThrottlingException({
+@@ -69,18 +79,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_package_versions::ListPackageVersionsError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_package_versions::ListPackageVersionsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5348,14 +8515,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::list_package_versions::ListPackageVersionsError::ValidationException({
-@@ -91,10 +88,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
+         "ValidationException" => super::super::operation::list_package_versions::ListPackageVersionsError::ValidationException({
+@@ -91,10 +95,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
+-                    .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5363,25 +8530,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::list_package_versions::ListPackageVersionsError::generic(generic),
-@@ -120,6 +118,16 @@
+         _ => super::super::operation::list_package_versions::ListPackageVersionsError::generic(generic),
+@@ -120,6 +125,16 @@
      })
  }
 
 +pub fn ser_list_package_versions_input(
-+    input: &super::operation::list_package_versions::ListPackageVersionsInput,
++    input: &super::super::operation::list_package_versions::ListPackageVersionsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_package_versions_input::ser_list_package_versions_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_package_versions_input::ser_list_package_versions_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_package_versions(
      _value: &[u8],
-     mut builder: super::operation::list_package_versions::builders::ListPackageVersionsOutputBuilder,
-@@ -157,13 +165,6 @@
+     mut builder: super::super::operation::list_package_versions::builders::ListPackageVersionsOutputBuilder,
+@@ -157,13 +172,6 @@
                              .transpose()?,
                      );
                  }
@@ -5395,8 +8562,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "package" => {
                      builder = builder.set_package(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -176,6 +177,13 @@
-                         super::protocol_serde::shape_package_version_summary_list::de_package_version_summary_list(tokens, _value, depth + 1)?,
+@@ -176,6 +184,13 @@
+                         super::super::protocol_serde::shape_package_version_summary_list::de_package_version_summary_list(tokens, _value, depth + 1)?,
                      );
                  }
 +                "nextToken" => {
@@ -5417,12 +8584,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_packages.rs
 +++ generated/src/protocol_serde/shape_list_packages.rs
 @@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_packages::ListPackagesError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_packages::ListPackagesError::unhandled)?
+-                    .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5430,14 +8597,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::list_packages::ListPackagesError::InternalServerException({
+         "InternalServerException" => super::super::operation::list_packages::ListPackagesError::InternalServerException({
 @@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_packages::ListPackagesError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_packages::ListPackagesError::unhandled)?
+-                    .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5445,14 +8612,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::list_packages::ListPackagesError::ResourceNotFoundException({
-@@ -53,10 +55,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_packages::ListPackagesError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::list_packages::ListPackagesError::ResourceNotFoundException({
+@@ -50,13 +52,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_packages::ListPackagesError::unhandled)?
+-                    .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5460,20 +8635,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::list_packages::ListPackagesError::ThrottlingException({
-@@ -66,16 +69,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_packages::ListPackagesError::unhandled)?;
+         "ThrottlingException" => super::super::operation::list_packages::ListPackagesError::ThrottlingException({
+@@ -66,16 +72,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_packages::ListPackagesError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_packages::ListPackagesError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_packages::ListPackagesError::unhandled)?
+-                    .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5481,14 +8656,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::list_packages::ListPackagesError::ValidationException({
-@@ -86,10 +85,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_packages::ListPackagesError::unhandled)?;
+         "ValidationException" => super::super::operation::list_packages::ListPackagesError::ValidationException({
+@@ -86,10 +88,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_packages::ListPackagesError::unhandled)?
+-                    .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5496,49 +8671,49 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::list_packages::ListPackagesError::generic(generic),
-@@ -112,6 +112,16 @@
+         _ => super::super::operation::list_packages::ListPackagesError::generic(generic),
+@@ -112,6 +115,16 @@
      })
  }
 
 +pub fn ser_list_packages_input(
-+    input: &super::operation::list_packages::ListPackagesInput,
++    input: &super::super::operation::list_packages::ListPackagesInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_packages_input::ser_list_packages_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_packages_input::ser_list_packages_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_packages(
      _value: &[u8],
-     mut builder: super::operation::list_packages::builders::ListPackagesOutputBuilder,
-@@ -128,6 +138,13 @@
+     mut builder: super::super::operation::list_packages::builders::ListPackagesOutputBuilder,
+@@ -128,13 +141,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "packages" => {
-+                    builder = builder.set_packages(super::protocol_serde::shape_package_summary_list::de_package_summary_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
-                 "nextToken" => {
-                     builder = builder.set_next_token(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -135,13 +152,6 @@
-                             .transpose()?,
-                     );
-                 }
--                "packages" => {
--                    builder = builder.set_packages(super::protocol_serde::shape_package_summary_list::de_package_summary_list(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
+-                "nextToken" => {
+-                    builder = builder.set_next_token(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
 -                }
+                 "packages" => {
+                     builder = builder.set_packages(super::super::protocol_serde::shape_package_summary_list::de_package_summary_list(
+                         tokens,
+@@ -142,6 +148,13 @@
+                         depth + 1,
+                     )?);
+                 }
++                "nextToken" => {
++                    builder = builder.set_next_token(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -5549,13 +8724,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_repositories.rs
 +++ generated/src/protocol_serde/shape_list_repositories.rs
-@@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_repositories::ListRepositoriesError::unhandled)?;
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_repositories::ListRepositoriesOutput, super::super::operation::list_repositories::ListRepositoriesError> {
++) -> std::result::Result<
++    super::super::operation::list_repositories::ListRepositoriesOutput,
++    super::super::operation::list_repositories::ListRepositoriesError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
+@@ -25,10 +28,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_repositories::ListRepositoriesError::unhandled)?
+-                    .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5563,14 +8750,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::list_repositories::ListRepositoriesError::InternalServerException({
-@@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_repositories::ListRepositoriesError::unhandled)?;
+         "InternalServerException" => super::super::operation::list_repositories::ListRepositoriesError::InternalServerException({
+@@ -39,10 +43,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_repositories::ListRepositoriesError::unhandled)?
+-                    .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5578,22 +8765,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::list_repositories::ListRepositoriesError::ThrottlingException({
-@@ -52,18 +54,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_repositories::ListRepositoriesError::unhandled)?;
+         "ThrottlingException" => super::super::operation::list_repositories::ListRepositoriesError::ThrottlingException({
+@@ -52,18 +57,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_repositories::ListRepositoriesError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_repositories::ListRepositoriesError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_repositories::ListRepositoriesError::unhandled)?
+-                    .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5601,14 +8788,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::list_repositories::ListRepositoriesError::ValidationException({
-@@ -74,10 +70,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_repositories::ListRepositoriesError::unhandled)?;
+         "ValidationException" => super::super::operation::list_repositories::ListRepositoriesError::ValidationException({
+@@ -74,10 +73,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_repositories::ListRepositoriesError::unhandled)?
+-                    .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5616,49 +8803,61 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::list_repositories::ListRepositoriesError::generic(generic),
-@@ -100,6 +97,16 @@
+         _ => super::super::operation::list_repositories::ListRepositoriesError::generic(generic),
+@@ -89,7 +89,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_repositories::ListRepositoriesOutput, super::super::operation::list_repositories::ListRepositoriesError> {
++) -> std::result::Result<
++    super::super::operation::list_repositories::ListRepositoriesOutput,
++    super::super::operation::list_repositories::ListRepositoriesError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_repositories::builders::ListRepositoriesOutputBuilder::default();
+@@ -100,6 +103,16 @@
      })
  }
 
 +pub fn ser_list_repositories_input(
-+    input: &super::operation::list_repositories::ListRepositoriesInput,
++    input: &super::super::operation::list_repositories::ListRepositoriesInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_repositories_input::ser_list_repositories_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_repositories_input::ser_list_repositories_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_repositories(
      _value: &[u8],
-     mut builder: super::operation::list_repositories::builders::ListRepositoriesOutputBuilder,
-@@ -116,6 +123,13 @@
+     mut builder: super::super::operation::list_repositories::builders::ListRepositoriesOutputBuilder,
+@@ -116,13 +129,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "repositories" => {
-+                    builder = builder.set_repositories(super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
-                 "nextToken" => {
-                     builder = builder.set_next_token(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -123,13 +137,6 @@
-                             .transpose()?,
-                     );
-                 }
--                "repositories" => {
--                    builder = builder.set_repositories(super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
+-                "nextToken" => {
+-                    builder = builder.set_next_token(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
 -                }
+                 "repositories" => {
+                     builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
+                         tokens,
+@@ -130,6 +136,13 @@
+                         depth + 1,
+                     )?);
+                 }
++                "nextToken" => {
++                    builder = builder.set_next_token(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -5669,13 +8868,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_repositories_in_domain.rs
 +++ generated/src/protocol_serde/shape_list_repositories_in_domain.rs
-@@ -32,10 +32,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -32,10 +28,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
+-                    .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5683,14 +8895,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::InternalServerException({
-@@ -46,10 +47,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
+         "InternalServerException" => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::InternalServerException({
+@@ -46,26 +43,33 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
+-                    .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5698,37 +8910,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ResourceNotFoundException({
-@@ -60,10 +62,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-        "ResourceNotFoundException" => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ResourceNotFoundException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ResourceNotFoundException" => {
++            super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
+                     .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ThrottlingException" => super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ThrottlingException({
-@@ -73,18 +76,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
+-                    .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
+-            };
+-            tmp
+-        }),
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ThrottlingException" => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ThrottlingException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -73,18 +77,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
+-                    .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5736,14 +8967,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ValidationException({
-@@ -95,10 +92,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
+         "ValidationException" => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ValidationException({
+@@ -95,10 +93,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
+-                    .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5751,49 +8982,49 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::generic(generic),
-@@ -124,6 +122,16 @@
+         _ => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::generic(generic),
+@@ -124,6 +123,16 @@
      })
  }
 
 +pub fn ser_list_repositories_in_domain_input(
-+    input: &super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput,
++    input: &super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_repositories_in_domain_input::ser_list_repositories_in_domain_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_repositories_in_domain_input::ser_list_repositories_in_domain_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_repositories_in_domain(
      _value: &[u8],
-     mut builder: super::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainOutputBuilder,
-@@ -140,6 +148,13 @@
+     mut builder: super::super::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainOutputBuilder,
+@@ -140,13 +149,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "repositories" => {
-+                    builder = builder.set_repositories(super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
-                 "nextToken" => {
-                     builder = builder.set_next_token(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -147,13 +162,6 @@
-                             .transpose()?,
-                     );
-                 }
--                "repositories" => {
--                    builder = builder.set_repositories(super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
+-                "nextToken" => {
+-                    builder = builder.set_next_token(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
 -                }
+                 "repositories" => {
+                     builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
+                         tokens,
+@@ -154,6 +156,13 @@
+                         depth + 1,
+                     )?);
+                 }
++                "nextToken" => {
++                    builder = builder.set_next_token(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -5804,13 +9035,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_sub_package_groups.rs
 +++ generated/src/protocol_serde/shape_list_sub_package_groups.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -28,10 +32,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
+-                    .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5818,14 +9062,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::list_sub_package_groups::ListSubPackageGroupsError::InternalServerException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
+         "InternalServerException" => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::InternalServerException({
+@@ -42,10 +47,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
+-                    .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5833,14 +9077,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::list_sub_package_groups::ListSubPackageGroupsError::ResourceNotFoundException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::ResourceNotFoundException({
+@@ -53,13 +59,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
+-                    .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5848,22 +9100,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::list_sub_package_groups::ListSubPackageGroupsError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
+         "ThrottlingException" => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::ThrottlingException({
+@@ -69,18 +79,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
+-                    .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5871,14 +9123,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::list_sub_package_groups::ListSubPackageGroupsError::ValidationException({
-@@ -91,10 +88,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
+         "ValidationException" => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::ValidationException({
+@@ -91,10 +95,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
+-                    .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5886,44 +9138,42 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::list_sub_package_groups::ListSubPackageGroupsError::generic(generic),
-@@ -120,6 +118,16 @@
+         _ => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::generic(generic),
+@@ -120,6 +125,16 @@
      })
  }
 
 +pub fn ser_list_sub_package_groups_input(
-+    input: &super::operation::list_sub_package_groups::ListSubPackageGroupsInput,
++    input: &super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_sub_package_groups_input::ser_list_sub_package_groups_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_sub_package_groups_input::ser_list_sub_package_groups_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_sub_package_groups(
      _value: &[u8],
-     mut builder: super::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder,
-@@ -136,6 +144,13 @@
+     mut builder: super::super::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder,
+@@ -136,6 +151,11 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 +                "packageGroups" => {
-+                    builder = builder.set_package_groups(super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
++                    builder = builder.set_package_groups(
++                        super::super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(tokens, _value, depth + 1)?,
++                    );
 +                }
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -143,13 +158,6 @@
+@@ -143,13 +163,6 @@
                              .transpose()?,
                      );
                  }
 -                "packageGroups" => {
--                    builder = builder.set_package_groups(super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(
+-                    builder = builder.set_package_groups(super::super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -5939,13 +9189,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_tags_for_resource.rs
 +++ generated/src/protocol_serde/shape_list_tags_for_resource.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -28,10 +32,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
+-                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5953,14 +9216,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::list_tags_for_resource::ListTagsForResourceError::ResourceNotFoundException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::ResourceNotFoundException({
+@@ -39,13 +44,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
+-                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5968,22 +9239,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::list_tags_for_resource::ListTagsForResourceError::ThrottlingException({
-@@ -55,18 +57,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+         "ThrottlingException" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::ThrottlingException({
+@@ -55,18 +64,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
+-                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -5991,14 +9262,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::list_tags_for_resource::ListTagsForResourceError::ValidationException({
-@@ -77,10 +73,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+         "ValidationException" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::ValidationException({
+@@ -77,10 +80,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
+-                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6006,24 +9277,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
-@@ -106,6 +103,16 @@
+         _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
+@@ -106,6 +110,16 @@
      })
  }
 
 +pub fn ser_list_tags_for_resource_input(
-+    input: &super::operation::list_tags_for_resource::ListTagsForResourceInput,
++    input: &super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_tags_for_resource(
      _value: &[u8],
-     mut builder: super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,
+     mut builder: super::super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_package_group_allowed_repository_update.rs`
@@ -6037,9 +9308,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
 -                        let key = key
 -                            .to_unescaped()
--                            .map(|u| super::types::PackageGroupAllowedRepositoryUpdateType::from(u.as_ref()))?;
+-                            .map(|u| super::super::types::PackageGroupAllowedRepositoryUpdateType::from(u.as_ref()))?;
 +                        let key = key.to_unescaped().map(|u| u.into_owned())?;
-                         let value = super::protocol_serde::shape_repository_name_list::de_repository_name_list(tokens, _value, depth + 1)?;
+                         let value = super::super::protocol_serde::shape_repository_name_list::de_repository_name_list(tokens, _value, depth + 1)?;
                          match value {
                              Some(value) => {
 ```
@@ -6049,17 +9320,113 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_package_group_allowed_repository_updates.rs
 +++ generated/src/protocol_serde/shape_package_group_allowed_repository_updates.rs
-@@ -28,9 +28,7 @@
+@@ -28,14 +28,13 @@
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
 -                        let key = key
 -                            .to_unescaped()
--                            .map(|u| super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
+-                            .map(|u| super::super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
+-                        let value = super::super::protocol_serde::shape_package_group_allowed_repository_update::de_package_group_allowed_repository_update(
+-                            tokens,
+-                            _value,
+-                            depth + 1,
+-                        )?;
 +                        let key = key.to_unescaped().map(|u| u.into_owned())?;
-                         let value = super::protocol_serde::shape_package_group_allowed_repository_update::de_package_group_allowed_repository_update(
-                             tokens,
-                             _value,
++                        let value =
++                            super::super::protocol_serde::shape_package_group_allowed_repository_update::de_package_group_allowed_repository_update(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?;
+                         match value {
+                             Some(value) => {
+                                 map.insert(key, value);
+```
+
+### `src/protocol_serde/shape_package_group_origin_restriction.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_package_group_origin_restriction.rs
++++ generated/src/protocol_serde/shape_package_group_origin_restriction.rs
+@@ -20,43 +20,41 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "mode" => {
+-                                builder = builder.set_mode(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| {
+-                                            s.to_unescaped()
+-                                                .map(|u| super::super::types::PackageGroupOriginRestrictionMode::from(u.as_ref()))
+-                                        })
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "effectiveMode" => {
+-                                builder = builder.set_effective_mode(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| {
+-                                            s.to_unescaped()
+-                                                .map(|u| super::super::types::PackageGroupOriginRestrictionMode::from(u.as_ref()))
+-                                        })
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "inheritedFrom" => {
+-                                builder = builder.set_inherited_from(
+-                                    super::super::protocol_serde::shape_package_group_reference::de_package_group_reference(tokens, _value, depth + 1)?,
+-                                );
+-                            }
+-                            "repositoriesCount" => {
+-                                builder = builder.set_repositories_count(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i64::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "mode" => {
++                            builder = builder.set_mode(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::PackageGroupOriginRestrictionMode::from(u.as_ref()))
++                                    })
++                                    .transpose()?,
++                            );
++                        }
++                        "effectiveMode" => {
++                            builder = builder.set_effective_mode(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::PackageGroupOriginRestrictionMode::from(u.as_ref()))
++                                    })
++                                    .transpose()?,
++                            );
++                        }
++                        "inheritedFrom" => {
++                            builder = builder.set_inherited_from(
++                                super::super::protocol_serde::shape_package_group_reference::de_package_group_reference(tokens, _value, depth + 1)?,
++                            );
++                        }
++                        "repositoriesCount" => {
++                            builder = builder.set_repositories_count(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i64::try_from)
++                                    .transpose()?,
++                            );
+                         }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_package_group_origin_restrictions.rs`
@@ -6073,11 +9440,100 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
 -                        let key = key
 -                            .to_unescaped()
--                            .map(|u| super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
+-                            .map(|u| super::super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
 +                        let key = key.to_unescaped().map(|u| u.into_owned())?;
-                         let value = super::protocol_serde::shape_package_group_origin_restriction::de_package_group_origin_restriction(
+                         let value = super::super::protocol_serde::shape_package_group_origin_restriction::de_package_group_origin_restriction(
                              tokens,
                              _value,
+```
+
+### `src/protocol_serde/shape_package_origin_configuration.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_package_origin_configuration.rs
++++ generated/src/protocol_serde/shape_package_origin_configuration.rs
+@@ -23,7 +23,11 @@
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "restrictions" => {
+                             builder = builder.set_restrictions(
+-                                super::super::protocol_serde::shape_package_origin_restrictions::de_package_origin_restrictions(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_package_origin_restrictions::de_package_origin_restrictions(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+```
+
+### `src/protocol_serde/shape_package_version_origin.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_package_version_origin.rs
++++ generated/src/protocol_serde/shape_package_version_origin.rs
+@@ -20,23 +20,23 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                        "domainEntryPoint" => {
+-                            builder = builder.set_domain_entry_point(super::super::protocol_serde::shape_domain_entry_point::de_domain_entry_point(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                        match key.to_unescaped()?.as_ref() {
++                            "domainEntryPoint" => {
++                                builder = builder.set_domain_entry_point(
++                                    super::super::protocol_serde::shape_domain_entry_point::de_domain_entry_point(tokens, _value, depth + 1)?,
++                                );
++                            }
++                            "originType" => {
++                                builder = builder.set_origin_type(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| super::super::types::PackageVersionOriginType::from(u.as_ref())))
++                                        .transpose()?,
++                                );
++                            }
++                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                         }
+-                        "originType" => {
+-                            builder = builder.set_origin_type(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::PackageVersionOriginType::from(u.as_ref())))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    },
++                    }
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+```
+
+### `src/protocol_serde/shape_package_version_summary.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_package_version_summary.rs
++++ generated/src/protocol_serde/shape_package_version_summary.rs
+@@ -58,9 +58,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::package_version_summary_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::package_version_summary_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_publish_package_version.rs`
@@ -6085,13 +9541,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_publish_package_version.rs
 +++ generated/src/protocol_serde/shape_publish_package_version.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -28,10 +32,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6099,14 +9568,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::publish_package_version::PublishPackageVersionError::ConflictException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
+         "ConflictException" => super::super::operation::publish_package_version::PublishPackageVersionError::ConflictException({
+@@ -42,10 +47,11 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6114,14 +9583,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::publish_package_version::PublishPackageVersionError::InternalServerException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
+         "InternalServerException" => super::super::operation::publish_package_version::PublishPackageVersionError::InternalServerException({
+@@ -56,10 +62,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6129,29 +9598,35 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::publish_package_version::PublishPackageVersionError::ResourceNotFoundException({
-@@ -70,10 +73,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+         "ResourceNotFoundException" => super::super::operation::publish_package_version::PublishPackageVersionError::ResourceNotFoundException({
+@@ -67,32 +74,39 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ServiceQuotaExceededException" => super::operation::publish_package_version::PublishPackageVersionError::ServiceQuotaExceededException({
-@@ -87,10 +91,11 @@
+-                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ServiceQuotaExceededException" => super::super::operation::publish_package_version::PublishPackageVersionError::ServiceQuotaExceededException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
+-                #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
+                     _response_body,
+                     output,
                  )
-                 .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
+                 .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6159,22 +9634,44 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::publish_package_version::PublishPackageVersionError::ThrottlingException({
-@@ -100,18 +105,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
++        "ServiceQuotaExceededException" => {
++            super::super::operation::publish_package_version::PublishPackageVersionError::ServiceQuotaExceededException({
++                #[allow(unused_mut)]
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ThrottlingException" => super::super::operation::publish_package_version::PublishPackageVersionError::ThrottlingException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -100,18 +114,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::publish_package_version::PublishPackageVersionError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::publish_package_version::PublishPackageVersionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6182,14 +9679,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::publish_package_version::PublishPackageVersionError::ValidationException({
-@@ -122,10 +121,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
+         "ValidationException" => super::super::operation::publish_package_version::PublishPackageVersionError::ValidationException({
+@@ -122,10 +130,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
+-                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6197,14 +9694,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::publish_package_version::PublishPackageVersionError::generic(generic),
-@@ -151,22 +151,14 @@
+         _ => super::super::operation::publish_package_version::PublishPackageVersionError::generic(generic),
+@@ -151,22 +160,14 @@
      })
  }
 
 -pub fn ser_publish_package_version_headers(
 +pub fn ser_publish_package_version_input(
-     input: &super::operation::publish_package_version::PublishPackageVersionInput,
+     input: &super::super::operation::publish_package_version::PublishPackageVersionInput,
 -    mut builder: ::http_1x::request::Builder,
 -) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
 -    if let ::std::option::Option::Some(inner_1) = &input.asset_sha256 {
@@ -6222,49 +9719,53 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_publish_package_version_input::ser_publish_package_version_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_publish_package_version_input::ser_publish_package_version_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 
  pub(crate) fn de_publish_package_version(
-@@ -185,9 +177,6 @@
+@@ -185,9 +186,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "asset" => {
--                    builder = builder.set_asset(super::protocol_serde::shape_asset_summary::de_asset_summary(tokens, _value, depth + 1)?);
+-                    builder = builder.set_asset(super::super::protocol_serde::shape_asset_summary::de_asset_summary(tokens, _value, depth + 1)?);
 -                }
                  "format" => {
                      builder = builder.set_format(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -209,13 +198,6 @@
+@@ -209,13 +207,6 @@
                              .transpose()?,
                      );
                  }
 -                "status" => {
 -                    builder = builder.set_status(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| super::types::PackageVersionStatus::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageVersionStatus::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
                  "version" => {
                      builder = builder.set_version(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -230,6 +212,16 @@
+@@ -230,6 +221,20 @@
                              .transpose()?,
                      );
                  }
 +                "status" => {
 +                    builder = builder.set_status(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| super::types::PackageVersionStatus::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageVersionStatus::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
 +                }
 +                "asset" => {
-+                    builder = builder.set_asset(super::protocol_serde::shape_asset_summary::de_asset_summary(tokens, _value, depth + 1)?);
++                    builder = builder.set_asset(super::super::protocol_serde::shape_asset_summary::de_asset_summary(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -6284,7 +9785,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    Ok(payload)
 +pub fn ser_publish_package_version_input_input(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::operation::publish_package_version::PublishPackageVersionInput,
++    input: &super::super::operation::publish_package_version::PublishPackageVersionInput,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.domain {
 +        object.key("domain").string(var_1.as_str());
@@ -6329,12 +9830,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_put_domain_permissions_policy.rs
 +++ generated/src/protocol_serde/shape_put_domain_permissions_policy.rs
 @@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
+-                    .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6342,14 +9843,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ConflictException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
+         "ConflictException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ConflictException({
+@@ -42,40 +43,51 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
+-                    .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6357,44 +9858,79 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::InternalServerException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-        "InternalServerException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::InternalServerException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "InternalServerException" => {
++            super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::InternalServerException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ResourceNotFoundException" => super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ResourceNotFoundException({
-@@ -70,10 +73,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ResourceNotFoundException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ResourceNotFoundException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ResourceNotFoundException" => {
++            super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
+                     .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
+-                    .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
          "ServiceQuotaExceededException" => {
-@@ -88,10 +92,11 @@
+             super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ServiceQuotaExceededException({
+                 #[allow(unused_mut)]
+@@ -88,10 +100,11 @@
                      )
-                     .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
+                     .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                    super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -6403,21 +9939,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -102,18 +107,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
+@@ -102,18 +115,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
+-                    .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6425,14 +9961,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ValidationException({
-@@ -124,10 +123,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
+         "ValidationException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ValidationException({
+@@ -124,10 +131,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
+-                    .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6440,7 +9976,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::generic(generic),
+         _ => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::generic(generic),
 ```
 
 ### `src/protocol_serde/shape_put_domain_permissions_policy_input.rs`
@@ -6471,28 +10007,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_package_origin_configuration.rs
 +++ generated/src/protocol_serde/shape_put_package_origin_configuration.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+@@ -20,20 +20,23 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AccessDeniedException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::AccessDeniedException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "AccessDeniedException" => {
++            super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::AccessDeniedException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
+-                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
          "InternalServerException" => {
-@@ -43,10 +44,11 @@
-                     output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                         .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
+             super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::InternalServerException({
+                 #[allow(unused_mut)]
+@@ -40,13 +43,15 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::internal_server_exception_correct_errors(output)
+-                    super::super::serde_util::internal_server_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
+-                        .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -6501,13 +10065,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -60,10 +62,11 @@
-                         super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                             .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
+@@ -56,52 +61,54 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
+-                        .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -6516,44 +10089,76 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -74,18 +77,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
+-        "ThrottlingException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ThrottlingException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ThrottlingException" => {
++            super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ThrottlingException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
-                 let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                let output = output.meta(generic);
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ValidationException" => super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ValidationException({
-@@ -96,10 +93,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ValidationException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ValidationException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ValidationException" => {
++            super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ValidationException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::generic(generic),
+-                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         _ => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::generic(generic),
+     })
+ }
 ```
 
 ### `src/protocol_serde/shape_put_package_origin_configuration_input.rs`
@@ -6563,7 +10168,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_package_origin_configuration_input.rs
 @@ -3,11 +3,29 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput,
+     input: &super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.restrictions {
 +    if let Some(var_1) = &input.domain {
@@ -6587,10 +10192,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_7) = &input.restrictions {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("restrictions").start_object();
--        super::protocol_serde::shape_package_origin_restrictions::ser_package_origin_restrictions(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_package_origin_restrictions::ser_package_origin_restrictions(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_8 = object.key("restrictions").start_object();
-+        super::protocol_serde::shape_package_origin_restrictions::ser_package_origin_restrictions(&mut object_8, var_7)?;
++        super::super::protocol_serde::shape_package_origin_restrictions::ser_package_origin_restrictions(&mut object_8, var_7)?;
 +        object_8.finish();
      }
      Ok(())
@@ -6602,28 +10207,50 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_repository_permissions_policy.rs
 +++ generated/src/protocol_serde/shape_put_repository_permissions_policy.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+@@ -20,20 +20,23 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AccessDeniedException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::AccessDeniedException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "AccessDeniedException" => {
++            super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::AccessDeniedException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ConflictException" => super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ConflictException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
+-                    .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ConflictException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ConflictException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -42,10 +45,11 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
+-                    .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6632,13 +10259,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "InternalServerException" => {
-@@ -57,10 +59,11 @@
-                     output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                         .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
+@@ -54,13 +58,15 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::internal_server_exception_correct_errors(output)
+-                    super::super::serde_util::internal_server_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -6647,13 +10280,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -74,10 +77,11 @@
-                         super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                             .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
+@@ -70,14 +76,17 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -6662,13 +10304,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -93,10 +97,11 @@
+@@ -93,48 +102,48 @@
                      )
-                     .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
+                     .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                    super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
+-                        .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -6677,44 +10319,88 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -107,18 +112,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
+-        "ThrottlingException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ThrottlingException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ThrottlingException" => {
++            super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ThrottlingException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
-                 let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                let output = output.meta(generic);
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ValidationException" => super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ValidationException({
-@@ -129,10 +128,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                    .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
+-        "ValidationException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ValidationException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ValidationException" => {
++            super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ValidationException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::generic(generic),
+-                    .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         _ => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::generic(generic),
+     })
+ }
+@@ -163,7 +172,10 @@
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    super::super::protocol_serde::shape_put_repository_permissions_policy_input::ser_put_repository_permissions_policy_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_put_repository_permissions_policy_input::ser_put_repository_permissions_policy_input_input(
++        &mut object,
++        input,
++    )?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
 ```
 
 ### `src/protocol_serde/shape_put_repository_permissions_policy_input.rs`
@@ -6724,7 +10410,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_repository_permissions_policy_input.rs
 @@ -3,11 +3,20 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput,
+     input: &super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.policy_document {
 -        object.key("policyDocument").string(var_1.as_str());
@@ -6754,17 +10440,142 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_repository_description.rs
 +++ generated/src/protocol_serde/shape_repository_description.rs
-@@ -74,9 +74,7 @@
-                                 );
-                             }
-                             "externalConnections" => {
--                                builder = builder.set_external_connections(
--                                    super::protocol_serde::shape_repository_external_connection_info_list::de_repository_external_connection_info_list(tokens, _value, depth + 1)?
+@@ -20,73 +20,69 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "name" => {
+-                                builder = builder.set_name(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
 -                                );
-+                                builder = builder.set_external_connections(super::protocol_serde::shape_repository_external_connection_info_list::de_repository_external_connection_info_list(tokens, _value, depth + 1)?);
-                             }
-                             "createdTime" => {
-                                 builder = builder.set_created_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+-                            }
+-                            "administratorAccount" => {
+-                                builder = builder.set_administrator_account(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "domainName" => {
+-                                builder = builder.set_domain_name(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "domainOwner" => {
+-                                builder = builder.set_domain_owner(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "arn" => {
+-                                builder = builder.set_arn(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "description" => {
+-                                builder = builder.set_description(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "upstreams" => {
+-                                builder = builder.set_upstreams(
+-                                    super::super::protocol_serde::shape_upstream_repository_info_list::de_upstream_repository_info_list(
+-                                        tokens,
+-                                        _value,
+-                                        depth + 1,
+-                                    )?,
+-                                );
+-                            }
+-                            "externalConnections" => {
+-                                builder = builder.set_external_connections(
+-                                    super::super::protocol_serde::shape_repository_external_connection_info_list::de_repository_external_connection_info_list(tokens, _value, depth + 1)?
+-                                );
+-                            }
+-                            "createdTime" => {
+-                                builder = builder.set_created_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+-                                    tokens.next(),
+-                                    ::aws_smithy_types::date_time::Format::EpochSeconds,
+-                                )?);
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "name" => {
++                            builder = builder.set_name(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "administratorAccount" => {
++                            builder = builder.set_administrator_account(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "domainName" => {
++                            builder = builder.set_domain_name(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "domainOwner" => {
++                            builder = builder.set_domain_owner(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "arn" => {
++                            builder = builder.set_arn(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "description" => {
++                            builder = builder.set_description(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "upstreams" => {
++                            builder = builder.set_upstreams(
++                                super::super::protocol_serde::shape_upstream_repository_info_list::de_upstream_repository_info_list(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
++                            );
++                        }
++                        "externalConnections" => {
++                            builder = builder.set_external_connections(super::super::protocol_serde::shape_repository_external_connection_info_list::de_repository_external_connection_info_list(tokens, _value, depth + 1)?);
++                        }
++                        "createdTime" => {
++                            builder = builder.set_created_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
++                                tokens.next(),
++                                ::aws_smithy_types::date_time::Format::EpochSeconds,
++                            )?);
+                         }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_resource_not_found_exception.rs`
@@ -6772,12 +10583,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_resource_not_found_exception.rs
 +++ generated/src/protocol_serde/shape_resource_not_found_exception.rs
-@@ -47,5 +47,7 @@
+@@ -2,7 +2,10 @@
+ pub(crate) fn de_resource_not_found_exception_json_err(
+     _value: &[u8],
+     mut builder: super::super::types::error::builders::ResourceNotFoundExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ResourceNotFoundExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++) -> ::std::result::Result<
++    super::super::types::error::builders::ResourceNotFoundExceptionBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+@@ -47,5 +50,7 @@
              "found more JSON tokens after completing parsing",
          ));
      }
 -    Ok(builder)
-+    Ok(super::serde_util::resource_not_found_exception_correct_errors(builder)
++    Ok(super::super::serde_util::resource_not_found_exception_correct_errors(builder)
 +        .build()
 +        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
  }
@@ -6788,12 +10611,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_service_quota_exceeded_exception.rs
 +++ generated/src/protocol_serde/shape_service_quota_exceeded_exception.rs
-@@ -48,5 +48,7 @@
+@@ -2,8 +2,10 @@
+ pub(crate) fn de_service_quota_exceeded_exception_json_err(
+     _value: &[u8],
+     mut builder: super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+-{
++) -> ::std::result::Result<
++    super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+@@ -48,5 +50,7 @@
              "found more JSON tokens after completing parsing",
          ));
      }
 -    Ok(builder)
-+    Ok(super::serde_util::service_quota_exceeded_exception_correct_errors(builder)
++    Ok(super::super::serde_util::service_quota_exceeded_exception_correct_errors(builder)
 +        .build()
 +        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
  }
@@ -6805,12 +10641,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_tag_resource.rs
 +++ generated/src/protocol_serde/shape_tag_resource.rs
 @@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::tag_resource::TagResourceError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::tag_resource::TagResourceError::unhandled)?
+-                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6818,14 +10654,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::tag_resource::TagResourceError::ResourceNotFoundException({
-@@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::tag_resource::TagResourceError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::tag_resource::TagResourceError::ResourceNotFoundException({
+@@ -36,13 +37,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::tag_resource::TagResourceError::unhandled)?
+-                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6833,14 +10677,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ServiceQuotaExceededException" => super::operation::tag_resource::TagResourceError::ServiceQuotaExceededException({
-@@ -56,10 +58,11 @@
+         "ServiceQuotaExceededException" => super::super::operation::tag_resource::TagResourceError::ServiceQuotaExceededException({
+@@ -56,10 +61,11 @@
                  )
-                 .map_err(super::operation::tag_resource::TagResourceError::unhandled)?;
+                 .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::tag_resource::TagResourceError::unhandled)?
+-                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6848,20 +10692,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::tag_resource::TagResourceError::ThrottlingException({
-@@ -69,16 +72,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::tag_resource::TagResourceError::unhandled)?;
+         "ThrottlingException" => super::super::operation::tag_resource::TagResourceError::ThrottlingException({
+@@ -69,16 +75,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::tag_resource::TagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::tag_resource::TagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::tag_resource::TagResourceError::unhandled)?
+-                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6869,14 +10713,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::tag_resource::TagResourceError::ValidationException({
-@@ -89,10 +88,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::tag_resource::TagResourceError::unhandled)?;
+         "ValidationException" => super::super::operation::tag_resource::TagResourceError::ValidationException({
+@@ -89,10 +91,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::tag_resource::TagResourceError::unhandled)?
+-                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -6884,18 +10728,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::tag_resource::TagResourceError::generic(generic),
-@@ -122,3 +122,34 @@
+         _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+@@ -122,3 +125,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_tag_resource(
 +    _value: &[u8],
-+    mut builder: super::operation::tag_resource::builders::TagResourceOutputBuilder,
-+) -> ::std::result::Result<super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    mut builder: super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
++) -> ::std::result::Result<
++    super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -6929,7 +10775,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_tag_resource_input.rs
 @@ -3,17 +3,20 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::tag_resource::TagResourceInput,
+     input: &super::super::operation::tag_resource::TagResourceInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.tags {
 -        let mut array_2 = object.key("tags").start_array();
@@ -6943,10 +10789,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_tag::ser_tag(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_tag::ser_tag(&mut object_4, item_3)?;
 -                object_4.finish();
 +                let mut object_5 = array_3.value().start_object();
-+                super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
++                super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
 +                object_5.finish();
              }
          }
@@ -6962,7 +10808,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_throttling_exception.rs
 +++ generated/src/protocol_serde/shape_throttling_exception.rs
-@@ -40,21 +40,7 @@
+@@ -2,7 +2,8 @@
+ pub(crate) fn de_throttling_exception_json_err(
+     _value: &[u8],
+     mut builder: super::super::types::error::builders::ThrottlingExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ThrottlingExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++) -> ::std::result::Result<super::super::types::error::builders::ThrottlingExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+@@ -40,21 +41,7 @@
              "found more JSON tokens after completing parsing",
          ));
      }
@@ -6983,7 +10839,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let mut var_1 = var_1;
 -        Ok(var_1.pop())
 -    }
-+    Ok(super::serde_util::throttling_exception_correct_errors(builder)
++    Ok(super::super::serde_util::throttling_exception_correct_errors(builder)
 +        .build()
 +        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
  }
@@ -6995,12 +10851,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_untag_resource.rs
 +++ generated/src/protocol_serde/shape_untag_resource.rs
 @@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::untag_resource::UntagResourceError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::untag_resource::UntagResourceError::unhandled)?
+-                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7008,14 +10864,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::untag_resource::UntagResourceError::ResourceNotFoundException({
-@@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::untag_resource::UntagResourceError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::untag_resource::UntagResourceError::ResourceNotFoundException({
+@@ -36,13 +37,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::untag_resource::UntagResourceError::unhandled)?
+-                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7023,20 +10887,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::untag_resource::UntagResourceError::ThrottlingException({
-@@ -52,16 +54,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::untag_resource::UntagResourceError::unhandled)?;
+         "ThrottlingException" => super::super::operation::untag_resource::UntagResourceError::ThrottlingException({
+@@ -52,16 +57,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::untag_resource::UntagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::untag_resource::UntagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::untag_resource::UntagResourceError::unhandled)?
+-                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7044,14 +10908,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::untag_resource::UntagResourceError::ValidationException({
-@@ -72,10 +70,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::untag_resource::UntagResourceError::unhandled)?;
+         "ValidationException" => super::super::operation::untag_resource::UntagResourceError::ValidationException({
+@@ -72,10 +73,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::untag_resource::UntagResourceError::unhandled)?
+-                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7059,20 +10923,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::untag_resource::UntagResourceError::generic(generic),
-@@ -105,3 +104,36 @@
+         _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+@@ -105,3 +107,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_untag_resource(
 +    _value: &[u8],
-+    mut builder: super::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    mut builder: super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -7106,7 +10970,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_untag_resource_input.rs
 @@ -3,14 +3,17 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::untag_resource::UntagResourceInput,
+     input: &super::super::operation::untag_resource::UntagResourceInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.tag_keys {
 -        let mut array_2 = object.key("tagKeys").start_array();
@@ -7135,12 +10999,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_update_package_group.rs
 +++ generated/src/protocol_serde/shape_update_package_group.rs
 @@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7148,14 +11012,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::update_package_group::UpdatePackageGroupError::InternalServerException({
+         "InternalServerException" => super::super::operation::update_package_group::UpdatePackageGroupError::InternalServerException({
 @@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7163,14 +11027,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::update_package_group::UpdatePackageGroupError::ResourceNotFoundException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::update_package_group::UpdatePackageGroupError::ResourceNotFoundException({
+@@ -53,13 +55,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7178,14 +11050,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ServiceQuotaExceededException" => super::operation::update_package_group::UpdatePackageGroupError::ServiceQuotaExceededException({
-@@ -73,10 +76,11 @@
+         "ServiceQuotaExceededException" => super::super::operation::update_package_group::UpdatePackageGroupError::ServiceQuotaExceededException({
+@@ -73,10 +79,11 @@
                  )
-                 .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
+                 .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7193,22 +11065,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::update_package_group::UpdatePackageGroupError::ThrottlingException({
-@@ -86,18 +90,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
+         "ThrottlingException" => super::super::operation::update_package_group::UpdatePackageGroupError::ThrottlingException({
+@@ -86,18 +93,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::update_package_group::UpdatePackageGroupError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::update_package_group::UpdatePackageGroupError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7216,14 +11088,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::update_package_group::UpdatePackageGroupError::ValidationException({
-@@ -108,10 +106,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
+         "ValidationException" => super::super::operation::update_package_group::UpdatePackageGroupError::ValidationException({
+@@ -108,10 +109,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
+-                    .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7231,7 +11103,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::update_package_group::UpdatePackageGroupError::generic(generic),
+         _ => super::super::operation::update_package_group::UpdatePackageGroupError::generic(generic),
+@@ -164,11 +166,9 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "packageGroup" => {
+-                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
++                    builder = builder.set_package_group(
++                        super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?,
++                    );
+                 }
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+             },
 ```
 
 ### `src/protocol_serde/shape_update_package_group_input.rs`
@@ -7241,7 +11128,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_package_group_input.rs
 @@ -3,14 +3,20 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::update_package_group::UpdatePackageGroupInput,
+     input: &super::super::operation::update_package_group::UpdatePackageGroupInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.contact_info {
 -        object.key("contactInfo").string(var_1.as_str());
@@ -7271,132 +11158,263 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_package_group_origin_configuration.rs
 +++ generated/src/protocol_serde/shape_update_package_group_origin_configuration.rs
-@@ -33,10 +33,11 @@
-                             super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
-                         )?;
-                     let output = output.meta(generic);
--                    super::serde_util::access_denied_exception_correct_errors(output)
--                        .build()
--                        .map_err(super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
-+                    output.build()
-                 };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-                 tmp
-             })
+@@ -16,127 +16,98 @@
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled(generic))
++            return Err(
++                super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled(generic),
++            )
          }
-@@ -51,10 +52,11 @@
-                             super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
-                         )?;
-                     let output = output.meta(generic);
--                    super::serde_util::internal_server_exception_correct_errors(output)
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AccessDeniedException" => {
+-            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::AccessDeniedException({
++        "AccessDeniedException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::AccessDeniedException({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                        .map_err(
+-                            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
+-                        )?;
+-                    let output = output.meta(generic);
+-                    super::super::serde_util::access_denied_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
-+                    output.build()
-                 };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-                 tmp
-             })
-         }
-@@ -70,10 +72,11 @@
-                             super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
-                         )?;
-                     let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
+-                };
+-                tmp
+-            })
+-        }
+-        "InternalServerException" => {
+-            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::InternalServerException({
++                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
++        "InternalServerException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::InternalServerException({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(
+-                            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
+-                        )?;
+-                    let output = output.meta(generic);
+-                    super::super::serde_util::internal_server_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
-+                    output.build()
-                 };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-                 tmp
-             })
-         }
-@@ -89,10 +92,11 @@
-                     )
-                     .map_err(super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
-                     let output = output.meta(generic);
--                    super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
+-                };
+-                tmp
+-            })
+-        }
+-        "ResourceNotFoundException" => {
+-            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ResourceNotFoundException({
++                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
++        "ResourceNotFoundException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ResourceNotFoundException({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(
+-                            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
+-                        )?;
+-                    let output = output.meta(generic);
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
-+                    output.build()
-                 };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-                 tmp
-             })
-         }
-@@ -105,18 +109,12 @@
-                     output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(
-                         super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
-                     )?;
+-                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
+-                };
+-                tmp
+-            })
+-        }
+-        "ServiceQuotaExceededException" => {
+-            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ServiceQuotaExceededException({
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
++        "ServiceQuotaExceededException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ServiceQuotaExceededException({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
+-                        _response_body,
+-                        output,
+-                    )
+-                    .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                        .build()
+-                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
+-                };
+-                tmp
+-            })
+-        }
+-        "ThrottlingException" => {
+-            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ThrottlingException({
++                let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
++        "ThrottlingException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ThrottlingException({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(
+-                        super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
+-                    )?;
 -                    output = output.set_retry_after_seconds(
--                        super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled(
+-                        super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
 -                    );
-                     let output = output.meta(generic);
--                    super::serde_util::throttling_exception_correct_errors(output)
+-                    let output = output.meta(generic);
+-                    super::super::serde_util::throttling_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
-+                    output.build()
-                 };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-                 tmp
-             })
-         }
-@@ -130,10 +128,11 @@
-                         super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
-                     )?;
-                     let output = output.meta(generic);
--                    super::serde_util::validation_exception_correct_errors(output)
+-                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
+-                };
+-                tmp
+-            })
+-        }
+-        "ValidationException" => {
+-            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ValidationException({
++                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
++        "ValidationException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ValidationException({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(
+-                        super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
+-                    )?;
+-                    let output = output.meta(generic);
+-                    super::super::serde_util::validation_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
-+                    output.build()
-                 };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-                 tmp
-             })
-         }
-@@ -193,6 +192,13 @@
+-                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
+-                };
+-                tmp
+-            })
+-        }
++                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         _ => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::generic(generic),
+     })
+ }
+@@ -153,7 +124,8 @@
+     Ok({
+         #[allow(unused_mut)]
+         let mut output =
+-            super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder::default();
++            super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder::default(
++            );
+         output = super::super::protocol_serde::shape_update_package_group_origin_configuration::de_update_package_group_origin_configuration(
+             _response_body,
+             output,
+@@ -192,25 +164,19 @@
+     loop {
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "packageGroup" => {
-+                    builder = builder.set_package_group(super::protocol_serde::shape_package_group_description::de_package_group_description(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
-                 "allowedRepositoryUpdates" => {
-                     builder = builder.set_allowed_repository_updates(
-                         super::protocol_serde::shape_package_group_allowed_repository_updates::de_package_group_allowed_repository_updates(
-@@ -202,13 +208,6 @@
-                         )?,
-                     );
+-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                "allowedRepositoryUpdates" => {
+-                    builder = builder.set_allowed_repository_updates(
+-                        super::super::protocol_serde::shape_package_group_allowed_repository_updates::de_package_group_allowed_repository_updates(
+-                            tokens,
+-                            _value,
+-                            depth + 1,
+-                        )?,
+-                    );
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                match key.to_unescaped()?.as_ref() {
++                    "packageGroup" => {
++                        builder = builder.set_package_group(
++                            super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?,
++                        );
++                    }
++                    "allowedRepositoryUpdates" => {
++                        builder = builder.set_allowed_repository_updates(super::super::protocol_serde::shape_package_group_allowed_repository_updates::de_package_group_allowed_repository_updates(tokens, _value, depth + 1)?);
++                    }
++                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                  }
 -                "packageGroup" => {
--                    builder = builder.set_package_group(super::protocol_serde::shape_package_group_description::de_package_group_description(
+-                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
 -                    )?);
 -                }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-             },
+-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-            },
++            }
              other => {
+                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                     "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_update_package_group_origin_configuration_input.rs`
@@ -7406,7 +11424,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_package_group_origin_configuration_input.rs
 @@ -3,39 +3,48 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
+     input: &super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.add_allowed_repositories {
 -        let mut array_2 = object.key("addAllowedRepositories").start_array();
@@ -7427,7 +11445,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
 -                #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_4, item_3)?;
 -                object_4.finish();
 +                object_5.key(key_6.as_str()).string(value_7.as_str());
              }
@@ -7444,10 +11462,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_8 = array_6.value().start_object();
--                super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_8, item_7)?;
+-                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_8, item_7)?;
 -                object_8.finish();
 +                let mut object_11 = array_9.value().start_object();
-+                super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_11, item_10)?;
++                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_11, item_10)?;
 +                object_11.finish();
              }
          }
@@ -7465,7 +11483,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                object_10.key(key_11.as_str()).string(value_12.as_str());
 +                #[allow(unused_mut)]
 +                let mut object_15 = array_13.value().start_object();
-+                super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_15, item_14)?;
++                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_15, item_14)?;
 +                object_15.finish();
              }
          }
@@ -7481,13 +11499,50 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_package_versions_status.rs
 +++ generated/src/protocol_serde/shape_update_package_versions_status.rs
-@@ -28,10 +28,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+@@ -20,20 +20,23 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AccessDeniedException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::AccessDeniedException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "AccessDeniedException" => {
++            super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::AccessDeniedException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
+-                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ConflictException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ConflictException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -42,26 +45,31 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
+                 let output = output.meta(generic);
+-                super::super::serde_util::conflict_exception_correct_errors(output)
+-                    .build()
+-                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7495,44 +11550,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ConflictException({
-@@ -42,10 +43,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-        "InternalServerException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::InternalServerException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "InternalServerException" => {
++            super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::InternalServerException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
+-                let output = output.meta(generic);
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "InternalServerException" => super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::InternalServerException({
-@@ -56,10 +58,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
-                 let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
--                    .build()
--                    .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
-+                output.build()
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
+-                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
+-            };
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
          "ResourceNotFoundException" => {
-@@ -72,10 +75,11 @@
-                         super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                             .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
+             super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+@@ -68,14 +76,17 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
                      let output = output.meta(generic);
--                    super::serde_util::resource_not_found_exception_correct_errors(output)
+-                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                        .build()
--                        .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
+-                        .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
 +                    output.build()
                  };
 +                if tmp.message.is_none() {
@@ -7541,21 +11608,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -86,18 +90,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
+@@ -86,18 +97,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
+-                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7563,14 +11630,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ValidationException({
-@@ -108,10 +106,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
+         "ValidationException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ValidationException({
+@@ -108,10 +113,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
+-                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7578,13 +11645,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::generic(generic),
-@@ -163,13 +162,6 @@
+         _ => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::generic(generic),
+@@ -163,13 +169,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "failedVersions" => {
--                    builder = builder.set_failed_versions(super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
+-                    builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -7592,17 +11659,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
                  "successfulVersions" => {
                      builder = builder.set_successful_versions(
-                         super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
-@@ -179,6 +171,13 @@
+                         super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
+@@ -179,6 +178,11 @@
                          )?,
                      );
                  }
 +                "failedVersions" => {
-+                    builder = builder.set_failed_versions(super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
++                    builder = builder.set_failed_versions(
++                        super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?,
++                    );
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -7616,7 +11681,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_package_versions_status_input.rs
 @@ -3,21 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput,
+     input: &super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.expected_status {
 -        object.key("expectedStatus").string(var_1.as_str());
@@ -7680,13 +11745,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_repository.rs
 +++ generated/src/protocol_serde/shape_update_repository.rs
-@@ -25,10 +25,11 @@
-                 output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?;
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::update_repository::UpdateRepositoryOutput, super::super::operation::update_repository::UpdateRepositoryError> {
++) -> std::result::Result<
++    super::super::operation::update_repository::UpdateRepositoryOutput,
++    super::super::operation::update_repository::UpdateRepositoryError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
+@@ -25,10 +28,11 @@
+                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::access_denied_exception_correct_errors(output)
+-                super::super::serde_util::access_denied_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7694,14 +11771,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ConflictException" => super::operation::update_repository::UpdateRepositoryError::ConflictException({
-@@ -39,10 +40,11 @@
-                 output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?;
+         "ConflictException" => super::super::operation::update_repository::UpdateRepositoryError::ConflictException({
+@@ -39,10 +43,11 @@
+                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::conflict_exception_correct_errors(output)
+-                super::super::serde_util::conflict_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7709,14 +11786,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "InternalServerException" => super::operation::update_repository::UpdateRepositoryError::InternalServerException({
-@@ -53,10 +55,11 @@
-                 output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?;
+         "InternalServerException" => super::super::operation::update_repository::UpdateRepositoryError::InternalServerException({
+@@ -53,10 +58,11 @@
+                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::internal_server_exception_correct_errors(output)
+-                super::super::serde_util::internal_server_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7724,14 +11801,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ResourceNotFoundException" => super::operation::update_repository::UpdateRepositoryError::ResourceNotFoundException({
-@@ -67,10 +70,11 @@
-                 output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?;
+         "ResourceNotFoundException" => super::super::operation::update_repository::UpdateRepositoryError::ResourceNotFoundException({
+@@ -64,13 +70,17 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::resource_not_found_exception_correct_errors(output)
+-                super::super::serde_util::resource_not_found_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7739,14 +11824,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ServiceQuotaExceededException" => super::operation::update_repository::UpdateRepositoryError::ServiceQuotaExceededException({
-@@ -84,10 +88,11 @@
+         "ServiceQuotaExceededException" => super::super::operation::update_repository::UpdateRepositoryError::ServiceQuotaExceededException({
+@@ -84,10 +94,11 @@
                  )
-                 .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?;
+                 .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+-                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7754,22 +11839,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ThrottlingException" => super::operation::update_repository::UpdateRepositoryError::ThrottlingException({
-@@ -97,18 +102,12 @@
-                 let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?;
+         "ThrottlingException" => super::super::operation::update_repository::UpdateRepositoryError::ThrottlingException({
+@@ -97,18 +108,12 @@
+                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::operation::update_repository::UpdateRepositoryError::unhandled(
+-                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::super::operation::update_repository::UpdateRepositoryError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
 -                );
                  let output = output.meta(generic);
--                super::serde_util::throttling_exception_correct_errors(output)
+-                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7777,14 +11862,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         "ValidationException" => super::operation::update_repository::UpdateRepositoryError::ValidationException({
-@@ -119,10 +118,11 @@
-                 output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                     .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?;
+         "ValidationException" => super::super::operation::update_repository::UpdateRepositoryError::ValidationException({
+@@ -119,10 +124,11 @@
+                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                     .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
--                super::serde_util::validation_exception_correct_errors(output)
+-                super::super::serde_util::validation_exception_correct_errors(output)
 -                    .build()
--                    .map_err(super::operation::update_repository::UpdateRepositoryError::unhandled)?
+-                    .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
 +                output.build()
              };
 +            if tmp.message.is_none() {
@@ -7792,7 +11877,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
              tmp
          }),
-         _ => super::operation::update_repository::UpdateRepositoryError::generic(generic),
+         _ => super::super::operation::update_repository::UpdateRepositoryError::generic(generic),
+@@ -134,7 +140,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::update_repository::UpdateRepositoryOutput, super::super::operation::update_repository::UpdateRepositoryError> {
++) -> std::result::Result<
++    super::super::operation::update_repository::UpdateRepositoryOutput,
++    super::super::operation::update_repository::UpdateRepositoryError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::update_repository::builders::UpdateRepositoryOutputBuilder::default();
 ```
 
 ### `src/protocol_serde/shape_update_repository_input.rs`
@@ -7802,7 +11899,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_repository_input.rs
 @@ -3,20 +3,29 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::update_repository::UpdateRepositoryInput,
+     input: &super::super::operation::update_repository::UpdateRepositoryInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.description {
 -        object.key("description").string(var_1.as_str());
@@ -7827,10 +11924,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_5 = array_3.value().start_object();
--                super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_5, item_4)?;
+-                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_5, item_4)?;
 -                object_5.finish();
 +                let mut object_8 = array_6.value().start_object();
-+                super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_8, item_7)?;
++                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_8, item_7)?;
 +                object_8.finish();
              }
          }
@@ -7841,17 +11938,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/protocol_serde/shape_upstream_repository_info_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_upstream_repository_info_list.rs
++++ generated/src/protocol_serde/shape_upstream_repository_info_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::UpstreamRepositoryInfo>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::UpstreamRepositoryInfo>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +26,8 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = super::super::protocol_serde::shape_upstream_repository_info::de_upstream_repository_info(tokens, _value, depth + 1)?;
++                        let value =
++                            super::super::protocol_serde::shape_upstream_repository_info::de_upstream_repository_info(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
+```
+
 ### `src/protocol_serde/shape_validation_exception.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_validation_exception.rs
 +++ generated/src/protocol_serde/shape_validation_exception.rs
-@@ -40,5 +40,7 @@
+@@ -2,7 +2,8 @@
+ pub(crate) fn de_validation_exception_json_err(
+     _value: &[u8],
+     mut builder: super::super::types::error::builders::ValidationExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ValidationExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++) -> ::std::result::Result<super::super::types::error::builders::ValidationExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+@@ -40,5 +41,7 @@
              "found more JSON tokens after completing parsing",
          ));
      }
 -    Ok(builder)
-+    Ok(super::serde_util::validation_exception_correct_errors(builder)
++    Ok(super::super::serde_util::validation_exception_correct_errors(builder)
 +        .build()
 +        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
  }
@@ -7960,6 +12096,44 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_put_package_origin_configuration_input;
 ```
 
+### `src/types/_package_group_allowed_repository_update_type.rs`
+
+```diff
+--- reference/src/types/_package_group_allowed_repository_update_type.rs
++++ generated/src/types/_package_group_allowed_repository_update_type.rs
+@@ -55,7 +55,9 @@
+         match s {
+             "ADDED" => PackageGroupAllowedRepositoryUpdateType::Added,
+             "REMOVED" => PackageGroupAllowedRepositoryUpdateType::Removed,
+-            other => PackageGroupAllowedRepositoryUpdateType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
++            other => {
++                PackageGroupAllowedRepositoryUpdateType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
++            }
+         }
+     }
+ }
+```
+
+### `src/types/_package_group_origin_configuration.rs`
+
+```diff
+--- reference/src/types/_package_group_origin_configuration.rs
++++ generated/src/types/_package_group_origin_configuration.rs
+@@ -40,7 +40,11 @@
+     /// To override the contents of this collection use [`set_restrictions`](Self::set_restrictions).
+     ///
+     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
+-    pub fn restrictions(mut self, k: super::super::types::PackageGroupOriginRestrictionType, v: super::super::types::PackageGroupOriginRestriction) -> Self {
++    pub fn restrictions(
++        mut self,
++        k: super::super::types::PackageGroupOriginRestrictionType,
++        v: super::super::types::PackageGroupOriginRestriction,
++    ) -> Self {
+         let mut hash_map = self.restrictions.unwrap_or_default();
+         hash_map.insert(k, v);
+         self.restrictions = ::std::option::Option::Some(hash_map);
+```
+
 ### `src/types/_package_version_origin_type.rs`
 
 ```diff
@@ -7995,14 +12169,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    Unknown,
      /// `Unknown` contains new variants that have been added since this code was generated.
      #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-     Unknown(super::primitives::sealed_enum_unknown::UnknownVariantValue),
+     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
 @@ -60,7 +58,7 @@
          match s {
              "EXTERNAL" => PackageVersionOriginType::External,
              "INTERNAL" => PackageVersionOriginType::Internal,
 -            "UNKNOWN" => PackageVersionOriginType::UnknownValue,
 +            "UNKNOWN" => PackageVersionOriginType::Unknown,
-             other => PackageVersionOriginType::Unknown(super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+             other => PackageVersionOriginType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
          }
      }
 @@ -78,7 +76,7 @@
@@ -8022,6 +12196,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            PackageVersionOriginType::Unknown => write!(f, "UNKNOWN"),
              PackageVersionOriginType::Unknown(value) => write!(f, "{value}"),
          }
+     }
+```
+
+### `src/types/_repository_description.rs`
+
+```diff
+--- reference/src/types/_repository_description.rs
++++ generated/src/types/_repository_description.rs
+@@ -203,7 +203,10 @@
+         self
+     }
+     /// <p>An array of external connections associated with the repository.</p>
+-    pub fn set_external_connections(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::RepositoryExternalConnectionInfo>>) -> Self {
++    pub fn set_external_connections(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::RepositoryExternalConnectionInfo>>,
++    ) -> Self {
+         self.external_connections = input;
+         self
      }
 ```
 
@@ -8052,6 +12245,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          Ok(())
      }
+@@ -79,7 +81,9 @@
+     /// Consumes the builder and constructs a [`AccessDeniedException`](crate::types::error::AccessDeniedException).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`message`](crate::types::error::builders::AccessDeniedExceptionBuilder::message)
+-    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::AccessDeniedException, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::types::error::AccessDeniedException, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::types::error::AccessDeniedException {
+             message: self.message.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/types/error/_conflict_exception.rs`
@@ -8081,6 +12285,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          Ok(())
      }
+@@ -123,7 +125,9 @@
+     /// Consumes the builder and constructs a [`ConflictException`](crate::types::error::ConflictException).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`message`](crate::types::error::builders::ConflictExceptionBuilder::message)
+-    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::ConflictException, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::types::error::ConflictException, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::types::error::ConflictException {
+             message: self.message.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/types/error/_internal_server_exception.rs`
@@ -8110,6 +12325,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          Ok(())
      }
+@@ -79,7 +81,9 @@
+     /// Consumes the builder and constructs a [`InternalServerException`](crate::types::error::InternalServerException).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`message`](crate::types::error::builders::InternalServerExceptionBuilder::message)
+-    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::InternalServerException, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::types::error::InternalServerException, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::types::error::InternalServerException {
+             message: self.message.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/types/error/_resource_not_found_exception.rs`
@@ -8139,6 +12365,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          Ok(())
      }
+@@ -123,7 +125,9 @@
+     /// Consumes the builder and constructs a [`ResourceNotFoundException`](crate::types::error::ResourceNotFoundException).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`message`](crate::types::error::builders::ResourceNotFoundExceptionBuilder::message)
+-    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::ResourceNotFoundException, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::types::error::ResourceNotFoundException, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::types::error::ResourceNotFoundException {
+             message: self.message.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/types/error/_service_quota_exceeded_exception.rs`
@@ -8168,6 +12405,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          Ok(())
      }
+@@ -125,7 +127,8 @@
+     /// - [`message`](crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::message)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::types::error::ServiceQuotaExceededException, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<super::super::super::types::error::ServiceQuotaExceededException, ::aws_smithy_types::error::operation::BuildError>
++    {
+         ::std::result::Result::Ok(super::super::super::types::error::ServiceQuotaExceededException {
+             message: self.message.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/types/error/_throttling_exception.rs`
@@ -8197,6 +12444,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          Ok(())
      }
+@@ -102,7 +104,9 @@
+     /// Consumes the builder and constructs a [`ThrottlingException`](crate::types::error::ThrottlingException).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`message`](crate::types::error::builders::ThrottlingExceptionBuilder::message)
+-    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::ThrottlingException, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::types::error::ThrottlingException, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::types::error::ThrottlingException {
+             message: self.message.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/types/error/_validation_exception.rs`
@@ -8226,6 +12484,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          Ok(())
      }
+@@ -102,7 +104,9 @@
+     /// Consumes the builder and constructs a [`ValidationException`](crate::types::error::ValidationException).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`message`](crate::types::error::builders::ValidationExceptionBuilder::message)
+-    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::types::error::ValidationException {
+             message: self.message.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### Missing reference files

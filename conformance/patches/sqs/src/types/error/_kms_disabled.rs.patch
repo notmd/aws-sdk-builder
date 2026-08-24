@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for KmsDisabled {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::KmsDisabled {
-+impl ::aws_types::request_id::RequestId for super::types::error::KmsDisabled {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::KmsDisabled {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`KmsDisabled`](crate::types::error::KmsDisabled).
 -    pub fn builder() -> crate::types::error::builders::KmsDisabledBuilder {
 -        crate::types::error::builders::KmsDisabledBuilder::default()
-+    pub fn builder() -> super::types::error::builders::KmsDisabledBuilder {
-+        super::types::error::builders::KmsDisabledBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::KmsDisabledBuilder {
++        super::super::super::types::error::builders::KmsDisabledBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`KmsDisabled`](crate::types::error::KmsDisabled).
 -    pub fn build(self) -> crate::types::error::KmsDisabled {
 -        crate::types::error::KmsDisabled {
-+    pub fn build(self) -> super::types::error::KmsDisabled {
-+        super::types::error::KmsDisabled {
++    pub fn build(self) -> super::super::super::types::error::KmsDisabled {
++        super::super::super::types::error::KmsDisabled {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

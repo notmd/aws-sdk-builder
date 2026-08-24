@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetPolicyOutput`](crate::operation::get_policy::GetPolicyOutput).
 -    pub fn builder() -> crate::operation::get_policy::builders::GetPolicyOutputBuilder {
 -        crate::operation::get_policy::builders::GetPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_policy::builders::GetPolicyOutputBuilder {
-+        super::operation::get_policy::builders::GetPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_policy::builders::GetPolicyOutputBuilder {
++        super::super::super::operation::get_policy::builders::GetPolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetPolicyOutput`](crate::operation::get_policy::GetPolicyOutput).
 -    pub fn build(self) -> crate::operation::get_policy::GetPolicyOutput {
 -        crate::operation::get_policy::GetPolicyOutput {
-+    pub fn build(self) -> super::operation::get_policy::GetPolicyOutput {
-+        super::operation::get_policy::GetPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::get_policy::GetPolicyOutput {
++        super::super::super::operation::get_policy::GetPolicyOutput {
              policy: self.policy,
              revision_id: self.revision_id,
              _request_id: self._request_id,

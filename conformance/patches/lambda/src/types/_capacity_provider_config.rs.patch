@@ -5,14 +5,14 @@
  pub struct CapacityProviderConfig {
      /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
 -    pub lambda_managed_instances_capacity_provider_config: ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,
-+    pub lambda_managed_instances_capacity_provider_config: ::std::option::Option<super::types::LambdaManagedInstancesCapacityProviderConfig>,
++    pub lambda_managed_instances_capacity_provider_config: ::std::option::Option<super::super::types::LambdaManagedInstancesCapacityProviderConfig>,
  }
  impl CapacityProviderConfig {
      /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
      pub fn lambda_managed_instances_capacity_provider_config(
          &self,
 -    ) -> ::std::option::Option<&crate::types::LambdaManagedInstancesCapacityProviderConfig> {
-+    ) -> ::std::option::Option<&super::types::LambdaManagedInstancesCapacityProviderConfig> {
++    ) -> ::std::option::Option<&super::super::types::LambdaManagedInstancesCapacityProviderConfig> {
          self.lambda_managed_instances_capacity_provider_config.as_ref()
      }
  }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`CapacityProviderConfig`](crate::types::CapacityProviderConfig).
 -    pub fn builder() -> crate::types::builders::CapacityProviderConfigBuilder {
 -        crate::types::builders::CapacityProviderConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::CapacityProviderConfigBuilder {
-+        super::types::builders::CapacityProviderConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::CapacityProviderConfigBuilder {
++        super::super::types::builders::CapacityProviderConfigBuilder::default()
      }
  }
 
@@ -30,13 +30,13 @@
  #[non_exhaustive]
  pub struct CapacityProviderConfigBuilder {
 -    pub(crate) lambda_managed_instances_capacity_provider_config: ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,
-+    pub(crate) lambda_managed_instances_capacity_provider_config: ::std::option::Option<super::types::LambdaManagedInstancesCapacityProviderConfig>,
++    pub(crate) lambda_managed_instances_capacity_provider_config: ::std::option::Option<super::super::types::LambdaManagedInstancesCapacityProviderConfig>,
  }
  impl CapacityProviderConfigBuilder {
      /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
      /// This field is required.
 -    pub fn lambda_managed_instances_capacity_provider_config(mut self, input: crate::types::LambdaManagedInstancesCapacityProviderConfig) -> Self {
-+    pub fn lambda_managed_instances_capacity_provider_config(mut self, input: super::types::LambdaManagedInstancesCapacityProviderConfig) -> Self {
++    pub fn lambda_managed_instances_capacity_provider_config(mut self, input: super::super::types::LambdaManagedInstancesCapacityProviderConfig) -> Self {
          self.lambda_managed_instances_capacity_provider_config = ::std::option::Option::Some(input);
          self
      }
@@ -45,7 +45,7 @@
      pub fn set_lambda_managed_instances_capacity_provider_config(
          mut self,
 -        input: ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,
-+        input: ::std::option::Option<super::types::LambdaManagedInstancesCapacityProviderConfig>,
++        input: ::std::option::Option<super::super::types::LambdaManagedInstancesCapacityProviderConfig>,
      ) -> Self {
          self.lambda_managed_instances_capacity_provider_config = input;
          self
@@ -54,14 +54,14 @@
      pub fn get_lambda_managed_instances_capacity_provider_config(
          &self,
 -    ) -> &::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig> {
-+    ) -> &::std::option::Option<super::types::LambdaManagedInstancesCapacityProviderConfig> {
++    ) -> &::std::option::Option<super::super::types::LambdaManagedInstancesCapacityProviderConfig> {
          &self.lambda_managed_instances_capacity_provider_config
      }
      /// Consumes the builder and constructs a [`CapacityProviderConfig`](crate::types::CapacityProviderConfig).
 -    pub fn build(self) -> crate::types::CapacityProviderConfig {
 -        crate::types::CapacityProviderConfig {
-+    pub fn build(self) -> super::types::CapacityProviderConfig {
-+        super::types::CapacityProviderConfig {
++    pub fn build(self) -> super::super::types::CapacityProviderConfig {
++        super::super::types::CapacityProviderConfig {
              lambda_managed_instances_capacity_provider_config: self.lambda_managed_instances_capacity_provider_config,
          }
      }

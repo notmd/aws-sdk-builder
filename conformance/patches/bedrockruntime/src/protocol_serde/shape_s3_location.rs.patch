@@ -5,7 +5,7 @@
  pub fn ser_s3_location(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::S3Location,
-+    input: &super::types::S3Location,
++    input: &super::super::types::S3Location,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("uri").string(input.uri.as_str());
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::S3Location>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::S3Location>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::S3Location>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,7 +23,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::S3LocationBuilder::default();
-+            let mut builder = super::types::builders::S3LocationBuilder::default();
++            let mut builder = super::super::types::builders::S3LocationBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -32,7 +32,7 @@
                  }
              }
 -            Ok(Some(crate::serde_util::s3_location_correct_errors(builder).build().map_err(|err| {
-+            Ok(Some(super::serde_util::s3_location_correct_errors(builder).build().map_err(|err| {
++            Ok(Some(super::super::serde_util::s3_location_correct_errors(builder).build().map_err(|err| {
                  ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
              })?))
          }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteTableInput`](crate::operation::delete_table::DeleteTableInput).
 -    pub fn builder() -> crate::operation::delete_table::builders::DeleteTableInputBuilder {
 -        crate::operation::delete_table::builders::DeleteTableInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_table::builders::DeleteTableInputBuilder {
-+        super::operation::delete_table::builders::DeleteTableInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_table::builders::DeleteTableInputBuilder {
++        super::super::super::operation::delete_table::builders::DeleteTableInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`DeleteTableInput`](crate::operation::delete_table::DeleteTableInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::delete_table::DeleteTableInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::delete_table::DeleteTableInput { table_name: self.table_name })
-+    pub fn build(self) -> ::std::result::Result<super::operation::delete_table::DeleteTableInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::delete_table::DeleteTableInput { table_name: self.table_name })
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_table::DeleteTableInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::delete_table::DeleteTableInput { table_name: self.table_name })
      }
  }

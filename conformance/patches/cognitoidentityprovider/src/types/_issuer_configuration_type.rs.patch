@@ -5,7 +5,7 @@
      /// </dd>
      /// </dl>
 -    pub r#type: ::std::option::Option<crate::types::IssuerType>,
-+    pub r#type: ::std::option::Option<super::types::IssuerType>,
++    pub r#type: ::std::option::Option<super::super::types::IssuerType>,
  }
  impl IssuerConfigurationType {
      /// <p>The type of issuer configuration. Determines the token issuing behavior for the user pool.</p>
@@ -14,7 +14,7 @@
      /// </dd>
      /// </dl>
 -    pub fn r#type(&self) -> ::std::option::Option<&crate::types::IssuerType> {
-+    pub fn r#type(&self) -> ::std::option::Option<&super::types::IssuerType> {
++    pub fn r#type(&self) -> ::std::option::Option<&super::super::types::IssuerType> {
          self.r#type.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`IssuerConfigurationType`](crate::types::IssuerConfigurationType).
 -    pub fn builder() -> crate::types::builders::IssuerConfigurationTypeBuilder {
 -        crate::types::builders::IssuerConfigurationTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::IssuerConfigurationTypeBuilder {
-+        super::types::builders::IssuerConfigurationTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::IssuerConfigurationTypeBuilder {
++        super::super::types::builders::IssuerConfigurationTypeBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  #[non_exhaustive]
  pub struct IssuerConfigurationTypeBuilder {
 -    pub(crate) r#type: ::std::option::Option<crate::types::IssuerType>,
-+    pub(crate) r#type: ::std::option::Option<super::types::IssuerType>,
++    pub(crate) r#type: ::std::option::Option<super::super::types::IssuerType>,
  }
  impl IssuerConfigurationTypeBuilder {
      /// <p>The type of issuer configuration. Determines the token issuing behavior for the user pool.</p>
@@ -41,7 +41,7 @@
      /// </dd>
      /// </dl>
 -    pub fn r#type(mut self, input: crate::types::IssuerType) -> Self {
-+    pub fn r#type(mut self, input: super::types::IssuerType) -> Self {
++    pub fn r#type(mut self, input: super::super::types::IssuerType) -> Self {
          self.r#type = ::std::option::Option::Some(input);
          self
      }
@@ -50,7 +50,7 @@
      /// </dd>
      /// </dl>
 -    pub fn set_type(mut self, input: ::std::option::Option<crate::types::IssuerType>) -> Self {
-+    pub fn set_type(mut self, input: ::std::option::Option<super::types::IssuerType>) -> Self {
++    pub fn set_type(mut self, input: ::std::option::Option<super::super::types::IssuerType>) -> Self {
          self.r#type = input;
          self
      }
@@ -59,13 +59,13 @@
      /// </dd>
      /// </dl>
 -    pub fn get_type(&self) -> &::std::option::Option<crate::types::IssuerType> {
-+    pub fn get_type(&self) -> &::std::option::Option<super::types::IssuerType> {
++    pub fn get_type(&self) -> &::std::option::Option<super::super::types::IssuerType> {
          &self.r#type
      }
      /// Consumes the builder and constructs a [`IssuerConfigurationType`](crate::types::IssuerConfigurationType).
 -    pub fn build(self) -> crate::types::IssuerConfigurationType {
 -        crate::types::IssuerConfigurationType { r#type: self.r#type }
-+    pub fn build(self) -> super::types::IssuerConfigurationType {
-+        super::types::IssuerConfigurationType { r#type: self.r#type }
++    pub fn build(self) -> super::super::types::IssuerConfigurationType {
++        super::super::types::IssuerConfigurationType { r#type: self.r#type }
      }
  }

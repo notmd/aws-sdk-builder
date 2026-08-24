@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Bucket`](crate::types::Bucket).
 -    pub fn builder() -> crate::types::builders::BucketBuilder {
 -        crate::types::builders::BucketBuilder::default()
-+    pub fn builder() -> super::types::builders::BucketBuilder {
-+        super::types::builders::BucketBuilder::default()
++    pub fn builder() -> super::super::types::builders::BucketBuilder {
++        super::super::types::builders::BucketBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Bucket`](crate::types::Bucket).
 -    pub fn build(self) -> crate::types::Bucket {
 -        crate::types::Bucket {
-+    pub fn build(self) -> super::types::Bucket {
-+        super::types::Bucket {
++    pub fn build(self) -> super::super::types::Bucket {
++        super::super::types::Bucket {
              name: self.name,
              creation_date: self.creation_date,
              bucket_region: self.bucket_region,

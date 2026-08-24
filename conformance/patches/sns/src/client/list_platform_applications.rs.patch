@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListPlatformApplicationsError>`](crate::operation::list_platform_applications::ListPlatformApplicationsError)
 -    pub fn list_platform_applications(&self) -> crate::operation::list_platform_applications::builders::ListPlatformApplicationsFluentBuilder {
 -        crate::operation::list_platform_applications::builders::ListPlatformApplicationsFluentBuilder::new(self.handle.clone())
-+    pub fn list_platform_applications(&self) -> super::operation::list_platform_applications::builders::ListPlatformApplicationsFluentBuilder {
-+        super::operation::list_platform_applications::builders::ListPlatformApplicationsFluentBuilder::new(self.handle.clone())
++    pub fn list_platform_applications(&self) -> super::super::operation::list_platform_applications::builders::ListPlatformApplicationsFluentBuilder {
++        super::super::operation::list_platform_applications::builders::ListPlatformApplicationsFluentBuilder::new(self.handle.clone())
      }
  }

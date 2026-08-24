@@ -5,11 +5,11 @@
  pub struct TransactGetItemsOutput {
      /// <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>, this is an array of <code>ConsumedCapacity</code> objects, one for each table addressed by <code>TransactGetItem</code> objects in the <i>TransactItems</i> parameter. These <code>ConsumedCapacity</code> objects report the read-capacity units consumed by the <code>TransactGetItems</code> call in that table.</p>
 -    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
-+    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::types::ConsumedCapacity>>,
++    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
      /// <p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p>
      /// <p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map.</p>
 -    pub responses: ::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>>,
-+    pub responses: ::std::option::Option<::std::vec::Vec<super::types::ItemResponse>>,
++    pub responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>>,
      _request_id: Option<String>,
  }
  impl TransactGetItemsOutput {
@@ -18,7 +18,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.consumed_capacity.is_none()`.
 -    pub fn consumed_capacity(&self) -> &[crate::types::ConsumedCapacity] {
-+    pub fn consumed_capacity(&self) -> &[super::types::ConsumedCapacity] {
++    pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] {
          self.consumed_capacity.as_deref().unwrap_or_default()
      }
      /// <p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p>
@@ -27,7 +27,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.responses.is_none()`.
 -    pub fn responses(&self) -> &[crate::types::ItemResponse] {
-+    pub fn responses(&self) -> &[super::types::ItemResponse] {
++    pub fn responses(&self) -> &[super::super::super::types::ItemResponse] {
          self.responses.as_deref().unwrap_or_default()
      }
  }
@@ -37,8 +37,8 @@
      /// Creates a new builder-style object to manufacture [`TransactGetItemsOutput`](crate::operation::transact_get_items::TransactGetItemsOutput).
 -    pub fn builder() -> crate::operation::transact_get_items::builders::TransactGetItemsOutputBuilder {
 -        crate::operation::transact_get_items::builders::TransactGetItemsOutputBuilder::default()
-+    pub fn builder() -> super::operation::transact_get_items::builders::TransactGetItemsOutputBuilder {
-+        super::operation::transact_get_items::builders::TransactGetItemsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::transact_get_items::builders::TransactGetItemsOutputBuilder {
++        super::super::super::operation::transact_get_items::builders::TransactGetItemsOutputBuilder::default()
      }
  }
 
@@ -48,8 +48,8 @@
  pub struct TransactGetItemsOutputBuilder {
 -    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
 -    pub(crate) responses: ::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>>,
-+    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<super::types::ConsumedCapacity>>,
-+    pub(crate) responses: ::std::option::Option<::std::vec::Vec<super::types::ItemResponse>>,
++    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    pub(crate) responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>>,
      _request_id: Option<String>,
  }
  impl TransactGetItemsOutputBuilder {
@@ -58,7 +58,7 @@
      ///
      /// <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>, this is an array of <code>ConsumedCapacity</code> objects, one for each table addressed by <code>TransactGetItem</code> objects in the <i>TransactItems</i> parameter. These <code>ConsumedCapacity</code> objects report the read-capacity units consumed by the <code>TransactGetItems</code> call in that table.</p>
 -    pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
-+    pub fn consumed_capacity(mut self, input: super::types::ConsumedCapacity) -> Self {
++    pub fn consumed_capacity(mut self, input: super::super::super::types::ConsumedCapacity) -> Self {
          let mut v = self.consumed_capacity.unwrap_or_default();
          v.push(input);
          self.consumed_capacity = ::std::option::Option::Some(v);
@@ -67,13 +67,13 @@
      }
      /// <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>, this is an array of <code>ConsumedCapacity</code> objects, one for each table addressed by <code>TransactGetItem</code> objects in the <i>TransactItems</i> parameter. These <code>ConsumedCapacity</code> objects report the read-capacity units consumed by the <code>TransactGetItems</code> call in that table.</p>
 -    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
-+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ConsumedCapacity>>) -> Self {
++    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self {
          self.consumed_capacity = input;
          self
      }
      /// <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>, this is an array of <code>ConsumedCapacity</code> objects, one for each table addressed by <code>TransactGetItem</code> objects in the <i>TransactItems</i> parameter. These <code>ConsumedCapacity</code> objects report the read-capacity units consumed by the <code>TransactGetItems</code> call in that table.</p>
 -    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> {
-+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ConsumedCapacity>> {
++    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> {
          &self.consumed_capacity
      }
      /// Appends an item to `responses`.
@@ -82,7 +82,7 @@
      /// <p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p>
      /// <p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map.</p>
 -    pub fn responses(mut self, input: crate::types::ItemResponse) -> Self {
-+    pub fn responses(mut self, input: super::types::ItemResponse) -> Self {
++    pub fn responses(mut self, input: super::super::super::types::ItemResponse) -> Self {
          let mut v = self.responses.unwrap_or_default();
          v.push(input);
          self.responses = ::std::option::Option::Some(v);
@@ -91,14 +91,14 @@
      /// <p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p>
      /// <p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map.</p>
 -    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>>) -> Self {
-+    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ItemResponse>>) -> Self {
++    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>>) -> Self {
          self.responses = input;
          self
      }
      /// <p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p>
      /// <p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map.</p>
 -    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>> {
-+    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ItemResponse>> {
++    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>> {
          &self.responses
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -108,8 +108,8 @@
      /// Consumes the builder and constructs a [`TransactGetItemsOutput`](crate::operation::transact_get_items::TransactGetItemsOutput).
 -    pub fn build(self) -> crate::operation::transact_get_items::TransactGetItemsOutput {
 -        crate::operation::transact_get_items::TransactGetItemsOutput {
-+    pub fn build(self) -> super::operation::transact_get_items::TransactGetItemsOutput {
-+        super::operation::transact_get_items::TransactGetItemsOutput {
++    pub fn build(self) -> super::super::super::operation::transact_get_items::TransactGetItemsOutput {
++        super::super::super::operation::transact_get_items::TransactGetItemsOutput {
              consumed_capacity: self.consumed_capacity,
              responses: self.responses,
              _request_id: self._request_id,

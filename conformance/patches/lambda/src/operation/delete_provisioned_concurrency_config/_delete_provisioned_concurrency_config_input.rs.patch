@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteProvisionedConcurrencyConfigInput`](crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput).
 -    pub fn builder() -> crate::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder {
 -        crate::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder {
-+        super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder {
++        super::super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput,
-+        super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput,
++        super::super::super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput {
-+            super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput {
++            super::super::super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput {
                  function_name: self.function_name,
                  qualifier: self.qualifier,
              },

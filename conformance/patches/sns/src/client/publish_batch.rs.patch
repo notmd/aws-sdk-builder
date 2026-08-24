@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PublishBatchError>`](crate::operation::publish_batch::PublishBatchError)
 -    pub fn publish_batch(&self) -> crate::operation::publish_batch::builders::PublishBatchFluentBuilder {
 -        crate::operation::publish_batch::builders::PublishBatchFluentBuilder::new(self.handle.clone())
-+    pub fn publish_batch(&self) -> super::operation::publish_batch::builders::PublishBatchFluentBuilder {
-+        super::operation::publish_batch::builders::PublishBatchFluentBuilder::new(self.handle.clone())
++    pub fn publish_batch(&self) -> super::super::operation::publish_batch::builders::PublishBatchFluentBuilder {
++        super::super::operation::publish_batch::builders::PublishBatchFluentBuilder::new(self.handle.clone())
      }
  }

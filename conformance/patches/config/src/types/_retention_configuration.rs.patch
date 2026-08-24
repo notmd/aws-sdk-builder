@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RetentionConfiguration`](crate::types::RetentionConfiguration).
 -    pub fn builder() -> crate::types::builders::RetentionConfigurationBuilder {
 -        crate::types::builders::RetentionConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::RetentionConfigurationBuilder {
-+        super::types::builders::RetentionConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::RetentionConfigurationBuilder {
++        super::super::types::builders::RetentionConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`retention_period_in_days`](crate::types::builders::RetentionConfigurationBuilder::retention_period_in_days)
 -    pub fn build(self) -> ::std::result::Result<crate::types::RetentionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::RetentionConfiguration {
-+    pub fn build(self) -> ::std::result::Result<super::types::RetentionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::RetentionConfiguration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::RetentionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::RetentionConfiguration {
              name: self.name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "name",

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AssumeRootError>`](crate::operation::assume_root::AssumeRootError)
 -    pub fn assume_root(&self) -> crate::operation::assume_root::builders::AssumeRootFluentBuilder {
 -        crate::operation::assume_root::builders::AssumeRootFluentBuilder::new(self.handle.clone())
-+    pub fn assume_root(&self) -> super::operation::assume_root::builders::AssumeRootFluentBuilder {
-+        super::operation::assume_root::builders::AssumeRootFluentBuilder::new(self.handle.clone())
++    pub fn assume_root(&self) -> super::super::operation::assume_root::builders::AssumeRootFluentBuilder {
++        super::super::operation::assume_root::builders::AssumeRootFluentBuilder::new(self.handle.clone())
      }
  }

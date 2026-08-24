@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsFluentBuilder {
 -        crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsFluentBuilder {
-+        super::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsFluentBuilder {
++        super::super::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsFluentBuilder::new(self.handle.clone())
      }
  }

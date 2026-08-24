@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutAccountVdmAttributesOutput`](crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput).
 -    pub fn builder() -> crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder {
 -        crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder {
-+        super::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder {
++        super::super::super::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutAccountVdmAttributesOutput`](crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput).
 -    pub fn build(self) -> crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput {
 -        crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput {
-+    pub fn build(self) -> super::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput {
-+        super::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput {
++    pub fn build(self) -> super::super::super::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput {
++        super::super::super::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput {
              _request_id: self._request_id,
          }
      }

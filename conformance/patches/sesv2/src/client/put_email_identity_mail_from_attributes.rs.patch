@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder {
 -        crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder {
-+        super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder {
++        super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,37 +5,37 @@
      pub parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      /// <p>The retry strategy to use for failed jobs that are submitted with this job definition.</p>
 -    pub retry_strategy: ::std::option::Option<crate::types::RetryStrategy>,
-+    pub retry_strategy: ::std::option::Option<super::types::RetryStrategy>,
++    pub retry_strategy: ::std::option::Option<super::super::types::RetryStrategy>,
      /// <p>An object with properties specific to Amazon ECS-based jobs. When <code>containerProperties</code> is used in the job definition, it can't be used in addition to <code>eksProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub container_properties: ::std::option::Option<crate::types::ContainerProperties>,
-+    pub container_properties: ::std::option::Option<super::types::ContainerProperties>,
++    pub container_properties: ::std::option::Option<super::super::types::ContainerProperties>,
      /// <p>The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, Batch terminates your jobs if they aren't finished.</p>
 -    pub timeout: ::std::option::Option<crate::types::JobTimeout>,
-+    pub timeout: ::std::option::Option<super::types::JobTimeout>,
++    pub timeout: ::std::option::Option<super::super::types::JobTimeout>,
      /// <p>An object with properties that are specific to multi-node parallel jobs. When <code>nodeProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>ecsProperties</code>, or <code>eksProperties</code>.</p><note>
      /// <p>If the job runs on Fargate resources, don't specify <code>nodeProperties</code>. Use <code>containerProperties</code> instead.</p>
      /// </note>
 -    pub node_properties: ::std::option::Option<crate::types::NodeProperties>,
-+    pub node_properties: ::std::option::Option<super::types::NodeProperties>,
++    pub node_properties: ::std::option::Option<super::super::types::NodeProperties>,
      /// <p>The tags that are applied to the job definition.</p>
      pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      /// <p>Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the <code>FAILED</code> state.</p>
      pub propagate_tags: ::std::option::Option<bool>,
      /// <p>The platform capabilities required by the job definition. If no value is specified, it defaults to <code>EC2</code>. Jobs run on Fargate resources specify <code>FARGATE</code>. Jobs run on Amazon ECS Managed Instances specify <code>MANAGED_INSTANCES</code>.</p>
 -    pub platform_capabilities: ::std::option::Option<::std::vec::Vec<crate::types::PlatformCapability>>,
-+    pub platform_capabilities: ::std::option::Option<::std::vec::Vec<super::types::PlatformCapability>>,
++    pub platform_capabilities: ::std::option::Option<::std::vec::Vec<super::super::types::PlatformCapability>>,
      /// <p>An object that contains the properties for the Amazon ECS resources of a job.When <code>ecsProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>eksProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub ecs_properties: ::std::option::Option<crate::types::EcsProperties>,
-+    pub ecs_properties: ::std::option::Option<super::types::EcsProperties>,
++    pub ecs_properties: ::std::option::Option<super::super::types::EcsProperties>,
      /// <p>An object with properties that are specific to Amazon EKS-based jobs. When <code>eksProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub eks_properties: ::std::option::Option<crate::types::EksProperties>,
-+    pub eks_properties: ::std::option::Option<super::types::EksProperties>,
++    pub eks_properties: ::std::option::Option<super::super::types::EksProperties>,
      /// <p>The orchestration type of the compute environment. The valid values are <code>ECS</code> (default) or <code>EKS</code>.</p>
 -    pub container_orchestration_type: ::std::option::Option<crate::types::OrchestrationType>,
-+    pub container_orchestration_type: ::std::option::Option<super::types::OrchestrationType>,
++    pub container_orchestration_type: ::std::option::Option<super::super::types::OrchestrationType>,
      /// <p>Contains a list of consumable resources required by the job.</p>
 -    pub consumable_resource_properties: ::std::option::Option<crate::types::ConsumableResourceProperties>,
-+    pub consumable_resource_properties: ::std::option::Option<super::types::ConsumableResourceProperties>,
++    pub consumable_resource_properties: ::std::option::Option<super::super::types::ConsumableResourceProperties>,
  }
  impl JobDefinition {
      /// <p>The name of the job definition.</p>
@@ -44,24 +44,24 @@
      }
      /// <p>The retry strategy to use for failed jobs that are submitted with this job definition.</p>
 -    pub fn retry_strategy(&self) -> ::std::option::Option<&crate::types::RetryStrategy> {
-+    pub fn retry_strategy(&self) -> ::std::option::Option<&super::types::RetryStrategy> {
++    pub fn retry_strategy(&self) -> ::std::option::Option<&super::super::types::RetryStrategy> {
          self.retry_strategy.as_ref()
      }
      /// <p>An object with properties specific to Amazon ECS-based jobs. When <code>containerProperties</code> is used in the job definition, it can't be used in addition to <code>eksProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn container_properties(&self) -> ::std::option::Option<&crate::types::ContainerProperties> {
-+    pub fn container_properties(&self) -> ::std::option::Option<&super::types::ContainerProperties> {
++    pub fn container_properties(&self) -> ::std::option::Option<&super::super::types::ContainerProperties> {
          self.container_properties.as_ref()
      }
      /// <p>The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, Batch terminates your jobs if they aren't finished.</p>
 -    pub fn timeout(&self) -> ::std::option::Option<&crate::types::JobTimeout> {
-+    pub fn timeout(&self) -> ::std::option::Option<&super::types::JobTimeout> {
++    pub fn timeout(&self) -> ::std::option::Option<&super::super::types::JobTimeout> {
          self.timeout.as_ref()
      }
      /// <p>An object with properties that are specific to multi-node parallel jobs. When <code>nodeProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>ecsProperties</code>, or <code>eksProperties</code>.</p><note>
      /// <p>If the job runs on Fargate resources, don't specify <code>nodeProperties</code>. Use <code>containerProperties</code> instead.</p>
      /// </note>
 -    pub fn node_properties(&self) -> ::std::option::Option<&crate::types::NodeProperties> {
-+    pub fn node_properties(&self) -> ::std::option::Option<&super::types::NodeProperties> {
++    pub fn node_properties(&self) -> ::std::option::Option<&super::super::types::NodeProperties> {
          self.node_properties.as_ref()
      }
      /// <p>The tags that are applied to the job definition.</p>
@@ -70,27 +70,27 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.platform_capabilities.is_none()`.
 -    pub fn platform_capabilities(&self) -> &[crate::types::PlatformCapability] {
-+    pub fn platform_capabilities(&self) -> &[super::types::PlatformCapability] {
++    pub fn platform_capabilities(&self) -> &[super::super::types::PlatformCapability] {
          self.platform_capabilities.as_deref().unwrap_or_default()
      }
      /// <p>An object that contains the properties for the Amazon ECS resources of a job.When <code>ecsProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>eksProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn ecs_properties(&self) -> ::std::option::Option<&crate::types::EcsProperties> {
-+    pub fn ecs_properties(&self) -> ::std::option::Option<&super::types::EcsProperties> {
++    pub fn ecs_properties(&self) -> ::std::option::Option<&super::super::types::EcsProperties> {
          self.ecs_properties.as_ref()
      }
      /// <p>An object with properties that are specific to Amazon EKS-based jobs. When <code>eksProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn eks_properties(&self) -> ::std::option::Option<&crate::types::EksProperties> {
-+    pub fn eks_properties(&self) -> ::std::option::Option<&super::types::EksProperties> {
++    pub fn eks_properties(&self) -> ::std::option::Option<&super::super::types::EksProperties> {
          self.eks_properties.as_ref()
      }
      /// <p>The orchestration type of the compute environment. The valid values are <code>ECS</code> (default) or <code>EKS</code>.</p>
 -    pub fn container_orchestration_type(&self) -> ::std::option::Option<&crate::types::OrchestrationType> {
-+    pub fn container_orchestration_type(&self) -> ::std::option::Option<&super::types::OrchestrationType> {
++    pub fn container_orchestration_type(&self) -> ::std::option::Option<&super::super::types::OrchestrationType> {
          self.container_orchestration_type.as_ref()
      }
      /// <p>Contains a list of consumable resources required by the job.</p>
 -    pub fn consumable_resource_properties(&self) -> ::std::option::Option<&crate::types::ConsumableResourceProperties> {
-+    pub fn consumable_resource_properties(&self) -> ::std::option::Option<&super::types::ConsumableResourceProperties> {
++    pub fn consumable_resource_properties(&self) -> ::std::option::Option<&super::super::types::ConsumableResourceProperties> {
          self.consumable_resource_properties.as_ref()
      }
  }
@@ -98,8 +98,8 @@
      /// Creates a new builder-style object to manufacture [`JobDefinition`](crate::types::JobDefinition).
 -    pub fn builder() -> crate::types::builders::JobDefinitionBuilder {
 -        crate::types::builders::JobDefinitionBuilder::default()
-+    pub fn builder() -> super::types::builders::JobDefinitionBuilder {
-+        super::types::builders::JobDefinitionBuilder::default()
++    pub fn builder() -> super::super::types::builders::JobDefinitionBuilder {
++        super::super::types::builders::JobDefinitionBuilder::default()
      }
  }
 
@@ -111,10 +111,10 @@
 -    pub(crate) container_properties: ::std::option::Option<crate::types::ContainerProperties>,
 -    pub(crate) timeout: ::std::option::Option<crate::types::JobTimeout>,
 -    pub(crate) node_properties: ::std::option::Option<crate::types::NodeProperties>,
-+    pub(crate) retry_strategy: ::std::option::Option<super::types::RetryStrategy>,
-+    pub(crate) container_properties: ::std::option::Option<super::types::ContainerProperties>,
-+    pub(crate) timeout: ::std::option::Option<super::types::JobTimeout>,
-+    pub(crate) node_properties: ::std::option::Option<super::types::NodeProperties>,
++    pub(crate) retry_strategy: ::std::option::Option<super::super::types::RetryStrategy>,
++    pub(crate) container_properties: ::std::option::Option<super::super::types::ContainerProperties>,
++    pub(crate) timeout: ::std::option::Option<super::super::types::JobTimeout>,
++    pub(crate) node_properties: ::std::option::Option<super::super::types::NodeProperties>,
      pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      pub(crate) propagate_tags: ::std::option::Option<bool>,
 -    pub(crate) platform_capabilities: ::std::option::Option<::std::vec::Vec<crate::types::PlatformCapability>>,
@@ -122,11 +122,11 @@
 -    pub(crate) eks_properties: ::std::option::Option<crate::types::EksProperties>,
 -    pub(crate) container_orchestration_type: ::std::option::Option<crate::types::OrchestrationType>,
 -    pub(crate) consumable_resource_properties: ::std::option::Option<crate::types::ConsumableResourceProperties>,
-+    pub(crate) platform_capabilities: ::std::option::Option<::std::vec::Vec<super::types::PlatformCapability>>,
-+    pub(crate) ecs_properties: ::std::option::Option<super::types::EcsProperties>,
-+    pub(crate) eks_properties: ::std::option::Option<super::types::EksProperties>,
-+    pub(crate) container_orchestration_type: ::std::option::Option<super::types::OrchestrationType>,
-+    pub(crate) consumable_resource_properties: ::std::option::Option<super::types::ConsumableResourceProperties>,
++    pub(crate) platform_capabilities: ::std::option::Option<::std::vec::Vec<super::super::types::PlatformCapability>>,
++    pub(crate) ecs_properties: ::std::option::Option<super::super::types::EcsProperties>,
++    pub(crate) eks_properties: ::std::option::Option<super::super::types::EksProperties>,
++    pub(crate) container_orchestration_type: ::std::option::Option<super::super::types::OrchestrationType>,
++    pub(crate) consumable_resource_properties: ::std::option::Option<super::super::types::ConsumableResourceProperties>,
  }
  impl JobDefinitionBuilder {
      /// <p>The name of the job definition.</p>
@@ -135,60 +135,60 @@
      }
      /// <p>The retry strategy to use for failed jobs that are submitted with this job definition.</p>
 -    pub fn retry_strategy(mut self, input: crate::types::RetryStrategy) -> Self {
-+    pub fn retry_strategy(mut self, input: super::types::RetryStrategy) -> Self {
++    pub fn retry_strategy(mut self, input: super::super::types::RetryStrategy) -> Self {
          self.retry_strategy = ::std::option::Option::Some(input);
          self
      }
      /// <p>The retry strategy to use for failed jobs that are submitted with this job definition.</p>
 -    pub fn set_retry_strategy(mut self, input: ::std::option::Option<crate::types::RetryStrategy>) -> Self {
-+    pub fn set_retry_strategy(mut self, input: ::std::option::Option<super::types::RetryStrategy>) -> Self {
++    pub fn set_retry_strategy(mut self, input: ::std::option::Option<super::super::types::RetryStrategy>) -> Self {
          self.retry_strategy = input;
          self
      }
      /// <p>The retry strategy to use for failed jobs that are submitted with this job definition.</p>
 -    pub fn get_retry_strategy(&self) -> &::std::option::Option<crate::types::RetryStrategy> {
-+    pub fn get_retry_strategy(&self) -> &::std::option::Option<super::types::RetryStrategy> {
++    pub fn get_retry_strategy(&self) -> &::std::option::Option<super::super::types::RetryStrategy> {
          &self.retry_strategy
      }
      /// <p>An object with properties specific to Amazon ECS-based jobs. When <code>containerProperties</code> is used in the job definition, it can't be used in addition to <code>eksProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn container_properties(mut self, input: crate::types::ContainerProperties) -> Self {
-+    pub fn container_properties(mut self, input: super::types::ContainerProperties) -> Self {
++    pub fn container_properties(mut self, input: super::super::types::ContainerProperties) -> Self {
          self.container_properties = ::std::option::Option::Some(input);
          self
      }
      /// <p>An object with properties specific to Amazon ECS-based jobs. When <code>containerProperties</code> is used in the job definition, it can't be used in addition to <code>eksProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn set_container_properties(mut self, input: ::std::option::Option<crate::types::ContainerProperties>) -> Self {
-+    pub fn set_container_properties(mut self, input: ::std::option::Option<super::types::ContainerProperties>) -> Self {
++    pub fn set_container_properties(mut self, input: ::std::option::Option<super::super::types::ContainerProperties>) -> Self {
          self.container_properties = input;
          self
      }
      /// <p>An object with properties specific to Amazon ECS-based jobs. When <code>containerProperties</code> is used in the job definition, it can't be used in addition to <code>eksProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn get_container_properties(&self) -> &::std::option::Option<crate::types::ContainerProperties> {
-+    pub fn get_container_properties(&self) -> &::std::option::Option<super::types::ContainerProperties> {
++    pub fn get_container_properties(&self) -> &::std::option::Option<super::super::types::ContainerProperties> {
          &self.container_properties
      }
      /// <p>The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, Batch terminates your jobs if they aren't finished.</p>
 -    pub fn timeout(mut self, input: crate::types::JobTimeout) -> Self {
-+    pub fn timeout(mut self, input: super::types::JobTimeout) -> Self {
++    pub fn timeout(mut self, input: super::super::types::JobTimeout) -> Self {
          self.timeout = ::std::option::Option::Some(input);
          self
      }
      /// <p>The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, Batch terminates your jobs if they aren't finished.</p>
 -    pub fn set_timeout(mut self, input: ::std::option::Option<crate::types::JobTimeout>) -> Self {
-+    pub fn set_timeout(mut self, input: ::std::option::Option<super::types::JobTimeout>) -> Self {
++    pub fn set_timeout(mut self, input: ::std::option::Option<super::super::types::JobTimeout>) -> Self {
          self.timeout = input;
          self
      }
      /// <p>The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, Batch terminates your jobs if they aren't finished.</p>
 -    pub fn get_timeout(&self) -> &::std::option::Option<crate::types::JobTimeout> {
-+    pub fn get_timeout(&self) -> &::std::option::Option<super::types::JobTimeout> {
++    pub fn get_timeout(&self) -> &::std::option::Option<super::super::types::JobTimeout> {
          &self.timeout
      }
      /// <p>An object with properties that are specific to multi-node parallel jobs. When <code>nodeProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>ecsProperties</code>, or <code>eksProperties</code>.</p><note>
      /// <p>If the job runs on Fargate resources, don't specify <code>nodeProperties</code>. Use <code>containerProperties</code> instead.</p>
      /// </note>
 -    pub fn node_properties(mut self, input: crate::types::NodeProperties) -> Self {
-+    pub fn node_properties(mut self, input: super::types::NodeProperties) -> Self {
++    pub fn node_properties(mut self, input: super::super::types::NodeProperties) -> Self {
          self.node_properties = ::std::option::Option::Some(input);
          self
      }
@@ -197,7 +197,7 @@
      /// <p>If the job runs on Fargate resources, don't specify <code>nodeProperties</code>. Use <code>containerProperties</code> instead.</p>
      /// </note>
 -    pub fn set_node_properties(mut self, input: ::std::option::Option<crate::types::NodeProperties>) -> Self {
-+    pub fn set_node_properties(mut self, input: ::std::option::Option<super::types::NodeProperties>) -> Self {
++    pub fn set_node_properties(mut self, input: ::std::option::Option<super::super::types::NodeProperties>) -> Self {
          self.node_properties = input;
          self
      }
@@ -206,7 +206,7 @@
      /// <p>If the job runs on Fargate resources, don't specify <code>nodeProperties</code>. Use <code>containerProperties</code> instead.</p>
      /// </note>
 -    pub fn get_node_properties(&self) -> &::std::option::Option<crate::types::NodeProperties> {
-+    pub fn get_node_properties(&self) -> &::std::option::Option<super::types::NodeProperties> {
++    pub fn get_node_properties(&self) -> &::std::option::Option<super::super::types::NodeProperties> {
          &self.node_properties
      }
      /// Adds a key-value pair to `tags`.
@@ -215,7 +215,7 @@
      ///
      /// <p>The platform capabilities required by the job definition. If no value is specified, it defaults to <code>EC2</code>. Jobs run on Fargate resources specify <code>FARGATE</code>. Jobs run on Amazon ECS Managed Instances specify <code>MANAGED_INSTANCES</code>.</p>
 -    pub fn platform_capabilities(mut self, input: crate::types::PlatformCapability) -> Self {
-+    pub fn platform_capabilities(mut self, input: super::types::PlatformCapability) -> Self {
++    pub fn platform_capabilities(mut self, input: super::super::types::PlatformCapability) -> Self {
          let mut v = self.platform_capabilities.unwrap_or_default();
          v.push(input);
          self.platform_capabilities = ::std::option::Option::Some(v);
@@ -224,88 +224,88 @@
      }
      /// <p>The platform capabilities required by the job definition. If no value is specified, it defaults to <code>EC2</code>. Jobs run on Fargate resources specify <code>FARGATE</code>. Jobs run on Amazon ECS Managed Instances specify <code>MANAGED_INSTANCES</code>.</p>
 -    pub fn set_platform_capabilities(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PlatformCapability>>) -> Self {
-+    pub fn set_platform_capabilities(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PlatformCapability>>) -> Self {
++    pub fn set_platform_capabilities(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::PlatformCapability>>) -> Self {
          self.platform_capabilities = input;
          self
      }
      /// <p>The platform capabilities required by the job definition. If no value is specified, it defaults to <code>EC2</code>. Jobs run on Fargate resources specify <code>FARGATE</code>. Jobs run on Amazon ECS Managed Instances specify <code>MANAGED_INSTANCES</code>.</p>
 -    pub fn get_platform_capabilities(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PlatformCapability>> {
-+    pub fn get_platform_capabilities(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PlatformCapability>> {
++    pub fn get_platform_capabilities(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::PlatformCapability>> {
          &self.platform_capabilities
      }
      /// <p>An object that contains the properties for the Amazon ECS resources of a job.When <code>ecsProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>eksProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn ecs_properties(mut self, input: crate::types::EcsProperties) -> Self {
-+    pub fn ecs_properties(mut self, input: super::types::EcsProperties) -> Self {
++    pub fn ecs_properties(mut self, input: super::super::types::EcsProperties) -> Self {
          self.ecs_properties = ::std::option::Option::Some(input);
          self
      }
      /// <p>An object that contains the properties for the Amazon ECS resources of a job.When <code>ecsProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>eksProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn set_ecs_properties(mut self, input: ::std::option::Option<crate::types::EcsProperties>) -> Self {
-+    pub fn set_ecs_properties(mut self, input: ::std::option::Option<super::types::EcsProperties>) -> Self {
++    pub fn set_ecs_properties(mut self, input: ::std::option::Option<super::super::types::EcsProperties>) -> Self {
          self.ecs_properties = input;
          self
      }
      /// <p>An object that contains the properties for the Amazon ECS resources of a job.When <code>ecsProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>eksProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn get_ecs_properties(&self) -> &::std::option::Option<crate::types::EcsProperties> {
-+    pub fn get_ecs_properties(&self) -> &::std::option::Option<super::types::EcsProperties> {
++    pub fn get_ecs_properties(&self) -> &::std::option::Option<super::super::types::EcsProperties> {
          &self.ecs_properties
      }
      /// <p>An object with properties that are specific to Amazon EKS-based jobs. When <code>eksProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn eks_properties(mut self, input: crate::types::EksProperties) -> Self {
-+    pub fn eks_properties(mut self, input: super::types::EksProperties) -> Self {
++    pub fn eks_properties(mut self, input: super::super::types::EksProperties) -> Self {
          self.eks_properties = ::std::option::Option::Some(input);
          self
      }
      /// <p>An object with properties that are specific to Amazon EKS-based jobs. When <code>eksProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn set_eks_properties(mut self, input: ::std::option::Option<crate::types::EksProperties>) -> Self {
-+    pub fn set_eks_properties(mut self, input: ::std::option::Option<super::types::EksProperties>) -> Self {
++    pub fn set_eks_properties(mut self, input: ::std::option::Option<super::super::types::EksProperties>) -> Self {
          self.eks_properties = input;
          self
      }
      /// <p>An object with properties that are specific to Amazon EKS-based jobs. When <code>eksProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
 -    pub fn get_eks_properties(&self) -> &::std::option::Option<crate::types::EksProperties> {
-+    pub fn get_eks_properties(&self) -> &::std::option::Option<super::types::EksProperties> {
++    pub fn get_eks_properties(&self) -> &::std::option::Option<super::super::types::EksProperties> {
          &self.eks_properties
      }
      /// <p>The orchestration type of the compute environment. The valid values are <code>ECS</code> (default) or <code>EKS</code>.</p>
 -    pub fn container_orchestration_type(mut self, input: crate::types::OrchestrationType) -> Self {
-+    pub fn container_orchestration_type(mut self, input: super::types::OrchestrationType) -> Self {
++    pub fn container_orchestration_type(mut self, input: super::super::types::OrchestrationType) -> Self {
          self.container_orchestration_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The orchestration type of the compute environment. The valid values are <code>ECS</code> (default) or <code>EKS</code>.</p>
 -    pub fn set_container_orchestration_type(mut self, input: ::std::option::Option<crate::types::OrchestrationType>) -> Self {
-+    pub fn set_container_orchestration_type(mut self, input: ::std::option::Option<super::types::OrchestrationType>) -> Self {
++    pub fn set_container_orchestration_type(mut self, input: ::std::option::Option<super::super::types::OrchestrationType>) -> Self {
          self.container_orchestration_type = input;
          self
      }
      /// <p>The orchestration type of the compute environment. The valid values are <code>ECS</code> (default) or <code>EKS</code>.</p>
 -    pub fn get_container_orchestration_type(&self) -> &::std::option::Option<crate::types::OrchestrationType> {
-+    pub fn get_container_orchestration_type(&self) -> &::std::option::Option<super::types::OrchestrationType> {
++    pub fn get_container_orchestration_type(&self) -> &::std::option::Option<super::super::types::OrchestrationType> {
          &self.container_orchestration_type
      }
      /// <p>Contains a list of consumable resources required by the job.</p>
 -    pub fn consumable_resource_properties(mut self, input: crate::types::ConsumableResourceProperties) -> Self {
-+    pub fn consumable_resource_properties(mut self, input: super::types::ConsumableResourceProperties) -> Self {
++    pub fn consumable_resource_properties(mut self, input: super::super::types::ConsumableResourceProperties) -> Self {
          self.consumable_resource_properties = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains a list of consumable resources required by the job.</p>
 -    pub fn set_consumable_resource_properties(mut self, input: ::std::option::Option<crate::types::ConsumableResourceProperties>) -> Self {
-+    pub fn set_consumable_resource_properties(mut self, input: ::std::option::Option<super::types::ConsumableResourceProperties>) -> Self {
++    pub fn set_consumable_resource_properties(mut self, input: ::std::option::Option<super::super::types::ConsumableResourceProperties>) -> Self {
          self.consumable_resource_properties = input;
          self
      }
      /// <p>Contains a list of consumable resources required by the job.</p>
 -    pub fn get_consumable_resource_properties(&self) -> &::std::option::Option<crate::types::ConsumableResourceProperties> {
-+    pub fn get_consumable_resource_properties(&self) -> &::std::option::Option<super::types::ConsumableResourceProperties> {
++    pub fn get_consumable_resource_properties(&self) -> &::std::option::Option<super::super::types::ConsumableResourceProperties> {
          &self.consumable_resource_properties
      }
      /// Consumes the builder and constructs a [`JobDefinition`](crate::types::JobDefinition).
 -    pub fn build(self) -> crate::types::JobDefinition {
 -        crate::types::JobDefinition {
-+    pub fn build(self) -> super::types::JobDefinition {
-+        super::types::JobDefinition {
++    pub fn build(self) -> super::super::types::JobDefinition {
++        super::super::types::JobDefinition {
              job_definition_name: self.job_definition_name,
              job_definition_arn: self.job_definition_arn,
              revision: self.revision,

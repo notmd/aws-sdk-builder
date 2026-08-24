@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ImageConfigError`](crate::types::ImageConfigError).
 -    pub fn builder() -> crate::types::builders::ImageConfigErrorBuilder {
 -        crate::types::builders::ImageConfigErrorBuilder::default()
-+    pub fn builder() -> super::types::builders::ImageConfigErrorBuilder {
-+        super::types::builders::ImageConfigErrorBuilder::default()
++    pub fn builder() -> super::super::types::builders::ImageConfigErrorBuilder {
++        super::super::types::builders::ImageConfigErrorBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ImageConfigError`](crate::types::ImageConfigError).
 -    pub fn build(self) -> crate::types::ImageConfigError {
 -        crate::types::ImageConfigError {
-+    pub fn build(self) -> super::types::ImageConfigError {
-+        super::types::ImageConfigError {
++    pub fn build(self) -> super::super::types::ImageConfigError {
++        super::super::types::ImageConfigError {
              error_code: self.error_code,
              message: self.message,
          }

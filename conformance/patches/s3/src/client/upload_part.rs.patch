@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UploadPartError>`](crate::operation::upload_part::UploadPartError)
 -    pub fn upload_part(&self) -> crate::operation::upload_part::builders::UploadPartFluentBuilder {
 -        crate::operation::upload_part::builders::UploadPartFluentBuilder::new(self.handle.clone())
-+    pub fn upload_part(&self) -> super::operation::upload_part::builders::UploadPartFluentBuilder {
-+        super::operation::upload_part::builders::UploadPartFluentBuilder::new(self.handle.clone())
++    pub fn upload_part(&self) -> super::super::operation::upload_part::builders::UploadPartFluentBuilder {
++        super::super::operation::upload_part::builders::UploadPartFluentBuilder::new(self.handle.clone())
      }
  }

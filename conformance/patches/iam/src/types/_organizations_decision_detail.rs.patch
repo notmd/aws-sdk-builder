@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`OrganizationsDecisionDetail`](crate::types::OrganizationsDecisionDetail).
 -    pub fn builder() -> crate::types::builders::OrganizationsDecisionDetailBuilder {
 -        crate::types::builders::OrganizationsDecisionDetailBuilder::default()
-+    pub fn builder() -> super::types::builders::OrganizationsDecisionDetailBuilder {
-+        super::types::builders::OrganizationsDecisionDetailBuilder::default()
++    pub fn builder() -> super::super::types::builders::OrganizationsDecisionDetailBuilder {
++        super::super::types::builders::OrganizationsDecisionDetailBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`OrganizationsDecisionDetail`](crate::types::OrganizationsDecisionDetail).
 -    pub fn build(self) -> crate::types::OrganizationsDecisionDetail {
 -        crate::types::OrganizationsDecisionDetail {
-+    pub fn build(self) -> super::types::OrganizationsDecisionDetail {
-+        super::types::OrganizationsDecisionDetail {
++    pub fn build(self) -> super::super::types::OrganizationsDecisionDetail {
++        super::super::types::OrganizationsDecisionDetail {
              allowed_by_organizations: self.allowed_by_organizations.unwrap_or_default(),
          }
      }

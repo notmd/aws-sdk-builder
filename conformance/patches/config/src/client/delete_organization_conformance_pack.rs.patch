@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder {
 -        crate::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder {
-+        super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder {
++        super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder::new(self.handle.clone())
      }
  }

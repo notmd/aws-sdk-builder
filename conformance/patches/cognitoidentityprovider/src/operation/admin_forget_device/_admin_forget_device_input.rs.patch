@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminForgetDeviceInput`](crate::operation::admin_forget_device::AdminForgetDeviceInput).
 -    pub fn builder() -> crate::operation::admin_forget_device::builders::AdminForgetDeviceInputBuilder {
 -        crate::operation::admin_forget_device::builders::AdminForgetDeviceInputBuilder::default()
-+    pub fn builder() -> super::operation::admin_forget_device::builders::AdminForgetDeviceInputBuilder {
-+        super::operation::admin_forget_device::builders::AdminForgetDeviceInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_forget_device::builders::AdminForgetDeviceInputBuilder {
++        super::super::super::operation::admin_forget_device::builders::AdminForgetDeviceInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::admin_forget_device::AdminForgetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::admin_forget_device::AdminForgetDeviceInput {
-+    ) -> ::std::result::Result<super::operation::admin_forget_device::AdminForgetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::admin_forget_device::AdminForgetDeviceInput {
++    ) -> ::std::result::Result<super::super::super::operation::admin_forget_device::AdminForgetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::admin_forget_device::AdminForgetDeviceInput {
              user_pool_id: self.user_pool_id,
              username: self.username,
              device_key: self.device_key,

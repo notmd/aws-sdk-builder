@@ -5,7 +5,7 @@
  pub fn ser_bidirectional_input_payload_part(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::BidirectionalInputPayloadPart,
-+    input: &super::types::BidirectionalInputPayloadPart,
++    input: &super::super::types::BidirectionalInputPayloadPart,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.bytes {
          object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(var_1));

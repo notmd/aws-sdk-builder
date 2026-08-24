@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`S3ConfigurationType`](crate::types::S3ConfigurationType).
 -    pub fn builder() -> crate::types::builders::S3ConfigurationTypeBuilder {
 -        crate::types::builders::S3ConfigurationTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::S3ConfigurationTypeBuilder {
-+        super::types::builders::S3ConfigurationTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::S3ConfigurationTypeBuilder {
++        super::super::types::builders::S3ConfigurationTypeBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`S3ConfigurationType`](crate::types::S3ConfigurationType).
 -    pub fn build(self) -> crate::types::S3ConfigurationType {
 -        crate::types::S3ConfigurationType { bucket_arn: self.bucket_arn }
-+    pub fn build(self) -> super::types::S3ConfigurationType {
-+        super::types::S3ConfigurationType { bucket_arn: self.bucket_arn }
++    pub fn build(self) -> super::super::types::S3ConfigurationType {
++        super::super::types::S3ConfigurationType { bucket_arn: self.bucket_arn }
      }
  }

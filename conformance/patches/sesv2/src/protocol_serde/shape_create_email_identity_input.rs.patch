@@ -5,7 +5,7 @@
  pub fn ser_create_email_identity_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::create_email_identity::CreateEmailIdentityInput,
-+    input: &super::operation::create_email_identity::CreateEmailIdentityInput,
++    input: &super::super::operation::create_email_identity::CreateEmailIdentityInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.configuration_set_name {
          object.key("ConfigurationSetName").string(var_1.as_str());
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_3 = object.key("DkimSigningAttributes").start_object();
 -        crate::protocol_serde::shape_dkim_signing_attributes::ser_dkim_signing_attributes(&mut object_3, var_2)?;
-+        super::protocol_serde::shape_dkim_signing_attributes::ser_dkim_signing_attributes(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_dkim_signing_attributes::ser_dkim_signing_attributes(&mut object_3, var_2)?;
          object_3.finish();
      }
      if let Some(var_4) = &input.email_identity {
@@ -23,7 +23,7 @@
                  #[allow(unused_mut)]
                  let mut object_8 = array_6.value().start_object();
 -                crate::protocol_serde::shape_tag::ser_tag(&mut object_8, item_7)?;
-+                super::protocol_serde::shape_tag::ser_tag(&mut object_8, item_7)?;
++                super::super::protocol_serde::shape_tag::ser_tag(&mut object_8, item_7)?;
                  object_8.finish();
              }
          }

@@ -5,7 +5,7 @@
  pub fn ser_describe_lookup_tables_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::describe_lookup_tables::DescribeLookupTablesInput,
-+    input: &super::operation::describe_lookup_tables::DescribeLookupTablesInput,
++    input: &super::super::operation::describe_lookup_tables::DescribeLookupTablesInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.lookup_table_name_prefix {
          object.key("lookupTableNamePrefix").string(var_1.as_str());

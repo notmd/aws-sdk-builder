@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeJobQueuesError>`](crate::operation::describe_job_queues::DescribeJobQueuesError)
 -    pub fn describe_job_queues(&self) -> crate::operation::describe_job_queues::builders::DescribeJobQueuesFluentBuilder {
 -        crate::operation::describe_job_queues::builders::DescribeJobQueuesFluentBuilder::new(self.handle.clone())
-+    pub fn describe_job_queues(&self) -> super::operation::describe_job_queues::builders::DescribeJobQueuesFluentBuilder {
-+        super::operation::describe_job_queues::builders::DescribeJobQueuesFluentBuilder::new(self.handle.clone())
++    pub fn describe_job_queues(&self) -> super::super::operation::describe_job_queues::builders::DescribeJobQueuesFluentBuilder {
++        super::super::operation::describe_job_queues::builders::DescribeJobQueuesFluentBuilder::new(self.handle.clone())
      }
  }

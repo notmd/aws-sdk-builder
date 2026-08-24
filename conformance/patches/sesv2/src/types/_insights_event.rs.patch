@@ -5,10 +5,10 @@
      /// <p><code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p></li>
      /// </ul>
 -    pub r#type: ::std::option::Option<crate::types::EventType>,
-+    pub r#type: ::std::option::Option<super::types::EventType>,
++    pub r#type: ::std::option::Option<super::super::types::EventType>,
      /// <p>Details about bounce or complaint events.</p>
 -    pub details: ::std::option::Option<crate::types::EventDetails>,
-+    pub details: ::std::option::Option<super::types::EventDetails>,
++    pub details: ::std::option::Option<super::super::types::EventDetails>,
  }
  impl InsightsEvent {
      /// <p>The timestamp of the event.</p>
@@ -17,12 +17,12 @@
      /// <p><code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p></li>
      /// </ul>
 -    pub fn r#type(&self) -> ::std::option::Option<&crate::types::EventType> {
-+    pub fn r#type(&self) -> ::std::option::Option<&super::types::EventType> {
++    pub fn r#type(&self) -> ::std::option::Option<&super::super::types::EventType> {
          self.r#type.as_ref()
      }
      /// <p>Details about bounce or complaint events.</p>
 -    pub fn details(&self) -> ::std::option::Option<&crate::types::EventDetails> {
-+    pub fn details(&self) -> ::std::option::Option<&super::types::EventDetails> {
++    pub fn details(&self) -> ::std::option::Option<&super::super::types::EventDetails> {
          self.details.as_ref()
      }
  }
@@ -30,8 +30,8 @@
      /// Creates a new builder-style object to manufacture [`InsightsEvent`](crate::types::InsightsEvent).
 -    pub fn builder() -> crate::types::builders::InsightsEventBuilder {
 -        crate::types::builders::InsightsEventBuilder::default()
-+    pub fn builder() -> super::types::builders::InsightsEventBuilder {
-+        super::types::builders::InsightsEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::InsightsEventBuilder {
++        super::super::types::builders::InsightsEventBuilder::default()
      }
  }
 
@@ -41,8 +41,8 @@
      pub(crate) timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) r#type: ::std::option::Option<crate::types::EventType>,
 -    pub(crate) details: ::std::option::Option<crate::types::EventDetails>,
-+    pub(crate) r#type: ::std::option::Option<super::types::EventType>,
-+    pub(crate) details: ::std::option::Option<super::types::EventDetails>,
++    pub(crate) r#type: ::std::option::Option<super::super::types::EventType>,
++    pub(crate) details: ::std::option::Option<super::super::types::EventDetails>,
  }
  impl InsightsEventBuilder {
      /// <p>The timestamp of the event.</p>
@@ -51,7 +51,7 @@
      /// <p><code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p></li>
      /// </ul>
 -    pub fn r#type(mut self, input: crate::types::EventType) -> Self {
-+    pub fn r#type(mut self, input: super::types::EventType) -> Self {
++    pub fn r#type(mut self, input: super::super::types::EventType) -> Self {
          self.r#type = ::std::option::Option::Some(input);
          self
      }
@@ -60,7 +60,7 @@
      /// <p><code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p></li>
      /// </ul>
 -    pub fn set_type(mut self, input: ::std::option::Option<crate::types::EventType>) -> Self {
-+    pub fn set_type(mut self, input: ::std::option::Option<super::types::EventType>) -> Self {
++    pub fn set_type(mut self, input: ::std::option::Option<super::super::types::EventType>) -> Self {
          self.r#type = input;
          self
      }
@@ -69,31 +69,31 @@
      /// <p><code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p></li>
      /// </ul>
 -    pub fn get_type(&self) -> &::std::option::Option<crate::types::EventType> {
-+    pub fn get_type(&self) -> &::std::option::Option<super::types::EventType> {
++    pub fn get_type(&self) -> &::std::option::Option<super::super::types::EventType> {
          &self.r#type
      }
      /// <p>Details about bounce or complaint events.</p>
 -    pub fn details(mut self, input: crate::types::EventDetails) -> Self {
-+    pub fn details(mut self, input: super::types::EventDetails) -> Self {
++    pub fn details(mut self, input: super::super::types::EventDetails) -> Self {
          self.details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about bounce or complaint events.</p>
 -    pub fn set_details(mut self, input: ::std::option::Option<crate::types::EventDetails>) -> Self {
-+    pub fn set_details(mut self, input: ::std::option::Option<super::types::EventDetails>) -> Self {
++    pub fn set_details(mut self, input: ::std::option::Option<super::super::types::EventDetails>) -> Self {
          self.details = input;
          self
      }
      /// <p>Details about bounce or complaint events.</p>
 -    pub fn get_details(&self) -> &::std::option::Option<crate::types::EventDetails> {
-+    pub fn get_details(&self) -> &::std::option::Option<super::types::EventDetails> {
++    pub fn get_details(&self) -> &::std::option::Option<super::super::types::EventDetails> {
          &self.details
      }
      /// Consumes the builder and constructs a [`InsightsEvent`](crate::types::InsightsEvent).
 -    pub fn build(self) -> crate::types::InsightsEvent {
 -        crate::types::InsightsEvent {
-+    pub fn build(self) -> super::types::InsightsEvent {
-+        super::types::InsightsEvent {
++    pub fn build(self) -> super::super::types::InsightsEvent {
++        super::super::types::InsightsEvent {
              timestamp: self.timestamp,
              r#type: self.r#type,
              details: self.details,

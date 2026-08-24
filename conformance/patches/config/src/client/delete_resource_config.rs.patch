@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteResourceConfigError>`](crate::operation::delete_resource_config::DeleteResourceConfigError)
 -    pub fn delete_resource_config(&self) -> crate::operation::delete_resource_config::builders::DeleteResourceConfigFluentBuilder {
 -        crate::operation::delete_resource_config::builders::DeleteResourceConfigFluentBuilder::new(self.handle.clone())
-+    pub fn delete_resource_config(&self) -> super::operation::delete_resource_config::builders::DeleteResourceConfigFluentBuilder {
-+        super::operation::delete_resource_config::builders::DeleteResourceConfigFluentBuilder::new(self.handle.clone())
++    pub fn delete_resource_config(&self) -> super::super::operation::delete_resource_config::builders::DeleteResourceConfigFluentBuilder {
++        super::super::operation::delete_resource_config::builders::DeleteResourceConfigFluentBuilder::new(self.handle.clone())
      }
  }

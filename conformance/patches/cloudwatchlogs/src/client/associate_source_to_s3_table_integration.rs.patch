@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationFluentBuilder {
 -        crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationFluentBuilder::new(
-+    ) -> super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationFluentBuilder {
-+        super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationFluentBuilder::new(
++    ) -> super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationFluentBuilder {
++        super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationFluentBuilder::new(
              self.handle.clone(),
          )
      }

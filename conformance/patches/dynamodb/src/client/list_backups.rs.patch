@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListBackupsError>`](crate::operation::list_backups::ListBackupsError)
 -    pub fn list_backups(&self) -> crate::operation::list_backups::builders::ListBackupsFluentBuilder {
 -        crate::operation::list_backups::builders::ListBackupsFluentBuilder::new(self.handle.clone())
-+    pub fn list_backups(&self) -> super::operation::list_backups::builders::ListBackupsFluentBuilder {
-+        super::operation::list_backups::builders::ListBackupsFluentBuilder::new(self.handle.clone())
++    pub fn list_backups(&self) -> super::super::operation::list_backups::builders::ListBackupsFluentBuilder {
++        super::super::operation::list_backups::builders::ListBackupsFluentBuilder::new(self.handle.clone())
      }
  }

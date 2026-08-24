@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ImportKeyMaterialOutput`](crate::operation::import_key_material::ImportKeyMaterialOutput).
 -    pub fn builder() -> crate::operation::import_key_material::builders::ImportKeyMaterialOutputBuilder {
 -        crate::operation::import_key_material::builders::ImportKeyMaterialOutputBuilder::default()
-+    pub fn builder() -> super::operation::import_key_material::builders::ImportKeyMaterialOutputBuilder {
-+        super::operation::import_key_material::builders::ImportKeyMaterialOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::import_key_material::builders::ImportKeyMaterialOutputBuilder {
++        super::super::super::operation::import_key_material::builders::ImportKeyMaterialOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ImportKeyMaterialOutput`](crate::operation::import_key_material::ImportKeyMaterialOutput).
 -    pub fn build(self) -> crate::operation::import_key_material::ImportKeyMaterialOutput {
 -        crate::operation::import_key_material::ImportKeyMaterialOutput {
-+    pub fn build(self) -> super::operation::import_key_material::ImportKeyMaterialOutput {
-+        super::operation::import_key_material::ImportKeyMaterialOutput {
++    pub fn build(self) -> super::super::super::operation::import_key_material::ImportKeyMaterialOutput {
++        super::super::super::operation::import_key_material::ImportKeyMaterialOutput {
              key_id: self.key_id,
              key_material_id: self.key_material_id,
              _request_id: self._request_id,

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetObjectAnnotationError>`](crate::operation::get_object_annotation::GetObjectAnnotationError)
 -    pub fn get_object_annotation(&self) -> crate::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder {
 -        crate::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder::new(self.handle.clone())
-+    pub fn get_object_annotation(&self) -> super::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder {
-+        super::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder::new(self.handle.clone())
++    pub fn get_object_annotation(&self) -> super::super::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder {
++        super::super::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder::new(self.handle.clone())
      }
  }

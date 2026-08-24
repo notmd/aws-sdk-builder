@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListSamlProvidersInput`](crate::operation::list_saml_providers::ListSamlProvidersInput).
 -    pub fn builder() -> crate::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder {
 -        crate::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder::default()
-+    pub fn builder() -> super::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder {
-+        super::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder {
++        super::super::super::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::list_saml_providers::ListSamlProvidersInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_saml_providers::ListSamlProvidersInput {})
-+    ) -> ::std::result::Result<super::operation::list_saml_providers::ListSamlProvidersInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_saml_providers::ListSamlProvidersInput {})
++    ) -> ::std::result::Result<super::super::super::operation::list_saml_providers::ListSamlProvidersInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_saml_providers::ListSamlProvidersInput {})
      }
  }

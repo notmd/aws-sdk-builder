@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationFluentBuilder {
 -        crate::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationFluentBuilder::new(
-+    ) -> super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationFluentBuilder {
-+        super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationFluentBuilder::new(
++    ) -> super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationFluentBuilder {
++        super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationFluentBuilder::new(
              self.handle.clone(),
          )
      }

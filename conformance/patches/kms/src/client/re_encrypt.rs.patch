@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ReEncryptError>`](crate::operation::re_encrypt::ReEncryptError)
 -    pub fn re_encrypt(&self) -> crate::operation::re_encrypt::builders::ReEncryptFluentBuilder {
 -        crate::operation::re_encrypt::builders::ReEncryptFluentBuilder::new(self.handle.clone())
-+    pub fn re_encrypt(&self) -> super::operation::re_encrypt::builders::ReEncryptFluentBuilder {
-+        super::operation::re_encrypt::builders::ReEncryptFluentBuilder::new(self.handle.clone())
++    pub fn re_encrypt(&self) -> super::super::operation::re_encrypt::builders::ReEncryptFluentBuilder {
++        super::super::operation::re_encrypt::builders::ReEncryptFluentBuilder::new(self.handle.clone())
      }
  }

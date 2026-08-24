@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DisconnectCustomKeyStoreOutput`](crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput).
 -    pub fn builder() -> crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder {
 -        crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder::default()
-+    pub fn builder() -> super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder {
-+        super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder {
++        super::super::super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DisconnectCustomKeyStoreOutput`](crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput).
 -    pub fn build(self) -> crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput {
 -        crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput {
-+    pub fn build(self) -> super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput {
-+        super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput {
++    pub fn build(self) -> super::super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput {
++        super::super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput {
              _request_id: self._request_id,
          }
      }

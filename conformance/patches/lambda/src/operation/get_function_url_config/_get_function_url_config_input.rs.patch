@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetFunctionUrlConfigInput`](crate::operation::get_function_url_config::GetFunctionUrlConfigInput).
 -    pub fn builder() -> crate::operation::get_function_url_config::builders::GetFunctionUrlConfigInputBuilder {
 -        crate::operation::get_function_url_config::builders::GetFunctionUrlConfigInputBuilder::default()
-+    pub fn builder() -> super::operation::get_function_url_config::builders::GetFunctionUrlConfigInputBuilder {
-+        super::operation::get_function_url_config::builders::GetFunctionUrlConfigInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_function_url_config::builders::GetFunctionUrlConfigInputBuilder {
++        super::super::super::operation::get_function_url_config::builders::GetFunctionUrlConfigInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_function_url_config::GetFunctionUrlConfigInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_function_url_config::GetFunctionUrlConfigInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_function_url_config::GetFunctionUrlConfigInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_function_url_config::GetFunctionUrlConfigInput {
-+        ::std::result::Result::Ok(super::operation::get_function_url_config::GetFunctionUrlConfigInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_function_url_config::GetFunctionUrlConfigInput {
              function_name: self.function_name,
              qualifier: self.qualifier,
          })

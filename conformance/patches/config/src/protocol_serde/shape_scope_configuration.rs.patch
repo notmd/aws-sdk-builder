@@ -5,7 +5,7 @@
  pub fn ser_scope_configuration(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ScopeConfiguration,
-+    input: &super::types::ScopeConfiguration,
++    input: &super::super::types::ScopeConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("scopeType").string(input.scope_type.as_str());
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ScopeConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ScopeConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ScopeConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,7 +23,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::ScopeConfigurationBuilder::default();
-+            let mut builder = super::types::builders::ScopeConfigurationBuilder::default();
++            let mut builder = super::super::types::builders::ScopeConfigurationBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -32,14 +32,14 @@
                          "scopeValues" => {
                              builder =
 -                                builder.set_scope_values(crate::protocol_serde::shape_scope_values::de_scope_values(tokens, _value, depth + 1)?);
-+                                builder.set_scope_values(super::protocol_serde::shape_scope_values::de_scope_values(tokens, _value, depth + 1)?);
++                                builder.set_scope_values(super::super::protocol_serde::shape_scope_values::de_scope_values(tokens, _value, depth + 1)?);
                          }
                          "allRegions" => {
                              builder = builder.set_all_regions(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                          }
                          "includedRegions" => {
 -                            builder = builder.set_included_regions(crate::protocol_serde::shape_included_regions::de_included_regions(
-+                            builder = builder.set_included_regions(super::protocol_serde::shape_included_regions::de_included_regions(
++                            builder = builder.set_included_regions(super::super::protocol_serde::shape_included_regions::de_included_regions(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -48,7 +48,7 @@
                  }
              }
 -            Ok(Some(crate::serde_util::scope_configuration_correct_errors(builder).build().map_err(
-+            Ok(Some(super::serde_util::scope_configuration_correct_errors(builder).build().map_err(
++            Ok(Some(super::super::serde_util::scope_configuration_correct_errors(builder).build().map_err(
                  |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
              )?))
          }

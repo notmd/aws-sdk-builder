@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutAccountDetailsError>`](crate::operation::put_account_details::PutAccountDetailsError)
 -    pub fn put_account_details(&self) -> crate::operation::put_account_details::builders::PutAccountDetailsFluentBuilder {
 -        crate::operation::put_account_details::builders::PutAccountDetailsFluentBuilder::new(self.handle.clone())
-+    pub fn put_account_details(&self) -> super::operation::put_account_details::builders::PutAccountDetailsFluentBuilder {
-+        super::operation::put_account_details::builders::PutAccountDetailsFluentBuilder::new(self.handle.clone())
++    pub fn put_account_details(&self) -> super::super::operation::put_account_details::builders::PutAccountDetailsFluentBuilder {
++        super::super::operation::put_account_details::builders::PutAccountDetailsFluentBuilder::new(self.handle.clone())
      }
  }

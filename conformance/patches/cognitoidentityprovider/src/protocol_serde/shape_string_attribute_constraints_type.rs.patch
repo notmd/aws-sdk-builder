@@ -5,7 +5,7 @@
  pub fn ser_string_attribute_constraints_type(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::StringAttributeConstraintsType,
-+    input: &super::types::StringAttributeConstraintsType,
++    input: &super::super::types::StringAttributeConstraintsType,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.min_length {
          object.key("MinLength").string(var_1.as_str());
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::StringAttributeConstraintsType>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::StringAttributeConstraintsType>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::StringAttributeConstraintsType>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,7 +23,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::StringAttributeConstraintsTypeBuilder::default();
-+            let mut builder = super::types::builders::StringAttributeConstraintsTypeBuilder::default();
++            let mut builder = super::super::types::builders::StringAttributeConstraintsTypeBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,

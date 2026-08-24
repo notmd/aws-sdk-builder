@@ -6,34 +6,34 @@
  ) -> std::result::Result<
 -    crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput,
 -    crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
-+    super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput,
-+    super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
++    super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput,
++    super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled(generic)),
-+        None => return Err(super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled(generic)),
++        None => return Err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "AccountNotManagementOrDelegatedAdministratorException" => crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::AccountNotManagementOrDelegatedAdministratorException({
-+        "AccountNotManagementOrDelegatedAdministratorException" => super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::AccountNotManagementOrDelegatedAdministratorException({
++        "AccountNotManagementOrDelegatedAdministratorException" => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::AccountNotManagementOrDelegatedAdministratorException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output).map_err(crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
-+                    let mut output = super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output).map_err(super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++                    let mut output = super::super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -42,15 +42,15 @@
              tmp
          }),
 -        "CallerIsNotManagementAccountException" => crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::CallerIsNotManagementAccountException({
-+        "CallerIsNotManagementAccountException" => super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::CallerIsNotManagementAccountException({
++        "CallerIsNotManagementAccountException" => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::CallerIsNotManagementAccountException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::CallerIsNotManagementAccountExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_caller_is_not_management_account_exception::de_caller_is_not_management_account_exception_xml_err(_response_body, output).map_err(crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
-+                    let mut output = super::types::error::builders::CallerIsNotManagementAccountExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_caller_is_not_management_account_exception::de_caller_is_not_management_account_exception_xml_err(_response_body, output).map_err(super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++                    let mut output = super::super::types::error::builders::CallerIsNotManagementAccountExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_caller_is_not_management_account_exception::de_caller_is_not_management_account_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -59,15 +59,15 @@
              tmp
          }),
 -        "OrganizationNotFoundException" => crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::OrganizationNotFoundException({
-+        "OrganizationNotFoundException" => super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::OrganizationNotFoundException({
++        "OrganizationNotFoundException" => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::OrganizationNotFoundException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output).map_err(crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
-+                    let mut output = super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output).map_err(super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++                    let mut output = super::super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -76,15 +76,15 @@
              tmp
          }),
 -        "OrganizationNotInAllFeaturesModeException" => crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::OrganizationNotInAllFeaturesModeException({
-+        "OrganizationNotInAllFeaturesModeException" => super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::OrganizationNotInAllFeaturesModeException({
++        "OrganizationNotInAllFeaturesModeException" => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::OrganizationNotInAllFeaturesModeException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output).map_err(crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
-+                    let mut output = super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output).map_err(super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++                    let mut output = super::super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -93,15 +93,15 @@
              tmp
          }),
 -        "ServiceAccessNotEnabledException" => crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::ServiceAccessNotEnabledException({
-+        "ServiceAccessNotEnabledException" => super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::ServiceAccessNotEnabledException({
++        "ServiceAccessNotEnabledException" => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::ServiceAccessNotEnabledException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output).map_err(crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
-+                    let mut output = super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output).map_err(super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++                    let mut output = super::super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -110,7 +110,7 @@
              tmp
          }),
 -        _ => crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::generic(generic)
-+        _ => super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::generic(generic)
++        _ => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::generic(generic)
      })
  }
 
@@ -120,17 +120,17 @@
  ) -> std::result::Result<
 -    crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput,
 -    crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
-+    super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput,
-+    super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
++    super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput,
++    super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder::default();
 -        output = crate::protocol_serde::shape_enable_organizations_root_sessions::de_enable_organizations_root_sessions(_response_body, output)
 -            .map_err(crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
-+        let mut output = super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder::default();
-+        output = super::protocol_serde::shape_enable_organizations_root_sessions::de_enable_organizations_root_sessions(_response_body, output)
-+            .map_err(super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++        let mut output = super::super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder::default();
++        output = super::super::protocol_serde::shape_enable_organizations_root_sessions::de_enable_organizations_root_sessions(_response_body, output)
++            .map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -139,10 +139,10 @@
  pub fn de_enable_organizations_root_sessions(
      inp: &[u8],
 -    mut builder: crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder,
-+    mut builder: super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder,
++    mut builder: super::super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder,
-+    super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder,
++    super::super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -151,7 +151,7 @@
                  let var_2 =
                      Some(
 -                        crate::protocol_serde::shape_features_list_type::de_features_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_features_list_type::de_features_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_features_list_type::de_features_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;

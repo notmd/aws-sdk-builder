@@ -5,7 +5,7 @@
      pub name: ::std::option::Option<::std::string::String>,
      /// <p>The valid status of the step.</p>
 -    pub state: ::std::option::Option<crate::types::RemediationExecutionStepState>,
-+    pub state: ::std::option::Option<super::types::RemediationExecutionStepState>,
++    pub state: ::std::option::Option<super::super::types::RemediationExecutionStepState>,
      /// <p>An error message if the step was interrupted during execution.</p>
      pub error_message: ::std::option::Option<::std::string::String>,
      /// <p>The time when the step started.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The valid status of the step.</p>
 -    pub fn state(&self) -> ::std::option::Option<&crate::types::RemediationExecutionStepState> {
-+    pub fn state(&self) -> ::std::option::Option<&super::types::RemediationExecutionStepState> {
++    pub fn state(&self) -> ::std::option::Option<&super::super::types::RemediationExecutionStepState> {
          self.state.as_ref()
      }
      /// <p>An error message if the step was interrupted during execution.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`RemediationExecutionStep`](crate::types::RemediationExecutionStep).
 -    pub fn builder() -> crate::types::builders::RemediationExecutionStepBuilder {
 -        crate::types::builders::RemediationExecutionStepBuilder::default()
-+    pub fn builder() -> super::types::builders::RemediationExecutionStepBuilder {
-+        super::types::builders::RemediationExecutionStepBuilder::default()
++    pub fn builder() -> super::super::types::builders::RemediationExecutionStepBuilder {
++        super::super::types::builders::RemediationExecutionStepBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct RemediationExecutionStepBuilder {
      pub(crate) name: ::std::option::Option<::std::string::String>,
 -    pub(crate) state: ::std::option::Option<crate::types::RemediationExecutionStepState>,
-+    pub(crate) state: ::std::option::Option<super::types::RemediationExecutionStepState>,
++    pub(crate) state: ::std::option::Option<super::super::types::RemediationExecutionStepState>,
      pub(crate) error_message: ::std::option::Option<::std::string::String>,
      pub(crate) start_time: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) stop_time: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -43,19 +43,19 @@
      }
      /// <p>The valid status of the step.</p>
 -    pub fn state(mut self, input: crate::types::RemediationExecutionStepState) -> Self {
-+    pub fn state(mut self, input: super::types::RemediationExecutionStepState) -> Self {
++    pub fn state(mut self, input: super::super::types::RemediationExecutionStepState) -> Self {
          self.state = ::std::option::Option::Some(input);
          self
      }
      /// <p>The valid status of the step.</p>
 -    pub fn set_state(mut self, input: ::std::option::Option<crate::types::RemediationExecutionStepState>) -> Self {
-+    pub fn set_state(mut self, input: ::std::option::Option<super::types::RemediationExecutionStepState>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::super::types::RemediationExecutionStepState>) -> Self {
          self.state = input;
          self
      }
      /// <p>The valid status of the step.</p>
 -    pub fn get_state(&self) -> &::std::option::Option<crate::types::RemediationExecutionStepState> {
-+    pub fn get_state(&self) -> &::std::option::Option<super::types::RemediationExecutionStepState> {
++    pub fn get_state(&self) -> &::std::option::Option<super::super::types::RemediationExecutionStepState> {
          &self.state
      }
      /// <p>An error message if the step was interrupted during execution.</p>
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`RemediationExecutionStep`](crate::types::RemediationExecutionStep).
 -    pub fn build(self) -> crate::types::RemediationExecutionStep {
 -        crate::types::RemediationExecutionStep {
-+    pub fn build(self) -> super::types::RemediationExecutionStep {
-+        super::types::RemediationExecutionStep {
++    pub fn build(self) -> super::super::types::RemediationExecutionStep {
++        super::super::types::RemediationExecutionStep {
              name: self.name,
              state: self.state,
              error_message: self.error_message,

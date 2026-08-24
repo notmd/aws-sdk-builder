@@ -5,7 +5,7 @@
  pub struct ListExportJobsOutput {
      /// <p>A list of the export job summaries.</p>
 -    pub export_jobs: ::std::option::Option<::std::vec::Vec<crate::types::ExportJobSummary>>,
-+    pub export_jobs: ::std::option::Option<::std::vec::Vec<super::types::ExportJobSummary>>,
++    pub export_jobs: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportJobSummary>>,
      /// <p>A string token indicating that there might be additional export jobs available to be listed. Use this token to a subsequent call to <code>ListExportJobs</code> with the same parameters to retrieve the next page of export jobs.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.export_jobs.is_none()`.
 -    pub fn export_jobs(&self) -> &[crate::types::ExportJobSummary] {
-+    pub fn export_jobs(&self) -> &[super::types::ExportJobSummary] {
++    pub fn export_jobs(&self) -> &[super::super::super::types::ExportJobSummary] {
          self.export_jobs.as_deref().unwrap_or_default()
      }
      /// <p>A string token indicating that there might be additional export jobs available to be listed. Use this token to a subsequent call to <code>ListExportJobs</code> with the same parameters to retrieve the next page of export jobs.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListExportJobsOutput`](crate::operation::list_export_jobs::ListExportJobsOutput).
 -    pub fn builder() -> crate::operation::list_export_jobs::builders::ListExportJobsOutputBuilder {
 -        crate::operation::list_export_jobs::builders::ListExportJobsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_export_jobs::builders::ListExportJobsOutputBuilder {
-+        super::operation::list_export_jobs::builders::ListExportJobsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_export_jobs::builders::ListExportJobsOutputBuilder {
++        super::super::super::operation::list_export_jobs::builders::ListExportJobsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListExportJobsOutputBuilder {
 -    pub(crate) export_jobs: ::std::option::Option<::std::vec::Vec<crate::types::ExportJobSummary>>,
-+    pub(crate) export_jobs: ::std::option::Option<::std::vec::Vec<super::types::ExportJobSummary>>,
++    pub(crate) export_jobs: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportJobSummary>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of the export job summaries.</p>
 -    pub fn export_jobs(mut self, input: crate::types::ExportJobSummary) -> Self {
-+    pub fn export_jobs(mut self, input: super::types::ExportJobSummary) -> Self {
++    pub fn export_jobs(mut self, input: super::super::super::types::ExportJobSummary) -> Self {
          let mut v = self.export_jobs.unwrap_or_default();
          v.push(input);
          self.export_jobs = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of the export job summaries.</p>
 -    pub fn set_export_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExportJobSummary>>) -> Self {
-+    pub fn set_export_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ExportJobSummary>>) -> Self {
++    pub fn set_export_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportJobSummary>>) -> Self {
          self.export_jobs = input;
          self
      }
      /// <p>A list of the export job summaries.</p>
 -    pub fn get_export_jobs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExportJobSummary>> {
-+    pub fn get_export_jobs(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ExportJobSummary>> {
++    pub fn get_export_jobs(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ExportJobSummary>> {
          &self.export_jobs
      }
      /// <p>A string token indicating that there might be additional export jobs available to be listed. Use this token to a subsequent call to <code>ListExportJobs</code> with the same parameters to retrieve the next page of export jobs.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListExportJobsOutput`](crate::operation::list_export_jobs::ListExportJobsOutput).
 -    pub fn build(self) -> crate::operation::list_export_jobs::ListExportJobsOutput {
 -        crate::operation::list_export_jobs::ListExportJobsOutput {
-+    pub fn build(self) -> super::operation::list_export_jobs::ListExportJobsOutput {
-+        super::operation::list_export_jobs::ListExportJobsOutput {
++    pub fn build(self) -> super::super::super::operation::list_export_jobs::ListExportJobsOutput {
++        super::super::super::operation::list_export_jobs::ListExportJobsOutput {
              export_jobs: self.export_jobs,
              next_token: self.next_token,
              _request_id: self._request_id,

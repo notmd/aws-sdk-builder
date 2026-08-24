@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminEnableUserOutput`](crate::operation::admin_enable_user::AdminEnableUserOutput).
 -    pub fn builder() -> crate::operation::admin_enable_user::builders::AdminEnableUserOutputBuilder {
 -        crate::operation::admin_enable_user::builders::AdminEnableUserOutputBuilder::default()
-+    pub fn builder() -> super::operation::admin_enable_user::builders::AdminEnableUserOutputBuilder {
-+        super::operation::admin_enable_user::builders::AdminEnableUserOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_enable_user::builders::AdminEnableUserOutputBuilder {
++        super::super::super::operation::admin_enable_user::builders::AdminEnableUserOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AdminEnableUserOutput`](crate::operation::admin_enable_user::AdminEnableUserOutput).
 -    pub fn build(self) -> crate::operation::admin_enable_user::AdminEnableUserOutput {
 -        crate::operation::admin_enable_user::AdminEnableUserOutput {
-+    pub fn build(self) -> super::operation::admin_enable_user::AdminEnableUserOutput {
-+        super::operation::admin_enable_user::AdminEnableUserOutput {
++    pub fn build(self) -> super::super::super::operation::admin_enable_user::AdminEnableUserOutput {
++        super::super::super::operation::admin_enable_user::AdminEnableUserOutput {
              _request_id: self._request_id,
          }
      }

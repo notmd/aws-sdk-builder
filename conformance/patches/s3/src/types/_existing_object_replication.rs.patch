@@ -5,12 +5,12 @@
  pub struct ExistingObjectReplication {
      /// <p>Specifies whether Amazon S3 replicates existing source bucket objects.</p>
 -    pub status: crate::types::ExistingObjectReplicationStatus,
-+    pub status: super::types::ExistingObjectReplicationStatus,
++    pub status: super::super::types::ExistingObjectReplicationStatus,
  }
  impl ExistingObjectReplication {
      /// <p>Specifies whether Amazon S3 replicates existing source bucket objects.</p>
 -    pub fn status(&self) -> &crate::types::ExistingObjectReplicationStatus {
-+    pub fn status(&self) -> &super::types::ExistingObjectReplicationStatus {
++    pub fn status(&self) -> &super::super::types::ExistingObjectReplicationStatus {
          &self.status
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`ExistingObjectReplication`](crate::types::ExistingObjectReplication).
 -    pub fn builder() -> crate::types::builders::ExistingObjectReplicationBuilder {
 -        crate::types::builders::ExistingObjectReplicationBuilder::default()
-+    pub fn builder() -> super::types::builders::ExistingObjectReplicationBuilder {
-+        super::types::builders::ExistingObjectReplicationBuilder::default()
++    pub fn builder() -> super::super::types::builders::ExistingObjectReplicationBuilder {
++        super::super::types::builders::ExistingObjectReplicationBuilder::default()
      }
  }
 
@@ -28,25 +28,25 @@
  #[non_exhaustive]
  pub struct ExistingObjectReplicationBuilder {
 -    pub(crate) status: ::std::option::Option<crate::types::ExistingObjectReplicationStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::ExistingObjectReplicationStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::ExistingObjectReplicationStatus>,
  }
  impl ExistingObjectReplicationBuilder {
      /// <p>Specifies whether Amazon S3 replicates existing source bucket objects.</p>
      /// This field is required.
 -    pub fn status(mut self, input: crate::types::ExistingObjectReplicationStatus) -> Self {
-+    pub fn status(mut self, input: super::types::ExistingObjectReplicationStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::ExistingObjectReplicationStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies whether Amazon S3 replicates existing source bucket objects.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExistingObjectReplicationStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::ExistingObjectReplicationStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::ExistingObjectReplicationStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>Specifies whether Amazon S3 replicates existing source bucket objects.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExistingObjectReplicationStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::ExistingObjectReplicationStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::ExistingObjectReplicationStatus> {
          &self.status
      }
      /// Consumes the builder and constructs a [`ExistingObjectReplication`](crate::types::ExistingObjectReplication).
@@ -54,8 +54,8 @@
      /// - [`status`](crate::types::builders::ExistingObjectReplicationBuilder::status)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ExistingObjectReplication, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ExistingObjectReplication {
-+    pub fn build(self) -> ::std::result::Result<super::types::ExistingObjectReplication, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ExistingObjectReplication {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ExistingObjectReplication, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ExistingObjectReplication {
              status: self.status.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "status",

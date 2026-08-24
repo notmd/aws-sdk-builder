@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SetRiskConfigurationError>`](crate::operation::set_risk_configuration::SetRiskConfigurationError)
 -    pub fn set_risk_configuration(&self) -> crate::operation::set_risk_configuration::builders::SetRiskConfigurationFluentBuilder {
 -        crate::operation::set_risk_configuration::builders::SetRiskConfigurationFluentBuilder::new(self.handle.clone())
-+    pub fn set_risk_configuration(&self) -> super::operation::set_risk_configuration::builders::SetRiskConfigurationFluentBuilder {
-+        super::operation::set_risk_configuration::builders::SetRiskConfigurationFluentBuilder::new(self.handle.clone())
++    pub fn set_risk_configuration(&self) -> super::super::operation::set_risk_configuration::builders::SetRiskConfigurationFluentBuilder {
++        super::super::operation::set_risk_configuration::builders::SetRiskConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AdminUpdateUserAttributesError>`](crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError)
 -    pub fn admin_update_user_attributes(&self) -> crate::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesFluentBuilder {
 -        crate::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesFluentBuilder::new(self.handle.clone())
-+    pub fn admin_update_user_attributes(&self) -> super::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesFluentBuilder {
-+        super::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesFluentBuilder::new(self.handle.clone())
++    pub fn admin_update_user_attributes(&self) -> super::super::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesFluentBuilder {
++        super::super::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder {
 -        crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder {
-+        super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder {
++        super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

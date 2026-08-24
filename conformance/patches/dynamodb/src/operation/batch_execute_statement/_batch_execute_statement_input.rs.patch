@@ -5,7 +5,7 @@
  pub struct BatchExecuteStatementInput {
      /// <p>The list of PartiQL statements representing the batch to run.</p>
 -    pub statements: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>>,
-+    pub statements: ::std::option::Option<::std::vec::Vec<super::types::BatchStatementRequest>>,
++    pub statements: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>,
      /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
      /// <ul>
      /// <li>
@@ -14,14 +14,14 @@
      /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
      /// </ul>
 -    pub return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
-+    pub return_consumed_capacity: ::std::option::Option<super::types::ReturnConsumedCapacity>,
++    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
  }
  impl BatchExecuteStatementInput {
      /// <p>The list of PartiQL statements representing the batch to run.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.statements.is_none()`.
 -    pub fn statements(&self) -> &[crate::types::BatchStatementRequest] {
-+    pub fn statements(&self) -> &[super::types::BatchStatementRequest] {
++    pub fn statements(&self) -> &[super::super::super::types::BatchStatementRequest] {
          self.statements.as_deref().unwrap_or_default()
      }
      /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
@@ -30,7 +30,7 @@
      /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
      /// </ul>
 -    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
-+    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::types::ReturnConsumedCapacity> {
++    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> {
          self.return_consumed_capacity.as_ref()
      }
  }
@@ -38,8 +38,8 @@
      /// Creates a new builder-style object to manufacture [`BatchExecuteStatementInput`](crate::operation::batch_execute_statement::BatchExecuteStatementInput).
 -    pub fn builder() -> crate::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder {
 -        crate::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder::default()
-+    pub fn builder() -> super::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder {
-+        super::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder {
++        super::super::super::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder::default()
      }
  }
 
@@ -49,8 +49,8 @@
  pub struct BatchExecuteStatementInputBuilder {
 -    pub(crate) statements: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>>,
 -    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
-+    pub(crate) statements: ::std::option::Option<::std::vec::Vec<super::types::BatchStatementRequest>>,
-+    pub(crate) return_consumed_capacity: ::std::option::Option<super::types::ReturnConsumedCapacity>,
++    pub(crate) statements: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>,
++    pub(crate) return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
  }
  impl BatchExecuteStatementInputBuilder {
      /// Appends an item to `statements`.
@@ -59,7 +59,7 @@
      ///
      /// <p>The list of PartiQL statements representing the batch to run.</p>
 -    pub fn statements(mut self, input: crate::types::BatchStatementRequest) -> Self {
-+    pub fn statements(mut self, input: super::types::BatchStatementRequest) -> Self {
++    pub fn statements(mut self, input: super::super::super::types::BatchStatementRequest) -> Self {
          let mut v = self.statements.unwrap_or_default();
          v.push(input);
          self.statements = ::std::option::Option::Some(v);
@@ -68,13 +68,13 @@
      }
      /// <p>The list of PartiQL statements representing the batch to run.</p>
 -    pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>>) -> Self {
-+    pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::BatchStatementRequest>>) -> Self {
++    pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>) -> Self {
          self.statements = input;
          self
      }
      /// <p>The list of PartiQL statements representing the batch to run.</p>
 -    pub fn get_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>> {
-+    pub fn get_statements(&self) -> &::std::option::Option<::std::vec::Vec<super::types::BatchStatementRequest>> {
++    pub fn get_statements(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>> {
          &self.statements
      }
      /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
@@ -83,7 +83,7 @@
      /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
      /// </ul>
 -    pub fn return_consumed_capacity(mut self, input: crate::types::ReturnConsumedCapacity) -> Self {
-+    pub fn return_consumed_capacity(mut self, input: super::types::ReturnConsumedCapacity) -> Self {
++    pub fn return_consumed_capacity(mut self, input: super::super::super::types::ReturnConsumedCapacity) -> Self {
          self.return_consumed_capacity = ::std::option::Option::Some(input);
          self
      }
@@ -92,7 +92,7 @@
      /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
      /// </ul>
 -    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
-+    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::types::ReturnConsumedCapacity>) -> Self {
++    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self {
          self.return_consumed_capacity = input;
          self
      }
@@ -101,17 +101,17 @@
      /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
      /// </ul>
 -    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
-+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::types::ReturnConsumedCapacity> {
++    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> {
          &self.return_consumed_capacity
      }
      /// Consumes the builder and constructs a [`BatchExecuteStatementInput`](crate::operation::batch_execute_statement::BatchExecuteStatementInput).
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::batch_execute_statement::BatchExecuteStatementInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::batch_execute_statement::BatchExecuteStatementInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::batch_execute_statement::BatchExecuteStatementInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::batch_execute_statement::BatchExecuteStatementInput {
-+        ::std::result::Result::Ok(super::operation::batch_execute_statement::BatchExecuteStatementInput {
++        ::std::result::Result::Ok(super::super::super::operation::batch_execute_statement::BatchExecuteStatementInput {
              statements: self.statements,
              return_consumed_capacity: self.return_consumed_capacity,
          })

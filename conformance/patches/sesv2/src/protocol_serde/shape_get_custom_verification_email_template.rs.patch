@@ -6,36 +6,36 @@
  ) -> std::result::Result<
 -    crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateOutput,
 -    crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError,
-+    super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateOutput,
-+    super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError,
++    super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateOutput,
++    super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled(generic)),
-+        None => return Err(super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled(generic)),
++        None => return Err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
          "BadRequestException" => {
 -            crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::BadRequestException({
-+            super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::BadRequestException({
++            super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::BadRequestException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-+                    let mut output = super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
++                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -44,16 +44,16 @@
          }
          "NotFoundException" => {
 -            crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::NotFoundException({
-+            super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::NotFoundException({
++            super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::NotFoundException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-+                    let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
++                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -62,17 +62,17 @@
          }
          "TooManyRequestsException" => {
 -            crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::TooManyRequestsException({
-+            super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::TooManyRequestsException({
++            super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::TooManyRequestsException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-+                        super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
++                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -81,7 +81,7 @@
              })
          }
 -        _ => crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::generic(generic),
-+        _ => super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::generic(generic),
++        _ => super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::generic(generic),
      })
  }
 
@@ -91,19 +91,19 @@
  ) -> std::result::Result<
 -    crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateOutput,
 -    crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError,
-+    super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateOutput,
-+    super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError,
++    super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateOutput,
++    super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError,
  > {
      Ok({
          #[allow(unused_mut)]
          let mut output =
 -            crate::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder::default();
-+            super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder::default();
++            super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder::default();
          output =
 -            crate::protocol_serde::shape_get_custom_verification_email_template::de_get_custom_verification_email_template(_response_body, output)
 -                .map_err(crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-+            super::protocol_serde::shape_get_custom_verification_email_template::de_get_custom_verification_email_template(_response_body, output)
-+                .map_err(super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
++            super::super::protocol_serde::shape_get_custom_verification_email_template::de_get_custom_verification_email_template(_response_body, output)
++                .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -112,14 +112,14 @@
  pub(crate) fn de_get_custom_verification_email_template(
      _value: &[u8],
 -    mut builder: crate::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder,
-+    mut builder: super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder,
++    mut builder: super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder,
-+    super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder,
++    super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -128,7 +128,7 @@
                  }
                  "Tags" => {
 -                    builder = builder.set_tags(crate::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
-+                    builder = builder.set_tags(super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
++                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                  }
                  "TemplateContent" => {
                      builder = builder.set_template_content(

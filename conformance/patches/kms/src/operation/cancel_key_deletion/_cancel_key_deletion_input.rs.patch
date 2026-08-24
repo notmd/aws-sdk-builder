@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CancelKeyDeletionInput`](crate::operation::cancel_key_deletion::CancelKeyDeletionInput).
 -    pub fn builder() -> crate::operation::cancel_key_deletion::builders::CancelKeyDeletionInputBuilder {
 -        crate::operation::cancel_key_deletion::builders::CancelKeyDeletionInputBuilder::default()
-+    pub fn builder() -> super::operation::cancel_key_deletion::builders::CancelKeyDeletionInputBuilder {
-+        super::operation::cancel_key_deletion::builders::CancelKeyDeletionInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::cancel_key_deletion::builders::CancelKeyDeletionInputBuilder {
++        super::super::super::operation::cancel_key_deletion::builders::CancelKeyDeletionInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::cancel_key_deletion::CancelKeyDeletionInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::cancel_key_deletion::CancelKeyDeletionInput { key_id: self.key_id })
-+    ) -> ::std::result::Result<super::operation::cancel_key_deletion::CancelKeyDeletionInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::cancel_key_deletion::CancelKeyDeletionInput { key_id: self.key_id })
++    ) -> ::std::result::Result<super::super::super::operation::cancel_key_deletion::CancelKeyDeletionInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::cancel_key_deletion::CancelKeyDeletionInput { key_id: self.key_id })
      }
  }

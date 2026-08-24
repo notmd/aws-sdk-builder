@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SearchedLogStream`](crate::types::SearchedLogStream).
 -    pub fn builder() -> crate::types::builders::SearchedLogStreamBuilder {
 -        crate::types::builders::SearchedLogStreamBuilder::default()
-+    pub fn builder() -> super::types::builders::SearchedLogStreamBuilder {
-+        super::types::builders::SearchedLogStreamBuilder::default()
++    pub fn builder() -> super::super::types::builders::SearchedLogStreamBuilder {
++        super::super::types::builders::SearchedLogStreamBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`SearchedLogStream`](crate::types::SearchedLogStream).
 -    pub fn build(self) -> crate::types::SearchedLogStream {
 -        crate::types::SearchedLogStream {
-+    pub fn build(self) -> super::types::SearchedLogStream {
-+        super::types::SearchedLogStream {
++    pub fn build(self) -> super::super::types::SearchedLogStream {
++        super::super::types::SearchedLogStream {
              log_stream_name: self.log_stream_name,
              searched_completely: self.searched_completely,
          }

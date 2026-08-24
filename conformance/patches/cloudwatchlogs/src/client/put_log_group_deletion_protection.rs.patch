@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionFluentBuilder {
 -        crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionFluentBuilder {
-+        super::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionFluentBuilder {
++        super::super::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionFluentBuilder::new(self.handle.clone())
      }
  }

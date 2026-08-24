@@ -5,7 +5,7 @@
      pub batch_id: ::std::string::String,
      /// <p>The current status of the import batch. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
 -    pub status: crate::types::ImportStatus,
-+    pub status: super::types::ImportStatus,
++    pub status: super::super::types::ImportStatus,
      /// <p>The error message if the batch failed to import. Only present when status is FAILED.</p>
      pub error_message: ::std::option::Option<::std::string::String>,
  }
@@ -14,7 +14,7 @@
      }
      /// <p>The current status of the import batch. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
 -    pub fn status(&self) -> &crate::types::ImportStatus {
-+    pub fn status(&self) -> &super::types::ImportStatus {
++    pub fn status(&self) -> &super::super::types::ImportStatus {
          &self.status
      }
      /// <p>The error message if the batch failed to import. Only present when status is FAILED.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ImportBatch`](crate::types::ImportBatch).
 -    pub fn builder() -> crate::types::builders::ImportBatchBuilder {
 -        crate::types::builders::ImportBatchBuilder::default()
-+    pub fn builder() -> super::types::builders::ImportBatchBuilder {
-+        super::types::builders::ImportBatchBuilder::default()
++    pub fn builder() -> super::super::types::builders::ImportBatchBuilder {
++        super::super::types::builders::ImportBatchBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct ImportBatchBuilder {
      pub(crate) batch_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::ImportStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::ImportStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::ImportStatus>,
      pub(crate) error_message: ::std::option::Option<::std::string::String>,
  }
  impl ImportBatchBuilder {
@@ -43,19 +43,19 @@
      /// <p>The current status of the import batch. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
      /// This field is required.
 -    pub fn status(mut self, input: crate::types::ImportStatus) -> Self {
-+    pub fn status(mut self, input: super::types::ImportStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::ImportStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current status of the import batch. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ImportStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::ImportStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::ImportStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>The current status of the import batch. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::ImportStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::ImportStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::ImportStatus> {
          &self.status
      }
      /// <p>The error message if the batch failed to import. Only present when status is FAILED.</p>
@@ -65,8 +65,8 @@
      /// - [`status`](crate::types::builders::ImportBatchBuilder::status)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ImportBatch, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ImportBatch {
-+    pub fn build(self) -> ::std::result::Result<super::types::ImportBatch, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ImportBatch {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ImportBatch, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ImportBatch {
              batch_id: self.batch_id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "batch_id",

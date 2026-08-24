@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminListGroupsForUserInput`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserInput).
 -    pub fn builder() -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder {
 -        crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder::default()
-+    pub fn builder() -> super::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder {
-+        super::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder {
++        super::super::super::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::admin_list_groups_for_user::AdminListGroupsForUserInput,
-+        super::operation::admin_list_groups_for_user::AdminListGroupsForUserInput,
++        super::super::super::operation::admin_list_groups_for_user::AdminListGroupsForUserInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::admin_list_groups_for_user::AdminListGroupsForUserInput {
-+        ::std::result::Result::Ok(super::operation::admin_list_groups_for_user::AdminListGroupsForUserInput {
++        ::std::result::Result::Ok(super::super::super::operation::admin_list_groups_for_user::AdminListGroupsForUserInput {
              username: self.username,
              user_pool_id: self.user_pool_id,
              limit: self.limit,

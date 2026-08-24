@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RestoreStatus`](crate::types::RestoreStatus).
 -    pub fn builder() -> crate::types::builders::RestoreStatusBuilder {
 -        crate::types::builders::RestoreStatusBuilder::default()
-+    pub fn builder() -> super::types::builders::RestoreStatusBuilder {
-+        super::types::builders::RestoreStatusBuilder::default()
++    pub fn builder() -> super::super::types::builders::RestoreStatusBuilder {
++        super::super::types::builders::RestoreStatusBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`RestoreStatus`](crate::types::RestoreStatus).
 -    pub fn build(self) -> crate::types::RestoreStatus {
 -        crate::types::RestoreStatus {
-+    pub fn build(self) -> super::types::RestoreStatus {
-+        super::types::RestoreStatus {
++    pub fn build(self) -> super::super::types::RestoreStatus {
++        super::super::types::RestoreStatus {
              is_restore_in_progress: self.is_restore_in_progress,
              restore_expiry_date: self.restore_expiry_date,
          }

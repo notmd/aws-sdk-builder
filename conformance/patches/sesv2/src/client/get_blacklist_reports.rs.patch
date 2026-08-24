@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetBlacklistReportsError>`](crate::operation::get_blacklist_reports::GetBlacklistReportsError)
 -    pub fn get_blacklist_reports(&self) -> crate::operation::get_blacklist_reports::builders::GetBlacklistReportsFluentBuilder {
 -        crate::operation::get_blacklist_reports::builders::GetBlacklistReportsFluentBuilder::new(self.handle.clone())
-+    pub fn get_blacklist_reports(&self) -> super::operation::get_blacklist_reports::builders::GetBlacklistReportsFluentBuilder {
-+        super::operation::get_blacklist_reports::builders::GetBlacklistReportsFluentBuilder::new(self.handle.clone())
++    pub fn get_blacklist_reports(&self) -> super::super::operation::get_blacklist_reports::builders::GetBlacklistReportsFluentBuilder {
++        super::super::operation::get_blacklist_reports::builders::GetBlacklistReportsFluentBuilder::new(self.handle.clone())
      }
  }

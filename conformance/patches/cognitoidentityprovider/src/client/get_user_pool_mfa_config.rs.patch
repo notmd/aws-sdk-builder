@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetUserPoolMfaConfigError>`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError)
 -    pub fn get_user_pool_mfa_config(&self) -> crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder {
 -        crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder::new(self.handle.clone())
-+    pub fn get_user_pool_mfa_config(&self) -> super::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder {
-+        super::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder::new(self.handle.clone())
++    pub fn get_user_pool_mfa_config(&self) -> super::super::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder {
++        super::super::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder::new(self.handle.clone())
      }
  }

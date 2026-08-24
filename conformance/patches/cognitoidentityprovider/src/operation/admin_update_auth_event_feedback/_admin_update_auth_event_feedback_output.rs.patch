@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminUpdateAuthEventFeedbackOutput`](crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput).
 -    pub fn builder() -> crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackOutputBuilder {
 -        crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackOutputBuilder::default()
-+    pub fn builder() -> super::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackOutputBuilder {
-+        super::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackOutputBuilder {
++        super::super::super::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AdminUpdateAuthEventFeedbackOutput`](crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput).
 -    pub fn build(self) -> crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput {
 -        crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput {
-+    pub fn build(self) -> super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput {
-+        super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput {
++    pub fn build(self) -> super::super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput {
++        super::super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput {
              _request_id: self._request_id,
          }
      }

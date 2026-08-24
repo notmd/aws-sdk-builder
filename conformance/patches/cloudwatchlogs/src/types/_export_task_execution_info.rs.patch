@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ExportTaskExecutionInfo`](crate::types::ExportTaskExecutionInfo).
 -    pub fn builder() -> crate::types::builders::ExportTaskExecutionInfoBuilder {
 -        crate::types::builders::ExportTaskExecutionInfoBuilder::default()
-+    pub fn builder() -> super::types::builders::ExportTaskExecutionInfoBuilder {
-+        super::types::builders::ExportTaskExecutionInfoBuilder::default()
++    pub fn builder() -> super::super::types::builders::ExportTaskExecutionInfoBuilder {
++        super::super::types::builders::ExportTaskExecutionInfoBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ExportTaskExecutionInfo`](crate::types::ExportTaskExecutionInfo).
 -    pub fn build(self) -> crate::types::ExportTaskExecutionInfo {
 -        crate::types::ExportTaskExecutionInfo {
-+    pub fn build(self) -> super::types::ExportTaskExecutionInfo {
-+        super::types::ExportTaskExecutionInfo {
++    pub fn build(self) -> super::super::types::ExportTaskExecutionInfo {
++        super::super::types::ExportTaskExecutionInfo {
              creation_time: self.creation_time,
              completion_time: self.completion_time,
          }

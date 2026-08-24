@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateConsumableResourceOutput`](crate::operation::create_consumable_resource::CreateConsumableResourceOutput).
 -    pub fn builder() -> crate::operation::create_consumable_resource::builders::CreateConsumableResourceOutputBuilder {
 -        crate::operation::create_consumable_resource::builders::CreateConsumableResourceOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_consumable_resource::builders::CreateConsumableResourceOutputBuilder {
-+        super::operation::create_consumable_resource::builders::CreateConsumableResourceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_consumable_resource::builders::CreateConsumableResourceOutputBuilder {
++        super::super::super::operation::create_consumable_resource::builders::CreateConsumableResourceOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateConsumableResourceOutput`](crate::operation::create_consumable_resource::CreateConsumableResourceOutput).
 -    pub fn build(self) -> crate::operation::create_consumable_resource::CreateConsumableResourceOutput {
 -        crate::operation::create_consumable_resource::CreateConsumableResourceOutput {
-+    pub fn build(self) -> super::operation::create_consumable_resource::CreateConsumableResourceOutput {
-+        super::operation::create_consumable_resource::CreateConsumableResourceOutput {
++    pub fn build(self) -> super::super::super::operation::create_consumable_resource::CreateConsumableResourceOutput {
++        super::super::super::operation::create_consumable_resource::CreateConsumableResourceOutput {
              consumable_resource_name: self.consumable_resource_name,
              consumable_resource_arn: self.consumable_resource_arn,
              _request_id: self._request_id,

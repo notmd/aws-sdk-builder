@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DomainIspPlacement`](crate::types::DomainIspPlacement).
 -    pub fn builder() -> crate::types::builders::DomainIspPlacementBuilder {
 -        crate::types::builders::DomainIspPlacementBuilder::default()
-+    pub fn builder() -> super::types::builders::DomainIspPlacementBuilder {
-+        super::types::builders::DomainIspPlacementBuilder::default()
++    pub fn builder() -> super::super::types::builders::DomainIspPlacementBuilder {
++        super::super::types::builders::DomainIspPlacementBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DomainIspPlacement`](crate::types::DomainIspPlacement).
 -    pub fn build(self) -> crate::types::DomainIspPlacement {
 -        crate::types::DomainIspPlacement {
-+    pub fn build(self) -> super::types::DomainIspPlacement {
-+        super::types::DomainIspPlacement {
++    pub fn build(self) -> super::super::types::DomainIspPlacement {
++        super::super::types::DomainIspPlacement {
              isp_name: self.isp_name,
              inbox_raw_count: self.inbox_raw_count,
              spam_raw_count: self.spam_raw_count,

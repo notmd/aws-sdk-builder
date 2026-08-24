@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListStoredQueriesError>`](crate::operation::list_stored_queries::ListStoredQueriesError)
 -    pub fn list_stored_queries(&self) -> crate::operation::list_stored_queries::builders::ListStoredQueriesFluentBuilder {
 -        crate::operation::list_stored_queries::builders::ListStoredQueriesFluentBuilder::new(self.handle.clone())
-+    pub fn list_stored_queries(&self) -> super::operation::list_stored_queries::builders::ListStoredQueriesFluentBuilder {
-+        super::operation::list_stored_queries::builders::ListStoredQueriesFluentBuilder::new(self.handle.clone())
++    pub fn list_stored_queries(&self) -> super::super::operation::list_stored_queries::builders::ListStoredQueriesFluentBuilder {
++        super::super::operation::list_stored_queries::builders::ListStoredQueriesFluentBuilder::new(self.handle.clone())
      }
  }

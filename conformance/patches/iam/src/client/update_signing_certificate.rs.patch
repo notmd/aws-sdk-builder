@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateSigningCertificateError>`](crate::operation::update_signing_certificate::UpdateSigningCertificateError)
 -    pub fn update_signing_certificate(&self) -> crate::operation::update_signing_certificate::builders::UpdateSigningCertificateFluentBuilder {
 -        crate::operation::update_signing_certificate::builders::UpdateSigningCertificateFluentBuilder::new(self.handle.clone())
-+    pub fn update_signing_certificate(&self) -> super::operation::update_signing_certificate::builders::UpdateSigningCertificateFluentBuilder {
-+        super::operation::update_signing_certificate::builders::UpdateSigningCertificateFluentBuilder::new(self.handle.clone())
++    pub fn update_signing_certificate(&self) -> super::super::operation::update_signing_certificate::builders::UpdateSigningCertificateFluentBuilder {
++        super::super::operation::update_signing_certificate::builders::UpdateSigningCertificateFluentBuilder::new(self.handle.clone())
      }
  }

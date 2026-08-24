@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetIntegrationError>`](crate::operation::get_integration::GetIntegrationError)
 -    pub fn get_integration(&self) -> crate::operation::get_integration::builders::GetIntegrationFluentBuilder {
 -        crate::operation::get_integration::builders::GetIntegrationFluentBuilder::new(self.handle.clone())
-+    pub fn get_integration(&self) -> super::operation::get_integration::builders::GetIntegrationFluentBuilder {
-+        super::operation::get_integration::builders::GetIntegrationFluentBuilder::new(self.handle.clone())
++    pub fn get_integration(&self) -> super::super::operation::get_integration::builders::GetIntegrationFluentBuilder {
++        super::super::operation::get_integration::builders::GetIntegrationFluentBuilder::new(self.handle.clone())
      }
  }

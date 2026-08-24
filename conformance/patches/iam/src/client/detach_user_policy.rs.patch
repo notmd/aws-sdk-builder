@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DetachUserPolicyError>`](crate::operation::detach_user_policy::DetachUserPolicyError)
 -    pub fn detach_user_policy(&self) -> crate::operation::detach_user_policy::builders::DetachUserPolicyFluentBuilder {
 -        crate::operation::detach_user_policy::builders::DetachUserPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn detach_user_policy(&self) -> super::operation::detach_user_policy::builders::DetachUserPolicyFluentBuilder {
-+        super::operation::detach_user_policy::builders::DetachUserPolicyFluentBuilder::new(self.handle.clone())
++    pub fn detach_user_policy(&self) -> super::super::operation::detach_user_policy::builders::DetachUserPolicyFluentBuilder {
++        super::super::operation::detach_user_policy::builders::DetachUserPolicyFluentBuilder::new(self.handle.clone())
      }
  }

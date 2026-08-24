@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ScopeConfiguration`](crate::types::ScopeConfiguration).
 -    pub fn builder() -> crate::types::builders::ScopeConfigurationBuilder {
 -        crate::types::builders::ScopeConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::ScopeConfigurationBuilder {
-+        super::types::builders::ScopeConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::ScopeConfigurationBuilder {
++        super::super::types::builders::ScopeConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`scope_type`](crate::types::builders::ScopeConfigurationBuilder::scope_type)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ScopeConfiguration, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ScopeConfiguration {
-+    pub fn build(self) -> ::std::result::Result<super::types::ScopeConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ScopeConfiguration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ScopeConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ScopeConfiguration {
              scope_type: self.scope_type.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "scope_type",

@@ -5,7 +5,7 @@
  pub struct Message {
      /// <p>The role that the message plays in the message.</p>
 -    pub role: crate::types::ConversationRole,
-+    pub role: super::types::ConversationRole,
++    pub role: super::super::types::ConversationRole,
      /// <p>The message content. Note the following restrictions:</p>
      /// <ul>
      /// <li>
@@ -14,12 +14,12 @@
      /// <p>You can only include images and documents if the <code>role</code> is <code>user</code>.</p></li>
      /// </ul>
 -    pub content: ::std::vec::Vec<crate::types::ContentBlock>,
-+    pub content: ::std::vec::Vec<super::types::ContentBlock>,
++    pub content: ::std::vec::Vec<super::super::types::ContentBlock>,
  }
  impl Message {
      /// <p>The role that the message plays in the message.</p>
 -    pub fn role(&self) -> &crate::types::ConversationRole {
-+    pub fn role(&self) -> &super::types::ConversationRole {
++    pub fn role(&self) -> &super::super::types::ConversationRole {
          &self.role
      }
      /// <p>The message content. Note the following restrictions:</p>
@@ -28,7 +28,7 @@
      /// <p>You can only include images and documents if the <code>role</code> is <code>user</code>.</p></li>
      /// </ul>
 -    pub fn content(&self) -> &[crate::types::ContentBlock] {
-+    pub fn content(&self) -> &[super::types::ContentBlock] {
++    pub fn content(&self) -> &[super::super::types::ContentBlock] {
          use std::ops::Deref;
          self.content.deref()
      }
@@ -38,8 +38,8 @@
      /// Creates a new builder-style object to manufacture [`Message`](crate::types::Message).
 -    pub fn builder() -> crate::types::builders::MessageBuilder {
 -        crate::types::builders::MessageBuilder::default()
-+    pub fn builder() -> super::types::builders::MessageBuilder {
-+        super::types::builders::MessageBuilder::default()
++    pub fn builder() -> super::super::types::builders::MessageBuilder {
++        super::super::types::builders::MessageBuilder::default()
      }
  }
 
@@ -49,26 +49,26 @@
  pub struct MessageBuilder {
 -    pub(crate) role: ::std::option::Option<crate::types::ConversationRole>,
 -    pub(crate) content: ::std::option::Option<::std::vec::Vec<crate::types::ContentBlock>>,
-+    pub(crate) role: ::std::option::Option<super::types::ConversationRole>,
-+    pub(crate) content: ::std::option::Option<::std::vec::Vec<super::types::ContentBlock>>,
++    pub(crate) role: ::std::option::Option<super::super::types::ConversationRole>,
++    pub(crate) content: ::std::option::Option<::std::vec::Vec<super::super::types::ContentBlock>>,
  }
  impl MessageBuilder {
      /// <p>The role that the message plays in the message.</p>
      /// This field is required.
 -    pub fn role(mut self, input: crate::types::ConversationRole) -> Self {
-+    pub fn role(mut self, input: super::types::ConversationRole) -> Self {
++    pub fn role(mut self, input: super::super::types::ConversationRole) -> Self {
          self.role = ::std::option::Option::Some(input);
          self
      }
      /// <p>The role that the message plays in the message.</p>
 -    pub fn set_role(mut self, input: ::std::option::Option<crate::types::ConversationRole>) -> Self {
-+    pub fn set_role(mut self, input: ::std::option::Option<super::types::ConversationRole>) -> Self {
++    pub fn set_role(mut self, input: ::std::option::Option<super::super::types::ConversationRole>) -> Self {
          self.role = input;
          self
      }
      /// <p>The role that the message plays in the message.</p>
 -    pub fn get_role(&self) -> &::std::option::Option<crate::types::ConversationRole> {
-+    pub fn get_role(&self) -> &::std::option::Option<super::types::ConversationRole> {
++    pub fn get_role(&self) -> &::std::option::Option<super::super::types::ConversationRole> {
          &self.role
      }
      /// Appends an item to `content`.
@@ -77,7 +77,7 @@
      /// <p>You can only include images and documents if the <code>role</code> is <code>user</code>.</p></li>
      /// </ul>
 -    pub fn content(mut self, input: crate::types::ContentBlock) -> Self {
-+    pub fn content(mut self, input: super::types::ContentBlock) -> Self {
++    pub fn content(mut self, input: super::super::types::ContentBlock) -> Self {
          let mut v = self.content.unwrap_or_default();
          v.push(input);
          self.content = ::std::option::Option::Some(v);
@@ -86,7 +86,7 @@
      /// <p>You can only include images and documents if the <code>role</code> is <code>user</code>.</p></li>
      /// </ul>
 -    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ContentBlock>>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ContentBlock>>) -> Self {
++    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ContentBlock>>) -> Self {
          self.content = input;
          self
      }
@@ -95,7 +95,7 @@
      /// <p>You can only include images and documents if the <code>role</code> is <code>user</code>.</p></li>
      /// </ul>
 -    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ContentBlock>> {
-+    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ContentBlock>> {
++    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ContentBlock>> {
          &self.content
      }
      /// Consumes the builder and constructs a [`Message`](crate::types::Message).
@@ -105,8 +105,8 @@
      /// - [`content`](crate::types::builders::MessageBuilder::content)
 -    pub fn build(self) -> ::std::result::Result<crate::types::Message, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::Message {
-+    pub fn build(self) -> ::std::result::Result<super::types::Message, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Message {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Message, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Message {
              role: self.role.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "role",

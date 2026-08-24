@@ -5,7 +5,7 @@
      pub description: ::std::option::Option<::std::string::String>,
      /// <p>The updated query language for the scheduled query.</p>
 -    pub query_language: ::std::option::Option<crate::types::QueryLanguage>,
-+    pub query_language: ::std::option::Option<super::types::QueryLanguage>,
++    pub query_language: ::std::option::Option<super::super::super::types::QueryLanguage>,
      /// <p>The updated query string to execute.</p>
      pub query_string: ::std::option::Option<::std::string::String>,
      /// <p>The updated array of log group names or ARNs to query.</p>
@@ -14,7 +14,7 @@
      pub end_time_offset: ::std::option::Option<i64>,
      /// <p>The updated configuration for where to deliver query results.</p>
 -    pub destination_configuration: ::std::option::Option<crate::types::DestinationConfiguration>,
-+    pub destination_configuration: ::std::option::Option<super::types::DestinationConfiguration>,
++    pub destination_configuration: ::std::option::Option<super::super::super::types::DestinationConfiguration>,
      /// <p>The updated start time for the scheduled query in Unix epoch format.</p>
      pub schedule_start_time: ::std::option::Option<i64>,
      /// <p>The updated end time for the scheduled query in Unix epoch format.</p>
@@ -23,7 +23,7 @@
      pub execution_role_arn: ::std::option::Option<::std::string::String>,
      /// <p>The updated state of the scheduled query.</p>
 -    pub state: ::std::option::Option<crate::types::ScheduledQueryState>,
-+    pub state: ::std::option::Option<super::types::ScheduledQueryState>,
++    pub state: ::std::option::Option<super::super::super::types::ScheduledQueryState>,
  }
  impl UpdateScheduledQueryInput {
      /// <p>The ARN or name of the scheduled query to update.</p>
@@ -32,7 +32,7 @@
      }
      /// <p>The updated query language for the scheduled query.</p>
 -    pub fn query_language(&self) -> ::std::option::Option<&crate::types::QueryLanguage> {
-+    pub fn query_language(&self) -> ::std::option::Option<&super::types::QueryLanguage> {
++    pub fn query_language(&self) -> ::std::option::Option<&super::super::super::types::QueryLanguage> {
          self.query_language.as_ref()
      }
      /// <p>The updated query string to execute.</p>
@@ -41,7 +41,7 @@
      }
      /// <p>The updated configuration for where to deliver query results.</p>
 -    pub fn destination_configuration(&self) -> ::std::option::Option<&crate::types::DestinationConfiguration> {
-+    pub fn destination_configuration(&self) -> ::std::option::Option<&super::types::DestinationConfiguration> {
++    pub fn destination_configuration(&self) -> ::std::option::Option<&super::super::super::types::DestinationConfiguration> {
          self.destination_configuration.as_ref()
      }
      /// <p>The updated start time for the scheduled query in Unix epoch format.</p>
@@ -50,7 +50,7 @@
      }
      /// <p>The updated state of the scheduled query.</p>
 -    pub fn state(&self) -> ::std::option::Option<&crate::types::ScheduledQueryState> {
-+    pub fn state(&self) -> ::std::option::Option<&super::types::ScheduledQueryState> {
++    pub fn state(&self) -> ::std::option::Option<&super::super::super::types::ScheduledQueryState> {
          self.state.as_ref()
      }
  }
@@ -58,8 +58,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateScheduledQueryInput`](crate::operation::update_scheduled_query::UpdateScheduledQueryInput).
 -    pub fn builder() -> crate::operation::update_scheduled_query::builders::UpdateScheduledQueryInputBuilder {
 -        crate::operation::update_scheduled_query::builders::UpdateScheduledQueryInputBuilder::default()
-+    pub fn builder() -> super::operation::update_scheduled_query::builders::UpdateScheduledQueryInputBuilder {
-+        super::operation::update_scheduled_query::builders::UpdateScheduledQueryInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_scheduled_query::builders::UpdateScheduledQueryInputBuilder {
++        super::super::super::operation::update_scheduled_query::builders::UpdateScheduledQueryInputBuilder::default()
      }
  }
 
@@ -68,7 +68,7 @@
      pub(crate) identifier: ::std::option::Option<::std::string::String>,
      pub(crate) description: ::std::option::Option<::std::string::String>,
 -    pub(crate) query_language: ::std::option::Option<crate::types::QueryLanguage>,
-+    pub(crate) query_language: ::std::option::Option<super::types::QueryLanguage>,
++    pub(crate) query_language: ::std::option::Option<super::super::super::types::QueryLanguage>,
      pub(crate) query_string: ::std::option::Option<::std::string::String>,
      pub(crate) log_group_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) schedule_expression: ::std::option::Option<::std::string::String>,
@@ -77,12 +77,12 @@
      pub(crate) start_time_offset: ::std::option::Option<i64>,
      pub(crate) end_time_offset: ::std::option::Option<i64>,
 -    pub(crate) destination_configuration: ::std::option::Option<crate::types::DestinationConfiguration>,
-+    pub(crate) destination_configuration: ::std::option::Option<super::types::DestinationConfiguration>,
++    pub(crate) destination_configuration: ::std::option::Option<super::super::super::types::DestinationConfiguration>,
      pub(crate) schedule_start_time: ::std::option::Option<i64>,
      pub(crate) schedule_end_time: ::std::option::Option<i64>,
      pub(crate) execution_role_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) state: ::std::option::Option<crate::types::ScheduledQueryState>,
-+    pub(crate) state: ::std::option::Option<super::types::ScheduledQueryState>,
++    pub(crate) state: ::std::option::Option<super::super::super::types::ScheduledQueryState>,
  }
  impl UpdateScheduledQueryInputBuilder {
      /// <p>The ARN or name of the scheduled query to update.</p>
@@ -91,19 +91,19 @@
      /// <p>The updated query language for the scheduled query.</p>
      /// This field is required.
 -    pub fn query_language(mut self, input: crate::types::QueryLanguage) -> Self {
-+    pub fn query_language(mut self, input: super::types::QueryLanguage) -> Self {
++    pub fn query_language(mut self, input: super::super::super::types::QueryLanguage) -> Self {
          self.query_language = ::std::option::Option::Some(input);
          self
      }
      /// <p>The updated query language for the scheduled query.</p>
 -    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
-+    pub fn set_query_language(mut self, input: ::std::option::Option<super::types::QueryLanguage>) -> Self {
++    pub fn set_query_language(mut self, input: ::std::option::Option<super::super::super::types::QueryLanguage>) -> Self {
          self.query_language = input;
          self
      }
      /// <p>The updated query language for the scheduled query.</p>
 -    pub fn get_query_language(&self) -> &::std::option::Option<crate::types::QueryLanguage> {
-+    pub fn get_query_language(&self) -> &::std::option::Option<super::types::QueryLanguage> {
++    pub fn get_query_language(&self) -> &::std::option::Option<super::super::super::types::QueryLanguage> {
          &self.query_language
      }
      /// <p>The updated query string to execute.</p>
@@ -112,19 +112,19 @@
      }
      /// <p>The updated configuration for where to deliver query results.</p>
 -    pub fn destination_configuration(mut self, input: crate::types::DestinationConfiguration) -> Self {
-+    pub fn destination_configuration(mut self, input: super::types::DestinationConfiguration) -> Self {
++    pub fn destination_configuration(mut self, input: super::super::super::types::DestinationConfiguration) -> Self {
          self.destination_configuration = ::std::option::Option::Some(input);
          self
      }
      /// <p>The updated configuration for where to deliver query results.</p>
 -    pub fn set_destination_configuration(mut self, input: ::std::option::Option<crate::types::DestinationConfiguration>) -> Self {
-+    pub fn set_destination_configuration(mut self, input: ::std::option::Option<super::types::DestinationConfiguration>) -> Self {
++    pub fn set_destination_configuration(mut self, input: ::std::option::Option<super::super::super::types::DestinationConfiguration>) -> Self {
          self.destination_configuration = input;
          self
      }
      /// <p>The updated configuration for where to deliver query results.</p>
 -    pub fn get_destination_configuration(&self) -> &::std::option::Option<crate::types::DestinationConfiguration> {
-+    pub fn get_destination_configuration(&self) -> &::std::option::Option<super::types::DestinationConfiguration> {
++    pub fn get_destination_configuration(&self) -> &::std::option::Option<super::super::super::types::DestinationConfiguration> {
          &self.destination_configuration
      }
      /// <p>The updated start time for the scheduled query in Unix epoch format.</p>
@@ -133,29 +133,29 @@
      }
      /// <p>The updated state of the scheduled query.</p>
 -    pub fn state(mut self, input: crate::types::ScheduledQueryState) -> Self {
-+    pub fn state(mut self, input: super::types::ScheduledQueryState) -> Self {
++    pub fn state(mut self, input: super::super::super::types::ScheduledQueryState) -> Self {
          self.state = ::std::option::Option::Some(input);
          self
      }
      /// <p>The updated state of the scheduled query.</p>
 -    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
-+    pub fn set_state(mut self, input: ::std::option::Option<super::types::ScheduledQueryState>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::super::super::types::ScheduledQueryState>) -> Self {
          self.state = input;
          self
      }
      /// <p>The updated state of the scheduled query.</p>
 -    pub fn get_state(&self) -> &::std::option::Option<crate::types::ScheduledQueryState> {
-+    pub fn get_state(&self) -> &::std::option::Option<super::types::ScheduledQueryState> {
++    pub fn get_state(&self) -> &::std::option::Option<super::super::super::types::ScheduledQueryState> {
          &self.state
      }
      /// Consumes the builder and constructs a [`UpdateScheduledQueryInput`](crate::operation::update_scheduled_query::UpdateScheduledQueryInput).
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::update_scheduled_query::UpdateScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::update_scheduled_query::UpdateScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::update_scheduled_query::UpdateScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::update_scheduled_query::UpdateScheduledQueryInput {
-+        ::std::result::Result::Ok(super::operation::update_scheduled_query::UpdateScheduledQueryInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_scheduled_query::UpdateScheduledQueryInput {
              identifier: self.identifier,
              description: self.description,
              query_language: self.query_language,

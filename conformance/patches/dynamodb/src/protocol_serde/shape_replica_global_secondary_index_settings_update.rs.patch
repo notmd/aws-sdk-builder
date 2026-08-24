@@ -5,7 +5,7 @@
  pub fn ser_replica_global_secondary_index_settings_update(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate,
-+    input: &super::types::ReplicaGlobalSecondaryIndexSettingsUpdate,
++    input: &super::super::types::ReplicaGlobalSecondaryIndexSettingsUpdate,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("IndexName").string(input.index_name.as_str());
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_3 = object.key("ProvisionedReadCapacityAutoScalingSettingsUpdate").start_object();
 -        crate::protocol_serde::shape_auto_scaling_settings_update::ser_auto_scaling_settings_update(&mut object_3, var_2)?;
-+        super::protocol_serde::shape_auto_scaling_settings_update::ser_auto_scaling_settings_update(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_auto_scaling_settings_update::ser_auto_scaling_settings_update(&mut object_3, var_2)?;
          object_3.finish();
      }
      Ok(())

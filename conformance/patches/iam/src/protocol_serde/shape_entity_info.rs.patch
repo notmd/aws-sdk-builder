@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::EntityInfo, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::EntityInfo, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::EntityInfo, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::EntityInfo::builder();
-+    let mut builder = super::types::EntityInfo::builder();
++    let mut builder = super::super::types::EntityInfo::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("Arn") /* Arn com.amazonaws.iam#EntityInfo$Arn */ =>  {
@@ -21,8 +21,8 @@
                      Some(
 -                        Result::<crate::types::PolicyOwnerEntityType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::PolicyOwnerEntityType::from(
-+                        Result::<super::types::PolicyOwnerEntityType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::PolicyOwnerEntityType::from(
++                        Result::<super::super::types::PolicyOwnerEntityType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::PolicyOwnerEntityType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -31,7 +31,7 @@
          }
      }
 -    Ok(crate::serde_util::entity_info_correct_errors(builder)
-+    Ok(super::serde_util::entity_info_correct_errors(builder)
++    Ok(super::super::serde_util::entity_info_correct_errors(builder)
          .build()
          .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
  }

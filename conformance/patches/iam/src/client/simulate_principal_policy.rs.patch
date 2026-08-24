@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SimulatePrincipalPolicyError>`](crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError)
 -    pub fn simulate_principal_policy(&self) -> crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder {
 -        crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn simulate_principal_policy(&self) -> super::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder {
-+        super::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::new(self.handle.clone())
++    pub fn simulate_principal_policy(&self) -> super::super::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder {
++        super::super::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::new(self.handle.clone())
      }
  }

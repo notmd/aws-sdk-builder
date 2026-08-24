@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetParametersForImportError>`](crate::operation::get_parameters_for_import::GetParametersForImportError)
 -    pub fn get_parameters_for_import(&self) -> crate::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder {
 -        crate::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder::new(self.handle.clone())
-+    pub fn get_parameters_for_import(&self) -> super::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder {
-+        super::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder::new(self.handle.clone())
++    pub fn get_parameters_for_import(&self) -> super::super::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder {
++        super::super::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder::new(self.handle.clone())
      }
  }

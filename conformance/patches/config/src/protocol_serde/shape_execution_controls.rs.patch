@@ -5,13 +5,13 @@
  pub fn ser_execution_controls(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ExecutionControls,
-+    input: &super::types::ExecutionControls,
++    input: &super::super::types::ExecutionControls,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.ssm_controls {
          #[allow(unused_mut)]
          let mut object_2 = object.key("SsmControls").start_object();
 -        crate::protocol_serde::shape_ssm_controls::ser_ssm_controls(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_ssm_controls::ser_ssm_controls(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_ssm_controls::ser_ssm_controls(&mut object_2, var_1)?;
          object_2.finish();
      }
      Ok(())
@@ -20,7 +20,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ExecutionControls>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ExecutionControls>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ExecutionControls>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -29,7 +29,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::ExecutionControlsBuilder::default();
-+            let mut builder = super::types::builders::ExecutionControlsBuilder::default();
++            let mut builder = super::super::types::builders::ExecutionControlsBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -38,7 +38,7 @@
                          "SsmControls" => {
                              builder =
 -                                builder.set_ssm_controls(crate::protocol_serde::shape_ssm_controls::de_ssm_controls(tokens, _value, depth + 1)?);
-+                                builder.set_ssm_controls(super::protocol_serde::shape_ssm_controls::de_ssm_controls(tokens, _value, depth + 1)?);
++                                builder.set_ssm_controls(super::super::protocol_serde::shape_ssm_controls::de_ssm_controls(tokens, _value, depth + 1)?);
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },

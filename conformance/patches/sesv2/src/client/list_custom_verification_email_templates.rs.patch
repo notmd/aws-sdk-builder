@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesFluentBuilder {
 -        crate::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesFluentBuilder::new(
-+    ) -> super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesFluentBuilder {
-+        super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesFluentBuilder::new(
++    ) -> super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesFluentBuilder {
++        super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesFluentBuilder::new(
              self.handle.clone(),
          )
      }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListLogAnomalyDetectorsInput`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsInput).
 -    pub fn builder() -> crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder {
 -        crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder {
-+        super::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder {
++        super::super::super::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsInput,
-+        super::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsInput,
++        super::super::super::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsInput {
-+        ::std::result::Result::Ok(super::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsInput {
++        ::std::result::Result::Ok(super::super::super::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsInput {
              filter_log_group_arn: self.filter_log_group_arn,
              limit: self.limit,
              next_token: self.next_token,

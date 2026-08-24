@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteSubscriptionFilterOutput`](crate::operation::delete_subscription_filter::DeleteSubscriptionFilterOutput).
 -    pub fn builder() -> crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterOutputBuilder {
 -        crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterOutputBuilder {
-+        super::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterOutputBuilder {
++        super::super::super::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteSubscriptionFilterOutput`](crate::operation::delete_subscription_filter::DeleteSubscriptionFilterOutput).
 -    pub fn build(self) -> crate::operation::delete_subscription_filter::DeleteSubscriptionFilterOutput {
 -        crate::operation::delete_subscription_filter::DeleteSubscriptionFilterOutput {
-+    pub fn build(self) -> super::operation::delete_subscription_filter::DeleteSubscriptionFilterOutput {
-+        super::operation::delete_subscription_filter::DeleteSubscriptionFilterOutput {
++    pub fn build(self) -> super::super::super::operation::delete_subscription_filter::DeleteSubscriptionFilterOutput {
++        super::super::super::operation::delete_subscription_filter::DeleteSubscriptionFilterOutput {
              _request_id: self._request_id,
          }
      }

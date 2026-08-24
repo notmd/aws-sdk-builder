@@ -5,35 +5,35 @@
  pub fn ser_tool_choice(
      object_5: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ToolChoice,
-+    input: &super::types::ToolChoice,
++    input: &super::super::types::ToolChoice,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
 -        crate::types::ToolChoice::Auto(inner) => {
-+        super::types::ToolChoice::Auto(inner) => {
++        super::super::types::ToolChoice::Auto(inner) => {
              #[allow(unused_mut)]
              let mut object_1 = object_5.key("auto").start_object();
 -            crate::protocol_serde::shape_auto_tool_choice::ser_auto_tool_choice(&mut object_1, inner)?;
-+            super::protocol_serde::shape_auto_tool_choice::ser_auto_tool_choice(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_auto_tool_choice::ser_auto_tool_choice(&mut object_1, inner)?;
              object_1.finish();
          }
 -        crate::types::ToolChoice::Any(inner) => {
-+        super::types::ToolChoice::Any(inner) => {
++        super::super::types::ToolChoice::Any(inner) => {
              #[allow(unused_mut)]
              let mut object_2 = object_5.key("any").start_object();
 -            crate::protocol_serde::shape_any_tool_choice::ser_any_tool_choice(&mut object_2, inner)?;
-+            super::protocol_serde::shape_any_tool_choice::ser_any_tool_choice(&mut object_2, inner)?;
++            super::super::protocol_serde::shape_any_tool_choice::ser_any_tool_choice(&mut object_2, inner)?;
              object_2.finish();
          }
 -        crate::types::ToolChoice::Tool(inner) => {
-+        super::types::ToolChoice::Tool(inner) => {
++        super::super::types::ToolChoice::Tool(inner) => {
              #[allow(unused_mut)]
              let mut object_3 = object_5.key("tool").start_object();
 -            crate::protocol_serde::shape_specific_tool_choice::ser_specific_tool_choice(&mut object_3, inner)?;
-+            super::protocol_serde::shape_specific_tool_choice::ser_specific_tool_choice(&mut object_3, inner)?;
++            super::super::protocol_serde::shape_specific_tool_choice::ser_specific_tool_choice(&mut object_3, inner)?;
              object_3.finish();
          }
 -        crate::types::ToolChoice::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ToolChoice")),
-+        super::types::ToolChoice::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ToolChoice")),
++        super::super::types::ToolChoice::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ToolChoice")),
      }
      Ok(())
  }

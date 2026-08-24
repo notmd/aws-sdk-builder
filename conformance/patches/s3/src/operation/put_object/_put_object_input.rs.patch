@@ -5,7 +5,7 @@
      /// </ul>
      /// </note>
 -    pub acl: ::std::option::Option<crate::types::ObjectCannedAcl>,
-+    pub acl: ::std::option::Option<super::types::ObjectCannedAcl>,
++    pub acl: ::std::option::Option<super::super::super::types::ObjectCannedAcl>,
      /// <p>Object data.</p>
      pub body: ::aws_smithy_types::byte_stream::ByteStream,
      /// <p>The bucket name to which the PUT action was initiated.</p>
@@ -14,7 +14,7 @@
      /// </note>
      /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
 -    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-+    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
++    pub checksum_algorithm: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>,
      /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
      pub checksum_crc32: ::std::option::Option<::std::string::String>,
      /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -23,7 +23,7 @@
      /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li>
      /// </ul>
 -    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
-+    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
++    pub server_side_encryption: ::std::option::Option<super::super::super::types::ServerSideEncryption>,
      /// <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the <i>Amazon S3 User Guide</i>.</p><note>
      /// <ul>
      /// <li>
@@ -32,7 +32,7 @@
      /// </ul>
      /// </note>
 -    pub storage_class: ::std::option::Option<crate::types::StorageClass>,
-+    pub storage_class: ::std::option::Option<super::types::StorageClass>,
++    pub storage_class: ::std::option::Option<super::super::super::types::StorageClass>,
      /// <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">Object Key and Metadata</a> in the <i>Amazon S3 User Guide</i>.</p>
      /// <p>In the following example, the request header sets the redirect to an object (anotherPage.html) in the same bucket:</p>
      /// <p><code>x-amz-website-redirect-location: /anotherPage.html</code></p>
@@ -41,7 +41,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      /// <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
@@ -50,7 +50,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub object_lock_mode: ::std::option::Option<crate::types::ObjectLockMode>,
-+    pub object_lock_mode: ::std::option::Option<super::types::ObjectLockMode>,
++    pub object_lock_mode: ::std::option::Option<super::super::super::types::ObjectLockMode>,
      /// <p>The date and time when you want this object's Object Lock to expire. Must be formatted as a timestamp parameter.</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
@@ -59,7 +59,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub object_lock_legal_hold_status: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>,
-+    pub object_lock_legal_hold_status: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>,
++    pub object_lock_legal_hold_status: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>,
      /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
      pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
  }
@@ -68,7 +68,7 @@
      /// </ul>
      /// </note>
 -    pub fn acl(&self) -> ::std::option::Option<&crate::types::ObjectCannedAcl> {
-+    pub fn acl(&self) -> ::std::option::Option<&super::types::ObjectCannedAcl> {
++    pub fn acl(&self) -> ::std::option::Option<&super::super::super::types::ObjectCannedAcl> {
          self.acl.as_ref()
      }
      /// <p>Object data.</p>
@@ -77,7 +77,7 @@
      /// </note>
      /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
 -    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
-+    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
++    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::super::super::types::ChecksumAlgorithm> {
          self.checksum_algorithm.as_ref()
      }
      /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -86,7 +86,7 @@
      /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li>
      /// </ul>
 -    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
-+    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
++    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::super::super::types::ServerSideEncryption> {
          self.server_side_encryption.as_ref()
      }
      /// <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the <i>Amazon S3 User Guide</i>.</p><note>
@@ -95,7 +95,7 @@
      /// </ul>
      /// </note>
 -    pub fn storage_class(&self) -> ::std::option::Option<&crate::types::StorageClass> {
-+    pub fn storage_class(&self) -> ::std::option::Option<&super::types::StorageClass> {
++    pub fn storage_class(&self) -> ::std::option::Option<&super::super::super::types::StorageClass> {
          self.storage_class.as_ref()
      }
      /// <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">Object Key and Metadata</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -104,7 +104,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
-+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
++    pub fn request_payer(&self) -> ::std::option::Option<&super::super::super::types::RequestPayer> {
          self.request_payer.as_ref()
      }
      /// <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")</p><note>
@@ -113,7 +113,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn object_lock_mode(&self) -> ::std::option::Option<&crate::types::ObjectLockMode> {
-+    pub fn object_lock_mode(&self) -> ::std::option::Option<&super::types::ObjectLockMode> {
++    pub fn object_lock_mode(&self) -> ::std::option::Option<&super::super::super::types::ObjectLockMode> {
          self.object_lock_mode.as_ref()
      }
      /// <p>The date and time when you want this object's Object Lock to expire. Must be formatted as a timestamp parameter.</p><note>
@@ -122,7 +122,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&crate::types::ObjectLockLegalHoldStatus> {
-+    pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&super::types::ObjectLockLegalHoldStatus> {
++    pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&super::super::super::types::ObjectLockLegalHoldStatus> {
          self.object_lock_legal_hold_status.as_ref()
      }
      /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -132,8 +132,8 @@
      /// Creates a new builder-style object to manufacture [`PutObjectInput`](crate::operation::put_object::PutObjectInput).
 -    pub fn builder() -> crate::operation::put_object::builders::PutObjectInputBuilder {
 -        crate::operation::put_object::builders::PutObjectInputBuilder::default()
-+    pub fn builder() -> super::operation::put_object::builders::PutObjectInputBuilder {
-+        super::operation::put_object::builders::PutObjectInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_object::builders::PutObjectInputBuilder {
++        super::super::super::operation::put_object::builders::PutObjectInputBuilder::default()
      }
  }
 
@@ -142,7 +142,7 @@
  #[non_exhaustive]
  pub struct PutObjectInputBuilder {
 -    pub(crate) acl: ::std::option::Option<crate::types::ObjectCannedAcl>,
-+    pub(crate) acl: ::std::option::Option<super::types::ObjectCannedAcl>,
++    pub(crate) acl: ::std::option::Option<super::super::super::types::ObjectCannedAcl>,
      pub(crate) body: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
      pub(crate) bucket: ::std::option::Option<::std::string::String>,
      pub(crate) cache_control: ::std::option::Option<::std::string::String>,
@@ -151,7 +151,7 @@
      pub(crate) content_md5: ::std::option::Option<::std::string::String>,
      pub(crate) content_type: ::std::option::Option<::std::string::String>,
 -    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-+    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
++    pub(crate) checksum_algorithm: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>,
      pub(crate) checksum_crc32: ::std::option::Option<::std::string::String>,
      pub(crate) checksum_crc32_c: ::std::option::Option<::std::string::String>,
      pub(crate) checksum_crc64_nvme: ::std::option::Option<::std::string::String>,
@@ -161,8 +161,8 @@
      pub(crate) metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
 -    pub(crate) storage_class: ::std::option::Option<crate::types::StorageClass>,
-+    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
-+    pub(crate) storage_class: ::std::option::Option<super::types::StorageClass>,
++    pub(crate) server_side_encryption: ::std::option::Option<super::super::super::types::ServerSideEncryption>,
++    pub(crate) storage_class: ::std::option::Option<super::super::super::types::StorageClass>,
      pub(crate) website_redirect_location: ::std::option::Option<::std::string::String>,
      pub(crate) sse_customer_algorithm: ::std::option::Option<::std::string::String>,
      pub(crate) sse_customer_key: ::std::option::Option<::std::string::String>,
@@ -171,13 +171,13 @@
      pub(crate) ssekms_encryption_context: ::std::option::Option<::std::string::String>,
      pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
 -    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub(crate) request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      pub(crate) tagging: ::std::option::Option<::std::string::String>,
 -    pub(crate) object_lock_mode: ::std::option::Option<crate::types::ObjectLockMode>,
-+    pub(crate) object_lock_mode: ::std::option::Option<super::types::ObjectLockMode>,
++    pub(crate) object_lock_mode: ::std::option::Option<super::super::super::types::ObjectLockMode>,
      pub(crate) object_lock_retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) object_lock_legal_hold_status: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>,
-+    pub(crate) object_lock_legal_hold_status: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>,
++    pub(crate) object_lock_legal_hold_status: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>,
      pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
  }
  impl PutObjectInputBuilder {
@@ -186,7 +186,7 @@
      /// </ul>
      /// </note>
 -    pub fn acl(mut self, input: crate::types::ObjectCannedAcl) -> Self {
-+    pub fn acl(mut self, input: super::types::ObjectCannedAcl) -> Self {
++    pub fn acl(mut self, input: super::super::super::types::ObjectCannedAcl) -> Self {
          self.acl = ::std::option::Option::Some(input);
          self
      }
@@ -195,7 +195,7 @@
      /// </ul>
      /// </note>
 -    pub fn set_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self {
-+    pub fn set_acl(mut self, input: ::std::option::Option<super::types::ObjectCannedAcl>) -> Self {
++    pub fn set_acl(mut self, input: ::std::option::Option<super::super::super::types::ObjectCannedAcl>) -> Self {
          self.acl = input;
          self
      }
@@ -204,7 +204,7 @@
      /// </ul>
      /// </note>
 -    pub fn get_acl(&self) -> &::std::option::Option<crate::types::ObjectCannedAcl> {
-+    pub fn get_acl(&self) -> &::std::option::Option<super::types::ObjectCannedAcl> {
++    pub fn get_acl(&self) -> &::std::option::Option<super::super::super::types::ObjectCannedAcl> {
          &self.acl
      }
      /// <p>Object data.</p>
@@ -213,7 +213,7 @@
      /// </note>
      /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
 -    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
-+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
++    pub fn checksum_algorithm(mut self, input: super::super::super::types::ChecksumAlgorithm) -> Self {
          self.checksum_algorithm = ::std::option::Option::Some(input);
          self
      }
@@ -222,7 +222,7 @@
      /// </note>
      /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
 -    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
-+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
++    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>) -> Self {
          self.checksum_algorithm = input;
          self
      }
@@ -231,7 +231,7 @@
      /// </note>
      /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
 -    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
-+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
++    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::super::super::types::ChecksumAlgorithm> {
          &self.checksum_algorithm
      }
      /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -240,7 +240,7 @@
      /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li>
      /// </ul>
 -    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
-+    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
++    pub fn server_side_encryption(mut self, input: super::super::super::types::ServerSideEncryption) -> Self {
          self.server_side_encryption = ::std::option::Option::Some(input);
          self
      }
@@ -249,7 +249,7 @@
      /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li>
      /// </ul>
 -    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
-+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
++    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::super::super::types::ServerSideEncryption>) -> Self {
          self.server_side_encryption = input;
          self
      }
@@ -258,7 +258,7 @@
      /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li>
      /// </ul>
 -    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
-+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
++    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::super::super::types::ServerSideEncryption> {
          &self.server_side_encryption
      }
      /// <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the <i>Amazon S3 User Guide</i>.</p><note>
@@ -267,7 +267,7 @@
      /// </ul>
      /// </note>
 -    pub fn storage_class(mut self, input: crate::types::StorageClass) -> Self {
-+    pub fn storage_class(mut self, input: super::types::StorageClass) -> Self {
++    pub fn storage_class(mut self, input: super::super::super::types::StorageClass) -> Self {
          self.storage_class = ::std::option::Option::Some(input);
          self
      }
@@ -276,7 +276,7 @@
      /// </ul>
      /// </note>
 -    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
-+    pub fn set_storage_class(mut self, input: ::std::option::Option<super::types::StorageClass>) -> Self {
++    pub fn set_storage_class(mut self, input: ::std::option::Option<super::super::super::types::StorageClass>) -> Self {
          self.storage_class = input;
          self
      }
@@ -285,7 +285,7 @@
      /// </ul>
      /// </note>
 -    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
-+    pub fn get_storage_class(&self) -> &::std::option::Option<super::types::StorageClass> {
++    pub fn get_storage_class(&self) -> &::std::option::Option<super::super::super::types::StorageClass> {
          &self.storage_class
      }
      /// <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">Object Key and Metadata</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -294,7 +294,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
-+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::super::super::types::RequestPayer) -> Self {
          self.request_payer = ::std::option::Option::Some(input);
          self
      }
@@ -303,7 +303,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
-+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::super::super::types::RequestPayer>) -> Self {
          self.request_payer = input;
          self
      }
@@ -312,7 +312,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
-+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::super::super::types::RequestPayer> {
          &self.request_payer
      }
      /// <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")</p><note>
@@ -321,7 +321,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn object_lock_mode(mut self, input: crate::types::ObjectLockMode) -> Self {
-+    pub fn object_lock_mode(mut self, input: super::types::ObjectLockMode) -> Self {
++    pub fn object_lock_mode(mut self, input: super::super::super::types::ObjectLockMode) -> Self {
          self.object_lock_mode = ::std::option::Option::Some(input);
          self
      }
@@ -330,7 +330,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockMode>) -> Self {
-+    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<super::types::ObjectLockMode>) -> Self {
++    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<super::super::super::types::ObjectLockMode>) -> Self {
          self.object_lock_mode = input;
          self
      }
@@ -339,7 +339,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_object_lock_mode(&self) -> &::std::option::Option<crate::types::ObjectLockMode> {
-+    pub fn get_object_lock_mode(&self) -> &::std::option::Option<super::types::ObjectLockMode> {
++    pub fn get_object_lock_mode(&self) -> &::std::option::Option<super::super::super::types::ObjectLockMode> {
          &self.object_lock_mode
      }
      /// <p>The date and time when you want this object's Object Lock to expire. Must be formatted as a timestamp parameter.</p><note>
@@ -348,7 +348,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn object_lock_legal_hold_status(mut self, input: crate::types::ObjectLockLegalHoldStatus) -> Self {
-+    pub fn object_lock_legal_hold_status(mut self, input: super::types::ObjectLockLegalHoldStatus) -> Self {
++    pub fn object_lock_legal_hold_status(mut self, input: super::super::super::types::ObjectLockLegalHoldStatus) -> Self {
          self.object_lock_legal_hold_status = ::std::option::Option::Some(input);
          self
      }
@@ -357,7 +357,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>) -> Self {
-+    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>) -> Self {
++    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>) -> Self {
          self.object_lock_legal_hold_status = input;
          self
      }
@@ -366,7 +366,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHoldStatus> {
-+    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<super::types::ObjectLockLegalHoldStatus> {
++    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus> {
          &self.object_lock_legal_hold_status
      }
      /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -376,8 +376,8 @@
      /// Consumes the builder and constructs a [`PutObjectInput`](crate::operation::put_object::PutObjectInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::put_object::PutObjectInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::put_object::PutObjectInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::put_object::PutObjectInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::put_object::PutObjectInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::put_object::PutObjectInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::put_object::PutObjectInput {
              acl: self.acl,
              body: self.body.unwrap_or_default(),
              bucket: self.bucket,

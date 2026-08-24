@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AccountLimit`](crate::types::AccountLimit).
 -    pub fn builder() -> crate::types::builders::AccountLimitBuilder {
 -        crate::types::builders::AccountLimitBuilder::default()
-+    pub fn builder() -> super::types::builders::AccountLimitBuilder {
-+        super::types::builders::AccountLimitBuilder::default()
++    pub fn builder() -> super::super::types::builders::AccountLimitBuilder {
++        super::super::types::builders::AccountLimitBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AccountLimit`](crate::types::AccountLimit).
 -    pub fn build(self) -> crate::types::AccountLimit {
 -        crate::types::AccountLimit {
-+    pub fn build(self) -> super::types::AccountLimit {
-+        super::types::AccountLimit {
++    pub fn build(self) -> super::super::types::AccountLimit {
++        super::super::types::AccountLimit {
              total_code_size: self.total_code_size.unwrap_or_default(),
              code_size_unzipped: self.code_size_unzipped.unwrap_or_default(),
              code_size_zipped: self.code_size_zipped.unwrap_or_default(),

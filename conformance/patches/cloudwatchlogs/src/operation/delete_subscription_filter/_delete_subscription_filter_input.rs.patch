@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteSubscriptionFilterInput`](crate::operation::delete_subscription_filter::DeleteSubscriptionFilterInput).
 -    pub fn builder() -> crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterInputBuilder {
 -        crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterInputBuilder {
-+        super::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterInputBuilder {
++        super::super::super::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_subscription_filter::DeleteSubscriptionFilterInput,
-+        super::operation::delete_subscription_filter::DeleteSubscriptionFilterInput,
++        super::super::super::operation::delete_subscription_filter::DeleteSubscriptionFilterInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_subscription_filter::DeleteSubscriptionFilterInput {
-+        ::std::result::Result::Ok(super::operation::delete_subscription_filter::DeleteSubscriptionFilterInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_subscription_filter::DeleteSubscriptionFilterInput {
              log_group_name: self.log_group_name,
              filter_name: self.filter_name,
          })

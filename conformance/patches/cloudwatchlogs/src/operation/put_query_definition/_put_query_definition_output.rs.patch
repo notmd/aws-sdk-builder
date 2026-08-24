@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutQueryDefinitionOutput`](crate::operation::put_query_definition::PutQueryDefinitionOutput).
 -    pub fn builder() -> crate::operation::put_query_definition::builders::PutQueryDefinitionOutputBuilder {
 -        crate::operation::put_query_definition::builders::PutQueryDefinitionOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_query_definition::builders::PutQueryDefinitionOutputBuilder {
-+        super::operation::put_query_definition::builders::PutQueryDefinitionOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_query_definition::builders::PutQueryDefinitionOutputBuilder {
++        super::super::super::operation::put_query_definition::builders::PutQueryDefinitionOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutQueryDefinitionOutput`](crate::operation::put_query_definition::PutQueryDefinitionOutput).
 -    pub fn build(self) -> crate::operation::put_query_definition::PutQueryDefinitionOutput {
 -        crate::operation::put_query_definition::PutQueryDefinitionOutput {
-+    pub fn build(self) -> super::operation::put_query_definition::PutQueryDefinitionOutput {
-+        super::operation::put_query_definition::PutQueryDefinitionOutput {
++    pub fn build(self) -> super::super::super::operation::put_query_definition::PutQueryDefinitionOutput {
++        super::super::super::operation::put_query_definition::PutQueryDefinitionOutput {
              query_definition_id: self.query_definition_id,
              _request_id: self._request_id,
          }

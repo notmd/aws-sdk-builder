@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CompleteMultipartUploadError>`](crate::operation::complete_multipart_upload::CompleteMultipartUploadError)
 -    pub fn complete_multipart_upload(&self) -> crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadFluentBuilder {
 -        crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadFluentBuilder::new(self.handle.clone())
-+    pub fn complete_multipart_upload(&self) -> super::operation::complete_multipart_upload::builders::CompleteMultipartUploadFluentBuilder {
-+        super::operation::complete_multipart_upload::builders::CompleteMultipartUploadFluentBuilder::new(self.handle.clone())
++    pub fn complete_multipart_upload(&self) -> super::super::operation::complete_multipart_upload::builders::CompleteMultipartUploadFluentBuilder {
++        super::super::operation::complete_multipart_upload::builders::CompleteMultipartUploadFluentBuilder::new(self.handle.clone())
      }
  }

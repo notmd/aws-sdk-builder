@@ -6,7 +6,7 @@
      #[deprecated(note = "Please use the generic tagging API TagResource")]
 -    pub fn tag_log_group(&self) -> crate::operation::tag_log_group::builders::TagLogGroupFluentBuilder {
 -        crate::operation::tag_log_group::builders::TagLogGroupFluentBuilder::new(self.handle.clone())
-+    pub fn tag_log_group(&self) -> super::operation::tag_log_group::builders::TagLogGroupFluentBuilder {
-+        super::operation::tag_log_group::builders::TagLogGroupFluentBuilder::new(self.handle.clone())
++    pub fn tag_log_group(&self) -> super::super::operation::tag_log_group::builders::TagLogGroupFluentBuilder {
++        super::super::operation::tag_log_group::builders::TagLogGroupFluentBuilder::new(self.handle.clone())
      }
  }

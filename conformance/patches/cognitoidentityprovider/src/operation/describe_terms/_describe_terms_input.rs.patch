@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeTermsInput`](crate::operation::describe_terms::DescribeTermsInput).
 -    pub fn builder() -> crate::operation::describe_terms::builders::DescribeTermsInputBuilder {
 -        crate::operation::describe_terms::builders::DescribeTermsInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_terms::builders::DescribeTermsInputBuilder {
-+        super::operation::describe_terms::builders::DescribeTermsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_terms::builders::DescribeTermsInputBuilder {
++        super::super::super::operation::describe_terms::builders::DescribeTermsInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_terms::DescribeTermsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::describe_terms::DescribeTermsInput {
-+    ) -> ::std::result::Result<super::operation::describe_terms::DescribeTermsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::describe_terms::DescribeTermsInput {
++    ) -> ::std::result::Result<super::super::super::operation::describe_terms::DescribeTermsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::describe_terms::DescribeTermsInput {
              terms_id: self.terms_id,
              user_pool_id: self.user_pool_id,
          })

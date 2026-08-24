@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`NoncurrentVersionExpiration`](crate::types::NoncurrentVersionExpiration).
 -    pub fn builder() -> crate::types::builders::NoncurrentVersionExpirationBuilder {
 -        crate::types::builders::NoncurrentVersionExpirationBuilder::default()
-+    pub fn builder() -> super::types::builders::NoncurrentVersionExpirationBuilder {
-+        super::types::builders::NoncurrentVersionExpirationBuilder::default()
++    pub fn builder() -> super::super::types::builders::NoncurrentVersionExpirationBuilder {
++        super::super::types::builders::NoncurrentVersionExpirationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`NoncurrentVersionExpiration`](crate::types::NoncurrentVersionExpiration).
 -    pub fn build(self) -> crate::types::NoncurrentVersionExpiration {
 -        crate::types::NoncurrentVersionExpiration {
-+    pub fn build(self) -> super::types::NoncurrentVersionExpiration {
-+        super::types::NoncurrentVersionExpiration {
++    pub fn build(self) -> super::super::types::NoncurrentVersionExpiration {
++        super::super::types::NoncurrentVersionExpiration {
              noncurrent_days: self.noncurrent_days,
              newer_noncurrent_versions: self.newer_noncurrent_versions,
          }

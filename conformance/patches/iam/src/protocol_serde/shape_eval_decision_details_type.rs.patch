@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    ::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>,
-+    ::std::collections::HashMap<::std::string::String, super::types::PolicyEvaluationDecisionType>,
++    ::std::collections::HashMap<::std::string::String, super::super::types::PolicyEvaluationDecisionType>,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      if depth >= 128u32 {
@@ -14,7 +14,7 @@
          match tag.start_el() {
              s if s.matches("entry") => {
 -                crate::protocol_serde::shape_eval_decision_details_type::de_eval_decision_details_type_entry(&mut tag, &mut out, depth)?;
-+                super::protocol_serde::shape_eval_decision_details_type::de_eval_decision_details_type_entry(&mut tag, &mut out, depth)?;
++                super::super::protocol_serde::shape_eval_decision_details_type::de_eval_decision_details_type_entry(&mut tag, &mut out, depth)?;
              }
              _ => {}
          }
@@ -23,7 +23,7 @@
  pub fn de_eval_decision_details_type_entry(
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
 -    out: &mut ::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>,
-+    out: &mut ::std::collections::HashMap<::std::string::String, super::types::PolicyEvaluationDecisionType>,
++    out: &mut ::std::collections::HashMap<::std::string::String, super::super::types::PolicyEvaluationDecisionType>,
      depth: u32,
  ) -> ::std::result::Result<(), ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
@@ -32,7 +32,7 @@
      }
      let mut k: Option<::std::string::String> = None;
 -    let mut v: Option<crate::types::PolicyEvaluationDecisionType> = None;
-+    let mut v: Option<super::types::PolicyEvaluationDecisionType> = None;
++    let mut v: Option<super::super::types::PolicyEvaluationDecisionType> = None;
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("key") /* key com.amazonaws.iam#EvalDecisionDetailsType$key */ =>  {
@@ -42,8 +42,8 @@
                  v = Some(
 -                    Result::<crate::types::PolicyEvaluationDecisionType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                        crate::types::PolicyEvaluationDecisionType::from(
-+                    Result::<super::types::PolicyEvaluationDecisionType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                        super::types::PolicyEvaluationDecisionType::from(
++                    Result::<super::super::types::PolicyEvaluationDecisionType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                        super::super::types::PolicyEvaluationDecisionType::from(
                              ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                          )
                      )

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`LoginProfile`](crate::types::LoginProfile).
 -    pub fn builder() -> crate::types::builders::LoginProfileBuilder {
 -        crate::types::builders::LoginProfileBuilder::default()
-+    pub fn builder() -> super::types::builders::LoginProfileBuilder {
-+        super::types::builders::LoginProfileBuilder::default()
++    pub fn builder() -> super::super::types::builders::LoginProfileBuilder {
++        super::super::types::builders::LoginProfileBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`create_date`](crate::types::builders::LoginProfileBuilder::create_date)
 -    pub fn build(self) -> ::std::result::Result<crate::types::LoginProfile, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::LoginProfile {
-+    pub fn build(self) -> ::std::result::Result<super::types::LoginProfile, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::LoginProfile {
++    pub fn build(self) -> ::std::result::Result<super::super::types::LoginProfile, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::LoginProfile {
              user_name: self.user_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "user_name",

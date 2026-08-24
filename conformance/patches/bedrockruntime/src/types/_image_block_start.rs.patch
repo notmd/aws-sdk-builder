@@ -5,12 +5,12 @@
  pub struct ImageBlockStart {
      /// <p>The format of the image data that will be streamed in subsequent delta events.</p>
 -    pub format: crate::types::ImageFormat,
-+    pub format: super::types::ImageFormat,
++    pub format: super::super::types::ImageFormat,
  }
  impl ImageBlockStart {
      /// <p>The format of the image data that will be streamed in subsequent delta events.</p>
 -    pub fn format(&self) -> &crate::types::ImageFormat {
-+    pub fn format(&self) -> &super::types::ImageFormat {
++    pub fn format(&self) -> &super::super::types::ImageFormat {
          &self.format
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`ImageBlockStart`](crate::types::ImageBlockStart).
 -    pub fn builder() -> crate::types::builders::ImageBlockStartBuilder {
 -        crate::types::builders::ImageBlockStartBuilder::default()
-+    pub fn builder() -> super::types::builders::ImageBlockStartBuilder {
-+        super::types::builders::ImageBlockStartBuilder::default()
++    pub fn builder() -> super::super::types::builders::ImageBlockStartBuilder {
++        super::super::types::builders::ImageBlockStartBuilder::default()
      }
  }
 
@@ -28,25 +28,25 @@
  #[non_exhaustive]
  pub struct ImageBlockStartBuilder {
 -    pub(crate) format: ::std::option::Option<crate::types::ImageFormat>,
-+    pub(crate) format: ::std::option::Option<super::types::ImageFormat>,
++    pub(crate) format: ::std::option::Option<super::super::types::ImageFormat>,
  }
  impl ImageBlockStartBuilder {
      /// <p>The format of the image data that will be streamed in subsequent delta events.</p>
      /// This field is required.
 -    pub fn format(mut self, input: crate::types::ImageFormat) -> Self {
-+    pub fn format(mut self, input: super::types::ImageFormat) -> Self {
++    pub fn format(mut self, input: super::super::types::ImageFormat) -> Self {
          self.format = ::std::option::Option::Some(input);
          self
      }
      /// <p>The format of the image data that will be streamed in subsequent delta events.</p>
 -    pub fn set_format(mut self, input: ::std::option::Option<crate::types::ImageFormat>) -> Self {
-+    pub fn set_format(mut self, input: ::std::option::Option<super::types::ImageFormat>) -> Self {
++    pub fn set_format(mut self, input: ::std::option::Option<super::super::types::ImageFormat>) -> Self {
          self.format = input;
          self
      }
      /// <p>The format of the image data that will be streamed in subsequent delta events.</p>
 -    pub fn get_format(&self) -> &::std::option::Option<crate::types::ImageFormat> {
-+    pub fn get_format(&self) -> &::std::option::Option<super::types::ImageFormat> {
++    pub fn get_format(&self) -> &::std::option::Option<super::super::types::ImageFormat> {
          &self.format
      }
      /// Consumes the builder and constructs a [`ImageBlockStart`](crate::types::ImageBlockStart).
@@ -54,8 +54,8 @@
      /// - [`format`](crate::types::builders::ImageBlockStartBuilder::format)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ImageBlockStart, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ImageBlockStart {
-+    pub fn build(self) -> ::std::result::Result<super::types::ImageBlockStart, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ImageBlockStart {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ImageBlockStart, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ImageBlockStart {
              format: self.format.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "format",

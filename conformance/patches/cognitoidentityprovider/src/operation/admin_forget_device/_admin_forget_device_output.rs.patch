@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminForgetDeviceOutput`](crate::operation::admin_forget_device::AdminForgetDeviceOutput).
 -    pub fn builder() -> crate::operation::admin_forget_device::builders::AdminForgetDeviceOutputBuilder {
 -        crate::operation::admin_forget_device::builders::AdminForgetDeviceOutputBuilder::default()
-+    pub fn builder() -> super::operation::admin_forget_device::builders::AdminForgetDeviceOutputBuilder {
-+        super::operation::admin_forget_device::builders::AdminForgetDeviceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_forget_device::builders::AdminForgetDeviceOutputBuilder {
++        super::super::super::operation::admin_forget_device::builders::AdminForgetDeviceOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AdminForgetDeviceOutput`](crate::operation::admin_forget_device::AdminForgetDeviceOutput).
 -    pub fn build(self) -> crate::operation::admin_forget_device::AdminForgetDeviceOutput {
 -        crate::operation::admin_forget_device::AdminForgetDeviceOutput {
-+    pub fn build(self) -> super::operation::admin_forget_device::AdminForgetDeviceOutput {
-+        super::operation::admin_forget_device::AdminForgetDeviceOutput {
++    pub fn build(self) -> super::super::super::operation::admin_forget_device::AdminForgetDeviceOutput {
++        super::super::super::operation::admin_forget_device::AdminForgetDeviceOutput {
              _request_id: self._request_id,
          }
      }

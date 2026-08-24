@@ -5,12 +5,12 @@
  pub struct GuardrailChecksContentFilterResult {
      /// <p>The per-category content filter results.</p>
 -    pub results: ::std::vec::Vec<crate::types::GuardrailChecksContentFilterResultEntry>,
-+    pub results: ::std::vec::Vec<super::types::GuardrailChecksContentFilterResultEntry>,
++    pub results: ::std::vec::Vec<super::super::types::GuardrailChecksContentFilterResultEntry>,
  }
  impl GuardrailChecksContentFilterResult {
      /// <p>The per-category content filter results.</p>
 -    pub fn results(&self) -> &[crate::types::GuardrailChecksContentFilterResultEntry] {
-+    pub fn results(&self) -> &[super::types::GuardrailChecksContentFilterResultEntry] {
++    pub fn results(&self) -> &[super::super::types::GuardrailChecksContentFilterResultEntry] {
          use std::ops::Deref;
          self.results.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailChecksContentFilterResult`](crate::types::GuardrailChecksContentFilterResult).
 -    pub fn builder() -> crate::types::builders::GuardrailChecksContentFilterResultBuilder {
 -        crate::types::builders::GuardrailChecksContentFilterResultBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailChecksContentFilterResultBuilder {
-+        super::types::builders::GuardrailChecksContentFilterResultBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailChecksContentFilterResultBuilder {
++        super::super::types::builders::GuardrailChecksContentFilterResultBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct GuardrailChecksContentFilterResultBuilder {
 -    pub(crate) results: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterResultEntry>>,
-+    pub(crate) results: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksContentFilterResultEntry>>,
++    pub(crate) results: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterResultEntry>>,
  }
  impl GuardrailChecksContentFilterResultBuilder {
      /// Appends an item to `results`.
@@ -39,7 +39,7 @@
      ///
      /// <p>The per-category content filter results.</p>
 -    pub fn results(mut self, input: crate::types::GuardrailChecksContentFilterResultEntry) -> Self {
-+    pub fn results(mut self, input: super::types::GuardrailChecksContentFilterResultEntry) -> Self {
++    pub fn results(mut self, input: super::super::types::GuardrailChecksContentFilterResultEntry) -> Self {
          let mut v = self.results.unwrap_or_default();
          v.push(input);
          self.results = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>The per-category content filter results.</p>
 -    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterResultEntry>>) -> Self {
-+    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksContentFilterResultEntry>>) -> Self {
++    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterResultEntry>>) -> Self {
          self.results = input;
          self
      }
      /// <p>The per-category content filter results.</p>
 -    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterResultEntry>> {
-+    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksContentFilterResultEntry>> {
++    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterResultEntry>> {
          &self.results
      }
      /// Consumes the builder and constructs a [`GuardrailChecksContentFilterResult`](crate::types::GuardrailChecksContentFilterResult).
@@ -62,8 +62,8 @@
      /// - [`results`](crate::types::builders::GuardrailChecksContentFilterResultBuilder::results)
 -    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailChecksContentFilterResult, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailChecksContentFilterResult {
-+    pub fn build(self) -> ::std::result::Result<super::types::GuardrailChecksContentFilterResult, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailChecksContentFilterResult {
++    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterResult, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailChecksContentFilterResult {
              results: self.results.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "results",

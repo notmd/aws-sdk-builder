@@ -5,7 +5,7 @@
      /// <p><code>UPDATE_FAILED</code> when conformance pack deletion has failed in the member account.</p></li>
      /// </ul>
 -    pub status: ::std::option::Option<crate::types::OrganizationResourceDetailedStatus>,
-+    pub status: ::std::option::Option<super::types::OrganizationResourceDetailedStatus>,
++    pub status: ::std::option::Option<super::super::types::OrganizationResourceDetailedStatus>,
  }
  impl OrganizationResourceDetailedStatusFilters {
      /// <p>The 12-digit account ID of the member account within an organization.</p>
@@ -14,7 +14,7 @@
      /// <p><code>UPDATE_FAILED</code> when conformance pack deletion has failed in the member account.</p></li>
      /// </ul>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::OrganizationResourceDetailedStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::OrganizationResourceDetailedStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::OrganizationResourceDetailedStatus> {
          self.status.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`OrganizationResourceDetailedStatusFilters`](crate::types::OrganizationResourceDetailedStatusFilters).
 -    pub fn builder() -> crate::types::builders::OrganizationResourceDetailedStatusFiltersBuilder {
 -        crate::types::builders::OrganizationResourceDetailedStatusFiltersBuilder::default()
-+    pub fn builder() -> super::types::builders::OrganizationResourceDetailedStatusFiltersBuilder {
-+        super::types::builders::OrganizationResourceDetailedStatusFiltersBuilder::default()
++    pub fn builder() -> super::super::types::builders::OrganizationResourceDetailedStatusFiltersBuilder {
++        super::super::types::builders::OrganizationResourceDetailedStatusFiltersBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct OrganizationResourceDetailedStatusFiltersBuilder {
      pub(crate) account_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::OrganizationResourceDetailedStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::OrganizationResourceDetailedStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::OrganizationResourceDetailedStatus>,
  }
  impl OrganizationResourceDetailedStatusFiltersBuilder {
      /// <p>The 12-digit account ID of the member account within an organization.</p>
@@ -41,7 +41,7 @@
      /// <p><code>UPDATE_FAILED</code> when conformance pack deletion has failed in the member account.</p></li>
      /// </ul>
 -    pub fn status(mut self, input: crate::types::OrganizationResourceDetailedStatus) -> Self {
-+    pub fn status(mut self, input: super::types::OrganizationResourceDetailedStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::OrganizationResourceDetailedStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
@@ -50,7 +50,7 @@
      /// <p><code>UPDATE_FAILED</code> when conformance pack deletion has failed in the member account.</p></li>
      /// </ul>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OrganizationResourceDetailedStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::OrganizationResourceDetailedStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::OrganizationResourceDetailedStatus>) -> Self {
          self.status = input;
          self
      }
@@ -59,14 +59,14 @@
      /// <p><code>UPDATE_FAILED</code> when conformance pack deletion has failed in the member account.</p></li>
      /// </ul>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::OrganizationResourceDetailedStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::OrganizationResourceDetailedStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::OrganizationResourceDetailedStatus> {
          &self.status
      }
      /// Consumes the builder and constructs a [`OrganizationResourceDetailedStatusFilters`](crate::types::OrganizationResourceDetailedStatusFilters).
 -    pub fn build(self) -> crate::types::OrganizationResourceDetailedStatusFilters {
 -        crate::types::OrganizationResourceDetailedStatusFilters {
-+    pub fn build(self) -> super::types::OrganizationResourceDetailedStatusFilters {
-+        super::types::OrganizationResourceDetailedStatusFilters {
++    pub fn build(self) -> super::super::types::OrganizationResourceDetailedStatusFilters {
++        super::super::types::OrganizationResourceDetailedStatusFilters {
              account_id: self.account_id,
              status: self.status,
          }

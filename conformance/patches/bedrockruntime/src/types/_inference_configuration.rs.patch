@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`InferenceConfiguration`](crate::types::InferenceConfiguration).
 -    pub fn builder() -> crate::types::builders::InferenceConfigurationBuilder {
 -        crate::types::builders::InferenceConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::InferenceConfigurationBuilder {
-+        super::types::builders::InferenceConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::InferenceConfigurationBuilder {
++        super::super::types::builders::InferenceConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`InferenceConfiguration`](crate::types::InferenceConfiguration).
 -    pub fn build(self) -> crate::types::InferenceConfiguration {
 -        crate::types::InferenceConfiguration {
-+    pub fn build(self) -> super::types::InferenceConfiguration {
-+        super::types::InferenceConfiguration {
++    pub fn build(self) -> super::super::types::InferenceConfiguration {
++        super::super::types::InferenceConfiguration {
              max_tokens: self.max_tokens,
              temperature: self.temperature,
              top_p: self.top_p,

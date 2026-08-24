@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`MoveKeyEntry`](crate::types::MoveKeyEntry).
 -    pub fn builder() -> crate::types::builders::MoveKeyEntryBuilder {
 -        crate::types::builders::MoveKeyEntryBuilder::default()
-+    pub fn builder() -> super::types::builders::MoveKeyEntryBuilder {
-+        super::types::builders::MoveKeyEntryBuilder::default()
++    pub fn builder() -> super::super::types::builders::MoveKeyEntryBuilder {
++        super::super::types::builders::MoveKeyEntryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`target`](crate::types::builders::MoveKeyEntryBuilder::target)
 -    pub fn build(self) -> ::std::result::Result<crate::types::MoveKeyEntry, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::MoveKeyEntry {
-+    pub fn build(self) -> ::std::result::Result<super::types::MoveKeyEntry, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::MoveKeyEntry {
++    pub fn build(self) -> ::std::result::Result<super::super::types::MoveKeyEntry, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::MoveKeyEntry {
              source: self.source.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "source",

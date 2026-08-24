@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListLogAnomalyDetectorsError>`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsError)
 -    pub fn list_log_anomaly_detectors(&self) -> crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder {
 -        crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder::new(self.handle.clone())
-+    pub fn list_log_anomaly_detectors(&self) -> super::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder {
-+        super::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder::new(self.handle.clone())
++    pub fn list_log_anomaly_detectors(&self) -> super::super::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder {
++        super::super::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`WebAuthnMfaSettingsType`](crate::types::WebAuthnMfaSettingsType).
 -    pub fn builder() -> crate::types::builders::WebAuthnMfaSettingsTypeBuilder {
 -        crate::types::builders::WebAuthnMfaSettingsTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::WebAuthnMfaSettingsTypeBuilder {
-+        super::types::builders::WebAuthnMfaSettingsTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::WebAuthnMfaSettingsTypeBuilder {
++        super::super::types::builders::WebAuthnMfaSettingsTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`WebAuthnMfaSettingsType`](crate::types::WebAuthnMfaSettingsType).
 -    pub fn build(self) -> crate::types::WebAuthnMfaSettingsType {
 -        crate::types::WebAuthnMfaSettingsType {
-+    pub fn build(self) -> super::types::WebAuthnMfaSettingsType {
-+        super::types::WebAuthnMfaSettingsType {
++    pub fn build(self) -> super::super::types::WebAuthnMfaSettingsType {
++        super::super::types::WebAuthnMfaSettingsType {
              enabled: self.enabled.unwrap_or_default(),
          }
      }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`WaitDetails`](crate::types::WaitDetails).
 -    pub fn builder() -> crate::types::builders::WaitDetailsBuilder {
 -        crate::types::builders::WaitDetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::WaitDetailsBuilder {
-+        super::types::builders::WaitDetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::WaitDetailsBuilder {
++        super::super::types::builders::WaitDetailsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`WaitDetails`](crate::types::WaitDetails).
 -    pub fn build(self) -> crate::types::WaitDetails {
 -        crate::types::WaitDetails {
-+    pub fn build(self) -> super::types::WaitDetails {
-+        super::types::WaitDetails {
++    pub fn build(self) -> super::super::types::WaitDetails {
++        super::super::types::WaitDetails {
              scheduled_end_timestamp: self.scheduled_end_timestamp,
          }
      }

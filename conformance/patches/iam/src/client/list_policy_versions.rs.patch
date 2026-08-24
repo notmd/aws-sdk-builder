@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListPolicyVersionsError>`](crate::operation::list_policy_versions::ListPolicyVersionsError)
 -    pub fn list_policy_versions(&self) -> crate::operation::list_policy_versions::builders::ListPolicyVersionsFluentBuilder {
 -        crate::operation::list_policy_versions::builders::ListPolicyVersionsFluentBuilder::new(self.handle.clone())
-+    pub fn list_policy_versions(&self) -> super::operation::list_policy_versions::builders::ListPolicyVersionsFluentBuilder {
-+        super::operation::list_policy_versions::builders::ListPolicyVersionsFluentBuilder::new(self.handle.clone())
++    pub fn list_policy_versions(&self) -> super::super::operation::list_policy_versions::builders::ListPolicyVersionsFluentBuilder {
++        super::super::operation::list_policy_versions::builders::ListPolicyVersionsFluentBuilder::new(self.handle.clone())
      }
  }

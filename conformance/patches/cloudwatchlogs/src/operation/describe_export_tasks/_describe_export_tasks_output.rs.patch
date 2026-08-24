@@ -5,7 +5,7 @@
  pub struct DescribeExportTasksOutput {
      /// <p>The export tasks.</p>
 -    pub export_tasks: ::std::option::Option<::std::vec::Vec<crate::types::ExportTask>>,
-+    pub export_tasks: ::std::option::Option<::std::vec::Vec<super::types::ExportTask>>,
++    pub export_tasks: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportTask>>,
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.export_tasks.is_none()`.
 -    pub fn export_tasks(&self) -> &[crate::types::ExportTask] {
-+    pub fn export_tasks(&self) -> &[super::types::ExportTask] {
++    pub fn export_tasks(&self) -> &[super::super::super::types::ExportTask] {
          self.export_tasks.as_deref().unwrap_or_default()
      }
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeExportTasksOutput`](crate::operation::describe_export_tasks::DescribeExportTasksOutput).
 -    pub fn builder() -> crate::operation::describe_export_tasks::builders::DescribeExportTasksOutputBuilder {
 -        crate::operation::describe_export_tasks::builders::DescribeExportTasksOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_export_tasks::builders::DescribeExportTasksOutputBuilder {
-+        super::operation::describe_export_tasks::builders::DescribeExportTasksOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_export_tasks::builders::DescribeExportTasksOutputBuilder {
++        super::super::super::operation::describe_export_tasks::builders::DescribeExportTasksOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeExportTasksOutputBuilder {
 -    pub(crate) export_tasks: ::std::option::Option<::std::vec::Vec<crate::types::ExportTask>>,
-+    pub(crate) export_tasks: ::std::option::Option<::std::vec::Vec<super::types::ExportTask>>,
++    pub(crate) export_tasks: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportTask>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The export tasks.</p>
 -    pub fn export_tasks(mut self, input: crate::types::ExportTask) -> Self {
-+    pub fn export_tasks(mut self, input: super::types::ExportTask) -> Self {
++    pub fn export_tasks(mut self, input: super::super::super::types::ExportTask) -> Self {
          let mut v = self.export_tasks.unwrap_or_default();
          v.push(input);
          self.export_tasks = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The export tasks.</p>
 -    pub fn set_export_tasks(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExportTask>>) -> Self {
-+    pub fn set_export_tasks(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ExportTask>>) -> Self {
++    pub fn set_export_tasks(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportTask>>) -> Self {
          self.export_tasks = input;
          self
      }
      /// <p>The export tasks.</p>
 -    pub fn get_export_tasks(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExportTask>> {
-+    pub fn get_export_tasks(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ExportTask>> {
++    pub fn get_export_tasks(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ExportTask>> {
          &self.export_tasks
      }
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeExportTasksOutput`](crate::operation::describe_export_tasks::DescribeExportTasksOutput).
 -    pub fn build(self) -> crate::operation::describe_export_tasks::DescribeExportTasksOutput {
 -        crate::operation::describe_export_tasks::DescribeExportTasksOutput {
-+    pub fn build(self) -> super::operation::describe_export_tasks::DescribeExportTasksOutput {
-+        super::operation::describe_export_tasks::DescribeExportTasksOutput {
++    pub fn build(self) -> super::super::super::operation::describe_export_tasks::DescribeExportTasksOutput {
++        super::super::super::operation::describe_export_tasks::DescribeExportTasksOutput {
              export_tasks: self.export_tasks,
              next_token: self.next_token,
              _request_id: self._request_id,

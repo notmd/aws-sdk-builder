@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AddUserToGroupInput`](crate::operation::add_user_to_group::AddUserToGroupInput).
 -    pub fn builder() -> crate::operation::add_user_to_group::builders::AddUserToGroupInputBuilder {
 -        crate::operation::add_user_to_group::builders::AddUserToGroupInputBuilder::default()
-+    pub fn builder() -> super::operation::add_user_to_group::builders::AddUserToGroupInputBuilder {
-+        super::operation::add_user_to_group::builders::AddUserToGroupInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::add_user_to_group::builders::AddUserToGroupInputBuilder {
++        super::super::super::operation::add_user_to_group::builders::AddUserToGroupInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::add_user_to_group::AddUserToGroupInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::add_user_to_group::AddUserToGroupInput {
-+    ) -> ::std::result::Result<super::operation::add_user_to_group::AddUserToGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::add_user_to_group::AddUserToGroupInput {
++    ) -> ::std::result::Result<super::super::super::operation::add_user_to_group::AddUserToGroupInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::add_user_to_group::AddUserToGroupInput {
              group_name: self.group_name,
              user_name: self.user_name,
          })

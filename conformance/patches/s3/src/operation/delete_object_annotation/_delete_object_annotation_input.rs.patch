@@ -5,7 +5,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      /// <p>The account ID of the expected bucket owner.</p>
      pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
      /// <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
@@ -14,7 +14,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
-+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
++    pub fn request_payer(&self) -> ::std::option::Option<&super::super::super::types::RequestPayer> {
          self.request_payer.as_ref()
      }
      /// <p>The account ID of the expected bucket owner.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteObjectAnnotationInput`](crate::operation::delete_object_annotation::DeleteObjectAnnotationInput).
 -    pub fn builder() -> crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationInputBuilder {
 -        crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_object_annotation::builders::DeleteObjectAnnotationInputBuilder {
-+        super::operation::delete_object_annotation::builders::DeleteObjectAnnotationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_object_annotation::builders::DeleteObjectAnnotationInputBuilder {
++        super::super::super::operation::delete_object_annotation::builders::DeleteObjectAnnotationInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) annotation_name: ::std::option::Option<::std::string::String>,
      pub(crate) version_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub(crate) request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
      pub(crate) object_if_match: ::std::option::Option<::std::string::String>,
  }
@@ -43,7 +43,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
-+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::super::super::types::RequestPayer) -> Self {
          self.request_payer = ::std::option::Option::Some(input);
          self
      }
@@ -52,7 +52,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
-+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::super::super::types::RequestPayer>) -> Self {
          self.request_payer = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
-+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::super::super::types::RequestPayer> {
          &self.request_payer
      }
      /// <p>The account ID of the expected bucket owner.</p>
@@ -70,11 +70,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_object_annotation::DeleteObjectAnnotationInput,
-+        super::operation::delete_object_annotation::DeleteObjectAnnotationInput,
++        super::super::super::operation::delete_object_annotation::DeleteObjectAnnotationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_object_annotation::DeleteObjectAnnotationInput {
-+        ::std::result::Result::Ok(super::operation::delete_object_annotation::DeleteObjectAnnotationInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_object_annotation::DeleteObjectAnnotationInput {
              bucket: self.bucket,
              key: self.key,
              annotation_name: self.annotation_name,

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RenameKeyEntry`](crate::types::RenameKeyEntry).
 -    pub fn builder() -> crate::types::builders::RenameKeyEntryBuilder {
 -        crate::types::builders::RenameKeyEntryBuilder::default()
-+    pub fn builder() -> super::types::builders::RenameKeyEntryBuilder {
-+        super::types::builders::RenameKeyEntryBuilder::default()
++    pub fn builder() -> super::super::types::builders::RenameKeyEntryBuilder {
++        super::super::types::builders::RenameKeyEntryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`rename_to`](crate::types::builders::RenameKeyEntryBuilder::rename_to)
 -    pub fn build(self) -> ::std::result::Result<crate::types::RenameKeyEntry, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::RenameKeyEntry {
-+    pub fn build(self) -> ::std::result::Result<super::types::RenameKeyEntry, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::RenameKeyEntry {
++    pub fn build(self) -> ::std::result::Result<super::super::types::RenameKeyEntry, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::RenameKeyEntry {
              key: self.key.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "key",

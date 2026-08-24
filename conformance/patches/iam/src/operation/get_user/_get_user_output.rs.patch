@@ -5,7 +5,7 @@
      /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p>
      /// </important>
 -    pub user: ::std::option::Option<crate::types::User>,
-+    pub user: ::std::option::Option<super::types::User>,
++    pub user: ::std::option::Option<super::super::super::types::User>,
      _request_id: Option<String>,
  }
  impl GetUserOutput {
@@ -14,7 +14,7 @@
      /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p>
      /// </important>
 -    pub fn user(&self) -> ::std::option::Option<&crate::types::User> {
-+    pub fn user(&self) -> ::std::option::Option<&super::types::User> {
++    pub fn user(&self) -> ::std::option::Option<&super::super::super::types::User> {
          self.user.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`GetUserOutput`](crate::operation::get_user::GetUserOutput).
 -    pub fn builder() -> crate::operation::get_user::builders::GetUserOutputBuilder {
 -        crate::operation::get_user::builders::GetUserOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_user::builders::GetUserOutputBuilder {
-+        super::operation::get_user::builders::GetUserOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_user::builders::GetUserOutputBuilder {
++        super::super::super::operation::get_user::builders::GetUserOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct GetUserOutputBuilder {
 -    pub(crate) user: ::std::option::Option<crate::types::User>,
-+    pub(crate) user: ::std::option::Option<super::types::User>,
++    pub(crate) user: ::std::option::Option<super::super::super::types::User>,
      _request_id: Option<String>,
  }
  impl GetUserOutputBuilder {
@@ -43,7 +43,7 @@
      /// </important>
      /// This field is required.
 -    pub fn user(mut self, input: crate::types::User) -> Self {
-+    pub fn user(mut self, input: super::types::User) -> Self {
++    pub fn user(mut self, input: super::super::super::types::User) -> Self {
          self.user = ::std::option::Option::Some(input);
          self
      }
@@ -52,7 +52,7 @@
      /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p>
      /// </important>
 -    pub fn set_user(mut self, input: ::std::option::Option<crate::types::User>) -> Self {
-+    pub fn set_user(mut self, input: ::std::option::Option<super::types::User>) -> Self {
++    pub fn set_user(mut self, input: ::std::option::Option<super::super::super::types::User>) -> Self {
          self.user = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p>
      /// </important>
 -    pub fn get_user(&self) -> &::std::option::Option<crate::types::User> {
-+    pub fn get_user(&self) -> &::std::option::Option<super::types::User> {
++    pub fn get_user(&self) -> &::std::option::Option<super::super::super::types::User> {
          &self.user
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -71,8 +71,8 @@
      /// Consumes the builder and constructs a [`GetUserOutput`](crate::operation::get_user::GetUserOutput).
 -    pub fn build(self) -> crate::operation::get_user::GetUserOutput {
 -        crate::operation::get_user::GetUserOutput {
-+    pub fn build(self) -> super::operation::get_user::GetUserOutput {
-+        super::operation::get_user::GetUserOutput {
++    pub fn build(self) -> super::super::super::operation::get_user::GetUserOutput {
++        super::super::super::operation::get_user::GetUserOutput {
              user: self.user,
              _request_id: self._request_id,
          }

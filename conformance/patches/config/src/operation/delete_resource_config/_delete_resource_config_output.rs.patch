@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteResourceConfigOutput`](crate::operation::delete_resource_config::DeleteResourceConfigOutput).
 -    pub fn builder() -> crate::operation::delete_resource_config::builders::DeleteResourceConfigOutputBuilder {
 -        crate::operation::delete_resource_config::builders::DeleteResourceConfigOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_resource_config::builders::DeleteResourceConfigOutputBuilder {
-+        super::operation::delete_resource_config::builders::DeleteResourceConfigOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_resource_config::builders::DeleteResourceConfigOutputBuilder {
++        super::super::super::operation::delete_resource_config::builders::DeleteResourceConfigOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteResourceConfigOutput`](crate::operation::delete_resource_config::DeleteResourceConfigOutput).
 -    pub fn build(self) -> crate::operation::delete_resource_config::DeleteResourceConfigOutput {
 -        crate::operation::delete_resource_config::DeleteResourceConfigOutput {
-+    pub fn build(self) -> super::operation::delete_resource_config::DeleteResourceConfigOutput {
-+        super::operation::delete_resource_config::DeleteResourceConfigOutput {
++    pub fn build(self) -> super::super::super::operation::delete_resource_config::DeleteResourceConfigOutput {
++        super::super::super::operation::delete_resource_config::DeleteResourceConfigOutput {
              _request_id: self._request_id,
          }
      }

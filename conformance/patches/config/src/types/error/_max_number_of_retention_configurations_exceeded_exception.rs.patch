@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for MaxNumberOfRetentionConfigurationsExceededException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::MaxNumberOfRetentionConfigurationsExceededException {
-+impl ::aws_types::request_id::RequestId for super::types::error::MaxNumberOfRetentionConfigurationsExceededException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::MaxNumberOfRetentionConfigurationsExceededException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`MaxNumberOfRetentionConfigurationsExceededException`](crate::types::error::MaxNumberOfRetentionConfigurationsExceededException).
 -    pub fn builder() -> crate::types::error::builders::MaxNumberOfRetentionConfigurationsExceededExceptionBuilder {
 -        crate::types::error::builders::MaxNumberOfRetentionConfigurationsExceededExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::MaxNumberOfRetentionConfigurationsExceededExceptionBuilder {
-+        super::types::error::builders::MaxNumberOfRetentionConfigurationsExceededExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::MaxNumberOfRetentionConfigurationsExceededExceptionBuilder {
++        super::super::super::types::error::builders::MaxNumberOfRetentionConfigurationsExceededExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`MaxNumberOfRetentionConfigurationsExceededException`](crate::types::error::MaxNumberOfRetentionConfigurationsExceededException).
 -    pub fn build(self) -> crate::types::error::MaxNumberOfRetentionConfigurationsExceededException {
 -        crate::types::error::MaxNumberOfRetentionConfigurationsExceededException {
-+    pub fn build(self) -> super::types::error::MaxNumberOfRetentionConfigurationsExceededException {
-+        super::types::error::MaxNumberOfRetentionConfigurationsExceededException {
++    pub fn build(self) -> super::super::super::types::error::MaxNumberOfRetentionConfigurationsExceededException {
++        super::super::super::types::error::MaxNumberOfRetentionConfigurationsExceededException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

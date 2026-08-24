@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Scope`](crate::types::Scope).
 -    pub fn builder() -> crate::types::builders::ScopeBuilder {
 -        crate::types::builders::ScopeBuilder::default()
-+    pub fn builder() -> super::types::builders::ScopeBuilder {
-+        super::types::builders::ScopeBuilder::default()
++    pub fn builder() -> super::super::types::builders::ScopeBuilder {
++        super::super::types::builders::ScopeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Scope`](crate::types::Scope).
 -    pub fn build(self) -> crate::types::Scope {
 -        crate::types::Scope {
-+    pub fn build(self) -> super::types::Scope {
-+        super::types::Scope {
++    pub fn build(self) -> super::super::types::Scope {
++        super::super::types::Scope {
              compliance_resource_types: self.compliance_resource_types,
              tag_key: self.tag_key,
              tag_value: self.tag_value,

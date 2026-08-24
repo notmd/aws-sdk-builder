@@ -5,7 +5,7 @@
  pub struct DescribeJobDefinitionsOutput {
      /// <p>The list of job definitions.</p>
 -    pub job_definitions: ::std::option::Option<::std::vec::Vec<crate::types::JobDefinition>>,
-+    pub job_definitions: ::std::option::Option<::std::vec::Vec<super::types::JobDefinition>>,
++    pub job_definitions: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobDefinition>>,
      /// <p>The <code>nextToken</code> value to include in a future <code>DescribeJobDefinitions</code> request. When the results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.job_definitions.is_none()`.
 -    pub fn job_definitions(&self) -> &[crate::types::JobDefinition] {
-+    pub fn job_definitions(&self) -> &[super::types::JobDefinition] {
++    pub fn job_definitions(&self) -> &[super::super::super::types::JobDefinition] {
          self.job_definitions.as_deref().unwrap_or_default()
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>DescribeJobDefinitions</code> request. When the results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeJobDefinitionsOutput`](crate::operation::describe_job_definitions::DescribeJobDefinitionsOutput).
 -    pub fn builder() -> crate::operation::describe_job_definitions::builders::DescribeJobDefinitionsOutputBuilder {
 -        crate::operation::describe_job_definitions::builders::DescribeJobDefinitionsOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_job_definitions::builders::DescribeJobDefinitionsOutputBuilder {
-+        super::operation::describe_job_definitions::builders::DescribeJobDefinitionsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_job_definitions::builders::DescribeJobDefinitionsOutputBuilder {
++        super::super::super::operation::describe_job_definitions::builders::DescribeJobDefinitionsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeJobDefinitionsOutputBuilder {
 -    pub(crate) job_definitions: ::std::option::Option<::std::vec::Vec<crate::types::JobDefinition>>,
-+    pub(crate) job_definitions: ::std::option::Option<::std::vec::Vec<super::types::JobDefinition>>,
++    pub(crate) job_definitions: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobDefinition>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The list of job definitions.</p>
 -    pub fn job_definitions(mut self, input: crate::types::JobDefinition) -> Self {
-+    pub fn job_definitions(mut self, input: super::types::JobDefinition) -> Self {
++    pub fn job_definitions(mut self, input: super::super::super::types::JobDefinition) -> Self {
          let mut v = self.job_definitions.unwrap_or_default();
          v.push(input);
          self.job_definitions = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The list of job definitions.</p>
 -    pub fn set_job_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::JobDefinition>>) -> Self {
-+    pub fn set_job_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::JobDefinition>>) -> Self {
++    pub fn set_job_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobDefinition>>) -> Self {
          self.job_definitions = input;
          self
      }
      /// <p>The list of job definitions.</p>
 -    pub fn get_job_definitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::JobDefinition>> {
-+    pub fn get_job_definitions(&self) -> &::std::option::Option<::std::vec::Vec<super::types::JobDefinition>> {
++    pub fn get_job_definitions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::JobDefinition>> {
          &self.job_definitions
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>DescribeJobDefinitions</code> request. When the results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeJobDefinitionsOutput`](crate::operation::describe_job_definitions::DescribeJobDefinitionsOutput).
 -    pub fn build(self) -> crate::operation::describe_job_definitions::DescribeJobDefinitionsOutput {
 -        crate::operation::describe_job_definitions::DescribeJobDefinitionsOutput {
-+    pub fn build(self) -> super::operation::describe_job_definitions::DescribeJobDefinitionsOutput {
-+        super::operation::describe_job_definitions::DescribeJobDefinitionsOutput {
++    pub fn build(self) -> super::super::super::operation::describe_job_definitions::DescribeJobDefinitionsOutput {
++        super::super::super::operation::describe_job_definitions::DescribeJobDefinitionsOutput {
              job_definitions: self.job_definitions,
              next_token: self.next_token,
              _request_id: self._request_id,

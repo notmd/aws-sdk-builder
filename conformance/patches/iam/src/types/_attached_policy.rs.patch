@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AttachedPolicy`](crate::types::AttachedPolicy).
 -    pub fn builder() -> crate::types::builders::AttachedPolicyBuilder {
 -        crate::types::builders::AttachedPolicyBuilder::default()
-+    pub fn builder() -> super::types::builders::AttachedPolicyBuilder {
-+        super::types::builders::AttachedPolicyBuilder::default()
++    pub fn builder() -> super::super::types::builders::AttachedPolicyBuilder {
++        super::super::types::builders::AttachedPolicyBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AttachedPolicy`](crate::types::AttachedPolicy).
 -    pub fn build(self) -> crate::types::AttachedPolicy {
 -        crate::types::AttachedPolicy {
-+    pub fn build(self) -> super::types::AttachedPolicy {
-+        super::types::AttachedPolicy {
++    pub fn build(self) -> super::super::types::AttachedPolicy {
++        super::super::types::AttachedPolicy {
              policy_name: self.policy_name,
              policy_arn: self.policy_arn,
          }

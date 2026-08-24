@@ -5,32 +5,32 @@
      pub name: ::std::option::Option<::std::string::String>,
      /// <p>The type of operation to update.</p>
 -    pub r#type: crate::types::OperationType,
-+    pub r#type: super::types::OperationType,
++    pub r#type: super::super::types::OperationType,
      /// <p>The subtype of the operation, providing additional categorization.</p>
      pub sub_type: ::std::option::Option<::std::string::String>,
      /// <p>The action to take on the operation.</p>
 -    pub action: crate::types::OperationAction,
-+    pub action: super::types::OperationAction,
++    pub action: super::super::types::OperationAction,
      /// <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType) and <code>CHAINED_INVOKE</code> operations, and 256 KB for <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
      pub payload: ::std::option::Option<::std::string::String>,
      /// <p>The error information for failed operations.</p>
 -    pub error: ::std::option::Option<crate::types::ErrorObject>,
-+    pub error: ::std::option::Option<super::types::ErrorObject>,
++    pub error: ::std::option::Option<super::super::types::ErrorObject>,
      /// <p>Options for context operations.</p>
 -    pub context_options: ::std::option::Option<crate::types::ContextOptions>,
-+    pub context_options: ::std::option::Option<super::types::ContextOptions>,
++    pub context_options: ::std::option::Option<super::super::types::ContextOptions>,
      /// <p>Options for step operations.</p>
 -    pub step_options: ::std::option::Option<crate::types::StepOptions>,
-+    pub step_options: ::std::option::Option<super::types::StepOptions>,
++    pub step_options: ::std::option::Option<super::super::types::StepOptions>,
      /// <p>Options for wait operations.</p>
 -    pub wait_options: ::std::option::Option<crate::types::WaitOptions>,
-+    pub wait_options: ::std::option::Option<super::types::WaitOptions>,
++    pub wait_options: ::std::option::Option<super::super::types::WaitOptions>,
      /// <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
 -    pub callback_options: ::std::option::Option<crate::types::CallbackOptions>,
-+    pub callback_options: ::std::option::Option<super::types::CallbackOptions>,
++    pub callback_options: ::std::option::Option<super::super::types::CallbackOptions>,
      /// <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
 -    pub chained_invoke_options: ::std::option::Option<crate::types::ChainedInvokeOptions>,
-+    pub chained_invoke_options: ::std::option::Option<super::types::ChainedInvokeOptions>,
++    pub chained_invoke_options: ::std::option::Option<super::super::types::ChainedInvokeOptions>,
  }
  impl OperationUpdate {
      /// <p>The unique identifier for this operation.</p>
@@ -39,7 +39,7 @@
      }
      /// <p>The type of operation to update.</p>
 -    pub fn r#type(&self) -> &crate::types::OperationType {
-+    pub fn r#type(&self) -> &super::types::OperationType {
++    pub fn r#type(&self) -> &super::super::types::OperationType {
          &self.r#type
      }
      /// <p>The subtype of the operation, providing additional categorization.</p>
@@ -48,7 +48,7 @@
      }
      /// <p>The action to take on the operation.</p>
 -    pub fn action(&self) -> &crate::types::OperationAction {
-+    pub fn action(&self) -> &super::types::OperationAction {
++    pub fn action(&self) -> &super::super::types::OperationAction {
          &self.action
      }
      /// <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType) and <code>CHAINED_INVOKE</code> operations, and 256 KB for <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
@@ -57,32 +57,32 @@
      }
      /// <p>The error information for failed operations.</p>
 -    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorObject> {
-+    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorObject> {
++    pub fn error(&self) -> ::std::option::Option<&super::super::types::ErrorObject> {
          self.error.as_ref()
      }
      /// <p>Options for context operations.</p>
 -    pub fn context_options(&self) -> ::std::option::Option<&crate::types::ContextOptions> {
-+    pub fn context_options(&self) -> ::std::option::Option<&super::types::ContextOptions> {
++    pub fn context_options(&self) -> ::std::option::Option<&super::super::types::ContextOptions> {
          self.context_options.as_ref()
      }
      /// <p>Options for step operations.</p>
 -    pub fn step_options(&self) -> ::std::option::Option<&crate::types::StepOptions> {
-+    pub fn step_options(&self) -> ::std::option::Option<&super::types::StepOptions> {
++    pub fn step_options(&self) -> ::std::option::Option<&super::super::types::StepOptions> {
          self.step_options.as_ref()
      }
      /// <p>Options for wait operations.</p>
 -    pub fn wait_options(&self) -> ::std::option::Option<&crate::types::WaitOptions> {
-+    pub fn wait_options(&self) -> ::std::option::Option<&super::types::WaitOptions> {
++    pub fn wait_options(&self) -> ::std::option::Option<&super::super::types::WaitOptions> {
          self.wait_options.as_ref()
      }
      /// <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
 -    pub fn callback_options(&self) -> ::std::option::Option<&crate::types::CallbackOptions> {
-+    pub fn callback_options(&self) -> ::std::option::Option<&super::types::CallbackOptions> {
++    pub fn callback_options(&self) -> ::std::option::Option<&super::super::types::CallbackOptions> {
          self.callback_options.as_ref()
      }
      /// <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
 -    pub fn chained_invoke_options(&self) -> ::std::option::Option<&crate::types::ChainedInvokeOptions> {
-+    pub fn chained_invoke_options(&self) -> ::std::option::Option<&super::types::ChainedInvokeOptions> {
++    pub fn chained_invoke_options(&self) -> ::std::option::Option<&super::super::types::ChainedInvokeOptions> {
          self.chained_invoke_options.as_ref()
      }
  }
@@ -92,8 +92,8 @@
      /// Creates a new builder-style object to manufacture [`OperationUpdate`](crate::types::OperationUpdate).
 -    pub fn builder() -> crate::types::builders::OperationUpdateBuilder {
 -        crate::types::builders::OperationUpdateBuilder::default()
-+    pub fn builder() -> super::types::builders::OperationUpdateBuilder {
-+        super::types::builders::OperationUpdateBuilder::default()
++    pub fn builder() -> super::super::types::builders::OperationUpdateBuilder {
++        super::super::types::builders::OperationUpdateBuilder::default()
      }
  }
 
@@ -102,10 +102,10 @@
      pub(crate) parent_id: ::std::option::Option<::std::string::String>,
      pub(crate) name: ::std::option::Option<::std::string::String>,
 -    pub(crate) r#type: ::std::option::Option<crate::types::OperationType>,
-+    pub(crate) r#type: ::std::option::Option<super::types::OperationType>,
++    pub(crate) r#type: ::std::option::Option<super::super::types::OperationType>,
      pub(crate) sub_type: ::std::option::Option<::std::string::String>,
 -    pub(crate) action: ::std::option::Option<crate::types::OperationAction>,
-+    pub(crate) action: ::std::option::Option<super::types::OperationAction>,
++    pub(crate) action: ::std::option::Option<super::super::types::OperationAction>,
      pub(crate) payload: ::std::option::Option<::std::string::String>,
 -    pub(crate) error: ::std::option::Option<crate::types::ErrorObject>,
 -    pub(crate) context_options: ::std::option::Option<crate::types::ContextOptions>,
@@ -113,12 +113,12 @@
 -    pub(crate) wait_options: ::std::option::Option<crate::types::WaitOptions>,
 -    pub(crate) callback_options: ::std::option::Option<crate::types::CallbackOptions>,
 -    pub(crate) chained_invoke_options: ::std::option::Option<crate::types::ChainedInvokeOptions>,
-+    pub(crate) error: ::std::option::Option<super::types::ErrorObject>,
-+    pub(crate) context_options: ::std::option::Option<super::types::ContextOptions>,
-+    pub(crate) step_options: ::std::option::Option<super::types::StepOptions>,
-+    pub(crate) wait_options: ::std::option::Option<super::types::WaitOptions>,
-+    pub(crate) callback_options: ::std::option::Option<super::types::CallbackOptions>,
-+    pub(crate) chained_invoke_options: ::std::option::Option<super::types::ChainedInvokeOptions>,
++    pub(crate) error: ::std::option::Option<super::super::types::ErrorObject>,
++    pub(crate) context_options: ::std::option::Option<super::super::types::ContextOptions>,
++    pub(crate) step_options: ::std::option::Option<super::super::types::StepOptions>,
++    pub(crate) wait_options: ::std::option::Option<super::super::types::WaitOptions>,
++    pub(crate) callback_options: ::std::option::Option<super::super::types::CallbackOptions>,
++    pub(crate) chained_invoke_options: ::std::option::Option<super::super::types::ChainedInvokeOptions>,
  }
  impl OperationUpdateBuilder {
      /// <p>The unique identifier for this operation.</p>
@@ -127,19 +127,19 @@
      /// <p>The type of operation to update.</p>
      /// This field is required.
 -    pub fn r#type(mut self, input: crate::types::OperationType) -> Self {
-+    pub fn r#type(mut self, input: super::types::OperationType) -> Self {
++    pub fn r#type(mut self, input: super::super::types::OperationType) -> Self {
          self.r#type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of operation to update.</p>
 -    pub fn set_type(mut self, input: ::std::option::Option<crate::types::OperationType>) -> Self {
-+    pub fn set_type(mut self, input: ::std::option::Option<super::types::OperationType>) -> Self {
++    pub fn set_type(mut self, input: ::std::option::Option<super::super::types::OperationType>) -> Self {
          self.r#type = input;
          self
      }
      /// <p>The type of operation to update.</p>
 -    pub fn get_type(&self) -> &::std::option::Option<crate::types::OperationType> {
-+    pub fn get_type(&self) -> &::std::option::Option<super::types::OperationType> {
++    pub fn get_type(&self) -> &::std::option::Option<super::super::types::OperationType> {
          &self.r#type
      }
      /// <p>The subtype of the operation, providing additional categorization.</p>
@@ -148,19 +148,19 @@
      /// <p>The action to take on the operation.</p>
      /// This field is required.
 -    pub fn action(mut self, input: crate::types::OperationAction) -> Self {
-+    pub fn action(mut self, input: super::types::OperationAction) -> Self {
++    pub fn action(mut self, input: super::super::types::OperationAction) -> Self {
          self.action = ::std::option::Option::Some(input);
          self
      }
      /// <p>The action to take on the operation.</p>
 -    pub fn set_action(mut self, input: ::std::option::Option<crate::types::OperationAction>) -> Self {
-+    pub fn set_action(mut self, input: ::std::option::Option<super::types::OperationAction>) -> Self {
++    pub fn set_action(mut self, input: ::std::option::Option<super::super::types::OperationAction>) -> Self {
          self.action = input;
          self
      }
      /// <p>The action to take on the operation.</p>
 -    pub fn get_action(&self) -> &::std::option::Option<crate::types::OperationAction> {
-+    pub fn get_action(&self) -> &::std::option::Option<super::types::OperationAction> {
++    pub fn get_action(&self) -> &::std::option::Option<super::super::types::OperationAction> {
          &self.action
      }
      /// <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType) and <code>CHAINED_INVOKE</code> operations, and 256 KB for <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
@@ -169,104 +169,104 @@
      }
      /// <p>The error information for failed operations.</p>
 -    pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
-+    pub fn error(mut self, input: super::types::ErrorObject) -> Self {
++    pub fn error(mut self, input: super::super::types::ErrorObject) -> Self {
          self.error = ::std::option::Option::Some(input);
          self
      }
      /// <p>The error information for failed operations.</p>
 -    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
-+    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorObject>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::super::types::ErrorObject>) -> Self {
          self.error = input;
          self
      }
      /// <p>The error information for failed operations.</p>
 -    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
-+    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorObject> {
++    pub fn get_error(&self) -> &::std::option::Option<super::super::types::ErrorObject> {
          &self.error
      }
      /// <p>Options for context operations.</p>
 -    pub fn context_options(mut self, input: crate::types::ContextOptions) -> Self {
-+    pub fn context_options(mut self, input: super::types::ContextOptions) -> Self {
++    pub fn context_options(mut self, input: super::super::types::ContextOptions) -> Self {
          self.context_options = ::std::option::Option::Some(input);
          self
      }
      /// <p>Options for context operations.</p>
 -    pub fn set_context_options(mut self, input: ::std::option::Option<crate::types::ContextOptions>) -> Self {
-+    pub fn set_context_options(mut self, input: ::std::option::Option<super::types::ContextOptions>) -> Self {
++    pub fn set_context_options(mut self, input: ::std::option::Option<super::super::types::ContextOptions>) -> Self {
          self.context_options = input;
          self
      }
      /// <p>Options for context operations.</p>
 -    pub fn get_context_options(&self) -> &::std::option::Option<crate::types::ContextOptions> {
-+    pub fn get_context_options(&self) -> &::std::option::Option<super::types::ContextOptions> {
++    pub fn get_context_options(&self) -> &::std::option::Option<super::super::types::ContextOptions> {
          &self.context_options
      }
      /// <p>Options for step operations.</p>
 -    pub fn step_options(mut self, input: crate::types::StepOptions) -> Self {
-+    pub fn step_options(mut self, input: super::types::StepOptions) -> Self {
++    pub fn step_options(mut self, input: super::super::types::StepOptions) -> Self {
          self.step_options = ::std::option::Option::Some(input);
          self
      }
      /// <p>Options for step operations.</p>
 -    pub fn set_step_options(mut self, input: ::std::option::Option<crate::types::StepOptions>) -> Self {
-+    pub fn set_step_options(mut self, input: ::std::option::Option<super::types::StepOptions>) -> Self {
++    pub fn set_step_options(mut self, input: ::std::option::Option<super::super::types::StepOptions>) -> Self {
          self.step_options = input;
          self
      }
      /// <p>Options for step operations.</p>
 -    pub fn get_step_options(&self) -> &::std::option::Option<crate::types::StepOptions> {
-+    pub fn get_step_options(&self) -> &::std::option::Option<super::types::StepOptions> {
++    pub fn get_step_options(&self) -> &::std::option::Option<super::super::types::StepOptions> {
          &self.step_options
      }
      /// <p>Options for wait operations.</p>
 -    pub fn wait_options(mut self, input: crate::types::WaitOptions) -> Self {
-+    pub fn wait_options(mut self, input: super::types::WaitOptions) -> Self {
++    pub fn wait_options(mut self, input: super::super::types::WaitOptions) -> Self {
          self.wait_options = ::std::option::Option::Some(input);
          self
      }
      /// <p>Options for wait operations.</p>
 -    pub fn set_wait_options(mut self, input: ::std::option::Option<crate::types::WaitOptions>) -> Self {
-+    pub fn set_wait_options(mut self, input: ::std::option::Option<super::types::WaitOptions>) -> Self {
++    pub fn set_wait_options(mut self, input: ::std::option::Option<super::super::types::WaitOptions>) -> Self {
          self.wait_options = input;
          self
      }
      /// <p>Options for wait operations.</p>
 -    pub fn get_wait_options(&self) -> &::std::option::Option<crate::types::WaitOptions> {
-+    pub fn get_wait_options(&self) -> &::std::option::Option<super::types::WaitOptions> {
++    pub fn get_wait_options(&self) -> &::std::option::Option<super::super::types::WaitOptions> {
          &self.wait_options
      }
      /// <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
 -    pub fn callback_options(mut self, input: crate::types::CallbackOptions) -> Self {
-+    pub fn callback_options(mut self, input: super::types::CallbackOptions) -> Self {
++    pub fn callback_options(mut self, input: super::super::types::CallbackOptions) -> Self {
          self.callback_options = ::std::option::Option::Some(input);
          self
      }
      /// <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
 -    pub fn set_callback_options(mut self, input: ::std::option::Option<crate::types::CallbackOptions>) -> Self {
-+    pub fn set_callback_options(mut self, input: ::std::option::Option<super::types::CallbackOptions>) -> Self {
++    pub fn set_callback_options(mut self, input: ::std::option::Option<super::super::types::CallbackOptions>) -> Self {
          self.callback_options = input;
          self
      }
      /// <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
 -    pub fn get_callback_options(&self) -> &::std::option::Option<crate::types::CallbackOptions> {
-+    pub fn get_callback_options(&self) -> &::std::option::Option<super::types::CallbackOptions> {
++    pub fn get_callback_options(&self) -> &::std::option::Option<super::super::types::CallbackOptions> {
          &self.callback_options
      }
      /// <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
 -    pub fn chained_invoke_options(mut self, input: crate::types::ChainedInvokeOptions) -> Self {
-+    pub fn chained_invoke_options(mut self, input: super::types::ChainedInvokeOptions) -> Self {
++    pub fn chained_invoke_options(mut self, input: super::super::types::ChainedInvokeOptions) -> Self {
          self.chained_invoke_options = ::std::option::Option::Some(input);
          self
      }
      /// <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
 -    pub fn set_chained_invoke_options(mut self, input: ::std::option::Option<crate::types::ChainedInvokeOptions>) -> Self {
-+    pub fn set_chained_invoke_options(mut self, input: ::std::option::Option<super::types::ChainedInvokeOptions>) -> Self {
++    pub fn set_chained_invoke_options(mut self, input: ::std::option::Option<super::super::types::ChainedInvokeOptions>) -> Self {
          self.chained_invoke_options = input;
          self
      }
      /// <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
 -    pub fn get_chained_invoke_options(&self) -> &::std::option::Option<crate::types::ChainedInvokeOptions> {
-+    pub fn get_chained_invoke_options(&self) -> &::std::option::Option<super::types::ChainedInvokeOptions> {
++    pub fn get_chained_invoke_options(&self) -> &::std::option::Option<super::super::types::ChainedInvokeOptions> {
          &self.chained_invoke_options
      }
      /// Consumes the builder and constructs a [`OperationUpdate`](crate::types::OperationUpdate).
@@ -276,8 +276,8 @@
      /// - [`action`](crate::types::builders::OperationUpdateBuilder::action)
 -    pub fn build(self) -> ::std::result::Result<crate::types::OperationUpdate, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::OperationUpdate {
-+    pub fn build(self) -> ::std::result::Result<super::types::OperationUpdate, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::OperationUpdate {
++    pub fn build(self) -> ::std::result::Result<super::super::types::OperationUpdate, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::OperationUpdate {
              id: self.id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "id",

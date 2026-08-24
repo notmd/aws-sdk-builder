@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsFluentBuilder {
 -        crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsFluentBuilder {
-+        super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsFluentBuilder {
++        super::super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsFluentBuilder::new(self.handle.clone())
      }
  }

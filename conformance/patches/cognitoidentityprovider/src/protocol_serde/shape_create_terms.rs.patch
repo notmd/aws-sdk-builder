@@ -5,36 +5,36 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::create_terms::CreateTermsOutput, crate::operation::create_terms::CreateTermsError> {
-+) -> std::result::Result<super::operation::create_terms::CreateTermsOutput, super::operation::create_terms::CreateTermsError> {
++) -> std::result::Result<super::super::operation::create_terms::CreateTermsOutput, super::super::operation::create_terms::CreateTermsError> {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::create_terms::CreateTermsError::unhandled(generic)),
-+        None => return Err(super::operation::create_terms::CreateTermsError::unhandled(generic)),
++        None => return Err(super::super::operation::create_terms::CreateTermsError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "ConcurrentModificationException" => crate::operation::create_terms::CreateTermsError::ConcurrentModificationException({
-+        "ConcurrentModificationException" => super::operation::create_terms::CreateTermsError::ConcurrentModificationException({
++        "ConcurrentModificationException" => super::super::operation::create_terms::CreateTermsError::ConcurrentModificationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
-+                let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
++                let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+                .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++                .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "InternalErrorException" => crate::operation::create_terms::CreateTermsError::InternalErrorException({
-+        "InternalErrorException" => super::operation::create_terms::CreateTermsError::InternalErrorException({
++        "InternalErrorException" => super::super::operation::create_terms::CreateTermsError::InternalErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,16 +61,16 @@
              tmp
          }),
 -        "InvalidParameterException" => crate::operation::create_terms::CreateTermsError::InvalidParameterException({
-+        "InvalidParameterException" => super::operation::create_terms::CreateTermsError::InvalidParameterException({
++        "InvalidParameterException" => super::super::operation::create_terms::CreateTermsError::InvalidParameterException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -79,16 +79,16 @@
              tmp
          }),
 -        "LimitExceededException" => crate::operation::create_terms::CreateTermsError::LimitExceededException({
-+        "LimitExceededException" => super::operation::create_terms::CreateTermsError::LimitExceededException({
++        "LimitExceededException" => super::super::operation::create_terms::CreateTermsError::LimitExceededException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -97,16 +97,16 @@
              tmp
          }),
 -        "NotAuthorizedException" => crate::operation::create_terms::CreateTermsError::NotAuthorizedException({
-+        "NotAuthorizedException" => super::operation::create_terms::CreateTermsError::NotAuthorizedException({
++        "NotAuthorizedException" => super::super::operation::create_terms::CreateTermsError::NotAuthorizedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -115,17 +115,17 @@
              tmp
          }),
 -        "OperationNotEnabledException" => crate::operation::create_terms::CreateTermsError::OperationNotEnabledException({
-+        "OperationNotEnabledException" => super::operation::create_terms::CreateTermsError::OperationNotEnabledException({
++        "OperationNotEnabledException" => super::super::operation::create_terms::CreateTermsError::OperationNotEnabledException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-+                let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+                    super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -134,16 +134,16 @@
              tmp
          }),
 -        "ResourceNotFoundException" => crate::operation::create_terms::CreateTermsError::ResourceNotFoundException({
-+        "ResourceNotFoundException" => super::operation::create_terms::CreateTermsError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::super::operation::create_terms::CreateTermsError::ResourceNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -152,16 +152,16 @@
              tmp
          }),
 -        "TermsExistsException" => crate::operation::create_terms::CreateTermsError::TermsExistsException({
-+        "TermsExistsException" => super::operation::create_terms::CreateTermsError::TermsExistsException({
++        "TermsExistsException" => super::super::operation::create_terms::CreateTermsError::TermsExistsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TermsExistsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_terms_exists_exception::de_terms_exists_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+                let mut output = super::types::error::builders::TermsExistsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_terms_exists_exception::de_terms_exists_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++                let mut output = super::super::types::error::builders::TermsExistsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_terms_exists_exception::de_terms_exists_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -170,16 +170,16 @@
              tmp
          }),
 -        "TooManyRequestsException" => crate::operation::create_terms::CreateTermsError::TooManyRequestsException({
-+        "TooManyRequestsException" => super::operation::create_terms::CreateTermsError::TooManyRequestsException({
++        "TooManyRequestsException" => super::super::operation::create_terms::CreateTermsError::TooManyRequestsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -188,7 +188,7 @@
              tmp
          }),
 -        _ => crate::operation::create_terms::CreateTermsError::generic(generic),
-+        _ => super::operation::create_terms::CreateTermsError::generic(generic),
++        _ => super::super::operation::create_terms::CreateTermsError::generic(generic),
      })
  }
 
@@ -197,15 +197,15 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::create_terms::CreateTermsOutput, crate::operation::create_terms::CreateTermsError> {
-+) -> std::result::Result<super::operation::create_terms::CreateTermsOutput, super::operation::create_terms::CreateTermsError> {
++) -> std::result::Result<super::super::operation::create_terms::CreateTermsOutput, super::super::operation::create_terms::CreateTermsError> {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::create_terms::builders::CreateTermsOutputBuilder::default();
 -        output = crate::protocol_serde::shape_create_terms::de_create_terms(_response_body, output)
 -            .map_err(crate::operation::create_terms::CreateTermsError::unhandled)?;
-+        let mut output = super::operation::create_terms::builders::CreateTermsOutputBuilder::default();
-+        output = super::protocol_serde::shape_create_terms::de_create_terms(_response_body, output)
-+            .map_err(super::operation::create_terms::CreateTermsError::unhandled)?;
++        let mut output = super::super::operation::create_terms::builders::CreateTermsOutputBuilder::default();
++        output = super::super::protocol_serde::shape_create_terms::de_create_terms(_response_body, output)
++            .map_err(super::super::operation::create_terms::CreateTermsError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -214,12 +214,12 @@
 
  pub fn ser_create_terms_input(
 -    input: &crate::operation::create_terms::CreateTermsInput,
-+    input: &super::operation::create_terms::CreateTermsInput,
++    input: &super::super::operation::create_terms::CreateTermsInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_create_terms_input::ser_create_terms_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_create_terms_input::ser_create_terms_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_create_terms_input::ser_create_terms_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -229,11 +229,11 @@
      _value: &[u8],
 -    mut builder: crate::operation::create_terms::builders::CreateTermsOutputBuilder,
 -) -> ::std::result::Result<crate::operation::create_terms::builders::CreateTermsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+    mut builder: super::operation::create_terms::builders::CreateTermsOutputBuilder,
-+) -> ::std::result::Result<super::operation::create_terms::builders::CreateTermsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::super::operation::create_terms::builders::CreateTermsOutputBuilder,
++) -> ::std::result::Result<super::super::operation::create_terms::builders::CreateTermsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
  {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -242,7 +242,7 @@
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                  "Terms" => {
 -                    builder = builder.set_terms(crate::protocol_serde::shape_terms_type::de_terms_type(tokens, _value, depth + 1)?);
-+                    builder = builder.set_terms(super::protocol_serde::shape_terms_type::de_terms_type(tokens, _value, depth + 1)?);
++                    builder = builder.set_terms(super::super::protocol_serde::shape_terms_type::de_terms_type(tokens, _value, depth + 1)?);
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },

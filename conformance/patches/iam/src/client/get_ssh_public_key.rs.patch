@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetSSHPublicKeyError>`](crate::operation::get_ssh_public_key::GetSSHPublicKeyError)
 -    pub fn get_ssh_public_key(&self) -> crate::operation::get_ssh_public_key::builders::GetSSHPublicKeyFluentBuilder {
 -        crate::operation::get_ssh_public_key::builders::GetSSHPublicKeyFluentBuilder::new(self.handle.clone())
-+    pub fn get_ssh_public_key(&self) -> super::operation::get_ssh_public_key::builders::GetSSHPublicKeyFluentBuilder {
-+        super::operation::get_ssh_public_key::builders::GetSSHPublicKeyFluentBuilder::new(self.handle.clone())
++    pub fn get_ssh_public_key(&self) -> super::super::operation::get_ssh_public_key::builders::GetSSHPublicKeyFluentBuilder {
++        super::super::operation::get_ssh_public_key::builders::GetSSHPublicKeyFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetDiscoveredResourceCountsInput`](crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput).
 -    pub fn builder() -> crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder {
 -        crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder::default()
-+    pub fn builder() -> super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder {
-+        super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder {
++        super::super::super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput,
-+        super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput,
++        super::super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput {
-+        ::std::result::Result::Ok(super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput {
              resource_types: self.resource_types,
              limit: self.limit,
              next_token: self.next_token,

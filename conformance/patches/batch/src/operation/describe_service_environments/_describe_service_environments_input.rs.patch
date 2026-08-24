@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeServiceEnvironmentsInput`](crate::operation::describe_service_environments::DescribeServiceEnvironmentsInput).
 -    pub fn builder() -> crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder {
 -        crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder {
-+        super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder {
++        super::super::super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_service_environments::DescribeServiceEnvironmentsInput,
-+        super::operation::describe_service_environments::DescribeServiceEnvironmentsInput,
++        super::super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::describe_service_environments::DescribeServiceEnvironmentsInput {
-+        ::std::result::Result::Ok(super::operation::describe_service_environments::DescribeServiceEnvironmentsInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput {
              service_environments: self.service_environments,
              max_results: self.max_results,
              next_token: self.next_token,

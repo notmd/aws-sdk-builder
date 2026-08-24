@@ -5,10 +5,10 @@
      pub description: ::std::option::Option<::std::string::String>,
      /// <p>List of allowed publishers.</p>
 -    pub allowed_publishers: ::std::option::Option<crate::types::AllowedPublishers>,
-+    pub allowed_publishers: ::std::option::Option<super::types::AllowedPublishers>,
++    pub allowed_publishers: ::std::option::Option<super::super::types::AllowedPublishers>,
      /// <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
 -    pub code_signing_policies: ::std::option::Option<crate::types::CodeSigningPolicies>,
-+    pub code_signing_policies: ::std::option::Option<super::types::CodeSigningPolicies>,
++    pub code_signing_policies: ::std::option::Option<super::super::types::CodeSigningPolicies>,
      /// <p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).</p>
      pub last_modified: ::std::string::String,
  }
@@ -17,12 +17,12 @@
      }
      /// <p>List of allowed publishers.</p>
 -    pub fn allowed_publishers(&self) -> ::std::option::Option<&crate::types::AllowedPublishers> {
-+    pub fn allowed_publishers(&self) -> ::std::option::Option<&super::types::AllowedPublishers> {
++    pub fn allowed_publishers(&self) -> ::std::option::Option<&super::super::types::AllowedPublishers> {
          self.allowed_publishers.as_ref()
      }
      /// <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
 -    pub fn code_signing_policies(&self) -> ::std::option::Option<&crate::types::CodeSigningPolicies> {
-+    pub fn code_signing_policies(&self) -> ::std::option::Option<&super::types::CodeSigningPolicies> {
++    pub fn code_signing_policies(&self) -> ::std::option::Option<&super::super::types::CodeSigningPolicies> {
          self.code_signing_policies.as_ref()
      }
      /// <p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).</p>
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`CodeSigningConfig`](crate::types::CodeSigningConfig).
 -    pub fn builder() -> crate::types::builders::CodeSigningConfigBuilder {
 -        crate::types::builders::CodeSigningConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::CodeSigningConfigBuilder {
-+        super::types::builders::CodeSigningConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::CodeSigningConfigBuilder {
++        super::super::types::builders::CodeSigningConfigBuilder::default()
      }
  }
 
@@ -43,8 +43,8 @@
      pub(crate) description: ::std::option::Option<::std::string::String>,
 -    pub(crate) allowed_publishers: ::std::option::Option<crate::types::AllowedPublishers>,
 -    pub(crate) code_signing_policies: ::std::option::Option<crate::types::CodeSigningPolicies>,
-+    pub(crate) allowed_publishers: ::std::option::Option<super::types::AllowedPublishers>,
-+    pub(crate) code_signing_policies: ::std::option::Option<super::types::CodeSigningPolicies>,
++    pub(crate) allowed_publishers: ::std::option::Option<super::super::types::AllowedPublishers>,
++    pub(crate) code_signing_policies: ::std::option::Option<super::super::types::CodeSigningPolicies>,
      pub(crate) last_modified: ::std::option::Option<::std::string::String>,
  }
  impl CodeSigningConfigBuilder {
@@ -53,37 +53,37 @@
      /// <p>List of allowed publishers.</p>
      /// This field is required.
 -    pub fn allowed_publishers(mut self, input: crate::types::AllowedPublishers) -> Self {
-+    pub fn allowed_publishers(mut self, input: super::types::AllowedPublishers) -> Self {
++    pub fn allowed_publishers(mut self, input: super::super::types::AllowedPublishers) -> Self {
          self.allowed_publishers = ::std::option::Option::Some(input);
          self
      }
      /// <p>List of allowed publishers.</p>
 -    pub fn set_allowed_publishers(mut self, input: ::std::option::Option<crate::types::AllowedPublishers>) -> Self {
-+    pub fn set_allowed_publishers(mut self, input: ::std::option::Option<super::types::AllowedPublishers>) -> Self {
++    pub fn set_allowed_publishers(mut self, input: ::std::option::Option<super::super::types::AllowedPublishers>) -> Self {
          self.allowed_publishers = input;
          self
      }
      /// <p>List of allowed publishers.</p>
 -    pub fn get_allowed_publishers(&self) -> &::std::option::Option<crate::types::AllowedPublishers> {
-+    pub fn get_allowed_publishers(&self) -> &::std::option::Option<super::types::AllowedPublishers> {
++    pub fn get_allowed_publishers(&self) -> &::std::option::Option<super::super::types::AllowedPublishers> {
          &self.allowed_publishers
      }
      /// <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
      /// This field is required.
 -    pub fn code_signing_policies(mut self, input: crate::types::CodeSigningPolicies) -> Self {
-+    pub fn code_signing_policies(mut self, input: super::types::CodeSigningPolicies) -> Self {
++    pub fn code_signing_policies(mut self, input: super::super::types::CodeSigningPolicies) -> Self {
          self.code_signing_policies = ::std::option::Option::Some(input);
          self
      }
      /// <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
 -    pub fn set_code_signing_policies(mut self, input: ::std::option::Option<crate::types::CodeSigningPolicies>) -> Self {
-+    pub fn set_code_signing_policies(mut self, input: ::std::option::Option<super::types::CodeSigningPolicies>) -> Self {
++    pub fn set_code_signing_policies(mut self, input: ::std::option::Option<super::super::types::CodeSigningPolicies>) -> Self {
          self.code_signing_policies = input;
          self
      }
      /// <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
 -    pub fn get_code_signing_policies(&self) -> &::std::option::Option<crate::types::CodeSigningPolicies> {
-+    pub fn get_code_signing_policies(&self) -> &::std::option::Option<super::types::CodeSigningPolicies> {
++    pub fn get_code_signing_policies(&self) -> &::std::option::Option<super::super::types::CodeSigningPolicies> {
          &self.code_signing_policies
      }
      /// <p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).</p>
@@ -93,8 +93,8 @@
      /// - [`last_modified`](crate::types::builders::CodeSigningConfigBuilder::last_modified)
 -    pub fn build(self) -> ::std::result::Result<crate::types::CodeSigningConfig, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::CodeSigningConfig {
-+    pub fn build(self) -> ::std::result::Result<super::types::CodeSigningConfig, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::CodeSigningConfig {
++    pub fn build(self) -> ::std::result::Result<super::super::types::CodeSigningConfig, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::CodeSigningConfig {
              code_signing_config_id: self.code_signing_config_id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "code_signing_config_id",

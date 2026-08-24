@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::BatchResultErrorEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::BatchResultErrorEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::BatchResultErrorEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::BatchResultErrorEntry::builder();
-+    let mut builder = super::types::BatchResultErrorEntry::builder();
++    let mut builder = super::super::types::BatchResultErrorEntry::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("Id") /* Id com.amazonaws.sns#BatchResultErrorEntry$Id */ =>  {
@@ -20,7 +20,7 @@
          }
      }
 -    Ok(crate::serde_util::batch_result_error_entry_correct_errors(builder)
-+    Ok(super::serde_util::batch_result_error_entry_correct_errors(builder)
++    Ok(super::super::serde_util::batch_result_error_entry_correct_errors(builder)
          .build()
          .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteLogGroupInput`](crate::operation::delete_log_group::DeleteLogGroupInput).
 -    pub fn builder() -> crate::operation::delete_log_group::builders::DeleteLogGroupInputBuilder {
 -        crate::operation::delete_log_group::builders::DeleteLogGroupInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_log_group::builders::DeleteLogGroupInputBuilder {
-+        super::operation::delete_log_group::builders::DeleteLogGroupInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_log_group::builders::DeleteLogGroupInputBuilder {
++        super::super::super::operation::delete_log_group::builders::DeleteLogGroupInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_log_group::DeleteLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::delete_log_group::DeleteLogGroupInput {
-+    ) -> ::std::result::Result<super::operation::delete_log_group::DeleteLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::delete_log_group::DeleteLogGroupInput {
++    ) -> ::std::result::Result<super::super::super::operation::delete_log_group::DeleteLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::delete_log_group::DeleteLogGroupInput {
              log_group_name: self.log_group_name,
          })
      }

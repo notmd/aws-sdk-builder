@@ -5,7 +5,7 @@
  pub fn ser_tag(
      mut writer: ::aws_smithy_query::QueryValueWriter,
 -    input: &crate::types::Tag,
-+    input: &super::types::Tag,
++    input: &super::super::types::Tag,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      #[allow(unused_mut)]
      let mut scope_1 = writer.prefix("Key");

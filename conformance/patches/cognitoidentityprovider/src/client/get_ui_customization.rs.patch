@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetUICustomizationError>`](crate::operation::get_ui_customization::GetUICustomizationError)
 -    pub fn get_ui_customization(&self) -> crate::operation::get_ui_customization::builders::GetUICustomizationFluentBuilder {
 -        crate::operation::get_ui_customization::builders::GetUICustomizationFluentBuilder::new(self.handle.clone())
-+    pub fn get_ui_customization(&self) -> super::operation::get_ui_customization::builders::GetUICustomizationFluentBuilder {
-+        super::operation::get_ui_customization::builders::GetUICustomizationFluentBuilder::new(self.handle.clone())
++    pub fn get_ui_customization(&self) -> super::super::operation::get_ui_customization::builders::GetUICustomizationFluentBuilder {
++        super::super::operation::get_ui_customization::builders::GetUICustomizationFluentBuilder::new(self.handle.clone())
      }
  }

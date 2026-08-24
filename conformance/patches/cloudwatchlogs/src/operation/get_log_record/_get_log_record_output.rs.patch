@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetLogRecordOutput`](crate::operation::get_log_record::GetLogRecordOutput).
 -    pub fn builder() -> crate::operation::get_log_record::builders::GetLogRecordOutputBuilder {
 -        crate::operation::get_log_record::builders::GetLogRecordOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_log_record::builders::GetLogRecordOutputBuilder {
-+        super::operation::get_log_record::builders::GetLogRecordOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_log_record::builders::GetLogRecordOutputBuilder {
++        super::super::super::operation::get_log_record::builders::GetLogRecordOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetLogRecordOutput`](crate::operation::get_log_record::GetLogRecordOutput).
 -    pub fn build(self) -> crate::operation::get_log_record::GetLogRecordOutput {
 -        crate::operation::get_log_record::GetLogRecordOutput {
-+    pub fn build(self) -> super::operation::get_log_record::GetLogRecordOutput {
-+        super::operation::get_log_record::GetLogRecordOutput {
++    pub fn build(self) -> super::super::super::operation::get_log_record::GetLogRecordOutput {
++        super::super::super::operation::get_log_record::GetLogRecordOutput {
              log_record: self.log_record,
              _request_id: self._request_id,
          }

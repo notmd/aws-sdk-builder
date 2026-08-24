@@ -5,7 +5,7 @@
  pub fn ser_device_configuration_type(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::DeviceConfigurationType,
-+    input: &super::types::DeviceConfigurationType,
++    input: &super::super::types::DeviceConfigurationType,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if input.challenge_required_on_new_device {
          object.key("ChallengeRequiredOnNewDevice").boolean(input.challenge_required_on_new_device);
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::DeviceConfigurationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::DeviceConfigurationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::DeviceConfigurationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,7 +23,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::DeviceConfigurationTypeBuilder::default();
-+            let mut builder = super::types::builders::DeviceConfigurationTypeBuilder::default();
++            let mut builder = super::super::types::builders::DeviceConfigurationTypeBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,

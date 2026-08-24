@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetResourceConfigHistoryError>`](crate::operation::get_resource_config_history::GetResourceConfigHistoryError)
 -    pub fn get_resource_config_history(&self) -> crate::operation::get_resource_config_history::builders::GetResourceConfigHistoryFluentBuilder {
 -        crate::operation::get_resource_config_history::builders::GetResourceConfigHistoryFluentBuilder::new(self.handle.clone())
-+    pub fn get_resource_config_history(&self) -> super::operation::get_resource_config_history::builders::GetResourceConfigHistoryFluentBuilder {
-+        super::operation::get_resource_config_history::builders::GetResourceConfigHistoryFluentBuilder::new(self.handle.clone())
++    pub fn get_resource_config_history(&self) -> super::super::operation::get_resource_config_history::builders::GetResourceConfigHistoryFluentBuilder {
++        super::super::operation::get_resource_config_history::builders::GetResourceConfigHistoryFluentBuilder::new(self.handle.clone())
      }
  }

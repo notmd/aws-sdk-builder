@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Ulimit`](crate::types::Ulimit).
 -    pub fn builder() -> crate::types::builders::UlimitBuilder {
 -        crate::types::builders::UlimitBuilder::default()
-+    pub fn builder() -> super::types::builders::UlimitBuilder {
-+        super::types::builders::UlimitBuilder::default()
++    pub fn builder() -> super::super::types::builders::UlimitBuilder {
++        super::super::types::builders::UlimitBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Ulimit`](crate::types::Ulimit).
 -    pub fn build(self) -> crate::types::Ulimit {
 -        crate::types::Ulimit {
-+    pub fn build(self) -> super::types::Ulimit {
-+        super::types::Ulimit {
++    pub fn build(self) -> super::super::types::Ulimit {
++        super::super::types::Ulimit {
              hard_limit: self.hard_limit,
              name: self.name,
              soft_limit: self.soft_limit,

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<EnableKeyError>`](crate::operation::enable_key::EnableKeyError)
 -    pub fn enable_key(&self) -> crate::operation::enable_key::builders::EnableKeyFluentBuilder {
 -        crate::operation::enable_key::builders::EnableKeyFluentBuilder::new(self.handle.clone())
-+    pub fn enable_key(&self) -> super::operation::enable_key::builders::EnableKeyFluentBuilder {
-+        super::operation::enable_key::builders::EnableKeyFluentBuilder::new(self.handle.clone())
++    pub fn enable_key(&self) -> super::super::operation::enable_key::builders::EnableKeyFluentBuilder {
++        super::super::operation::enable_key::builders::EnableKeyFluentBuilder::new(self.handle.clone())
      }
  }

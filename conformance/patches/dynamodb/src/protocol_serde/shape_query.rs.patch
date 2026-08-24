@@ -5,33 +5,33 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::query::QueryOutput, crate::operation::query::QueryError> {
-+) -> std::result::Result<super::operation::query::QueryOutput, super::operation::query::QueryError> {
++) -> std::result::Result<super::super::operation::query::QueryOutput, super::super::operation::query::QueryError> {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::query::QueryError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::query::QueryError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::query::QueryError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::query::QueryError::unhandled(generic)),
-+        None => return Err(super::operation::query::QueryError::unhandled(generic)),
++        None => return Err(super::super::operation::query::QueryError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InternalServerError" => crate::operation::query::QueryError::InternalServerError({
-+        "InternalServerError" => super::operation::query::QueryError::InternalServerError({
++        "InternalServerError" => super::super::operation::query::QueryError::InternalServerError({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalServerErrorBuilder::default();
 -                output = crate::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
 -                    .map_err(crate::operation::query::QueryError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalServerErrorBuilder::default();
-+                output = super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
-+                    .map_err(super::operation::query::QueryError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalServerErrorBuilder::default();
++                output = super::super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
++                    .map_err(super::super::operation::query::QueryError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -40,16 +40,16 @@
              tmp
          }),
 -        "InvalidEndpointException" => crate::operation::query::QueryError::InvalidEndpointException({
-+        "InvalidEndpointException" => super::operation::query::QueryError::InvalidEndpointException({
++        "InvalidEndpointException" => super::super::operation::query::QueryError::InvalidEndpointException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidEndpointExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::query::QueryError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::query::QueryError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::query::QueryError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -58,14 +58,14 @@
          }),
          "ProvisionedThroughputExceededException" => {
 -            crate::operation::query::QueryError::ProvisionedThroughputExceededException({
-+            super::operation::query::QueryError::ProvisionedThroughputExceededException({
++            super::super::operation::query::QueryError::ProvisionedThroughputExceededException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_provisioned_throughput_exceeded_exception::de_provisioned_throughput_exceeded_exception_json_err(_response_body, output).map_err(crate::operation::query::QueryError::unhandled)?;
-+                    let mut output = super::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_provisioned_throughput_exceeded_exception::de_provisioned_throughput_exceeded_exception_json_err(_response_body, output).map_err(super::operation::query::QueryError::unhandled)?;
++                    let mut output = super::super::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_provisioned_throughput_exceeded_exception::de_provisioned_throughput_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::query::QueryError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -74,16 +74,16 @@
              })
          }
 -        "RequestLimitExceeded" => crate::operation::query::QueryError::RequestLimitExceeded({
-+        "RequestLimitExceeded" => super::operation::query::QueryError::RequestLimitExceeded({
++        "RequestLimitExceeded" => super::super::operation::query::QueryError::RequestLimitExceeded({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::RequestLimitExceededBuilder::default();
 -                output = crate::protocol_serde::shape_request_limit_exceeded::de_request_limit_exceeded_json_err(_response_body, output)
 -                    .map_err(crate::operation::query::QueryError::unhandled)?;
-+                let mut output = super::types::error::builders::RequestLimitExceededBuilder::default();
-+                output = super::protocol_serde::shape_request_limit_exceeded::de_request_limit_exceeded_json_err(_response_body, output)
-+                    .map_err(super::operation::query::QueryError::unhandled)?;
++                let mut output = super::super::types::error::builders::RequestLimitExceededBuilder::default();
++                output = super::super::protocol_serde::shape_request_limit_exceeded::de_request_limit_exceeded_json_err(_response_body, output)
++                    .map_err(super::super::operation::query::QueryError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -92,16 +92,16 @@
              tmp
          }),
 -        "ResourceNotFoundException" => crate::operation::query::QueryError::ResourceNotFoundException({
-+        "ResourceNotFoundException" => super::operation::query::QueryError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::super::operation::query::QueryError::ResourceNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::query::QueryError::unhandled)?;
-+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::query::QueryError::unhandled)?;
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::query::QueryError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -110,16 +110,16 @@
              tmp
          }),
 -        "ThrottlingException" => crate::operation::query::QueryError::ThrottlingException({
-+        "ThrottlingException" => super::operation::query::QueryError::ThrottlingException({
++        "ThrottlingException" => super::super::operation::query::QueryError::ThrottlingException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ThrottlingExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::query::QueryError::unhandled)?;
-+                let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-+                output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::query::QueryError::unhandled)?;
++                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::query::QueryError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -128,7 +128,7 @@
              tmp
          }),
 -        _ => crate::operation::query::QueryError::generic(generic),
-+        _ => super::operation::query::QueryError::generic(generic),
++        _ => super::super::operation::query::QueryError::generic(generic),
      })
  }
 
@@ -137,13 +137,13 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::query::QueryOutput, crate::operation::query::QueryError> {
-+) -> std::result::Result<super::operation::query::QueryOutput, super::operation::query::QueryError> {
++) -> std::result::Result<super::super::operation::query::QueryOutput, super::super::operation::query::QueryError> {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::query::builders::QueryOutputBuilder::default();
 -        output = crate::protocol_serde::shape_query::de_query(_response_body, output).map_err(crate::operation::query::QueryError::unhandled)?;
-+        let mut output = super::operation::query::builders::QueryOutputBuilder::default();
-+        output = super::protocol_serde::shape_query::de_query(_response_body, output).map_err(super::operation::query::QueryError::unhandled)?;
++        let mut output = super::super::operation::query::builders::QueryOutputBuilder::default();
++        output = super::super::protocol_serde::shape_query::de_query(_response_body, output).map_err(super::super::operation::query::QueryError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -152,12 +152,12 @@
 
  pub fn ser_query_input(
 -    input: &crate::operation::query::QueryInput,
-+    input: &super::operation::query::QueryInput,
++    input: &super::super::operation::query::QueryInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_query_input::ser_query_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_query_input::ser_query_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_query_input::ser_query_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -168,9 +168,9 @@
 -    mut builder: crate::operation::query::builders::QueryOutputBuilder,
 -) -> ::std::result::Result<crate::operation::query::builders::QueryOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    mut builder: super::operation::query::builders::QueryOutputBuilder,
-+) -> ::std::result::Result<super::operation::query::builders::QueryOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    mut builder: super::super::operation::query::builders::QueryOutputBuilder,
++) -> ::std::result::Result<super::super::operation::query::builders::QueryOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -179,7 +179,7 @@
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                  "Items" => {
 -                    builder = builder.set_items(crate::protocol_serde::shape_item_list::de_item_list(tokens, _value, depth + 1)?);
-+                    builder = builder.set_items(super::protocol_serde::shape_item_list::de_item_list(tokens, _value, depth + 1)?);
++                    builder = builder.set_items(super::super::protocol_serde::shape_item_list::de_item_list(tokens, _value, depth + 1)?);
                  }
                  "Count" => {
                      builder = builder.set_count(
@@ -188,11 +188,11 @@
                  }
                  "LastEvaluatedKey" => {
 -                    builder = builder.set_last_evaluated_key(crate::protocol_serde::shape_key::de_key(tokens, _value, depth + 1)?);
-+                    builder = builder.set_last_evaluated_key(super::protocol_serde::shape_key::de_key(tokens, _value, depth + 1)?);
++                    builder = builder.set_last_evaluated_key(super::super::protocol_serde::shape_key::de_key(tokens, _value, depth + 1)?);
                  }
                  "ConsumedCapacity" => {
 -                    builder = builder.set_consumed_capacity(crate::protocol_serde::shape_consumed_capacity::de_consumed_capacity(
-+                    builder = builder.set_consumed_capacity(super::protocol_serde::shape_consumed_capacity::de_consumed_capacity(
++                    builder = builder.set_consumed_capacity(super::super::protocol_serde::shape_consumed_capacity::de_consumed_capacity(
                          tokens,
                          _value,
                          depth + 1,

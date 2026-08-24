@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeLookupTablesError>`](crate::operation::describe_lookup_tables::DescribeLookupTablesError)
 -    pub fn describe_lookup_tables(&self) -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder {
 -        crate::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder::new(self.handle.clone())
-+    pub fn describe_lookup_tables(&self) -> super::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder {
-+        super::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder::new(self.handle.clone())
++    pub fn describe_lookup_tables(&self) -> super::super::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder {
++        super::super::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder::new(self.handle.clone())
      }
  }

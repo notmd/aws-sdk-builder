@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutRetentionPolicyError>`](crate::operation::put_retention_policy::PutRetentionPolicyError)
 -    pub fn put_retention_policy(&self) -> crate::operation::put_retention_policy::builders::PutRetentionPolicyFluentBuilder {
 -        crate::operation::put_retention_policy::builders::PutRetentionPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn put_retention_policy(&self) -> super::operation::put_retention_policy::builders::PutRetentionPolicyFluentBuilder {
-+        super::operation::put_retention_policy::builders::PutRetentionPolicyFluentBuilder::new(self.handle.clone())
++    pub fn put_retention_policy(&self) -> super::super::operation::put_retention_policy::builders::PutRetentionPolicyFluentBuilder {
++        super::super::operation::put_retention_policy::builders::PutRetentionPolicyFluentBuilder::new(self.handle.clone())
      }
  }

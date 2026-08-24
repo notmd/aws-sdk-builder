@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationFluentBuilder {
 -        crate::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationFluentBuilder {
-+        super::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationFluentBuilder {
++        super::super::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

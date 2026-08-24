@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetSigningCertificateOutput`](crate::operation::get_signing_certificate::GetSigningCertificateOutput).
 -    pub fn builder() -> crate::operation::get_signing_certificate::builders::GetSigningCertificateOutputBuilder {
 -        crate::operation::get_signing_certificate::builders::GetSigningCertificateOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_signing_certificate::builders::GetSigningCertificateOutputBuilder {
-+        super::operation::get_signing_certificate::builders::GetSigningCertificateOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_signing_certificate::builders::GetSigningCertificateOutputBuilder {
++        super::super::super::operation::get_signing_certificate::builders::GetSigningCertificateOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetSigningCertificateOutput`](crate::operation::get_signing_certificate::GetSigningCertificateOutput).
 -    pub fn build(self) -> crate::operation::get_signing_certificate::GetSigningCertificateOutput {
 -        crate::operation::get_signing_certificate::GetSigningCertificateOutput {
-+    pub fn build(self) -> super::operation::get_signing_certificate::GetSigningCertificateOutput {
-+        super::operation::get_signing_certificate::GetSigningCertificateOutput {
++    pub fn build(self) -> super::super::super::operation::get_signing_certificate::GetSigningCertificateOutput {
++        super::super::super::operation::get_signing_certificate::GetSigningCertificateOutput {
              certificate: self.certificate,
              _request_id: self._request_id,
          }

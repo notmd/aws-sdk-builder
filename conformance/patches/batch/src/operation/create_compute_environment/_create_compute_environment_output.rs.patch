@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateComputeEnvironmentOutput`](crate::operation::create_compute_environment::CreateComputeEnvironmentOutput).
 -    pub fn builder() -> crate::operation::create_compute_environment::builders::CreateComputeEnvironmentOutputBuilder {
 -        crate::operation::create_compute_environment::builders::CreateComputeEnvironmentOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_compute_environment::builders::CreateComputeEnvironmentOutputBuilder {
-+        super::operation::create_compute_environment::builders::CreateComputeEnvironmentOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_compute_environment::builders::CreateComputeEnvironmentOutputBuilder {
++        super::super::super::operation::create_compute_environment::builders::CreateComputeEnvironmentOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateComputeEnvironmentOutput`](crate::operation::create_compute_environment::CreateComputeEnvironmentOutput).
 -    pub fn build(self) -> crate::operation::create_compute_environment::CreateComputeEnvironmentOutput {
 -        crate::operation::create_compute_environment::CreateComputeEnvironmentOutput {
-+    pub fn build(self) -> super::operation::create_compute_environment::CreateComputeEnvironmentOutput {
-+        super::operation::create_compute_environment::CreateComputeEnvironmentOutput {
++    pub fn build(self) -> super::super::super::operation::create_compute_environment::CreateComputeEnvironmentOutput {
++        super::super::super::operation::create_compute_environment::CreateComputeEnvironmentOutput {
              compute_environment_name: self.compute_environment_name,
              compute_environment_arn: self.compute_environment_arn,
              _request_id: self._request_id,

@@ -5,7 +5,7 @@
      pub resource_id: ::std::option::Option<::std::string::String>,
      /// <p>The type of Amazon Web Services resource.</p>
 -    pub resource_type: ::std::option::Option<crate::types::ResourceType>,
-+    pub resource_type: ::std::option::Option<super::types::ResourceType>,
++    pub resource_type: ::std::option::Option<super::super::super::types::ResourceType>,
      pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
  }
  impl ConflictException {
@@ -14,7 +14,7 @@
      }
      /// <p>The type of Amazon Web Services resource.</p>
 -    pub fn resource_type(&self) -> ::std::option::Option<&crate::types::ResourceType> {
-+    pub fn resource_type(&self) -> ::std::option::Option<&super::types::ResourceType> {
++    pub fn resource_type(&self) -> ::std::option::Option<&super::super::super::types::ResourceType> {
          self.resource_type.as_ref()
      }
  }
@@ -23,7 +23,7 @@
  }
  impl ::std::error::Error for ConflictException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::ConflictException {
-+impl ::aws_types::request_id::RequestId for super::types::error::ConflictException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::ConflictException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -33,8 +33,8 @@
      /// Creates a new builder-style object to manufacture [`ConflictException`](crate::types::error::ConflictException).
 -    pub fn builder() -> crate::types::error::builders::ConflictExceptionBuilder {
 -        crate::types::error::builders::ConflictExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::ConflictExceptionBuilder {
-+        super::types::error::builders::ConflictExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::ConflictExceptionBuilder {
++        super::super::super::types::error::builders::ConflictExceptionBuilder::default()
      }
  }
 
@@ -43,7 +43,7 @@
      pub(crate) message: ::std::option::Option<::std::string::String>,
      pub(crate) resource_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) resource_type: ::std::option::Option<crate::types::ResourceType>,
-+    pub(crate) resource_type: ::std::option::Option<super::types::ResourceType>,
++    pub(crate) resource_type: ::std::option::Option<super::super::super::types::ResourceType>,
      meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
  }
  impl ConflictExceptionBuilder {
@@ -52,19 +52,19 @@
      }
      /// <p>The type of Amazon Web Services resource.</p>
 -    pub fn resource_type(mut self, input: crate::types::ResourceType) -> Self {
-+    pub fn resource_type(mut self, input: super::types::ResourceType) -> Self {
++    pub fn resource_type(mut self, input: super::super::super::types::ResourceType) -> Self {
          self.resource_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of Amazon Web Services resource.</p>
 -    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
-+    pub fn set_resource_type(mut self, input: ::std::option::Option<super::types::ResourceType>) -> Self {
++    pub fn set_resource_type(mut self, input: ::std::option::Option<super::super::super::types::ResourceType>) -> Self {
          self.resource_type = input;
          self
      }
      /// <p>The type of Amazon Web Services resource.</p>
 -    pub fn get_resource_type(&self) -> &::std::option::Option<crate::types::ResourceType> {
-+    pub fn get_resource_type(&self) -> &::std::option::Option<super::types::ResourceType> {
++    pub fn get_resource_type(&self) -> &::std::option::Option<super::super::super::types::ResourceType> {
          &self.resource_type
      }
      /// Sets error metadata
@@ -74,8 +74,8 @@
      /// - [`message`](crate::types::error::builders::ConflictExceptionBuilder::message)
 -    pub fn build(self) -> ::std::result::Result<crate::types::error::ConflictException, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::error::ConflictException {
-+    pub fn build(self) -> ::std::result::Result<super::types::error::ConflictException, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::error::ConflictException {
++    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::ConflictException, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::types::error::ConflictException {
              message: self.message.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "message",

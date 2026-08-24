@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for ConformancePackTemplateValidationException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::ConformancePackTemplateValidationException {
-+impl ::aws_types::request_id::RequestId for super::types::error::ConformancePackTemplateValidationException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::ConformancePackTemplateValidationException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`ConformancePackTemplateValidationException`](crate::types::error::ConformancePackTemplateValidationException).
 -    pub fn builder() -> crate::types::error::builders::ConformancePackTemplateValidationExceptionBuilder {
 -        crate::types::error::builders::ConformancePackTemplateValidationExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::ConformancePackTemplateValidationExceptionBuilder {
-+        super::types::error::builders::ConformancePackTemplateValidationExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::ConformancePackTemplateValidationExceptionBuilder {
++        super::super::super::types::error::builders::ConformancePackTemplateValidationExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`ConformancePackTemplateValidationException`](crate::types::error::ConformancePackTemplateValidationException).
 -    pub fn build(self) -> crate::types::error::ConformancePackTemplateValidationException {
 -        crate::types::error::ConformancePackTemplateValidationException {
-+    pub fn build(self) -> super::types::error::ConformancePackTemplateValidationException {
-+        super::types::error::ConformancePackTemplateValidationException {
++    pub fn build(self) -> super::super::super::types::error::ConformancePackTemplateValidationException {
++        super::super::super::types::error::ConformancePackTemplateValidationException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

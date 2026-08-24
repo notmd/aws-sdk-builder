@@ -5,7 +5,7 @@
      pub config_rule_name: ::std::option::Option<::std::string::String>,
      /// <p>Indicates whether the Config rule is compliant.</p>
 -    pub compliance: ::std::option::Option<crate::types::Compliance>,
-+    pub compliance: ::std::option::Option<super::types::Compliance>,
++    pub compliance: ::std::option::Option<super::super::types::Compliance>,
  }
  impl ComplianceByConfigRule {
      /// <p>The name of the Config rule.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>Indicates whether the Config rule is compliant.</p>
 -    pub fn compliance(&self) -> ::std::option::Option<&crate::types::Compliance> {
-+    pub fn compliance(&self) -> ::std::option::Option<&super::types::Compliance> {
++    pub fn compliance(&self) -> ::std::option::Option<&super::super::types::Compliance> {
          self.compliance.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ComplianceByConfigRule`](crate::types::ComplianceByConfigRule).
 -    pub fn builder() -> crate::types::builders::ComplianceByConfigRuleBuilder {
 -        crate::types::builders::ComplianceByConfigRuleBuilder::default()
-+    pub fn builder() -> super::types::builders::ComplianceByConfigRuleBuilder {
-+        super::types::builders::ComplianceByConfigRuleBuilder::default()
++    pub fn builder() -> super::super::types::builders::ComplianceByConfigRuleBuilder {
++        super::super::types::builders::ComplianceByConfigRuleBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct ComplianceByConfigRuleBuilder {
      pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) compliance: ::std::option::Option<crate::types::Compliance>,
-+    pub(crate) compliance: ::std::option::Option<super::types::Compliance>,
++    pub(crate) compliance: ::std::option::Option<super::super::types::Compliance>,
  }
  impl ComplianceByConfigRuleBuilder {
      /// <p>The name of the Config rule.</p>
@@ -41,26 +41,26 @@
      }
      /// <p>Indicates whether the Config rule is compliant.</p>
 -    pub fn compliance(mut self, input: crate::types::Compliance) -> Self {
-+    pub fn compliance(mut self, input: super::types::Compliance) -> Self {
++    pub fn compliance(mut self, input: super::super::types::Compliance) -> Self {
          self.compliance = ::std::option::Option::Some(input);
          self
      }
      /// <p>Indicates whether the Config rule is compliant.</p>
 -    pub fn set_compliance(mut self, input: ::std::option::Option<crate::types::Compliance>) -> Self {
-+    pub fn set_compliance(mut self, input: ::std::option::Option<super::types::Compliance>) -> Self {
++    pub fn set_compliance(mut self, input: ::std::option::Option<super::super::types::Compliance>) -> Self {
          self.compliance = input;
          self
      }
      /// <p>Indicates whether the Config rule is compliant.</p>
 -    pub fn get_compliance(&self) -> &::std::option::Option<crate::types::Compliance> {
-+    pub fn get_compliance(&self) -> &::std::option::Option<super::types::Compliance> {
++    pub fn get_compliance(&self) -> &::std::option::Option<super::super::types::Compliance> {
          &self.compliance
      }
      /// Consumes the builder and constructs a [`ComplianceByConfigRule`](crate::types::ComplianceByConfigRule).
 -    pub fn build(self) -> crate::types::ComplianceByConfigRule {
 -        crate::types::ComplianceByConfigRule {
-+    pub fn build(self) -> super::types::ComplianceByConfigRule {
-+        super::types::ComplianceByConfigRule {
++    pub fn build(self) -> super::super::types::ComplianceByConfigRule {
++        super::super::types::ComplianceByConfigRule {
              config_rule_name: self.config_rule_name,
              compliance: self.compliance,
          }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetKeyLastUsageError>`](crate::operation::get_key_last_usage::GetKeyLastUsageError)
 -    pub fn get_key_last_usage(&self) -> crate::operation::get_key_last_usage::builders::GetKeyLastUsageFluentBuilder {
 -        crate::operation::get_key_last_usage::builders::GetKeyLastUsageFluentBuilder::new(self.handle.clone())
-+    pub fn get_key_last_usage(&self) -> super::operation::get_key_last_usage::builders::GetKeyLastUsageFluentBuilder {
-+        super::operation::get_key_last_usage::builders::GetKeyLastUsageFluentBuilder::new(self.handle.clone())
++    pub fn get_key_last_usage(&self) -> super::super::operation::get_key_last_usage::builders::GetKeyLastUsageFluentBuilder {
++        super::super::operation::get_key_last_usage::builders::GetKeyLastUsageFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ComputeEnvironmentOrder`](crate::types::ComputeEnvironmentOrder).
 -    pub fn builder() -> crate::types::builders::ComputeEnvironmentOrderBuilder {
 -        crate::types::builders::ComputeEnvironmentOrderBuilder::default()
-+    pub fn builder() -> super::types::builders::ComputeEnvironmentOrderBuilder {
-+        super::types::builders::ComputeEnvironmentOrderBuilder::default()
++    pub fn builder() -> super::super::types::builders::ComputeEnvironmentOrderBuilder {
++        super::super::types::builders::ComputeEnvironmentOrderBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ComputeEnvironmentOrder`](crate::types::ComputeEnvironmentOrder).
 -    pub fn build(self) -> crate::types::ComputeEnvironmentOrder {
 -        crate::types::ComputeEnvironmentOrder {
-+    pub fn build(self) -> super::types::ComputeEnvironmentOrder {
-+        super::types::ComputeEnvironmentOrder {
++    pub fn build(self) -> super::super::types::ComputeEnvironmentOrder {
++        super::super::types::ComputeEnvironmentOrder {
              order: self.order,
              compute_environment: self.compute_environment,
          }

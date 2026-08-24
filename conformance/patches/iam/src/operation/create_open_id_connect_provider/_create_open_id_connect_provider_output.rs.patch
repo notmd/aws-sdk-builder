@@ -5,7 +5,7 @@
      pub open_id_connect_provider_arn: ::std::option::Option<::std::string::String>,
      /// <p>A list of tags that are attached to the new IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
      _request_id: Option<String>,
  }
  impl CreateOpenIdConnectProviderOutput {
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
 -    pub fn tags(&self) -> &[crate::types::Tag] {
-+    pub fn tags(&self) -> &[super::types::Tag] {
++    pub fn tags(&self) -> &[super::super::super::types::Tag] {
          self.tags.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`CreateOpenIdConnectProviderOutput`](crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput).
 -    pub fn builder() -> crate::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder {
 -        crate::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder {
-+        super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder {
++        super::super::super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct CreateOpenIdConnectProviderOutputBuilder {
      pub(crate) open_id_connect_provider_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
      _request_id: Option<String>,
  }
  impl CreateOpenIdConnectProviderOutputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of tags that are attached to the new IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 -    pub fn tags(mut self, input: crate::types::Tag) -> Self {
-+    pub fn tags(mut self, input: super::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::super::super::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
          self.tags = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of tags that are attached to the new IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 -    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self {
          self.tags = input;
          self
      }
      /// <p>A list of tags that are attached to the new IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 -    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
-+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> {
          &self.tags
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`CreateOpenIdConnectProviderOutput`](crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput).
 -    pub fn build(self) -> crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput {
 -        crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput {
-+    pub fn build(self) -> super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput {
-+        super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput {
++    pub fn build(self) -> super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput {
++        super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput {
              open_id_connect_provider_arn: self.open_id_connect_provider_arn,
              tags: self.tags,
              _request_id: self._request_id,

@@ -5,22 +5,22 @@
  pub enum ConverseStreamOutput {
      /// <p>The messages output content block delta.</p>
 -    ContentBlockDelta(crate::types::ContentBlockDeltaEvent),
-+    ContentBlockDelta(super::types::ContentBlockDeltaEvent),
++    ContentBlockDelta(super::super::types::ContentBlockDeltaEvent),
      /// <p>Start information for a content block.</p>
 -    ContentBlockStart(crate::types::ContentBlockStartEvent),
-+    ContentBlockStart(super::types::ContentBlockStartEvent),
++    ContentBlockStart(super::super::types::ContentBlockStartEvent),
      /// <p>Stop information for a content block.</p>
 -    ContentBlockStop(crate::types::ContentBlockStopEvent),
-+    ContentBlockStop(super::types::ContentBlockStopEvent),
++    ContentBlockStop(super::super::types::ContentBlockStopEvent),
      /// <p>Message start information.</p>
 -    MessageStart(crate::types::MessageStartEvent),
-+    MessageStart(super::types::MessageStartEvent),
++    MessageStart(super::super::types::MessageStartEvent),
      /// <p>Message stop information.</p>
 -    MessageStop(crate::types::MessageStopEvent),
-+    MessageStop(super::types::MessageStopEvent),
++    MessageStop(super::super::types::MessageStopEvent),
      /// <p>Metadata for the converse output stream.</p>
 -    Metadata(crate::types::ConverseStreamMetadataEvent),
-+    Metadata(super::types::ConverseStreamMetadataEvent),
++    Metadata(super::super::types::ConverseStreamMetadataEvent),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -29,7 +29,7 @@
      /// Tries to convert the enum instance into [`ContentBlockDelta`](crate::types::ConverseStreamOutput::ContentBlockDelta), extracting the inner [`ContentBlockDeltaEvent`](crate::types::ContentBlockDeltaEvent).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_content_block_delta(&self) -> ::std::result::Result<&crate::types::ContentBlockDeltaEvent, &Self> {
-+    pub fn as_content_block_delta(&self) -> ::std::result::Result<&super::types::ContentBlockDeltaEvent, &Self> {
++    pub fn as_content_block_delta(&self) -> ::std::result::Result<&super::super::types::ContentBlockDeltaEvent, &Self> {
          if let ConverseStreamOutput::ContentBlockDelta(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -38,7 +38,7 @@
      /// Tries to convert the enum instance into [`ContentBlockStart`](crate::types::ConverseStreamOutput::ContentBlockStart), extracting the inner [`ContentBlockStartEvent`](crate::types::ContentBlockStartEvent).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_content_block_start(&self) -> ::std::result::Result<&crate::types::ContentBlockStartEvent, &Self> {
-+    pub fn as_content_block_start(&self) -> ::std::result::Result<&super::types::ContentBlockStartEvent, &Self> {
++    pub fn as_content_block_start(&self) -> ::std::result::Result<&super::super::types::ContentBlockStartEvent, &Self> {
          if let ConverseStreamOutput::ContentBlockStart(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -47,7 +47,7 @@
      /// Tries to convert the enum instance into [`ContentBlockStop`](crate::types::ConverseStreamOutput::ContentBlockStop), extracting the inner [`ContentBlockStopEvent`](crate::types::ContentBlockStopEvent).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_content_block_stop(&self) -> ::std::result::Result<&crate::types::ContentBlockStopEvent, &Self> {
-+    pub fn as_content_block_stop(&self) -> ::std::result::Result<&super::types::ContentBlockStopEvent, &Self> {
++    pub fn as_content_block_stop(&self) -> ::std::result::Result<&super::super::types::ContentBlockStopEvent, &Self> {
          if let ConverseStreamOutput::ContentBlockStop(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -56,7 +56,7 @@
      /// Tries to convert the enum instance into [`MessageStart`](crate::types::ConverseStreamOutput::MessageStart), extracting the inner [`MessageStartEvent`](crate::types::MessageStartEvent).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_message_start(&self) -> ::std::result::Result<&crate::types::MessageStartEvent, &Self> {
-+    pub fn as_message_start(&self) -> ::std::result::Result<&super::types::MessageStartEvent, &Self> {
++    pub fn as_message_start(&self) -> ::std::result::Result<&super::super::types::MessageStartEvent, &Self> {
          if let ConverseStreamOutput::MessageStart(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -65,7 +65,7 @@
      /// Tries to convert the enum instance into [`MessageStop`](crate::types::ConverseStreamOutput::MessageStop), extracting the inner [`MessageStopEvent`](crate::types::MessageStopEvent).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_message_stop(&self) -> ::std::result::Result<&crate::types::MessageStopEvent, &Self> {
-+    pub fn as_message_stop(&self) -> ::std::result::Result<&super::types::MessageStopEvent, &Self> {
++    pub fn as_message_stop(&self) -> ::std::result::Result<&super::super::types::MessageStopEvent, &Self> {
          if let ConverseStreamOutput::MessageStop(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -74,7 +74,7 @@
      /// Tries to convert the enum instance into [`Metadata`](crate::types::ConverseStreamOutput::Metadata), extracting the inner [`ConverseStreamMetadataEvent`](crate::types::ConverseStreamMetadataEvent).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_metadata(&self) -> ::std::result::Result<&crate::types::ConverseStreamMetadataEvent, &Self> {
-+    pub fn as_metadata(&self) -> ::std::result::Result<&super::types::ConverseStreamMetadataEvent, &Self> {
++    pub fn as_metadata(&self) -> ::std::result::Result<&super::super::types::ConverseStreamMetadataEvent, &Self> {
          if let ConverseStreamOutput::Metadata(val) = &self {
              ::std::result::Result::Ok(val)
          } else {

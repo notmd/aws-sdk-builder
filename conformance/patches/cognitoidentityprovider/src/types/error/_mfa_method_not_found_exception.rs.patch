@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for MfaMethodNotFoundException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::MfaMethodNotFoundException {
-+impl ::aws_types::request_id::RequestId for super::types::error::MfaMethodNotFoundException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::MfaMethodNotFoundException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`MfaMethodNotFoundException`](crate::types::error::MfaMethodNotFoundException).
 -    pub fn builder() -> crate::types::error::builders::MfaMethodNotFoundExceptionBuilder {
 -        crate::types::error::builders::MfaMethodNotFoundExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::MfaMethodNotFoundExceptionBuilder {
-+        super::types::error::builders::MfaMethodNotFoundExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::MfaMethodNotFoundExceptionBuilder {
++        super::super::super::types::error::builders::MfaMethodNotFoundExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`MfaMethodNotFoundException`](crate::types::error::MfaMethodNotFoundException).
 -    pub fn build(self) -> crate::types::error::MfaMethodNotFoundException {
 -        crate::types::error::MfaMethodNotFoundException {
-+    pub fn build(self) -> super::types::error::MfaMethodNotFoundException {
-+        super::types::error::MfaMethodNotFoundException {
++    pub fn build(self) -> super::super::super::types::error::MfaMethodNotFoundException {
++        super::super::super::types::error::MfaMethodNotFoundException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

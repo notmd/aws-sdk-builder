@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteVectorIndexAction`](crate::types::DeleteVectorIndexAction).
 -    pub fn builder() -> crate::types::builders::DeleteVectorIndexActionBuilder {
 -        crate::types::builders::DeleteVectorIndexActionBuilder::default()
-+    pub fn builder() -> super::types::builders::DeleteVectorIndexActionBuilder {
-+        super::types::builders::DeleteVectorIndexActionBuilder::default()
++    pub fn builder() -> super::super::types::builders::DeleteVectorIndexActionBuilder {
++        super::super::types::builders::DeleteVectorIndexActionBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`index_name`](crate::types::builders::DeleteVectorIndexActionBuilder::index_name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::DeleteVectorIndexAction, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::DeleteVectorIndexAction {
-+    pub fn build(self) -> ::std::result::Result<super::types::DeleteVectorIndexAction, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::DeleteVectorIndexAction {
++    pub fn build(self) -> ::std::result::Result<super::super::types::DeleteVectorIndexAction, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::DeleteVectorIndexAction {
              index_name: self.index_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "index_name",

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeSchedulingPoliciesInput`](crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput).
 -    pub fn builder() -> crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder {
 -        crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder {
-+        super::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder {
++        super::super::super::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput,
-+        super::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput,
++        super::super::super::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput { arns: self.arns })
-+        ::std::result::Result::Ok(super::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput { arns: self.arns })
++        ::std::result::Result::Ok(super::super::super::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput { arns: self.arns })
      }
  }

@@ -5,7 +5,7 @@
  pub fn ser_context_options(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ContextOptions,
-+    input: &super::types::ContextOptions,
++    input: &super::super::types::ContextOptions,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.replay_children {
          object.key("ReplayChildren").boolean(*var_1);

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsFluentBuilder {
 -        crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsFluentBuilder {
-+        super::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsFluentBuilder {
++        super::super::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsFluentBuilder::new(self.handle.clone())
      }
  }

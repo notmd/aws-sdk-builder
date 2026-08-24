@@ -4,6 +4,31 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-24 — Make per-service `original.rs` the canonical artifact
+- State: in progress
+- Changed: each generated service now has one canonical `original.rs` artifact under
+  `generated/<service>/` and each conformance snapshot has the corresponding
+  `conformance/generated/<service>/original.rs`. Provider `include_sdk!()` macros
+  consume the canonical artifact, while conformance derives its normalized physical
+  module tree from that same source. Consumer/conformance renderer flags and the
+  obsolete consumer renderer paths were removed.
+- Evidence: canonical composition/splitting is syntax-aware, preserves module
+  attributes and documentation, rewrites `crate::` paths for projections, handles
+  Unicode source spans, and materializes nested modules in descending source-offset
+  order. Canonical and normalization tests pass; the pinned Smithy-RS reference is
+  `/tmp/smithy-rs` at `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  compared 13,301 files, and matched 7,787 (57.45% average): 4,655 mismatches,
+  725 missing, and 134 extra. It exits 1 because broader generator parity remains
+  incomplete.
+- Verification: `cargo check -p aws-sdk-builder`, focused canonical and normalization
+  tests, formatting, and `git diff --check` pass. Full workspace tests and clippy are
+  the remaining final verification steps for this checkpoint.
+- Blocker: remaining conformance differences are generator parity gaps, not canonical
+  artifact ownership or normalization projection.
+- Next action: run the complete workspace verification suite and inspect the final
+  diff for stale renderer flags or generated backup artifacts.
+
 ### Checkpoint: 2026-08-24 — Make patch normalization and consumer ownership explicit
 - State: in progress
 - Changed: `update-reference` now stages and atomically installs the reference tree,

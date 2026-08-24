@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetCallerIdentityError>`](crate::operation::get_caller_identity::GetCallerIdentityError)
 -    pub fn get_caller_identity(&self) -> crate::operation::get_caller_identity::builders::GetCallerIdentityFluentBuilder {
 -        crate::operation::get_caller_identity::builders::GetCallerIdentityFluentBuilder::new(self.handle.clone())
-+    pub fn get_caller_identity(&self) -> super::operation::get_caller_identity::builders::GetCallerIdentityFluentBuilder {
-+        super::operation::get_caller_identity::builders::GetCallerIdentityFluentBuilder::new(self.handle.clone())
++    pub fn get_caller_identity(&self) -> super::super::operation::get_caller_identity::builders::GetCallerIdentityFluentBuilder {
++        super::super::operation::get_caller_identity::builders::GetCallerIdentityFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DisassociateKmsKeyOutput`](crate::operation::disassociate_kms_key::DisassociateKmsKeyOutput).
 -    pub fn builder() -> crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyOutputBuilder {
 -        crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyOutputBuilder::default()
-+    pub fn builder() -> super::operation::disassociate_kms_key::builders::DisassociateKmsKeyOutputBuilder {
-+        super::operation::disassociate_kms_key::builders::DisassociateKmsKeyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::disassociate_kms_key::builders::DisassociateKmsKeyOutputBuilder {
++        super::super::super::operation::disassociate_kms_key::builders::DisassociateKmsKeyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DisassociateKmsKeyOutput`](crate::operation::disassociate_kms_key::DisassociateKmsKeyOutput).
 -    pub fn build(self) -> crate::operation::disassociate_kms_key::DisassociateKmsKeyOutput {
 -        crate::operation::disassociate_kms_key::DisassociateKmsKeyOutput {
-+    pub fn build(self) -> super::operation::disassociate_kms_key::DisassociateKmsKeyOutput {
-+        super::operation::disassociate_kms_key::DisassociateKmsKeyOutput {
++    pub fn build(self) -> super::super::super::operation::disassociate_kms_key::DisassociateKmsKeyOutput {
++        super::super::super::operation::disassociate_kms_key::DisassociateKmsKeyOutput {
              _request_id: self._request_id,
          }
      }

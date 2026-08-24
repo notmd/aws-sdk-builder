@@ -5,7 +5,7 @@
      pub sns_topic_arn: ::std::option::Option<::std::string::String>,
      /// <p>The options for how often Config delivers configuration snapshots to the Amazon S3 bucket.</p>
 -    pub config_snapshot_delivery_properties: ::std::option::Option<crate::types::ConfigSnapshotDeliveryProperties>,
-+    pub config_snapshot_delivery_properties: ::std::option::Option<super::types::ConfigSnapshotDeliveryProperties>,
++    pub config_snapshot_delivery_properties: ::std::option::Option<super::super::types::ConfigSnapshotDeliveryProperties>,
  }
  impl DeliveryChannel {
      /// <p>The name of the delivery channel. By default, Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The options for how often Config delivers configuration snapshots to the Amazon S3 bucket.</p>
 -    pub fn config_snapshot_delivery_properties(&self) -> ::std::option::Option<&crate::types::ConfigSnapshotDeliveryProperties> {
-+    pub fn config_snapshot_delivery_properties(&self) -> ::std::option::Option<&super::types::ConfigSnapshotDeliveryProperties> {
++    pub fn config_snapshot_delivery_properties(&self) -> ::std::option::Option<&super::super::types::ConfigSnapshotDeliveryProperties> {
          self.config_snapshot_delivery_properties.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`DeliveryChannel`](crate::types::DeliveryChannel).
 -    pub fn builder() -> crate::types::builders::DeliveryChannelBuilder {
 -        crate::types::builders::DeliveryChannelBuilder::default()
-+    pub fn builder() -> super::types::builders::DeliveryChannelBuilder {
-+        super::types::builders::DeliveryChannelBuilder::default()
++    pub fn builder() -> super::super::types::builders::DeliveryChannelBuilder {
++        super::super::types::builders::DeliveryChannelBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) s3_kms_key_arn: ::std::option::Option<::std::string::String>,
      pub(crate) sns_topic_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) config_snapshot_delivery_properties: ::std::option::Option<crate::types::ConfigSnapshotDeliveryProperties>,
-+    pub(crate) config_snapshot_delivery_properties: ::std::option::Option<super::types::ConfigSnapshotDeliveryProperties>,
++    pub(crate) config_snapshot_delivery_properties: ::std::option::Option<super::super::types::ConfigSnapshotDeliveryProperties>,
  }
  impl DeliveryChannelBuilder {
      /// <p>The name of the delivery channel. By default, Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.</p>
@@ -41,26 +41,26 @@
      }
      /// <p>The options for how often Config delivers configuration snapshots to the Amazon S3 bucket.</p>
 -    pub fn config_snapshot_delivery_properties(mut self, input: crate::types::ConfigSnapshotDeliveryProperties) -> Self {
-+    pub fn config_snapshot_delivery_properties(mut self, input: super::types::ConfigSnapshotDeliveryProperties) -> Self {
++    pub fn config_snapshot_delivery_properties(mut self, input: super::super::types::ConfigSnapshotDeliveryProperties) -> Self {
          self.config_snapshot_delivery_properties = ::std::option::Option::Some(input);
          self
      }
      /// <p>The options for how often Config delivers configuration snapshots to the Amazon S3 bucket.</p>
 -    pub fn set_config_snapshot_delivery_properties(mut self, input: ::std::option::Option<crate::types::ConfigSnapshotDeliveryProperties>) -> Self {
-+    pub fn set_config_snapshot_delivery_properties(mut self, input: ::std::option::Option<super::types::ConfigSnapshotDeliveryProperties>) -> Self {
++    pub fn set_config_snapshot_delivery_properties(mut self, input: ::std::option::Option<super::super::types::ConfigSnapshotDeliveryProperties>) -> Self {
          self.config_snapshot_delivery_properties = input;
          self
      }
      /// <p>The options for how often Config delivers configuration snapshots to the Amazon S3 bucket.</p>
 -    pub fn get_config_snapshot_delivery_properties(&self) -> &::std::option::Option<crate::types::ConfigSnapshotDeliveryProperties> {
-+    pub fn get_config_snapshot_delivery_properties(&self) -> &::std::option::Option<super::types::ConfigSnapshotDeliveryProperties> {
++    pub fn get_config_snapshot_delivery_properties(&self) -> &::std::option::Option<super::super::types::ConfigSnapshotDeliveryProperties> {
          &self.config_snapshot_delivery_properties
      }
      /// Consumes the builder and constructs a [`DeliveryChannel`](crate::types::DeliveryChannel).
 -    pub fn build(self) -> crate::types::DeliveryChannel {
 -        crate::types::DeliveryChannel {
-+    pub fn build(self) -> super::types::DeliveryChannel {
-+        super::types::DeliveryChannel {
++    pub fn build(self) -> super::super::types::DeliveryChannel {
++        super::super::types::DeliveryChannel {
              name: self.name,
              s3_bucket_name: self.s3_bucket_name,
              s3_key_prefix: self.s3_key_prefix,

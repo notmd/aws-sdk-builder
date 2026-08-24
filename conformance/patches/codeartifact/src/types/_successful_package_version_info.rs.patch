@@ -5,7 +5,7 @@
      pub revision: ::std::option::Option<::std::string::String>,
      /// <p>The status of a package version.</p>
 -    pub status: ::std::option::Option<crate::types::PackageVersionStatus>,
-+    pub status: ::std::option::Option<super::types::PackageVersionStatus>,
++    pub status: ::std::option::Option<super::super::types::PackageVersionStatus>,
  }
  impl SuccessfulPackageVersionInfo {
      /// <p>The revision of a package version.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The status of a package version.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::PackageVersionStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::PackageVersionStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::PackageVersionStatus> {
          self.status.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`SuccessfulPackageVersionInfo`](crate::types::SuccessfulPackageVersionInfo).
 -    pub fn builder() -> crate::types::builders::SuccessfulPackageVersionInfoBuilder {
 -        crate::types::builders::SuccessfulPackageVersionInfoBuilder::default()
-+    pub fn builder() -> super::types::builders::SuccessfulPackageVersionInfoBuilder {
-+        super::types::builders::SuccessfulPackageVersionInfoBuilder::default()
++    pub fn builder() -> super::super::types::builders::SuccessfulPackageVersionInfoBuilder {
++        super::super::types::builders::SuccessfulPackageVersionInfoBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct SuccessfulPackageVersionInfoBuilder {
      pub(crate) revision: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::PackageVersionStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::PackageVersionStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::PackageVersionStatus>,
  }
  impl SuccessfulPackageVersionInfoBuilder {
      /// <p>The revision of a package version.</p>
@@ -41,26 +41,26 @@
      }
      /// <p>The status of a package version.</p>
 -    pub fn status(mut self, input: crate::types::PackageVersionStatus) -> Self {
-+    pub fn status(mut self, input: super::types::PackageVersionStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::PackageVersionStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status of a package version.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::PackageVersionStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::PackageVersionStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::PackageVersionStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>The status of a package version.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::PackageVersionStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::PackageVersionStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::PackageVersionStatus> {
          &self.status
      }
      /// Consumes the builder and constructs a [`SuccessfulPackageVersionInfo`](crate::types::SuccessfulPackageVersionInfo).
 -    pub fn build(self) -> crate::types::SuccessfulPackageVersionInfo {
 -        crate::types::SuccessfulPackageVersionInfo {
-+    pub fn build(self) -> super::types::SuccessfulPackageVersionInfo {
-+        super::types::SuccessfulPackageVersionInfo {
++    pub fn build(self) -> super::super::types::SuccessfulPackageVersionInfo {
++        super::super::types::SuccessfulPackageVersionInfo {
              revision: self.revision,
              status: self.status,
          }

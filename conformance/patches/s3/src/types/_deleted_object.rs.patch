@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeletedObject`](crate::types::DeletedObject).
 -    pub fn builder() -> crate::types::builders::DeletedObjectBuilder {
 -        crate::types::builders::DeletedObjectBuilder::default()
-+    pub fn builder() -> super::types::builders::DeletedObjectBuilder {
-+        super::types::builders::DeletedObjectBuilder::default()
++    pub fn builder() -> super::super::types::builders::DeletedObjectBuilder {
++        super::super::types::builders::DeletedObjectBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeletedObject`](crate::types::DeletedObject).
 -    pub fn build(self) -> crate::types::DeletedObject {
 -        crate::types::DeletedObject {
-+    pub fn build(self) -> super::types::DeletedObject {
-+        super::types::DeletedObject {
++    pub fn build(self) -> super::super::types::DeletedObject {
++        super::super::types::DeletedObject {
              key: self.key,
              version_id: self.version_id,
              delete_marker: self.delete_marker,

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListAccountAliasesError>`](crate::operation::list_account_aliases::ListAccountAliasesError)
 -    pub fn list_account_aliases(&self) -> crate::operation::list_account_aliases::builders::ListAccountAliasesFluentBuilder {
 -        crate::operation::list_account_aliases::builders::ListAccountAliasesFluentBuilder::new(self.handle.clone())
-+    pub fn list_account_aliases(&self) -> super::operation::list_account_aliases::builders::ListAccountAliasesFluentBuilder {
-+        super::operation::list_account_aliases::builders::ListAccountAliasesFluentBuilder::new(self.handle.clone())
++    pub fn list_account_aliases(&self) -> super::super::operation::list_account_aliases::builders::ListAccountAliasesFluentBuilder {
++        super::super::operation::list_account_aliases::builders::ListAccountAliasesFluentBuilder::new(self.handle.clone())
      }
  }

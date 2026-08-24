@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AddLayerVersionPermissionError>`](crate::operation::add_layer_version_permission::AddLayerVersionPermissionError)
 -    pub fn add_layer_version_permission(&self) -> crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionFluentBuilder {
 -        crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionFluentBuilder::new(self.handle.clone())
-+    pub fn add_layer_version_permission(&self) -> super::operation::add_layer_version_permission::builders::AddLayerVersionPermissionFluentBuilder {
-+        super::operation::add_layer_version_permission::builders::AddLayerVersionPermissionFluentBuilder::new(self.handle.clone())
++    pub fn add_layer_version_permission(&self) -> super::super::operation::add_layer_version_permission::builders::AddLayerVersionPermissionFluentBuilder {
++        super::super::operation::add_layer_version_permission::builders::AddLayerVersionPermissionFluentBuilder::new(self.handle.clone())
      }
  }

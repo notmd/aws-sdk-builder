@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetReputationEntityError>`](crate::operation::get_reputation_entity::GetReputationEntityError)
 -    pub fn get_reputation_entity(&self) -> crate::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder {
 -        crate::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder::new(self.handle.clone())
-+    pub fn get_reputation_entity(&self) -> super::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder {
-+        super::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder::new(self.handle.clone())
++    pub fn get_reputation_entity(&self) -> super::super::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder {
++        super::super::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder::new(self.handle.clone())
      }
  }

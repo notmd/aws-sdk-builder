@@ -5,36 +5,36 @@
  pub struct GuardrailAutomatedReasoningSatisfiableFinding {
      /// <p>The logical translation of the input that this finding evaluates.</p>
 -    pub translation: ::std::option::Option<crate::types::GuardrailAutomatedReasoningTranslation>,
-+    pub translation: ::std::option::Option<super::types::GuardrailAutomatedReasoningTranslation>,
++    pub translation: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningTranslation>,
      /// <p>An example scenario demonstrating how the claims could be logically true.</p>
 -    pub claims_true_scenario: ::std::option::Option<crate::types::GuardrailAutomatedReasoningScenario>,
-+    pub claims_true_scenario: ::std::option::Option<super::types::GuardrailAutomatedReasoningScenario>,
++    pub claims_true_scenario: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningScenario>,
      /// <p>An example scenario demonstrating how the claims could be logically false.</p>
 -    pub claims_false_scenario: ::std::option::Option<crate::types::GuardrailAutomatedReasoningScenario>,
-+    pub claims_false_scenario: ::std::option::Option<super::types::GuardrailAutomatedReasoningScenario>,
++    pub claims_false_scenario: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningScenario>,
      /// <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
 -    pub logic_warning: ::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarning>,
-+    pub logic_warning: ::std::option::Option<super::types::GuardrailAutomatedReasoningLogicWarning>,
++    pub logic_warning: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningLogicWarning>,
  }
  impl GuardrailAutomatedReasoningSatisfiableFinding {
      /// <p>The logical translation of the input that this finding evaluates.</p>
 -    pub fn translation(&self) -> ::std::option::Option<&crate::types::GuardrailAutomatedReasoningTranslation> {
-+    pub fn translation(&self) -> ::std::option::Option<&super::types::GuardrailAutomatedReasoningTranslation> {
++    pub fn translation(&self) -> ::std::option::Option<&super::super::types::GuardrailAutomatedReasoningTranslation> {
          self.translation.as_ref()
      }
      /// <p>An example scenario demonstrating how the claims could be logically true.</p>
 -    pub fn claims_true_scenario(&self) -> ::std::option::Option<&crate::types::GuardrailAutomatedReasoningScenario> {
-+    pub fn claims_true_scenario(&self) -> ::std::option::Option<&super::types::GuardrailAutomatedReasoningScenario> {
++    pub fn claims_true_scenario(&self) -> ::std::option::Option<&super::super::types::GuardrailAutomatedReasoningScenario> {
          self.claims_true_scenario.as_ref()
      }
      /// <p>An example scenario demonstrating how the claims could be logically false.</p>
 -    pub fn claims_false_scenario(&self) -> ::std::option::Option<&crate::types::GuardrailAutomatedReasoningScenario> {
-+    pub fn claims_false_scenario(&self) -> ::std::option::Option<&super::types::GuardrailAutomatedReasoningScenario> {
++    pub fn claims_false_scenario(&self) -> ::std::option::Option<&super::super::types::GuardrailAutomatedReasoningScenario> {
          self.claims_false_scenario.as_ref()
      }
      /// <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
 -    pub fn logic_warning(&self) -> ::std::option::Option<&crate::types::GuardrailAutomatedReasoningLogicWarning> {
-+    pub fn logic_warning(&self) -> ::std::option::Option<&super::types::GuardrailAutomatedReasoningLogicWarning> {
++    pub fn logic_warning(&self) -> ::std::option::Option<&super::super::types::GuardrailAutomatedReasoningLogicWarning> {
          self.logic_warning.as_ref()
      }
  }
@@ -42,8 +42,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningSatisfiableFinding`](crate::types::GuardrailAutomatedReasoningSatisfiableFinding).
 -    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningSatisfiableFindingBuilder {
 -        crate::types::builders::GuardrailAutomatedReasoningSatisfiableFindingBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailAutomatedReasoningSatisfiableFindingBuilder {
-+        super::types::builders::GuardrailAutomatedReasoningSatisfiableFindingBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailAutomatedReasoningSatisfiableFindingBuilder {
++        super::super::types::builders::GuardrailAutomatedReasoningSatisfiableFindingBuilder::default()
      }
  }
 
@@ -55,85 +55,85 @@
 -    pub(crate) claims_true_scenario: ::std::option::Option<crate::types::GuardrailAutomatedReasoningScenario>,
 -    pub(crate) claims_false_scenario: ::std::option::Option<crate::types::GuardrailAutomatedReasoningScenario>,
 -    pub(crate) logic_warning: ::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarning>,
-+    pub(crate) translation: ::std::option::Option<super::types::GuardrailAutomatedReasoningTranslation>,
-+    pub(crate) claims_true_scenario: ::std::option::Option<super::types::GuardrailAutomatedReasoningScenario>,
-+    pub(crate) claims_false_scenario: ::std::option::Option<super::types::GuardrailAutomatedReasoningScenario>,
-+    pub(crate) logic_warning: ::std::option::Option<super::types::GuardrailAutomatedReasoningLogicWarning>,
++    pub(crate) translation: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningTranslation>,
++    pub(crate) claims_true_scenario: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningScenario>,
++    pub(crate) claims_false_scenario: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningScenario>,
++    pub(crate) logic_warning: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningLogicWarning>,
  }
  impl GuardrailAutomatedReasoningSatisfiableFindingBuilder {
      /// <p>The logical translation of the input that this finding evaluates.</p>
 -    pub fn translation(mut self, input: crate::types::GuardrailAutomatedReasoningTranslation) -> Self {
-+    pub fn translation(mut self, input: super::types::GuardrailAutomatedReasoningTranslation) -> Self {
++    pub fn translation(mut self, input: super::super::types::GuardrailAutomatedReasoningTranslation) -> Self {
          self.translation = ::std::option::Option::Some(input);
          self
      }
      /// <p>The logical translation of the input that this finding evaluates.</p>
 -    pub fn set_translation(mut self, input: ::std::option::Option<crate::types::GuardrailAutomatedReasoningTranslation>) -> Self {
-+    pub fn set_translation(mut self, input: ::std::option::Option<super::types::GuardrailAutomatedReasoningTranslation>) -> Self {
++    pub fn set_translation(mut self, input: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningTranslation>) -> Self {
          self.translation = input;
          self
      }
      /// <p>The logical translation of the input that this finding evaluates.</p>
 -    pub fn get_translation(&self) -> &::std::option::Option<crate::types::GuardrailAutomatedReasoningTranslation> {
-+    pub fn get_translation(&self) -> &::std::option::Option<super::types::GuardrailAutomatedReasoningTranslation> {
++    pub fn get_translation(&self) -> &::std::option::Option<super::super::types::GuardrailAutomatedReasoningTranslation> {
          &self.translation
      }
      /// <p>An example scenario demonstrating how the claims could be logically true.</p>
 -    pub fn claims_true_scenario(mut self, input: crate::types::GuardrailAutomatedReasoningScenario) -> Self {
-+    pub fn claims_true_scenario(mut self, input: super::types::GuardrailAutomatedReasoningScenario) -> Self {
++    pub fn claims_true_scenario(mut self, input: super::super::types::GuardrailAutomatedReasoningScenario) -> Self {
          self.claims_true_scenario = ::std::option::Option::Some(input);
          self
      }
      /// <p>An example scenario demonstrating how the claims could be logically true.</p>
 -    pub fn set_claims_true_scenario(mut self, input: ::std::option::Option<crate::types::GuardrailAutomatedReasoningScenario>) -> Self {
-+    pub fn set_claims_true_scenario(mut self, input: ::std::option::Option<super::types::GuardrailAutomatedReasoningScenario>) -> Self {
++    pub fn set_claims_true_scenario(mut self, input: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningScenario>) -> Self {
          self.claims_true_scenario = input;
          self
      }
      /// <p>An example scenario demonstrating how the claims could be logically true.</p>
 -    pub fn get_claims_true_scenario(&self) -> &::std::option::Option<crate::types::GuardrailAutomatedReasoningScenario> {
-+    pub fn get_claims_true_scenario(&self) -> &::std::option::Option<super::types::GuardrailAutomatedReasoningScenario> {
++    pub fn get_claims_true_scenario(&self) -> &::std::option::Option<super::super::types::GuardrailAutomatedReasoningScenario> {
          &self.claims_true_scenario
      }
      /// <p>An example scenario demonstrating how the claims could be logically false.</p>
 -    pub fn claims_false_scenario(mut self, input: crate::types::GuardrailAutomatedReasoningScenario) -> Self {
-+    pub fn claims_false_scenario(mut self, input: super::types::GuardrailAutomatedReasoningScenario) -> Self {
++    pub fn claims_false_scenario(mut self, input: super::super::types::GuardrailAutomatedReasoningScenario) -> Self {
          self.claims_false_scenario = ::std::option::Option::Some(input);
          self
      }
      /// <p>An example scenario demonstrating how the claims could be logically false.</p>
 -    pub fn set_claims_false_scenario(mut self, input: ::std::option::Option<crate::types::GuardrailAutomatedReasoningScenario>) -> Self {
-+    pub fn set_claims_false_scenario(mut self, input: ::std::option::Option<super::types::GuardrailAutomatedReasoningScenario>) -> Self {
++    pub fn set_claims_false_scenario(mut self, input: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningScenario>) -> Self {
          self.claims_false_scenario = input;
          self
      }
      /// <p>An example scenario demonstrating how the claims could be logically false.</p>
 -    pub fn get_claims_false_scenario(&self) -> &::std::option::Option<crate::types::GuardrailAutomatedReasoningScenario> {
-+    pub fn get_claims_false_scenario(&self) -> &::std::option::Option<super::types::GuardrailAutomatedReasoningScenario> {
++    pub fn get_claims_false_scenario(&self) -> &::std::option::Option<super::super::types::GuardrailAutomatedReasoningScenario> {
          &self.claims_false_scenario
      }
      /// <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
 -    pub fn logic_warning(mut self, input: crate::types::GuardrailAutomatedReasoningLogicWarning) -> Self {
-+    pub fn logic_warning(mut self, input: super::types::GuardrailAutomatedReasoningLogicWarning) -> Self {
++    pub fn logic_warning(mut self, input: super::super::types::GuardrailAutomatedReasoningLogicWarning) -> Self {
          self.logic_warning = ::std::option::Option::Some(input);
          self
      }
      /// <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
 -    pub fn set_logic_warning(mut self, input: ::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarning>) -> Self {
-+    pub fn set_logic_warning(mut self, input: ::std::option::Option<super::types::GuardrailAutomatedReasoningLogicWarning>) -> Self {
++    pub fn set_logic_warning(mut self, input: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningLogicWarning>) -> Self {
          self.logic_warning = input;
          self
      }
      /// <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
 -    pub fn get_logic_warning(&self) -> &::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarning> {
-+    pub fn get_logic_warning(&self) -> &::std::option::Option<super::types::GuardrailAutomatedReasoningLogicWarning> {
++    pub fn get_logic_warning(&self) -> &::std::option::Option<super::super::types::GuardrailAutomatedReasoningLogicWarning> {
          &self.logic_warning
      }
      /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningSatisfiableFinding`](crate::types::GuardrailAutomatedReasoningSatisfiableFinding).
 -    pub fn build(self) -> crate::types::GuardrailAutomatedReasoningSatisfiableFinding {
 -        crate::types::GuardrailAutomatedReasoningSatisfiableFinding {
-+    pub fn build(self) -> super::types::GuardrailAutomatedReasoningSatisfiableFinding {
-+        super::types::GuardrailAutomatedReasoningSatisfiableFinding {
++    pub fn build(self) -> super::super::types::GuardrailAutomatedReasoningSatisfiableFinding {
++        super::super::types::GuardrailAutomatedReasoningSatisfiableFinding {
              translation: self.translation,
              claims_true_scenario: self.claims_true_scenario,
              claims_false_scenario: self.claims_false_scenario,

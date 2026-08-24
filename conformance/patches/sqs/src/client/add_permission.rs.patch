@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AddPermissionError>`](crate::operation::add_permission::AddPermissionError)
 -    pub fn add_permission(&self) -> crate::operation::add_permission::builders::AddPermissionFluentBuilder {
 -        crate::operation::add_permission::builders::AddPermissionFluentBuilder::new(self.handle.clone())
-+    pub fn add_permission(&self) -> super::operation::add_permission::builders::AddPermissionFluentBuilder {
-+        super::operation::add_permission::builders::AddPermissionFluentBuilder::new(self.handle.clone())
++    pub fn add_permission(&self) -> super::super::operation::add_permission::builders::AddPermissionFluentBuilder {
++        super::super::operation::add_permission::builders::AddPermissionFluentBuilder::new(self.handle.clone())
      }
  }

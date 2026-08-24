@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteIdentityProviderOutput`](crate::operation::delete_identity_provider::DeleteIdentityProviderOutput).
 -    pub fn builder() -> crate::operation::delete_identity_provider::builders::DeleteIdentityProviderOutputBuilder {
 -        crate::operation::delete_identity_provider::builders::DeleteIdentityProviderOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_identity_provider::builders::DeleteIdentityProviderOutputBuilder {
-+        super::operation::delete_identity_provider::builders::DeleteIdentityProviderOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_identity_provider::builders::DeleteIdentityProviderOutputBuilder {
++        super::super::super::operation::delete_identity_provider::builders::DeleteIdentityProviderOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteIdentityProviderOutput`](crate::operation::delete_identity_provider::DeleteIdentityProviderOutput).
 -    pub fn build(self) -> crate::operation::delete_identity_provider::DeleteIdentityProviderOutput {
 -        crate::operation::delete_identity_provider::DeleteIdentityProviderOutput {
-+    pub fn build(self) -> super::operation::delete_identity_provider::DeleteIdentityProviderOutput {
-+        super::operation::delete_identity_provider::DeleteIdentityProviderOutput {
++    pub fn build(self) -> super::super::super::operation::delete_identity_provider::DeleteIdentityProviderOutput {
++        super::super::super::operation::delete_identity_provider::DeleteIdentityProviderOutput {
              _request_id: self._request_id,
          }
      }

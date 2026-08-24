@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for KmsThrottled {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::KmsThrottled {
-+impl ::aws_types::request_id::RequestId for super::types::error::KmsThrottled {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::KmsThrottled {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`KmsThrottled`](crate::types::error::KmsThrottled).
 -    pub fn builder() -> crate::types::error::builders::KmsThrottledBuilder {
 -        crate::types::error::builders::KmsThrottledBuilder::default()
-+    pub fn builder() -> super::types::error::builders::KmsThrottledBuilder {
-+        super::types::error::builders::KmsThrottledBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::KmsThrottledBuilder {
++        super::super::super::types::error::builders::KmsThrottledBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`KmsThrottled`](crate::types::error::KmsThrottled).
 -    pub fn build(self) -> crate::types::error::KmsThrottled {
 -        crate::types::error::KmsThrottled {
-+    pub fn build(self) -> super::types::error::KmsThrottled {
-+        super::types::error::KmsThrottled {
++    pub fn build(self) -> super::super::super::types::error::KmsThrottled {
++        super::super::super::types::error::KmsThrottled {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

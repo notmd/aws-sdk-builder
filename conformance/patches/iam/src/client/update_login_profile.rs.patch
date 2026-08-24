@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateLoginProfileError>`](crate::operation::update_login_profile::UpdateLoginProfileError)
 -    pub fn update_login_profile(&self) -> crate::operation::update_login_profile::builders::UpdateLoginProfileFluentBuilder {
 -        crate::operation::update_login_profile::builders::UpdateLoginProfileFluentBuilder::new(self.handle.clone())
-+    pub fn update_login_profile(&self) -> super::operation::update_login_profile::builders::UpdateLoginProfileFluentBuilder {
-+        super::operation::update_login_profile::builders::UpdateLoginProfileFluentBuilder::new(self.handle.clone())
++    pub fn update_login_profile(&self) -> super::super::operation::update_login_profile::builders::UpdateLoginProfileFluentBuilder {
++        super::super::operation::update_login_profile::builders::UpdateLoginProfileFluentBuilder::new(self.handle.clone())
      }
  }

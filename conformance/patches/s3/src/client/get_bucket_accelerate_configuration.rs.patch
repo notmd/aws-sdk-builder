@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder {
 -        crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder {
-+        super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder {
++        super::super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ReceiveMessageError>`](crate::operation::receive_message::ReceiveMessageError)
 -    pub fn receive_message(&self) -> crate::operation::receive_message::builders::ReceiveMessageFluentBuilder {
 -        crate::operation::receive_message::builders::ReceiveMessageFluentBuilder::new(self.handle.clone())
-+    pub fn receive_message(&self) -> super::operation::receive_message::builders::ReceiveMessageFluentBuilder {
-+        super::operation::receive_message::builders::ReceiveMessageFluentBuilder::new(self.handle.clone())
++    pub fn receive_message(&self) -> super::super::operation::receive_message::builders::ReceiveMessageFluentBuilder {
++        super::super::operation::receive_message::builders::ReceiveMessageFluentBuilder::new(self.handle.clone())
      }
  }

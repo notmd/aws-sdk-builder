@@ -5,7 +5,7 @@
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
 -    pub key_type: crate::types::KeyType,
-+    pub key_type: super::types::KeyType,
++    pub key_type: super::super::types::KeyType,
  }
  impl KeySchemaElement {
      /// <p>The name of a key attribute.</p>
@@ -14,7 +14,7 @@
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
 -    pub fn key_type(&self) -> &crate::types::KeyType {
-+    pub fn key_type(&self) -> &super::types::KeyType {
++    pub fn key_type(&self) -> &super::super::types::KeyType {
          &self.key_type
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`KeySchemaElement`](crate::types::KeySchemaElement).
 -    pub fn builder() -> crate::types::builders::KeySchemaElementBuilder {
 -        crate::types::builders::KeySchemaElementBuilder::default()
-+    pub fn builder() -> super::types::builders::KeySchemaElementBuilder {
-+        super::types::builders::KeySchemaElementBuilder::default()
++    pub fn builder() -> super::super::types::builders::KeySchemaElementBuilder {
++        super::super::types::builders::KeySchemaElementBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct KeySchemaElementBuilder {
      pub(crate) attribute_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) key_type: ::std::option::Option<crate::types::KeyType>,
-+    pub(crate) key_type: ::std::option::Option<super::types::KeyType>,
++    pub(crate) key_type: ::std::option::Option<super::super::types::KeyType>,
  }
  impl KeySchemaElementBuilder {
      /// <p>The name of a key attribute.</p>
@@ -41,7 +41,7 @@
      /// </note>
      /// This field is required.
 -    pub fn key_type(mut self, input: crate::types::KeyType) -> Self {
-+    pub fn key_type(mut self, input: super::types::KeyType) -> Self {
++    pub fn key_type(mut self, input: super::super::types::KeyType) -> Self {
          self.key_type = ::std::option::Option::Some(input);
          self
      }
@@ -50,7 +50,7 @@
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
 -    pub fn set_key_type(mut self, input: ::std::option::Option<crate::types::KeyType>) -> Self {
-+    pub fn set_key_type(mut self, input: ::std::option::Option<super::types::KeyType>) -> Self {
++    pub fn set_key_type(mut self, input: ::std::option::Option<super::super::types::KeyType>) -> Self {
          self.key_type = input;
          self
      }
@@ -59,7 +59,7 @@
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
 -    pub fn get_key_type(&self) -> &::std::option::Option<crate::types::KeyType> {
-+    pub fn get_key_type(&self) -> &::std::option::Option<super::types::KeyType> {
++    pub fn get_key_type(&self) -> &::std::option::Option<super::super::types::KeyType> {
          &self.key_type
      }
      /// Consumes the builder and constructs a [`KeySchemaElement`](crate::types::KeySchemaElement).
@@ -69,8 +69,8 @@
      /// - [`key_type`](crate::types::builders::KeySchemaElementBuilder::key_type)
 -    pub fn build(self) -> ::std::result::Result<crate::types::KeySchemaElement, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::KeySchemaElement {
-+    pub fn build(self) -> ::std::result::Result<super::types::KeySchemaElement, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::KeySchemaElement {
++    pub fn build(self) -> ::std::result::Result<super::super::types::KeySchemaElement, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::KeySchemaElement {
              attribute_name: self.attribute_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "attribute_name",

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ParseCloudfront`](crate::types::ParseCloudfront).
 -    pub fn builder() -> crate::types::builders::ParseCloudfrontBuilder {
 -        crate::types::builders::ParseCloudfrontBuilder::default()
-+    pub fn builder() -> super::types::builders::ParseCloudfrontBuilder {
-+        super::types::builders::ParseCloudfrontBuilder::default()
++    pub fn builder() -> super::super::types::builders::ParseCloudfrontBuilder {
++        super::super::types::builders::ParseCloudfrontBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`ParseCloudfront`](crate::types::ParseCloudfront).
 -    pub fn build(self) -> crate::types::ParseCloudfront {
 -        crate::types::ParseCloudfront { source: self.source }
-+    pub fn build(self) -> super::types::ParseCloudfront {
-+        super::types::ParseCloudfront { source: self.source }
++    pub fn build(self) -> super::super::types::ParseCloudfront {
++        super::super::types::ParseCloudfront { source: self.source }
      }
  }

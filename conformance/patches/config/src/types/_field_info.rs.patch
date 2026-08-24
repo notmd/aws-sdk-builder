@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`FieldInfo`](crate::types::FieldInfo).
 -    pub fn builder() -> crate::types::builders::FieldInfoBuilder {
 -        crate::types::builders::FieldInfoBuilder::default()
-+    pub fn builder() -> super::types::builders::FieldInfoBuilder {
-+        super::types::builders::FieldInfoBuilder::default()
++    pub fn builder() -> super::super::types::builders::FieldInfoBuilder {
++        super::super::types::builders::FieldInfoBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`FieldInfo`](crate::types::FieldInfo).
 -    pub fn build(self) -> crate::types::FieldInfo {
 -        crate::types::FieldInfo { name: self.name }
-+    pub fn build(self) -> super::types::FieldInfo {
-+        super::types::FieldInfo { name: self.name }
++    pub fn build(self) -> super::super::types::FieldInfo {
++        super::super::types::FieldInfo { name: self.name }
      }
  }

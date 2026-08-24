@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteSamlProviderOutput`](crate::operation::delete_saml_provider::DeleteSamlProviderOutput).
 -    pub fn builder() -> crate::operation::delete_saml_provider::builders::DeleteSamlProviderOutputBuilder {
 -        crate::operation::delete_saml_provider::builders::DeleteSamlProviderOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_saml_provider::builders::DeleteSamlProviderOutputBuilder {
-+        super::operation::delete_saml_provider::builders::DeleteSamlProviderOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_saml_provider::builders::DeleteSamlProviderOutputBuilder {
++        super::super::super::operation::delete_saml_provider::builders::DeleteSamlProviderOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteSamlProviderOutput`](crate::operation::delete_saml_provider::DeleteSamlProviderOutput).
 -    pub fn build(self) -> crate::operation::delete_saml_provider::DeleteSamlProviderOutput {
 -        crate::operation::delete_saml_provider::DeleteSamlProviderOutput {
-+    pub fn build(self) -> super::operation::delete_saml_provider::DeleteSamlProviderOutput {
-+        super::operation::delete_saml_provider::DeleteSamlProviderOutput {
++    pub fn build(self) -> super::super::super::operation::delete_saml_provider::DeleteSamlProviderOutput {
++        super::super::super::operation::delete_saml_provider::DeleteSamlProviderOutput {
              _request_id: self._request_id,
          }
      }

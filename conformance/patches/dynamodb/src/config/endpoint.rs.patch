@@ -12005,7 +12005,7 @@
  pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
      /// Resolve an endpoint with the given parameters
 -    fn resolve_endpoint<'a>(&'a self, params: &'a crate::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-+    fn resolve_endpoint<'a>(&'a self, params: &'a super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
++    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
 
      /// Convert this service-specific resolver into a `SharedEndpointResolver`
      ///
@@ -12014,7 +12014,7 @@
          params: &'a ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams,
      ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
 -        let ep = match params.get::<crate::config::endpoint::Params>() {
-+        let ep = match params.get::<super::config::endpoint::Params>() {
++        let ep = match params.get::<super::super::config::endpoint::Params>() {
              Some(params) => self.0.resolve_endpoint(params),
              None => ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(Err("params of expected type was not present".into())),
          };
@@ -12023,7 +12023,7 @@
              });
          match (
 -            params.get_mut::<crate::config::endpoint::Params>(),
-+            params.get_mut::<super::config::endpoint::Params>(),
++            params.get_mut::<super::super::config::endpoint::Params>(),
              identity
                  .as_ref()
                  .and_then(|id| id.property::<::aws_credential_types::attributes::AccountId>()),
@@ -12032,7 +12032,7 @@
  /// The default endpoint resolver.
  pub struct DefaultResolver {
 -    partition_resolver: &'static crate::endpoint_lib::partition::PartitionResolver,
-+    partition_resolver: &'static super::endpoint_lib::partition::PartitionResolver,
++    partition_resolver: &'static super::super::endpoint_lib::partition::PartitionResolver,
      endpoint_cache: ::arc_swap::ArcSwap<::std::option::Option<(Params, ::aws_smithy_types::endpoint::Endpoint)>>,
  }
 
@@ -12041,7 +12041,7 @@
      pub fn new() -> Self {
          Self {
 -            partition_resolver: &crate::endpoint_lib::DEFAULT_PARTITION_RESOLVER,
-+            partition_resolver: &super::endpoint_lib::DEFAULT_PARTITION_RESOLVER,
++            partition_resolver: &super::super::endpoint_lib::DEFAULT_PARTITION_RESOLVER,
              endpoint_cache: ::arc_swap::ArcSwap::from_pointee(None),
          }
      }
@@ -12050,10 +12050,10 @@
      fn resolve_endpoint<'a>(
          &'a self,
 -        params: &'a crate::config::endpoint::Params,
-+        params: &'a super::config::endpoint::Params,
++        params: &'a super::super::config::endpoint::Params,
      ) -> ::std::result::Result<::aws_smithy_types::endpoint::Endpoint, ::aws_smithy_runtime_api::box_error::BoxError> {
 -        let mut _diagnostic_collector = crate::endpoint_lib::diagnostic::DiagnosticCollector::new();
-+        let mut _diagnostic_collector = super::endpoint_lib::diagnostic::DiagnosticCollector::new();
++        let mut _diagnostic_collector = super::super::endpoint_lib::diagnostic::DiagnosticCollector::new();
          #[allow(unused_mut)]
          let mut context = ConditionContext::default();
 
@@ -12062,7 +12062,7 @@
                          2 => (use_fips) == (&true),
                          3 => (use_dual_stack) == (&true),
 -                        4 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        4 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        4 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_result = &mut context.partition_result;
                              let partition_resolver = &self.partition_resolver;
                              {
@@ -12071,12 +12071,12 @@
                              }
                          })(&mut _diagnostic_collector),
 -                        5 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        5 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        5 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
                              (region) == &mut Some(("local".to_string().into()))
                          })(&mut _diagnostic_collector),
 -                        6 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        6 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        6 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_result = &context.partition_result;
                              let partition_resolver = &self.partition_resolver;
                              (if let Some(inner) = partition_result {
@@ -12085,12 +12085,12 @@
                              }) == (true)
                          })(&mut _diagnostic_collector),
 -                        7 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        7 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        7 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_endpoint = &mut context.parsed_endpoint;
                              let partition_resolver = &self.partition_resolver;
                              {
 -                                *parsed_endpoint = crate::endpoint_lib::parse_url::parse_url(
-+                                *parsed_endpoint = super::endpoint_lib::parse_url::parse_url(
++                                *parsed_endpoint = super::super::endpoint_lib::parse_url::parse_url(
                                      if let Some(param) = endpoint { param } else { return false },
                                      _diagnostic_collector,
                                  )
@@ -12099,7 +12099,7 @@
                              }
                          })(&mut _diagnostic_collector),
 -                        8 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        8 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        8 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_result = &context.partition_result;
                              let parsed_endpoint = &context.parsed_endpoint;
                              let partition_resolver = &self.partition_resolver;
@@ -12108,7 +12108,7 @@
                              })
                          })(&mut _diagnostic_collector),
 -                        9 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        9 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        9 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_result = &context.partition_result;
                              let partition_resolver = &self.partition_resolver;
                              (if let Some(inner) = partition_result {
@@ -12117,7 +12117,7 @@
                              }) == (true)
                          })(&mut _diagnostic_collector),
 -                        10 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        10 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        10 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_result = &context.partition_result;
                              let parsed_endpoint = &context.parsed_endpoint;
                              let partition_resolver = &self.partition_resolver;
@@ -12126,7 +12126,7 @@
                          })(&mut _diagnostic_collector),
                          11 => account_id_endpoint_mode.is_some(),
 -                        12 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        12 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        12 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_result = &context.partition_result;
                              let partition_resolver = &self.partition_resolver;
                              (if let Some(inner) = partition_result {
@@ -12135,18 +12135,18 @@
                              }) == ("aws")
                          })(&mut _diagnostic_collector),
 -                        13 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        13 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        13 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
                              (account_id_endpoint_mode) == &mut Some(("disabled".to_string().into()))
                          })(&mut _diagnostic_collector),
                          14 => resource_arn.is_some(),
 -                        15 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        15 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        15 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_2 = &mut context.parsed_arn_ssa_2;
                              let partition_resolver = &self.partition_resolver;
                              {
 -                                *parsed_arn_ssa_2 = crate::endpoint_lib::arn::parse_arn(
-+                                *parsed_arn_ssa_2 = super::endpoint_lib::arn::parse_arn(
++                                *parsed_arn_ssa_2 = super::super::endpoint_lib::arn::parse_arn(
                                      if let Some(param) = resource_arn { param } else { return false },
                                      _diagnostic_collector,
                                  )
@@ -12155,7 +12155,7 @@
                              }
                          })(&mut _diagnostic_collector),
 -                        16 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        16 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        16 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_2 = &context.parsed_arn_ssa_2;
                              let partition_resolver = &self.partition_resolver;
                              &mut Some(
@@ -12164,7 +12164,7 @@
                              ) == (region)
                          })(&mut _diagnostic_collector),
 -                        17 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        17 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        17 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_2 = &context.parsed_arn_ssa_2;
                              let partition_resolver = &self.partition_resolver;
                              (if let Some(inner) = parsed_arn_ssa_2 {
@@ -12173,11 +12173,11 @@
                              }) == ("dynamodb")
                          })(&mut _diagnostic_collector),
 -                        18 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        18 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        18 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_2 = &context.parsed_arn_ssa_2;
                              let partition_resolver = &self.partition_resolver;
 -                            crate::endpoint_lib::host::is_valid_host_label(
-+                            super::endpoint_lib::host::is_valid_host_label(
++                            super::super::endpoint_lib::host::is_valid_host_label(
                                  if let Some(inner) = parsed_arn_ssa_2 {
                                      inner.region()
                                  } else {
@@ -12186,11 +12186,11 @@
                              )
                          })(&mut _diagnostic_collector),
 -                        19 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        19 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        19 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_2 = &context.parsed_arn_ssa_2;
                              let partition_resolver = &self.partition_resolver;
 -                            crate::endpoint_lib::host::is_valid_host_label(
-+                            super::endpoint_lib::host::is_valid_host_label(
++                            super::super::endpoint_lib::host::is_valid_host_label(
                                  if let Some(inner) = parsed_arn_ssa_2 {
                                      inner.account_id()
                                  } else {
@@ -12199,7 +12199,7 @@
                          })(&mut _diagnostic_collector),
                          20 => resource_arn_list.is_some(),
 -                        21 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        21 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        21 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let first_arn = &mut context.first_arn;
                              let partition_resolver = &self.partition_resolver;
                              {
@@ -12208,13 +12208,13 @@
                              }
                          })(&mut _diagnostic_collector),
 -                        22 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        22 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        22 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let first_arn = &context.first_arn;
                              let parsed_arn_ssa_1 = &mut context.parsed_arn_ssa_1;
                              let partition_resolver = &self.partition_resolver;
                              {
 -                                *parsed_arn_ssa_1 = crate::endpoint_lib::arn::parse_arn(
-+                                *parsed_arn_ssa_1 = super::endpoint_lib::arn::parse_arn(
++                                *parsed_arn_ssa_1 = super::super::endpoint_lib::arn::parse_arn(
                                      if let Some(param) = first_arn { param } else { return false },
                                      _diagnostic_collector,
                                  )
@@ -12223,7 +12223,7 @@
                              }
                          })(&mut _diagnostic_collector),
 -                        23 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        23 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        23 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
                              let partition_resolver = &self.partition_resolver;
                              &mut Some(
@@ -12232,7 +12232,7 @@
                              ) == (region)
                          })(&mut _diagnostic_collector),
 -                        24 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        24 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        24 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
                              let partition_resolver = &self.partition_resolver;
                              (if let Some(inner) = parsed_arn_ssa_1 {
@@ -12241,11 +12241,11 @@
                              }) == ("dynamodb")
                          })(&mut _diagnostic_collector),
 -                        25 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        25 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        25 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
                              let partition_resolver = &self.partition_resolver;
 -                            crate::endpoint_lib::host::is_valid_host_label(
-+                            super::endpoint_lib::host::is_valid_host_label(
++                            super::super::endpoint_lib::host::is_valid_host_label(
                                  if let Some(inner) = parsed_arn_ssa_1 {
                                      inner.account_id()
                                  } else {
@@ -12254,11 +12254,11 @@
                              )
                          })(&mut _diagnostic_collector),
 -                        26 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        26 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        26 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
                              let partition_resolver = &self.partition_resolver;
 -                            crate::endpoint_lib::host::is_valid_host_label(
-+                            super::endpoint_lib::host::is_valid_host_label(
++                            super::super::endpoint_lib::host::is_valid_host_label(
                                  if let Some(inner) = parsed_arn_ssa_1 {
                                      inner.region()
                                  } else {
@@ -12267,22 +12267,22 @@
                          })(&mut _diagnostic_collector),
                          27 => account_id.is_some(),
 -                        28 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        28 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        28 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
                              (account_id_endpoint_mode) == &mut Some(("required".to_string().into()))
                          })(&mut _diagnostic_collector),
 -                        29 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        29 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        29 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            crate::endpoint_lib::host::is_valid_host_label(
-+                            super::endpoint_lib::host::is_valid_host_label(
++                            super::super::endpoint_lib::host::is_valid_host_label(
                                  if let Some(param) = account_id { param } else { return false },
                                  false,
                                  _diagnostic_collector,
                              )
                          })(&mut _diagnostic_collector),
 -                        30 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        30 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        30 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_result = &context.partition_result;
                              let partition_resolver = &self.partition_resolver;
                              (if let Some(inner) = partition_result {
@@ -12291,10 +12291,10 @@
                              }) == ("aws-us-gov")
                          })(&mut _diagnostic_collector),
 -                        31 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
-+                        31 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
++                        31 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(is_search_operation.clone(), false)) == (true)
-+                            (super::endpoint_lib::coalesce::coalesce!(is_search_operation.clone(), false)) == (true)
++                            (super::super::endpoint_lib::coalesce::coalesce!(is_search_operation.clone(), false)) == (true)
                          })(&mut _diagnostic_collector),
                          _ => unreachable!("Invalid condition index"),
                      };
@@ -12304,8 +12304,8 @@
 
 -impl crate::config::endpoint::ResolveEndpoint for DefaultResolver {
 -    fn resolve_endpoint<'a>(&'a self, params: &'a crate::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-+impl super::config::endpoint::ResolveEndpoint for DefaultResolver {
-+    fn resolve_endpoint<'a>(&'a self, params: &'a super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
++impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
++    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
          // Check single-entry cache (lock-free read via ArcSwap)
          let cached = self.endpoint_cache.load();
          if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
@@ -12315,494 +12315,494 @@
  }
 -const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 82] = [
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+const NODES: [super::endpoint_lib::bdd_interpreter::BddNode; 82] = [
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++const NODES: [super::super::endpoint_lib::bdd_interpreter::BddNode; 82] = [
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: -1,
          high_ref: 1,
          low_ref: -1,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 0,
          high_ref: 6,
          low_ref: 3,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 1,
          high_ref: 4,
          low_ref: 100000035,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 2,
          high_ref: 100000001,
          low_ref: 5,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 3,
          high_ref: 100000002,
          low_ref: 100000004,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 1,
          high_ref: 77,
          low_ref: 7,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 2,
          high_ref: 61,
          low_ref: 8,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 3,
          high_ref: 34,
          low_ref: 9,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 4,
          high_ref: 10,
          low_ref: 100000035,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 5,
          high_ref: 100000007,
          low_ref: 11,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 11,
          high_ref: 12,
          low_ref: 69,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 12,
          high_ref: 14,
          low_ref: 13,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 28,
          high_ref: 100000025,
          low_ref: 69,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 13,
          high_ref: 33,
          low_ref: 15,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 14,
          high_ref: 16,
          low_ref: 21,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 15,
          high_ref: 17,
          low_ref: 21,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 16,
          high_ref: 18,
          low_ref: 21,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 17,
          high_ref: 19,
          low_ref: 21,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 18,
          high_ref: 20,
          low_ref: 21,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 19,
          high_ref: 32,
          low_ref: 21,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 20,
          high_ref: 22,
          low_ref: 28,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 21,
          high_ref: 23,
          low_ref: 28,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 22,
          high_ref: 24,
          low_ref: 28,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 23,
          high_ref: 25,
          low_ref: 28,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 24,
          high_ref: 26,
          low_ref: 28,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 25,
          high_ref: 27,
          low_ref: 28,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 26,
          high_ref: 31,
          low_ref: 28,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 27,
          high_ref: 29,
          low_ref: 33,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 29,
          high_ref: 30,
          low_ref: 100000023,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 31,
          high_ref: 100000033,
          low_ref: 100000034,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 31,
          high_ref: 100000031,
          low_ref: 100000032,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 31,
          high_ref: 100000029,
          low_ref: 100000030,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 28,
          high_ref: 100000024,
          low_ref: 69,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 4,
          high_ref: 35,
          low_ref: 100000035,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 5,
          high_ref: 100000006,
          low_ref: 36,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 9,
          high_ref: 37,
          low_ref: 100000028,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 11,
          high_ref: 38,
          low_ref: 60,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 12,
          high_ref: 40,
          low_ref: 39,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 28,
          high_ref: 100000025,
          low_ref: 60,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 13,
          high_ref: 59,
          low_ref: 41,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 14,
          high_ref: 42,
          low_ref: 47,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 15,
          high_ref: 43,
          low_ref: 47,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 16,
          high_ref: 44,
          low_ref: 47,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 17,
          high_ref: 45,
          low_ref: 47,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 18,
          high_ref: 46,
          low_ref: 47,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 19,
          high_ref: 58,
          low_ref: 47,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 20,
          high_ref: 48,
          low_ref: 54,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 21,
          high_ref: 49,
          low_ref: 54,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 22,
          high_ref: 50,
          low_ref: 54,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 23,
          high_ref: 51,
          low_ref: 54,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 24,
          high_ref: 52,
          low_ref: 54,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 25,
          high_ref: 53,
          low_ref: 54,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 26,
          high_ref: 57,
          low_ref: 54,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 27,
          high_ref: 55,
          low_ref: 59,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 29,
          high_ref: 56,
          low_ref: 100000023,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 31,
          high_ref: 100000021,
          low_ref: 100000022,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 31,
          high_ref: 100000019,
          low_ref: 100000020,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 31,
          high_ref: 100000017,
          low_ref: 100000018,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 28,
          high_ref: 100000024,
          low_ref: 60,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 31,
          high_ref: 100000026,
          low_ref: 100000027,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 3,
          high_ref: 70,
          low_ref: 62,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 4,
          high_ref: 63,
          low_ref: 100000035,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 5,
          high_ref: 100000005,
          low_ref: 64,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 6,
          high_ref: 65,
          low_ref: 100000016,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 11,
          high_ref: 66,
          low_ref: 67,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 28,
          high_ref: 100000008,
          low_ref: 67,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 30,
          high_ref: 69,
          low_ref: 68,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 31,
          high_ref: 100000014,
          low_ref: 100000015,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 31,
          high_ref: 100000012,
          low_ref: 100000013,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 4,
          high_ref: 71,
          low_ref: 100000035,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 5,
          high_ref: 100000005,
          low_ref: 72,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 6,
          high_ref: 73,
          low_ref: 100000011,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 9,
          high_ref: 74,
          low_ref: 100000011,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 11,
          high_ref: 75,
          low_ref: 76,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 28,
          high_ref: 100000008,
          low_ref: 76,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 31,
          high_ref: 100000009,
          low_ref: 100000010,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 2,
          high_ref: 100000001,
          low_ref: 78,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 3,
          high_ref: 100000002,
          low_ref: 79,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 4,
          high_ref: 80,
          low_ref: 100000004,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 7,
          high_ref: 81,
          low_ref: 100000004,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 8,
          high_ref: 100000003,
          low_ref: 82,
      },
 -    crate::endpoint_lib::bdd_interpreter::BddNode {
-+    super::endpoint_lib::bdd_interpreter::BddNode {
++    super::super::endpoint_lib::bdd_interpreter::BddNode {
          condition_index: 10,
          high_ref: 100000003,
          low_ref: 100000004,
@@ -12813,12 +12813,12 @@
 -    pub(crate) partition_result: Option<crate::endpoint_lib::partition::Partition<'a>>,
 -    pub(crate) parsed_endpoint: Option<crate::endpoint_lib::parse_url::Url<'a>>,
 -    pub(crate) parsed_arn_ssa_2: Option<crate::endpoint_lib::arn::Arn<'a>>,
-+    pub(crate) partition_result: Option<super::endpoint_lib::partition::Partition<'a>>,
-+    pub(crate) parsed_endpoint: Option<super::endpoint_lib::parse_url::Url<'a>>,
-+    pub(crate) parsed_arn_ssa_2: Option<super::endpoint_lib::arn::Arn<'a>>,
++    pub(crate) partition_result: Option<super::super::endpoint_lib::partition::Partition<'a>>,
++    pub(crate) parsed_endpoint: Option<super::super::endpoint_lib::parse_url::Url<'a>>,
++    pub(crate) parsed_arn_ssa_2: Option<super::super::endpoint_lib::arn::Arn<'a>>,
      pub(crate) first_arn: Option<&'a str>,
 -    pub(crate) parsed_arn_ssa_1: Option<crate::endpoint_lib::arn::Arn<'a>>,
-+    pub(crate) parsed_arn_ssa_1: Option<super::endpoint_lib::arn::Arn<'a>>,
++    pub(crate) parsed_arn_ssa_1: Option<super::super::endpoint_lib::arn::Arn<'a>>,
      // Sometimes none of the members reference the lifetime, this makes it still valid
      phantom: std::marker::PhantomData<&'a ()>,
  }
@@ -12828,8 +12828,8 @@
      /// Create a builder for [`Params`]
 -    pub fn builder() -> crate::config::endpoint::ParamsBuilder {
 -        crate::config::endpoint::ParamsBuilder::default()
-+    pub fn builder() -> super::config::endpoint::ParamsBuilder {
-+        super::config::endpoint::ParamsBuilder::default()
++    pub fn builder() -> super::super::config::endpoint::ParamsBuilder {
++        super::super::config::endpoint::ParamsBuilder::default()
      }
      /// The AWS region used to dispatch the request.
      pub fn region(&self) -> ::std::option::Option<&str> {
@@ -12838,17 +12838,17 @@
  impl ParamsBuilder {
      /// Consume this builder, creating [`Params`].
 -    pub fn build(self) -> ::std::result::Result<crate::config::endpoint::Params, crate::config::endpoint::InvalidParams> {
-+    pub fn build(self) -> ::std::result::Result<super::config::endpoint::Params, super::config::endpoint::InvalidParams> {
++    pub fn build(self) -> ::std::result::Result<super::super::config::endpoint::Params, super::super::config::endpoint::InvalidParams> {
          if let Some(region) = &self.region {
 -            if !crate::endpoint_lib::host::is_valid_host_label(
-+            if !super::endpoint_lib::host::is_valid_host_label(
++            if !super::super::endpoint_lib::host::is_valid_host_label(
                  region.as_ref() as &str,
                  true,
 -                &mut crate::endpoint_lib::diagnostic::DiagnosticCollector::new(),
-+                &mut super::endpoint_lib::diagnostic::DiagnosticCollector::new(),
++                &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector::new(),
              ) {
 -                return Err(crate::config::endpoint::InvalidParams::invalid_value(
-+                return Err(super::config::endpoint::InvalidParams::invalid_value(
++                return Err(super::super::config::endpoint::InvalidParams::invalid_value(
                      "region",
                      "must be a valid host label",
                  ));
@@ -12857,18 +12857,18 @@
          Ok(
              #[allow(clippy::unnecessary_lazy_evaluations)]
 -            crate::config::endpoint::Params {
-+            super::config::endpoint::Params {
++            super::super::config::endpoint::Params {
                  region: self.region,
                  use_dual_stack: self
                      .use_dual_stack
                      .or_else(|| Some(false))
 -                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
-+                    .ok_or_else(|| super::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
++                    .ok_or_else(|| super::super::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
                  use_fips: self
                      .use_fips
                      .or_else(|| Some(false))
 -                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_fips"))?,
-+                    .ok_or_else(|| super::config::endpoint::InvalidParams::missing("use_fips"))?,
++                    .ok_or_else(|| super::super::config::endpoint::InvalidParams::missing("use_fips"))?,
                  endpoint: self.endpoint,
                  account_id: self.account_id,
                  account_id_endpoint_mode: self.account_id_endpoint_mode,

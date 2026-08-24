@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteRemediationConfigurationInput`](crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput).
 -    pub fn builder() -> crate::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationInputBuilder {
 -        crate::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationInputBuilder {
-+        super::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationInputBuilder {
++        super::super::super::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput,
-+        super::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput,
++        super::super::super::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput {
-+        ::std::result::Result::Ok(super::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput {
              config_rule_name: self.config_rule_name,
              resource_type: self.resource_type,
          })

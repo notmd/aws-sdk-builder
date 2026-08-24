@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminDisableUserInput`](crate::operation::admin_disable_user::AdminDisableUserInput).
 -    pub fn builder() -> crate::operation::admin_disable_user::builders::AdminDisableUserInputBuilder {
 -        crate::operation::admin_disable_user::builders::AdminDisableUserInputBuilder::default()
-+    pub fn builder() -> super::operation::admin_disable_user::builders::AdminDisableUserInputBuilder {
-+        super::operation::admin_disable_user::builders::AdminDisableUserInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_disable_user::builders::AdminDisableUserInputBuilder {
++        super::super::super::operation::admin_disable_user::builders::AdminDisableUserInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::admin_disable_user::AdminDisableUserInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::admin_disable_user::AdminDisableUserInput {
-+    ) -> ::std::result::Result<super::operation::admin_disable_user::AdminDisableUserInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::admin_disable_user::AdminDisableUserInput {
++    ) -> ::std::result::Result<super::super::super::operation::admin_disable_user::AdminDisableUserInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::admin_disable_user::AdminDisableUserInput {
              user_pool_id: self.user_pool_id,
              username: self.username,
          })

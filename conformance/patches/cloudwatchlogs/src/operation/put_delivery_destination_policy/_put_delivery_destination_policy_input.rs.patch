@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutDeliveryDestinationPolicyInput`](crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput).
 -    pub fn builder() -> crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyInputBuilder {
 -        crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyInputBuilder {
-+        super::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyInputBuilder {
++        super::super::super::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput,
-+        super::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput,
++        super::super::super::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput {
-+        ::std::result::Result::Ok(super::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput {
++        ::std::result::Result::Ok(super::super::super::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput {
              delivery_destination_name: self.delivery_destination_name,
              delivery_destination_policy: self.delivery_destination_policy,
          })

@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ExportTask>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ExportTask>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ExportTask>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::ExportTaskBuilder::default();
-+            let mut builder = super::types::builders::ExportTaskBuilder::default();
++            let mut builder = super::super::types::builders::ExportTaskBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          }
                          "status" => {
 -                            builder = builder.set_status(crate::protocol_serde::shape_export_task_status::de_export_task_status(
-+                            builder = builder.set_status(super::protocol_serde::shape_export_task_status::de_export_task_status(
++                            builder = builder.set_status(super::super::protocol_serde::shape_export_task_status::de_export_task_status(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -32,7 +32,7 @@
                          "executionInfo" => {
                              builder = builder.set_execution_info(
 -                                crate::protocol_serde::shape_export_task_execution_info::de_export_task_execution_info(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_export_task_execution_info::de_export_task_execution_info(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_export_task_execution_info::de_export_task_execution_info(tokens, _value, depth + 1)?,
                              );
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

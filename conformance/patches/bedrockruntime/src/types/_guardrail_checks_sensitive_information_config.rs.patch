@@ -5,12 +5,12 @@
  pub struct GuardrailChecksSensitiveInformationConfig {
      /// <p>The sensitive information entity types to detect.</p>
 -    pub entities: ::std::vec::Vec<crate::types::GuardrailChecksSensitiveInformationEntityConfig>,
-+    pub entities: ::std::vec::Vec<super::types::GuardrailChecksSensitiveInformationEntityConfig>,
++    pub entities: ::std::vec::Vec<super::super::types::GuardrailChecksSensitiveInformationEntityConfig>,
  }
  impl GuardrailChecksSensitiveInformationConfig {
      /// <p>The sensitive information entity types to detect.</p>
 -    pub fn entities(&self) -> &[crate::types::GuardrailChecksSensitiveInformationEntityConfig] {
-+    pub fn entities(&self) -> &[super::types::GuardrailChecksSensitiveInformationEntityConfig] {
++    pub fn entities(&self) -> &[super::super::types::GuardrailChecksSensitiveInformationEntityConfig] {
          use std::ops::Deref;
          self.entities.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailChecksSensitiveInformationConfig`](crate::types::GuardrailChecksSensitiveInformationConfig).
 -    pub fn builder() -> crate::types::builders::GuardrailChecksSensitiveInformationConfigBuilder {
 -        crate::types::builders::GuardrailChecksSensitiveInformationConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailChecksSensitiveInformationConfigBuilder {
-+        super::types::builders::GuardrailChecksSensitiveInformationConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailChecksSensitiveInformationConfigBuilder {
++        super::super::types::builders::GuardrailChecksSensitiveInformationConfigBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct GuardrailChecksSensitiveInformationConfigBuilder {
 -    pub(crate) entities: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksSensitiveInformationEntityConfig>>,
-+    pub(crate) entities: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksSensitiveInformationEntityConfig>>,
++    pub(crate) entities: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksSensitiveInformationEntityConfig>>,
  }
  impl GuardrailChecksSensitiveInformationConfigBuilder {
      /// Appends an item to `entities`.
@@ -39,7 +39,7 @@
      ///
      /// <p>The sensitive information entity types to detect.</p>
 -    pub fn entities(mut self, input: crate::types::GuardrailChecksSensitiveInformationEntityConfig) -> Self {
-+    pub fn entities(mut self, input: super::types::GuardrailChecksSensitiveInformationEntityConfig) -> Self {
++    pub fn entities(mut self, input: super::super::types::GuardrailChecksSensitiveInformationEntityConfig) -> Self {
          let mut v = self.entities.unwrap_or_default();
          v.push(input);
          self.entities = ::std::option::Option::Some(v);
@@ -48,14 +48,14 @@
      pub fn set_entities(
          mut self,
 -        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksSensitiveInformationEntityConfig>>,
-+        input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksSensitiveInformationEntityConfig>>,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksSensitiveInformationEntityConfig>>,
      ) -> Self {
          self.entities = input;
          self
      }
      /// <p>The sensitive information entity types to detect.</p>
 -    pub fn get_entities(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksSensitiveInformationEntityConfig>> {
-+    pub fn get_entities(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksSensitiveInformationEntityConfig>> {
++    pub fn get_entities(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksSensitiveInformationEntityConfig>> {
          &self.entities
      }
      /// Consumes the builder and constructs a [`GuardrailChecksSensitiveInformationConfig`](crate::types::GuardrailChecksSensitiveInformationConfig).
@@ -65,8 +65,8 @@
          self,
 -    ) -> ::std::result::Result<crate::types::GuardrailChecksSensitiveInformationConfig, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailChecksSensitiveInformationConfig {
-+    ) -> ::std::result::Result<super::types::GuardrailChecksSensitiveInformationConfig, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailChecksSensitiveInformationConfig {
++    ) -> ::std::result::Result<super::super::types::GuardrailChecksSensitiveInformationConfig, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailChecksSensitiveInformationConfig {
              entities: self.entities.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "entities",

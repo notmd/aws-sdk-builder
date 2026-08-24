@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetUserAttributeVerificationCodeInput`](crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeInput).
 -    pub fn builder() -> crate::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeInputBuilder {
 -        crate::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeInputBuilder::default()
-+    pub fn builder() -> super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeInputBuilder {
-+        super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeInputBuilder {
++        super::super::super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeInput,
-+        super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeInput,
++        super::super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeInput {
-+            super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeInput {
++            super::super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeInput {
                  access_token: self.access_token,
                  attribute_name: self.attribute_name,
                  client_metadata: self.client_metadata,

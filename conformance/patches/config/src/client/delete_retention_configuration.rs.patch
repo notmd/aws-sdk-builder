@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationFluentBuilder {
 -        crate::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationFluentBuilder {
-+        super::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationFluentBuilder {
++        super::super::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

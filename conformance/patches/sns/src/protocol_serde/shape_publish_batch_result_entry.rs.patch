@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::PublishBatchResultEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::PublishBatchResultEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::PublishBatchResultEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::PublishBatchResultEntry::builder();
-+    let mut builder = super::types::PublishBatchResultEntry::builder();
++    let mut builder = super::super::types::PublishBatchResultEntry::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("Id") /* Id com.amazonaws.sns#PublishBatchResultEntry$Id */ =>  {

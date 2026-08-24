@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteEndpointError>`](crate::operation::delete_endpoint::DeleteEndpointError)
 -    pub fn delete_endpoint(&self) -> crate::operation::delete_endpoint::builders::DeleteEndpointFluentBuilder {
 -        crate::operation::delete_endpoint::builders::DeleteEndpointFluentBuilder::new(self.handle.clone())
-+    pub fn delete_endpoint(&self) -> super::operation::delete_endpoint::builders::DeleteEndpointFluentBuilder {
-+        super::operation::delete_endpoint::builders::DeleteEndpointFluentBuilder::new(self.handle.clone())
++    pub fn delete_endpoint(&self) -> super::super::operation::delete_endpoint::builders::DeleteEndpointFluentBuilder {
++        super::super::operation::delete_endpoint::builders::DeleteEndpointFluentBuilder::new(self.handle.clone())
      }
  }

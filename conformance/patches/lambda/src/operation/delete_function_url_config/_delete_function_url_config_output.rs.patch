@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteFunctionUrlConfigOutput`](crate::operation::delete_function_url_config::DeleteFunctionUrlConfigOutput).
 -    pub fn builder() -> crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder {
 -        crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder {
-+        super::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder {
++        super::super::super::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteFunctionUrlConfigOutput`](crate::operation::delete_function_url_config::DeleteFunctionUrlConfigOutput).
 -    pub fn build(self) -> crate::operation::delete_function_url_config::DeleteFunctionUrlConfigOutput {
 -        crate::operation::delete_function_url_config::DeleteFunctionUrlConfigOutput {
-+    pub fn build(self) -> super::operation::delete_function_url_config::DeleteFunctionUrlConfigOutput {
-+        super::operation::delete_function_url_config::DeleteFunctionUrlConfigOutput {
++    pub fn build(self) -> super::super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigOutput {
++        super::super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigOutput {
              _request_id: self._request_id,
          }
      }

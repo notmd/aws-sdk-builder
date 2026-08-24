@@ -5,7 +5,7 @@
      pub policy_name: ::std::option::Option<::std::string::String>,
      /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
 -    pub status: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
-+    pub status: ::std::option::Option<super::types::OpenSearchResourceStatus>,
++    pub status: ::std::option::Option<super::super::types::OpenSearchResourceStatus>,
  }
  impl OpenSearchLifecyclePolicy {
      /// <p>The name of the lifecycle policy.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::OpenSearchResourceStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::OpenSearchResourceStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::OpenSearchResourceStatus> {
          self.status.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`OpenSearchLifecyclePolicy`](crate::types::OpenSearchLifecyclePolicy).
 -    pub fn builder() -> crate::types::builders::OpenSearchLifecyclePolicyBuilder {
 -        crate::types::builders::OpenSearchLifecyclePolicyBuilder::default()
-+    pub fn builder() -> super::types::builders::OpenSearchLifecyclePolicyBuilder {
-+        super::types::builders::OpenSearchLifecyclePolicyBuilder::default()
++    pub fn builder() -> super::super::types::builders::OpenSearchLifecyclePolicyBuilder {
++        super::super::types::builders::OpenSearchLifecyclePolicyBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct OpenSearchLifecyclePolicyBuilder {
      pub(crate) policy_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::OpenSearchResourceStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::OpenSearchResourceStatus>,
  }
  impl OpenSearchLifecyclePolicyBuilder {
      /// <p>The name of the lifecycle policy.</p>
@@ -41,26 +41,26 @@
      }
      /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
 -    pub fn status(mut self, input: crate::types::OpenSearchResourceStatus) -> Self {
-+    pub fn status(mut self, input: super::types::OpenSearchResourceStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::OpenSearchResourceStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OpenSearchResourceStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::OpenSearchResourceStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::OpenSearchResourceStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::OpenSearchResourceStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::OpenSearchResourceStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::OpenSearchResourceStatus> {
          &self.status
      }
      /// Consumes the builder and constructs a [`OpenSearchLifecyclePolicy`](crate::types::OpenSearchLifecyclePolicy).
 -    pub fn build(self) -> crate::types::OpenSearchLifecyclePolicy {
 -        crate::types::OpenSearchLifecyclePolicy {
-+    pub fn build(self) -> super::types::OpenSearchLifecyclePolicy {
-+        super::types::OpenSearchLifecyclePolicy {
++    pub fn build(self) -> super::super::types::OpenSearchLifecyclePolicy {
++        super::super::types::OpenSearchLifecyclePolicy {
              policy_name: self.policy_name,
              status: self.status,
          }

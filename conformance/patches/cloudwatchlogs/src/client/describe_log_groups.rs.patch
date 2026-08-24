@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeLogGroupsError>`](crate::operation::describe_log_groups::DescribeLogGroupsError)
 -    pub fn describe_log_groups(&self) -> crate::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder {
 -        crate::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder::new(self.handle.clone())
-+    pub fn describe_log_groups(&self) -> super::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder {
-+        super::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder::new(self.handle.clone())
++    pub fn describe_log_groups(&self) -> super::super::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder {
++        super::super::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder::new(self.handle.clone())
      }
  }

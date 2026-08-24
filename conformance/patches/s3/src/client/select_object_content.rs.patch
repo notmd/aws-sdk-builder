@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SelectObjectContentError>`](crate::operation::select_object_content::SelectObjectContentError)
 -    pub fn select_object_content(&self) -> crate::operation::select_object_content::builders::SelectObjectContentFluentBuilder {
 -        crate::operation::select_object_content::builders::SelectObjectContentFluentBuilder::new(self.handle.clone())
-+    pub fn select_object_content(&self) -> super::operation::select_object_content::builders::SelectObjectContentFluentBuilder {
-+        super::operation::select_object_content::builders::SelectObjectContentFluentBuilder::new(self.handle.clone())
++    pub fn select_object_content(&self) -> super::super::operation::select_object_content::builders::SelectObjectContentFluentBuilder {
++        super::super::operation::select_object_content::builders::SelectObjectContentFluentBuilder::new(self.handle.clone())
      }
  }

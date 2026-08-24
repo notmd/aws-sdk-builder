@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigFluentBuilder {
 -        crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigFluentBuilder {
-+        super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigFluentBuilder {
++        super::super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigFluentBuilder::new(self.handle.clone())
      }
  }

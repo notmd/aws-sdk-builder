@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteEmailIdentityOutput`](crate::operation::delete_email_identity::DeleteEmailIdentityOutput).
 -    pub fn builder() -> crate::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder {
 -        crate::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder {
-+        super::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder {
++        super::super::super::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteEmailIdentityOutput`](crate::operation::delete_email_identity::DeleteEmailIdentityOutput).
 -    pub fn build(self) -> crate::operation::delete_email_identity::DeleteEmailIdentityOutput {
 -        crate::operation::delete_email_identity::DeleteEmailIdentityOutput {
-+    pub fn build(self) -> super::operation::delete_email_identity::DeleteEmailIdentityOutput {
-+        super::operation::delete_email_identity::DeleteEmailIdentityOutput {
++    pub fn build(self) -> super::super::super::operation::delete_email_identity::DeleteEmailIdentityOutput {
++        super::super::super::operation::delete_email_identity::DeleteEmailIdentityOutput {
              _request_id: self._request_id,
          }
      }

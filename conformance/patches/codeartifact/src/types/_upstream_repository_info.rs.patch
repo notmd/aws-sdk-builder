@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpstreamRepositoryInfo`](crate::types::UpstreamRepositoryInfo).
 -    pub fn builder() -> crate::types::builders::UpstreamRepositoryInfoBuilder {
 -        crate::types::builders::UpstreamRepositoryInfoBuilder::default()
-+    pub fn builder() -> super::types::builders::UpstreamRepositoryInfoBuilder {
-+        super::types::builders::UpstreamRepositoryInfoBuilder::default()
++    pub fn builder() -> super::super::types::builders::UpstreamRepositoryInfoBuilder {
++        super::super::types::builders::UpstreamRepositoryInfoBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UpstreamRepositoryInfo`](crate::types::UpstreamRepositoryInfo).
 -    pub fn build(self) -> crate::types::UpstreamRepositoryInfo {
 -        crate::types::UpstreamRepositoryInfo {
-+    pub fn build(self) -> super::types::UpstreamRepositoryInfo {
-+        super::types::UpstreamRepositoryInfo {
++    pub fn build(self) -> super::super::types::UpstreamRepositoryInfo {
++        super::super::types::UpstreamRepositoryInfo {
              repository_name: self.repository_name,
          }
      }

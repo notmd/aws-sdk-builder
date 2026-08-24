@@ -5,14 +5,14 @@
  pub struct ContentBlockDeltaEvent {
      /// <p>The delta for a content block delta event.</p>
 -    pub delta: ::std::option::Option<crate::types::ContentBlockDelta>,
-+    pub delta: ::std::option::Option<super::types::ContentBlockDelta>,
++    pub delta: ::std::option::Option<super::super::types::ContentBlockDelta>,
      /// <p>The block index for a content block delta event.</p>
      pub content_block_index: i32,
  }
  impl ContentBlockDeltaEvent {
      /// <p>The delta for a content block delta event.</p>
 -    pub fn delta(&self) -> ::std::option::Option<&crate::types::ContentBlockDelta> {
-+    pub fn delta(&self) -> ::std::option::Option<&super::types::ContentBlockDelta> {
++    pub fn delta(&self) -> ::std::option::Option<&super::super::types::ContentBlockDelta> {
          self.delta.as_ref()
      }
      /// <p>The block index for a content block delta event.</p>
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ContentBlockDeltaEvent`](crate::types::ContentBlockDeltaEvent).
 -    pub fn builder() -> crate::types::builders::ContentBlockDeltaEventBuilder {
 -        crate::types::builders::ContentBlockDeltaEventBuilder::default()
-+    pub fn builder() -> super::types::builders::ContentBlockDeltaEventBuilder {
-+        super::types::builders::ContentBlockDeltaEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::ContentBlockDeltaEventBuilder {
++        super::super::types::builders::ContentBlockDeltaEventBuilder::default()
      }
  }
 
@@ -32,26 +32,26 @@
  #[non_exhaustive]
  pub struct ContentBlockDeltaEventBuilder {
 -    pub(crate) delta: ::std::option::Option<crate::types::ContentBlockDelta>,
-+    pub(crate) delta: ::std::option::Option<super::types::ContentBlockDelta>,
++    pub(crate) delta: ::std::option::Option<super::super::types::ContentBlockDelta>,
      pub(crate) content_block_index: ::std::option::Option<i32>,
  }
  impl ContentBlockDeltaEventBuilder {
      /// <p>The delta for a content block delta event.</p>
      /// This field is required.
 -    pub fn delta(mut self, input: crate::types::ContentBlockDelta) -> Self {
-+    pub fn delta(mut self, input: super::types::ContentBlockDelta) -> Self {
++    pub fn delta(mut self, input: super::super::types::ContentBlockDelta) -> Self {
          self.delta = ::std::option::Option::Some(input);
          self
      }
      /// <p>The delta for a content block delta event.</p>
 -    pub fn set_delta(mut self, input: ::std::option::Option<crate::types::ContentBlockDelta>) -> Self {
-+    pub fn set_delta(mut self, input: ::std::option::Option<super::types::ContentBlockDelta>) -> Self {
++    pub fn set_delta(mut self, input: ::std::option::Option<super::super::types::ContentBlockDelta>) -> Self {
          self.delta = input;
          self
      }
      /// <p>The delta for a content block delta event.</p>
 -    pub fn get_delta(&self) -> &::std::option::Option<crate::types::ContentBlockDelta> {
-+    pub fn get_delta(&self) -> &::std::option::Option<super::types::ContentBlockDelta> {
++    pub fn get_delta(&self) -> &::std::option::Option<super::super::types::ContentBlockDelta> {
          &self.delta
      }
      /// <p>The block index for a content block delta event.</p>
@@ -61,8 +61,8 @@
      /// - [`content_block_index`](crate::types::builders::ContentBlockDeltaEventBuilder::content_block_index)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ContentBlockDeltaEvent, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ContentBlockDeltaEvent {
-+    pub fn build(self) -> ::std::result::Result<super::types::ContentBlockDeltaEvent, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ContentBlockDeltaEvent {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ContentBlockDeltaEvent, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ContentBlockDeltaEvent {
              delta: self.delta,
              content_block_index: self.content_block_index.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(

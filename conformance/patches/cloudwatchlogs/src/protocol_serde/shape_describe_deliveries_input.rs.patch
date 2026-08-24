@@ -5,7 +5,7 @@
  pub fn ser_describe_deliveries_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::describe_deliveries::DescribeDeliveriesInput,
-+    input: &super::operation::describe_deliveries::DescribeDeliveriesInput,
++    input: &super::super::operation::describe_deliveries::DescribeDeliveriesInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.next_token {
          object.key("nextToken").string(var_1.as_str());

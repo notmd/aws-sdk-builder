@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder {
 -        crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder {
-+        super::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder {
++        super::super::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder::new(self.handle.clone())
      }
  }

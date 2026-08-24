@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListEventSourceMappingsInput`](crate::operation::list_event_source_mappings::ListEventSourceMappingsInput).
 -    pub fn builder() -> crate::operation::list_event_source_mappings::builders::ListEventSourceMappingsInputBuilder {
 -        crate::operation::list_event_source_mappings::builders::ListEventSourceMappingsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_event_source_mappings::builders::ListEventSourceMappingsInputBuilder {
-+        super::operation::list_event_source_mappings::builders::ListEventSourceMappingsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_event_source_mappings::builders::ListEventSourceMappingsInputBuilder {
++        super::super::super::operation::list_event_source_mappings::builders::ListEventSourceMappingsInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::list_event_source_mappings::ListEventSourceMappingsInput,
-+        super::operation::list_event_source_mappings::ListEventSourceMappingsInput,
++        super::super::super::operation::list_event_source_mappings::ListEventSourceMappingsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::list_event_source_mappings::ListEventSourceMappingsInput {
-+        ::std::result::Result::Ok(super::operation::list_event_source_mappings::ListEventSourceMappingsInput {
++        ::std::result::Result::Ok(super::super::super::operation::list_event_source_mappings::ListEventSourceMappingsInput {
              event_source_arn: self.event_source_arn,
              function_name: self.function_name,
              marker: self.marker,

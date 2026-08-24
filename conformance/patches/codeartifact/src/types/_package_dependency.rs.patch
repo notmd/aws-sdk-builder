@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PackageDependency`](crate::types::PackageDependency).
 -    pub fn builder() -> crate::types::builders::PackageDependencyBuilder {
 -        crate::types::builders::PackageDependencyBuilder::default()
-+    pub fn builder() -> super::types::builders::PackageDependencyBuilder {
-+        super::types::builders::PackageDependencyBuilder::default()
++    pub fn builder() -> super::super::types::builders::PackageDependencyBuilder {
++        super::super::types::builders::PackageDependencyBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PackageDependency`](crate::types::PackageDependency).
 -    pub fn build(self) -> crate::types::PackageDependency {
 -        crate::types::PackageDependency {
-+    pub fn build(self) -> super::types::PackageDependency {
-+        super::types::PackageDependency {
++    pub fn build(self) -> super::super::types::PackageDependency {
++        super::super::types::PackageDependency {
              namespace: self.namespace,
              package: self.package,
              dependency_type: self.dependency_type,

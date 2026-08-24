@@ -5,7 +5,7 @@
      pub name: ::std::option::Option<::std::string::String>,
      /// <p>The type of operation.</p>
 -    pub r#type: crate::types::OperationType,
-+    pub r#type: super::types::OperationType,
++    pub r#type: super::super::types::OperationType,
      /// <p>The subtype of the operation, providing additional categorization.</p>
      pub sub_type: ::std::option::Option<::std::string::String>,
      /// <p>The date and time when the operation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
@@ -14,25 +14,25 @@
      pub end_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The current status of the operation.</p>
 -    pub status: crate::types::OperationStatus,
-+    pub status: super::types::OperationStatus,
++    pub status: super::super::types::OperationStatus,
      /// <p>Details about the execution, if this operation represents an execution.</p>
 -    pub execution_details: ::std::option::Option<crate::types::ExecutionDetails>,
-+    pub execution_details: ::std::option::Option<super::types::ExecutionDetails>,
++    pub execution_details: ::std::option::Option<super::super::types::ExecutionDetails>,
      /// <p>Details about the context, if this operation represents a context.</p>
 -    pub context_details: ::std::option::Option<crate::types::ContextDetails>,
-+    pub context_details: ::std::option::Option<super::types::ContextDetails>,
++    pub context_details: ::std::option::Option<super::super::types::ContextDetails>,
      /// <p>Details about the step, if this operation represents a step.</p>
 -    pub step_details: ::std::option::Option<crate::types::StepDetails>,
-+    pub step_details: ::std::option::Option<super::types::StepDetails>,
++    pub step_details: ::std::option::Option<super::super::types::StepDetails>,
      /// <p>Details about the wait operation, if this operation represents a wait.</p>
 -    pub wait_details: ::std::option::Option<crate::types::WaitDetails>,
-+    pub wait_details: ::std::option::Option<super::types::WaitDetails>,
++    pub wait_details: ::std::option::Option<super::super::types::WaitDetails>,
      /// <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
 -    pub callback_details: ::std::option::Option<crate::types::CallbackDetails>,
-+    pub callback_details: ::std::option::Option<super::types::CallbackDetails>,
++    pub callback_details: ::std::option::Option<super::super::types::CallbackDetails>,
      /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
 -    pub chained_invoke_details: ::std::option::Option<crate::types::ChainedInvokeDetails>,
-+    pub chained_invoke_details: ::std::option::Option<super::types::ChainedInvokeDetails>,
++    pub chained_invoke_details: ::std::option::Option<super::super::types::ChainedInvokeDetails>,
  }
  impl Operation {
      /// <p>The unique identifier for this operation.</p>
@@ -41,7 +41,7 @@
      }
      /// <p>The type of operation.</p>
 -    pub fn r#type(&self) -> &crate::types::OperationType {
-+    pub fn r#type(&self) -> &super::types::OperationType {
++    pub fn r#type(&self) -> &super::super::types::OperationType {
          &self.r#type
      }
      /// <p>The subtype of the operation, providing additional categorization.</p>
@@ -50,37 +50,37 @@
      }
      /// <p>The current status of the operation.</p>
 -    pub fn status(&self) -> &crate::types::OperationStatus {
-+    pub fn status(&self) -> &super::types::OperationStatus {
++    pub fn status(&self) -> &super::super::types::OperationStatus {
          &self.status
      }
      /// <p>Details about the execution, if this operation represents an execution.</p>
 -    pub fn execution_details(&self) -> ::std::option::Option<&crate::types::ExecutionDetails> {
-+    pub fn execution_details(&self) -> ::std::option::Option<&super::types::ExecutionDetails> {
++    pub fn execution_details(&self) -> ::std::option::Option<&super::super::types::ExecutionDetails> {
          self.execution_details.as_ref()
      }
      /// <p>Details about the context, if this operation represents a context.</p>
 -    pub fn context_details(&self) -> ::std::option::Option<&crate::types::ContextDetails> {
-+    pub fn context_details(&self) -> ::std::option::Option<&super::types::ContextDetails> {
++    pub fn context_details(&self) -> ::std::option::Option<&super::super::types::ContextDetails> {
          self.context_details.as_ref()
      }
      /// <p>Details about the step, if this operation represents a step.</p>
 -    pub fn step_details(&self) -> ::std::option::Option<&crate::types::StepDetails> {
-+    pub fn step_details(&self) -> ::std::option::Option<&super::types::StepDetails> {
++    pub fn step_details(&self) -> ::std::option::Option<&super::super::types::StepDetails> {
          self.step_details.as_ref()
      }
      /// <p>Details about the wait operation, if this operation represents a wait.</p>
 -    pub fn wait_details(&self) -> ::std::option::Option<&crate::types::WaitDetails> {
-+    pub fn wait_details(&self) -> ::std::option::Option<&super::types::WaitDetails> {
++    pub fn wait_details(&self) -> ::std::option::Option<&super::super::types::WaitDetails> {
          self.wait_details.as_ref()
      }
      /// <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
 -    pub fn callback_details(&self) -> ::std::option::Option<&crate::types::CallbackDetails> {
-+    pub fn callback_details(&self) -> ::std::option::Option<&super::types::CallbackDetails> {
++    pub fn callback_details(&self) -> ::std::option::Option<&super::super::types::CallbackDetails> {
          self.callback_details.as_ref()
      }
      /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
 -    pub fn chained_invoke_details(&self) -> ::std::option::Option<&crate::types::ChainedInvokeDetails> {
-+    pub fn chained_invoke_details(&self) -> ::std::option::Option<&super::types::ChainedInvokeDetails> {
++    pub fn chained_invoke_details(&self) -> ::std::option::Option<&super::super::types::ChainedInvokeDetails> {
          self.chained_invoke_details.as_ref()
      }
  }
@@ -88,8 +88,8 @@
      /// Creates a new builder-style object to manufacture [`Operation`](crate::types::Operation).
 -    pub fn builder() -> crate::types::builders::OperationBuilder {
 -        crate::types::builders::OperationBuilder::default()
-+    pub fn builder() -> super::types::builders::OperationBuilder {
-+        super::types::builders::OperationBuilder::default()
++    pub fn builder() -> super::super::types::builders::OperationBuilder {
++        super::super::types::builders::OperationBuilder::default()
      }
  }
 
@@ -98,7 +98,7 @@
      pub(crate) parent_id: ::std::option::Option<::std::string::String>,
      pub(crate) name: ::std::option::Option<::std::string::String>,
 -    pub(crate) r#type: ::std::option::Option<crate::types::OperationType>,
-+    pub(crate) r#type: ::std::option::Option<super::types::OperationType>,
++    pub(crate) r#type: ::std::option::Option<super::super::types::OperationType>,
      pub(crate) sub_type: ::std::option::Option<::std::string::String>,
      pub(crate) start_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) end_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -109,13 +109,13 @@
 -    pub(crate) wait_details: ::std::option::Option<crate::types::WaitDetails>,
 -    pub(crate) callback_details: ::std::option::Option<crate::types::CallbackDetails>,
 -    pub(crate) chained_invoke_details: ::std::option::Option<crate::types::ChainedInvokeDetails>,
-+    pub(crate) status: ::std::option::Option<super::types::OperationStatus>,
-+    pub(crate) execution_details: ::std::option::Option<super::types::ExecutionDetails>,
-+    pub(crate) context_details: ::std::option::Option<super::types::ContextDetails>,
-+    pub(crate) step_details: ::std::option::Option<super::types::StepDetails>,
-+    pub(crate) wait_details: ::std::option::Option<super::types::WaitDetails>,
-+    pub(crate) callback_details: ::std::option::Option<super::types::CallbackDetails>,
-+    pub(crate) chained_invoke_details: ::std::option::Option<super::types::ChainedInvokeDetails>,
++    pub(crate) status: ::std::option::Option<super::super::types::OperationStatus>,
++    pub(crate) execution_details: ::std::option::Option<super::super::types::ExecutionDetails>,
++    pub(crate) context_details: ::std::option::Option<super::super::types::ContextDetails>,
++    pub(crate) step_details: ::std::option::Option<super::super::types::StepDetails>,
++    pub(crate) wait_details: ::std::option::Option<super::super::types::WaitDetails>,
++    pub(crate) callback_details: ::std::option::Option<super::super::types::CallbackDetails>,
++    pub(crate) chained_invoke_details: ::std::option::Option<super::super::types::ChainedInvokeDetails>,
  }
  impl OperationBuilder {
      /// <p>The unique identifier for this operation.</p>
@@ -124,19 +124,19 @@
      /// <p>The type of operation.</p>
      /// This field is required.
 -    pub fn r#type(mut self, input: crate::types::OperationType) -> Self {
-+    pub fn r#type(mut self, input: super::types::OperationType) -> Self {
++    pub fn r#type(mut self, input: super::super::types::OperationType) -> Self {
          self.r#type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of operation.</p>
 -    pub fn set_type(mut self, input: ::std::option::Option<crate::types::OperationType>) -> Self {
-+    pub fn set_type(mut self, input: ::std::option::Option<super::types::OperationType>) -> Self {
++    pub fn set_type(mut self, input: ::std::option::Option<super::super::types::OperationType>) -> Self {
          self.r#type = input;
          self
      }
      /// <p>The type of operation.</p>
 -    pub fn get_type(&self) -> &::std::option::Option<crate::types::OperationType> {
-+    pub fn get_type(&self) -> &::std::option::Option<super::types::OperationType> {
++    pub fn get_type(&self) -> &::std::option::Option<super::super::types::OperationType> {
          &self.r#type
      }
      /// <p>The subtype of the operation, providing additional categorization.</p>
@@ -145,121 +145,121 @@
      /// <p>The current status of the operation.</p>
      /// This field is required.
 -    pub fn status(mut self, input: crate::types::OperationStatus) -> Self {
-+    pub fn status(mut self, input: super::types::OperationStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::OperationStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current status of the operation.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OperationStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::OperationStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::OperationStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>The current status of the operation.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::OperationStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::OperationStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::OperationStatus> {
          &self.status
      }
      /// <p>Details about the execution, if this operation represents an execution.</p>
 -    pub fn execution_details(mut self, input: crate::types::ExecutionDetails) -> Self {
-+    pub fn execution_details(mut self, input: super::types::ExecutionDetails) -> Self {
++    pub fn execution_details(mut self, input: super::super::types::ExecutionDetails) -> Self {
          self.execution_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the execution, if this operation represents an execution.</p>
 -    pub fn set_execution_details(mut self, input: ::std::option::Option<crate::types::ExecutionDetails>) -> Self {
-+    pub fn set_execution_details(mut self, input: ::std::option::Option<super::types::ExecutionDetails>) -> Self {
++    pub fn set_execution_details(mut self, input: ::std::option::Option<super::super::types::ExecutionDetails>) -> Self {
          self.execution_details = input;
          self
      }
      /// <p>Details about the execution, if this operation represents an execution.</p>
 -    pub fn get_execution_details(&self) -> &::std::option::Option<crate::types::ExecutionDetails> {
-+    pub fn get_execution_details(&self) -> &::std::option::Option<super::types::ExecutionDetails> {
++    pub fn get_execution_details(&self) -> &::std::option::Option<super::super::types::ExecutionDetails> {
          &self.execution_details
      }
      /// <p>Details about the context, if this operation represents a context.</p>
 -    pub fn context_details(mut self, input: crate::types::ContextDetails) -> Self {
-+    pub fn context_details(mut self, input: super::types::ContextDetails) -> Self {
++    pub fn context_details(mut self, input: super::super::types::ContextDetails) -> Self {
          self.context_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the context, if this operation represents a context.</p>
 -    pub fn set_context_details(mut self, input: ::std::option::Option<crate::types::ContextDetails>) -> Self {
-+    pub fn set_context_details(mut self, input: ::std::option::Option<super::types::ContextDetails>) -> Self {
++    pub fn set_context_details(mut self, input: ::std::option::Option<super::super::types::ContextDetails>) -> Self {
          self.context_details = input;
          self
      }
      /// <p>Details about the context, if this operation represents a context.</p>
 -    pub fn get_context_details(&self) -> &::std::option::Option<crate::types::ContextDetails> {
-+    pub fn get_context_details(&self) -> &::std::option::Option<super::types::ContextDetails> {
++    pub fn get_context_details(&self) -> &::std::option::Option<super::super::types::ContextDetails> {
          &self.context_details
      }
      /// <p>Details about the step, if this operation represents a step.</p>
 -    pub fn step_details(mut self, input: crate::types::StepDetails) -> Self {
-+    pub fn step_details(mut self, input: super::types::StepDetails) -> Self {
++    pub fn step_details(mut self, input: super::super::types::StepDetails) -> Self {
          self.step_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the step, if this operation represents a step.</p>
 -    pub fn set_step_details(mut self, input: ::std::option::Option<crate::types::StepDetails>) -> Self {
-+    pub fn set_step_details(mut self, input: ::std::option::Option<super::types::StepDetails>) -> Self {
++    pub fn set_step_details(mut self, input: ::std::option::Option<super::super::types::StepDetails>) -> Self {
          self.step_details = input;
          self
      }
      /// <p>Details about the step, if this operation represents a step.</p>
 -    pub fn get_step_details(&self) -> &::std::option::Option<crate::types::StepDetails> {
-+    pub fn get_step_details(&self) -> &::std::option::Option<super::types::StepDetails> {
++    pub fn get_step_details(&self) -> &::std::option::Option<super::super::types::StepDetails> {
          &self.step_details
      }
      /// <p>Details about the wait operation, if this operation represents a wait.</p>
 -    pub fn wait_details(mut self, input: crate::types::WaitDetails) -> Self {
-+    pub fn wait_details(mut self, input: super::types::WaitDetails) -> Self {
++    pub fn wait_details(mut self, input: super::super::types::WaitDetails) -> Self {
          self.wait_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the wait operation, if this operation represents a wait.</p>
 -    pub fn set_wait_details(mut self, input: ::std::option::Option<crate::types::WaitDetails>) -> Self {
-+    pub fn set_wait_details(mut self, input: ::std::option::Option<super::types::WaitDetails>) -> Self {
++    pub fn set_wait_details(mut self, input: ::std::option::Option<super::super::types::WaitDetails>) -> Self {
          self.wait_details = input;
          self
      }
      /// <p>Details about the wait operation, if this operation represents a wait.</p>
 -    pub fn get_wait_details(&self) -> &::std::option::Option<crate::types::WaitDetails> {
-+    pub fn get_wait_details(&self) -> &::std::option::Option<super::types::WaitDetails> {
++    pub fn get_wait_details(&self) -> &::std::option::Option<super::super::types::WaitDetails> {
          &self.wait_details
      }
      /// <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
 -    pub fn callback_details(mut self, input: crate::types::CallbackDetails) -> Self {
-+    pub fn callback_details(mut self, input: super::types::CallbackDetails) -> Self {
++    pub fn callback_details(mut self, input: super::super::types::CallbackDetails) -> Self {
          self.callback_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
 -    pub fn set_callback_details(mut self, input: ::std::option::Option<crate::types::CallbackDetails>) -> Self {
-+    pub fn set_callback_details(mut self, input: ::std::option::Option<super::types::CallbackDetails>) -> Self {
++    pub fn set_callback_details(mut self, input: ::std::option::Option<super::super::types::CallbackDetails>) -> Self {
          self.callback_details = input;
          self
      }
      /// <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
 -    pub fn get_callback_details(&self) -> &::std::option::Option<crate::types::CallbackDetails> {
-+    pub fn get_callback_details(&self) -> &::std::option::Option<super::types::CallbackDetails> {
++    pub fn get_callback_details(&self) -> &::std::option::Option<super::super::types::CallbackDetails> {
          &self.callback_details
      }
      /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
 -    pub fn chained_invoke_details(mut self, input: crate::types::ChainedInvokeDetails) -> Self {
-+    pub fn chained_invoke_details(mut self, input: super::types::ChainedInvokeDetails) -> Self {
++    pub fn chained_invoke_details(mut self, input: super::super::types::ChainedInvokeDetails) -> Self {
          self.chained_invoke_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
 -    pub fn set_chained_invoke_details(mut self, input: ::std::option::Option<crate::types::ChainedInvokeDetails>) -> Self {
-+    pub fn set_chained_invoke_details(mut self, input: ::std::option::Option<super::types::ChainedInvokeDetails>) -> Self {
++    pub fn set_chained_invoke_details(mut self, input: ::std::option::Option<super::super::types::ChainedInvokeDetails>) -> Self {
          self.chained_invoke_details = input;
          self
      }
      /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
 -    pub fn get_chained_invoke_details(&self) -> &::std::option::Option<crate::types::ChainedInvokeDetails> {
-+    pub fn get_chained_invoke_details(&self) -> &::std::option::Option<super::types::ChainedInvokeDetails> {
++    pub fn get_chained_invoke_details(&self) -> &::std::option::Option<super::super::types::ChainedInvokeDetails> {
          &self.chained_invoke_details
      }
      /// Consumes the builder and constructs a [`Operation`](crate::types::Operation).
@@ -269,8 +269,8 @@
      /// - [`status`](crate::types::builders::OperationBuilder::status)
 -    pub fn build(self) -> ::std::result::Result<crate::types::Operation, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::Operation {
-+    pub fn build(self) -> ::std::result::Result<super::types::Operation, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Operation {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Operation, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Operation {
              id: self.id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "id",

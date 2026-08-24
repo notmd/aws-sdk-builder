@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput,
 -    crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
-+    super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput,
-+    super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
++    super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput,
++    super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled(generic)),
-+        None => return Err(super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled(generic)),
++        None => return Err(super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InvalidInput" => crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::InvalidInputException({
-+        "InvalidInput" => super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::InvalidInputException({
++        "InvalidInput" => super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::InvalidInputException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "NoSuchEntity" => crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::NoSuchEntityException({
-+        "NoSuchEntity" => super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::NoSuchEntityException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
-+                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,7 +61,7 @@
              tmp
          }),
 -        _ => crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::generic(generic),
-+        _ => super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::generic(generic),
++        _ => super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::generic(generic),
      })
  }
 
@@ -71,17 +71,17 @@
  ) -> std::result::Result<
 -    crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput,
 -    crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
-+    super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput,
-+    super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
++    super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput,
++    super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder::default();
 -        output = crate::protocol_serde::shape_get_context_keys_for_principal_policy::de_get_context_keys_for_principal_policy(_response_body, output)
 -            .map_err(crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
-+        let mut output = super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder::default();
-+        output = super::protocol_serde::shape_get_context_keys_for_principal_policy::de_get_context_keys_for_principal_policy(_response_body, output)
-+            .map_err(super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
++        let mut output = super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder::default();
++        output = super::super::protocol_serde::shape_get_context_keys_for_principal_policy::de_get_context_keys_for_principal_policy(_response_body, output)
++            .map_err(super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -90,10 +90,10 @@
  pub fn de_get_context_keys_for_principal_policy(
      inp: &[u8],
 -    mut builder: crate::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder,
-+    mut builder: super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder,
++    mut builder: super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder,
-+    super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder,
++    super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -102,7 +102,7 @@
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_context_key_names_result_list_type::de_context_key_names_result_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_context_key_names_result_list_type::de_context_key_names_result_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_context_key_names_result_list_type::de_context_key_names_result_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;

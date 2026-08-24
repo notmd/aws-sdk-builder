@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteEmailTemplateInput`](crate::operation::delete_email_template::DeleteEmailTemplateInput).
 -    pub fn builder() -> crate::operation::delete_email_template::builders::DeleteEmailTemplateInputBuilder {
 -        crate::operation::delete_email_template::builders::DeleteEmailTemplateInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_email_template::builders::DeleteEmailTemplateInputBuilder {
-+        super::operation::delete_email_template::builders::DeleteEmailTemplateInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_email_template::builders::DeleteEmailTemplateInputBuilder {
++        super::super::super::operation::delete_email_template::builders::DeleteEmailTemplateInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_email_template::DeleteEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::delete_email_template::DeleteEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::delete_email_template::DeleteEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::delete_email_template::DeleteEmailTemplateInput {
-+        ::std::result::Result::Ok(super::operation::delete_email_template::DeleteEmailTemplateInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_email_template::DeleteEmailTemplateInput {
              template_name: self.template_name,
          })
      }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CopyValueEntry`](crate::types::CopyValueEntry).
 -    pub fn builder() -> crate::types::builders::CopyValueEntryBuilder {
 -        crate::types::builders::CopyValueEntryBuilder::default()
-+    pub fn builder() -> super::types::builders::CopyValueEntryBuilder {
-+        super::types::builders::CopyValueEntryBuilder::default()
++    pub fn builder() -> super::super::types::builders::CopyValueEntryBuilder {
++        super::super::types::builders::CopyValueEntryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`target`](crate::types::builders::CopyValueEntryBuilder::target)
 -    pub fn build(self) -> ::std::result::Result<crate::types::CopyValueEntry, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::CopyValueEntry {
-+    pub fn build(self) -> ::std::result::Result<super::types::CopyValueEntry, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::CopyValueEntry {
++    pub fn build(self) -> ::std::result::Result<super::super::types::CopyValueEntry, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::CopyValueEntry {
              source: self.source.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "source",

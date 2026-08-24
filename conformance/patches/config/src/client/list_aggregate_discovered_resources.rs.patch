@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder {
 -        crate::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder {
-+        super::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder {
++        super::super::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder::new(self.handle.clone())
      }
  }

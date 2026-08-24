@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeOrganizationConfigRuleStatusesInput`](crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput).
 -    pub fn builder() -> crate::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesInputBuilder {
 -        crate::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesInputBuilder {
-+        super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesInputBuilder {
++        super::super::super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput,
-+        super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput,
++        super::super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput {
-+            super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput {
++            super::super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput {
                  organization_config_rule_names: self.organization_config_rule_names,
                  limit: self.limit,
                  next_token: self.next_token,

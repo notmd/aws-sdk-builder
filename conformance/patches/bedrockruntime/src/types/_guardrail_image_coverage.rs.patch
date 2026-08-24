@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailImageCoverage`](crate::types::GuardrailImageCoverage).
 -    pub fn builder() -> crate::types::builders::GuardrailImageCoverageBuilder {
 -        crate::types::builders::GuardrailImageCoverageBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailImageCoverageBuilder {
-+        super::types::builders::GuardrailImageCoverageBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailImageCoverageBuilder {
++        super::super::types::builders::GuardrailImageCoverageBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GuardrailImageCoverage`](crate::types::GuardrailImageCoverage).
 -    pub fn build(self) -> crate::types::GuardrailImageCoverage {
 -        crate::types::GuardrailImageCoverage {
-+    pub fn build(self) -> super::types::GuardrailImageCoverage {
-+        super::types::GuardrailImageCoverage {
++    pub fn build(self) -> super::super::types::GuardrailImageCoverage {
++        super::super::types::GuardrailImageCoverage {
              guarded: self.guarded,
              total: self.total,
          }

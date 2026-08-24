@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeFluentBuilder {
 -        crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeFluentBuilder {
-+        super::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeFluentBuilder {
++        super::super::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeFluentBuilder::new(self.handle.clone())
      }
  }

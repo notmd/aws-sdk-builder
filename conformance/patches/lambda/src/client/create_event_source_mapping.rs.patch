@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateEventSourceMappingError>`](crate::operation::create_event_source_mapping::CreateEventSourceMappingError)
 -    pub fn create_event_source_mapping(&self) -> crate::operation::create_event_source_mapping::builders::CreateEventSourceMappingFluentBuilder {
 -        crate::operation::create_event_source_mapping::builders::CreateEventSourceMappingFluentBuilder::new(self.handle.clone())
-+    pub fn create_event_source_mapping(&self) -> super::operation::create_event_source_mapping::builders::CreateEventSourceMappingFluentBuilder {
-+        super::operation::create_event_source_mapping::builders::CreateEventSourceMappingFluentBuilder::new(self.handle.clone())
++    pub fn create_event_source_mapping(&self) -> super::super::operation::create_event_source_mapping::builders::CreateEventSourceMappingFluentBuilder {
++        super::super::operation::create_event_source_mapping::builders::CreateEventSourceMappingFluentBuilder::new(self.handle.clone())
      }
  }

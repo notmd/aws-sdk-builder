@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GlobalSignOutInput`](crate::operation::global_sign_out::GlobalSignOutInput).
 -    pub fn builder() -> crate::operation::global_sign_out::builders::GlobalSignOutInputBuilder {
 -        crate::operation::global_sign_out::builders::GlobalSignOutInputBuilder::default()
-+    pub fn builder() -> super::operation::global_sign_out::builders::GlobalSignOutInputBuilder {
-+        super::operation::global_sign_out::builders::GlobalSignOutInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::global_sign_out::builders::GlobalSignOutInputBuilder {
++        super::super::super::operation::global_sign_out::builders::GlobalSignOutInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::global_sign_out::GlobalSignOutInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::global_sign_out::GlobalSignOutInput {
-+    ) -> ::std::result::Result<super::operation::global_sign_out::GlobalSignOutInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::global_sign_out::GlobalSignOutInput {
++    ) -> ::std::result::Result<super::super::super::operation::global_sign_out::GlobalSignOutInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::global_sign_out::GlobalSignOutInput {
              access_token: self.access_token,
          })
      }

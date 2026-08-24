@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<VerifyUserAttributeError>`](crate::operation::verify_user_attribute::VerifyUserAttributeError)
 -    pub fn verify_user_attribute(&self) -> crate::operation::verify_user_attribute::builders::VerifyUserAttributeFluentBuilder {
 -        crate::operation::verify_user_attribute::builders::VerifyUserAttributeFluentBuilder::new(self.handle.clone())
-+    pub fn verify_user_attribute(&self) -> super::operation::verify_user_attribute::builders::VerifyUserAttributeFluentBuilder {
-+        super::operation::verify_user_attribute::builders::VerifyUserAttributeFluentBuilder::new(self.handle.clone())
++    pub fn verify_user_attribute(&self) -> super::super::operation::verify_user_attribute::builders::VerifyUserAttributeFluentBuilder {
++        super::super::operation::verify_user_attribute::builders::VerifyUserAttributeFluentBuilder::new(self.handle.clone())
      }
  }

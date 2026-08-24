@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Part`](crate::types::Part).
 -    pub fn builder() -> crate::types::builders::PartBuilder {
 -        crate::types::builders::PartBuilder::default()
-+    pub fn builder() -> super::types::builders::PartBuilder {
-+        super::types::builders::PartBuilder::default()
++    pub fn builder() -> super::super::types::builders::PartBuilder {
++        super::super::types::builders::PartBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Part`](crate::types::Part).
 -    pub fn build(self) -> crate::types::Part {
 -        crate::types::Part {
-+    pub fn build(self) -> super::types::Part {
-+        super::types::Part {
++    pub fn build(self) -> super::super::types::Part {
++        super::super::types::Part {
              part_number: self.part_number,
              last_modified: self.last_modified,
              e_tag: self.e_tag,

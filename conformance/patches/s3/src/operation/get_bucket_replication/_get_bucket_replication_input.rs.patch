@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetBucketReplicationInput`](crate::operation::get_bucket_replication::GetBucketReplicationInput).
 -    pub fn builder() -> crate::operation::get_bucket_replication::builders::GetBucketReplicationInputBuilder {
 -        crate::operation::get_bucket_replication::builders::GetBucketReplicationInputBuilder::default()
-+    pub fn builder() -> super::operation::get_bucket_replication::builders::GetBucketReplicationInputBuilder {
-+        super::operation::get_bucket_replication::builders::GetBucketReplicationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_bucket_replication::builders::GetBucketReplicationInputBuilder {
++        super::super::super::operation::get_bucket_replication::builders::GetBucketReplicationInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_bucket_replication::GetBucketReplicationInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_bucket_replication::GetBucketReplicationInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_bucket_replication::GetBucketReplicationInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_bucket_replication::GetBucketReplicationInput {
-+        ::std::result::Result::Ok(super::operation::get_bucket_replication::GetBucketReplicationInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_bucket_replication::GetBucketReplicationInput {
              bucket: self.bucket,
              expected_bucket_owner: self.expected_bucket_owner,
          })

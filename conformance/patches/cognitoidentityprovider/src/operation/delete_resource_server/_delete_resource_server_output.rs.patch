@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteResourceServerOutput`](crate::operation::delete_resource_server::DeleteResourceServerOutput).
 -    pub fn builder() -> crate::operation::delete_resource_server::builders::DeleteResourceServerOutputBuilder {
 -        crate::operation::delete_resource_server::builders::DeleteResourceServerOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_resource_server::builders::DeleteResourceServerOutputBuilder {
-+        super::operation::delete_resource_server::builders::DeleteResourceServerOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_resource_server::builders::DeleteResourceServerOutputBuilder {
++        super::super::super::operation::delete_resource_server::builders::DeleteResourceServerOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteResourceServerOutput`](crate::operation::delete_resource_server::DeleteResourceServerOutput).
 -    pub fn build(self) -> crate::operation::delete_resource_server::DeleteResourceServerOutput {
 -        crate::operation::delete_resource_server::DeleteResourceServerOutput {
-+    pub fn build(self) -> super::operation::delete_resource_server::DeleteResourceServerOutput {
-+        super::operation::delete_resource_server::DeleteResourceServerOutput {
++    pub fn build(self) -> super::super::super::operation::delete_resource_server::DeleteResourceServerOutput {
++        super::super::super::operation::delete_resource_server::DeleteResourceServerOutput {
              _request_id: self._request_id,
          }
      }

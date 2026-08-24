@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutAccountPolicyError>`](crate::operation::put_account_policy::PutAccountPolicyError)
 -    pub fn put_account_policy(&self) -> crate::operation::put_account_policy::builders::PutAccountPolicyFluentBuilder {
 -        crate::operation::put_account_policy::builders::PutAccountPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn put_account_policy(&self) -> super::operation::put_account_policy::builders::PutAccountPolicyFluentBuilder {
-+        super::operation::put_account_policy::builders::PutAccountPolicyFluentBuilder::new(self.handle.clone())
++    pub fn put_account_policy(&self) -> super::super::operation::put_account_policy::builders::PutAccountPolicyFluentBuilder {
++        super::super::operation::put_account_policy::builders::PutAccountPolicyFluentBuilder::new(self.handle.clone())
      }
  }

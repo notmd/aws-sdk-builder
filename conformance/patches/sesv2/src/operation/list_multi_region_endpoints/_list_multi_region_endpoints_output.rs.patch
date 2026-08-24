@@ -5,7 +5,7 @@
  pub struct ListMultiRegionEndpointsOutput {
      /// <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
 -    pub multi_region_endpoints: ::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>>,
-+    pub multi_region_endpoints: ::std::option::Option<::std::vec::Vec<super::types::MultiRegionEndpoint>>,
++    pub multi_region_endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::MultiRegionEndpoint>>,
      /// <p>A token indicating that there are additional multi-region endpoints (global-endpoints) available to be listed. Pass this token to a subsequent <code>ListMultiRegionEndpoints</code> call to retrieve the next page.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.multi_region_endpoints.is_none()`.
 -    pub fn multi_region_endpoints(&self) -> &[crate::types::MultiRegionEndpoint] {
-+    pub fn multi_region_endpoints(&self) -> &[super::types::MultiRegionEndpoint] {
++    pub fn multi_region_endpoints(&self) -> &[super::super::super::types::MultiRegionEndpoint] {
          self.multi_region_endpoints.as_deref().unwrap_or_default()
      }
      /// <p>A token indicating that there are additional multi-region endpoints (global-endpoints) available to be listed. Pass this token to a subsequent <code>ListMultiRegionEndpoints</code> call to retrieve the next page.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListMultiRegionEndpointsOutput`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput).
 -    pub fn builder() -> crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsOutputBuilder {
 -        crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsOutputBuilder {
-+        super::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsOutputBuilder {
++        super::super::super::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListMultiRegionEndpointsOutputBuilder {
 -    pub(crate) multi_region_endpoints: ::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>>,
-+    pub(crate) multi_region_endpoints: ::std::option::Option<::std::vec::Vec<super::types::MultiRegionEndpoint>>,
++    pub(crate) multi_region_endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::MultiRegionEndpoint>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
 -    pub fn multi_region_endpoints(mut self, input: crate::types::MultiRegionEndpoint) -> Self {
-+    pub fn multi_region_endpoints(mut self, input: super::types::MultiRegionEndpoint) -> Self {
++    pub fn multi_region_endpoints(mut self, input: super::super::super::types::MultiRegionEndpoint) -> Self {
          let mut v = self.multi_region_endpoints.unwrap_or_default();
          v.push(input);
          self.multi_region_endpoints = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
 -    pub fn set_multi_region_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>>) -> Self {
-+    pub fn set_multi_region_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MultiRegionEndpoint>>) -> Self {
++    pub fn set_multi_region_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MultiRegionEndpoint>>) -> Self {
          self.multi_region_endpoints = input;
          self
      }
      /// <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
 -    pub fn get_multi_region_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>> {
-+    pub fn get_multi_region_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MultiRegionEndpoint>> {
++    pub fn get_multi_region_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MultiRegionEndpoint>> {
          &self.multi_region_endpoints
      }
      /// <p>A token indicating that there are additional multi-region endpoints (global-endpoints) available to be listed. Pass this token to a subsequent <code>ListMultiRegionEndpoints</code> call to retrieve the next page.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListMultiRegionEndpointsOutput`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput).
 -    pub fn build(self) -> crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput {
 -        crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput {
-+    pub fn build(self) -> super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput {
-+        super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput {
++    pub fn build(self) -> super::super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput {
++        super::super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput {
              multi_region_endpoints: self.multi_region_endpoints,
              next_token: self.next_token,
              _request_id: self._request_id,

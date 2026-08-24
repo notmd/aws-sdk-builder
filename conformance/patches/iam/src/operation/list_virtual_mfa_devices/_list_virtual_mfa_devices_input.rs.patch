@@ -5,7 +5,7 @@
  pub struct ListVirtualMfaDevicesInput {
      /// <p>The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list. If you do not specify an <code>AssignmentStatus</code>, the operation defaults to <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</p>
 -    pub assignment_status: ::std::option::Option<crate::types::AssignmentStatusType>,
-+    pub assignment_status: ::std::option::Option<super::types::AssignmentStatusType>,
++    pub assignment_status: ::std::option::Option<super::super::super::types::AssignmentStatusType>,
      /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      /// <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -14,7 +14,7 @@
  impl ListVirtualMfaDevicesInput {
      /// <p>The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list. If you do not specify an <code>AssignmentStatus</code>, the operation defaults to <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</p>
 -    pub fn assignment_status(&self) -> ::std::option::Option<&crate::types::AssignmentStatusType> {
-+    pub fn assignment_status(&self) -> ::std::option::Option<&super::types::AssignmentStatusType> {
++    pub fn assignment_status(&self) -> ::std::option::Option<&super::super::super::types::AssignmentStatusType> {
          self.assignment_status.as_ref()
      }
      /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListVirtualMfaDevicesInput`](crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput).
 -    pub fn builder() -> crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder {
 -        crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder::default()
-+    pub fn builder() -> super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder {
-+        super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder {
++        super::super::super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder::default()
      }
  }
 
@@ -34,26 +34,26 @@
  #[non_exhaustive]
  pub struct ListVirtualMfaDevicesInputBuilder {
 -    pub(crate) assignment_status: ::std::option::Option<crate::types::AssignmentStatusType>,
-+    pub(crate) assignment_status: ::std::option::Option<super::types::AssignmentStatusType>,
++    pub(crate) assignment_status: ::std::option::Option<super::super::super::types::AssignmentStatusType>,
      pub(crate) marker: ::std::option::Option<::std::string::String>,
      pub(crate) max_items: ::std::option::Option<i32>,
  }
  impl ListVirtualMfaDevicesInputBuilder {
      /// <p>The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list. If you do not specify an <code>AssignmentStatus</code>, the operation defaults to <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</p>
 -    pub fn assignment_status(mut self, input: crate::types::AssignmentStatusType) -> Self {
-+    pub fn assignment_status(mut self, input: super::types::AssignmentStatusType) -> Self {
++    pub fn assignment_status(mut self, input: super::super::super::types::AssignmentStatusType) -> Self {
          self.assignment_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list. If you do not specify an <code>AssignmentStatus</code>, the operation defaults to <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</p>
 -    pub fn set_assignment_status(mut self, input: ::std::option::Option<crate::types::AssignmentStatusType>) -> Self {
-+    pub fn set_assignment_status(mut self, input: ::std::option::Option<super::types::AssignmentStatusType>) -> Self {
++    pub fn set_assignment_status(mut self, input: ::std::option::Option<super::super::super::types::AssignmentStatusType>) -> Self {
          self.assignment_status = input;
          self
      }
      /// <p>The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list. If you do not specify an <code>AssignmentStatus</code>, the operation defaults to <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</p>
 -    pub fn get_assignment_status(&self) -> &::std::option::Option<crate::types::AssignmentStatusType> {
-+    pub fn get_assignment_status(&self) -> &::std::option::Option<super::types::AssignmentStatusType> {
++    pub fn get_assignment_status(&self) -> &::std::option::Option<super::super::super::types::AssignmentStatusType> {
          &self.assignment_status
      }
      /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
@@ -62,10 +62,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput {
-+        ::std::result::Result::Ok(super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput {
++        ::std::result::Result::Ok(super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput {
              assignment_status: self.assignment_status,
              marker: self.marker,
              max_items: self.max_items,

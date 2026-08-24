@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyFluentBuilder {
 -        crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyFluentBuilder {
-+        super::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyFluentBuilder {
++        super::super::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyFluentBuilder::new(self.handle.clone())
      }
  }

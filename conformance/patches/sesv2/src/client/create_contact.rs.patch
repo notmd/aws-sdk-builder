@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateContactError>`](crate::operation::create_contact::CreateContactError)
 -    pub fn create_contact(&self) -> crate::operation::create_contact::builders::CreateContactFluentBuilder {
 -        crate::operation::create_contact::builders::CreateContactFluentBuilder::new(self.handle.clone())
-+    pub fn create_contact(&self) -> super::operation::create_contact::builders::CreateContactFluentBuilder {
-+        super::operation::create_contact::builders::CreateContactFluentBuilder::new(self.handle.clone())
++    pub fn create_contact(&self) -> super::super::operation::create_contact::builders::CreateContactFluentBuilder {
++        super::super::operation::create_contact::builders::CreateContactFluentBuilder::new(self.handle.clone())
      }
  }

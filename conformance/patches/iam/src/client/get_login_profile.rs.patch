@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetLoginProfileError>`](crate::operation::get_login_profile::GetLoginProfileError)
 -    pub fn get_login_profile(&self) -> crate::operation::get_login_profile::builders::GetLoginProfileFluentBuilder {
 -        crate::operation::get_login_profile::builders::GetLoginProfileFluentBuilder::new(self.handle.clone())
-+    pub fn get_login_profile(&self) -> super::operation::get_login_profile::builders::GetLoginProfileFluentBuilder {
-+        super::operation::get_login_profile::builders::GetLoginProfileFluentBuilder::new(self.handle.clone())
++    pub fn get_login_profile(&self) -> super::super::operation::get_login_profile::builders::GetLoginProfileFluentBuilder {
++        super::super::operation::get_login_profile::builders::GetLoginProfileFluentBuilder::new(self.handle.clone())
      }
  }

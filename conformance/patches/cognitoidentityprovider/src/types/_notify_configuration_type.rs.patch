@@ -5,13 +5,13 @@
      pub source_arn: ::std::string::String,
      /// <p>The template for the email message that your user pool sends when a detected risk event is blocked.</p>
 -    pub block_email: ::std::option::Option<crate::types::NotifyEmailType>,
-+    pub block_email: ::std::option::Option<super::types::NotifyEmailType>,
++    pub block_email: ::std::option::Option<super::super::types::NotifyEmailType>,
      /// <p>The template for the email message that your user pool sends when no action is taken in response to a detected risk.</p>
 -    pub no_action_email: ::std::option::Option<crate::types::NotifyEmailType>,
-+    pub no_action_email: ::std::option::Option<super::types::NotifyEmailType>,
++    pub no_action_email: ::std::option::Option<super::super::types::NotifyEmailType>,
      /// <p>The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.</p>
 -    pub mfa_email: ::std::option::Option<crate::types::NotifyEmailType>,
-+    pub mfa_email: ::std::option::Option<super::types::NotifyEmailType>,
++    pub mfa_email: ::std::option::Option<super::super::types::NotifyEmailType>,
  }
  impl NotifyConfigurationType {
      /// <p>The email address that sends the email message. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.</p>
@@ -20,17 +20,17 @@
      }
      /// <p>The template for the email message that your user pool sends when a detected risk event is blocked.</p>
 -    pub fn block_email(&self) -> ::std::option::Option<&crate::types::NotifyEmailType> {
-+    pub fn block_email(&self) -> ::std::option::Option<&super::types::NotifyEmailType> {
++    pub fn block_email(&self) -> ::std::option::Option<&super::super::types::NotifyEmailType> {
          self.block_email.as_ref()
      }
      /// <p>The template for the email message that your user pool sends when no action is taken in response to a detected risk.</p>
 -    pub fn no_action_email(&self) -> ::std::option::Option<&crate::types::NotifyEmailType> {
-+    pub fn no_action_email(&self) -> ::std::option::Option<&super::types::NotifyEmailType> {
++    pub fn no_action_email(&self) -> ::std::option::Option<&super::super::types::NotifyEmailType> {
          self.no_action_email.as_ref()
      }
      /// <p>The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.</p>
 -    pub fn mfa_email(&self) -> ::std::option::Option<&crate::types::NotifyEmailType> {
-+    pub fn mfa_email(&self) -> ::std::option::Option<&super::types::NotifyEmailType> {
++    pub fn mfa_email(&self) -> ::std::option::Option<&super::super::types::NotifyEmailType> {
          self.mfa_email.as_ref()
      }
  }
@@ -38,8 +38,8 @@
      /// Creates a new builder-style object to manufacture [`NotifyConfigurationType`](crate::types::NotifyConfigurationType).
 -    pub fn builder() -> crate::types::builders::NotifyConfigurationTypeBuilder {
 -        crate::types::builders::NotifyConfigurationTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::NotifyConfigurationTypeBuilder {
-+        super::types::builders::NotifyConfigurationTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::NotifyConfigurationTypeBuilder {
++        super::super::types::builders::NotifyConfigurationTypeBuilder::default()
      }
  }
 
@@ -50,9 +50,9 @@
 -    pub(crate) block_email: ::std::option::Option<crate::types::NotifyEmailType>,
 -    pub(crate) no_action_email: ::std::option::Option<crate::types::NotifyEmailType>,
 -    pub(crate) mfa_email: ::std::option::Option<crate::types::NotifyEmailType>,
-+    pub(crate) block_email: ::std::option::Option<super::types::NotifyEmailType>,
-+    pub(crate) no_action_email: ::std::option::Option<super::types::NotifyEmailType>,
-+    pub(crate) mfa_email: ::std::option::Option<super::types::NotifyEmailType>,
++    pub(crate) block_email: ::std::option::Option<super::super::types::NotifyEmailType>,
++    pub(crate) no_action_email: ::std::option::Option<super::super::types::NotifyEmailType>,
++    pub(crate) mfa_email: ::std::option::Option<super::super::types::NotifyEmailType>,
  }
  impl NotifyConfigurationTypeBuilder {
      /// <p>The email address that sends the email message. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.</p>
@@ -61,53 +61,53 @@
      }
      /// <p>The template for the email message that your user pool sends when a detected risk event is blocked.</p>
 -    pub fn block_email(mut self, input: crate::types::NotifyEmailType) -> Self {
-+    pub fn block_email(mut self, input: super::types::NotifyEmailType) -> Self {
++    pub fn block_email(mut self, input: super::super::types::NotifyEmailType) -> Self {
          self.block_email = ::std::option::Option::Some(input);
          self
      }
      /// <p>The template for the email message that your user pool sends when a detected risk event is blocked.</p>
 -    pub fn set_block_email(mut self, input: ::std::option::Option<crate::types::NotifyEmailType>) -> Self {
-+    pub fn set_block_email(mut self, input: ::std::option::Option<super::types::NotifyEmailType>) -> Self {
++    pub fn set_block_email(mut self, input: ::std::option::Option<super::super::types::NotifyEmailType>) -> Self {
          self.block_email = input;
          self
      }
      /// <p>The template for the email message that your user pool sends when a detected risk event is blocked.</p>
 -    pub fn get_block_email(&self) -> &::std::option::Option<crate::types::NotifyEmailType> {
-+    pub fn get_block_email(&self) -> &::std::option::Option<super::types::NotifyEmailType> {
++    pub fn get_block_email(&self) -> &::std::option::Option<super::super::types::NotifyEmailType> {
          &self.block_email
      }
      /// <p>The template for the email message that your user pool sends when no action is taken in response to a detected risk.</p>
 -    pub fn no_action_email(mut self, input: crate::types::NotifyEmailType) -> Self {
-+    pub fn no_action_email(mut self, input: super::types::NotifyEmailType) -> Self {
++    pub fn no_action_email(mut self, input: super::super::types::NotifyEmailType) -> Self {
          self.no_action_email = ::std::option::Option::Some(input);
          self
      }
      /// <p>The template for the email message that your user pool sends when no action is taken in response to a detected risk.</p>
 -    pub fn set_no_action_email(mut self, input: ::std::option::Option<crate::types::NotifyEmailType>) -> Self {
-+    pub fn set_no_action_email(mut self, input: ::std::option::Option<super::types::NotifyEmailType>) -> Self {
++    pub fn set_no_action_email(mut self, input: ::std::option::Option<super::super::types::NotifyEmailType>) -> Self {
          self.no_action_email = input;
          self
      }
      /// <p>The template for the email message that your user pool sends when no action is taken in response to a detected risk.</p>
 -    pub fn get_no_action_email(&self) -> &::std::option::Option<crate::types::NotifyEmailType> {
-+    pub fn get_no_action_email(&self) -> &::std::option::Option<super::types::NotifyEmailType> {
++    pub fn get_no_action_email(&self) -> &::std::option::Option<super::super::types::NotifyEmailType> {
          &self.no_action_email
      }
      /// <p>The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.</p>
 -    pub fn mfa_email(mut self, input: crate::types::NotifyEmailType) -> Self {
-+    pub fn mfa_email(mut self, input: super::types::NotifyEmailType) -> Self {
++    pub fn mfa_email(mut self, input: super::super::types::NotifyEmailType) -> Self {
          self.mfa_email = ::std::option::Option::Some(input);
          self
      }
      /// <p>The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.</p>
 -    pub fn set_mfa_email(mut self, input: ::std::option::Option<crate::types::NotifyEmailType>) -> Self {
-+    pub fn set_mfa_email(mut self, input: ::std::option::Option<super::types::NotifyEmailType>) -> Self {
++    pub fn set_mfa_email(mut self, input: ::std::option::Option<super::super::types::NotifyEmailType>) -> Self {
          self.mfa_email = input;
          self
      }
      /// <p>The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.</p>
 -    pub fn get_mfa_email(&self) -> &::std::option::Option<crate::types::NotifyEmailType> {
-+    pub fn get_mfa_email(&self) -> &::std::option::Option<super::types::NotifyEmailType> {
++    pub fn get_mfa_email(&self) -> &::std::option::Option<super::super::types::NotifyEmailType> {
          &self.mfa_email
      }
      /// Consumes the builder and constructs a [`NotifyConfigurationType`](crate::types::NotifyConfigurationType).
@@ -115,8 +115,8 @@
      /// - [`source_arn`](crate::types::builders::NotifyConfigurationTypeBuilder::source_arn)
 -    pub fn build(self) -> ::std::result::Result<crate::types::NotifyConfigurationType, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::NotifyConfigurationType {
-+    pub fn build(self) -> ::std::result::Result<super::types::NotifyConfigurationType, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::NotifyConfigurationType {
++    pub fn build(self) -> ::std::result::Result<super::super::types::NotifyConfigurationType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::NotifyConfigurationType {
              from: self.from,
              reply_to: self.reply_to,
              source_arn: self.source_arn.ok_or_else(|| {

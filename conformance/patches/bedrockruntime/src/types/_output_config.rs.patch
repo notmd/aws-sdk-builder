@@ -5,7 +5,7 @@
  pub struct OutputConfig {
      /// <p>Structured output parameters to control the model's text response.</p>
 -    pub text_format: ::std::option::Option<crate::types::OutputFormat>,
-+    pub text_format: ::std::option::Option<super::types::OutputFormat>,
++    pub text_format: ::std::option::Option<super::super::types::OutputFormat>,
      /// <p>The effort level for the model to use when generating a response. Higher effort levels allow the model to spend more time reasoning before responding. Supported values are <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code>, and <code>max</code>.</p><note>
      /// <p>When extended thinking is disabled, the effort level is capped at <code>high</code>. Use effort <code>high</code> or below, or enable thinking to use higher effort levels.</p>
      /// </note>
@@ -14,7 +14,7 @@
  impl OutputConfig {
      /// <p>Structured output parameters to control the model's text response.</p>
 -    pub fn text_format(&self) -> ::std::option::Option<&crate::types::OutputFormat> {
-+    pub fn text_format(&self) -> ::std::option::Option<&super::types::OutputFormat> {
++    pub fn text_format(&self) -> ::std::option::Option<&super::super::types::OutputFormat> {
          self.text_format.as_ref()
      }
      /// <p>The effort level for the model to use when generating a response. Higher effort levels allow the model to spend more time reasoning before responding. Supported values are <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code>, and <code>max</code>.</p><note>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`OutputConfig`](crate::types::OutputConfig).
 -    pub fn builder() -> crate::types::builders::OutputConfigBuilder {
 -        crate::types::builders::OutputConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::OutputConfigBuilder {
-+        super::types::builders::OutputConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::OutputConfigBuilder {
++        super::super::types::builders::OutputConfigBuilder::default()
      }
  }
 
@@ -34,25 +34,25 @@
  #[non_exhaustive]
  pub struct OutputConfigBuilder {
 -    pub(crate) text_format: ::std::option::Option<crate::types::OutputFormat>,
-+    pub(crate) text_format: ::std::option::Option<super::types::OutputFormat>,
++    pub(crate) text_format: ::std::option::Option<super::super::types::OutputFormat>,
      pub(crate) effort: ::std::option::Option<::std::string::String>,
  }
  impl OutputConfigBuilder {
      /// <p>Structured output parameters to control the model's text response.</p>
 -    pub fn text_format(mut self, input: crate::types::OutputFormat) -> Self {
-+    pub fn text_format(mut self, input: super::types::OutputFormat) -> Self {
++    pub fn text_format(mut self, input: super::super::types::OutputFormat) -> Self {
          self.text_format = ::std::option::Option::Some(input);
          self
      }
      /// <p>Structured output parameters to control the model's text response.</p>
 -    pub fn set_text_format(mut self, input: ::std::option::Option<crate::types::OutputFormat>) -> Self {
-+    pub fn set_text_format(mut self, input: ::std::option::Option<super::types::OutputFormat>) -> Self {
++    pub fn set_text_format(mut self, input: ::std::option::Option<super::super::types::OutputFormat>) -> Self {
          self.text_format = input;
          self
      }
      /// <p>Structured output parameters to control the model's text response.</p>
 -    pub fn get_text_format(&self) -> &::std::option::Option<crate::types::OutputFormat> {
-+    pub fn get_text_format(&self) -> &::std::option::Option<super::types::OutputFormat> {
++    pub fn get_text_format(&self) -> &::std::option::Option<super::super::types::OutputFormat> {
          &self.text_format
      }
      /// <p>The effort level for the model to use when generating a response. Higher effort levels allow the model to spend more time reasoning before responding. Supported values are <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code>, and <code>max</code>.</p><note>
@@ -62,8 +62,8 @@
      /// Consumes the builder and constructs a [`OutputConfig`](crate::types::OutputConfig).
 -    pub fn build(self) -> crate::types::OutputConfig {
 -        crate::types::OutputConfig {
-+    pub fn build(self) -> super::types::OutputConfig {
-+        super::types::OutputConfig {
++    pub fn build(self) -> super::super::types::OutputConfig {
++        super::super::types::OutputConfig {
              text_format: self.text_format,
              effort: self.effort,
          }

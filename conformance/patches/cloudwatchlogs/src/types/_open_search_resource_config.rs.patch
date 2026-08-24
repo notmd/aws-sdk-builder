@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`OpenSearchResourceConfig`](crate::types::OpenSearchResourceConfig).
 -    pub fn builder() -> crate::types::builders::OpenSearchResourceConfigBuilder {
 -        crate::types::builders::OpenSearchResourceConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::OpenSearchResourceConfigBuilder {
-+        super::types::builders::OpenSearchResourceConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::OpenSearchResourceConfigBuilder {
++        super::super::types::builders::OpenSearchResourceConfigBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`retention_days`](crate::types::builders::OpenSearchResourceConfigBuilder::retention_days)
 -    pub fn build(self) -> ::std::result::Result<crate::types::OpenSearchResourceConfig, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::OpenSearchResourceConfig {
-+    pub fn build(self) -> ::std::result::Result<super::types::OpenSearchResourceConfig, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::OpenSearchResourceConfig {
++    pub fn build(self) -> ::std::result::Result<super::super::types::OpenSearchResourceConfig, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::OpenSearchResourceConfig {
              kms_key_arn: self.kms_key_arn,
              data_source_role_arn: self.data_source_role_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(

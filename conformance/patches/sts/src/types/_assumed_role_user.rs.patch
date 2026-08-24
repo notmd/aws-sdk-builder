@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AssumedRoleUser`](crate::types::AssumedRoleUser).
 -    pub fn builder() -> crate::types::builders::AssumedRoleUserBuilder {
 -        crate::types::builders::AssumedRoleUserBuilder::default()
-+    pub fn builder() -> super::types::builders::AssumedRoleUserBuilder {
-+        super::types::builders::AssumedRoleUserBuilder::default()
++    pub fn builder() -> super::super::types::builders::AssumedRoleUserBuilder {
++        super::super::types::builders::AssumedRoleUserBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`arn`](crate::types::builders::AssumedRoleUserBuilder::arn)
 -    pub fn build(self) -> ::std::result::Result<crate::types::AssumedRoleUser, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::AssumedRoleUser {
-+    pub fn build(self) -> ::std::result::Result<super::types::AssumedRoleUser, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::AssumedRoleUser {
++    pub fn build(self) -> ::std::result::Result<super::super::types::AssumedRoleUser, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::AssumedRoleUser {
              assumed_role_id: self.assumed_role_id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "assumed_role_id",

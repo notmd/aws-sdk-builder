@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupFluentBuilder {
 -        crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupFluentBuilder {
-+        super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupFluentBuilder {
++        super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupFluentBuilder::new(self.handle.clone())
      }
  }

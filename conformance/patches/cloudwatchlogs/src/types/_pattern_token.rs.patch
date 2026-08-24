@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PatternToken`](crate::types::PatternToken).
 -    pub fn builder() -> crate::types::builders::PatternTokenBuilder {
 -        crate::types::builders::PatternTokenBuilder::default()
-+    pub fn builder() -> super::types::builders::PatternTokenBuilder {
-+        super::types::builders::PatternTokenBuilder::default()
++    pub fn builder() -> super::super::types::builders::PatternTokenBuilder {
++        super::super::types::builders::PatternTokenBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PatternToken`](crate::types::PatternToken).
 -    pub fn build(self) -> crate::types::PatternToken {
 -        crate::types::PatternToken {
-+    pub fn build(self) -> super::types::PatternToken {
-+        super::types::PatternToken {
++    pub fn build(self) -> super::super::types::PatternToken {
++        super::super::types::PatternToken {
              dynamic_token_position: self.dynamic_token_position.unwrap_or_default(),
              is_dynamic: self.is_dynamic,
              token_string: self.token_string,

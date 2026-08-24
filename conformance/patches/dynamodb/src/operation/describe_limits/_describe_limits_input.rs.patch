@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeLimitsInput`](crate::operation::describe_limits::DescribeLimitsInput).
 -    pub fn builder() -> crate::operation::describe_limits::builders::DescribeLimitsInputBuilder {
 -        crate::operation::describe_limits::builders::DescribeLimitsInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_limits::builders::DescribeLimitsInputBuilder {
-+        super::operation::describe_limits::builders::DescribeLimitsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_limits::builders::DescribeLimitsInputBuilder {
++        super::super::super::operation::describe_limits::builders::DescribeLimitsInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_limits::DescribeLimitsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::describe_limits::DescribeLimitsInput {})
-+    ) -> ::std::result::Result<super::operation::describe_limits::DescribeLimitsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::describe_limits::DescribeLimitsInput {})
++    ) -> ::std::result::Result<super::super::super::operation::describe_limits::DescribeLimitsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::describe_limits::DescribeLimitsInput {})
      }
  }

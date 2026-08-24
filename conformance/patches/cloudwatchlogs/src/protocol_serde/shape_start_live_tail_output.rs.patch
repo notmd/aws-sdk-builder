@@ -6,13 +6,13 @@
  ) -> std::result::Result<
 -    crate::event_receiver::EventReceiver<crate::types::StartLiveTailResponseStream, crate::types::error::StartLiveTailResponseStreamError>,
 -    crate::operation::start_live_tail::StartLiveTailError,
-+    super::event_receiver::EventReceiver<super::types::StartLiveTailResponseStream, super::types::error::StartLiveTailResponseStreamError>,
-+    super::operation::start_live_tail::StartLiveTailError,
++    super::super::event_receiver::EventReceiver<super::super::types::StartLiveTailResponseStream, super::super::types::error::StartLiveTailResponseStreamError>,
++    super::super::operation::start_live_tail::StartLiveTailError,
  > {
 -    let unmarshaller = crate::event_stream_serde::StartLiveTailResponseStreamUnmarshaller::new();
-+    let unmarshaller = super::event_stream_serde::StartLiveTailResponseStreamUnmarshaller::new();
++    let unmarshaller = super::super::event_stream_serde::StartLiveTailResponseStreamUnmarshaller::new();
      let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
 -    let receiver = crate::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
-+    let receiver = super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
++    let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
      Ok(receiver)
  }

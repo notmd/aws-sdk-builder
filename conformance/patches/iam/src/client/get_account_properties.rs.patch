@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetAccountPropertiesError>`](crate::operation::get_account_properties::GetAccountPropertiesError)
 -    pub fn get_account_properties(&self) -> crate::operation::get_account_properties::builders::GetAccountPropertiesFluentBuilder {
 -        crate::operation::get_account_properties::builders::GetAccountPropertiesFluentBuilder::new(self.handle.clone())
-+    pub fn get_account_properties(&self) -> super::operation::get_account_properties::builders::GetAccountPropertiesFluentBuilder {
-+        super::operation::get_account_properties::builders::GetAccountPropertiesFluentBuilder::new(self.handle.clone())
++    pub fn get_account_properties(&self) -> super::super::operation::get_account_properties::builders::GetAccountPropertiesFluentBuilder {
++        super::super::operation::get_account_properties::builders::GetAccountPropertiesFluentBuilder::new(self.handle.clone())
      }
  }

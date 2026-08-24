@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ProviderUserIdentifierType`](crate::types::ProviderUserIdentifierType).
 -    pub fn builder() -> crate::types::builders::ProviderUserIdentifierTypeBuilder {
 -        crate::types::builders::ProviderUserIdentifierTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::ProviderUserIdentifierTypeBuilder {
-+        super::types::builders::ProviderUserIdentifierTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::ProviderUserIdentifierTypeBuilder {
++        super::super::types::builders::ProviderUserIdentifierTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ProviderUserIdentifierType`](crate::types::ProviderUserIdentifierType).
 -    pub fn build(self) -> crate::types::ProviderUserIdentifierType {
 -        crate::types::ProviderUserIdentifierType {
-+    pub fn build(self) -> super::types::ProviderUserIdentifierType {
-+        super::types::ProviderUserIdentifierType {
++    pub fn build(self) -> super::super::types::ProviderUserIdentifierType {
++        super::super::types::ProviderUserIdentifierType {
              provider_name: self.provider_name,
              provider_attribute_name: self.provider_attribute_name,
              provider_attribute_value: self.provider_attribute_value,

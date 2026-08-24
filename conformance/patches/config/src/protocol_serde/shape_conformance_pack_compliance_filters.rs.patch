@@ -5,7 +5,7 @@
  pub fn ser_conformance_pack_compliance_filters(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ConformancePackComplianceFilters,
-+    input: &super::types::ConformancePackComplianceFilters,
++    input: &super::super::types::ConformancePackComplianceFilters,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.config_rule_names {
          let mut array_2 = object.key("ConfigRuleNames").start_array();

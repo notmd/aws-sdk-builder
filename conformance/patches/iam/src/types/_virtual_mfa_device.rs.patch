@@ -5,12 +5,12 @@
      pub qr_code_png: ::std::option::Option<::aws_smithy_types::Blob>,
      /// <p>The IAM user associated with this virtual MFA device.</p>
 -    pub user: ::std::option::Option<crate::types::User>,
-+    pub user: ::std::option::Option<super::types::User>,
++    pub user: ::std::option::Option<super::super::types::User>,
      /// <p>The date and time on which the virtual MFA device was enabled.</p>
      pub enable_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::types::Tag>>,
  }
  impl VirtualMfaDevice {
      /// <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
@@ -19,7 +19,7 @@
      }
      /// <p>The IAM user associated with this virtual MFA device.</p>
 -    pub fn user(&self) -> ::std::option::Option<&crate::types::User> {
-+    pub fn user(&self) -> ::std::option::Option<&super::types::User> {
++    pub fn user(&self) -> ::std::option::Option<&super::super::types::User> {
          self.user.as_ref()
      }
      /// <p>The date and time on which the virtual MFA device was enabled.</p>
@@ -28,7 +28,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
 -    pub fn tags(&self) -> &[crate::types::Tag] {
-+    pub fn tags(&self) -> &[super::types::Tag] {
++    pub fn tags(&self) -> &[super::super::types::Tag] {
          self.tags.as_deref().unwrap_or_default()
      }
  }
@@ -38,8 +38,8 @@
      /// Creates a new builder-style object to manufacture [`VirtualMfaDevice`](crate::types::VirtualMfaDevice).
 -    pub fn builder() -> crate::types::builders::VirtualMfaDeviceBuilder {
 -        crate::types::builders::VirtualMfaDeviceBuilder::default()
-+    pub fn builder() -> super::types::builders::VirtualMfaDeviceBuilder {
-+        super::types::builders::VirtualMfaDeviceBuilder::default()
++    pub fn builder() -> super::super::types::builders::VirtualMfaDeviceBuilder {
++        super::super::types::builders::VirtualMfaDeviceBuilder::default()
      }
  }
 
@@ -48,10 +48,10 @@
      pub(crate) base32_string_seed: ::std::option::Option<::aws_smithy_types::Blob>,
      pub(crate) qr_code_png: ::std::option::Option<::aws_smithy_types::Blob>,
 -    pub(crate) user: ::std::option::Option<crate::types::User>,
-+    pub(crate) user: ::std::option::Option<super::types::User>,
++    pub(crate) user: ::std::option::Option<super::super::types::User>,
      pub(crate) enable_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::super::types::Tag>>,
  }
  impl VirtualMfaDeviceBuilder {
      /// <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
@@ -60,19 +60,19 @@
      }
      /// <p>The IAM user associated with this virtual MFA device.</p>
 -    pub fn user(mut self, input: crate::types::User) -> Self {
-+    pub fn user(mut self, input: super::types::User) -> Self {
++    pub fn user(mut self, input: super::super::types::User) -> Self {
          self.user = ::std::option::Option::Some(input);
          self
      }
      /// <p>The IAM user associated with this virtual MFA device.</p>
 -    pub fn set_user(mut self, input: ::std::option::Option<crate::types::User>) -> Self {
-+    pub fn set_user(mut self, input: ::std::option::Option<super::types::User>) -> Self {
++    pub fn set_user(mut self, input: ::std::option::Option<super::super::types::User>) -> Self {
          self.user = input;
          self
      }
      /// <p>The IAM user associated with this virtual MFA device.</p>
 -    pub fn get_user(&self) -> &::std::option::Option<crate::types::User> {
-+    pub fn get_user(&self) -> &::std::option::Option<super::types::User> {
++    pub fn get_user(&self) -> &::std::option::Option<super::super::types::User> {
          &self.user
      }
      /// <p>The date and time on which the virtual MFA device was enabled.</p>
@@ -81,7 +81,7 @@
      ///
      /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 -    pub fn tags(mut self, input: crate::types::Tag) -> Self {
-+    pub fn tags(mut self, input: super::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::super::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
          self.tags = ::std::option::Option::Some(v);
@@ -90,13 +90,13 @@
      }
      /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 -    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::Tag>>) -> Self {
          self.tags = input;
          self
      }
      /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 -    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
-+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::Tag>> {
          &self.tags
      }
      /// Consumes the builder and constructs a [`VirtualMfaDevice`](crate::types::VirtualMfaDevice).
@@ -104,8 +104,8 @@
      /// - [`serial_number`](crate::types::builders::VirtualMfaDeviceBuilder::serial_number)
 -    pub fn build(self) -> ::std::result::Result<crate::types::VirtualMfaDevice, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::VirtualMfaDevice {
-+    pub fn build(self) -> ::std::result::Result<super::types::VirtualMfaDevice, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::VirtualMfaDevice {
++    pub fn build(self) -> ::std::result::Result<super::super::types::VirtualMfaDevice, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::VirtualMfaDevice {
              serial_number: self.serial_number.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "serial_number",

@@ -5,7 +5,7 @@
      pub username: ::std::option::Option<::std::string::String>,
      /// <p>Names and values of a user's attributes, for example <code>email</code>.</p>
 -    pub attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
-+    pub attributes: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>,
++    pub attributes: ::std::option::Option<::std::vec::Vec<super::super::types::AttributeType>>,
      /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
      pub user_create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -14,10 +14,10 @@
      /// </ul>
      /// <p>The statuses <code>ARCHIVED</code>, <code>UNKNOWN</code>, and <code>COMPROMISED</code> are no longer used.</p>
 -    pub user_status: ::std::option::Option<crate::types::UserStatusType>,
-+    pub user_status: ::std::option::Option<super::types::UserStatusType>,
++    pub user_status: ::std::option::Option<super::super::types::UserStatusType>,
      /// <p>The user's MFA configuration.</p>
 -    pub mfa_options: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>,
-+    pub mfa_options: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>,
++    pub mfa_options: ::std::option::Option<::std::vec::Vec<super::super::types::MfaOptionType>>,
  }
  impl UserType {
      /// <p>The user's username.</p>
@@ -26,7 +26,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attributes.is_none()`.
 -    pub fn attributes(&self) -> &[crate::types::AttributeType] {
-+    pub fn attributes(&self) -> &[super::types::AttributeType] {
++    pub fn attributes(&self) -> &[super::super::types::AttributeType] {
          self.attributes.as_deref().unwrap_or_default()
      }
      /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -35,14 +35,14 @@
      /// </ul>
      /// <p>The statuses <code>ARCHIVED</code>, <code>UNKNOWN</code>, and <code>COMPROMISED</code> are no longer used.</p>
 -    pub fn user_status(&self) -> ::std::option::Option<&crate::types::UserStatusType> {
-+    pub fn user_status(&self) -> ::std::option::Option<&super::types::UserStatusType> {
++    pub fn user_status(&self) -> ::std::option::Option<&super::super::types::UserStatusType> {
          self.user_status.as_ref()
      }
      /// <p>The user's MFA configuration.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.mfa_options.is_none()`.
 -    pub fn mfa_options(&self) -> &[crate::types::MfaOptionType] {
-+    pub fn mfa_options(&self) -> &[super::types::MfaOptionType] {
++    pub fn mfa_options(&self) -> &[super::super::types::MfaOptionType] {
          self.mfa_options.as_deref().unwrap_or_default()
      }
  }
@@ -52,8 +52,8 @@
      /// Creates a new builder-style object to manufacture [`UserType`](crate::types::UserType).
 -    pub fn builder() -> crate::types::builders::UserTypeBuilder {
 -        crate::types::builders::UserTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::UserTypeBuilder {
-+        super::types::builders::UserTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::UserTypeBuilder {
++        super::super::types::builders::UserTypeBuilder::default()
      }
  }
 
@@ -62,14 +62,14 @@
  pub struct UserTypeBuilder {
      pub(crate) username: ::std::option::Option<::std::string::String>,
 -    pub(crate) attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
-+    pub(crate) attributes: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>,
++    pub(crate) attributes: ::std::option::Option<::std::vec::Vec<super::super::types::AttributeType>>,
      pub(crate) user_create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) user_last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) enabled: ::std::option::Option<bool>,
 -    pub(crate) user_status: ::std::option::Option<crate::types::UserStatusType>,
 -    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>,
-+    pub(crate) user_status: ::std::option::Option<super::types::UserStatusType>,
-+    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>,
++    pub(crate) user_status: ::std::option::Option<super::super::types::UserStatusType>,
++    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<super::super::types::MfaOptionType>>,
  }
  impl UserTypeBuilder {
      /// <p>The user's username.</p>
@@ -78,7 +78,7 @@
      ///
      /// <p>Names and values of a user's attributes, for example <code>email</code>.</p>
 -    pub fn attributes(mut self, input: crate::types::AttributeType) -> Self {
-+    pub fn attributes(mut self, input: super::types::AttributeType) -> Self {
++    pub fn attributes(mut self, input: super::super::types::AttributeType) -> Self {
          let mut v = self.attributes.unwrap_or_default();
          v.push(input);
          self.attributes = ::std::option::Option::Some(v);
@@ -87,13 +87,13 @@
      }
      /// <p>Names and values of a user's attributes, for example <code>email</code>.</p>
 -    pub fn set_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
-+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>) -> Self {
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::AttributeType>>) -> Self {
          self.attributes = input;
          self
      }
      /// <p>Names and values of a user's attributes, for example <code>email</code>.</p>
 -    pub fn get_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
-+    pub fn get_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AttributeType>> {
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::AttributeType>> {
          &self.attributes
      }
      /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -102,7 +102,7 @@
      /// </ul>
      /// <p>The statuses <code>ARCHIVED</code>, <code>UNKNOWN</code>, and <code>COMPROMISED</code> are no longer used.</p>
 -    pub fn user_status(mut self, input: crate::types::UserStatusType) -> Self {
-+    pub fn user_status(mut self, input: super::types::UserStatusType) -> Self {
++    pub fn user_status(mut self, input: super::super::types::UserStatusType) -> Self {
          self.user_status = ::std::option::Option::Some(input);
          self
      }
@@ -111,7 +111,7 @@
      /// </ul>
      /// <p>The statuses <code>ARCHIVED</code>, <code>UNKNOWN</code>, and <code>COMPROMISED</code> are no longer used.</p>
 -    pub fn set_user_status(mut self, input: ::std::option::Option<crate::types::UserStatusType>) -> Self {
-+    pub fn set_user_status(mut self, input: ::std::option::Option<super::types::UserStatusType>) -> Self {
++    pub fn set_user_status(mut self, input: ::std::option::Option<super::super::types::UserStatusType>) -> Self {
          self.user_status = input;
          self
      }
@@ -120,7 +120,7 @@
      /// </ul>
      /// <p>The statuses <code>ARCHIVED</code>, <code>UNKNOWN</code>, and <code>COMPROMISED</code> are no longer used.</p>
 -    pub fn get_user_status(&self) -> &::std::option::Option<crate::types::UserStatusType> {
-+    pub fn get_user_status(&self) -> &::std::option::Option<super::types::UserStatusType> {
++    pub fn get_user_status(&self) -> &::std::option::Option<super::super::types::UserStatusType> {
          &self.user_status
      }
      /// Appends an item to `mfa_options`.
@@ -129,7 +129,7 @@
      ///
      /// <p>The user's MFA configuration.</p>
 -    pub fn mfa_options(mut self, input: crate::types::MfaOptionType) -> Self {
-+    pub fn mfa_options(mut self, input: super::types::MfaOptionType) -> Self {
++    pub fn mfa_options(mut self, input: super::super::types::MfaOptionType) -> Self {
          let mut v = self.mfa_options.unwrap_or_default();
          v.push(input);
          self.mfa_options = ::std::option::Option::Some(v);
@@ -138,20 +138,20 @@
      }
      /// <p>The user's MFA configuration.</p>
 -    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>) -> Self {
-+    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>) -> Self {
++    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::MfaOptionType>>) -> Self {
          self.mfa_options = input;
          self
      }
      /// <p>The user's MFA configuration.</p>
 -    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>> {
-+    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>> {
++    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::MfaOptionType>> {
          &self.mfa_options
      }
      /// Consumes the builder and constructs a [`UserType`](crate::types::UserType).
 -    pub fn build(self) -> crate::types::UserType {
 -        crate::types::UserType {
-+    pub fn build(self) -> super::types::UserType {
-+        super::types::UserType {
++    pub fn build(self) -> super::super::types::UserType {
++        super::super::types::UserType {
              username: self.username,
              attributes: self.attributes,
              user_create_date: self.user_create_date,

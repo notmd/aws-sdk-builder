@@ -5,12 +5,12 @@
  pub struct SubstituteString {
      /// <p>An array of objects, where each object contains the information about one key to match and replace.</p>
 -    pub entries: ::std::vec::Vec<crate::types::SubstituteStringEntry>,
-+    pub entries: ::std::vec::Vec<super::types::SubstituteStringEntry>,
++    pub entries: ::std::vec::Vec<super::super::types::SubstituteStringEntry>,
  }
  impl SubstituteString {
      /// <p>An array of objects, where each object contains the information about one key to match and replace.</p>
 -    pub fn entries(&self) -> &[crate::types::SubstituteStringEntry] {
-+    pub fn entries(&self) -> &[super::types::SubstituteStringEntry] {
++    pub fn entries(&self) -> &[super::super::types::SubstituteStringEntry] {
          use std::ops::Deref;
          self.entries.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`SubstituteString`](crate::types::SubstituteString).
 -    pub fn builder() -> crate::types::builders::SubstituteStringBuilder {
 -        crate::types::builders::SubstituteStringBuilder::default()
-+    pub fn builder() -> super::types::builders::SubstituteStringBuilder {
-+        super::types::builders::SubstituteStringBuilder::default()
++    pub fn builder() -> super::super::types::builders::SubstituteStringBuilder {
++        super::super::types::builders::SubstituteStringBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct SubstituteStringBuilder {
 -    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::SubstituteStringEntry>>,
-+    pub(crate) entries: ::std::option::Option<::std::vec::Vec<super::types::SubstituteStringEntry>>,
++    pub(crate) entries: ::std::option::Option<::std::vec::Vec<super::super::types::SubstituteStringEntry>>,
  }
  impl SubstituteStringBuilder {
      /// Appends an item to `entries`.
@@ -39,7 +39,7 @@
      ///
      /// <p>An array of objects, where each object contains the information about one key to match and replace.</p>
 -    pub fn entries(mut self, input: crate::types::SubstituteStringEntry) -> Self {
-+    pub fn entries(mut self, input: super::types::SubstituteStringEntry) -> Self {
++    pub fn entries(mut self, input: super::super::types::SubstituteStringEntry) -> Self {
          let mut v = self.entries.unwrap_or_default();
          v.push(input);
          self.entries = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>An array of objects, where each object contains the information about one key to match and replace.</p>
 -    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SubstituteStringEntry>>) -> Self {
-+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SubstituteStringEntry>>) -> Self {
++    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::SubstituteStringEntry>>) -> Self {
          self.entries = input;
          self
      }
      /// <p>An array of objects, where each object contains the information about one key to match and replace.</p>
 -    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SubstituteStringEntry>> {
-+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SubstituteStringEntry>> {
++    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::SubstituteStringEntry>> {
          &self.entries
      }
      /// Consumes the builder and constructs a [`SubstituteString`](crate::types::SubstituteString).
@@ -62,8 +62,8 @@
      /// - [`entries`](crate::types::builders::SubstituteStringBuilder::entries)
 -    pub fn build(self) -> ::std::result::Result<crate::types::SubstituteString, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::SubstituteString {
-+    pub fn build(self) -> ::std::result::Result<super::types::SubstituteString, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::SubstituteString {
++    pub fn build(self) -> ::std::result::Result<super::super::types::SubstituteString, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::SubstituteString {
              entries: self.entries.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "entries",

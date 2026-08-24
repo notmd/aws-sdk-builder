@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListGroupsError>`](crate::operation::list_groups::ListGroupsError)
 -    pub fn list_groups(&self) -> crate::operation::list_groups::builders::ListGroupsFluentBuilder {
 -        crate::operation::list_groups::builders::ListGroupsFluentBuilder::new(self.handle.clone())
-+    pub fn list_groups(&self) -> super::operation::list_groups::builders::ListGroupsFluentBuilder {
-+        super::operation::list_groups::builders::ListGroupsFluentBuilder::new(self.handle.clone())
++    pub fn list_groups(&self) -> super::super::operation::list_groups::builders::ListGroupsFluentBuilder {
++        super::super::operation::list_groups::builders::ListGroupsFluentBuilder::new(self.handle.clone())
      }
  }

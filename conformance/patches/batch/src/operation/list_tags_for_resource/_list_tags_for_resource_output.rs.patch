@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListTagsForResourceOutput`](crate::operation::list_tags_for_resource::ListTagsForResourceOutput).
 -    pub fn builder() -> crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder {
 -        crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder {
-+        super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder {
++        super::super::super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ListTagsForResourceOutput`](crate::operation::list_tags_for_resource::ListTagsForResourceOutput).
 -    pub fn build(self) -> crate::operation::list_tags_for_resource::ListTagsForResourceOutput {
 -        crate::operation::list_tags_for_resource::ListTagsForResourceOutput {
-+    pub fn build(self) -> super::operation::list_tags_for_resource::ListTagsForResourceOutput {
-+        super::operation::list_tags_for_resource::ListTagsForResourceOutput {
++    pub fn build(self) -> super::super::super::operation::list_tags_for_resource::ListTagsForResourceOutput {
++        super::super::super::operation::list_tags_for_resource::ListTagsForResourceOutput {
              tags: self.tags,
              _request_id: self._request_id,
          }

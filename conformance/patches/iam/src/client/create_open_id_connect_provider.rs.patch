@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::create_open_id_connect_provider::builders::CreateOpenIDConnectProviderFluentBuilder {
 -        crate::operation::create_open_id_connect_provider::builders::CreateOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::create_open_id_connect_provider::builders::CreateOpenIDConnectProviderFluentBuilder {
-+        super::operation::create_open_id_connect_provider::builders::CreateOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::create_open_id_connect_provider::builders::CreateOpenIDConnectProviderFluentBuilder {
++        super::super::operation::create_open_id_connect_provider::builders::CreateOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
      }
  }

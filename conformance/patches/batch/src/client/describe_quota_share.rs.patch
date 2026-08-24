@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeQuotaShareError>`](crate::operation::describe_quota_share::DescribeQuotaShareError)
 -    pub fn describe_quota_share(&self) -> crate::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder {
 -        crate::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder::new(self.handle.clone())
-+    pub fn describe_quota_share(&self) -> super::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder {
-+        super::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder::new(self.handle.clone())
++    pub fn describe_quota_share(&self) -> super::super::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder {
++        super::super::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder::new(self.handle.clone())
      }
  }

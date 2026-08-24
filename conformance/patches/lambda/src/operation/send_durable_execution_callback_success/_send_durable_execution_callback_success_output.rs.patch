@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackSuccessOutput`](crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessOutput).
 -    pub fn builder() -> crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder {
 -        crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder::default()
-+    pub fn builder() -> super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder {
-+        super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder {
++        super::super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`SendDurableExecutionCallbackSuccessOutput`](crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessOutput).
 -    pub fn build(self) -> crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessOutput {
 -        crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessOutput {
-+    pub fn build(self) -> super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessOutput {
-+        super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessOutput {
++    pub fn build(self) -> super::super::super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessOutput {
++        super::super::super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessOutput {
              _request_id: self._request_id,
          }
      }

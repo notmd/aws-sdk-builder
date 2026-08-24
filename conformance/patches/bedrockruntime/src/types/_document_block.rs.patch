@@ -5,7 +5,7 @@
  pub struct DocumentBlock {
      /// <p>The format of a document, or its extension.</p>
 -    pub format: crate::types::DocumentFormat,
-+    pub format: super::types::DocumentFormat,
++    pub format: super::super::types::DocumentFormat,
      /// <p>A name for the document. The name can only contain the following characters:</p>
      /// <ul>
      /// <li>
@@ -14,17 +14,17 @@
      pub name: ::std::string::String,
      /// <p>Contains the content of the document.</p>
 -    pub source: ::std::option::Option<crate::types::DocumentSource>,
-+    pub source: ::std::option::Option<super::types::DocumentSource>,
++    pub source: ::std::option::Option<super::super::types::DocumentSource>,
      /// <p>Contextual information about how the document should be processed or interpreted by the model when generating citations.</p>
      pub context: ::std::option::Option<::std::string::String>,
      /// <p>Configuration settings that control how citations should be generated for this specific document.</p>
 -    pub citations: ::std::option::Option<crate::types::CitationsConfig>,
-+    pub citations: ::std::option::Option<super::types::CitationsConfig>,
++    pub citations: ::std::option::Option<super::super::types::CitationsConfig>,
  }
  impl DocumentBlock {
      /// <p>The format of a document, or its extension.</p>
 -    pub fn format(&self) -> &crate::types::DocumentFormat {
-+    pub fn format(&self) -> &super::types::DocumentFormat {
++    pub fn format(&self) -> &super::super::types::DocumentFormat {
          &self.format
      }
      /// <p>A name for the document. The name can only contain the following characters:</p>
@@ -33,7 +33,7 @@
      }
      /// <p>Contains the content of the document.</p>
 -    pub fn source(&self) -> ::std::option::Option<&crate::types::DocumentSource> {
-+    pub fn source(&self) -> ::std::option::Option<&super::types::DocumentSource> {
++    pub fn source(&self) -> ::std::option::Option<&super::super::types::DocumentSource> {
          self.source.as_ref()
      }
      /// <p>Contextual information about how the document should be processed or interpreted by the model when generating citations.</p>
@@ -42,7 +42,7 @@
      }
      /// <p>Configuration settings that control how citations should be generated for this specific document.</p>
 -    pub fn citations(&self) -> ::std::option::Option<&crate::types::CitationsConfig> {
-+    pub fn citations(&self) -> ::std::option::Option<&super::types::CitationsConfig> {
++    pub fn citations(&self) -> ::std::option::Option<&super::super::types::CitationsConfig> {
          self.citations.as_ref()
      }
  }
@@ -50,8 +50,8 @@
      /// Creates a new builder-style object to manufacture [`DocumentBlock`](crate::types::DocumentBlock).
 -    pub fn builder() -> crate::types::builders::DocumentBlockBuilder {
 -        crate::types::builders::DocumentBlockBuilder::default()
-+    pub fn builder() -> super::types::builders::DocumentBlockBuilder {
-+        super::types::builders::DocumentBlockBuilder::default()
++    pub fn builder() -> super::super::types::builders::DocumentBlockBuilder {
++        super::super::types::builders::DocumentBlockBuilder::default()
      }
  }
 
@@ -60,30 +60,30 @@
  #[non_exhaustive]
  pub struct DocumentBlockBuilder {
 -    pub(crate) format: ::std::option::Option<crate::types::DocumentFormat>,
-+    pub(crate) format: ::std::option::Option<super::types::DocumentFormat>,
++    pub(crate) format: ::std::option::Option<super::super::types::DocumentFormat>,
      pub(crate) name: ::std::option::Option<::std::string::String>,
 -    pub(crate) source: ::std::option::Option<crate::types::DocumentSource>,
-+    pub(crate) source: ::std::option::Option<super::types::DocumentSource>,
++    pub(crate) source: ::std::option::Option<super::super::types::DocumentSource>,
      pub(crate) context: ::std::option::Option<::std::string::String>,
 -    pub(crate) citations: ::std::option::Option<crate::types::CitationsConfig>,
-+    pub(crate) citations: ::std::option::Option<super::types::CitationsConfig>,
++    pub(crate) citations: ::std::option::Option<super::super::types::CitationsConfig>,
  }
  impl DocumentBlockBuilder {
      /// <p>The format of a document, or its extension.</p>
 -    pub fn format(mut self, input: crate::types::DocumentFormat) -> Self {
-+    pub fn format(mut self, input: super::types::DocumentFormat) -> Self {
++    pub fn format(mut self, input: super::super::types::DocumentFormat) -> Self {
          self.format = ::std::option::Option::Some(input);
          self
      }
      /// <p>The format of a document, or its extension.</p>
 -    pub fn set_format(mut self, input: ::std::option::Option<crate::types::DocumentFormat>) -> Self {
-+    pub fn set_format(mut self, input: ::std::option::Option<super::types::DocumentFormat>) -> Self {
++    pub fn set_format(mut self, input: ::std::option::Option<super::super::types::DocumentFormat>) -> Self {
          self.format = input;
          self
      }
      /// <p>The format of a document, or its extension.</p>
 -    pub fn get_format(&self) -> &::std::option::Option<crate::types::DocumentFormat> {
-+    pub fn get_format(&self) -> &::std::option::Option<super::types::DocumentFormat> {
++    pub fn get_format(&self) -> &::std::option::Option<super::super::types::DocumentFormat> {
          &self.format
      }
      /// <p>A name for the document. The name can only contain the following characters:</p>
@@ -92,19 +92,19 @@
      /// <p>Contains the content of the document.</p>
      /// This field is required.
 -    pub fn source(mut self, input: crate::types::DocumentSource) -> Self {
-+    pub fn source(mut self, input: super::types::DocumentSource) -> Self {
++    pub fn source(mut self, input: super::super::types::DocumentSource) -> Self {
          self.source = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains the content of the document.</p>
 -    pub fn set_source(mut self, input: ::std::option::Option<crate::types::DocumentSource>) -> Self {
-+    pub fn set_source(mut self, input: ::std::option::Option<super::types::DocumentSource>) -> Self {
++    pub fn set_source(mut self, input: ::std::option::Option<super::super::types::DocumentSource>) -> Self {
          self.source = input;
          self
      }
      /// <p>Contains the content of the document.</p>
 -    pub fn get_source(&self) -> &::std::option::Option<crate::types::DocumentSource> {
-+    pub fn get_source(&self) -> &::std::option::Option<super::types::DocumentSource> {
++    pub fn get_source(&self) -> &::std::option::Option<super::super::types::DocumentSource> {
          &self.source
      }
      /// <p>Contextual information about how the document should be processed or interpreted by the model when generating citations.</p>
@@ -113,19 +113,19 @@
      }
      /// <p>Configuration settings that control how citations should be generated for this specific document.</p>
 -    pub fn citations(mut self, input: crate::types::CitationsConfig) -> Self {
-+    pub fn citations(mut self, input: super::types::CitationsConfig) -> Self {
++    pub fn citations(mut self, input: super::super::types::CitationsConfig) -> Self {
          self.citations = ::std::option::Option::Some(input);
          self
      }
      /// <p>Configuration settings that control how citations should be generated for this specific document.</p>
 -    pub fn set_citations(mut self, input: ::std::option::Option<crate::types::CitationsConfig>) -> Self {
-+    pub fn set_citations(mut self, input: ::std::option::Option<super::types::CitationsConfig>) -> Self {
++    pub fn set_citations(mut self, input: ::std::option::Option<super::super::types::CitationsConfig>) -> Self {
          self.citations = input;
          self
      }
      /// <p>Configuration settings that control how citations should be generated for this specific document.</p>
 -    pub fn get_citations(&self) -> &::std::option::Option<crate::types::CitationsConfig> {
-+    pub fn get_citations(&self) -> &::std::option::Option<super::types::CitationsConfig> {
++    pub fn get_citations(&self) -> &::std::option::Option<super::super::types::CitationsConfig> {
          &self.citations
      }
      /// Consumes the builder and constructs a [`DocumentBlock`](crate::types::DocumentBlock).
@@ -133,12 +133,12 @@
      /// - [`name`](crate::types::builders::DocumentBlockBuilder::name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::DocumentBlock, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::DocumentBlock {
-+    pub fn build(self) -> ::std::result::Result<super::types::DocumentBlock, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::DocumentBlock {
++    pub fn build(self) -> ::std::result::Result<super::super::types::DocumentBlock, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::DocumentBlock {
              format: self
                  .format
 -                .unwrap_or("txt".parse::<crate::types::DocumentFormat>().expect("static value validated to member")),
-+                .unwrap_or("txt".parse::<super::types::DocumentFormat>().expect("static value validated to member")),
++                .unwrap_or("txt".parse::<super::super::types::DocumentFormat>().expect("static value validated to member")),
              name: self.name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "name",

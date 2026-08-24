@@ -5,12 +5,12 @@
      /// </note>
      /// <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value. However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code> instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code> value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code> instance.</p>
 -    pub state: ::std::option::Option<crate::types::CeState>,
-+    pub state: ::std::option::Option<super::types::CeState>,
++    pub state: ::std::option::Option<super::super::super::types::CeState>,
      /// <p>The maximum number of vCPUs expected to be used for an unmanaged compute environment. Don't specify this parameter for a managed compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</p>
      pub unmanagedv_cpus: ::std::option::Option<i32>,
      /// <p>Details of the compute resources managed by the compute environment. Required for a managed compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub compute_resources: ::std::option::Option<crate::types::ComputeResourceUpdate>,
-+    pub compute_resources: ::std::option::Option<super::types::ComputeResourceUpdate>,
++    pub compute_resources: ::std::option::Option<super::super::super::types::ComputeResourceUpdate>,
      /// <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM role</a> in the <i>Batch User Guide</i>.</p><important>
      /// <p>If the compute environment has a service-linked role, it can't be changed to use a regular IAM role. Likewise, if the compute environment has a regular IAM role, it can't be changed to use a service-linked role. To update the parameters for the compute environment that require an infrastructure update to change, the <b>AWSServiceRoleForBatch</b> service-linked role must be used. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
      /// </important>
@@ -19,12 +19,12 @@
      pub service_role: ::std::option::Option<::std::string::String>,
      /// <p>Specifies the updated infrastructure update policy for the compute environment. For more information about infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub update_policy: ::std::option::Option<crate::types::UpdatePolicy>,
-+    pub update_policy: ::std::option::Option<super::types::UpdatePolicy>,
++    pub update_policy: ::std::option::Option<super::super::super::types::UpdatePolicy>,
      /// <p>Reserved.</p>
      pub context: ::std::option::Option<::std::string::String>,
      /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
 -    pub ecs_settings: ::std::option::Option<crate::types::EcsSettings>,
-+    pub ecs_settings: ::std::option::Option<super::types::EcsSettings>,
++    pub ecs_settings: ::std::option::Option<super::super::super::types::EcsSettings>,
  }
  impl UpdateComputeEnvironmentInput {
      /// <p>The name or full Amazon Resource Name (ARN) of the compute environment to update.</p>
@@ -33,7 +33,7 @@
      /// </note>
      /// <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value. However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code> instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code> value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code> instance.</p>
 -    pub fn state(&self) -> ::std::option::Option<&crate::types::CeState> {
-+    pub fn state(&self) -> ::std::option::Option<&super::types::CeState> {
++    pub fn state(&self) -> ::std::option::Option<&super::super::super::types::CeState> {
          self.state.as_ref()
      }
      /// <p>The maximum number of vCPUs expected to be used for an unmanaged compute environment. Don't specify this parameter for a managed compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</p>
@@ -42,7 +42,7 @@
      }
      /// <p>Details of the compute resources managed by the compute environment. Required for a managed compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn compute_resources(&self) -> ::std::option::Option<&crate::types::ComputeResourceUpdate> {
-+    pub fn compute_resources(&self) -> ::std::option::Option<&super::types::ComputeResourceUpdate> {
++    pub fn compute_resources(&self) -> ::std::option::Option<&super::super::super::types::ComputeResourceUpdate> {
          self.compute_resources.as_ref()
      }
      /// <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM role</a> in the <i>Batch User Guide</i>.</p><important>
@@ -51,7 +51,7 @@
      }
      /// <p>Specifies the updated infrastructure update policy for the compute environment. For more information about infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn update_policy(&self) -> ::std::option::Option<&crate::types::UpdatePolicy> {
-+    pub fn update_policy(&self) -> ::std::option::Option<&super::types::UpdatePolicy> {
++    pub fn update_policy(&self) -> ::std::option::Option<&super::super::super::types::UpdatePolicy> {
          self.update_policy.as_ref()
      }
      /// <p>Reserved.</p>
@@ -60,7 +60,7 @@
      }
      /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
 -    pub fn ecs_settings(&self) -> ::std::option::Option<&crate::types::EcsSettings> {
-+    pub fn ecs_settings(&self) -> ::std::option::Option<&super::types::EcsSettings> {
++    pub fn ecs_settings(&self) -> ::std::option::Option<&super::super::super::types::EcsSettings> {
          self.ecs_settings.as_ref()
      }
  }
@@ -68,8 +68,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateComputeEnvironmentInput`](crate::operation::update_compute_environment::UpdateComputeEnvironmentInput).
 -    pub fn builder() -> crate::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder {
 -        crate::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder::default()
-+    pub fn builder() -> super::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder {
-+        super::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder {
++        super::super::super::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder::default()
      }
  }
 
@@ -78,16 +78,16 @@
  pub struct UpdateComputeEnvironmentInputBuilder {
      pub(crate) compute_environment: ::std::option::Option<::std::string::String>,
 -    pub(crate) state: ::std::option::Option<crate::types::CeState>,
-+    pub(crate) state: ::std::option::Option<super::types::CeState>,
++    pub(crate) state: ::std::option::Option<super::super::super::types::CeState>,
      pub(crate) unmanagedv_cpus: ::std::option::Option<i32>,
 -    pub(crate) compute_resources: ::std::option::Option<crate::types::ComputeResourceUpdate>,
-+    pub(crate) compute_resources: ::std::option::Option<super::types::ComputeResourceUpdate>,
++    pub(crate) compute_resources: ::std::option::Option<super::super::super::types::ComputeResourceUpdate>,
      pub(crate) service_role: ::std::option::Option<::std::string::String>,
 -    pub(crate) update_policy: ::std::option::Option<crate::types::UpdatePolicy>,
-+    pub(crate) update_policy: ::std::option::Option<super::types::UpdatePolicy>,
++    pub(crate) update_policy: ::std::option::Option<super::super::super::types::UpdatePolicy>,
      pub(crate) context: ::std::option::Option<::std::string::String>,
 -    pub(crate) ecs_settings: ::std::option::Option<crate::types::EcsSettings>,
-+    pub(crate) ecs_settings: ::std::option::Option<super::types::EcsSettings>,
++    pub(crate) ecs_settings: ::std::option::Option<super::super::super::types::EcsSettings>,
  }
  impl UpdateComputeEnvironmentInputBuilder {
      /// <p>The name or full Amazon Resource Name (ARN) of the compute environment to update.</p>
@@ -96,7 +96,7 @@
      /// </note>
      /// <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value. However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code> instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code> value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code> instance.</p>
 -    pub fn state(mut self, input: crate::types::CeState) -> Self {
-+    pub fn state(mut self, input: super::types::CeState) -> Self {
++    pub fn state(mut self, input: super::super::super::types::CeState) -> Self {
          self.state = ::std::option::Option::Some(input);
          self
      }
@@ -105,7 +105,7 @@
      /// </note>
      /// <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value. However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code> instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code> value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code> instance.</p>
 -    pub fn set_state(mut self, input: ::std::option::Option<crate::types::CeState>) -> Self {
-+    pub fn set_state(mut self, input: ::std::option::Option<super::types::CeState>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::super::super::types::CeState>) -> Self {
          self.state = input;
          self
      }
@@ -114,7 +114,7 @@
      /// </note>
      /// <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value. However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code> instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code> value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code> instance.</p>
 -    pub fn get_state(&self) -> &::std::option::Option<crate::types::CeState> {
-+    pub fn get_state(&self) -> &::std::option::Option<super::types::CeState> {
++    pub fn get_state(&self) -> &::std::option::Option<super::super::super::types::CeState> {
          &self.state
      }
      /// <p>The maximum number of vCPUs expected to be used for an unmanaged compute environment. Don't specify this parameter for a managed compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</p>
@@ -123,19 +123,19 @@
      }
      /// <p>Details of the compute resources managed by the compute environment. Required for a managed compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn compute_resources(mut self, input: crate::types::ComputeResourceUpdate) -> Self {
-+    pub fn compute_resources(mut self, input: super::types::ComputeResourceUpdate) -> Self {
++    pub fn compute_resources(mut self, input: super::super::super::types::ComputeResourceUpdate) -> Self {
          self.compute_resources = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details of the compute resources managed by the compute environment. Required for a managed compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn set_compute_resources(mut self, input: ::std::option::Option<crate::types::ComputeResourceUpdate>) -> Self {
-+    pub fn set_compute_resources(mut self, input: ::std::option::Option<super::types::ComputeResourceUpdate>) -> Self {
++    pub fn set_compute_resources(mut self, input: ::std::option::Option<super::super::super::types::ComputeResourceUpdate>) -> Self {
          self.compute_resources = input;
          self
      }
      /// <p>Details of the compute resources managed by the compute environment. Required for a managed compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn get_compute_resources(&self) -> &::std::option::Option<crate::types::ComputeResourceUpdate> {
-+    pub fn get_compute_resources(&self) -> &::std::option::Option<super::types::ComputeResourceUpdate> {
++    pub fn get_compute_resources(&self) -> &::std::option::Option<super::super::super::types::ComputeResourceUpdate> {
          &self.compute_resources
      }
      /// <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM role</a> in the <i>Batch User Guide</i>.</p><important>
@@ -144,19 +144,19 @@
      }
      /// <p>Specifies the updated infrastructure update policy for the compute environment. For more information about infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn update_policy(mut self, input: crate::types::UpdatePolicy) -> Self {
-+    pub fn update_policy(mut self, input: super::types::UpdatePolicy) -> Self {
++    pub fn update_policy(mut self, input: super::super::super::types::UpdatePolicy) -> Self {
          self.update_policy = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies the updated infrastructure update policy for the compute environment. For more information about infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn set_update_policy(mut self, input: ::std::option::Option<crate::types::UpdatePolicy>) -> Self {
-+    pub fn set_update_policy(mut self, input: ::std::option::Option<super::types::UpdatePolicy>) -> Self {
++    pub fn set_update_policy(mut self, input: ::std::option::Option<super::super::super::types::UpdatePolicy>) -> Self {
          self.update_policy = input;
          self
      }
      /// <p>Specifies the updated infrastructure update policy for the compute environment. For more information about infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn get_update_policy(&self) -> &::std::option::Option<crate::types::UpdatePolicy> {
-+    pub fn get_update_policy(&self) -> &::std::option::Option<super::types::UpdatePolicy> {
++    pub fn get_update_policy(&self) -> &::std::option::Option<super::super::super::types::UpdatePolicy> {
          &self.update_policy
      }
      /// <p>Reserved.</p>
@@ -165,19 +165,19 @@
      }
      /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
 -    pub fn ecs_settings(mut self, input: crate::types::EcsSettings) -> Self {
-+    pub fn ecs_settings(mut self, input: super::types::EcsSettings) -> Self {
++    pub fn ecs_settings(mut self, input: super::super::super::types::EcsSettings) -> Self {
          self.ecs_settings = ::std::option::Option::Some(input);
          self
      }
      /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
 -    pub fn set_ecs_settings(mut self, input: ::std::option::Option<crate::types::EcsSettings>) -> Self {
-+    pub fn set_ecs_settings(mut self, input: ::std::option::Option<super::types::EcsSettings>) -> Self {
++    pub fn set_ecs_settings(mut self, input: ::std::option::Option<super::super::super::types::EcsSettings>) -> Self {
          self.ecs_settings = input;
          self
      }
      /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
 -    pub fn get_ecs_settings(&self) -> &::std::option::Option<crate::types::EcsSettings> {
-+    pub fn get_ecs_settings(&self) -> &::std::option::Option<super::types::EcsSettings> {
++    pub fn get_ecs_settings(&self) -> &::std::option::Option<super::super::super::types::EcsSettings> {
          &self.ecs_settings
      }
      /// Consumes the builder and constructs a [`UpdateComputeEnvironmentInput`](crate::operation::update_compute_environment::UpdateComputeEnvironmentInput).
@@ -186,11 +186,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::update_compute_environment::UpdateComputeEnvironmentInput,
-+        super::operation::update_compute_environment::UpdateComputeEnvironmentInput,
++        super::super::super::operation::update_compute_environment::UpdateComputeEnvironmentInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::update_compute_environment::UpdateComputeEnvironmentInput {
-+        ::std::result::Result::Ok(super::operation::update_compute_environment::UpdateComputeEnvironmentInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_compute_environment::UpdateComputeEnvironmentInput {
              compute_environment: self.compute_environment,
              state: self.state,
              unmanagedv_cpus: self.unmanagedv_cpus,

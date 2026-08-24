@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetBucketPolicyStatusError>`](crate::operation::get_bucket_policy_status::GetBucketPolicyStatusError)
 -    pub fn get_bucket_policy_status(&self) -> crate::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusFluentBuilder {
 -        crate::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusFluentBuilder::new(self.handle.clone())
-+    pub fn get_bucket_policy_status(&self) -> super::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusFluentBuilder {
-+        super::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusFluentBuilder::new(self.handle.clone())
++    pub fn get_bucket_policy_status(&self) -> super::super::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusFluentBuilder {
++        super::super::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusFluentBuilder::new(self.handle.clone())
      }
  }

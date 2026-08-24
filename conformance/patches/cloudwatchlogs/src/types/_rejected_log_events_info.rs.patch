@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RejectedLogEventsInfo`](crate::types::RejectedLogEventsInfo).
 -    pub fn builder() -> crate::types::builders::RejectedLogEventsInfoBuilder {
 -        crate::types::builders::RejectedLogEventsInfoBuilder::default()
-+    pub fn builder() -> super::types::builders::RejectedLogEventsInfoBuilder {
-+        super::types::builders::RejectedLogEventsInfoBuilder::default()
++    pub fn builder() -> super::super::types::builders::RejectedLogEventsInfoBuilder {
++        super::super::types::builders::RejectedLogEventsInfoBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`RejectedLogEventsInfo`](crate::types::RejectedLogEventsInfo).
 -    pub fn build(self) -> crate::types::RejectedLogEventsInfo {
 -        crate::types::RejectedLogEventsInfo {
-+    pub fn build(self) -> super::types::RejectedLogEventsInfo {
-+        super::types::RejectedLogEventsInfo {
++    pub fn build(self) -> super::super::types::RejectedLogEventsInfo {
++        super::super::types::RejectedLogEventsInfo {
              too_new_log_event_start_index: self.too_new_log_event_start_index,
              too_old_log_event_end_index: self.too_old_log_event_end_index,
              expired_log_event_end_index: self.expired_log_event_end_index,

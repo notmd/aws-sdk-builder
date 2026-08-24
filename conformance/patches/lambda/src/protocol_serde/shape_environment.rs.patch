@@ -5,7 +5,7 @@
  pub fn ser_environment(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::Environment,
-+    input: &super::types::Environment,
++    input: &super::super::types::Environment,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.variables {
          #[allow(unused_mut)]

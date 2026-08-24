@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListImportsError>`](crate::operation::list_imports::ListImportsError)
 -    pub fn list_imports(&self) -> crate::operation::list_imports::builders::ListImportsFluentBuilder {
 -        crate::operation::list_imports::builders::ListImportsFluentBuilder::new(self.handle.clone())
-+    pub fn list_imports(&self) -> super::operation::list_imports::builders::ListImportsFluentBuilder {
-+        super::operation::list_imports::builders::ListImportsFluentBuilder::new(self.handle.clone())
++    pub fn list_imports(&self) -> super::super::operation::list_imports::builders::ListImportsFluentBuilder {
++        super::super::operation::list_imports::builders::ListImportsFluentBuilder::new(self.handle.clone())
      }
  }

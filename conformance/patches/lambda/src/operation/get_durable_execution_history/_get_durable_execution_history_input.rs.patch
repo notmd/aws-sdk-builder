@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetDurableExecutionHistoryInput`](crate::operation::get_durable_execution_history::GetDurableExecutionHistoryInput).
 -    pub fn builder() -> crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryInputBuilder {
 -        crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryInputBuilder::default()
-+    pub fn builder() -> super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryInputBuilder {
-+        super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryInputBuilder {
++        super::super::super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
-+        super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
++        super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
-+        ::std::result::Result::Ok(super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
              durable_execution_arn: self.durable_execution_arn,
              include_execution_data: self.include_execution_data,
              max_items: self.max_items,

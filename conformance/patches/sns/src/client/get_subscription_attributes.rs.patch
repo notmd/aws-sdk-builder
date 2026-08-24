@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetSubscriptionAttributesError>`](crate::operation::get_subscription_attributes::GetSubscriptionAttributesError)
 -    pub fn get_subscription_attributes(&self) -> crate::operation::get_subscription_attributes::builders::GetSubscriptionAttributesFluentBuilder {
 -        crate::operation::get_subscription_attributes::builders::GetSubscriptionAttributesFluentBuilder::new(self.handle.clone())
-+    pub fn get_subscription_attributes(&self) -> super::operation::get_subscription_attributes::builders::GetSubscriptionAttributesFluentBuilder {
-+        super::operation::get_subscription_attributes::builders::GetSubscriptionAttributesFluentBuilder::new(self.handle.clone())
++    pub fn get_subscription_attributes(&self) -> super::super::operation::get_subscription_attributes::builders::GetSubscriptionAttributesFluentBuilder {
++        super::super::operation::get_subscription_attributes::builders::GetSubscriptionAttributesFluentBuilder::new(self.handle.clone())
      }
  }

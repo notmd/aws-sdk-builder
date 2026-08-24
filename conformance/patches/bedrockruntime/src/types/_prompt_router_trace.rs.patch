@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PromptRouterTrace`](crate::types::PromptRouterTrace).
 -    pub fn builder() -> crate::types::builders::PromptRouterTraceBuilder {
 -        crate::types::builders::PromptRouterTraceBuilder::default()
-+    pub fn builder() -> super::types::builders::PromptRouterTraceBuilder {
-+        super::types::builders::PromptRouterTraceBuilder::default()
++    pub fn builder() -> super::super::types::builders::PromptRouterTraceBuilder {
++        super::super::types::builders::PromptRouterTraceBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PromptRouterTrace`](crate::types::PromptRouterTrace).
 -    pub fn build(self) -> crate::types::PromptRouterTrace {
 -        crate::types::PromptRouterTrace {
-+    pub fn build(self) -> super::types::PromptRouterTrace {
-+        super::types::PromptRouterTrace {
++    pub fn build(self) -> super::super::types::PromptRouterTrace {
++        super::super::types::PromptRouterTrace {
              invoked_model_id: self.invoked_model_id,
          }
      }

@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::get_resource_config_history::GetResourceConfigHistoryOutput,
 -    crate::operation::get_resource_config_history::GetResourceConfigHistoryError,
-+    super::operation::get_resource_config_history::GetResourceConfigHistoryOutput,
-+    super::operation::get_resource_config_history::GetResourceConfigHistoryError,
++    super::super::operation::get_resource_config_history::GetResourceConfigHistoryOutput,
++    super::super::operation::get_resource_config_history::GetResourceConfigHistoryError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled(
-+            return Err(super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled(
++            return Err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled(
                  generic,
              ))
          }
@@ -29,16 +29,16 @@
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InvalidLimitException" => crate::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidLimitException({
-+        "InvalidLimitException" => super::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidLimitException({
++        "InvalidLimitException" => super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidLimitException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidLimitExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidLimitExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -47,16 +47,16 @@
              tmp
          }),
 -        "InvalidNextTokenException" => crate::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidNextTokenException({
-+        "InvalidNextTokenException" => super::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidNextTokenException({
++        "InvalidNextTokenException" => super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidNextTokenException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidNextTokenExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -65,16 +65,16 @@
              tmp
          }),
 -        "InvalidTimeRangeException" => crate::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidTimeRangeException({
-+        "InvalidTimeRangeException" => super::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidTimeRangeException({
++        "InvalidTimeRangeException" => super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidTimeRangeException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidTimeRangeExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_time_range_exception::de_invalid_time_range_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidTimeRangeExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_time_range_exception::de_invalid_time_range_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidTimeRangeExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_time_range_exception::de_invalid_time_range_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -83,14 +83,14 @@
          }),
          "NoAvailableConfigurationRecorderException" => {
 -            crate::operation::get_resource_config_history::GetResourceConfigHistoryError::NoAvailableConfigurationRecorderException({
-+            super::operation::get_resource_config_history::GetResourceConfigHistoryError::NoAvailableConfigurationRecorderException({
++            super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::NoAvailableConfigurationRecorderException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_no_available_configuration_recorder_exception::de_no_available_configuration_recorder_exception_json_err(_response_body, output).map_err(crate::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
-+                    let mut output = super::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_no_available_configuration_recorder_exception::de_no_available_configuration_recorder_exception_json_err(_response_body, output).map_err(super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
++                    let mut output = super::super::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_no_available_configuration_recorder_exception::de_no_available_configuration_recorder_exception_json_err(_response_body, output).map_err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -99,19 +99,19 @@
          }
          "ResourceNotDiscoveredException" => {
 -            crate::operation::get_resource_config_history::GetResourceConfigHistoryError::ResourceNotDiscoveredException({
-+            super::operation::get_resource_config_history::GetResourceConfigHistoryError::ResourceNotDiscoveredException({
++            super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::ResourceNotDiscoveredException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ResourceNotDiscoveredExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_resource_not_discovered_exception::de_resource_not_discovered_exception_json_err(
-+                    let mut output = super::types::error::builders::ResourceNotDiscoveredExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_resource_not_discovered_exception::de_resource_not_discovered_exception_json_err(
++                    let mut output = super::super::types::error::builders::ResourceNotDiscoveredExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_resource_not_discovered_exception::de_resource_not_discovered_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
-+                    .map_err(super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
++                    .map_err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -120,16 +120,16 @@
              })
          }
 -        "ValidationException" => crate::operation::get_resource_config_history::GetResourceConfigHistoryError::ValidationException({
-+        "ValidationException" => super::operation::get_resource_config_history::GetResourceConfigHistoryError::ValidationException({
++        "ValidationException" => super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::ValidationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
-+                let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
++                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -138,7 +138,7 @@
              tmp
          }),
 -        _ => crate::operation::get_resource_config_history::GetResourceConfigHistoryError::generic(generic),
-+        _ => super::operation::get_resource_config_history::GetResourceConfigHistoryError::generic(generic),
++        _ => super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::generic(generic),
      })
  }
 
@@ -148,17 +148,17 @@
  ) -> std::result::Result<
 -    crate::operation::get_resource_config_history::GetResourceConfigHistoryOutput,
 -    crate::operation::get_resource_config_history::GetResourceConfigHistoryError,
-+    super::operation::get_resource_config_history::GetResourceConfigHistoryOutput,
-+    super::operation::get_resource_config_history::GetResourceConfigHistoryError,
++    super::super::operation::get_resource_config_history::GetResourceConfigHistoryOutput,
++    super::super::operation::get_resource_config_history::GetResourceConfigHistoryError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::get_resource_config_history::builders::GetResourceConfigHistoryOutputBuilder::default();
 -        output = crate::protocol_serde::shape_get_resource_config_history::de_get_resource_config_history(_response_body, output)
 -            .map_err(crate::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
-+        let mut output = super::operation::get_resource_config_history::builders::GetResourceConfigHistoryOutputBuilder::default();
-+        output = super::protocol_serde::shape_get_resource_config_history::de_get_resource_config_history(_response_body, output)
-+            .map_err(super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
++        let mut output = super::super::operation::get_resource_config_history::builders::GetResourceConfigHistoryOutputBuilder::default();
++        output = super::super::protocol_serde::shape_get_resource_config_history::de_get_resource_config_history(_response_body, output)
++            .map_err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -167,12 +167,12 @@
 
  pub fn ser_get_resource_config_history_input(
 -    input: &crate::operation::get_resource_config_history::GetResourceConfigHistoryInput,
-+    input: &super::operation::get_resource_config_history::GetResourceConfigHistoryInput,
++    input: &super::super::operation::get_resource_config_history::GetResourceConfigHistoryInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_get_resource_config_history_input::ser_get_resource_config_history_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_get_resource_config_history_input::ser_get_resource_config_history_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_get_resource_config_history_input::ser_get_resource_config_history_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -181,14 +181,14 @@
  pub(crate) fn de_get_resource_config_history(
      _value: &[u8],
 -    mut builder: crate::operation::get_resource_config_history::builders::GetResourceConfigHistoryOutputBuilder,
-+    mut builder: super::operation::get_resource_config_history::builders::GetResourceConfigHistoryOutputBuilder,
++    mut builder: super::super::operation::get_resource_config_history::builders::GetResourceConfigHistoryOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::get_resource_config_history::builders::GetResourceConfigHistoryOutputBuilder,
-+    super::operation::get_resource_config_history::builders::GetResourceConfigHistoryOutputBuilder,
++    super::super::operation::get_resource_config_history::builders::GetResourceConfigHistoryOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -197,7 +197,7 @@
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                  "configurationItems" => {
 -                    builder = builder.set_configuration_items(crate::protocol_serde::shape_configuration_item_list::de_configuration_item_list(
-+                    builder = builder.set_configuration_items(super::protocol_serde::shape_configuration_item_list::de_configuration_item_list(
++                    builder = builder.set_configuration_items(super::super::protocol_serde::shape_configuration_item_list::de_configuration_item_list(
                          tokens,
                          _value,
                          depth + 1,

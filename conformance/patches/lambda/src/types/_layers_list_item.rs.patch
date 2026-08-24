@@ -5,7 +5,7 @@
      pub layer_arn: ::std::option::Option<::std::string::String>,
      /// <p>The newest version of the layer.</p>
 -    pub latest_matching_version: ::std::option::Option<crate::types::LayerVersionsListItem>,
-+    pub latest_matching_version: ::std::option::Option<super::types::LayerVersionsListItem>,
++    pub latest_matching_version: ::std::option::Option<super::super::types::LayerVersionsListItem>,
  }
  impl LayersListItem {
      /// <p>The name of the layer.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The newest version of the layer.</p>
 -    pub fn latest_matching_version(&self) -> ::std::option::Option<&crate::types::LayerVersionsListItem> {
-+    pub fn latest_matching_version(&self) -> ::std::option::Option<&super::types::LayerVersionsListItem> {
++    pub fn latest_matching_version(&self) -> ::std::option::Option<&super::super::types::LayerVersionsListItem> {
          self.latest_matching_version.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`LayersListItem`](crate::types::LayersListItem).
 -    pub fn builder() -> crate::types::builders::LayersListItemBuilder {
 -        crate::types::builders::LayersListItemBuilder::default()
-+    pub fn builder() -> super::types::builders::LayersListItemBuilder {
-+        super::types::builders::LayersListItemBuilder::default()
++    pub fn builder() -> super::super::types::builders::LayersListItemBuilder {
++        super::super::types::builders::LayersListItemBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) layer_name: ::std::option::Option<::std::string::String>,
      pub(crate) layer_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) latest_matching_version: ::std::option::Option<crate::types::LayerVersionsListItem>,
-+    pub(crate) latest_matching_version: ::std::option::Option<super::types::LayerVersionsListItem>,
++    pub(crate) latest_matching_version: ::std::option::Option<super::super::types::LayerVersionsListItem>,
  }
  impl LayersListItemBuilder {
      /// <p>The name of the layer.</p>
@@ -41,26 +41,26 @@
      }
      /// <p>The newest version of the layer.</p>
 -    pub fn latest_matching_version(mut self, input: crate::types::LayerVersionsListItem) -> Self {
-+    pub fn latest_matching_version(mut self, input: super::types::LayerVersionsListItem) -> Self {
++    pub fn latest_matching_version(mut self, input: super::super::types::LayerVersionsListItem) -> Self {
          self.latest_matching_version = ::std::option::Option::Some(input);
          self
      }
      /// <p>The newest version of the layer.</p>
 -    pub fn set_latest_matching_version(mut self, input: ::std::option::Option<crate::types::LayerVersionsListItem>) -> Self {
-+    pub fn set_latest_matching_version(mut self, input: ::std::option::Option<super::types::LayerVersionsListItem>) -> Self {
++    pub fn set_latest_matching_version(mut self, input: ::std::option::Option<super::super::types::LayerVersionsListItem>) -> Self {
          self.latest_matching_version = input;
          self
      }
      /// <p>The newest version of the layer.</p>
 -    pub fn get_latest_matching_version(&self) -> &::std::option::Option<crate::types::LayerVersionsListItem> {
-+    pub fn get_latest_matching_version(&self) -> &::std::option::Option<super::types::LayerVersionsListItem> {
++    pub fn get_latest_matching_version(&self) -> &::std::option::Option<super::super::types::LayerVersionsListItem> {
          &self.latest_matching_version
      }
      /// Consumes the builder and constructs a [`LayersListItem`](crate::types::LayersListItem).
 -    pub fn build(self) -> crate::types::LayersListItem {
 -        crate::types::LayersListItem {
-+    pub fn build(self) -> super::types::LayersListItem {
-+        super::types::LayersListItem {
++    pub fn build(self) -> super::super::types::LayersListItem {
++        super::super::types::LayersListItem {
              layer_name: self.layer_name,
              layer_arn: self.layer_arn,
              latest_matching_version: self.latest_matching_version,

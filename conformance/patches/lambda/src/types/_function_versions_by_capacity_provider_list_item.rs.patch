@@ -5,7 +5,7 @@
      pub function_arn: ::std::string::String,
      /// <p>The current state of the function version.</p>
 -    pub state: crate::types::State,
-+    pub state: super::types::State,
++    pub state: super::super::types::State,
  }
  impl FunctionVersionsByCapacityProviderListItem {
      /// <p>The Amazon Resource Name (ARN) of the function version.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The current state of the function version.</p>
 -    pub fn state(&self) -> &crate::types::State {
-+    pub fn state(&self) -> &super::types::State {
++    pub fn state(&self) -> &super::super::types::State {
          &self.state
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`FunctionVersionsByCapacityProviderListItem`](crate::types::FunctionVersionsByCapacityProviderListItem).
 -    pub fn builder() -> crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder {
 -        crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder::default()
-+    pub fn builder() -> super::types::builders::FunctionVersionsByCapacityProviderListItemBuilder {
-+        super::types::builders::FunctionVersionsByCapacityProviderListItemBuilder::default()
++    pub fn builder() -> super::super::types::builders::FunctionVersionsByCapacityProviderListItemBuilder {
++        super::super::types::builders::FunctionVersionsByCapacityProviderListItemBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct FunctionVersionsByCapacityProviderListItemBuilder {
      pub(crate) function_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) state: ::std::option::Option<crate::types::State>,
-+    pub(crate) state: ::std::option::Option<super::types::State>,
++    pub(crate) state: ::std::option::Option<super::super::types::State>,
  }
  impl FunctionVersionsByCapacityProviderListItemBuilder {
      /// <p>The Amazon Resource Name (ARN) of the function version.</p>
@@ -41,19 +41,19 @@
      /// <p>The current state of the function version.</p>
      /// This field is required.
 -    pub fn state(mut self, input: crate::types::State) -> Self {
-+    pub fn state(mut self, input: super::types::State) -> Self {
++    pub fn state(mut self, input: super::super::types::State) -> Self {
          self.state = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current state of the function version.</p>
 -    pub fn set_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
-+    pub fn set_state(mut self, input: ::std::option::Option<super::types::State>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::super::types::State>) -> Self {
          self.state = input;
          self
      }
      /// <p>The current state of the function version.</p>
 -    pub fn get_state(&self) -> &::std::option::Option<crate::types::State> {
-+    pub fn get_state(&self) -> &::std::option::Option<super::types::State> {
++    pub fn get_state(&self) -> &::std::option::Option<super::super::types::State> {
          &self.state
      }
      /// Consumes the builder and constructs a [`FunctionVersionsByCapacityProviderListItem`](crate::types::FunctionVersionsByCapacityProviderListItem).
@@ -63,8 +63,8 @@
          self,
 -    ) -> ::std::result::Result<crate::types::FunctionVersionsByCapacityProviderListItem, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::FunctionVersionsByCapacityProviderListItem {
-+    ) -> ::std::result::Result<super::types::FunctionVersionsByCapacityProviderListItem, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::FunctionVersionsByCapacityProviderListItem {
++    ) -> ::std::result::Result<super::super::types::FunctionVersionsByCapacityProviderListItem, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::FunctionVersionsByCapacityProviderListItem {
              function_arn: self.function_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "function_arn",

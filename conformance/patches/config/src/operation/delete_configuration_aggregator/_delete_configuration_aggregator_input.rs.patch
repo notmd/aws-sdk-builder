@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteConfigurationAggregatorInput`](crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput).
 -    pub fn builder() -> crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder {
 -        crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder {
-+        super::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder {
++        super::super::super::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput,
-+        super::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput,
++        super::super::super::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput {
-+        ::std::result::Result::Ok(super::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput {
              configuration_aggregator_name: self.configuration_aggregator_name,
          })
      }

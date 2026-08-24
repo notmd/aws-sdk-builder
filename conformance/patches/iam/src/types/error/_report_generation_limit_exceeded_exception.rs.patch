@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for ReportGenerationLimitExceededException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::ReportGenerationLimitExceededException {
-+impl ::aws_types::request_id::RequestId for super::types::error::ReportGenerationLimitExceededException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::ReportGenerationLimitExceededException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`ReportGenerationLimitExceededException`](crate::types::error::ReportGenerationLimitExceededException).
 -    pub fn builder() -> crate::types::error::builders::ReportGenerationLimitExceededExceptionBuilder {
 -        crate::types::error::builders::ReportGenerationLimitExceededExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::ReportGenerationLimitExceededExceptionBuilder {
-+        super::types::error::builders::ReportGenerationLimitExceededExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::ReportGenerationLimitExceededExceptionBuilder {
++        super::super::super::types::error::builders::ReportGenerationLimitExceededExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`ReportGenerationLimitExceededException`](crate::types::error::ReportGenerationLimitExceededException).
 -    pub fn build(self) -> crate::types::error::ReportGenerationLimitExceededException {
 -        crate::types::error::ReportGenerationLimitExceededException {
-+    pub fn build(self) -> super::types::error::ReportGenerationLimitExceededException {
-+        super::types::error::ReportGenerationLimitExceededException {
++    pub fn build(self) -> super::super::super::types::error::ReportGenerationLimitExceededException {
++        super::super::super::types::error::ReportGenerationLimitExceededException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

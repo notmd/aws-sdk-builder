@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UntagUserError>`](crate::operation::untag_user::UntagUserError)
 -    pub fn untag_user(&self) -> crate::operation::untag_user::builders::UntagUserFluentBuilder {
 -        crate::operation::untag_user::builders::UntagUserFluentBuilder::new(self.handle.clone())
-+    pub fn untag_user(&self) -> super::operation::untag_user::builders::UntagUserFluentBuilder {
-+        super::operation::untag_user::builders::UntagUserFluentBuilder::new(self.handle.clone())
++    pub fn untag_user(&self) -> super::super::operation::untag_user::builders::UntagUserFluentBuilder {
++        super::super::operation::untag_user::builders::UntagUserFluentBuilder::new(self.handle.clone())
      }
  }

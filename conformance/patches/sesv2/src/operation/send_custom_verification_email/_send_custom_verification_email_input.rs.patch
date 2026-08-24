@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SendCustomVerificationEmailInput`](crate::operation::send_custom_verification_email::SendCustomVerificationEmailInput).
 -    pub fn builder() -> crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailInputBuilder {
 -        crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailInputBuilder::default()
-+    pub fn builder() -> super::operation::send_custom_verification_email::builders::SendCustomVerificationEmailInputBuilder {
-+        super::operation::send_custom_verification_email::builders::SendCustomVerificationEmailInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::send_custom_verification_email::builders::SendCustomVerificationEmailInputBuilder {
++        super::super::super::operation::send_custom_verification_email::builders::SendCustomVerificationEmailInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::send_custom_verification_email::SendCustomVerificationEmailInput,
-+        super::operation::send_custom_verification_email::SendCustomVerificationEmailInput,
++        super::super::super::operation::send_custom_verification_email::SendCustomVerificationEmailInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::send_custom_verification_email::SendCustomVerificationEmailInput {
-+        ::std::result::Result::Ok(super::operation::send_custom_verification_email::SendCustomVerificationEmailInput {
++        ::std::result::Result::Ok(super::super::super::operation::send_custom_verification_email::SendCustomVerificationEmailInput {
              email_address: self.email_address,
              template_name: self.template_name,
              configuration_set_name: self.configuration_set_name,

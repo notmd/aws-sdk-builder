@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIDConnectProviderThumbprintFluentBuilder {
 -        crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIDConnectProviderThumbprintFluentBuilder::new(
-+    ) -> super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIDConnectProviderThumbprintFluentBuilder {
-+        super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIDConnectProviderThumbprintFluentBuilder::new(
++    ) -> super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIDConnectProviderThumbprintFluentBuilder {
++        super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIDConnectProviderThumbprintFluentBuilder::new(
              self.handle.clone(),
          )
      }

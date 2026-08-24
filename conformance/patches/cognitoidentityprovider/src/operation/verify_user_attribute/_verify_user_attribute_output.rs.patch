@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`VerifyUserAttributeOutput`](crate::operation::verify_user_attribute::VerifyUserAttributeOutput).
 -    pub fn builder() -> crate::operation::verify_user_attribute::builders::VerifyUserAttributeOutputBuilder {
 -        crate::operation::verify_user_attribute::builders::VerifyUserAttributeOutputBuilder::default()
-+    pub fn builder() -> super::operation::verify_user_attribute::builders::VerifyUserAttributeOutputBuilder {
-+        super::operation::verify_user_attribute::builders::VerifyUserAttributeOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::verify_user_attribute::builders::VerifyUserAttributeOutputBuilder {
++        super::super::super::operation::verify_user_attribute::builders::VerifyUserAttributeOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`VerifyUserAttributeOutput`](crate::operation::verify_user_attribute::VerifyUserAttributeOutput).
 -    pub fn build(self) -> crate::operation::verify_user_attribute::VerifyUserAttributeOutput {
 -        crate::operation::verify_user_attribute::VerifyUserAttributeOutput {
-+    pub fn build(self) -> super::operation::verify_user_attribute::VerifyUserAttributeOutput {
-+        super::operation::verify_user_attribute::VerifyUserAttributeOutput {
++    pub fn build(self) -> super::super::super::operation::verify_user_attribute::VerifyUserAttributeOutput {
++        super::super::super::operation::verify_user_attribute::VerifyUserAttributeOutput {
              _request_id: self._request_id,
          }
      }

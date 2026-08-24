@@ -5,20 +5,20 @@
  pub struct ConverseTrace {
      /// <p>The guardrail trace object.</p>
 -    pub guardrail: ::std::option::Option<crate::types::GuardrailTraceAssessment>,
-+    pub guardrail: ::std::option::Option<super::types::GuardrailTraceAssessment>,
++    pub guardrail: ::std::option::Option<super::super::types::GuardrailTraceAssessment>,
      /// <p>The request's prompt router.</p>
 -    pub prompt_router: ::std::option::Option<crate::types::PromptRouterTrace>,
-+    pub prompt_router: ::std::option::Option<super::types::PromptRouterTrace>,
++    pub prompt_router: ::std::option::Option<super::super::types::PromptRouterTrace>,
  }
  impl ConverseTrace {
      /// <p>The guardrail trace object.</p>
 -    pub fn guardrail(&self) -> ::std::option::Option<&crate::types::GuardrailTraceAssessment> {
-+    pub fn guardrail(&self) -> ::std::option::Option<&super::types::GuardrailTraceAssessment> {
++    pub fn guardrail(&self) -> ::std::option::Option<&super::super::types::GuardrailTraceAssessment> {
          self.guardrail.as_ref()
      }
      /// <p>The request's prompt router.</p>
 -    pub fn prompt_router(&self) -> ::std::option::Option<&crate::types::PromptRouterTrace> {
-+    pub fn prompt_router(&self) -> ::std::option::Option<&super::types::PromptRouterTrace> {
++    pub fn prompt_router(&self) -> ::std::option::Option<&super::super::types::PromptRouterTrace> {
          self.prompt_router.as_ref()
      }
  }
@@ -26,8 +26,8 @@
      /// Creates a new builder-style object to manufacture [`ConverseTrace`](crate::types::ConverseTrace).
 -    pub fn builder() -> crate::types::builders::ConverseTraceBuilder {
 -        crate::types::builders::ConverseTraceBuilder::default()
-+    pub fn builder() -> super::types::builders::ConverseTraceBuilder {
-+        super::types::builders::ConverseTraceBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConverseTraceBuilder {
++        super::super::types::builders::ConverseTraceBuilder::default()
      }
  }
 
@@ -37,49 +37,49 @@
  pub struct ConverseTraceBuilder {
 -    pub(crate) guardrail: ::std::option::Option<crate::types::GuardrailTraceAssessment>,
 -    pub(crate) prompt_router: ::std::option::Option<crate::types::PromptRouterTrace>,
-+    pub(crate) guardrail: ::std::option::Option<super::types::GuardrailTraceAssessment>,
-+    pub(crate) prompt_router: ::std::option::Option<super::types::PromptRouterTrace>,
++    pub(crate) guardrail: ::std::option::Option<super::super::types::GuardrailTraceAssessment>,
++    pub(crate) prompt_router: ::std::option::Option<super::super::types::PromptRouterTrace>,
  }
  impl ConverseTraceBuilder {
      /// <p>The guardrail trace object.</p>
 -    pub fn guardrail(mut self, input: crate::types::GuardrailTraceAssessment) -> Self {
-+    pub fn guardrail(mut self, input: super::types::GuardrailTraceAssessment) -> Self {
++    pub fn guardrail(mut self, input: super::super::types::GuardrailTraceAssessment) -> Self {
          self.guardrail = ::std::option::Option::Some(input);
          self
      }
      /// <p>The guardrail trace object.</p>
 -    pub fn set_guardrail(mut self, input: ::std::option::Option<crate::types::GuardrailTraceAssessment>) -> Self {
-+    pub fn set_guardrail(mut self, input: ::std::option::Option<super::types::GuardrailTraceAssessment>) -> Self {
++    pub fn set_guardrail(mut self, input: ::std::option::Option<super::super::types::GuardrailTraceAssessment>) -> Self {
          self.guardrail = input;
          self
      }
      /// <p>The guardrail trace object.</p>
 -    pub fn get_guardrail(&self) -> &::std::option::Option<crate::types::GuardrailTraceAssessment> {
-+    pub fn get_guardrail(&self) -> &::std::option::Option<super::types::GuardrailTraceAssessment> {
++    pub fn get_guardrail(&self) -> &::std::option::Option<super::super::types::GuardrailTraceAssessment> {
          &self.guardrail
      }
      /// <p>The request's prompt router.</p>
 -    pub fn prompt_router(mut self, input: crate::types::PromptRouterTrace) -> Self {
-+    pub fn prompt_router(mut self, input: super::types::PromptRouterTrace) -> Self {
++    pub fn prompt_router(mut self, input: super::super::types::PromptRouterTrace) -> Self {
          self.prompt_router = ::std::option::Option::Some(input);
          self
      }
      /// <p>The request's prompt router.</p>
 -    pub fn set_prompt_router(mut self, input: ::std::option::Option<crate::types::PromptRouterTrace>) -> Self {
-+    pub fn set_prompt_router(mut self, input: ::std::option::Option<super::types::PromptRouterTrace>) -> Self {
++    pub fn set_prompt_router(mut self, input: ::std::option::Option<super::super::types::PromptRouterTrace>) -> Self {
          self.prompt_router = input;
          self
      }
      /// <p>The request's prompt router.</p>
 -    pub fn get_prompt_router(&self) -> &::std::option::Option<crate::types::PromptRouterTrace> {
-+    pub fn get_prompt_router(&self) -> &::std::option::Option<super::types::PromptRouterTrace> {
++    pub fn get_prompt_router(&self) -> &::std::option::Option<super::super::types::PromptRouterTrace> {
          &self.prompt_router
      }
      /// Consumes the builder and constructs a [`ConverseTrace`](crate::types::ConverseTrace).
 -    pub fn build(self) -> crate::types::ConverseTrace {
 -        crate::types::ConverseTrace {
-+    pub fn build(self) -> super::types::ConverseTrace {
-+        super::types::ConverseTrace {
++    pub fn build(self) -> super::super::types::ConverseTrace {
++        super::super::types::ConverseTrace {
              guardrail: self.guardrail,
              prompt_router: self.prompt_router,
          }

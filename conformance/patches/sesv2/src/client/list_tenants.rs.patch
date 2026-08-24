@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListTenantsError>`](crate::operation::list_tenants::ListTenantsError)
 -    pub fn list_tenants(&self) -> crate::operation::list_tenants::builders::ListTenantsFluentBuilder {
 -        crate::operation::list_tenants::builders::ListTenantsFluentBuilder::new(self.handle.clone())
-+    pub fn list_tenants(&self) -> super::operation::list_tenants::builders::ListTenantsFluentBuilder {
-+        super::operation::list_tenants::builders::ListTenantsFluentBuilder::new(self.handle.clone())
++    pub fn list_tenants(&self) -> super::super::operation::list_tenants::builders::ListTenantsFluentBuilder {
++        super::super::operation::list_tenants::builders::ListTenantsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder {
 -        crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder {
-+        super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder {
++        super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder::new(self.handle.clone())
      }
  }

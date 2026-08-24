@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::PolicyGrantingServiceAccess, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::PolicyGrantingServiceAccess, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::PolicyGrantingServiceAccess, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::PolicyGrantingServiceAccess::builder();
-+    let mut builder = super::types::PolicyGrantingServiceAccess::builder();
++    let mut builder = super::super::types::PolicyGrantingServiceAccess::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("PolicyName") /* PolicyName com.amazonaws.iam#PolicyGrantingServiceAccess$PolicyName */ =>  {
@@ -21,8 +21,8 @@
                      Some(
 -                        Result::<crate::types::PolicyType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::PolicyType::from(
-+                        Result::<super::types::PolicyType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::PolicyType::from(
++                        Result::<super::super::types::PolicyType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::PolicyType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -32,8 +32,8 @@
                      Some(
 -                        Result::<crate::types::PolicyOwnerEntityType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::PolicyOwnerEntityType::from(
-+                        Result::<super::types::PolicyOwnerEntityType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::PolicyOwnerEntityType::from(
++                        Result::<super::super::types::PolicyOwnerEntityType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::PolicyOwnerEntityType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -42,7 +42,7 @@
          }
      }
 -    Ok(crate::serde_util::policy_granting_service_access_correct_errors(builder)
-+    Ok(super::serde_util::policy_granting_service_access_correct_errors(builder)
++    Ok(super::super::serde_util::policy_granting_service_access_correct_errors(builder)
          .build()
          .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
  }

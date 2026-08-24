@@ -5,7 +5,7 @@
      pub topic_name: ::std::string::String,
      /// <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
 -    pub subscription_status: crate::types::SubscriptionStatus,
-+    pub subscription_status: super::types::SubscriptionStatus,
++    pub subscription_status: super::super::types::SubscriptionStatus,
  }
  impl TopicPreference {
      /// <p>The name of the topic.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
 -    pub fn subscription_status(&self) -> &crate::types::SubscriptionStatus {
-+    pub fn subscription_status(&self) -> &super::types::SubscriptionStatus {
++    pub fn subscription_status(&self) -> &super::super::types::SubscriptionStatus {
          &self.subscription_status
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`TopicPreference`](crate::types::TopicPreference).
 -    pub fn builder() -> crate::types::builders::TopicPreferenceBuilder {
 -        crate::types::builders::TopicPreferenceBuilder::default()
-+    pub fn builder() -> super::types::builders::TopicPreferenceBuilder {
-+        super::types::builders::TopicPreferenceBuilder::default()
++    pub fn builder() -> super::super::types::builders::TopicPreferenceBuilder {
++        super::super::types::builders::TopicPreferenceBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct TopicPreferenceBuilder {
      pub(crate) topic_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) subscription_status: ::std::option::Option<crate::types::SubscriptionStatus>,
-+    pub(crate) subscription_status: ::std::option::Option<super::types::SubscriptionStatus>,
++    pub(crate) subscription_status: ::std::option::Option<super::super::types::SubscriptionStatus>,
  }
  impl TopicPreferenceBuilder {
      /// <p>The name of the topic.</p>
@@ -41,19 +41,19 @@
      /// <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
      /// This field is required.
 -    pub fn subscription_status(mut self, input: crate::types::SubscriptionStatus) -> Self {
-+    pub fn subscription_status(mut self, input: super::types::SubscriptionStatus) -> Self {
++    pub fn subscription_status(mut self, input: super::super::types::SubscriptionStatus) -> Self {
          self.subscription_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
 -    pub fn set_subscription_status(mut self, input: ::std::option::Option<crate::types::SubscriptionStatus>) -> Self {
-+    pub fn set_subscription_status(mut self, input: ::std::option::Option<super::types::SubscriptionStatus>) -> Self {
++    pub fn set_subscription_status(mut self, input: ::std::option::Option<super::super::types::SubscriptionStatus>) -> Self {
          self.subscription_status = input;
          self
      }
      /// <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
 -    pub fn get_subscription_status(&self) -> &::std::option::Option<crate::types::SubscriptionStatus> {
-+    pub fn get_subscription_status(&self) -> &::std::option::Option<super::types::SubscriptionStatus> {
++    pub fn get_subscription_status(&self) -> &::std::option::Option<super::super::types::SubscriptionStatus> {
          &self.subscription_status
      }
      /// Consumes the builder and constructs a [`TopicPreference`](crate::types::TopicPreference).
@@ -63,8 +63,8 @@
      /// - [`subscription_status`](crate::types::builders::TopicPreferenceBuilder::subscription_status)
 -    pub fn build(self) -> ::std::result::Result<crate::types::TopicPreference, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::TopicPreference {
-+    pub fn build(self) -> ::std::result::Result<super::types::TopicPreference, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::TopicPreference {
++    pub fn build(self) -> ::std::result::Result<super::super::types::TopicPreference, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::TopicPreference {
              topic_name: self.topic_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "topic_name",

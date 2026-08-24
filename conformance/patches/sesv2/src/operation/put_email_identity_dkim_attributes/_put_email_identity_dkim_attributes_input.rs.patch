@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutEmailIdentityDkimAttributesInput`](crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput).
 -    pub fn builder() -> crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder {
 -        crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder::default()
-+    pub fn builder() -> super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder {
-+        super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder {
++        super::super::super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput,
-+        super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput,
++        super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput {
-+            super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput {
++            super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput {
                  email_identity: self.email_identity,
                  signing_enabled: self.signing_enabled,
              },

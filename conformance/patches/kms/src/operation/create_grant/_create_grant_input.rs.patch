@@ -5,7 +5,7 @@
      /// <p>A list of operations that the grant permits.</p>
      /// <p>This list must include only operations that are permitted in a grant. Also, the operation must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <code>Sign</code> operation, or a grant for an asymmetric KMS key that allows the <code>GenerateDataKey</code> operation. If you try, KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub operations: ::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>>,
-+    pub operations: ::std::option::Option<::std::vec::Vec<super::types::GrantOperation>>,
++    pub operations: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>>,
      /// <p>Specifies a grant constraint.</p><important>
      /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
      /// </important>
@@ -14,7 +14,7 @@
      /// </ul>
      /// <p>For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant constraints</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub constraints: ::std::option::Option<crate::types::GrantConstraints>,
-+    pub constraints: ::std::option::Option<super::types::GrantConstraints>,
++    pub constraints: ::std::option::Option<super::super::super::types::GrantConstraints>,
      /// <p>A list of grant tokens.</p>
      /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -23,7 +23,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.operations.is_none()`.
 -    pub fn operations(&self) -> &[crate::types::GrantOperation] {
-+    pub fn operations(&self) -> &[super::types::GrantOperation] {
++    pub fn operations(&self) -> &[super::super::super::types::GrantOperation] {
          self.operations.as_deref().unwrap_or_default()
      }
      /// <p>Specifies a grant constraint.</p><important>
@@ -32,7 +32,7 @@
      /// </ul>
      /// <p>For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant constraints</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn constraints(&self) -> ::std::option::Option<&crate::types::GrantConstraints> {
-+    pub fn constraints(&self) -> ::std::option::Option<&super::types::GrantConstraints> {
++    pub fn constraints(&self) -> ::std::option::Option<&super::super::super::types::GrantConstraints> {
          self.constraints.as_ref()
      }
      /// <p>A list of grant tokens.</p>
@@ -42,8 +42,8 @@
      /// Creates a new builder-style object to manufacture [`CreateGrantInput`](crate::operation::create_grant::CreateGrantInput).
 -    pub fn builder() -> crate::operation::create_grant::builders::CreateGrantInputBuilder {
 -        crate::operation::create_grant::builders::CreateGrantInputBuilder::default()
-+    pub fn builder() -> super::operation::create_grant::builders::CreateGrantInputBuilder {
-+        super::operation::create_grant::builders::CreateGrantInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_grant::builders::CreateGrantInputBuilder {
++        super::super::super::operation::create_grant::builders::CreateGrantInputBuilder::default()
      }
  }
 
@@ -53,8 +53,8 @@
      pub(crate) retiring_principal: ::std::option::Option<::std::string::String>,
 -    pub(crate) operations: ::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>>,
 -    pub(crate) constraints: ::std::option::Option<crate::types::GrantConstraints>,
-+    pub(crate) operations: ::std::option::Option<::std::vec::Vec<super::types::GrantOperation>>,
-+    pub(crate) constraints: ::std::option::Option<super::types::GrantConstraints>,
++    pub(crate) operations: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>>,
++    pub(crate) constraints: ::std::option::Option<super::super::super::types::GrantConstraints>,
      pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) name: ::std::option::Option<::std::string::String>,
      pub(crate) dry_run: ::std::option::Option<bool>,
@@ -63,7 +63,7 @@
      /// <p>A list of operations that the grant permits.</p>
      /// <p>This list must include only operations that are permitted in a grant. Also, the operation must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <code>Sign</code> operation, or a grant for an asymmetric KMS key that allows the <code>GenerateDataKey</code> operation. If you try, KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn operations(mut self, input: crate::types::GrantOperation) -> Self {
-+    pub fn operations(mut self, input: super::types::GrantOperation) -> Self {
++    pub fn operations(mut self, input: super::super::super::types::GrantOperation) -> Self {
          let mut v = self.operations.unwrap_or_default();
          v.push(input);
          self.operations = ::std::option::Option::Some(v);
@@ -72,14 +72,14 @@
      /// <p>A list of operations that the grant permits.</p>
      /// <p>This list must include only operations that are permitted in a grant. Also, the operation must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <code>Sign</code> operation, or a grant for an asymmetric KMS key that allows the <code>GenerateDataKey</code> operation. If you try, KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>>) -> Self {
-+    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GrantOperation>>) -> Self {
++    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>>) -> Self {
          self.operations = input;
          self
      }
      /// <p>A list of operations that the grant permits.</p>
      /// <p>This list must include only operations that are permitted in a grant. Also, the operation must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <code>Sign</code> operation, or a grant for an asymmetric KMS key that allows the <code>GenerateDataKey</code> operation. If you try, KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>> {
-+    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GrantOperation>> {
++    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>> {
          &self.operations
      }
      /// <p>Specifies a grant constraint.</p><important>
@@ -88,7 +88,7 @@
      /// </ul>
      /// <p>For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant constraints</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn constraints(mut self, input: crate::types::GrantConstraints) -> Self {
-+    pub fn constraints(mut self, input: super::types::GrantConstraints) -> Self {
++    pub fn constraints(mut self, input: super::super::super::types::GrantConstraints) -> Self {
          self.constraints = ::std::option::Option::Some(input);
          self
      }
@@ -97,7 +97,7 @@
      /// </ul>
      /// <p>For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant constraints</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn set_constraints(mut self, input: ::std::option::Option<crate::types::GrantConstraints>) -> Self {
-+    pub fn set_constraints(mut self, input: ::std::option::Option<super::types::GrantConstraints>) -> Self {
++    pub fn set_constraints(mut self, input: ::std::option::Option<super::super::super::types::GrantConstraints>) -> Self {
          self.constraints = input;
          self
      }
@@ -106,7 +106,7 @@
      /// </ul>
      /// <p>For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant constraints</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn get_constraints(&self) -> &::std::option::Option<crate::types::GrantConstraints> {
-+    pub fn get_constraints(&self) -> &::std::option::Option<super::types::GrantConstraints> {
++    pub fn get_constraints(&self) -> &::std::option::Option<super::super::super::types::GrantConstraints> {
          &self.constraints
      }
      /// Appends an item to `grant_tokens`.
@@ -116,8 +116,8 @@
      /// Consumes the builder and constructs a [`CreateGrantInput`](crate::operation::create_grant::CreateGrantInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::create_grant::CreateGrantInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::create_grant::CreateGrantInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::create_grant::CreateGrantInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::create_grant::CreateGrantInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::create_grant::CreateGrantInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::create_grant::CreateGrantInput {
              key_id: self.key_id,
              grantee_principal: self.grantee_principal,
              retiring_principal: self.retiring_principal,

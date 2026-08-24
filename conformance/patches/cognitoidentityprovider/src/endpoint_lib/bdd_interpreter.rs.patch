@@ -6,8 +6,8 @@
      context: &mut Context,
 -    diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector,
 -    mut condition_evaluator: impl FnMut(&Cond, &'a Params, &mut Context, &mut crate::endpoint_lib::diagnostic::DiagnosticCollector) -> bool,
-+    diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector,
-+    mut condition_evaluator: impl FnMut(&Cond, &'a Params, &mut Context, &mut super::endpoint_lib::diagnostic::DiagnosticCollector) -> bool,
++    diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector,
++    mut condition_evaluator: impl FnMut(&Cond, &'a Params, &mut Context, &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector) -> bool,
      result_builder: impl FnOnce(usize, &'a Params, &Context) -> R,
  ) -> Option<R> {
      let mut current_ref = root_ref;

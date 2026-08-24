@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    Option<::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerType>>,
-+    Option<::std::vec::Vec<super::types::OrganizationConfigRuleTriggerType>>,
++    Option<::std::vec::Vec<super::super::types::OrganizationConfigRuleTriggerType>>,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  >
  where
@@ -14,7 +14,7 @@
                              .map(|s| {
                                  s.to_unescaped()
 -                                    .map(|u| crate::types::OrganizationConfigRuleTriggerType::from(u.as_ref()))
-+                                    .map(|u| super::types::OrganizationConfigRuleTriggerType::from(u.as_ref()))
++                                    .map(|u| super::super::types::OrganizationConfigRuleTriggerType::from(u.as_ref()))
                              })
                              .transpose()?;
                          if let Some(value) = value {

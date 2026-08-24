@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TopicFilter`](crate::types::TopicFilter).
 -    pub fn builder() -> crate::types::builders::TopicFilterBuilder {
 -        crate::types::builders::TopicFilterBuilder::default()
-+    pub fn builder() -> super::types::builders::TopicFilterBuilder {
-+        super::types::builders::TopicFilterBuilder::default()
++    pub fn builder() -> super::super::types::builders::TopicFilterBuilder {
++        super::super::types::builders::TopicFilterBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`TopicFilter`](crate::types::TopicFilter).
 -    pub fn build(self) -> crate::types::TopicFilter {
 -        crate::types::TopicFilter {
-+    pub fn build(self) -> super::types::TopicFilter {
-+        super::types::TopicFilter {
++    pub fn build(self) -> super::super::types::TopicFilter {
++        super::super::types::TopicFilter {
              topic_name: self.topic_name,
              use_default_if_preference_unavailable: self.use_default_if_preference_unavailable.unwrap_or_default(),
          }

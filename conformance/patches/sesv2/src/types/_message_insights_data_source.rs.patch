@@ -5,10 +5,10 @@
      pub end_date: ::aws_smithy_types::DateTime,
      /// <p>Filters for results to be included in the export file.</p>
 -    pub include: ::std::option::Option<crate::types::MessageInsightsFilters>,
-+    pub include: ::std::option::Option<super::types::MessageInsightsFilters>,
++    pub include: ::std::option::Option<super::super::types::MessageInsightsFilters>,
      /// <p>Filters for results to be excluded from the export file.</p>
 -    pub exclude: ::std::option::Option<crate::types::MessageInsightsFilters>,
-+    pub exclude: ::std::option::Option<super::types::MessageInsightsFilters>,
++    pub exclude: ::std::option::Option<super::super::types::MessageInsightsFilters>,
      /// <p>The maximum number of results.</p>
      pub max_results: ::std::option::Option<i32>,
  }
@@ -17,12 +17,12 @@
      }
      /// <p>Filters for results to be included in the export file.</p>
 -    pub fn include(&self) -> ::std::option::Option<&crate::types::MessageInsightsFilters> {
-+    pub fn include(&self) -> ::std::option::Option<&super::types::MessageInsightsFilters> {
++    pub fn include(&self) -> ::std::option::Option<&super::super::types::MessageInsightsFilters> {
          self.include.as_ref()
      }
      /// <p>Filters for results to be excluded from the export file.</p>
 -    pub fn exclude(&self) -> ::std::option::Option<&crate::types::MessageInsightsFilters> {
-+    pub fn exclude(&self) -> ::std::option::Option<&super::types::MessageInsightsFilters> {
++    pub fn exclude(&self) -> ::std::option::Option<&super::super::types::MessageInsightsFilters> {
          self.exclude.as_ref()
      }
      /// <p>The maximum number of results.</p>
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`MessageInsightsDataSource`](crate::types::MessageInsightsDataSource).
 -    pub fn builder() -> crate::types::builders::MessageInsightsDataSourceBuilder {
 -        crate::types::builders::MessageInsightsDataSourceBuilder::default()
-+    pub fn builder() -> super::types::builders::MessageInsightsDataSourceBuilder {
-+        super::types::builders::MessageInsightsDataSourceBuilder::default()
++    pub fn builder() -> super::super::types::builders::MessageInsightsDataSourceBuilder {
++        super::super::types::builders::MessageInsightsDataSourceBuilder::default()
      }
  }
 
@@ -43,8 +43,8 @@
      pub(crate) end_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) include: ::std::option::Option<crate::types::MessageInsightsFilters>,
 -    pub(crate) exclude: ::std::option::Option<crate::types::MessageInsightsFilters>,
-+    pub(crate) include: ::std::option::Option<super::types::MessageInsightsFilters>,
-+    pub(crate) exclude: ::std::option::Option<super::types::MessageInsightsFilters>,
++    pub(crate) include: ::std::option::Option<super::super::types::MessageInsightsFilters>,
++    pub(crate) exclude: ::std::option::Option<super::super::types::MessageInsightsFilters>,
      pub(crate) max_results: ::std::option::Option<i32>,
  }
  impl MessageInsightsDataSourceBuilder {
@@ -53,36 +53,36 @@
      }
      /// <p>Filters for results to be included in the export file.</p>
 -    pub fn include(mut self, input: crate::types::MessageInsightsFilters) -> Self {
-+    pub fn include(mut self, input: super::types::MessageInsightsFilters) -> Self {
++    pub fn include(mut self, input: super::super::types::MessageInsightsFilters) -> Self {
          self.include = ::std::option::Option::Some(input);
          self
      }
      /// <p>Filters for results to be included in the export file.</p>
 -    pub fn set_include(mut self, input: ::std::option::Option<crate::types::MessageInsightsFilters>) -> Self {
-+    pub fn set_include(mut self, input: ::std::option::Option<super::types::MessageInsightsFilters>) -> Self {
++    pub fn set_include(mut self, input: ::std::option::Option<super::super::types::MessageInsightsFilters>) -> Self {
          self.include = input;
          self
      }
      /// <p>Filters for results to be included in the export file.</p>
 -    pub fn get_include(&self) -> &::std::option::Option<crate::types::MessageInsightsFilters> {
-+    pub fn get_include(&self) -> &::std::option::Option<super::types::MessageInsightsFilters> {
++    pub fn get_include(&self) -> &::std::option::Option<super::super::types::MessageInsightsFilters> {
          &self.include
      }
      /// <p>Filters for results to be excluded from the export file.</p>
 -    pub fn exclude(mut self, input: crate::types::MessageInsightsFilters) -> Self {
-+    pub fn exclude(mut self, input: super::types::MessageInsightsFilters) -> Self {
++    pub fn exclude(mut self, input: super::super::types::MessageInsightsFilters) -> Self {
          self.exclude = ::std::option::Option::Some(input);
          self
      }
      /// <p>Filters for results to be excluded from the export file.</p>
 -    pub fn set_exclude(mut self, input: ::std::option::Option<crate::types::MessageInsightsFilters>) -> Self {
-+    pub fn set_exclude(mut self, input: ::std::option::Option<super::types::MessageInsightsFilters>) -> Self {
++    pub fn set_exclude(mut self, input: ::std::option::Option<super::super::types::MessageInsightsFilters>) -> Self {
          self.exclude = input;
          self
      }
      /// <p>Filters for results to be excluded from the export file.</p>
 -    pub fn get_exclude(&self) -> &::std::option::Option<crate::types::MessageInsightsFilters> {
-+    pub fn get_exclude(&self) -> &::std::option::Option<super::types::MessageInsightsFilters> {
++    pub fn get_exclude(&self) -> &::std::option::Option<super::super::types::MessageInsightsFilters> {
          &self.exclude
      }
      /// <p>The maximum number of results.</p>
@@ -92,8 +92,8 @@
      /// - [`end_date`](crate::types::builders::MessageInsightsDataSourceBuilder::end_date)
 -    pub fn build(self) -> ::std::result::Result<crate::types::MessageInsightsDataSource, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::MessageInsightsDataSource {
-+    pub fn build(self) -> ::std::result::Result<super::types::MessageInsightsDataSource, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::MessageInsightsDataSource {
++    pub fn build(self) -> ::std::result::Result<super::super::types::MessageInsightsDataSource, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::MessageInsightsDataSource {
              start_date: self.start_date.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "start_date",

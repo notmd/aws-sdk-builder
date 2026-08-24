@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput,
 -    crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
-+    super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput,
-+    super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
++    super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput,
++    super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled(generic))
-+            return Err(super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled(generic))
++            return Err(super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled(generic))
          }
      };
 
@@ -29,17 +29,17 @@
      Err(match error_code {
          "FeatureDisabled" => {
 -            crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::FeatureDisabledException({
-+            super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::FeatureDisabledException({
++            super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::FeatureDisabledException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::FeatureDisabledExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_feature_disabled_exception::de_feature_disabled_exception_xml_err(_response_body, output)
-+                    let mut output = super::types::error::builders::FeatureDisabledExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_feature_disabled_exception::de_feature_disabled_exception_xml_err(_response_body, output)
++                    let mut output = super::super::types::error::builders::FeatureDisabledExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_feature_disabled_exception::de_feature_disabled_exception_xml_err(_response_body, output)
                          .map_err(
 -                        crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled,
-+                        super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled,
++                        super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled,
                      )?;
                      let output = output.meta(generic);
                      output.build()
@@ -48,7 +48,7 @@
              })
          }
 -        _ => crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::generic(generic),
-+        _ => super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::generic(generic),
++        _ => super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::generic(generic),
      })
  }
 
@@ -58,21 +58,21 @@
  ) -> std::result::Result<
 -    crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput,
 -    crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
-+    super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput,
-+    super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
++    super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput,
++    super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
  > {
      Ok({
          #[allow(unused_mut)]
          let mut output =
 -            crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder::default();
 -        output = crate::protocol_serde::shape_get_outbound_web_identity_federation_info::de_get_outbound_web_identity_federation_info(
-+            super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder::default();
-+        output = super::protocol_serde::shape_get_outbound_web_identity_federation_info::de_get_outbound_web_identity_federation_info(
++            super::super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder::default();
++        output = super::super::protocol_serde::shape_get_outbound_web_identity_federation_info::de_get_outbound_web_identity_federation_info(
              _response_body,
              output,
          )
 -        .map_err(crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled)?;
-+        .map_err(super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled)?;
++        .map_err(super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -81,10 +81,10 @@
  pub fn de_get_outbound_web_identity_federation_info(
      inp: &[u8],
 -    mut builder: crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder,
-+    mut builder: super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder,
++    mut builder: super::super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder,
-+    super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder,
++    super::super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;

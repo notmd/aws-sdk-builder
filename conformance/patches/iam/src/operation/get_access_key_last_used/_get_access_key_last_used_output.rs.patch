@@ -5,7 +5,7 @@
      pub user_name: ::std::option::Option<::std::string::String>,
      /// <p>Contains information about the last time the access key was used.</p>
 -    pub access_key_last_used: ::std::option::Option<crate::types::AccessKeyLastUsed>,
-+    pub access_key_last_used: ::std::option::Option<super::types::AccessKeyLastUsed>,
++    pub access_key_last_used: ::std::option::Option<super::super::super::types::AccessKeyLastUsed>,
      _request_id: Option<String>,
  }
  impl GetAccessKeyLastUsedOutput {
@@ -14,7 +14,7 @@
      }
      /// <p>Contains information about the last time the access key was used.</p>
 -    pub fn access_key_last_used(&self) -> ::std::option::Option<&crate::types::AccessKeyLastUsed> {
-+    pub fn access_key_last_used(&self) -> ::std::option::Option<&super::types::AccessKeyLastUsed> {
++    pub fn access_key_last_used(&self) -> ::std::option::Option<&super::super::super::types::AccessKeyLastUsed> {
          self.access_key_last_used.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`GetAccessKeyLastUsedOutput`](crate::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput).
 -    pub fn builder() -> crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder {
 -        crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder {
-+        super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder {
++        super::super::super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct GetAccessKeyLastUsedOutputBuilder {
      pub(crate) user_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) access_key_last_used: ::std::option::Option<crate::types::AccessKeyLastUsed>,
-+    pub(crate) access_key_last_used: ::std::option::Option<super::types::AccessKeyLastUsed>,
++    pub(crate) access_key_last_used: ::std::option::Option<super::super::super::types::AccessKeyLastUsed>,
      _request_id: Option<String>,
  }
  impl GetAccessKeyLastUsedOutputBuilder {
@@ -43,19 +43,19 @@
      }
      /// <p>Contains information about the last time the access key was used.</p>
 -    pub fn access_key_last_used(mut self, input: crate::types::AccessKeyLastUsed) -> Self {
-+    pub fn access_key_last_used(mut self, input: super::types::AccessKeyLastUsed) -> Self {
++    pub fn access_key_last_used(mut self, input: super::super::super::types::AccessKeyLastUsed) -> Self {
          self.access_key_last_used = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains information about the last time the access key was used.</p>
 -    pub fn set_access_key_last_used(mut self, input: ::std::option::Option<crate::types::AccessKeyLastUsed>) -> Self {
-+    pub fn set_access_key_last_used(mut self, input: ::std::option::Option<super::types::AccessKeyLastUsed>) -> Self {
++    pub fn set_access_key_last_used(mut self, input: ::std::option::Option<super::super::super::types::AccessKeyLastUsed>) -> Self {
          self.access_key_last_used = input;
          self
      }
      /// <p>Contains information about the last time the access key was used.</p>
 -    pub fn get_access_key_last_used(&self) -> &::std::option::Option<crate::types::AccessKeyLastUsed> {
-+    pub fn get_access_key_last_used(&self) -> &::std::option::Option<super::types::AccessKeyLastUsed> {
++    pub fn get_access_key_last_used(&self) -> &::std::option::Option<super::super::super::types::AccessKeyLastUsed> {
          &self.access_key_last_used
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`GetAccessKeyLastUsedOutput`](crate::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput).
 -    pub fn build(self) -> crate::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput {
 -        crate::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput {
-+    pub fn build(self) -> super::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput {
-+        super::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput {
++    pub fn build(self) -> super::super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput {
++        super::super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput {
              user_name: self.user_name,
              access_key_last_used: self.access_key_last_used,
              _request_id: self._request_id,

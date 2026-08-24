@@ -5,7 +5,7 @@
  pub fn ser_create_job_queue_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::create_job_queue::CreateJobQueueInput,
-+    input: &super::operation::create_job_queue::CreateJobQueueInput,
++    input: &super::super::operation::create_job_queue::CreateJobQueueInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.compute_environment_order {
          let mut array_2 = object.key("computeEnvironmentOrder").start_array();
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_4 = array_2.value().start_object();
 -                crate::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
-+                super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
++                super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
                  object_4.finish();
              }
          }
@@ -23,7 +23,7 @@
                  #[allow(unused_mut)]
                  let mut object_10 = array_8.value().start_object();
 -                crate::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_10, item_9)?;
-+                super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_10, item_9)?;
++                super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_10, item_9)?;
                  object_10.finish();
              }
          }
@@ -32,7 +32,7 @@
                  #[allow(unused_mut)]
                  let mut object_16 = array_14.value().start_object();
 -                crate::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_16, item_15)?;
-+                super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_16, item_15)?;
++                super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_16, item_15)?;
                  object_16.finish();
              }
          }

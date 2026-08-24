@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionFluentBuilder {
 -        crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionFluentBuilder {
-+        super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionFluentBuilder {
++        super::super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionFluentBuilder::new(self.handle.clone())
      }
  }

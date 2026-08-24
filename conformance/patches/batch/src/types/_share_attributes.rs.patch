@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ShareAttributes`](crate::types::ShareAttributes).
 -    pub fn builder() -> crate::types::builders::ShareAttributesBuilder {
 -        crate::types::builders::ShareAttributesBuilder::default()
-+    pub fn builder() -> super::types::builders::ShareAttributesBuilder {
-+        super::types::builders::ShareAttributesBuilder::default()
++    pub fn builder() -> super::super::types::builders::ShareAttributesBuilder {
++        super::super::types::builders::ShareAttributesBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ShareAttributes`](crate::types::ShareAttributes).
 -    pub fn build(self) -> crate::types::ShareAttributes {
 -        crate::types::ShareAttributes {
-+    pub fn build(self) -> super::types::ShareAttributes {
-+        super::types::ShareAttributes {
++    pub fn build(self) -> super::super::types::ShareAttributes {
++        super::super::types::ShareAttributes {
              share_identifier: self.share_identifier,
              weight_factor: self.weight_factor,
          }

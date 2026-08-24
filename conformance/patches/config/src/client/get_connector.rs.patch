@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetConnectorError>`](crate::operation::get_connector::GetConnectorError)
 -    pub fn get_connector(&self) -> crate::operation::get_connector::builders::GetConnectorFluentBuilder {
 -        crate::operation::get_connector::builders::GetConnectorFluentBuilder::new(self.handle.clone())
-+    pub fn get_connector(&self) -> super::operation::get_connector::builders::GetConnectorFluentBuilder {
-+        super::operation::get_connector::builders::GetConnectorFluentBuilder::new(self.handle.clone())
++    pub fn get_connector(&self) -> super::super::operation::get_connector::builders::GetConnectorFluentBuilder {
++        super::super::operation::get_connector::builders::GetConnectorFluentBuilder::new(self.handle.clone())
      }
  }

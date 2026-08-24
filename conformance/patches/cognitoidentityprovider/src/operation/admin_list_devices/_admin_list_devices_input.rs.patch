@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminListDevicesInput`](crate::operation::admin_list_devices::AdminListDevicesInput).
 -    pub fn builder() -> crate::operation::admin_list_devices::builders::AdminListDevicesInputBuilder {
 -        crate::operation::admin_list_devices::builders::AdminListDevicesInputBuilder::default()
-+    pub fn builder() -> super::operation::admin_list_devices::builders::AdminListDevicesInputBuilder {
-+        super::operation::admin_list_devices::builders::AdminListDevicesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_list_devices::builders::AdminListDevicesInputBuilder {
++        super::super::super::operation::admin_list_devices::builders::AdminListDevicesInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::admin_list_devices::AdminListDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::admin_list_devices::AdminListDevicesInput {
-+    ) -> ::std::result::Result<super::operation::admin_list_devices::AdminListDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::admin_list_devices::AdminListDevicesInput {
++    ) -> ::std::result::Result<super::super::super::operation::admin_list_devices::AdminListDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::admin_list_devices::AdminListDevicesInput {
              user_pool_id: self.user_pool_id,
              username: self.username,
              limit: self.limit,

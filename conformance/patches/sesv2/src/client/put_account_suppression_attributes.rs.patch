@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesFluentBuilder {
 -        crate::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesFluentBuilder {
-+        super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesFluentBuilder {
++        super::super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,7 +5,7 @@
      _request_id: Option<String>,
  }
 -impl crate::s3_request_id::RequestIdExt for PutBucketReplicationOutput {
-+impl super::s3_request_id::RequestIdExt for PutBucketReplicationOutput {
++impl super::super::super::s3_request_id::RequestIdExt for PutBucketReplicationOutput {
      fn extended_request_id(&self) -> Option<&str> {
          self._extended_request_id.as_deref()
      }
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`PutBucketReplicationOutput`](crate::operation::put_bucket_replication::PutBucketReplicationOutput).
 -    pub fn builder() -> crate::operation::put_bucket_replication::builders::PutBucketReplicationOutputBuilder {
 -        crate::operation::put_bucket_replication::builders::PutBucketReplicationOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_bucket_replication::builders::PutBucketReplicationOutputBuilder {
-+        super::operation::put_bucket_replication::builders::PutBucketReplicationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_bucket_replication::builders::PutBucketReplicationOutputBuilder {
++        super::super::super::operation::put_bucket_replication::builders::PutBucketReplicationOutputBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`PutBucketReplicationOutput`](crate::operation::put_bucket_replication::PutBucketReplicationOutput).
 -    pub fn build(self) -> crate::operation::put_bucket_replication::PutBucketReplicationOutput {
 -        crate::operation::put_bucket_replication::PutBucketReplicationOutput {
-+    pub fn build(self) -> super::operation::put_bucket_replication::PutBucketReplicationOutput {
-+        super::operation::put_bucket_replication::PutBucketReplicationOutput {
++    pub fn build(self) -> super::super::super::operation::put_bucket_replication::PutBucketReplicationOutput {
++        super::super::super::operation::put_bucket_replication::PutBucketReplicationOutput {
              _extended_request_id: self._extended_request_id,
              _request_id: self._request_id,
          }

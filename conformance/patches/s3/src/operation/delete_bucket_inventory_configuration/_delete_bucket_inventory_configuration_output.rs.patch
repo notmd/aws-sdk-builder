@@ -5,7 +5,7 @@
      _request_id: Option<String>,
  }
 -impl crate::s3_request_id::RequestIdExt for DeleteBucketInventoryConfigurationOutput {
-+impl super::s3_request_id::RequestIdExt for DeleteBucketInventoryConfigurationOutput {
++impl super::super::super::s3_request_id::RequestIdExt for DeleteBucketInventoryConfigurationOutput {
      fn extended_request_id(&self) -> Option<&str> {
          self._extended_request_id.as_deref()
      }
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteBucketInventoryConfigurationOutput`](crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput).
 -    pub fn builder() -> crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder {
 -        crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder {
-+        super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder {
++        super::super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`DeleteBucketInventoryConfigurationOutput`](crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput).
 -    pub fn build(self) -> crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput {
 -        crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput {
-+    pub fn build(self) -> super::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput {
-+        super::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput {
++    pub fn build(self) -> super::super::super::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput {
++        super::super::super::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput {
              _extended_request_id: self._extended_request_id,
              _request_id: self._request_id,
          }

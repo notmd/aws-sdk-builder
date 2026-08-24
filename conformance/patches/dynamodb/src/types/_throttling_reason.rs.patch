@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ThrottlingReason`](crate::types::ThrottlingReason).
 -    pub fn builder() -> crate::types::builders::ThrottlingReasonBuilder {
 -        crate::types::builders::ThrottlingReasonBuilder::default()
-+    pub fn builder() -> super::types::builders::ThrottlingReasonBuilder {
-+        super::types::builders::ThrottlingReasonBuilder::default()
++    pub fn builder() -> super::super::types::builders::ThrottlingReasonBuilder {
++        super::super::types::builders::ThrottlingReasonBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ThrottlingReason`](crate::types::ThrottlingReason).
 -    pub fn build(self) -> crate::types::ThrottlingReason {
 -        crate::types::ThrottlingReason {
-+    pub fn build(self) -> super::types::ThrottlingReason {
-+        super::types::ThrottlingReason {
++    pub fn build(self) -> super::super::types::ThrottlingReason {
++        super::super::types::ThrottlingReason {
              reason: self.reason,
              resource: self.resource,
          }

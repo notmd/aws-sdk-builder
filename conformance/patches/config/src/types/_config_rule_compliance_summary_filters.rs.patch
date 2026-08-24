@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ConfigRuleComplianceSummaryFilters`](crate::types::ConfigRuleComplianceSummaryFilters).
 -    pub fn builder() -> crate::types::builders::ConfigRuleComplianceSummaryFiltersBuilder {
 -        crate::types::builders::ConfigRuleComplianceSummaryFiltersBuilder::default()
-+    pub fn builder() -> super::types::builders::ConfigRuleComplianceSummaryFiltersBuilder {
-+        super::types::builders::ConfigRuleComplianceSummaryFiltersBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConfigRuleComplianceSummaryFiltersBuilder {
++        super::super::types::builders::ConfigRuleComplianceSummaryFiltersBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ConfigRuleComplianceSummaryFilters`](crate::types::ConfigRuleComplianceSummaryFilters).
 -    pub fn build(self) -> crate::types::ConfigRuleComplianceSummaryFilters {
 -        crate::types::ConfigRuleComplianceSummaryFilters {
-+    pub fn build(self) -> super::types::ConfigRuleComplianceSummaryFilters {
-+        super::types::ConfigRuleComplianceSummaryFilters {
++    pub fn build(self) -> super::super::types::ConfigRuleComplianceSummaryFilters {
++        super::super::types::ConfigRuleComplianceSummaryFilters {
              account_id: self.account_id,
              aws_region: self.aws_region,
          }

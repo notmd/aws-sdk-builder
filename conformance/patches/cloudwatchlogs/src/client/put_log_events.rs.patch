@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutLogEventsError>`](crate::operation::put_log_events::PutLogEventsError)
 -    pub fn put_log_events(&self) -> crate::operation::put_log_events::builders::PutLogEventsFluentBuilder {
 -        crate::operation::put_log_events::builders::PutLogEventsFluentBuilder::new(self.handle.clone())
-+    pub fn put_log_events(&self) -> super::operation::put_log_events::builders::PutLogEventsFluentBuilder {
-+        super::operation::put_log_events::builders::PutLogEventsFluentBuilder::new(self.handle.clone())
++    pub fn put_log_events(&self) -> super::super::operation::put_log_events::builders::PutLogEventsFluentBuilder {
++        super::super::operation::put_log_events::builders::PutLogEventsFluentBuilder::new(self.handle.clone())
      }
  }

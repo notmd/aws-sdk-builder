@@ -5,7 +5,7 @@
  pub struct DescribeRemediationExceptionsOutput {
      /// <p>Returns a list of remediation exception objects.</p>
 -    pub remediation_exceptions: ::std::option::Option<::std::vec::Vec<crate::types::RemediationException>>,
-+    pub remediation_exceptions: ::std::option::Option<::std::vec::Vec<super::types::RemediationException>>,
++    pub remediation_exceptions: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationException>>,
      /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.remediation_exceptions.is_none()`.
 -    pub fn remediation_exceptions(&self) -> &[crate::types::RemediationException] {
-+    pub fn remediation_exceptions(&self) -> &[super::types::RemediationException] {
++    pub fn remediation_exceptions(&self) -> &[super::super::super::types::RemediationException] {
          self.remediation_exceptions.as_deref().unwrap_or_default()
      }
      /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeRemediationExceptionsOutput`](crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput).
 -    pub fn builder() -> crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsOutputBuilder {
 -        crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsOutputBuilder {
-+        super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsOutputBuilder {
++        super::super::super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeRemediationExceptionsOutputBuilder {
 -    pub(crate) remediation_exceptions: ::std::option::Option<::std::vec::Vec<crate::types::RemediationException>>,
-+    pub(crate) remediation_exceptions: ::std::option::Option<::std::vec::Vec<super::types::RemediationException>>,
++    pub(crate) remediation_exceptions: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationException>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>Returns a list of remediation exception objects.</p>
 -    pub fn remediation_exceptions(mut self, input: crate::types::RemediationException) -> Self {
-+    pub fn remediation_exceptions(mut self, input: super::types::RemediationException) -> Self {
++    pub fn remediation_exceptions(mut self, input: super::super::super::types::RemediationException) -> Self {
          let mut v = self.remediation_exceptions.unwrap_or_default();
          v.push(input);
          self.remediation_exceptions = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>Returns a list of remediation exception objects.</p>
 -    pub fn set_remediation_exceptions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RemediationException>>) -> Self {
-+    pub fn set_remediation_exceptions(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::RemediationException>>) -> Self {
++    pub fn set_remediation_exceptions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationException>>) -> Self {
          self.remediation_exceptions = input;
          self
      }
      /// <p>Returns a list of remediation exception objects.</p>
 -    pub fn get_remediation_exceptions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationException>> {
-+    pub fn get_remediation_exceptions(&self) -> &::std::option::Option<::std::vec::Vec<super::types::RemediationException>> {
++    pub fn get_remediation_exceptions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationException>> {
          &self.remediation_exceptions
      }
      /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeRemediationExceptionsOutput`](crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput).
 -    pub fn build(self) -> crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput {
 -        crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput {
-+    pub fn build(self) -> super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput {
-+        super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput {
++    pub fn build(self) -> super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput {
++        super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput {
              remediation_exceptions: self.remediation_exceptions,
              next_token: self.next_token,
              _request_id: self._request_id,

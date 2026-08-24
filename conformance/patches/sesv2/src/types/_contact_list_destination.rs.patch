@@ -5,7 +5,7 @@
      /// <p>DELETE: remove the addresses from the contact list.</p></li>
      /// </ul>
 -    pub contact_list_import_action: crate::types::ContactListImportAction,
-+    pub contact_list_import_action: super::types::ContactListImportAction,
++    pub contact_list_import_action: super::super::types::ContactListImportAction,
  }
  impl ContactListDestination {
      /// <p>The name of the contact list.</p>
@@ -14,7 +14,7 @@
      /// <p>DELETE: remove the addresses from the contact list.</p></li>
      /// </ul>
 -    pub fn contact_list_import_action(&self) -> &crate::types::ContactListImportAction {
-+    pub fn contact_list_import_action(&self) -> &super::types::ContactListImportAction {
++    pub fn contact_list_import_action(&self) -> &super::super::types::ContactListImportAction {
          &self.contact_list_import_action
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ContactListDestination`](crate::types::ContactListDestination).
 -    pub fn builder() -> crate::types::builders::ContactListDestinationBuilder {
 -        crate::types::builders::ContactListDestinationBuilder::default()
-+    pub fn builder() -> super::types::builders::ContactListDestinationBuilder {
-+        super::types::builders::ContactListDestinationBuilder::default()
++    pub fn builder() -> super::super::types::builders::ContactListDestinationBuilder {
++        super::super::types::builders::ContactListDestinationBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct ContactListDestinationBuilder {
      pub(crate) contact_list_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) contact_list_import_action: ::std::option::Option<crate::types::ContactListImportAction>,
-+    pub(crate) contact_list_import_action: ::std::option::Option<super::types::ContactListImportAction>,
++    pub(crate) contact_list_import_action: ::std::option::Option<super::super::types::ContactListImportAction>,
  }
  impl ContactListDestinationBuilder {
      /// <p>The name of the contact list.</p>
@@ -41,7 +41,7 @@
      /// </ul>
      /// This field is required.
 -    pub fn contact_list_import_action(mut self, input: crate::types::ContactListImportAction) -> Self {
-+    pub fn contact_list_import_action(mut self, input: super::types::ContactListImportAction) -> Self {
++    pub fn contact_list_import_action(mut self, input: super::super::types::ContactListImportAction) -> Self {
          self.contact_list_import_action = ::std::option::Option::Some(input);
          self
      }
@@ -50,7 +50,7 @@
      /// <p>DELETE: remove the addresses from the contact list.</p></li>
      /// </ul>
 -    pub fn set_contact_list_import_action(mut self, input: ::std::option::Option<crate::types::ContactListImportAction>) -> Self {
-+    pub fn set_contact_list_import_action(mut self, input: ::std::option::Option<super::types::ContactListImportAction>) -> Self {
++    pub fn set_contact_list_import_action(mut self, input: ::std::option::Option<super::super::types::ContactListImportAction>) -> Self {
          self.contact_list_import_action = input;
          self
      }
@@ -59,7 +59,7 @@
      /// <p>DELETE: remove the addresses from the contact list.</p></li>
      /// </ul>
 -    pub fn get_contact_list_import_action(&self) -> &::std::option::Option<crate::types::ContactListImportAction> {
-+    pub fn get_contact_list_import_action(&self) -> &::std::option::Option<super::types::ContactListImportAction> {
++    pub fn get_contact_list_import_action(&self) -> &::std::option::Option<super::super::types::ContactListImportAction> {
          &self.contact_list_import_action
      }
      /// Consumes the builder and constructs a [`ContactListDestination`](crate::types::ContactListDestination).
@@ -69,8 +69,8 @@
      /// - [`contact_list_import_action`](crate::types::builders::ContactListDestinationBuilder::contact_list_import_action)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ContactListDestination, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ContactListDestination {
-+    pub fn build(self) -> ::std::result::Result<super::types::ContactListDestination, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ContactListDestination {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ContactListDestination, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ContactListDestination {
              contact_list_name: self.contact_list_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "contact_list_name",

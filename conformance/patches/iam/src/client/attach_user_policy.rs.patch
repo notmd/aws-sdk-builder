@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AttachUserPolicyError>`](crate::operation::attach_user_policy::AttachUserPolicyError)
 -    pub fn attach_user_policy(&self) -> crate::operation::attach_user_policy::builders::AttachUserPolicyFluentBuilder {
 -        crate::operation::attach_user_policy::builders::AttachUserPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn attach_user_policy(&self) -> super::operation::attach_user_policy::builders::AttachUserPolicyFluentBuilder {
-+        super::operation::attach_user_policy::builders::AttachUserPolicyFluentBuilder::new(self.handle.clone())
++    pub fn attach_user_policy(&self) -> super::super::operation::attach_user_policy::builders::AttachUserPolicyFluentBuilder {
++        super::super::operation::attach_user_policy::builders::AttachUserPolicyFluentBuilder::new(self.handle.clone())
      }
  }

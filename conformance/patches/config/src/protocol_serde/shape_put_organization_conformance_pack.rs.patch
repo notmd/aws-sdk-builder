@@ -6,34 +6,34 @@
  ) -> std::result::Result<
 -    crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput,
 -    crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError,
-+    super::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput,
-+    super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError,
++    super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput,
++    super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled(generic)),
-+        None => return Err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled(generic)),
++        None => return Err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InsufficientPermissionsException" => crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::InsufficientPermissionsException({
-+        "InsufficientPermissionsException" => super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::InsufficientPermissionsException({
++        "InsufficientPermissionsException" => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::InsufficientPermissionsException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(_response_body, output).map_err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
-+                    let mut output = super::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(_response_body, output).map_err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(_response_body, output).map_err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -42,15 +42,15 @@
              tmp
          }),
 -        "MaxNumberOfOrganizationConformancePacksExceededException" => crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::MaxNumberOfOrganizationConformancePacksExceededException({
-+        "MaxNumberOfOrganizationConformancePacksExceededException" => super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::MaxNumberOfOrganizationConformancePacksExceededException({
++        "MaxNumberOfOrganizationConformancePacksExceededException" => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::MaxNumberOfOrganizationConformancePacksExceededException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::MaxNumberOfOrganizationConformancePacksExceededExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_max_number_of_organization_conformance_packs_exceeded_exception::de_max_number_of_organization_conformance_packs_exceeded_exception_json_err(_response_body, output).map_err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
-+                    let mut output = super::types::error::builders::MaxNumberOfOrganizationConformancePacksExceededExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_max_number_of_organization_conformance_packs_exceeded_exception::de_max_number_of_organization_conformance_packs_exceeded_exception_json_err(_response_body, output).map_err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
++                    let mut output = super::super::types::error::builders::MaxNumberOfOrganizationConformancePacksExceededExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_max_number_of_organization_conformance_packs_exceeded_exception::de_max_number_of_organization_conformance_packs_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -59,15 +59,15 @@
              tmp
          }),
 -        "NoAvailableOrganizationException" => crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::NoAvailableOrganizationException({
-+        "NoAvailableOrganizationException" => super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::NoAvailableOrganizationException({
++        "NoAvailableOrganizationException" => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::NoAvailableOrganizationException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::NoAvailableOrganizationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_no_available_organization_exception::de_no_available_organization_exception_json_err(_response_body, output).map_err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
-+                    let mut output = super::types::error::builders::NoAvailableOrganizationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_no_available_organization_exception::de_no_available_organization_exception_json_err(_response_body, output).map_err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
++                    let mut output = super::super::types::error::builders::NoAvailableOrganizationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_no_available_organization_exception::de_no_available_organization_exception_json_err(_response_body, output).map_err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -76,15 +76,15 @@
              tmp
          }),
 -        "OrganizationAccessDeniedException" => crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::OrganizationAccessDeniedException({
-+        "OrganizationAccessDeniedException" => super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::OrganizationAccessDeniedException({
++        "OrganizationAccessDeniedException" => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::OrganizationAccessDeniedException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(_response_body, output).map_err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
-+                    let mut output = super::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(_response_body, output).map_err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
++                    let mut output = super::super::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -93,15 +93,15 @@
              tmp
          }),
 -        "OrganizationAllFeaturesNotEnabledException" => crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::OrganizationAllFeaturesNotEnabledException({
-+        "OrganizationAllFeaturesNotEnabledException" => super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::OrganizationAllFeaturesNotEnabledException({
++        "OrganizationAllFeaturesNotEnabledException" => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::OrganizationAllFeaturesNotEnabledException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_organization_all_features_not_enabled_exception::de_organization_all_features_not_enabled_exception_json_err(_response_body, output).map_err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
-+                    let mut output = super::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_organization_all_features_not_enabled_exception::de_organization_all_features_not_enabled_exception_json_err(_response_body, output).map_err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
++                    let mut output = super::super::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_organization_all_features_not_enabled_exception::de_organization_all_features_not_enabled_exception_json_err(_response_body, output).map_err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -110,15 +110,15 @@
              tmp
          }),
 -        "OrganizationConformancePackTemplateValidationException" => crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::OrganizationConformancePackTemplateValidationException({
-+        "OrganizationConformancePackTemplateValidationException" => super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::OrganizationConformancePackTemplateValidationException({
++        "OrganizationConformancePackTemplateValidationException" => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::OrganizationConformancePackTemplateValidationException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::OrganizationConformancePackTemplateValidationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_organization_conformance_pack_template_validation_exception::de_organization_conformance_pack_template_validation_exception_json_err(_response_body, output).map_err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
-+                    let mut output = super::types::error::builders::OrganizationConformancePackTemplateValidationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_organization_conformance_pack_template_validation_exception::de_organization_conformance_pack_template_validation_exception_json_err(_response_body, output).map_err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
++                    let mut output = super::super::types::error::builders::OrganizationConformancePackTemplateValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_organization_conformance_pack_template_validation_exception::de_organization_conformance_pack_template_validation_exception_json_err(_response_body, output).map_err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -127,15 +127,15 @@
              tmp
          }),
 -        "ResourceInUseException" => crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::ResourceInUseException({
-+        "ResourceInUseException" => super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::ResourceInUseException({
++        "ResourceInUseException" => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::ResourceInUseException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ResourceInUseExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output).map_err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
-+                    let mut output = super::types::error::builders::ResourceInUseExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output).map_err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
++                    let mut output = super::super::types::error::builders::ResourceInUseExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output).map_err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -144,15 +144,15 @@
              tmp
          }),
 -        "ValidationException" => crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::ValidationException({
-+        "ValidationException" => super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::ValidationException({
++        "ValidationException" => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::ValidationException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
-+                    let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
++                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -161,7 +161,7 @@
              tmp
          }),
 -        _ => crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::generic(generic)
-+        _ => super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::generic(generic)
++        _ => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::generic(generic)
      })
  }
 
@@ -171,17 +171,17 @@
  ) -> std::result::Result<
 -    crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput,
 -    crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError,
-+    super::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput,
-+    super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError,
++    super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput,
++    super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder::default();
 -        output = crate::protocol_serde::shape_put_organization_conformance_pack::de_put_organization_conformance_pack(_response_body, output)
 -            .map_err(crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
-+        let mut output = super::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder::default();
-+        output = super::protocol_serde::shape_put_organization_conformance_pack::de_put_organization_conformance_pack(_response_body, output)
-+            .map_err(super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
++        let mut output = super::super::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder::default();
++        output = super::super::protocol_serde::shape_put_organization_conformance_pack::de_put_organization_conformance_pack(_response_body, output)
++            .map_err(super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -190,12 +190,12 @@
 
  pub fn ser_put_organization_conformance_pack_input(
 -    input: &crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackInput,
-+    input: &super::operation::put_organization_conformance_pack::PutOrganizationConformancePackInput,
++    input: &super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_put_organization_conformance_pack_input::ser_put_organization_conformance_pack_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_put_organization_conformance_pack_input::ser_put_organization_conformance_pack_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_put_organization_conformance_pack_input::ser_put_organization_conformance_pack_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -204,14 +204,14 @@
  pub(crate) fn de_put_organization_conformance_pack(
      _value: &[u8],
 -    mut builder: crate::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder,
-+    mut builder: super::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder,
++    mut builder: super::super::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder,
-+    super::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder,
++    super::super::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;

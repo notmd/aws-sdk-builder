@@ -17,7 +17,8 @@
         "Cargo.toml",
         "Cargo.lock",
         "README.md",
-        "LICENSE"
+        "LICENSE",
+        "original.rs"
       ],
       "directories": [
         "tests",

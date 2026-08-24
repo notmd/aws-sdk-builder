@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SendMessageBatchResultEntry`](crate::types::SendMessageBatchResultEntry).
 -    pub fn builder() -> crate::types::builders::SendMessageBatchResultEntryBuilder {
 -        crate::types::builders::SendMessageBatchResultEntryBuilder::default()
-+    pub fn builder() -> super::types::builders::SendMessageBatchResultEntryBuilder {
-+        super::types::builders::SendMessageBatchResultEntryBuilder::default()
++    pub fn builder() -> super::super::types::builders::SendMessageBatchResultEntryBuilder {
++        super::super::types::builders::SendMessageBatchResultEntryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`md5_of_message_body`](crate::types::builders::SendMessageBatchResultEntryBuilder::md5_of_message_body)
 -    pub fn build(self) -> ::std::result::Result<crate::types::SendMessageBatchResultEntry, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::SendMessageBatchResultEntry {
-+    pub fn build(self) -> ::std::result::Result<super::types::SendMessageBatchResultEntry, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::SendMessageBatchResultEntry {
++    pub fn build(self) -> ::std::result::Result<super::super::types::SendMessageBatchResultEntry, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::SendMessageBatchResultEntry {
              id: self.id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "id",

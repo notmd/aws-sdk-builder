@@ -5,7 +5,7 @@
      pub task_id: ::std::option::Option<::std::string::String>,
      /// <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
 -    pub status_code: ::std::option::Option<crate::types::ExportTaskStatusCode>,
-+    pub status_code: ::std::option::Option<super::types::ExportTaskStatusCode>,
++    pub status_code: ::std::option::Option<super::super::super::types::ExportTaskStatusCode>,
      /// <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      /// <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
 -    pub fn status_code(&self) -> ::std::option::Option<&crate::types::ExportTaskStatusCode> {
-+    pub fn status_code(&self) -> ::std::option::Option<&super::types::ExportTaskStatusCode> {
++    pub fn status_code(&self) -> ::std::option::Option<&super::super::super::types::ExportTaskStatusCode> {
          self.status_code.as_ref()
      }
      /// <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeExportTasksInput`](crate::operation::describe_export_tasks::DescribeExportTasksInput).
 -    pub fn builder() -> crate::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder {
 -        crate::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder {
-+        super::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder {
++        super::super::super::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct DescribeExportTasksInputBuilder {
      pub(crate) task_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) status_code: ::std::option::Option<crate::types::ExportTaskStatusCode>,
-+    pub(crate) status_code: ::std::option::Option<super::types::ExportTaskStatusCode>,
++    pub(crate) status_code: ::std::option::Option<super::super::super::types::ExportTaskStatusCode>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      pub(crate) limit: ::std::option::Option<i32>,
  }
@@ -43,19 +43,19 @@
      }
      /// <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
 -    pub fn status_code(mut self, input: crate::types::ExportTaskStatusCode) -> Self {
-+    pub fn status_code(mut self, input: super::types::ExportTaskStatusCode) -> Self {
++    pub fn status_code(mut self, input: super::super::super::types::ExportTaskStatusCode) -> Self {
          self.status_code = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
 -    pub fn set_status_code(mut self, input: ::std::option::Option<crate::types::ExportTaskStatusCode>) -> Self {
-+    pub fn set_status_code(mut self, input: ::std::option::Option<super::types::ExportTaskStatusCode>) -> Self {
++    pub fn set_status_code(mut self, input: ::std::option::Option<super::super::super::types::ExportTaskStatusCode>) -> Self {
          self.status_code = input;
          self
      }
      /// <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
 -    pub fn get_status_code(&self) -> &::std::option::Option<crate::types::ExportTaskStatusCode> {
-+    pub fn get_status_code(&self) -> &::std::option::Option<super::types::ExportTaskStatusCode> {
++    pub fn get_status_code(&self) -> &::std::option::Option<super::super::super::types::ExportTaskStatusCode> {
          &self.status_code
      }
      /// <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
@@ -64,10 +64,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_export_tasks::DescribeExportTasksInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::describe_export_tasks::DescribeExportTasksInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::describe_export_tasks::DescribeExportTasksInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::describe_export_tasks::DescribeExportTasksInput {
-+        ::std::result::Result::Ok(super::operation::describe_export_tasks::DescribeExportTasksInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_export_tasks::DescribeExportTasksInput {
              task_id: self.task_id,
              status_code: self.status_code,
              next_token: self.next_token,

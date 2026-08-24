@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    Option<::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>>,
-+    Option<::std::collections::HashMap<super::types::PackageGroupOriginRestrictionType, super::types::PackageGroupOriginRestriction>>,
++    Option<::std::collections::HashMap<super::super::types::PackageGroupOriginRestrictionType, super::super::types::PackageGroupOriginRestriction>>,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  >
  where
@@ -15,8 +15,8 @@
                              .to_unescaped()
 -                            .map(|u| crate::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
 -                        let value = crate::protocol_serde::shape_package_group_origin_restriction::de_package_group_origin_restriction(
-+                            .map(|u| super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
-+                        let value = super::protocol_serde::shape_package_group_origin_restriction::de_package_group_origin_restriction(
++                            .map(|u| super::super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
++                        let value = super::super::protocol_serde::shape_package_group_origin_restriction::de_package_group_origin_restriction(
                              tokens,
                              _value,
                              depth + 1,

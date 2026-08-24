@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for InvalidZipFileException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::InvalidZipFileException {
-+impl ::aws_types::request_id::RequestId for super::types::error::InvalidZipFileException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::InvalidZipFileException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`InvalidZipFileException`](crate::types::error::InvalidZipFileException).
 -    pub fn builder() -> crate::types::error::builders::InvalidZipFileExceptionBuilder {
 -        crate::types::error::builders::InvalidZipFileExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::InvalidZipFileExceptionBuilder {
-+        super::types::error::builders::InvalidZipFileExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::InvalidZipFileExceptionBuilder {
++        super::super::super::types::error::builders::InvalidZipFileExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`InvalidZipFileException`](crate::types::error::InvalidZipFileException).
 -    pub fn build(self) -> crate::types::error::InvalidZipFileException {
 -        crate::types::error::InvalidZipFileException {
-+    pub fn build(self) -> super::types::error::InvalidZipFileException {
-+        super::types::error::InvalidZipFileException {
++    pub fn build(self) -> super::super::super::types::error::InvalidZipFileException {
++        super::super::super::types::error::InvalidZipFileException {
              r#type: self.r#type,
              message: self.message,
              meta: self.meta.unwrap_or_default(),

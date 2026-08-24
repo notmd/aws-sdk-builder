@@ -5,13 +5,13 @@
      pub client_id: ::std::option::Option<::std::string::String>,
      /// <p>Settings for compromised-credentials actions and authentication types with threat protection in full-function <code>ENFORCED</code> mode.</p>
 -    pub compromised_credentials_risk_configuration: ::std::option::Option<crate::types::CompromisedCredentialsRiskConfigurationType>,
-+    pub compromised_credentials_risk_configuration: ::std::option::Option<super::types::CompromisedCredentialsRiskConfigurationType>,
++    pub compromised_credentials_risk_configuration: ::std::option::Option<super::super::types::CompromisedCredentialsRiskConfigurationType>,
      /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
 -    pub account_takeover_risk_configuration: ::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType>,
-+    pub account_takeover_risk_configuration: ::std::option::Option<super::types::AccountTakeoverRiskConfigurationType>,
++    pub account_takeover_risk_configuration: ::std::option::Option<super::super::types::AccountTakeoverRiskConfigurationType>,
      /// <p>Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.</p>
 -    pub risk_exception_configuration: ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
-+    pub risk_exception_configuration: ::std::option::Option<super::types::RiskExceptionConfigurationType>,
++    pub risk_exception_configuration: ::std::option::Option<super::super::types::RiskExceptionConfigurationType>,
      /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
      pub last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
@@ -20,17 +20,17 @@
      }
      /// <p>Settings for compromised-credentials actions and authentication types with threat protection in full-function <code>ENFORCED</code> mode.</p>
 -    pub fn compromised_credentials_risk_configuration(&self) -> ::std::option::Option<&crate::types::CompromisedCredentialsRiskConfigurationType> {
-+    pub fn compromised_credentials_risk_configuration(&self) -> ::std::option::Option<&super::types::CompromisedCredentialsRiskConfigurationType> {
++    pub fn compromised_credentials_risk_configuration(&self) -> ::std::option::Option<&super::super::types::CompromisedCredentialsRiskConfigurationType> {
          self.compromised_credentials_risk_configuration.as_ref()
      }
      /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
 -    pub fn account_takeover_risk_configuration(&self) -> ::std::option::Option<&crate::types::AccountTakeoverRiskConfigurationType> {
-+    pub fn account_takeover_risk_configuration(&self) -> ::std::option::Option<&super::types::AccountTakeoverRiskConfigurationType> {
++    pub fn account_takeover_risk_configuration(&self) -> ::std::option::Option<&super::super::types::AccountTakeoverRiskConfigurationType> {
          self.account_takeover_risk_configuration.as_ref()
      }
      /// <p>Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.</p>
 -    pub fn risk_exception_configuration(&self) -> ::std::option::Option<&crate::types::RiskExceptionConfigurationType> {
-+    pub fn risk_exception_configuration(&self) -> ::std::option::Option<&super::types::RiskExceptionConfigurationType> {
++    pub fn risk_exception_configuration(&self) -> ::std::option::Option<&super::super::types::RiskExceptionConfigurationType> {
          self.risk_exception_configuration.as_ref()
      }
      /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -40,8 +40,8 @@
      /// Creates a new builder-style object to manufacture [`RiskConfigurationType`](crate::types::RiskConfigurationType).
 -    pub fn builder() -> crate::types::builders::RiskConfigurationTypeBuilder {
 -        crate::types::builders::RiskConfigurationTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::RiskConfigurationTypeBuilder {
-+        super::types::builders::RiskConfigurationTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::RiskConfigurationTypeBuilder {
++        super::super::types::builders::RiskConfigurationTypeBuilder::default()
      }
  }
 
@@ -52,9 +52,9 @@
 -    pub(crate) compromised_credentials_risk_configuration: ::std::option::Option<crate::types::CompromisedCredentialsRiskConfigurationType>,
 -    pub(crate) account_takeover_risk_configuration: ::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType>,
 -    pub(crate) risk_exception_configuration: ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
-+    pub(crate) compromised_credentials_risk_configuration: ::std::option::Option<super::types::CompromisedCredentialsRiskConfigurationType>,
-+    pub(crate) account_takeover_risk_configuration: ::std::option::Option<super::types::AccountTakeoverRiskConfigurationType>,
-+    pub(crate) risk_exception_configuration: ::std::option::Option<super::types::RiskExceptionConfigurationType>,
++    pub(crate) compromised_credentials_risk_configuration: ::std::option::Option<super::super::types::CompromisedCredentialsRiskConfigurationType>,
++    pub(crate) account_takeover_risk_configuration: ::std::option::Option<super::super::types::AccountTakeoverRiskConfigurationType>,
++    pub(crate) risk_exception_configuration: ::std::option::Option<super::super::types::RiskExceptionConfigurationType>,
      pub(crate) last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
  impl RiskConfigurationTypeBuilder {
@@ -63,7 +63,7 @@
      }
      /// <p>Settings for compromised-credentials actions and authentication types with threat protection in full-function <code>ENFORCED</code> mode.</p>
 -    pub fn compromised_credentials_risk_configuration(mut self, input: crate::types::CompromisedCredentialsRiskConfigurationType) -> Self {
-+    pub fn compromised_credentials_risk_configuration(mut self, input: super::types::CompromisedCredentialsRiskConfigurationType) -> Self {
++    pub fn compromised_credentials_risk_configuration(mut self, input: super::super::types::CompromisedCredentialsRiskConfigurationType) -> Self {
          self.compromised_credentials_risk_configuration = ::std::option::Option::Some(input);
          self
      }
@@ -72,7 +72,7 @@
      pub fn set_compromised_credentials_risk_configuration(
          mut self,
 -        input: ::std::option::Option<crate::types::CompromisedCredentialsRiskConfigurationType>,
-+        input: ::std::option::Option<super::types::CompromisedCredentialsRiskConfigurationType>,
++        input: ::std::option::Option<super::super::types::CompromisedCredentialsRiskConfigurationType>,
      ) -> Self {
          self.compromised_credentials_risk_configuration = input;
          self
@@ -81,12 +81,12 @@
      pub fn get_compromised_credentials_risk_configuration(
          &self,
 -    ) -> &::std::option::Option<crate::types::CompromisedCredentialsRiskConfigurationType> {
-+    ) -> &::std::option::Option<super::types::CompromisedCredentialsRiskConfigurationType> {
++    ) -> &::std::option::Option<super::super::types::CompromisedCredentialsRiskConfigurationType> {
          &self.compromised_credentials_risk_configuration
      }
      /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
 -    pub fn account_takeover_risk_configuration(mut self, input: crate::types::AccountTakeoverRiskConfigurationType) -> Self {
-+    pub fn account_takeover_risk_configuration(mut self, input: super::types::AccountTakeoverRiskConfigurationType) -> Self {
++    pub fn account_takeover_risk_configuration(mut self, input: super::super::types::AccountTakeoverRiskConfigurationType) -> Self {
          self.account_takeover_risk_configuration = ::std::option::Option::Some(input);
          self
      }
@@ -95,31 +95,31 @@
      pub fn set_account_takeover_risk_configuration(
          mut self,
 -        input: ::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType>,
-+        input: ::std::option::Option<super::types::AccountTakeoverRiskConfigurationType>,
++        input: ::std::option::Option<super::super::types::AccountTakeoverRiskConfigurationType>,
      ) -> Self {
          self.account_takeover_risk_configuration = input;
          self
      }
      /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
 -    pub fn get_account_takeover_risk_configuration(&self) -> &::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType> {
-+    pub fn get_account_takeover_risk_configuration(&self) -> &::std::option::Option<super::types::AccountTakeoverRiskConfigurationType> {
++    pub fn get_account_takeover_risk_configuration(&self) -> &::std::option::Option<super::super::types::AccountTakeoverRiskConfigurationType> {
          &self.account_takeover_risk_configuration
      }
      /// <p>Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.</p>
 -    pub fn risk_exception_configuration(mut self, input: crate::types::RiskExceptionConfigurationType) -> Self {
-+    pub fn risk_exception_configuration(mut self, input: super::types::RiskExceptionConfigurationType) -> Self {
++    pub fn risk_exception_configuration(mut self, input: super::super::types::RiskExceptionConfigurationType) -> Self {
          self.risk_exception_configuration = ::std::option::Option::Some(input);
          self
      }
      /// <p>Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.</p>
 -    pub fn set_risk_exception_configuration(mut self, input: ::std::option::Option<crate::types::RiskExceptionConfigurationType>) -> Self {
-+    pub fn set_risk_exception_configuration(mut self, input: ::std::option::Option<super::types::RiskExceptionConfigurationType>) -> Self {
++    pub fn set_risk_exception_configuration(mut self, input: ::std::option::Option<super::super::types::RiskExceptionConfigurationType>) -> Self {
          self.risk_exception_configuration = input;
          self
      }
      /// <p>Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.</p>
 -    pub fn get_risk_exception_configuration(&self) -> &::std::option::Option<crate::types::RiskExceptionConfigurationType> {
-+    pub fn get_risk_exception_configuration(&self) -> &::std::option::Option<super::types::RiskExceptionConfigurationType> {
++    pub fn get_risk_exception_configuration(&self) -> &::std::option::Option<super::super::types::RiskExceptionConfigurationType> {
          &self.risk_exception_configuration
      }
      /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -129,8 +129,8 @@
      /// Consumes the builder and constructs a [`RiskConfigurationType`](crate::types::RiskConfigurationType).
 -    pub fn build(self) -> crate::types::RiskConfigurationType {
 -        crate::types::RiskConfigurationType {
-+    pub fn build(self) -> super::types::RiskConfigurationType {
-+        super::types::RiskConfigurationType {
++    pub fn build(self) -> super::super::types::RiskConfigurationType {
++        super::super::types::RiskConfigurationType {
              user_pool_id: self.user_pool_id,
              client_id: self.client_id,
              compromised_credentials_risk_configuration: self.compromised_credentials_risk_configuration,

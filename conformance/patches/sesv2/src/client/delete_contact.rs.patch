@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteContactError>`](crate::operation::delete_contact::DeleteContactError)
 -    pub fn delete_contact(&self) -> crate::operation::delete_contact::builders::DeleteContactFluentBuilder {
 -        crate::operation::delete_contact::builders::DeleteContactFluentBuilder::new(self.handle.clone())
-+    pub fn delete_contact(&self) -> super::operation::delete_contact::builders::DeleteContactFluentBuilder {
-+        super::operation::delete_contact::builders::DeleteContactFluentBuilder::new(self.handle.clone())
++    pub fn delete_contact(&self) -> super::super::operation::delete_contact::builders::DeleteContactFluentBuilder {
++        super::super::operation::delete_contact::builders::DeleteContactFluentBuilder::new(self.handle.clone())
      }
  }

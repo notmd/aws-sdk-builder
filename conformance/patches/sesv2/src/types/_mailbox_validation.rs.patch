@@ -5,20 +5,20 @@
  pub struct MailboxValidation {
      /// <p>Overall validity assessment with a conﬁdence verdict.</p>
 -    pub is_valid: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>,
-+    pub is_valid: ::std::option::Option<super::types::EmailAddressInsightsVerdict>,
++    pub is_valid: ::std::option::Option<super::super::types::EmailAddressInsightsVerdict>,
      /// <p>Specific validation checks performed on the email address.</p>
 -    pub evaluations: ::std::option::Option<crate::types::EmailAddressInsightsMailboxEvaluations>,
-+    pub evaluations: ::std::option::Option<super::types::EmailAddressInsightsMailboxEvaluations>,
++    pub evaluations: ::std::option::Option<super::super::types::EmailAddressInsightsMailboxEvaluations>,
  }
  impl MailboxValidation {
      /// <p>Overall validity assessment with a conﬁdence verdict.</p>
 -    pub fn is_valid(&self) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
-+    pub fn is_valid(&self) -> ::std::option::Option<&super::types::EmailAddressInsightsVerdict> {
++    pub fn is_valid(&self) -> ::std::option::Option<&super::super::types::EmailAddressInsightsVerdict> {
          self.is_valid.as_ref()
      }
      /// <p>Specific validation checks performed on the email address.</p>
 -    pub fn evaluations(&self) -> ::std::option::Option<&crate::types::EmailAddressInsightsMailboxEvaluations> {
-+    pub fn evaluations(&self) -> ::std::option::Option<&super::types::EmailAddressInsightsMailboxEvaluations> {
++    pub fn evaluations(&self) -> ::std::option::Option<&super::super::types::EmailAddressInsightsMailboxEvaluations> {
          self.evaluations.as_ref()
      }
  }
@@ -26,8 +26,8 @@
      /// Creates a new builder-style object to manufacture [`MailboxValidation`](crate::types::MailboxValidation).
 -    pub fn builder() -> crate::types::builders::MailboxValidationBuilder {
 -        crate::types::builders::MailboxValidationBuilder::default()
-+    pub fn builder() -> super::types::builders::MailboxValidationBuilder {
-+        super::types::builders::MailboxValidationBuilder::default()
++    pub fn builder() -> super::super::types::builders::MailboxValidationBuilder {
++        super::super::types::builders::MailboxValidationBuilder::default()
      }
  }
 
@@ -37,49 +37,49 @@
  pub struct MailboxValidationBuilder {
 -    pub(crate) is_valid: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>,
 -    pub(crate) evaluations: ::std::option::Option<crate::types::EmailAddressInsightsMailboxEvaluations>,
-+    pub(crate) is_valid: ::std::option::Option<super::types::EmailAddressInsightsVerdict>,
-+    pub(crate) evaluations: ::std::option::Option<super::types::EmailAddressInsightsMailboxEvaluations>,
++    pub(crate) is_valid: ::std::option::Option<super::super::types::EmailAddressInsightsVerdict>,
++    pub(crate) evaluations: ::std::option::Option<super::super::types::EmailAddressInsightsMailboxEvaluations>,
  }
  impl MailboxValidationBuilder {
      /// <p>Overall validity assessment with a conﬁdence verdict.</p>
 -    pub fn is_valid(mut self, input: crate::types::EmailAddressInsightsVerdict) -> Self {
-+    pub fn is_valid(mut self, input: super::types::EmailAddressInsightsVerdict) -> Self {
++    pub fn is_valid(mut self, input: super::super::types::EmailAddressInsightsVerdict) -> Self {
          self.is_valid = ::std::option::Option::Some(input);
          self
      }
      /// <p>Overall validity assessment with a conﬁdence verdict.</p>
 -    pub fn set_is_valid(mut self, input: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>) -> Self {
-+    pub fn set_is_valid(mut self, input: ::std::option::Option<super::types::EmailAddressInsightsVerdict>) -> Self {
++    pub fn set_is_valid(mut self, input: ::std::option::Option<super::super::types::EmailAddressInsightsVerdict>) -> Self {
          self.is_valid = input;
          self
      }
      /// <p>Overall validity assessment with a conﬁdence verdict.</p>
 -    pub fn get_is_valid(&self) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
-+    pub fn get_is_valid(&self) -> &::std::option::Option<super::types::EmailAddressInsightsVerdict> {
++    pub fn get_is_valid(&self) -> &::std::option::Option<super::super::types::EmailAddressInsightsVerdict> {
          &self.is_valid
      }
      /// <p>Specific validation checks performed on the email address.</p>
 -    pub fn evaluations(mut self, input: crate::types::EmailAddressInsightsMailboxEvaluations) -> Self {
-+    pub fn evaluations(mut self, input: super::types::EmailAddressInsightsMailboxEvaluations) -> Self {
++    pub fn evaluations(mut self, input: super::super::types::EmailAddressInsightsMailboxEvaluations) -> Self {
          self.evaluations = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specific validation checks performed on the email address.</p>
 -    pub fn set_evaluations(mut self, input: ::std::option::Option<crate::types::EmailAddressInsightsMailboxEvaluations>) -> Self {
-+    pub fn set_evaluations(mut self, input: ::std::option::Option<super::types::EmailAddressInsightsMailboxEvaluations>) -> Self {
++    pub fn set_evaluations(mut self, input: ::std::option::Option<super::super::types::EmailAddressInsightsMailboxEvaluations>) -> Self {
          self.evaluations = input;
          self
      }
      /// <p>Specific validation checks performed on the email address.</p>
 -    pub fn get_evaluations(&self) -> &::std::option::Option<crate::types::EmailAddressInsightsMailboxEvaluations> {
-+    pub fn get_evaluations(&self) -> &::std::option::Option<super::types::EmailAddressInsightsMailboxEvaluations> {
++    pub fn get_evaluations(&self) -> &::std::option::Option<super::super::types::EmailAddressInsightsMailboxEvaluations> {
          &self.evaluations
      }
      /// Consumes the builder and constructs a [`MailboxValidation`](crate::types::MailboxValidation).
 -    pub fn build(self) -> crate::types::MailboxValidation {
 -        crate::types::MailboxValidation {
-+    pub fn build(self) -> super::types::MailboxValidation {
-+        super::types::MailboxValidation {
++    pub fn build(self) -> super::super::types::MailboxValidation {
++        super::super::types::MailboxValidation {
              is_valid: self.is_valid,
              evaluations: self.evaluations,
          }

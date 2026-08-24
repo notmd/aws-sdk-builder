@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteComputeEnvironmentInput`](crate::operation::delete_compute_environment::DeleteComputeEnvironmentInput).
 -    pub fn builder() -> crate::operation::delete_compute_environment::builders::DeleteComputeEnvironmentInputBuilder {
 -        crate::operation::delete_compute_environment::builders::DeleteComputeEnvironmentInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentInputBuilder {
-+        super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentInputBuilder {
++        super::super::super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_compute_environment::DeleteComputeEnvironmentInput,
-+        super::operation::delete_compute_environment::DeleteComputeEnvironmentInput,
++        super::super::super::operation::delete_compute_environment::DeleteComputeEnvironmentInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_compute_environment::DeleteComputeEnvironmentInput {
-+        ::std::result::Result::Ok(super::operation::delete_compute_environment::DeleteComputeEnvironmentInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_compute_environment::DeleteComputeEnvironmentInput {
              compute_environment: self.compute_environment,
          })
      }

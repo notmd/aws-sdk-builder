@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsFluentBuilder {
 -        crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsFluentBuilder {
-+        super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsFluentBuilder {
++        super::super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsFluentBuilder::new(self.handle.clone())
      }
  }

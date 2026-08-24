@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteTableError>`](crate::operation::delete_table::DeleteTableError)
 -    pub fn delete_table(&self) -> crate::operation::delete_table::builders::DeleteTableFluentBuilder {
 -        crate::operation::delete_table::builders::DeleteTableFluentBuilder::new(self.handle.clone())
-+    pub fn delete_table(&self) -> super::operation::delete_table::builders::DeleteTableFluentBuilder {
-+        super::operation::delete_table::builders::DeleteTableFluentBuilder::new(self.handle.clone())
++    pub fn delete_table(&self) -> super::super::operation::delete_table::builders::DeleteTableFluentBuilder {
++        super::super::operation::delete_table::builders::DeleteTableFluentBuilder::new(self.handle.clone())
      }
  }

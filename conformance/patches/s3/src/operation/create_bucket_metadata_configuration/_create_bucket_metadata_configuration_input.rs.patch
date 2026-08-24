@@ -5,10 +5,10 @@
      pub content_md5: ::std::option::Option<::std::string::String>,
      /// <p>The checksum algorithm to use with your metadata configuration.</p>
 -    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-+    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
++    pub checksum_algorithm: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>,
      /// <p>The contents of your metadata configuration.</p>
 -    pub metadata_configuration: ::std::option::Option<crate::types::MetadataConfiguration>,
-+    pub metadata_configuration: ::std::option::Option<super::types::MetadataConfiguration>,
++    pub metadata_configuration: ::std::option::Option<super::super::super::types::MetadataConfiguration>,
      /// <p>The expected owner of the general purpose bucket that corresponds to your metadata configuration.</p>
      pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
  }
@@ -17,12 +17,12 @@
      }
      /// <p>The checksum algorithm to use with your metadata configuration.</p>
 -    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
-+    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
++    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::super::super::types::ChecksumAlgorithm> {
          self.checksum_algorithm.as_ref()
      }
      /// <p>The contents of your metadata configuration.</p>
 -    pub fn metadata_configuration(&self) -> ::std::option::Option<&crate::types::MetadataConfiguration> {
-+    pub fn metadata_configuration(&self) -> ::std::option::Option<&super::types::MetadataConfiguration> {
++    pub fn metadata_configuration(&self) -> ::std::option::Option<&super::super::super::types::MetadataConfiguration> {
          self.metadata_configuration.as_ref()
      }
      /// <p>The expected owner of the general purpose bucket that corresponds to your metadata configuration.</p>
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`CreateBucketMetadataConfigurationInput`](crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput).
 -    pub fn builder() -> crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder {
 -        crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder::default()
-+    pub fn builder() -> super::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder {
-+        super::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder {
++        super::super::super::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder::default()
      }
  }
 
@@ -43,8 +43,8 @@
      pub(crate) content_md5: ::std::option::Option<::std::string::String>,
 -    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
 -    pub(crate) metadata_configuration: ::std::option::Option<crate::types::MetadataConfiguration>,
-+    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
-+    pub(crate) metadata_configuration: ::std::option::Option<super::types::MetadataConfiguration>,
++    pub(crate) checksum_algorithm: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>,
++    pub(crate) metadata_configuration: ::std::option::Option<super::super::super::types::MetadataConfiguration>,
      pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
  }
  impl CreateBucketMetadataConfigurationInputBuilder {
@@ -53,37 +53,37 @@
      }
      /// <p>The checksum algorithm to use with your metadata configuration.</p>
 -    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
-+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
++    pub fn checksum_algorithm(mut self, input: super::super::super::types::ChecksumAlgorithm) -> Self {
          self.checksum_algorithm = ::std::option::Option::Some(input);
          self
      }
      /// <p>The checksum algorithm to use with your metadata configuration.</p>
 -    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
-+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
++    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>) -> Self {
          self.checksum_algorithm = input;
          self
      }
      /// <p>The checksum algorithm to use with your metadata configuration.</p>
 -    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
-+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
++    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::super::super::types::ChecksumAlgorithm> {
          &self.checksum_algorithm
      }
      /// <p>The contents of your metadata configuration.</p>
      /// This field is required.
 -    pub fn metadata_configuration(mut self, input: crate::types::MetadataConfiguration) -> Self {
-+    pub fn metadata_configuration(mut self, input: super::types::MetadataConfiguration) -> Self {
++    pub fn metadata_configuration(mut self, input: super::super::super::types::MetadataConfiguration) -> Self {
          self.metadata_configuration = ::std::option::Option::Some(input);
          self
      }
      /// <p>The contents of your metadata configuration.</p>
 -    pub fn set_metadata_configuration(mut self, input: ::std::option::Option<crate::types::MetadataConfiguration>) -> Self {
-+    pub fn set_metadata_configuration(mut self, input: ::std::option::Option<super::types::MetadataConfiguration>) -> Self {
++    pub fn set_metadata_configuration(mut self, input: ::std::option::Option<super::super::super::types::MetadataConfiguration>) -> Self {
          self.metadata_configuration = input;
          self
      }
      /// <p>The contents of your metadata configuration.</p>
 -    pub fn get_metadata_configuration(&self) -> &::std::option::Option<crate::types::MetadataConfiguration> {
-+    pub fn get_metadata_configuration(&self) -> &::std::option::Option<super::types::MetadataConfiguration> {
++    pub fn get_metadata_configuration(&self) -> &::std::option::Option<super::super::super::types::MetadataConfiguration> {
          &self.metadata_configuration
      }
      /// <p>The expected owner of the general purpose bucket that corresponds to your metadata configuration.</p>
@@ -92,12 +92,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
-+        super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
++        super::super::super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput {
-+            super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput {
++            super::super::super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput {
                  bucket: self.bucket,
                  content_md5: self.content_md5,
                  checksum_algorithm: self.checksum_algorithm,

@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::IndexDocument, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::IndexDocument, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::IndexDocument, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::IndexDocument::builder();
-+    let mut builder = super::types::IndexDocument::builder();
++    let mut builder = super::super::types::IndexDocument::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("Suffix") /* Suffix com.amazonaws.s3#IndexDocument$Suffix */ =>  {
@@ -20,14 +20,14 @@
          }
      }
 -    Ok(crate::serde_util::index_document_correct_errors(builder)
-+    Ok(super::serde_util::index_document_correct_errors(builder)
++    Ok(super::super::serde_util::index_document_correct_errors(builder)
          .build()
          .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
  }
 
  pub fn ser_index_document(
 -    input: &crate::types::IndexDocument,
-+    input: &super::types::IndexDocument,
++    input: &super::super::types::IndexDocument,
      writer: ::aws_smithy_xml::encode::ElWriter,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      #[allow(unused_mut)]

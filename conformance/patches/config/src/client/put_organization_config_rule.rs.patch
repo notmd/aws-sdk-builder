@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutOrganizationConfigRuleError>`](crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError)
 -    pub fn put_organization_config_rule(&self) -> crate::operation::put_organization_config_rule::builders::PutOrganizationConfigRuleFluentBuilder {
 -        crate::operation::put_organization_config_rule::builders::PutOrganizationConfigRuleFluentBuilder::new(self.handle.clone())
-+    pub fn put_organization_config_rule(&self) -> super::operation::put_organization_config_rule::builders::PutOrganizationConfigRuleFluentBuilder {
-+        super::operation::put_organization_config_rule::builders::PutOrganizationConfigRuleFluentBuilder::new(self.handle.clone())
++    pub fn put_organization_config_rule(&self) -> super::super::operation::put_organization_config_rule::builders::PutOrganizationConfigRuleFluentBuilder {
++        super::super::operation::put_organization_config_rule::builders::PutOrganizationConfigRuleFluentBuilder::new(self.handle.clone())
      }
  }

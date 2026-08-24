@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ResourceServerScopeType`](crate::types::ResourceServerScopeType).
 -    pub fn builder() -> crate::types::builders::ResourceServerScopeTypeBuilder {
 -        crate::types::builders::ResourceServerScopeTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::ResourceServerScopeTypeBuilder {
-+        super::types::builders::ResourceServerScopeTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::ResourceServerScopeTypeBuilder {
++        super::super::types::builders::ResourceServerScopeTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`scope_description`](crate::types::builders::ResourceServerScopeTypeBuilder::scope_description)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ResourceServerScopeType, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ResourceServerScopeType {
-+    pub fn build(self) -> ::std::result::Result<super::types::ResourceServerScopeType, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ResourceServerScopeType {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ResourceServerScopeType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ResourceServerScopeType {
              scope_name: self.scope_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "scope_name",

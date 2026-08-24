@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetServiceLinkedRoleDeletionStatusInput`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput).
 -    pub fn builder() -> crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder {
 -        crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder::default()
-+    pub fn builder() -> super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder {
-+        super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder {
++        super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput,
-+        super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput,
++        super::super::super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput {
-+            super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput {
++            super::super::super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput {
                  deletion_task_id: self.deletion_task_id,
              },
          )

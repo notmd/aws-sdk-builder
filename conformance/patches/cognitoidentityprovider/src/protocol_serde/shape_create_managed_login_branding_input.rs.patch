@@ -5,7 +5,7 @@
  pub fn ser_create_managed_login_branding_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::create_managed_login_branding::CreateManagedLoginBrandingInput,
-+    input: &super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput,
++    input: &super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.user_pool_id {
          object.key("UserPoolId").string(var_1.as_str());
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_8 = array_6.value().start_object();
 -                crate::protocol_serde::shape_asset_type::ser_asset_type(&mut object_8, item_7)?;
-+                super::protocol_serde::shape_asset_type::ser_asset_type(&mut object_8, item_7)?;
++                super::super::protocol_serde::shape_asset_type::ser_asset_type(&mut object_8, item_7)?;
                  object_8.finish();
              }
          }

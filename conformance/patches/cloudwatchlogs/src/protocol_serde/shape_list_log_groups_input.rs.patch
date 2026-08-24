@@ -5,7 +5,7 @@
  pub fn ser_list_log_groups_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::list_log_groups::ListLogGroupsInput,
-+    input: &super::operation::list_log_groups::ListLogGroupsInput,
++    input: &super::super::operation::list_log_groups::ListLogGroupsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.log_group_name_pattern {
          object.key("logGroupNamePattern").string(var_1.as_str());
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_12 = array_10.value().start_object();
 -                crate::protocol_serde::shape_data_source_filter::ser_data_source_filter(&mut object_12, item_11)?;
-+                super::protocol_serde::shape_data_source_filter::ser_data_source_filter(&mut object_12, item_11)?;
++                super::super::protocol_serde::shape_data_source_filter::ser_data_source_filter(&mut object_12, item_11)?;
                  object_12.finish();
              }
          }
@@ -23,7 +23,7 @@
                  #[allow(unused_mut)]
                  let mut object_19 = array_17.value().start_object();
 -                crate::protocol_serde::shape_tag_filter::ser_tag_filter(&mut object_19, item_18)?;
-+                super::protocol_serde::shape_tag_filter::ser_tag_filter(&mut object_19, item_18)?;
++                super::super::protocol_serde::shape_tag_filter::ser_tag_filter(&mut object_19, item_18)?;
                  object_19.finish();
              }
          }

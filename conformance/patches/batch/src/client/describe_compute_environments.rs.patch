@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsFluentBuilder {
 -        crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsFluentBuilder {
-+        super::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsFluentBuilder {
++        super::super::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsFluentBuilder::new(self.handle.clone())
      }
  }

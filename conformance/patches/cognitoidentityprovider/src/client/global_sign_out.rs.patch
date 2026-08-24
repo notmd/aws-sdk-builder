@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GlobalSignOutError>`](crate::operation::global_sign_out::GlobalSignOutError)
 -    pub fn global_sign_out(&self) -> crate::operation::global_sign_out::builders::GlobalSignOutFluentBuilder {
 -        crate::operation::global_sign_out::builders::GlobalSignOutFluentBuilder::new(self.handle.clone())
-+    pub fn global_sign_out(&self) -> super::operation::global_sign_out::builders::GlobalSignOutFluentBuilder {
-+        super::operation::global_sign_out::builders::GlobalSignOutFluentBuilder::new(self.handle.clone())
++    pub fn global_sign_out(&self) -> super::super::operation::global_sign_out::builders::GlobalSignOutFluentBuilder {
++        super::super::operation::global_sign_out::builders::GlobalSignOutFluentBuilder::new(self.handle.clone())
      }
  }

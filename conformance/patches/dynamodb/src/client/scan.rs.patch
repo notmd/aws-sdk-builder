@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ScanError>`](crate::operation::scan::ScanError)
 -    pub fn scan(&self) -> crate::operation::scan::builders::ScanFluentBuilder {
 -        crate::operation::scan::builders::ScanFluentBuilder::new(self.handle.clone())
-+    pub fn scan(&self) -> super::operation::scan::builders::ScanFluentBuilder {
-+        super::operation::scan::builders::ScanFluentBuilder::new(self.handle.clone())
++    pub fn scan(&self) -> super::super::operation::scan::builders::ScanFluentBuilder {
++        super::super::operation::scan::builders::ScanFluentBuilder::new(self.handle.clone())
      }
  }

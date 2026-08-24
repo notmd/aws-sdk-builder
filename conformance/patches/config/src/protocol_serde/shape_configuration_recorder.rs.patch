@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ConfigurationRecorder>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ConfigurationRecorder>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ConfigurationRecorder>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::ConfigurationRecorderBuilder::default();
-+            let mut builder = super::types::builders::ConfigurationRecorderBuilder::default();
++            let mut builder = super::super::types::builders::ConfigurationRecorderBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          }
                          "recordingGroup" => {
 -                            builder = builder.set_recording_group(crate::protocol_serde::shape_recording_group::de_recording_group(
-+                            builder = builder.set_recording_group(super::protocol_serde::shape_recording_group::de_recording_group(
++                            builder = builder.set_recording_group(super::super::protocol_serde::shape_recording_group::de_recording_group(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -32,7 +32,7 @@
                          }
                          "recordingMode" => {
 -                            builder = builder.set_recording_mode(crate::protocol_serde::shape_recording_mode::de_recording_mode(
-+                            builder = builder.set_recording_mode(super::protocol_serde::shape_recording_mode::de_recording_mode(
++                            builder = builder.set_recording_mode(super::super::protocol_serde::shape_recording_mode::de_recording_mode(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -41,7 +41,7 @@
                              builder = builder.set_recording_scope(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::RecordingScope::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::RecordingScope::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::RecordingScope::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -50,7 +50,7 @@
                          }
                          "scopeConfiguration" => {
 -                            builder = builder.set_scope_configuration(crate::protocol_serde::shape_scope_configuration::de_scope_configuration(
-+                            builder = builder.set_scope_configuration(super::protocol_serde::shape_scope_configuration::de_scope_configuration(
++                            builder = builder.set_scope_configuration(super::super::protocol_serde::shape_scope_configuration::de_scope_configuration(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -59,7 +59,7 @@
  pub fn ser_configuration_recorder(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ConfigurationRecorder,
-+    input: &super::types::ConfigurationRecorder,
++    input: &super::super::types::ConfigurationRecorder,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.arn {
          object.key("arn").string(var_1.as_str());
@@ -68,14 +68,14 @@
          #[allow(unused_mut)]
          let mut object_5 = object.key("recordingGroup").start_object();
 -        crate::protocol_serde::shape_recording_group::ser_recording_group(&mut object_5, var_4)?;
-+        super::protocol_serde::shape_recording_group::ser_recording_group(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_recording_group::ser_recording_group(&mut object_5, var_4)?;
          object_5.finish();
      }
      if let Some(var_6) = &input.recording_mode {
          #[allow(unused_mut)]
          let mut object_7 = object.key("recordingMode").start_object();
 -        crate::protocol_serde::shape_recording_mode::ser_recording_mode(&mut object_7, var_6)?;
-+        super::protocol_serde::shape_recording_mode::ser_recording_mode(&mut object_7, var_6)?;
++        super::super::protocol_serde::shape_recording_mode::ser_recording_mode(&mut object_7, var_6)?;
          object_7.finish();
      }
      if let Some(var_8) = &input.recording_scope {
@@ -84,7 +84,7 @@
          #[allow(unused_mut)]
          let mut object_12 = object.key("scopeConfiguration").start_object();
 -        crate::protocol_serde::shape_scope_configuration::ser_scope_configuration(&mut object_12, var_11)?;
-+        super::protocol_serde::shape_scope_configuration::ser_scope_configuration(&mut object_12, var_11)?;
++        super::super::protocol_serde::shape_scope_configuration::ser_scope_configuration(&mut object_12, var_11)?;
          object_12.finish();
      }
      Ok(())

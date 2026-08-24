@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::AutoScalingSettingsDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::AutoScalingSettingsDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::AutoScalingSettingsDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::AutoScalingSettingsDescriptionBuilder::default();
-+            let mut builder = super::types::builders::AutoScalingSettingsDescriptionBuilder::default();
++            let mut builder = super::super::types::builders::AutoScalingSettingsDescriptionBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          "ScalingPolicies" => {
                              builder = builder.set_scaling_policies(
 -                                crate::protocol_serde::shape_auto_scaling_policy_description_list::de_auto_scaling_policy_description_list(
-+                                super::protocol_serde::shape_auto_scaling_policy_description_list::de_auto_scaling_policy_description_list(
++                                super::super::protocol_serde::shape_auto_scaling_policy_description_list::de_auto_scaling_policy_description_list(
                                      tokens,
                                      _value,
                                      depth + 1,

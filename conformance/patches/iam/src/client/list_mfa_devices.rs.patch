@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListMFADevicesError>`](crate::operation::list_mfa_devices::ListMFADevicesError)
 -    pub fn list_mfa_devices(&self) -> crate::operation::list_mfa_devices::builders::ListMFADevicesFluentBuilder {
 -        crate::operation::list_mfa_devices::builders::ListMFADevicesFluentBuilder::new(self.handle.clone())
-+    pub fn list_mfa_devices(&self) -> super::operation::list_mfa_devices::builders::ListMFADevicesFluentBuilder {
-+        super::operation::list_mfa_devices::builders::ListMFADevicesFluentBuilder::new(self.handle.clone())
++    pub fn list_mfa_devices(&self) -> super::super::operation::list_mfa_devices::builders::ListMFADevicesFluentBuilder {
++        super::super::operation::list_mfa_devices::builders::ListMFADevicesFluentBuilder::new(self.handle.clone())
      }
  }

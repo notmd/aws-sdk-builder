@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateUserPoolReplicaInput`](crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput).
 -    pub fn builder() -> crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder {
 -        crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder::default()
-+    pub fn builder() -> super::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder {
-+        super::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder {
++        super::super::super::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::create_user_pool_replica::CreateUserPoolReplicaInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::create_user_pool_replica::CreateUserPoolReplicaInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput {
-+        ::std::result::Result::Ok(super::operation::create_user_pool_replica::CreateUserPoolReplicaInput {
++        ::std::result::Result::Ok(super::super::super::operation::create_user_pool_replica::CreateUserPoolReplicaInput {
              user_pool_id: self.user_pool_id,
              region_name: self.region_name,
              user_pool_tags: self.user_pool_tags,

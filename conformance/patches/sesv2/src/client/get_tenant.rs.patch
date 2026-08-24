@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetTenantError>`](crate::operation::get_tenant::GetTenantError)
 -    pub fn get_tenant(&self) -> crate::operation::get_tenant::builders::GetTenantFluentBuilder {
 -        crate::operation::get_tenant::builders::GetTenantFluentBuilder::new(self.handle.clone())
-+    pub fn get_tenant(&self) -> super::operation::get_tenant::builders::GetTenantFluentBuilder {
-+        super::operation::get_tenant::builders::GetTenantFluentBuilder::new(self.handle.clone())
++    pub fn get_tenant(&self) -> super::super::operation::get_tenant::builders::GetTenantFluentBuilder {
++        super::super::operation::get_tenant::builders::GetTenantFluentBuilder::new(self.handle.clone())
      }
  }

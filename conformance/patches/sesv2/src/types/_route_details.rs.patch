@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RouteDetails`](crate::types::RouteDetails).
 -    pub fn builder() -> crate::types::builders::RouteDetailsBuilder {
 -        crate::types::builders::RouteDetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::RouteDetailsBuilder {
-+        super::types::builders::RouteDetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::RouteDetailsBuilder {
++        super::super::types::builders::RouteDetailsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`region`](crate::types::builders::RouteDetailsBuilder::region)
 -    pub fn build(self) -> ::std::result::Result<crate::types::RouteDetails, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::RouteDetails {
-+    pub fn build(self) -> ::std::result::Result<super::types::RouteDetails, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::RouteDetails {
++    pub fn build(self) -> ::std::result::Result<super::super::types::RouteDetails, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::RouteDetails {
              region: self.region.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "region",

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteManagedLoginBrandingInput`](crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput).
 -    pub fn builder() -> crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingInputBuilder {
 -        crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingInputBuilder {
-+        super::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingInputBuilder {
++        super::super::super::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput,
-+        super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput,
++        super::super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput {
-+        ::std::result::Result::Ok(super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput {
              managed_login_branding_id: self.managed_login_branding_id,
              user_pool_id: self.user_pool_id,
          })

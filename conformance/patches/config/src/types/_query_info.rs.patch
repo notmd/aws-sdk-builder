@@ -5,14 +5,14 @@
  pub struct QueryInfo {
      /// <p>Returns a <code>FieldInfo</code> object.</p>
 -    pub select_fields: ::std::option::Option<::std::vec::Vec<crate::types::FieldInfo>>,
-+    pub select_fields: ::std::option::Option<::std::vec::Vec<super::types::FieldInfo>>,
++    pub select_fields: ::std::option::Option<::std::vec::Vec<super::super::types::FieldInfo>>,
  }
  impl QueryInfo {
      /// <p>Returns a <code>FieldInfo</code> object.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.select_fields.is_none()`.
 -    pub fn select_fields(&self) -> &[crate::types::FieldInfo] {
-+    pub fn select_fields(&self) -> &[super::types::FieldInfo] {
++    pub fn select_fields(&self) -> &[super::super::types::FieldInfo] {
          self.select_fields.as_deref().unwrap_or_default()
      }
  }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`QueryInfo`](crate::types::QueryInfo).
 -    pub fn builder() -> crate::types::builders::QueryInfoBuilder {
 -        crate::types::builders::QueryInfoBuilder::default()
-+    pub fn builder() -> super::types::builders::QueryInfoBuilder {
-+        super::types::builders::QueryInfoBuilder::default()
++    pub fn builder() -> super::super::types::builders::QueryInfoBuilder {
++        super::super::types::builders::QueryInfoBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct QueryInfoBuilder {
 -    pub(crate) select_fields: ::std::option::Option<::std::vec::Vec<crate::types::FieldInfo>>,
-+    pub(crate) select_fields: ::std::option::Option<::std::vec::Vec<super::types::FieldInfo>>,
++    pub(crate) select_fields: ::std::option::Option<::std::vec::Vec<super::super::types::FieldInfo>>,
  }
  impl QueryInfoBuilder {
      /// Appends an item to `select_fields`.
@@ -39,7 +39,7 @@
      ///
      /// <p>Returns a <code>FieldInfo</code> object.</p>
 -    pub fn select_fields(mut self, input: crate::types::FieldInfo) -> Self {
-+    pub fn select_fields(mut self, input: super::types::FieldInfo) -> Self {
++    pub fn select_fields(mut self, input: super::super::types::FieldInfo) -> Self {
          let mut v = self.select_fields.unwrap_or_default();
          v.push(input);
          self.select_fields = ::std::option::Option::Some(v);
@@ -48,20 +48,20 @@
      }
      /// <p>Returns a <code>FieldInfo</code> object.</p>
 -    pub fn set_select_fields(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FieldInfo>>) -> Self {
-+    pub fn set_select_fields(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FieldInfo>>) -> Self {
++    pub fn set_select_fields(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::FieldInfo>>) -> Self {
          self.select_fields = input;
          self
      }
      /// <p>Returns a <code>FieldInfo</code> object.</p>
 -    pub fn get_select_fields(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FieldInfo>> {
-+    pub fn get_select_fields(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FieldInfo>> {
++    pub fn get_select_fields(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::FieldInfo>> {
          &self.select_fields
      }
      /// Consumes the builder and constructs a [`QueryInfo`](crate::types::QueryInfo).
 -    pub fn build(self) -> crate::types::QueryInfo {
 -        crate::types::QueryInfo {
-+    pub fn build(self) -> super::types::QueryInfo {
-+        super::types::QueryInfo {
++    pub fn build(self) -> super::super::types::QueryInfo {
++        super::super::types::QueryInfo {
              select_fields: self.select_fields,
          }
      }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ConfigRuleEvaluationStatus`](crate::types::ConfigRuleEvaluationStatus).
 -    pub fn builder() -> crate::types::builders::ConfigRuleEvaluationStatusBuilder {
 -        crate::types::builders::ConfigRuleEvaluationStatusBuilder::default()
-+    pub fn builder() -> super::types::builders::ConfigRuleEvaluationStatusBuilder {
-+        super::types::builders::ConfigRuleEvaluationStatusBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConfigRuleEvaluationStatusBuilder {
++        super::super::types::builders::ConfigRuleEvaluationStatusBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ConfigRuleEvaluationStatus`](crate::types::ConfigRuleEvaluationStatus).
 -    pub fn build(self) -> crate::types::ConfigRuleEvaluationStatus {
 -        crate::types::ConfigRuleEvaluationStatus {
-+    pub fn build(self) -> super::types::ConfigRuleEvaluationStatus {
-+        super::types::ConfigRuleEvaluationStatus {
++    pub fn build(self) -> super::super::types::ConfigRuleEvaluationStatus {
++        super::super::types::ConfigRuleEvaluationStatus {
              config_rule_name: self.config_rule_name,
              config_rule_arn: self.config_rule_arn,
              config_rule_id: self.config_rule_id,

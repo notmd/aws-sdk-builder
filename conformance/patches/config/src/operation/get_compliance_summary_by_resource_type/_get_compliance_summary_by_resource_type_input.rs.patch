@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetComplianceSummaryByResourceTypeInput`](crate::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeInput).
 -    pub fn builder() -> crate::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder {
 -        crate::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder::default()
-+    pub fn builder() -> super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder {
-+        super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder {
++        super::super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeInput,
-+        super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeInput,
++        super::super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeInput {
-+            super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeInput {
++            super::super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeInput {
                  resource_types: self.resource_types,
              },
          )

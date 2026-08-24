@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for UnsupportedMediaTypeException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::UnsupportedMediaTypeException {
-+impl ::aws_types::request_id::RequestId for super::types::error::UnsupportedMediaTypeException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::UnsupportedMediaTypeException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`UnsupportedMediaTypeException`](crate::types::error::UnsupportedMediaTypeException).
 -    pub fn builder() -> crate::types::error::builders::UnsupportedMediaTypeExceptionBuilder {
 -        crate::types::error::builders::UnsupportedMediaTypeExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::UnsupportedMediaTypeExceptionBuilder {
-+        super::types::error::builders::UnsupportedMediaTypeExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::UnsupportedMediaTypeExceptionBuilder {
++        super::super::super::types::error::builders::UnsupportedMediaTypeExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`UnsupportedMediaTypeException`](crate::types::error::UnsupportedMediaTypeException).
 -    pub fn build(self) -> crate::types::error::UnsupportedMediaTypeException {
 -        crate::types::error::UnsupportedMediaTypeException {
-+    pub fn build(self) -> super::types::error::UnsupportedMediaTypeException {
-+        super::types::error::UnsupportedMediaTypeException {
++    pub fn build(self) -> super::super::super::types::error::UnsupportedMediaTypeException {
++        super::super::super::types::error::UnsupportedMediaTypeException {
              r#type: self.r#type,
              message: self.message,
              meta: self.meta.unwrap_or_default(),

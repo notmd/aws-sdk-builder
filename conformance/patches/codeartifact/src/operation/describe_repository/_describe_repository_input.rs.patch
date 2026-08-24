@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeRepositoryInput`](crate::operation::describe_repository::DescribeRepositoryInput).
 -    pub fn builder() -> crate::operation::describe_repository::builders::DescribeRepositoryInputBuilder {
 -        crate::operation::describe_repository::builders::DescribeRepositoryInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_repository::builders::DescribeRepositoryInputBuilder {
-+        super::operation::describe_repository::builders::DescribeRepositoryInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_repository::builders::DescribeRepositoryInputBuilder {
++        super::super::super::operation::describe_repository::builders::DescribeRepositoryInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_repository::DescribeRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::describe_repository::DescribeRepositoryInput {
-+    ) -> ::std::result::Result<super::operation::describe_repository::DescribeRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::describe_repository::DescribeRepositoryInput {
++    ) -> ::std::result::Result<super::super::super::operation::describe_repository::DescribeRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::describe_repository::DescribeRepositoryInput {
              domain: self.domain,
              domain_owner: self.domain_owner,
              repository: self.repository,

@@ -5,7 +5,7 @@
  pub fn ser_set_ui_customization_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::set_ui_customization::SetUiCustomizationInput,
-+    input: &super::operation::set_ui_customization::SetUiCustomizationInput,
++    input: &super::super::operation::set_ui_customization::SetUiCustomizationInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.user_pool_id {
          object.key("UserPoolId").string(var_1.as_str());

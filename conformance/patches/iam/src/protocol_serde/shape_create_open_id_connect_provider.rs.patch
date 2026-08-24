@@ -6,39 +6,39 @@
  ) -> std::result::Result<
 -    crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
 -    crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-+    super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
-+    super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
++    super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
++    super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled(generic)),
-+        None => return Err(super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
          "ConcurrentModification" => {
 -            crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ConcurrentModificationException({
-+            super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ConcurrentModificationException({
++            super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ConcurrentModificationException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
-+                    let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
++                    let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
-+                    .map_err(super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -47,17 +47,17 @@
              })
          }
 -        "EntityAlreadyExists" => crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::EntityAlreadyExistsException({
-+        "EntityAlreadyExists" => super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::EntityAlreadyExistsException({
++        "EntityAlreadyExists" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::EntityAlreadyExistsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
-+                let mut output = super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
 -                        .map_err(crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
-+                    super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
-+                        .map_err(super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                    super::super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
++                        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -66,16 +66,16 @@
              tmp
          }),
 -        "InvalidInput" => crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::InvalidInputException({
-+        "InvalidInput" => super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::InvalidInputException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -84,16 +84,16 @@
              tmp
          }),
 -        "LimitExceeded" => crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::LimitExceededException({
-+        "LimitExceeded" => super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::LimitExceededException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
-+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -102,20 +102,20 @@
          }),
          "OpenIdIdpCommunicationError" => {
 -            crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::OpenIdIdpCommunicationErrorException({
-+            super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::OpenIdIdpCommunicationErrorException({
++            super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::OpenIdIdpCommunicationErrorException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::OpenIdIdpCommunicationErrorExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::OpenIdIdpCommunicationErrorExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::OpenIdIdpCommunicationErrorExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_open_id_idp_communication_error_exception::de_open_id_idp_communication_error_exception_xml_err(
-+                        super::protocol_serde::shape_open_id_idp_communication_error_exception::de_open_id_idp_communication_error_exception_xml_err(
++                        super::super::protocol_serde::shape_open_id_idp_communication_error_exception::de_open_id_idp_communication_error_exception_xml_err(
                              _response_body,
                              output,
                          )
 -                        .map_err(crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
-+                        .map_err(super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -124,16 +124,16 @@
              })
          }
 -        "ServiceFailure" => crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ServiceFailureException({
-+        "ServiceFailure" => super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ServiceFailureException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
-+                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
-+                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -142,7 +142,7 @@
              tmp
          }),
 -        _ => crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::generic(generic),
-+        _ => super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::generic(generic),
++        _ => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::generic(generic),
      })
  }
 
@@ -152,17 +152,17 @@
  ) -> std::result::Result<
 -    crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
 -    crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-+    super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
-+    super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
++    super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
++    super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder::default();
 -        output = crate::protocol_serde::shape_create_open_id_connect_provider::de_create_open_id_connect_provider(_response_body, output)
 -            .map_err(crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
-+        let mut output = super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder::default();
-+        output = super::protocol_serde::shape_create_open_id_connect_provider::de_create_open_id_connect_provider(_response_body, output)
-+            .map_err(super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++        let mut output = super::super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder::default();
++        output = super::super::protocol_serde::shape_create_open_id_connect_provider::de_create_open_id_connect_provider(_response_body, output)
++            .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -171,10 +171,10 @@
  pub fn de_create_open_id_connect_provider(
      inp: &[u8],
 -    mut builder: crate::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder,
-+    mut builder: super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder,
++    mut builder: super::super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder,
-+    super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder,
++    super::super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -183,7 +183,7 @@
                  let var_2 =
                      Some(
 -                        crate::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;

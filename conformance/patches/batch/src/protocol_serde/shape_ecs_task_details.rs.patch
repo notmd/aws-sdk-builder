@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::EcsTaskDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::EcsTaskDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::EcsTaskDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::EcsTaskDetailsBuilder::default();
-+            let mut builder = super::types::builders::EcsTaskDetailsBuilder::default();
++            let mut builder = super::super::types::builders::EcsTaskDetailsBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          "containers" => {
                              builder = builder.set_containers(
 -                                crate::protocol_serde::shape_list_task_container_details::de_list_task_container_details(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_list_task_container_details::de_list_task_container_details(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_list_task_container_details::de_list_task_container_details(tokens, _value, depth + 1)?,
                              );
                          }
                          "containerInstanceArn" => {
@@ -32,7 +32,7 @@
                          }
                          "ephemeralStorage" => {
 -                            builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
-+                            builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                            builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -41,12 +41,12 @@
                          "networkConfiguration" => {
                              builder = builder.set_network_configuration(
 -                                crate::protocol_serde::shape_network_configuration::de_network_configuration(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_network_configuration::de_network_configuration(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_network_configuration::de_network_configuration(tokens, _value, depth + 1)?,
                              );
                          }
                          "runtimePlatform" => {
 -                            builder = builder.set_runtime_platform(crate::protocol_serde::shape_runtime_platform::de_runtime_platform(
-+                            builder = builder.set_runtime_platform(super::protocol_serde::shape_runtime_platform::de_runtime_platform(
++                            builder = builder.set_runtime_platform(super::super::protocol_serde::shape_runtime_platform::de_runtime_platform(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -55,7 +55,7 @@
                          }
                          "volumes" => {
 -                            builder = builder.set_volumes(crate::protocol_serde::shape_volumes::de_volumes(tokens, _value, depth + 1)?);
-+                            builder = builder.set_volumes(super::protocol_serde::shape_volumes::de_volumes(tokens, _value, depth + 1)?);
++                            builder = builder.set_volumes(super::super::protocol_serde::shape_volumes::de_volumes(tokens, _value, depth + 1)?);
                          }
                          "enableExecuteCommand" => {
                              builder = builder.set_enable_execute_command(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);

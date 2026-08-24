@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Endpoint`](crate::types::Endpoint).
 -    pub fn builder() -> crate::types::builders::EndpointBuilder {
 -        crate::types::builders::EndpointBuilder::default()
-+    pub fn builder() -> super::types::builders::EndpointBuilder {
-+        super::types::builders::EndpointBuilder::default()
++    pub fn builder() -> super::super::types::builders::EndpointBuilder {
++        super::super::types::builders::EndpointBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Endpoint`](crate::types::Endpoint).
 -    pub fn build(self) -> crate::types::Endpoint {
 -        crate::types::Endpoint {
-+    pub fn build(self) -> super::types::Endpoint {
-+        super::types::Endpoint {
++    pub fn build(self) -> super::super::types::Endpoint {
++        super::super::types::Endpoint {
              endpoint_arn: self.endpoint_arn,
              attributes: self.attributes,
          }

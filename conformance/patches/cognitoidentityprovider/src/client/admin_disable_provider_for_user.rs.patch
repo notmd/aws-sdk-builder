@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserFluentBuilder {
 -        crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserFluentBuilder {
-+        super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserFluentBuilder {
++        super::super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserFluentBuilder::new(self.handle.clone())
      }
  }

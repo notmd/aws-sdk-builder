@@ -5,7 +5,7 @@
  pub struct ListSubPackageGroupsOutput {
      /// <p>A list of sub package groups for the requested package group.</p>
 -    pub package_groups: ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>,
-+    pub package_groups: ::std::option::Option<::std::vec::Vec<super::types::PackageGroupSummary>>,
++    pub package_groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupSummary>>,
      /// <p>If there are additional results, this is the token for the next set of results.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.package_groups.is_none()`.
 -    pub fn package_groups(&self) -> &[crate::types::PackageGroupSummary] {
-+    pub fn package_groups(&self) -> &[super::types::PackageGroupSummary] {
++    pub fn package_groups(&self) -> &[super::super::super::types::PackageGroupSummary] {
          self.package_groups.as_deref().unwrap_or_default()
      }
      /// <p>If there are additional results, this is the token for the next set of results.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListSubPackageGroupsOutput`](crate::operation::list_sub_package_groups::ListSubPackageGroupsOutput).
 -    pub fn builder() -> crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder {
 -        crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder {
-+        super::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder {
++        super::super::super::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListSubPackageGroupsOutputBuilder {
 -    pub(crate) package_groups: ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>,
-+    pub(crate) package_groups: ::std::option::Option<::std::vec::Vec<super::types::PackageGroupSummary>>,
++    pub(crate) package_groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupSummary>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of sub package groups for the requested package group.</p>
 -    pub fn package_groups(mut self, input: crate::types::PackageGroupSummary) -> Self {
-+    pub fn package_groups(mut self, input: super::types::PackageGroupSummary) -> Self {
++    pub fn package_groups(mut self, input: super::super::super::types::PackageGroupSummary) -> Self {
          let mut v = self.package_groups.unwrap_or_default();
          v.push(input);
          self.package_groups = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of sub package groups for the requested package group.</p>
 -    pub fn set_package_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>) -> Self {
-+    pub fn set_package_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PackageGroupSummary>>) -> Self {
++    pub fn set_package_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupSummary>>) -> Self {
          self.package_groups = input;
          self
      }
      /// <p>A list of sub package groups for the requested package group.</p>
 -    pub fn get_package_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>> {
-+    pub fn get_package_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PackageGroupSummary>> {
++    pub fn get_package_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupSummary>> {
          &self.package_groups
      }
      /// <p>If there are additional results, this is the token for the next set of results.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListSubPackageGroupsOutput`](crate::operation::list_sub_package_groups::ListSubPackageGroupsOutput).
 -    pub fn build(self) -> crate::operation::list_sub_package_groups::ListSubPackageGroupsOutput {
 -        crate::operation::list_sub_package_groups::ListSubPackageGroupsOutput {
-+    pub fn build(self) -> super::operation::list_sub_package_groups::ListSubPackageGroupsOutput {
-+        super::operation::list_sub_package_groups::ListSubPackageGroupsOutput {
++    pub fn build(self) -> super::super::super::operation::list_sub_package_groups::ListSubPackageGroupsOutput {
++        super::super::super::operation::list_sub_package_groups::ListSubPackageGroupsOutput {
              package_groups: self.package_groups,
              next_token: self.next_token,
              _request_id: self._request_id,

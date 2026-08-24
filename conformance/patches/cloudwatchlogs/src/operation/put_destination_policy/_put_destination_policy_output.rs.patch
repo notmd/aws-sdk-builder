@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutDestinationPolicyOutput`](crate::operation::put_destination_policy::PutDestinationPolicyOutput).
 -    pub fn builder() -> crate::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder {
 -        crate::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder {
-+        super::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder {
++        super::super::super::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutDestinationPolicyOutput`](crate::operation::put_destination_policy::PutDestinationPolicyOutput).
 -    pub fn build(self) -> crate::operation::put_destination_policy::PutDestinationPolicyOutput {
 -        crate::operation::put_destination_policy::PutDestinationPolicyOutput {
-+    pub fn build(self) -> super::operation::put_destination_policy::PutDestinationPolicyOutput {
-+        super::operation::put_destination_policy::PutDestinationPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::put_destination_policy::PutDestinationPolicyOutput {
++        super::super::super::operation::put_destination_policy::PutDestinationPolicyOutput {
              _request_id: self._request_id,
          }
      }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateProvisionedLimitError>`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitError)
 -    pub fn update_provisioned_limit(&self) -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder {
 -        crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder::new(self.handle.clone())
-+    pub fn update_provisioned_limit(&self) -> super::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder {
-+        super::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder::new(self.handle.clone())
++    pub fn update_provisioned_limit(&self) -> super::super::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder {
++        super::super::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder::new(self.handle.clone())
      }
  }

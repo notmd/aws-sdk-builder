@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DetachGroupPolicyOutput`](crate::operation::detach_group_policy::DetachGroupPolicyOutput).
 -    pub fn builder() -> crate::operation::detach_group_policy::builders::DetachGroupPolicyOutputBuilder {
 -        crate::operation::detach_group_policy::builders::DetachGroupPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::detach_group_policy::builders::DetachGroupPolicyOutputBuilder {
-+        super::operation::detach_group_policy::builders::DetachGroupPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::detach_group_policy::builders::DetachGroupPolicyOutputBuilder {
++        super::super::super::operation::detach_group_policy::builders::DetachGroupPolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DetachGroupPolicyOutput`](crate::operation::detach_group_policy::DetachGroupPolicyOutput).
 -    pub fn build(self) -> crate::operation::detach_group_policy::DetachGroupPolicyOutput {
 -        crate::operation::detach_group_policy::DetachGroupPolicyOutput {
-+    pub fn build(self) -> super::operation::detach_group_policy::DetachGroupPolicyOutput {
-+        super::operation::detach_group_policy::DetachGroupPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::detach_group_policy::DetachGroupPolicyOutput {
++        super::super::super::operation::detach_group_policy::DetachGroupPolicyOutput {
              _request_id: self._request_id,
          }
      }

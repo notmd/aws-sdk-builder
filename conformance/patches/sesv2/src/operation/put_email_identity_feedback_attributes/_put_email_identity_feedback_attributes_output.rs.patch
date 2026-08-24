@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutEmailIdentityFeedbackAttributesOutput`](crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput).
 -    pub fn builder() -> crate::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder {
 -        crate::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder {
-+        super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder {
++        super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutEmailIdentityFeedbackAttributesOutput`](crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput).
 -    pub fn build(self) -> crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput {
 -        crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput {
-+    pub fn build(self) -> super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput {
-+        super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput {
++    pub fn build(self) -> super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput {
++        super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput {
              _request_id: self._request_id,
          }
      }

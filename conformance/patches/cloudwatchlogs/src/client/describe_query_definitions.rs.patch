@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeQueryDefinitionsError>`](crate::operation::describe_query_definitions::DescribeQueryDefinitionsError)
 -    pub fn describe_query_definitions(&self) -> crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsFluentBuilder {
 -        crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsFluentBuilder::new(self.handle.clone())
-+    pub fn describe_query_definitions(&self) -> super::operation::describe_query_definitions::builders::DescribeQueryDefinitionsFluentBuilder {
-+        super::operation::describe_query_definitions::builders::DescribeQueryDefinitionsFluentBuilder::new(self.handle.clone())
++    pub fn describe_query_definitions(&self) -> super::super::operation::describe_query_definitions::builders::DescribeQueryDefinitionsFluentBuilder {
++        super::super::operation::describe_query_definitions::builders::DescribeQueryDefinitionsFluentBuilder::new(self.handle.clone())
      }
  }

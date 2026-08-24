@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<OptInPhoneNumberError>`](crate::operation::opt_in_phone_number::OptInPhoneNumberError)
 -    pub fn opt_in_phone_number(&self) -> crate::operation::opt_in_phone_number::builders::OptInPhoneNumberFluentBuilder {
 -        crate::operation::opt_in_phone_number::builders::OptInPhoneNumberFluentBuilder::new(self.handle.clone())
-+    pub fn opt_in_phone_number(&self) -> super::operation::opt_in_phone_number::builders::OptInPhoneNumberFluentBuilder {
-+        super::operation::opt_in_phone_number::builders::OptInPhoneNumberFluentBuilder::new(self.handle.clone())
++    pub fn opt_in_phone_number(&self) -> super::super::operation::opt_in_phone_number::builders::OptInPhoneNumberFluentBuilder {
++        super::super::operation::opt_in_phone_number::builders::OptInPhoneNumberFluentBuilder::new(self.handle.clone())
      }
  }

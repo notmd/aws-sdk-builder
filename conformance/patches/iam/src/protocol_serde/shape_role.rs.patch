@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::Role, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::Role, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::Role, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::Role::builder();
-+    let mut builder = super::types::Role::builder();
++    let mut builder = super::super::types::Role::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("Path") /* Path com.amazonaws.iam#Role$Path */ =>  {
@@ -20,7 +20,7 @@
                  let var_9 =
                      Some(
 -                        crate::protocol_serde::shape_attached_permissions_boundary::de_attached_permissions_boundary(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_attached_permissions_boundary::de_attached_permissions_boundary(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_attached_permissions_boundary::de_attached_permissions_boundary(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -29,7 +29,7 @@
                  let var_10 =
                      Some(
 -                        crate::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -38,7 +38,7 @@
                  let var_11 =
                      Some(
 -                        crate::protocol_serde::shape_role_last_used::de_role_last_used(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_role_last_used::de_role_last_used(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_role_last_used::de_role_last_used(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -47,7 +47,7 @@
                  let var_12 =
                      Some(
 -                        crate::protocol_serde::shape_source_role_template::de_source_role_template(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_source_role_template::de_source_role_template(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_source_role_template::de_source_role_template(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -56,7 +56,7 @@
          }
      }
 -    Ok(crate::serde_util::role_correct_errors(builder)
-+    Ok(super::serde_util::role_correct_errors(builder)
++    Ok(super::super::serde_util::role_correct_errors(builder)
          .build()
          .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
  }

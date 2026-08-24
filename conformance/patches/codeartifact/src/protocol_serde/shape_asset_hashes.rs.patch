@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    Option<::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>>,
-+    Option<::std::collections::HashMap<super::types::HashAlgorithm, ::std::string::String>>,
++    Option<::std::collections::HashMap<super::super::types::HashAlgorithm, ::std::string::String>>,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  >
  where
@@ -14,7 +14,7 @@
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
 -                        let key = key.to_unescaped().map(|u| crate::types::HashAlgorithm::from(u.as_ref()))?;
-+                        let key = key.to_unescaped().map(|u| super::types::HashAlgorithm::from(u.as_ref()))?;
++                        let key = key.to_unescaped().map(|u| super::super::types::HashAlgorithm::from(u.as_ref()))?;
                          let value = ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?;

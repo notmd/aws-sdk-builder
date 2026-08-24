@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteConnectorOutput`](crate::operation::delete_connector::DeleteConnectorOutput).
 -    pub fn builder() -> crate::operation::delete_connector::builders::DeleteConnectorOutputBuilder {
 -        crate::operation::delete_connector::builders::DeleteConnectorOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_connector::builders::DeleteConnectorOutputBuilder {
-+        super::operation::delete_connector::builders::DeleteConnectorOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_connector::builders::DeleteConnectorOutputBuilder {
++        super::super::super::operation::delete_connector::builders::DeleteConnectorOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteConnectorOutput`](crate::operation::delete_connector::DeleteConnectorOutput).
 -    pub fn build(self) -> crate::operation::delete_connector::DeleteConnectorOutput {
 -        crate::operation::delete_connector::DeleteConnectorOutput {
-+    pub fn build(self) -> super::operation::delete_connector::DeleteConnectorOutput {
-+        super::operation::delete_connector::DeleteConnectorOutput {
++    pub fn build(self) -> super::super::super::operation::delete_connector::DeleteConnectorOutput {
++        super::super::super::operation::delete_connector::DeleteConnectorOutput {
              _request_id: self._request_id,
          }
      }

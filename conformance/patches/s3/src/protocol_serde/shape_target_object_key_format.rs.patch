@@ -5,20 +5,20 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::TargetObjectKeyFormat, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::TargetObjectKeyFormat, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::TargetObjectKeyFormat, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::TargetObjectKeyFormat::builder();
-+    let mut builder = super::types::TargetObjectKeyFormat::builder();
++    let mut builder = super::super::types::TargetObjectKeyFormat::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("SimplePrefix") /* SimplePrefix com.amazonaws.s3#TargetObjectKeyFormat$SimplePrefix */ =>  {
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_simple_prefix::de_simple_prefix(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_simple_prefix::de_simple_prefix(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_simple_prefix::de_simple_prefix(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -27,7 +27,7 @@
                  let var_2 =
                      Some(
 -                        crate::protocol_serde::shape_partitioned_prefix::de_partitioned_prefix(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_partitioned_prefix::de_partitioned_prefix(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_partitioned_prefix::de_partitioned_prefix(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -36,7 +36,7 @@
 
  pub fn ser_target_object_key_format(
 -    input: &crate::types::TargetObjectKeyFormat,
-+    input: &super::types::TargetObjectKeyFormat,
++    input: &super::super::types::TargetObjectKeyFormat,
      writer: ::aws_smithy_xml::encode::ElWriter,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      #[allow(unused_mut)]
@@ -45,7 +45,7 @@
      if let Some(var_4) = &input.partitioned_prefix {
          let inner_writer = scope.start_el("PartitionedPrefix");
 -        crate::protocol_serde::shape_partitioned_prefix::ser_partitioned_prefix(var_4, inner_writer)?
-+        super::protocol_serde::shape_partitioned_prefix::ser_partitioned_prefix(var_4, inner_writer)?
++        super::super::protocol_serde::shape_partitioned_prefix::ser_partitioned_prefix(var_4, inner_writer)?
      }
      scope.finish();
      Ok(())

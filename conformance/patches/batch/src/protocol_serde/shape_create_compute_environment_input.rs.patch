@@ -5,7 +5,7 @@
  pub fn ser_create_compute_environment_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::create_compute_environment::CreateComputeEnvironmentInput,
-+    input: &super::operation::create_compute_environment::CreateComputeEnvironmentInput,
++    input: &super::super::operation::create_compute_environment::CreateComputeEnvironmentInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.compute_environment_name {
          object.key("computeEnvironmentName").string(var_1.as_str());
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_3 = object.key("computeResources").start_object();
 -        crate::protocol_serde::shape_compute_resource::ser_compute_resource(&mut object_3, var_2)?;
-+        super::protocol_serde::shape_compute_resource::ser_compute_resource(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_compute_resource::ser_compute_resource(&mut object_3, var_2)?;
          object_3.finish();
      }
      if let Some(var_4) = &input.context {
@@ -23,14 +23,14 @@
          #[allow(unused_mut)]
          let mut object_6 = object.key("ecsSettings").start_object();
 -        crate::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_6, var_5)?;
-+        super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_6, var_5)?;
++        super::super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_6, var_5)?;
          object_6.finish();
      }
      if let Some(var_7) = &input.eks_configuration {
          #[allow(unused_mut)]
          let mut object_8 = object.key("eksConfiguration").start_object();
 -        crate::protocol_serde::shape_eks_configuration::ser_eks_configuration(&mut object_8, var_7)?;
-+        super::protocol_serde::shape_eks_configuration::ser_eks_configuration(&mut object_8, var_7)?;
++        super::super::protocol_serde::shape_eks_configuration::ser_eks_configuration(&mut object_8, var_7)?;
          object_8.finish();
      }
      if let Some(var_9) = &input.service_role {

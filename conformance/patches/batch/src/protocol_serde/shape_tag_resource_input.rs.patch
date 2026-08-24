@@ -5,7 +5,7 @@
  pub fn ser_tag_resource_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::tag_resource::TagResourceInput,
-+    input: &super::operation::tag_resource::TagResourceInput,
++    input: &super::super::operation::tag_resource::TagResourceInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.tags {
          #[allow(unused_mut)]

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetAccountPropertiesInput`](crate::operation::get_account_properties::GetAccountPropertiesInput).
 -    pub fn builder() -> crate::operation::get_account_properties::builders::GetAccountPropertiesInputBuilder {
 -        crate::operation::get_account_properties::builders::GetAccountPropertiesInputBuilder::default()
-+    pub fn builder() -> super::operation::get_account_properties::builders::GetAccountPropertiesInputBuilder {
-+        super::operation::get_account_properties::builders::GetAccountPropertiesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_account_properties::builders::GetAccountPropertiesInputBuilder {
++        super::super::super::operation::get_account_properties::builders::GetAccountPropertiesInputBuilder::default()
      }
  }
 
@@ -16,9 +16,9 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_account_properties::GetAccountPropertiesInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_account_properties::GetAccountPropertiesInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_account_properties::GetAccountPropertiesInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_account_properties::GetAccountPropertiesInput {})
-+        ::std::result::Result::Ok(super::operation::get_account_properties::GetAccountPropertiesInput {})
++        ::std::result::Result::Ok(super::super::super::operation::get_account_properties::GetAccountPropertiesInput {})
      }
  }

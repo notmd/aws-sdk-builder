@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ExecuteTransactionError>`](crate::operation::execute_transaction::ExecuteTransactionError)
 -    pub fn execute_transaction(&self) -> crate::operation::execute_transaction::builders::ExecuteTransactionFluentBuilder {
 -        crate::operation::execute_transaction::builders::ExecuteTransactionFluentBuilder::new(self.handle.clone())
-+    pub fn execute_transaction(&self) -> super::operation::execute_transaction::builders::ExecuteTransactionFluentBuilder {
-+        super::operation::execute_transaction::builders::ExecuteTransactionFluentBuilder::new(self.handle.clone())
++    pub fn execute_transaction(&self) -> super::super::operation::execute_transaction::builders::ExecuteTransactionFluentBuilder {
++        super::super::operation::execute_transaction::builders::ExecuteTransactionFluentBuilder::new(self.handle.clone())
      }
  }

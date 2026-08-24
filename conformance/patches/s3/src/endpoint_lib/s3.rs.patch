@@ -6,8 +6,8 @@
 
 -use crate::endpoint_lib::diagnostic::DiagnosticCollector;
 -use crate::endpoint_lib::host::is_valid_host_label;
-+use super::endpoint_lib::diagnostic::DiagnosticCollector;
-+use super::endpoint_lib::host::is_valid_host_label;
++use super::super::endpoint_lib::diagnostic::DiagnosticCollector;
++use super::super::endpoint_lib::host::is_valid_host_label;
 
  /// Evaluates whether a string is a DNS-compatible bucket name that can be used with virtual hosted-style addressing.
  pub(crate) fn is_virtual_hostable_s3_bucket(host_label: &str, allow_subdomains: bool, e: &mut DiagnosticCollector) -> bool {

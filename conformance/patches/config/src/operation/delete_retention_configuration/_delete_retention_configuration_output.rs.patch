@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteRetentionConfigurationOutput`](crate::operation::delete_retention_configuration::DeleteRetentionConfigurationOutput).
 -    pub fn builder() -> crate::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationOutputBuilder {
 -        crate::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationOutputBuilder {
-+        super::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationOutputBuilder {
++        super::super::super::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteRetentionConfigurationOutput`](crate::operation::delete_retention_configuration::DeleteRetentionConfigurationOutput).
 -    pub fn build(self) -> crate::operation::delete_retention_configuration::DeleteRetentionConfigurationOutput {
 -        crate::operation::delete_retention_configuration::DeleteRetentionConfigurationOutput {
-+    pub fn build(self) -> super::operation::delete_retention_configuration::DeleteRetentionConfigurationOutput {
-+        super::operation::delete_retention_configuration::DeleteRetentionConfigurationOutput {
++    pub fn build(self) -> super::super::super::operation::delete_retention_configuration::DeleteRetentionConfigurationOutput {
++        super::super::super::operation::delete_retention_configuration::DeleteRetentionConfigurationOutput {
              _request_id: self._request_id,
          }
      }

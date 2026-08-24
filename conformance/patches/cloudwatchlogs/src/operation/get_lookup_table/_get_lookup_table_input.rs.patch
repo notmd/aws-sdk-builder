@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetLookupTableInput`](crate::operation::get_lookup_table::GetLookupTableInput).
 -    pub fn builder() -> crate::operation::get_lookup_table::builders::GetLookupTableInputBuilder {
 -        crate::operation::get_lookup_table::builders::GetLookupTableInputBuilder::default()
-+    pub fn builder() -> super::operation::get_lookup_table::builders::GetLookupTableInputBuilder {
-+        super::operation::get_lookup_table::builders::GetLookupTableInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_lookup_table::builders::GetLookupTableInputBuilder {
++        super::super::super::operation::get_lookup_table::builders::GetLookupTableInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_lookup_table::GetLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_lookup_table::GetLookupTableInput {
-+    ) -> ::std::result::Result<super::operation::get_lookup_table::GetLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_lookup_table::GetLookupTableInput {
++    ) -> ::std::result::Result<super::super::super::operation::get_lookup_table::GetLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_lookup_table::GetLookupTableInput {
              lookup_table_arn: self.lookup_table_arn,
          })
      }

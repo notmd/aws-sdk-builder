@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateCodeSigningConfigError>`](crate::operation::update_code_signing_config::UpdateCodeSigningConfigError)
 -    pub fn update_code_signing_config(&self) -> crate::operation::update_code_signing_config::builders::UpdateCodeSigningConfigFluentBuilder {
 -        crate::operation::update_code_signing_config::builders::UpdateCodeSigningConfigFluentBuilder::new(self.handle.clone())
-+    pub fn update_code_signing_config(&self) -> super::operation::update_code_signing_config::builders::UpdateCodeSigningConfigFluentBuilder {
-+        super::operation::update_code_signing_config::builders::UpdateCodeSigningConfigFluentBuilder::new(self.handle.clone())
++    pub fn update_code_signing_config(&self) -> super::super::operation::update_code_signing_config::builders::UpdateCodeSigningConfigFluentBuilder {
++        super::super::operation::update_code_signing_config::builders::UpdateCodeSigningConfigFluentBuilder::new(self.handle.clone())
      }
  }

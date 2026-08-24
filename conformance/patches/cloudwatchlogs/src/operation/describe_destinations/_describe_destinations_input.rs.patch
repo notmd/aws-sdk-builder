@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeDestinationsInput`](crate::operation::describe_destinations::DescribeDestinationsInput).
 -    pub fn builder() -> crate::operation::describe_destinations::builders::DescribeDestinationsInputBuilder {
 -        crate::operation::describe_destinations::builders::DescribeDestinationsInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_destinations::builders::DescribeDestinationsInputBuilder {
-+        super::operation::describe_destinations::builders::DescribeDestinationsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_destinations::builders::DescribeDestinationsInputBuilder {
++        super::super::super::operation::describe_destinations::builders::DescribeDestinationsInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_destinations::DescribeDestinationsInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::describe_destinations::DescribeDestinationsInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::describe_destinations::DescribeDestinationsInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::describe_destinations::DescribeDestinationsInput {
-+        ::std::result::Result::Ok(super::operation::describe_destinations::DescribeDestinationsInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_destinations::DescribeDestinationsInput {
              destination_name_prefix: self.destination_name_prefix,
              next_token: self.next_token,
              limit: self.limit,

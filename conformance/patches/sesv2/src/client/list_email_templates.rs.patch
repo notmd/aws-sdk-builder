@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListEmailTemplatesError>`](crate::operation::list_email_templates::ListEmailTemplatesError)
 -    pub fn list_email_templates(&self) -> crate::operation::list_email_templates::builders::ListEmailTemplatesFluentBuilder {
 -        crate::operation::list_email_templates::builders::ListEmailTemplatesFluentBuilder::new(self.handle.clone())
-+    pub fn list_email_templates(&self) -> super::operation::list_email_templates::builders::ListEmailTemplatesFluentBuilder {
-+        super::operation::list_email_templates::builders::ListEmailTemplatesFluentBuilder::new(self.handle.clone())
++    pub fn list_email_templates(&self) -> super::super::operation::list_email_templates::builders::ListEmailTemplatesFluentBuilder {
++        super::super::operation::list_email_templates::builders::ListEmailTemplatesFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,12 +5,12 @@
  pub struct GuardrailChecksPromptAttackResult {
      /// <p>The per-category prompt attack results.</p>
 -    pub results: ::std::vec::Vec<crate::types::GuardrailChecksPromptAttackResultEntry>,
-+    pub results: ::std::vec::Vec<super::types::GuardrailChecksPromptAttackResultEntry>,
++    pub results: ::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackResultEntry>,
  }
  impl GuardrailChecksPromptAttackResult {
      /// <p>The per-category prompt attack results.</p>
 -    pub fn results(&self) -> &[crate::types::GuardrailChecksPromptAttackResultEntry] {
-+    pub fn results(&self) -> &[super::types::GuardrailChecksPromptAttackResultEntry] {
++    pub fn results(&self) -> &[super::super::types::GuardrailChecksPromptAttackResultEntry] {
          use std::ops::Deref;
          self.results.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailChecksPromptAttackResult`](crate::types::GuardrailChecksPromptAttackResult).
 -    pub fn builder() -> crate::types::builders::GuardrailChecksPromptAttackResultBuilder {
 -        crate::types::builders::GuardrailChecksPromptAttackResultBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailChecksPromptAttackResultBuilder {
-+        super::types::builders::GuardrailChecksPromptAttackResultBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailChecksPromptAttackResultBuilder {
++        super::super::types::builders::GuardrailChecksPromptAttackResultBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct GuardrailChecksPromptAttackResultBuilder {
 -    pub(crate) results: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackResultEntry>>,
-+    pub(crate) results: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksPromptAttackResultEntry>>,
++    pub(crate) results: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackResultEntry>>,
  }
  impl GuardrailChecksPromptAttackResultBuilder {
      /// Appends an item to `results`.
@@ -39,7 +39,7 @@
      ///
      /// <p>The per-category prompt attack results.</p>
 -    pub fn results(mut self, input: crate::types::GuardrailChecksPromptAttackResultEntry) -> Self {
-+    pub fn results(mut self, input: super::types::GuardrailChecksPromptAttackResultEntry) -> Self {
++    pub fn results(mut self, input: super::super::types::GuardrailChecksPromptAttackResultEntry) -> Self {
          let mut v = self.results.unwrap_or_default();
          v.push(input);
          self.results = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>The per-category prompt attack results.</p>
 -    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackResultEntry>>) -> Self {
-+    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksPromptAttackResultEntry>>) -> Self {
++    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackResultEntry>>) -> Self {
          self.results = input;
          self
      }
      /// <p>The per-category prompt attack results.</p>
 -    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackResultEntry>> {
-+    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksPromptAttackResultEntry>> {
++    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackResultEntry>> {
          &self.results
      }
      /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackResult`](crate::types::GuardrailChecksPromptAttackResult).
@@ -62,8 +62,8 @@
      /// - [`results`](crate::types::builders::GuardrailChecksPromptAttackResultBuilder::results)
 -    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailChecksPromptAttackResult, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailChecksPromptAttackResult {
-+    pub fn build(self) -> ::std::result::Result<super::types::GuardrailChecksPromptAttackResult, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailChecksPromptAttackResult {
++    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackResult, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailChecksPromptAttackResult {
              results: self.results.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "results",

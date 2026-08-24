@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for MaxNumberOfConnectorsExceededException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::MaxNumberOfConnectorsExceededException {
-+impl ::aws_types::request_id::RequestId for super::types::error::MaxNumberOfConnectorsExceededException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::MaxNumberOfConnectorsExceededException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`MaxNumberOfConnectorsExceededException`](crate::types::error::MaxNumberOfConnectorsExceededException).
 -    pub fn builder() -> crate::types::error::builders::MaxNumberOfConnectorsExceededExceptionBuilder {
 -        crate::types::error::builders::MaxNumberOfConnectorsExceededExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::MaxNumberOfConnectorsExceededExceptionBuilder {
-+        super::types::error::builders::MaxNumberOfConnectorsExceededExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::MaxNumberOfConnectorsExceededExceptionBuilder {
++        super::super::super::types::error::builders::MaxNumberOfConnectorsExceededExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`MaxNumberOfConnectorsExceededException`](crate::types::error::MaxNumberOfConnectorsExceededException).
 -    pub fn build(self) -> crate::types::error::MaxNumberOfConnectorsExceededException {
 -        crate::types::error::MaxNumberOfConnectorsExceededException {
-+    pub fn build(self) -> super::types::error::MaxNumberOfConnectorsExceededException {
-+        super::types::error::MaxNumberOfConnectorsExceededException {
++    pub fn build(self) -> super::super::super::types::error::MaxNumberOfConnectorsExceededException {
++        super::super::super::types::error::MaxNumberOfConnectorsExceededException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

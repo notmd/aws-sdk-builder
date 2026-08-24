@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetTransformerError>`](crate::operation::get_transformer::GetTransformerError)
 -    pub fn get_transformer(&self) -> crate::operation::get_transformer::builders::GetTransformerFluentBuilder {
 -        crate::operation::get_transformer::builders::GetTransformerFluentBuilder::new(self.handle.clone())
-+    pub fn get_transformer(&self) -> super::operation::get_transformer::builders::GetTransformerFluentBuilder {
-+        super::operation::get_transformer::builders::GetTransformerFluentBuilder::new(self.handle.clone())
++    pub fn get_transformer(&self) -> super::super::operation::get_transformer::builders::GetTransformerFluentBuilder {
++        super::super::operation::get_transformer::builders::GetTransformerFluentBuilder::new(self.handle.clone())
      }
  }

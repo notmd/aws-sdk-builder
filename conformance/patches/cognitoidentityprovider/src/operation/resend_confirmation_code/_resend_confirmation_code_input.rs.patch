@@ -5,12 +5,12 @@
      /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
 -    pub user_context_data: ::std::option::Option<crate::types::UserContextDataType>,
-+    pub user_context_data: ::std::option::Option<super::types::UserContextDataType>,
++    pub user_context_data: ::std::option::Option<super::super::super::types::UserContextDataType>,
      /// <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
      pub username: ::std::option::Option<::std::string::String>,
      /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
 -    pub analytics_metadata: ::std::option::Option<crate::types::AnalyticsMetadataType>,
-+    pub analytics_metadata: ::std::option::Option<super::types::AnalyticsMetadataType>,
++    pub analytics_metadata: ::std::option::Option<super::super::super::types::AnalyticsMetadataType>,
      /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p>
      /// <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
      /// <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note>
@@ -19,7 +19,7 @@
      /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
 -    pub fn user_context_data(&self) -> ::std::option::Option<&crate::types::UserContextDataType> {
-+    pub fn user_context_data(&self) -> ::std::option::Option<&super::types::UserContextDataType> {
++    pub fn user_context_data(&self) -> ::std::option::Option<&super::super::super::types::UserContextDataType> {
          self.user_context_data.as_ref()
      }
      /// <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
@@ -28,7 +28,7 @@
      }
      /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
 -    pub fn analytics_metadata(&self) -> ::std::option::Option<&crate::types::AnalyticsMetadataType> {
-+    pub fn analytics_metadata(&self) -> ::std::option::Option<&super::types::AnalyticsMetadataType> {
++    pub fn analytics_metadata(&self) -> ::std::option::Option<&super::super::super::types::AnalyticsMetadataType> {
          self.analytics_metadata.as_ref()
      }
      /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p>
@@ -38,8 +38,8 @@
      /// Creates a new builder-style object to manufacture [`ResendConfirmationCodeInput`](crate::operation::resend_confirmation_code::ResendConfirmationCodeInput).
 -    pub fn builder() -> crate::operation::resend_confirmation_code::builders::ResendConfirmationCodeInputBuilder {
 -        crate::operation::resend_confirmation_code::builders::ResendConfirmationCodeInputBuilder::default()
-+    pub fn builder() -> super::operation::resend_confirmation_code::builders::ResendConfirmationCodeInputBuilder {
-+        super::operation::resend_confirmation_code::builders::ResendConfirmationCodeInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::resend_confirmation_code::builders::ResendConfirmationCodeInputBuilder {
++        super::super::super::operation::resend_confirmation_code::builders::ResendConfirmationCodeInputBuilder::default()
      }
  }
 
@@ -48,10 +48,10 @@
      pub(crate) client_id: ::std::option::Option<::std::string::String>,
      pub(crate) secret_hash: ::std::option::Option<::std::string::String>,
 -    pub(crate) user_context_data: ::std::option::Option<crate::types::UserContextDataType>,
-+    pub(crate) user_context_data: ::std::option::Option<super::types::UserContextDataType>,
++    pub(crate) user_context_data: ::std::option::Option<super::super::super::types::UserContextDataType>,
      pub(crate) username: ::std::option::Option<::std::string::String>,
 -    pub(crate) analytics_metadata: ::std::option::Option<crate::types::AnalyticsMetadataType>,
-+    pub(crate) analytics_metadata: ::std::option::Option<super::types::AnalyticsMetadataType>,
++    pub(crate) analytics_metadata: ::std::option::Option<super::super::super::types::AnalyticsMetadataType>,
      pub(crate) client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
  }
  impl ResendConfirmationCodeInputBuilder {
@@ -60,21 +60,21 @@
      /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
 -    pub fn user_context_data(mut self, input: crate::types::UserContextDataType) -> Self {
-+    pub fn user_context_data(mut self, input: super::types::UserContextDataType) -> Self {
++    pub fn user_context_data(mut self, input: super::super::super::types::UserContextDataType) -> Self {
          self.user_context_data = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
 -    pub fn set_user_context_data(mut self, input: ::std::option::Option<crate::types::UserContextDataType>) -> Self {
-+    pub fn set_user_context_data(mut self, input: ::std::option::Option<super::types::UserContextDataType>) -> Self {
++    pub fn set_user_context_data(mut self, input: ::std::option::Option<super::super::super::types::UserContextDataType>) -> Self {
          self.user_context_data = input;
          self
      }
      /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
 -    pub fn get_user_context_data(&self) -> &::std::option::Option<crate::types::UserContextDataType> {
-+    pub fn get_user_context_data(&self) -> &::std::option::Option<super::types::UserContextDataType> {
++    pub fn get_user_context_data(&self) -> &::std::option::Option<super::super::super::types::UserContextDataType> {
          &self.user_context_data
      }
      /// <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
@@ -83,19 +83,19 @@
      }
      /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
 -    pub fn analytics_metadata(mut self, input: crate::types::AnalyticsMetadataType) -> Self {
-+    pub fn analytics_metadata(mut self, input: super::types::AnalyticsMetadataType) -> Self {
++    pub fn analytics_metadata(mut self, input: super::super::super::types::AnalyticsMetadataType) -> Self {
          self.analytics_metadata = ::std::option::Option::Some(input);
          self
      }
      /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
 -    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<crate::types::AnalyticsMetadataType>) -> Self {
-+    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<super::types::AnalyticsMetadataType>) -> Self {
++    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<super::super::super::types::AnalyticsMetadataType>) -> Self {
          self.analytics_metadata = input;
          self
      }
      /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
 -    pub fn get_analytics_metadata(&self) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
-+    pub fn get_analytics_metadata(&self) -> &::std::option::Option<super::types::AnalyticsMetadataType> {
++    pub fn get_analytics_metadata(&self) -> &::std::option::Option<super::super::super::types::AnalyticsMetadataType> {
          &self.analytics_metadata
      }
      /// Adds a key-value pair to `client_metadata`.
@@ -104,11 +104,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::resend_confirmation_code::ResendConfirmationCodeInput,
-+        super::operation::resend_confirmation_code::ResendConfirmationCodeInput,
++        super::super::super::operation::resend_confirmation_code::ResendConfirmationCodeInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::resend_confirmation_code::ResendConfirmationCodeInput {
-+        ::std::result::Result::Ok(super::operation::resend_confirmation_code::ResendConfirmationCodeInput {
++        ::std::result::Result::Ok(super::super::super::operation::resend_confirmation_code::ResendConfirmationCodeInput {
              client_id: self.client_id,
              secret_hash: self.secret_hash,
              user_context_data: self.user_context_data,

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeResourceServerInput`](crate::operation::describe_resource_server::DescribeResourceServerInput).
 -    pub fn builder() -> crate::operation::describe_resource_server::builders::DescribeResourceServerInputBuilder {
 -        crate::operation::describe_resource_server::builders::DescribeResourceServerInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_resource_server::builders::DescribeResourceServerInputBuilder {
-+        super::operation::describe_resource_server::builders::DescribeResourceServerInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_resource_server::builders::DescribeResourceServerInputBuilder {
++        super::super::super::operation::describe_resource_server::builders::DescribeResourceServerInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_resource_server::DescribeResourceServerInput,
-+        super::operation::describe_resource_server::DescribeResourceServerInput,
++        super::super::super::operation::describe_resource_server::DescribeResourceServerInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::describe_resource_server::DescribeResourceServerInput {
-+        ::std::result::Result::Ok(super::operation::describe_resource_server::DescribeResourceServerInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_resource_server::DescribeResourceServerInput {
              user_pool_id: self.user_pool_id,
              identifier: self.identifier,
          })

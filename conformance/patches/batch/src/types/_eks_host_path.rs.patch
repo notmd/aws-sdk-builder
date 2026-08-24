@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EksHostPath`](crate::types::EksHostPath).
 -    pub fn builder() -> crate::types::builders::EksHostPathBuilder {
 -        crate::types::builders::EksHostPathBuilder::default()
-+    pub fn builder() -> super::types::builders::EksHostPathBuilder {
-+        super::types::builders::EksHostPathBuilder::default()
++    pub fn builder() -> super::super::types::builders::EksHostPathBuilder {
++        super::super::types::builders::EksHostPathBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`EksHostPath`](crate::types::EksHostPath).
 -    pub fn build(self) -> crate::types::EksHostPath {
 -        crate::types::EksHostPath { path: self.path }
-+    pub fn build(self) -> super::types::EksHostPath {
-+        super::types::EksHostPath { path: self.path }
++    pub fn build(self) -> super::super::types::EksHostPath {
++        super::super::types::EksHostPath { path: self.path }
      }
  }

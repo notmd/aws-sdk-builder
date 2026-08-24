@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for TableInUseException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::TableInUseException {
-+impl ::aws_types::request_id::RequestId for super::types::error::TableInUseException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::TableInUseException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`TableInUseException`](crate::types::error::TableInUseException).
 -    pub fn builder() -> crate::types::error::builders::TableInUseExceptionBuilder {
 -        crate::types::error::builders::TableInUseExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::TableInUseExceptionBuilder {
-+        super::types::error::builders::TableInUseExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::TableInUseExceptionBuilder {
++        super::super::super::types::error::builders::TableInUseExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`TableInUseException`](crate::types::error::TableInUseException).
 -    pub fn build(self) -> crate::types::error::TableInUseException {
 -        crate::types::error::TableInUseException {
-+    pub fn build(self) -> super::types::error::TableInUseException {
-+        super::types::error::TableInUseException {
++    pub fn build(self) -> super::super::super::types::error::TableInUseException {
++        super::super::super::types::error::TableInUseException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

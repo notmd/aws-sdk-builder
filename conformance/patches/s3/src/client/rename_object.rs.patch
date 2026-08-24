@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<RenameObjectError>`](crate::operation::rename_object::RenameObjectError)
 -    pub fn rename_object(&self) -> crate::operation::rename_object::builders::RenameObjectFluentBuilder {
 -        crate::operation::rename_object::builders::RenameObjectFluentBuilder::new(self.handle.clone())
-+    pub fn rename_object(&self) -> super::operation::rename_object::builders::RenameObjectFluentBuilder {
-+        super::operation::rename_object::builders::RenameObjectFluentBuilder::new(self.handle.clone())
++    pub fn rename_object(&self) -> super::super::operation::rename_object::builders::RenameObjectFluentBuilder {
++        super::super::operation::rename_object::builders::RenameObjectFluentBuilder::new(self.handle.clone())
      }
  }

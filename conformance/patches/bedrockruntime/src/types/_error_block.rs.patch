@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ErrorBlock`](crate::types::ErrorBlock).
 -    pub fn builder() -> crate::types::builders::ErrorBlockBuilder {
 -        crate::types::builders::ErrorBlockBuilder::default()
-+    pub fn builder() -> super::types::builders::ErrorBlockBuilder {
-+        super::types::builders::ErrorBlockBuilder::default()
++    pub fn builder() -> super::super::types::builders::ErrorBlockBuilder {
++        super::super::types::builders::ErrorBlockBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ErrorBlock`](crate::types::ErrorBlock).
 -    pub fn build(self) -> crate::types::ErrorBlock {
 -        crate::types::ErrorBlock { message: self.message }
-+    pub fn build(self) -> super::types::ErrorBlock {
-+        super::types::ErrorBlock { message: self.message }
++    pub fn build(self) -> super::super::types::ErrorBlock {
++        super::super::types::ErrorBlock { message: self.message }
      }
  }
  impl ::std::fmt::Debug for ErrorBlockBuilder {

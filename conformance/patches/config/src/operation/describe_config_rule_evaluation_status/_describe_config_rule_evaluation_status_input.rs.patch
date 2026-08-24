@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeConfigRuleEvaluationStatusInput`](crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusInput).
 -    pub fn builder() -> crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder {
 -        crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder {
-+        super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder {
++        super::super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusInput,
-+        super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusInput,
++        super::super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusInput {
-+            super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusInput {
++            super::super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusInput {
                  config_rule_names: self.config_rule_names,
                  next_token: self.next_token,
                  limit: self.limit,

@@ -5,7 +5,7 @@
  pub struct DescribeDeliveryChannelStatusOutput {
      /// <p>A list that contains the status of a specified delivery channel.</p>
 -    pub delivery_channels_status: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>>,
-+    pub delivery_channels_status: ::std::option::Option<::std::vec::Vec<super::types::DeliveryChannelStatus>>,
++    pub delivery_channels_status: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryChannelStatus>>,
      _request_id: Option<String>,
  }
  impl DescribeDeliveryChannelStatusOutput {
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.delivery_channels_status.is_none()`.
 -    pub fn delivery_channels_status(&self) -> &[crate::types::DeliveryChannelStatus] {
-+    pub fn delivery_channels_status(&self) -> &[super::types::DeliveryChannelStatus] {
++    pub fn delivery_channels_status(&self) -> &[super::super::super::types::DeliveryChannelStatus] {
          self.delivery_channels_status.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeDeliveryChannelStatusOutput`](crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput).
 -    pub fn builder() -> crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusOutputBuilder {
 -        crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusOutputBuilder {
-+        super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusOutputBuilder {
++        super::super::super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeDeliveryChannelStatusOutputBuilder {
 -    pub(crate) delivery_channels_status: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>>,
-+    pub(crate) delivery_channels_status: ::std::option::Option<::std::vec::Vec<super::types::DeliveryChannelStatus>>,
++    pub(crate) delivery_channels_status: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryChannelStatus>>,
      _request_id: Option<String>,
  }
  impl DescribeDeliveryChannelStatusOutputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>A list that contains the status of a specified delivery channel.</p>
 -    pub fn delivery_channels_status(mut self, input: crate::types::DeliveryChannelStatus) -> Self {
-+    pub fn delivery_channels_status(mut self, input: super::types::DeliveryChannelStatus) -> Self {
++    pub fn delivery_channels_status(mut self, input: super::super::super::types::DeliveryChannelStatus) -> Self {
          let mut v = self.delivery_channels_status.unwrap_or_default();
          v.push(input);
          self.delivery_channels_status = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list that contains the status of a specified delivery channel.</p>
 -    pub fn set_delivery_channels_status(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>>) -> Self {
-+    pub fn set_delivery_channels_status(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::DeliveryChannelStatus>>) -> Self {
++    pub fn set_delivery_channels_status(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryChannelStatus>>) -> Self {
          self.delivery_channels_status = input;
          self
      }
      /// <p>A list that contains the status of a specified delivery channel.</p>
 -    pub fn get_delivery_channels_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>> {
-+    pub fn get_delivery_channels_status(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DeliveryChannelStatus>> {
++    pub fn get_delivery_channels_status(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryChannelStatus>> {
          &self.delivery_channels_status
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeDeliveryChannelStatusOutput`](crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput).
 -    pub fn build(self) -> crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput {
 -        crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput {
-+    pub fn build(self) -> super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput {
-+        super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput {
++    pub fn build(self) -> super::super::super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput {
++        super::super::super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput {
              delivery_channels_status: self.delivery_channels_status,
              _request_id: self._request_id,
          }

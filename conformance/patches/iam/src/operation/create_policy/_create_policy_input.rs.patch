@@ -5,7 +5,7 @@
      /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
      /// </note>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreatePolicyInput {
      /// <p>The friendly name of the policy.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
 -    pub fn tags(&self) -> &[crate::types::Tag] {
-+    pub fn tags(&self) -> &[super::types::Tag] {
++    pub fn tags(&self) -> &[super::super::super::types::Tag] {
          self.tags.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`CreatePolicyInput`](crate::operation::create_policy::CreatePolicyInput).
 -    pub fn builder() -> crate::operation::create_policy::builders::CreatePolicyInputBuilder {
 -        crate::operation::create_policy::builders::CreatePolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::create_policy::builders::CreatePolicyInputBuilder {
-+        super::operation::create_policy::builders::CreatePolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_policy::builders::CreatePolicyInputBuilder {
++        super::super::super::operation::create_policy::builders::CreatePolicyInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) policy_document: ::std::option::Option<::std::string::String>,
      pub(crate) description: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreatePolicyInputBuilder {
      /// <p>The friendly name of the policy.</p>
@@ -41,7 +41,7 @@
      /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
      /// </note>
 -    pub fn tags(mut self, input: crate::types::Tag) -> Self {
-+    pub fn tags(mut self, input: super::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::super::super::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
          self.tags = ::std::option::Option::Some(v);
@@ -50,7 +50,7 @@
      /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
      /// </note>
 -    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self {
          self.tags = input;
          self
      }
@@ -59,7 +59,7 @@
      /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
      /// </note>
 -    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
-+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> {
          &self.tags
      }
      /// Consumes the builder and constructs a [`CreatePolicyInput`](crate::operation::create_policy::CreatePolicyInput).
@@ -67,8 +67,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::create_policy::CreatePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::create_policy::CreatePolicyInput {
-+    ) -> ::std::result::Result<super::operation::create_policy::CreatePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::create_policy::CreatePolicyInput {
++    ) -> ::std::result::Result<super::super::super::operation::create_policy::CreatePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::create_policy::CreatePolicyInput {
              policy_name: self.policy_name,
              path: self.path,
              policy_document: self.policy_document,

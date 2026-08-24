@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`StartAsyncInvokeOutput`](crate::operation::start_async_invoke::StartAsyncInvokeOutput).
 -    pub fn builder() -> crate::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder {
 -        crate::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder::default()
-+    pub fn builder() -> super::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder {
-+        super::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder {
++        super::super::super::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::start_async_invoke::StartAsyncInvokeOutput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::start_async_invoke::StartAsyncInvokeOutput {
-+    ) -> ::std::result::Result<super::operation::start_async_invoke::StartAsyncInvokeOutput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::start_async_invoke::StartAsyncInvokeOutput {
++    ) -> ::std::result::Result<super::super::super::operation::start_async_invoke::StartAsyncInvokeOutput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::start_async_invoke::StartAsyncInvokeOutput {
              invocation_arn: self.invocation_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "invocation_arn",

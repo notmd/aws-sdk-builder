@@ -5,16 +5,16 @@
      pub version: ::std::option::Option<::std::string::String>,
      /// <p>The domain status.</p>
 -    pub status: ::std::option::Option<crate::types::DomainStatusType>,
-+    pub status: ::std::option::Option<super::types::DomainStatusType>,
++    pub status: ::std::option::Option<super::super::types::DomainStatusType>,
      /// <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p>
 -    pub custom_domain_config: ::std::option::Option<crate::types::CustomDomainConfigType>,
-+    pub custom_domain_config: ::std::option::Option<super::types::CustomDomainConfigType>,
++    pub custom_domain_config: ::std::option::Option<super::super::types::CustomDomainConfigType>,
      /// <p>The version of managed login branding that you want to apply to your domain. A value of <code>1</code> indicates hosted UI (classic) branding and a version of <code>2</code> indicates managed login branding.</p>
      /// <p>Managed login requires that your user pool be configured for any <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html">feature plan</a> other than <code>Lite</code>.</p>
      pub managed_login_version: ::std::option::Option<i32>,
      /// <p>The routing configuration for the domain, including failover settings for multi-region deployments. Currently only <code>Failover</code> configurations are allowed.</p>
 -    pub routing: ::std::option::Option<crate::types::RoutingType>,
-+    pub routing: ::std::option::Option<super::types::RoutingType>,
++    pub routing: ::std::option::Option<super::super::types::RoutingType>,
  }
  impl DomainDescriptionType {
      /// <p>The ID of the user pool that the domain is attached to.</p>
@@ -23,12 +23,12 @@
      }
      /// <p>The domain status.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::DomainStatusType> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::DomainStatusType> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::DomainStatusType> {
          self.status.as_ref()
      }
      /// <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p>
 -    pub fn custom_domain_config(&self) -> ::std::option::Option<&crate::types::CustomDomainConfigType> {
-+    pub fn custom_domain_config(&self) -> ::std::option::Option<&super::types::CustomDomainConfigType> {
++    pub fn custom_domain_config(&self) -> ::std::option::Option<&super::super::types::CustomDomainConfigType> {
          self.custom_domain_config.as_ref()
      }
      /// <p>The version of managed login branding that you want to apply to your domain. A value of <code>1</code> indicates hosted UI (classic) branding and a version of <code>2</code> indicates managed login branding.</p>
@@ -37,7 +37,7 @@
      }
      /// <p>The routing configuration for the domain, including failover settings for multi-region deployments. Currently only <code>Failover</code> configurations are allowed.</p>
 -    pub fn routing(&self) -> ::std::option::Option<&crate::types::RoutingType> {
-+    pub fn routing(&self) -> ::std::option::Option<&super::types::RoutingType> {
++    pub fn routing(&self) -> ::std::option::Option<&super::super::types::RoutingType> {
          self.routing.as_ref()
      }
  }
@@ -45,8 +45,8 @@
      /// Creates a new builder-style object to manufacture [`DomainDescriptionType`](crate::types::DomainDescriptionType).
 -    pub fn builder() -> crate::types::builders::DomainDescriptionTypeBuilder {
 -        crate::types::builders::DomainDescriptionTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::DomainDescriptionTypeBuilder {
-+        super::types::builders::DomainDescriptionTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::DomainDescriptionTypeBuilder {
++        super::super::types::builders::DomainDescriptionTypeBuilder::default()
      }
  }
 
@@ -56,11 +56,11 @@
      pub(crate) version: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::DomainStatusType>,
 -    pub(crate) custom_domain_config: ::std::option::Option<crate::types::CustomDomainConfigType>,
-+    pub(crate) status: ::std::option::Option<super::types::DomainStatusType>,
-+    pub(crate) custom_domain_config: ::std::option::Option<super::types::CustomDomainConfigType>,
++    pub(crate) status: ::std::option::Option<super::super::types::DomainStatusType>,
++    pub(crate) custom_domain_config: ::std::option::Option<super::super::types::CustomDomainConfigType>,
      pub(crate) managed_login_version: ::std::option::Option<i32>,
 -    pub(crate) routing: ::std::option::Option<crate::types::RoutingType>,
-+    pub(crate) routing: ::std::option::Option<super::types::RoutingType>,
++    pub(crate) routing: ::std::option::Option<super::super::types::RoutingType>,
  }
  impl DomainDescriptionTypeBuilder {
      /// <p>The ID of the user pool that the domain is attached to.</p>
@@ -69,36 +69,36 @@
      }
      /// <p>The domain status.</p>
 -    pub fn status(mut self, input: crate::types::DomainStatusType) -> Self {
-+    pub fn status(mut self, input: super::types::DomainStatusType) -> Self {
++    pub fn status(mut self, input: super::super::types::DomainStatusType) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The domain status.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::DomainStatusType>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::DomainStatusType>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::DomainStatusType>) -> Self {
          self.status = input;
          self
      }
      /// <p>The domain status.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::DomainStatusType> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::DomainStatusType> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::DomainStatusType> {
          &self.status
      }
      /// <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p>
 -    pub fn custom_domain_config(mut self, input: crate::types::CustomDomainConfigType) -> Self {
-+    pub fn custom_domain_config(mut self, input: super::types::CustomDomainConfigType) -> Self {
++    pub fn custom_domain_config(mut self, input: super::super::types::CustomDomainConfigType) -> Self {
          self.custom_domain_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p>
 -    pub fn set_custom_domain_config(mut self, input: ::std::option::Option<crate::types::CustomDomainConfigType>) -> Self {
-+    pub fn set_custom_domain_config(mut self, input: ::std::option::Option<super::types::CustomDomainConfigType>) -> Self {
++    pub fn set_custom_domain_config(mut self, input: ::std::option::Option<super::super::types::CustomDomainConfigType>) -> Self {
          self.custom_domain_config = input;
          self
      }
      /// <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p>
 -    pub fn get_custom_domain_config(&self) -> &::std::option::Option<crate::types::CustomDomainConfigType> {
-+    pub fn get_custom_domain_config(&self) -> &::std::option::Option<super::types::CustomDomainConfigType> {
++    pub fn get_custom_domain_config(&self) -> &::std::option::Option<super::super::types::CustomDomainConfigType> {
          &self.custom_domain_config
      }
      /// <p>The version of managed login branding that you want to apply to your domain. A value of <code>1</code> indicates hosted UI (classic) branding and a version of <code>2</code> indicates managed login branding.</p>
@@ -107,26 +107,26 @@
      }
      /// <p>The routing configuration for the domain, including failover settings for multi-region deployments. Currently only <code>Failover</code> configurations are allowed.</p>
 -    pub fn routing(mut self, input: crate::types::RoutingType) -> Self {
-+    pub fn routing(mut self, input: super::types::RoutingType) -> Self {
++    pub fn routing(mut self, input: super::super::types::RoutingType) -> Self {
          self.routing = ::std::option::Option::Some(input);
          self
      }
      /// <p>The routing configuration for the domain, including failover settings for multi-region deployments. Currently only <code>Failover</code> configurations are allowed.</p>
 -    pub fn set_routing(mut self, input: ::std::option::Option<crate::types::RoutingType>) -> Self {
-+    pub fn set_routing(mut self, input: ::std::option::Option<super::types::RoutingType>) -> Self {
++    pub fn set_routing(mut self, input: ::std::option::Option<super::super::types::RoutingType>) -> Self {
          self.routing = input;
          self
      }
      /// <p>The routing configuration for the domain, including failover settings for multi-region deployments. Currently only <code>Failover</code> configurations are allowed.</p>
 -    pub fn get_routing(&self) -> &::std::option::Option<crate::types::RoutingType> {
-+    pub fn get_routing(&self) -> &::std::option::Option<super::types::RoutingType> {
++    pub fn get_routing(&self) -> &::std::option::Option<super::super::types::RoutingType> {
          &self.routing
      }
      /// Consumes the builder and constructs a [`DomainDescriptionType`](crate::types::DomainDescriptionType).
 -    pub fn build(self) -> crate::types::DomainDescriptionType {
 -        crate::types::DomainDescriptionType {
-+    pub fn build(self) -> super::types::DomainDescriptionType {
-+        super::types::DomainDescriptionType {
++    pub fn build(self) -> super::super::types::DomainDescriptionType {
++        super::super::types::DomainDescriptionType {
              user_pool_id: self.user_pool_id,
              aws_account_id: self.aws_account_id,
              domain: self.domain,

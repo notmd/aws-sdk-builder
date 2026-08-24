@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CancelImportTaskError>`](crate::operation::cancel_import_task::CancelImportTaskError)
 -    pub fn cancel_import_task(&self) -> crate::operation::cancel_import_task::builders::CancelImportTaskFluentBuilder {
 -        crate::operation::cancel_import_task::builders::CancelImportTaskFluentBuilder::new(self.handle.clone())
-+    pub fn cancel_import_task(&self) -> super::operation::cancel_import_task::builders::CancelImportTaskFluentBuilder {
-+        super::operation::cancel_import_task::builders::CancelImportTaskFluentBuilder::new(self.handle.clone())
++    pub fn cancel_import_task(&self) -> super::super::operation::cancel_import_task::builders::CancelImportTaskFluentBuilder {
++        super::super::operation::cancel_import_task::builders::CancelImportTaskFluentBuilder::new(self.handle.clone())
      }
  }

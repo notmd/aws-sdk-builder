@@ -5,20 +5,20 @@
  pub struct PackageOriginRestrictions {
      /// <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
 -    pub publish: crate::types::AllowPublish,
-+    pub publish: super::types::AllowPublish,
++    pub publish: super::super::types::AllowPublish,
      /// <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
 -    pub upstream: crate::types::AllowUpstream,
-+    pub upstream: super::types::AllowUpstream,
++    pub upstream: super::super::types::AllowUpstream,
  }
  impl PackageOriginRestrictions {
      /// <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
 -    pub fn publish(&self) -> &crate::types::AllowPublish {
-+    pub fn publish(&self) -> &super::types::AllowPublish {
++    pub fn publish(&self) -> &super::super::types::AllowPublish {
          &self.publish
      }
      /// <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
 -    pub fn upstream(&self) -> &crate::types::AllowUpstream {
-+    pub fn upstream(&self) -> &super::types::AllowUpstream {
++    pub fn upstream(&self) -> &super::super::types::AllowUpstream {
          &self.upstream
      }
  }
@@ -26,8 +26,8 @@
      /// Creates a new builder-style object to manufacture [`PackageOriginRestrictions`](crate::types::PackageOriginRestrictions).
 -    pub fn builder() -> crate::types::builders::PackageOriginRestrictionsBuilder {
 -        crate::types::builders::PackageOriginRestrictionsBuilder::default()
-+    pub fn builder() -> super::types::builders::PackageOriginRestrictionsBuilder {
-+        super::types::builders::PackageOriginRestrictionsBuilder::default()
++    pub fn builder() -> super::super::types::builders::PackageOriginRestrictionsBuilder {
++        super::super::types::builders::PackageOriginRestrictionsBuilder::default()
      }
  }
 
@@ -37,44 +37,44 @@
  pub struct PackageOriginRestrictionsBuilder {
 -    pub(crate) publish: ::std::option::Option<crate::types::AllowPublish>,
 -    pub(crate) upstream: ::std::option::Option<crate::types::AllowUpstream>,
-+    pub(crate) publish: ::std::option::Option<super::types::AllowPublish>,
-+    pub(crate) upstream: ::std::option::Option<super::types::AllowUpstream>,
++    pub(crate) publish: ::std::option::Option<super::super::types::AllowPublish>,
++    pub(crate) upstream: ::std::option::Option<super::super::types::AllowUpstream>,
  }
  impl PackageOriginRestrictionsBuilder {
      /// <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
      /// This field is required.
 -    pub fn publish(mut self, input: crate::types::AllowPublish) -> Self {
-+    pub fn publish(mut self, input: super::types::AllowPublish) -> Self {
++    pub fn publish(mut self, input: super::super::types::AllowPublish) -> Self {
          self.publish = ::std::option::Option::Some(input);
          self
      }
      /// <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
 -    pub fn set_publish(mut self, input: ::std::option::Option<crate::types::AllowPublish>) -> Self {
-+    pub fn set_publish(mut self, input: ::std::option::Option<super::types::AllowPublish>) -> Self {
++    pub fn set_publish(mut self, input: ::std::option::Option<super::super::types::AllowPublish>) -> Self {
          self.publish = input;
          self
      }
      /// <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
 -    pub fn get_publish(&self) -> &::std::option::Option<crate::types::AllowPublish> {
-+    pub fn get_publish(&self) -> &::std::option::Option<super::types::AllowPublish> {
++    pub fn get_publish(&self) -> &::std::option::Option<super::super::types::AllowPublish> {
          &self.publish
      }
      /// <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
      /// This field is required.
 -    pub fn upstream(mut self, input: crate::types::AllowUpstream) -> Self {
-+    pub fn upstream(mut self, input: super::types::AllowUpstream) -> Self {
++    pub fn upstream(mut self, input: super::super::types::AllowUpstream) -> Self {
          self.upstream = ::std::option::Option::Some(input);
          self
      }
      /// <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
 -    pub fn set_upstream(mut self, input: ::std::option::Option<crate::types::AllowUpstream>) -> Self {
-+    pub fn set_upstream(mut self, input: ::std::option::Option<super::types::AllowUpstream>) -> Self {
++    pub fn set_upstream(mut self, input: ::std::option::Option<super::super::types::AllowUpstream>) -> Self {
          self.upstream = input;
          self
      }
      /// <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
 -    pub fn get_upstream(&self) -> &::std::option::Option<crate::types::AllowUpstream> {
-+    pub fn get_upstream(&self) -> &::std::option::Option<super::types::AllowUpstream> {
++    pub fn get_upstream(&self) -> &::std::option::Option<super::super::types::AllowUpstream> {
          &self.upstream
      }
      /// Consumes the builder and constructs a [`PackageOriginRestrictions`](crate::types::PackageOriginRestrictions).
@@ -84,8 +84,8 @@
      /// - [`upstream`](crate::types::builders::PackageOriginRestrictionsBuilder::upstream)
 -    pub fn build(self) -> ::std::result::Result<crate::types::PackageOriginRestrictions, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::PackageOriginRestrictions {
-+    pub fn build(self) -> ::std::result::Result<super::types::PackageOriginRestrictions, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::PackageOriginRestrictions {
++    pub fn build(self) -> ::std::result::Result<super::super::types::PackageOriginRestrictions, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::PackageOriginRestrictions {
              publish: self.publish.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "publish",

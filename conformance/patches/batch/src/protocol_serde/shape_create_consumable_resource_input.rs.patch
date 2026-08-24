@@ -5,7 +5,7 @@
  pub fn ser_create_consumable_resource_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::create_consumable_resource::CreateConsumableResourceInput,
-+    input: &super::operation::create_consumable_resource::CreateConsumableResourceInput,
++    input: &super::super::operation::create_consumable_resource::CreateConsumableResourceInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.consumable_resource_name {
          object.key("consumableResourceName").string(var_1.as_str());

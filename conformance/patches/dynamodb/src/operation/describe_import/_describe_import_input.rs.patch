@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeImportInput`](crate::operation::describe_import::DescribeImportInput).
 -    pub fn builder() -> crate::operation::describe_import::builders::DescribeImportInputBuilder {
 -        crate::operation::describe_import::builders::DescribeImportInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_import::builders::DescribeImportInputBuilder {
-+        super::operation::describe_import::builders::DescribeImportInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_import::builders::DescribeImportInputBuilder {
++        super::super::super::operation::describe_import::builders::DescribeImportInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_import::DescribeImportInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::describe_import::DescribeImportInput { import_arn: self.import_arn })
-+    ) -> ::std::result::Result<super::operation::describe_import::DescribeImportInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::describe_import::DescribeImportInput { import_arn: self.import_arn })
++    ) -> ::std::result::Result<super::super::super::operation::describe_import::DescribeImportInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::describe_import::DescribeImportInput { import_arn: self.import_arn })
      }
  }

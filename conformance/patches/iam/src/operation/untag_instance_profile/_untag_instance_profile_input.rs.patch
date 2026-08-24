@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UntagInstanceProfileInput`](crate::operation::untag_instance_profile::UntagInstanceProfileInput).
 -    pub fn builder() -> crate::operation::untag_instance_profile::builders::UntagInstanceProfileInputBuilder {
 -        crate::operation::untag_instance_profile::builders::UntagInstanceProfileInputBuilder::default()
-+    pub fn builder() -> super::operation::untag_instance_profile::builders::UntagInstanceProfileInputBuilder {
-+        super::operation::untag_instance_profile::builders::UntagInstanceProfileInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::untag_instance_profile::builders::UntagInstanceProfileInputBuilder {
++        super::super::super::operation::untag_instance_profile::builders::UntagInstanceProfileInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::untag_instance_profile::UntagInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::untag_instance_profile::UntagInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::untag_instance_profile::UntagInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::untag_instance_profile::UntagInstanceProfileInput {
-+        ::std::result::Result::Ok(super::operation::untag_instance_profile::UntagInstanceProfileInput {
++        ::std::result::Result::Ok(super::super::super::operation::untag_instance_profile::UntagInstanceProfileInput {
              instance_profile_name: self.instance_profile_name,
              tag_keys: self.tag_keys,
          })

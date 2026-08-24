@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CsvOptions`](crate::types::CsvOptions).
 -    pub fn builder() -> crate::types::builders::CsvOptionsBuilder {
 -        crate::types::builders::CsvOptionsBuilder::default()
-+    pub fn builder() -> super::types::builders::CsvOptionsBuilder {
-+        super::types::builders::CsvOptionsBuilder::default()
++    pub fn builder() -> super::super::types::builders::CsvOptionsBuilder {
++        super::super::types::builders::CsvOptionsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CsvOptions`](crate::types::CsvOptions).
 -    pub fn build(self) -> crate::types::CsvOptions {
 -        crate::types::CsvOptions {
-+    pub fn build(self) -> super::types::CsvOptions {
-+        super::types::CsvOptions {
++    pub fn build(self) -> super::super::types::CsvOptions {
++        super::super::types::CsvOptions {
              delimiter: self.delimiter,
              header_list: self.header_list,
          }

@@ -5,7 +5,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
      pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
  }
@@ -14,7 +14,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
-+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
++    pub fn request_payer(&self) -> ::std::option::Option<&super::super::super::types::RequestPayer> {
          self.request_payer.as_ref()
      }
      /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`GetObjectLegalHoldInput`](crate::operation::get_object_legal_hold::GetObjectLegalHoldInput).
 -    pub fn builder() -> crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldInputBuilder {
 -        crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldInputBuilder::default()
-+    pub fn builder() -> super::operation::get_object_legal_hold::builders::GetObjectLegalHoldInputBuilder {
-+        super::operation::get_object_legal_hold::builders::GetObjectLegalHoldInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_object_legal_hold::builders::GetObjectLegalHoldInputBuilder {
++        super::super::super::operation::get_object_legal_hold::builders::GetObjectLegalHoldInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) key: ::std::option::Option<::std::string::String>,
      pub(crate) version_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub(crate) request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
  }
  impl GetObjectLegalHoldInputBuilder {
@@ -43,7 +43,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
-+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::super::super::types::RequestPayer) -> Self {
          self.request_payer = ::std::option::Option::Some(input);
          self
      }
@@ -52,7 +52,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
-+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::super::super::types::RequestPayer>) -> Self {
          self.request_payer = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
-+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::super::super::types::RequestPayer> {
          &self.request_payer
      }
      /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -70,10 +70,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_object_legal_hold::GetObjectLegalHoldInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_object_legal_hold::GetObjectLegalHoldInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_object_legal_hold::GetObjectLegalHoldInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_object_legal_hold::GetObjectLegalHoldInput {
-+        ::std::result::Result::Ok(super::operation::get_object_legal_hold::GetObjectLegalHoldInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_object_legal_hold::GetObjectLegalHoldInput {
              bucket: self.bucket,
              key: self.key,
              version_id: self.version_id,

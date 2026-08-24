@@ -5,14 +5,14 @@
  }
  impl ::std::error::Error for IdempotencyParameterMismatch {}
 -impl crate::s3_request_id::RequestIdExt for crate::types::error::IdempotencyParameterMismatch {
-+impl super::s3_request_id::RequestIdExt for super::types::error::IdempotencyParameterMismatch {
++impl super::super::super::s3_request_id::RequestIdExt for super::super::super::types::error::IdempotencyParameterMismatch {
      fn extended_request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().extended_request_id()
      }
  }
 -impl ::aws_types::request_id::RequestId for crate::types::error::IdempotencyParameterMismatch {
-+impl ::aws_types::request_id::RequestId for super::types::error::IdempotencyParameterMismatch {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::IdempotencyParameterMismatch {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`IdempotencyParameterMismatch`](crate::types::error::IdempotencyParameterMismatch).
 -    pub fn builder() -> crate::types::error::builders::IdempotencyParameterMismatchBuilder {
 -        crate::types::error::builders::IdempotencyParameterMismatchBuilder::default()
-+    pub fn builder() -> super::types::error::builders::IdempotencyParameterMismatchBuilder {
-+        super::types::error::builders::IdempotencyParameterMismatchBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::IdempotencyParameterMismatchBuilder {
++        super::super::super::types::error::builders::IdempotencyParameterMismatchBuilder::default()
      }
  }
 
@@ -33,8 +33,8 @@
      /// Consumes the builder and constructs a [`IdempotencyParameterMismatch`](crate::types::error::IdempotencyParameterMismatch).
 -    pub fn build(self) -> crate::types::error::IdempotencyParameterMismatch {
 -        crate::types::error::IdempotencyParameterMismatch {
-+    pub fn build(self) -> super::types::error::IdempotencyParameterMismatch {
-+        super::types::error::IdempotencyParameterMismatch {
++    pub fn build(self) -> super::super::super::types::error::IdempotencyParameterMismatch {
++        super::super::super::types::error::IdempotencyParameterMismatch {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CloudWatchLogsConfigurationType`](crate::types::CloudWatchLogsConfigurationType).
 -    pub fn builder() -> crate::types::builders::CloudWatchLogsConfigurationTypeBuilder {
 -        crate::types::builders::CloudWatchLogsConfigurationTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::CloudWatchLogsConfigurationTypeBuilder {
-+        super::types::builders::CloudWatchLogsConfigurationTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::CloudWatchLogsConfigurationTypeBuilder {
++        super::super::types::builders::CloudWatchLogsConfigurationTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CloudWatchLogsConfigurationType`](crate::types::CloudWatchLogsConfigurationType).
 -    pub fn build(self) -> crate::types::CloudWatchLogsConfigurationType {
 -        crate::types::CloudWatchLogsConfigurationType {
-+    pub fn build(self) -> super::types::CloudWatchLogsConfigurationType {
-+        super::types::CloudWatchLogsConfigurationType {
++    pub fn build(self) -> super::super::types::CloudWatchLogsConfigurationType {
++        super::super::types::CloudWatchLogsConfigurationType {
              log_group_arn: self.log_group_arn,
          }
      }

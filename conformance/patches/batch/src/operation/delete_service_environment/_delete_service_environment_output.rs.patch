@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteServiceEnvironmentOutput`](crate::operation::delete_service_environment::DeleteServiceEnvironmentOutput).
 -    pub fn builder() -> crate::operation::delete_service_environment::builders::DeleteServiceEnvironmentOutputBuilder {
 -        crate::operation::delete_service_environment::builders::DeleteServiceEnvironmentOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_service_environment::builders::DeleteServiceEnvironmentOutputBuilder {
-+        super::operation::delete_service_environment::builders::DeleteServiceEnvironmentOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_service_environment::builders::DeleteServiceEnvironmentOutputBuilder {
++        super::super::super::operation::delete_service_environment::builders::DeleteServiceEnvironmentOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteServiceEnvironmentOutput`](crate::operation::delete_service_environment::DeleteServiceEnvironmentOutput).
 -    pub fn build(self) -> crate::operation::delete_service_environment::DeleteServiceEnvironmentOutput {
 -        crate::operation::delete_service_environment::DeleteServiceEnvironmentOutput {
-+    pub fn build(self) -> super::operation::delete_service_environment::DeleteServiceEnvironmentOutput {
-+        super::operation::delete_service_environment::DeleteServiceEnvironmentOutput {
++    pub fn build(self) -> super::super::super::operation::delete_service_environment::DeleteServiceEnvironmentOutput {
++        super::super::super::operation::delete_service_environment::DeleteServiceEnvironmentOutput {
              _request_id: self._request_id,
          }
      }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateRoleOutput`](crate::operation::update_role::UpdateRoleOutput).
 -    pub fn builder() -> crate::operation::update_role::builders::UpdateRoleOutputBuilder {
 -        crate::operation::update_role::builders::UpdateRoleOutputBuilder::default()
-+    pub fn builder() -> super::operation::update_role::builders::UpdateRoleOutputBuilder {
-+        super::operation::update_role::builders::UpdateRoleOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_role::builders::UpdateRoleOutputBuilder {
++        super::super::super::operation::update_role::builders::UpdateRoleOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UpdateRoleOutput`](crate::operation::update_role::UpdateRoleOutput).
 -    pub fn build(self) -> crate::operation::update_role::UpdateRoleOutput {
 -        crate::operation::update_role::UpdateRoleOutput {
-+    pub fn build(self) -> super::operation::update_role::UpdateRoleOutput {
-+        super::operation::update_role::UpdateRoleOutput {
++    pub fn build(self) -> super::super::super::operation::update_role::UpdateRoleOutput {
++        super::super::super::operation::update_role::UpdateRoleOutput {
              _request_id: self._request_id,
          }
      }

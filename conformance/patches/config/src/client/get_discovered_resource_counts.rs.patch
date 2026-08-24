@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder {
 -        crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder {
-+        super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder {
++        super::super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::new(self.handle.clone())
      }
  }

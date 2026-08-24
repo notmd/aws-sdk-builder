@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutConfigurationSetArchivingOptionsOutput`](crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput).
 -    pub fn builder() -> crate::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder {
 -        crate::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder {
-+        super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder {
++        super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutConfigurationSetArchivingOptionsOutput`](crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput).
 -    pub fn build(self) -> crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput {
 -        crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput {
-+    pub fn build(self) -> super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput {
-+        super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput {
++    pub fn build(self) -> super::super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput {
++        super::super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput {
              _request_id: self._request_id,
          }
      }

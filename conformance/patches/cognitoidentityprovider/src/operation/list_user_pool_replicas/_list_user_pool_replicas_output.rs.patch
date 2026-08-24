@@ -5,7 +5,7 @@
  pub struct ListUserPoolReplicasOutput {
      /// <p>A list of user pool replicas, including information about their status, role, and Region.</p>
 -    pub user_pool_replicas: ::std::option::Option<::std::vec::Vec<crate::types::UserPoolReplicaType>>,
-+    pub user_pool_replicas: ::std::option::Option<::std::vec::Vec<super::types::UserPoolReplicaType>>,
++    pub user_pool_replicas: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserPoolReplicaType>>,
      /// <p>A pagination token for retrieving the next page of results. If this value is null, there are no more results to retrieve.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.user_pool_replicas.is_none()`.
 -    pub fn user_pool_replicas(&self) -> &[crate::types::UserPoolReplicaType] {
-+    pub fn user_pool_replicas(&self) -> &[super::types::UserPoolReplicaType] {
++    pub fn user_pool_replicas(&self) -> &[super::super::super::types::UserPoolReplicaType] {
          self.user_pool_replicas.as_deref().unwrap_or_default()
      }
      /// <p>A pagination token for retrieving the next page of results. If this value is null, there are no more results to retrieve.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListUserPoolReplicasOutput`](crate::operation::list_user_pool_replicas::ListUserPoolReplicasOutput).
 -    pub fn builder() -> crate::operation::list_user_pool_replicas::builders::ListUserPoolReplicasOutputBuilder {
 -        crate::operation::list_user_pool_replicas::builders::ListUserPoolReplicasOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_user_pool_replicas::builders::ListUserPoolReplicasOutputBuilder {
-+        super::operation::list_user_pool_replicas::builders::ListUserPoolReplicasOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_user_pool_replicas::builders::ListUserPoolReplicasOutputBuilder {
++        super::super::super::operation::list_user_pool_replicas::builders::ListUserPoolReplicasOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListUserPoolReplicasOutputBuilder {
 -    pub(crate) user_pool_replicas: ::std::option::Option<::std::vec::Vec<crate::types::UserPoolReplicaType>>,
-+    pub(crate) user_pool_replicas: ::std::option::Option<::std::vec::Vec<super::types::UserPoolReplicaType>>,
++    pub(crate) user_pool_replicas: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserPoolReplicaType>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of user pool replicas, including information about their status, role, and Region.</p>
 -    pub fn user_pool_replicas(mut self, input: crate::types::UserPoolReplicaType) -> Self {
-+    pub fn user_pool_replicas(mut self, input: super::types::UserPoolReplicaType) -> Self {
++    pub fn user_pool_replicas(mut self, input: super::super::super::types::UserPoolReplicaType) -> Self {
          let mut v = self.user_pool_replicas.unwrap_or_default();
          v.push(input);
          self.user_pool_replicas = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of user pool replicas, including information about their status, role, and Region.</p>
 -    pub fn set_user_pool_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::UserPoolReplicaType>>) -> Self {
-+    pub fn set_user_pool_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::UserPoolReplicaType>>) -> Self {
++    pub fn set_user_pool_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserPoolReplicaType>>) -> Self {
          self.user_pool_replicas = input;
          self
      }
      /// <p>A list of user pool replicas, including information about their status, role, and Region.</p>
 -    pub fn get_user_pool_replicas(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UserPoolReplicaType>> {
-+    pub fn get_user_pool_replicas(&self) -> &::std::option::Option<::std::vec::Vec<super::types::UserPoolReplicaType>> {
++    pub fn get_user_pool_replicas(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::UserPoolReplicaType>> {
          &self.user_pool_replicas
      }
      /// <p>A pagination token for retrieving the next page of results. If this value is null, there are no more results to retrieve.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListUserPoolReplicasOutput`](crate::operation::list_user_pool_replicas::ListUserPoolReplicasOutput).
 -    pub fn build(self) -> crate::operation::list_user_pool_replicas::ListUserPoolReplicasOutput {
 -        crate::operation::list_user_pool_replicas::ListUserPoolReplicasOutput {
-+    pub fn build(self) -> super::operation::list_user_pool_replicas::ListUserPoolReplicasOutput {
-+        super::operation::list_user_pool_replicas::ListUserPoolReplicasOutput {
++    pub fn build(self) -> super::super::super::operation::list_user_pool_replicas::ListUserPoolReplicasOutput {
++        super::super::super::operation::list_user_pool_replicas::ListUserPoolReplicasOutput {
              user_pool_replicas: self.user_pool_replicas,
              next_token: self.next_token,
              _request_id: self._request_id,

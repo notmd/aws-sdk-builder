@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Initiator`](crate::types::Initiator).
 -    pub fn builder() -> crate::types::builders::InitiatorBuilder {
 -        crate::types::builders::InitiatorBuilder::default()
-+    pub fn builder() -> super::types::builders::InitiatorBuilder {
-+        super::types::builders::InitiatorBuilder::default()
++    pub fn builder() -> super::super::types::builders::InitiatorBuilder {
++        super::super::types::builders::InitiatorBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Initiator`](crate::types::Initiator).
 -    pub fn build(self) -> crate::types::Initiator {
 -        crate::types::Initiator {
-+    pub fn build(self) -> super::types::Initiator {
-+        super::types::Initiator {
++    pub fn build(self) -> super::super::types::Initiator {
++        super::super::types::Initiator {
              id: self.id,
              display_name: self.display_name,
          }

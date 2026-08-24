@@ -5,12 +5,12 @@
  pub struct PutStorageTierPolicyInput {
      /// <p>The storage tier to set for the account. Use <code>INTELLIGENT_TIERING</code> to automatically optimize storage costs by moving log data to the appropriate tier based on access frequency.</p>
 -    pub storage_tier: ::std::option::Option<crate::types::StorageTier>,
-+    pub storage_tier: ::std::option::Option<super::types::StorageTier>,
++    pub storage_tier: ::std::option::Option<super::super::super::types::StorageTier>,
  }
  impl PutStorageTierPolicyInput {
      /// <p>The storage tier to set for the account. Use <code>INTELLIGENT_TIERING</code> to automatically optimize storage costs by moving log data to the appropriate tier based on access frequency.</p>
 -    pub fn storage_tier(&self) -> ::std::option::Option<&crate::types::StorageTier> {
-+    pub fn storage_tier(&self) -> ::std::option::Option<&super::types::StorageTier> {
++    pub fn storage_tier(&self) -> ::std::option::Option<&super::super::super::types::StorageTier> {
          self.storage_tier.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`PutStorageTierPolicyInput`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput).
 -    pub fn builder() -> crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder {
 -        crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder {
-+        super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder {
++        super::super::super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder::default()
      }
  }
 
@@ -28,35 +28,35 @@
  #[non_exhaustive]
  pub struct PutStorageTierPolicyInputBuilder {
 -    pub(crate) storage_tier: ::std::option::Option<crate::types::StorageTier>,
-+    pub(crate) storage_tier: ::std::option::Option<super::types::StorageTier>,
++    pub(crate) storage_tier: ::std::option::Option<super::super::super::types::StorageTier>,
  }
  impl PutStorageTierPolicyInputBuilder {
      /// <p>The storage tier to set for the account. Use <code>INTELLIGENT_TIERING</code> to automatically optimize storage costs by moving log data to the appropriate tier based on access frequency.</p>
      /// This field is required.
 -    pub fn storage_tier(mut self, input: crate::types::StorageTier) -> Self {
-+    pub fn storage_tier(mut self, input: super::types::StorageTier) -> Self {
++    pub fn storage_tier(mut self, input: super::super::super::types::StorageTier) -> Self {
          self.storage_tier = ::std::option::Option::Some(input);
          self
      }
      /// <p>The storage tier to set for the account. Use <code>INTELLIGENT_TIERING</code> to automatically optimize storage costs by moving log data to the appropriate tier based on access frequency.</p>
 -    pub fn set_storage_tier(mut self, input: ::std::option::Option<crate::types::StorageTier>) -> Self {
-+    pub fn set_storage_tier(mut self, input: ::std::option::Option<super::types::StorageTier>) -> Self {
++    pub fn set_storage_tier(mut self, input: ::std::option::Option<super::super::super::types::StorageTier>) -> Self {
          self.storage_tier = input;
          self
      }
      /// <p>The storage tier to set for the account. Use <code>INTELLIGENT_TIERING</code> to automatically optimize storage costs by moving log data to the appropriate tier based on access frequency.</p>
 -    pub fn get_storage_tier(&self) -> &::std::option::Option<crate::types::StorageTier> {
-+    pub fn get_storage_tier(&self) -> &::std::option::Option<super::types::StorageTier> {
++    pub fn get_storage_tier(&self) -> &::std::option::Option<super::super::super::types::StorageTier> {
          &self.storage_tier
      }
      /// Consumes the builder and constructs a [`PutStorageTierPolicyInput`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput).
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::put_storage_tier_policy::PutStorageTierPolicyInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::put_storage_tier_policy::PutStorageTierPolicyInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput {
-+        ::std::result::Result::Ok(super::operation::put_storage_tier_policy::PutStorageTierPolicyInput {
++        ::std::result::Result::Ok(super::super::super::operation::put_storage_tier_policy::PutStorageTierPolicyInput {
              storage_tier: self.storage_tier,
          })
      }

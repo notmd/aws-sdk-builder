@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`StartMessageMoveTaskOutput`](crate::operation::start_message_move_task::StartMessageMoveTaskOutput).
 -    pub fn builder() -> crate::operation::start_message_move_task::builders::StartMessageMoveTaskOutputBuilder {
 -        crate::operation::start_message_move_task::builders::StartMessageMoveTaskOutputBuilder::default()
-+    pub fn builder() -> super::operation::start_message_move_task::builders::StartMessageMoveTaskOutputBuilder {
-+        super::operation::start_message_move_task::builders::StartMessageMoveTaskOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::start_message_move_task::builders::StartMessageMoveTaskOutputBuilder {
++        super::super::super::operation::start_message_move_task::builders::StartMessageMoveTaskOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`StartMessageMoveTaskOutput`](crate::operation::start_message_move_task::StartMessageMoveTaskOutput).
 -    pub fn build(self) -> crate::operation::start_message_move_task::StartMessageMoveTaskOutput {
 -        crate::operation::start_message_move_task::StartMessageMoveTaskOutput {
-+    pub fn build(self) -> super::operation::start_message_move_task::StartMessageMoveTaskOutput {
-+        super::operation::start_message_move_task::StartMessageMoveTaskOutput {
++    pub fn build(self) -> super::super::super::operation::start_message_move_task::StartMessageMoveTaskOutput {
++        super::super::super::operation::start_message_move_task::StartMessageMoveTaskOutput {
              task_handle: self.task_handle,
              _request_id: self._request_id,
          }

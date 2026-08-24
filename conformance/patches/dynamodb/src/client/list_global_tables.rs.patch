@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListGlobalTablesError>`](crate::operation::list_global_tables::ListGlobalTablesError)
 -    pub fn list_global_tables(&self) -> crate::operation::list_global_tables::builders::ListGlobalTablesFluentBuilder {
 -        crate::operation::list_global_tables::builders::ListGlobalTablesFluentBuilder::new(self.handle.clone())
-+    pub fn list_global_tables(&self) -> super::operation::list_global_tables::builders::ListGlobalTablesFluentBuilder {
-+        super::operation::list_global_tables::builders::ListGlobalTablesFluentBuilder::new(self.handle.clone())
++    pub fn list_global_tables(&self) -> super::super::operation::list_global_tables::builders::ListGlobalTablesFluentBuilder {
++        super::super::operation::list_global_tables::builders::ListGlobalTablesFluentBuilder::new(self.handle.clone())
      }
  }

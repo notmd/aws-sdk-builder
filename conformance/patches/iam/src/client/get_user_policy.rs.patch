@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetUserPolicyError>`](crate::operation::get_user_policy::GetUserPolicyError)
 -    pub fn get_user_policy(&self) -> crate::operation::get_user_policy::builders::GetUserPolicyFluentBuilder {
 -        crate::operation::get_user_policy::builders::GetUserPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn get_user_policy(&self) -> super::operation::get_user_policy::builders::GetUserPolicyFluentBuilder {
-+        super::operation::get_user_policy::builders::GetUserPolicyFluentBuilder::new(self.handle.clone())
++    pub fn get_user_policy(&self) -> super::super::operation::get_user_policy::builders::GetUserPolicyFluentBuilder {
++        super::super::operation::get_user_policy::builders::GetUserPolicyFluentBuilder::new(self.handle.clone())
      }
  }

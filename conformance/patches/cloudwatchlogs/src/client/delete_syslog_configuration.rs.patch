@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteSyslogConfigurationError>`](crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError)
 -    pub fn delete_syslog_configuration(&self) -> crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder {
 -        crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder::new(self.handle.clone())
-+    pub fn delete_syslog_configuration(&self) -> super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder {
-+        super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder::new(self.handle.clone())
++    pub fn delete_syslog_configuration(&self) -> super::super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder {
++        super::super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`QueryParameter`](crate::types::QueryParameter).
 -    pub fn builder() -> crate::types::builders::QueryParameterBuilder {
 -        crate::types::builders::QueryParameterBuilder::default()
-+    pub fn builder() -> super::types::builders::QueryParameterBuilder {
-+        super::types::builders::QueryParameterBuilder::default()
++    pub fn builder() -> super::super::types::builders::QueryParameterBuilder {
++        super::super::types::builders::QueryParameterBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`name`](crate::types::builders::QueryParameterBuilder::name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::QueryParameter, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::QueryParameter {
-+    pub fn build(self) -> ::std::result::Result<super::types::QueryParameter, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::QueryParameter {
++    pub fn build(self) -> ::std::result::Result<super::super::types::QueryParameter, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::QueryParameter {
              name: self.name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "name",

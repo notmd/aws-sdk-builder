@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListManagementOptions`](crate::types::ListManagementOptions).
 -    pub fn builder() -> crate::types::builders::ListManagementOptionsBuilder {
 -        crate::types::builders::ListManagementOptionsBuilder::default()
-+    pub fn builder() -> super::types::builders::ListManagementOptionsBuilder {
-+        super::types::builders::ListManagementOptionsBuilder::default()
++    pub fn builder() -> super::super::types::builders::ListManagementOptionsBuilder {
++        super::super::types::builders::ListManagementOptionsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`contact_list_name`](crate::types::builders::ListManagementOptionsBuilder::contact_list_name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ListManagementOptions, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ListManagementOptions {
-+    pub fn build(self) -> ::std::result::Result<super::types::ListManagementOptions, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ListManagementOptions {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ListManagementOptions, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ListManagementOptions {
              contact_list_name: self.contact_list_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "contact_list_name",

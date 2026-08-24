@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CancelImportTaskInput`](crate::operation::cancel_import_task::CancelImportTaskInput).
 -    pub fn builder() -> crate::operation::cancel_import_task::builders::CancelImportTaskInputBuilder {
 -        crate::operation::cancel_import_task::builders::CancelImportTaskInputBuilder::default()
-+    pub fn builder() -> super::operation::cancel_import_task::builders::CancelImportTaskInputBuilder {
-+        super::operation::cancel_import_task::builders::CancelImportTaskInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::cancel_import_task::builders::CancelImportTaskInputBuilder {
++        super::super::super::operation::cancel_import_task::builders::CancelImportTaskInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::cancel_import_task::CancelImportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::cancel_import_task::CancelImportTaskInput { import_id: self.import_id })
-+    ) -> ::std::result::Result<super::operation::cancel_import_task::CancelImportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::cancel_import_task::CancelImportTaskInput { import_id: self.import_id })
++    ) -> ::std::result::Result<super::super::super::operation::cancel_import_task::CancelImportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::cancel_import_task::CancelImportTaskInput { import_id: self.import_id })
      }
  }

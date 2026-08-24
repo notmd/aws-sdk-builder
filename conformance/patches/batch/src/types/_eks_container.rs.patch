@@ -5,16 +5,16 @@
      /// <p>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention is reserved for variables that Batch sets.</p>
      /// </note>
 -    pub env: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerEnvironmentVariable>>,
-+    pub env: ::std::option::Option<::std::vec::Vec<super::types::EksContainerEnvironmentVariable>>,
++    pub env: ::std::option::Option<::std::vec::Vec<super::super::types::EksContainerEnvironmentVariable>>,
      /// <p>The type and amount of resources to assign to a container. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub resources: ::std::option::Option<crate::types::EksContainerResourceRequirements>,
-+    pub resources: ::std::option::Option<super::types::EksContainerResourceRequirements>,
++    pub resources: ::std::option::Option<super::super::types::EksContainerResourceRequirements>,
      /// <p>The volume mounts for the container. Batch supports <code>emptyDir</code>, <code>hostPath</code>, and <code>secret</code> volume types. For more information about volumes and volume mounts in Kubernetes, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volumes</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub volume_mounts: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerVolumeMount>>,
-+    pub volume_mounts: ::std::option::Option<::std::vec::Vec<super::types::EksContainerVolumeMount>>,
++    pub volume_mounts: ::std::option::Option<::std::vec::Vec<super::super::types::EksContainerVolumeMount>>,
      /// <p>The security context for a job. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Configure a security context for a pod or container</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub security_context: ::std::option::Option<crate::types::EksContainerSecurityContext>,
-+    pub security_context: ::std::option::Option<super::types::EksContainerSecurityContext>,
++    pub security_context: ::std::option::Option<super::super::types::EksContainerSecurityContext>,
  }
  impl EksContainer {
      /// <p>The name of the container. If the name isn't specified, the default name "<code>Default</code>" is used. Each container in a pod must have a unique name.</p>
@@ -23,24 +23,24 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.env.is_none()`.
 -    pub fn env(&self) -> &[crate::types::EksContainerEnvironmentVariable] {
-+    pub fn env(&self) -> &[super::types::EksContainerEnvironmentVariable] {
++    pub fn env(&self) -> &[super::super::types::EksContainerEnvironmentVariable] {
          self.env.as_deref().unwrap_or_default()
      }
      /// <p>The type and amount of resources to assign to a container. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn resources(&self) -> ::std::option::Option<&crate::types::EksContainerResourceRequirements> {
-+    pub fn resources(&self) -> ::std::option::Option<&super::types::EksContainerResourceRequirements> {
++    pub fn resources(&self) -> ::std::option::Option<&super::super::types::EksContainerResourceRequirements> {
          self.resources.as_ref()
      }
      /// <p>The volume mounts for the container. Batch supports <code>emptyDir</code>, <code>hostPath</code>, and <code>secret</code> volume types. For more information about volumes and volume mounts in Kubernetes, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volumes</a> in the <i>Kubernetes documentation</i>.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.volume_mounts.is_none()`.
 -    pub fn volume_mounts(&self) -> &[crate::types::EksContainerVolumeMount] {
-+    pub fn volume_mounts(&self) -> &[super::types::EksContainerVolumeMount] {
++    pub fn volume_mounts(&self) -> &[super::super::types::EksContainerVolumeMount] {
          self.volume_mounts.as_deref().unwrap_or_default()
      }
      /// <p>The security context for a job. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Configure a security context for a pod or container</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn security_context(&self) -> ::std::option::Option<&crate::types::EksContainerSecurityContext> {
-+    pub fn security_context(&self) -> ::std::option::Option<&super::types::EksContainerSecurityContext> {
++    pub fn security_context(&self) -> ::std::option::Option<&super::super::types::EksContainerSecurityContext> {
          self.security_context.as_ref()
      }
  }
@@ -48,8 +48,8 @@
      /// Creates a new builder-style object to manufacture [`EksContainer`](crate::types::EksContainer).
 -    pub fn builder() -> crate::types::builders::EksContainerBuilder {
 -        crate::types::builders::EksContainerBuilder::default()
-+    pub fn builder() -> super::types::builders::EksContainerBuilder {
-+        super::types::builders::EksContainerBuilder::default()
++    pub fn builder() -> super::super::types::builders::EksContainerBuilder {
++        super::super::types::builders::EksContainerBuilder::default()
      }
  }
 
@@ -61,10 +61,10 @@
 -    pub(crate) resources: ::std::option::Option<crate::types::EksContainerResourceRequirements>,
 -    pub(crate) volume_mounts: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerVolumeMount>>,
 -    pub(crate) security_context: ::std::option::Option<crate::types::EksContainerSecurityContext>,
-+    pub(crate) env: ::std::option::Option<::std::vec::Vec<super::types::EksContainerEnvironmentVariable>>,
-+    pub(crate) resources: ::std::option::Option<super::types::EksContainerResourceRequirements>,
-+    pub(crate) volume_mounts: ::std::option::Option<::std::vec::Vec<super::types::EksContainerVolumeMount>>,
-+    pub(crate) security_context: ::std::option::Option<super::types::EksContainerSecurityContext>,
++    pub(crate) env: ::std::option::Option<::std::vec::Vec<super::super::types::EksContainerEnvironmentVariable>>,
++    pub(crate) resources: ::std::option::Option<super::super::types::EksContainerResourceRequirements>,
++    pub(crate) volume_mounts: ::std::option::Option<::std::vec::Vec<super::super::types::EksContainerVolumeMount>>,
++    pub(crate) security_context: ::std::option::Option<super::super::types::EksContainerSecurityContext>,
  }
  impl EksContainerBuilder {
      /// <p>The name of the container. If the name isn't specified, the default name "<code>Default</code>" is used. Each container in a pod must have a unique name.</p>
@@ -73,7 +73,7 @@
      /// <p>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention is reserved for variables that Batch sets.</p>
      /// </note>
 -    pub fn env(mut self, input: crate::types::EksContainerEnvironmentVariable) -> Self {
-+    pub fn env(mut self, input: super::types::EksContainerEnvironmentVariable) -> Self {
++    pub fn env(mut self, input: super::super::types::EksContainerEnvironmentVariable) -> Self {
          let mut v = self.env.unwrap_or_default();
          v.push(input);
          self.env = ::std::option::Option::Some(v);
@@ -82,7 +82,7 @@
      /// <p>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention is reserved for variables that Batch sets.</p>
      /// </note>
 -    pub fn set_env(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerEnvironmentVariable>>) -> Self {
-+    pub fn set_env(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EksContainerEnvironmentVariable>>) -> Self {
++    pub fn set_env(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::EksContainerEnvironmentVariable>>) -> Self {
          self.env = input;
          self
      }
@@ -91,24 +91,24 @@
      /// <p>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention is reserved for variables that Batch sets.</p>
      /// </note>
 -    pub fn get_env(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerEnvironmentVariable>> {
-+    pub fn get_env(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EksContainerEnvironmentVariable>> {
++    pub fn get_env(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::EksContainerEnvironmentVariable>> {
          &self.env
      }
      /// <p>The type and amount of resources to assign to a container. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn resources(mut self, input: crate::types::EksContainerResourceRequirements) -> Self {
-+    pub fn resources(mut self, input: super::types::EksContainerResourceRequirements) -> Self {
++    pub fn resources(mut self, input: super::super::types::EksContainerResourceRequirements) -> Self {
          self.resources = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type and amount of resources to assign to a container. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn set_resources(mut self, input: ::std::option::Option<crate::types::EksContainerResourceRequirements>) -> Self {
-+    pub fn set_resources(mut self, input: ::std::option::Option<super::types::EksContainerResourceRequirements>) -> Self {
++    pub fn set_resources(mut self, input: ::std::option::Option<super::super::types::EksContainerResourceRequirements>) -> Self {
          self.resources = input;
          self
      }
      /// <p>The type and amount of resources to assign to a container. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn get_resources(&self) -> &::std::option::Option<crate::types::EksContainerResourceRequirements> {
-+    pub fn get_resources(&self) -> &::std::option::Option<super::types::EksContainerResourceRequirements> {
++    pub fn get_resources(&self) -> &::std::option::Option<super::super::types::EksContainerResourceRequirements> {
          &self.resources
      }
      /// Appends an item to `volume_mounts`.
@@ -117,7 +117,7 @@
      ///
      /// <p>The volume mounts for the container. Batch supports <code>emptyDir</code>, <code>hostPath</code>, and <code>secret</code> volume types. For more information about volumes and volume mounts in Kubernetes, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volumes</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn volume_mounts(mut self, input: crate::types::EksContainerVolumeMount) -> Self {
-+    pub fn volume_mounts(mut self, input: super::types::EksContainerVolumeMount) -> Self {
++    pub fn volume_mounts(mut self, input: super::super::types::EksContainerVolumeMount) -> Self {
          let mut v = self.volume_mounts.unwrap_or_default();
          v.push(input);
          self.volume_mounts = ::std::option::Option::Some(v);
@@ -126,37 +126,37 @@
      }
      /// <p>The volume mounts for the container. Batch supports <code>emptyDir</code>, <code>hostPath</code>, and <code>secret</code> volume types. For more information about volumes and volume mounts in Kubernetes, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volumes</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn set_volume_mounts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerVolumeMount>>) -> Self {
-+    pub fn set_volume_mounts(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EksContainerVolumeMount>>) -> Self {
++    pub fn set_volume_mounts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::EksContainerVolumeMount>>) -> Self {
          self.volume_mounts = input;
          self
      }
      /// <p>The volume mounts for the container. Batch supports <code>emptyDir</code>, <code>hostPath</code>, and <code>secret</code> volume types. For more information about volumes and volume mounts in Kubernetes, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volumes</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn get_volume_mounts(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerVolumeMount>> {
-+    pub fn get_volume_mounts(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EksContainerVolumeMount>> {
++    pub fn get_volume_mounts(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::EksContainerVolumeMount>> {
          &self.volume_mounts
      }
      /// <p>The security context for a job. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Configure a security context for a pod or container</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn security_context(mut self, input: crate::types::EksContainerSecurityContext) -> Self {
-+    pub fn security_context(mut self, input: super::types::EksContainerSecurityContext) -> Self {
++    pub fn security_context(mut self, input: super::super::types::EksContainerSecurityContext) -> Self {
          self.security_context = ::std::option::Option::Some(input);
          self
      }
      /// <p>The security context for a job. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Configure a security context for a pod or container</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn set_security_context(mut self, input: ::std::option::Option<crate::types::EksContainerSecurityContext>) -> Self {
-+    pub fn set_security_context(mut self, input: ::std::option::Option<super::types::EksContainerSecurityContext>) -> Self {
++    pub fn set_security_context(mut self, input: ::std::option::Option<super::super::types::EksContainerSecurityContext>) -> Self {
          self.security_context = input;
          self
      }
      /// <p>The security context for a job. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Configure a security context for a pod or container</a> in the <i>Kubernetes documentation</i>.</p>
 -    pub fn get_security_context(&self) -> &::std::option::Option<crate::types::EksContainerSecurityContext> {
-+    pub fn get_security_context(&self) -> &::std::option::Option<super::types::EksContainerSecurityContext> {
++    pub fn get_security_context(&self) -> &::std::option::Option<super::super::types::EksContainerSecurityContext> {
          &self.security_context
      }
      /// Consumes the builder and constructs a [`EksContainer`](crate::types::EksContainer).
 -    pub fn build(self) -> crate::types::EksContainer {
 -        crate::types::EksContainer {
-+    pub fn build(self) -> super::types::EksContainer {
-+        super::types::EksContainer {
++    pub fn build(self) -> super::super::types::EksContainer {
++        super::super::types::EksContainer {
              name: self.name,
              image: self.image,
              image_pull_policy: self.image_pull_policy,

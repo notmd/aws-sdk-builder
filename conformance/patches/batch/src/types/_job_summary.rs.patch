@@ -5,7 +5,7 @@
      pub job_name: ::std::option::Option<::std::string::String>,
      /// <p>The configured capacity usage information for this job, including the unit of measure and quantity of resources.</p>
 -    pub capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>>,
-+    pub capacity_usage: ::std::option::Option<::std::vec::Vec<super::types::JobCapacityUsageSummary>>,
++    pub capacity_usage: ::std::option::Option<::std::vec::Vec<super::super::types::JobCapacityUsageSummary>>,
      /// <p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the <code>SUBMITTED</code> state (at the time <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html">SubmitJob</a> was called). For array child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>
      pub created_at: ::std::option::Option<i64>,
      /// <p>The Unix timestamp (in milliseconds) for when the job was scheduled for execution. For more information on job statues, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service-job-status.html">Service job status</a> in the <i>Batch User Guide</i>.</p>
@@ -14,7 +14,7 @@
      pub share_identifier: ::std::option::Option<::std::string::String>,
      /// <p>The current status for the job.</p>
 -    pub status: ::std::option::Option<crate::types::JobStatus>,
-+    pub status: ::std::option::Option<super::types::JobStatus>,
++    pub status: ::std::option::Option<super::super::types::JobStatus>,
      /// <p>A short, human-readable string to provide more details for the current status of the job.</p>
      pub status_reason: ::std::option::Option<::std::string::String>,
      /// <p>The Unix timestamp for when the job was started. More specifically, it's when the job transitioned from the <code>STARTING</code> state to the <code>RUNNING</code> state.</p>
@@ -23,15 +23,15 @@
      pub stopped_at: ::std::option::Option<i64>,
      /// <p>An object that represents the details of the container that's associated with the job.</p>
 -    pub container: ::std::option::Option<crate::types::ContainerSummary>,
-+    pub container: ::std::option::Option<super::types::ContainerSummary>,
++    pub container: ::std::option::Option<super::super::types::ContainerSummary>,
      /// <p>The array properties of the job, if it's an array job.</p>
 -    pub array_properties: ::std::option::Option<crate::types::ArrayPropertiesSummary>,
-+    pub array_properties: ::std::option::Option<super::types::ArrayPropertiesSummary>,
++    pub array_properties: ::std::option::Option<super::super::types::ArrayPropertiesSummary>,
      /// <p>The node properties for a single node in a job summary list.</p><note>
      /// <p>This isn't applicable to jobs that are running on Fargate resources.</p>
      /// </note>
 -    pub node_properties: ::std::option::Option<crate::types::NodePropertiesSummary>,
-+    pub node_properties: ::std::option::Option<super::types::NodePropertiesSummary>,
++    pub node_properties: ::std::option::Option<super::super::types::NodePropertiesSummary>,
      /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
      pub job_definition: ::std::option::Option<::std::string::String>,
  }
@@ -40,7 +40,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.capacity_usage.is_none()`.
 -    pub fn capacity_usage(&self) -> &[crate::types::JobCapacityUsageSummary] {
-+    pub fn capacity_usage(&self) -> &[super::types::JobCapacityUsageSummary] {
++    pub fn capacity_usage(&self) -> &[super::super::types::JobCapacityUsageSummary] {
          self.capacity_usage.as_deref().unwrap_or_default()
      }
      /// <p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the <code>SUBMITTED</code> state (at the time <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html">SubmitJob</a> was called). For array child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>
@@ -49,7 +49,7 @@
      }
      /// <p>The current status for the job.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::JobStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::JobStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::JobStatus> {
          self.status.as_ref()
      }
      /// <p>A short, human-readable string to provide more details for the current status of the job.</p>
@@ -58,19 +58,19 @@
      }
      /// <p>An object that represents the details of the container that's associated with the job.</p>
 -    pub fn container(&self) -> ::std::option::Option<&crate::types::ContainerSummary> {
-+    pub fn container(&self) -> ::std::option::Option<&super::types::ContainerSummary> {
++    pub fn container(&self) -> ::std::option::Option<&super::super::types::ContainerSummary> {
          self.container.as_ref()
      }
      /// <p>The array properties of the job, if it's an array job.</p>
 -    pub fn array_properties(&self) -> ::std::option::Option<&crate::types::ArrayPropertiesSummary> {
-+    pub fn array_properties(&self) -> ::std::option::Option<&super::types::ArrayPropertiesSummary> {
++    pub fn array_properties(&self) -> ::std::option::Option<&super::super::types::ArrayPropertiesSummary> {
          self.array_properties.as_ref()
      }
      /// <p>The node properties for a single node in a job summary list.</p><note>
      /// <p>This isn't applicable to jobs that are running on Fargate resources.</p>
      /// </note>
 -    pub fn node_properties(&self) -> ::std::option::Option<&crate::types::NodePropertiesSummary> {
-+    pub fn node_properties(&self) -> ::std::option::Option<&super::types::NodePropertiesSummary> {
++    pub fn node_properties(&self) -> ::std::option::Option<&super::super::types::NodePropertiesSummary> {
          self.node_properties.as_ref()
      }
      /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
@@ -80,8 +80,8 @@
      /// Creates a new builder-style object to manufacture [`JobSummary`](crate::types::JobSummary).
 -    pub fn builder() -> crate::types::builders::JobSummaryBuilder {
 -        crate::types::builders::JobSummaryBuilder::default()
-+    pub fn builder() -> super::types::builders::JobSummaryBuilder {
-+        super::types::builders::JobSummaryBuilder::default()
++    pub fn builder() -> super::super::types::builders::JobSummaryBuilder {
++        super::super::types::builders::JobSummaryBuilder::default()
      }
  }
 
@@ -90,21 +90,21 @@
      pub(crate) job_id: ::std::option::Option<::std::string::String>,
      pub(crate) job_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>>,
-+    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<super::types::JobCapacityUsageSummary>>,
++    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<super::super::types::JobCapacityUsageSummary>>,
      pub(crate) created_at: ::std::option::Option<i64>,
      pub(crate) scheduled_at: ::std::option::Option<i64>,
      pub(crate) share_identifier: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::JobStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::JobStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::JobStatus>,
      pub(crate) status_reason: ::std::option::Option<::std::string::String>,
      pub(crate) started_at: ::std::option::Option<i64>,
      pub(crate) stopped_at: ::std::option::Option<i64>,
 -    pub(crate) container: ::std::option::Option<crate::types::ContainerSummary>,
 -    pub(crate) array_properties: ::std::option::Option<crate::types::ArrayPropertiesSummary>,
 -    pub(crate) node_properties: ::std::option::Option<crate::types::NodePropertiesSummary>,
-+    pub(crate) container: ::std::option::Option<super::types::ContainerSummary>,
-+    pub(crate) array_properties: ::std::option::Option<super::types::ArrayPropertiesSummary>,
-+    pub(crate) node_properties: ::std::option::Option<super::types::NodePropertiesSummary>,
++    pub(crate) container: ::std::option::Option<super::super::types::ContainerSummary>,
++    pub(crate) array_properties: ::std::option::Option<super::super::types::ArrayPropertiesSummary>,
++    pub(crate) node_properties: ::std::option::Option<super::super::types::NodePropertiesSummary>,
      pub(crate) job_definition: ::std::option::Option<::std::string::String>,
  }
  impl JobSummaryBuilder {
@@ -113,7 +113,7 @@
      ///
      /// <p>The configured capacity usage information for this job, including the unit of measure and quantity of resources.</p>
 -    pub fn capacity_usage(mut self, input: crate::types::JobCapacityUsageSummary) -> Self {
-+    pub fn capacity_usage(mut self, input: super::types::JobCapacityUsageSummary) -> Self {
++    pub fn capacity_usage(mut self, input: super::super::types::JobCapacityUsageSummary) -> Self {
          let mut v = self.capacity_usage.unwrap_or_default();
          v.push(input);
          self.capacity_usage = ::std::option::Option::Some(v);
@@ -122,13 +122,13 @@
      }
      /// <p>The configured capacity usage information for this job, including the unit of measure and quantity of resources.</p>
 -    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>>) -> Self {
-+    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::JobCapacityUsageSummary>>) -> Self {
++    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::JobCapacityUsageSummary>>) -> Self {
          self.capacity_usage = input;
          self
      }
      /// <p>The configured capacity usage information for this job, including the unit of measure and quantity of resources.</p>
 -    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>> {
-+    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<super::types::JobCapacityUsageSummary>> {
++    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::JobCapacityUsageSummary>> {
          &self.capacity_usage
      }
      /// <p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the <code>SUBMITTED</code> state (at the time <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html">SubmitJob</a> was called). For array child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>
@@ -137,19 +137,19 @@
      }
      /// <p>The current status for the job.</p>
 -    pub fn status(mut self, input: crate::types::JobStatus) -> Self {
-+    pub fn status(mut self, input: super::types::JobStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::JobStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current status for the job.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::JobStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::JobStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::JobStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>The current status for the job.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::JobStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::JobStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::JobStatus> {
          &self.status
      }
      /// <p>A short, human-readable string to provide more details for the current status of the job.</p>
@@ -158,43 +158,43 @@
      }
      /// <p>An object that represents the details of the container that's associated with the job.</p>
 -    pub fn container(mut self, input: crate::types::ContainerSummary) -> Self {
-+    pub fn container(mut self, input: super::types::ContainerSummary) -> Self {
++    pub fn container(mut self, input: super::super::types::ContainerSummary) -> Self {
          self.container = ::std::option::Option::Some(input);
          self
      }
      /// <p>An object that represents the details of the container that's associated with the job.</p>
 -    pub fn set_container(mut self, input: ::std::option::Option<crate::types::ContainerSummary>) -> Self {
-+    pub fn set_container(mut self, input: ::std::option::Option<super::types::ContainerSummary>) -> Self {
++    pub fn set_container(mut self, input: ::std::option::Option<super::super::types::ContainerSummary>) -> Self {
          self.container = input;
          self
      }
      /// <p>An object that represents the details of the container that's associated with the job.</p>
 -    pub fn get_container(&self) -> &::std::option::Option<crate::types::ContainerSummary> {
-+    pub fn get_container(&self) -> &::std::option::Option<super::types::ContainerSummary> {
++    pub fn get_container(&self) -> &::std::option::Option<super::super::types::ContainerSummary> {
          &self.container
      }
      /// <p>The array properties of the job, if it's an array job.</p>
 -    pub fn array_properties(mut self, input: crate::types::ArrayPropertiesSummary) -> Self {
-+    pub fn array_properties(mut self, input: super::types::ArrayPropertiesSummary) -> Self {
++    pub fn array_properties(mut self, input: super::super::types::ArrayPropertiesSummary) -> Self {
          self.array_properties = ::std::option::Option::Some(input);
          self
      }
      /// <p>The array properties of the job, if it's an array job.</p>
 -    pub fn set_array_properties(mut self, input: ::std::option::Option<crate::types::ArrayPropertiesSummary>) -> Self {
-+    pub fn set_array_properties(mut self, input: ::std::option::Option<super::types::ArrayPropertiesSummary>) -> Self {
++    pub fn set_array_properties(mut self, input: ::std::option::Option<super::super::types::ArrayPropertiesSummary>) -> Self {
          self.array_properties = input;
          self
      }
      /// <p>The array properties of the job, if it's an array job.</p>
 -    pub fn get_array_properties(&self) -> &::std::option::Option<crate::types::ArrayPropertiesSummary> {
-+    pub fn get_array_properties(&self) -> &::std::option::Option<super::types::ArrayPropertiesSummary> {
++    pub fn get_array_properties(&self) -> &::std::option::Option<super::super::types::ArrayPropertiesSummary> {
          &self.array_properties
      }
      /// <p>The node properties for a single node in a job summary list.</p><note>
      /// <p>This isn't applicable to jobs that are running on Fargate resources.</p>
      /// </note>
 -    pub fn node_properties(mut self, input: crate::types::NodePropertiesSummary) -> Self {
-+    pub fn node_properties(mut self, input: super::types::NodePropertiesSummary) -> Self {
++    pub fn node_properties(mut self, input: super::super::types::NodePropertiesSummary) -> Self {
          self.node_properties = ::std::option::Option::Some(input);
          self
      }
@@ -203,7 +203,7 @@
      /// <p>This isn't applicable to jobs that are running on Fargate resources.</p>
      /// </note>
 -    pub fn set_node_properties(mut self, input: ::std::option::Option<crate::types::NodePropertiesSummary>) -> Self {
-+    pub fn set_node_properties(mut self, input: ::std::option::Option<super::types::NodePropertiesSummary>) -> Self {
++    pub fn set_node_properties(mut self, input: ::std::option::Option<super::super::types::NodePropertiesSummary>) -> Self {
          self.node_properties = input;
          self
      }
@@ -212,7 +212,7 @@
      /// <p>This isn't applicable to jobs that are running on Fargate resources.</p>
      /// </note>
 -    pub fn get_node_properties(&self) -> &::std::option::Option<crate::types::NodePropertiesSummary> {
-+    pub fn get_node_properties(&self) -> &::std::option::Option<super::types::NodePropertiesSummary> {
++    pub fn get_node_properties(&self) -> &::std::option::Option<super::super::types::NodePropertiesSummary> {
          &self.node_properties
      }
      /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
@@ -222,8 +222,8 @@
      /// Consumes the builder and constructs a [`JobSummary`](crate::types::JobSummary).
 -    pub fn build(self) -> crate::types::JobSummary {
 -        crate::types::JobSummary {
-+    pub fn build(self) -> super::types::JobSummary {
-+        super::types::JobSummary {
++    pub fn build(self) -> super::super::types::JobSummary {
++        super::super::types::JobSummary {
              job_arn: self.job_arn,
              job_id: self.job_id,
              job_name: self.job_name,

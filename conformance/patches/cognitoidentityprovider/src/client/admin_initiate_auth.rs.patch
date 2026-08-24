@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AdminInitiateAuthError>`](crate::operation::admin_initiate_auth::AdminInitiateAuthError)
 -    pub fn admin_initiate_auth(&self) -> crate::operation::admin_initiate_auth::builders::AdminInitiateAuthFluentBuilder {
 -        crate::operation::admin_initiate_auth::builders::AdminInitiateAuthFluentBuilder::new(self.handle.clone())
-+    pub fn admin_initiate_auth(&self) -> super::operation::admin_initiate_auth::builders::AdminInitiateAuthFluentBuilder {
-+        super::operation::admin_initiate_auth::builders::AdminInitiateAuthFluentBuilder::new(self.handle.clone())
++    pub fn admin_initiate_auth(&self) -> super::super::operation::admin_initiate_auth::builders::AdminInitiateAuthFluentBuilder {
++        super::super::operation::admin_initiate_auth::builders::AdminInitiateAuthFluentBuilder::new(self.handle.clone())
      }
  }

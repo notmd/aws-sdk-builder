@@ -6,8 +6,8 @@
  pub struct DescribeOrganizationConformancePacksPaginator {
 -    handle: std::sync::Arc<crate::client::Handle>,
 -    builder: crate::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder,
-+    handle: std::sync::Arc<super::client::Handle>,
-+    builder: super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder,
++    handle: std::sync::Arc<super::super::super::client::Handle>,
++    builder: super::super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder,
      stop_on_duplicate_token: bool,
  }
 
@@ -17,8 +17,8 @@
      pub(crate) fn new(
 -        handle: std::sync::Arc<crate::client::Handle>,
 -        builder: crate::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder,
-+        handle: std::sync::Arc<super::client::Handle>,
-+        builder: super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder,
++        handle: std::sync::Arc<super::super::super::client::Handle>,
++        builder: super::super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder,
      ) -> Self {
          Self {
              handle,
@@ -28,8 +28,8 @@
      /// are dispatched lazily.
 -    pub fn items(self) -> crate::operation::describe_organization_conformance_packs::paginator::DescribeOrganizationConformancePacksPaginatorItems {
 -        crate::operation::describe_organization_conformance_packs::paginator::DescribeOrganizationConformancePacksPaginatorItems(self)
-+    pub fn items(self) -> super::operation::describe_organization_conformance_packs::paginator::DescribeOrganizationConformancePacksPaginatorItems {
-+        super::operation::describe_organization_conformance_packs::paginator::DescribeOrganizationConformancePacksPaginatorItems(self)
++    pub fn items(self) -> super::super::super::operation::describe_organization_conformance_packs::paginator::DescribeOrganizationConformancePacksPaginatorItems {
++        super::super::super::operation::describe_organization_conformance_packs::paginator::DescribeOrganizationConformancePacksPaginatorItems(self)
      }
 
      /// Stop paginating when the service returns the same pagination token twice in a row.
@@ -38,10 +38,10 @@
      ) -> ::aws_smithy_async::future::pagination_stream::PaginationStream<
          ::std::result::Result<
 -            crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksOutput,
-+            super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksOutput,
++            super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksOutput,
              ::aws_smithy_runtime_api::client::result::SdkError<
 -                crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError,
-+                super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError,
++                super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError,
                  ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
              >,
          >,
@@ -50,13 +50,13 @@
          let handle = self.handle;
          let runtime_plugins =
 -            crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacks::operation_runtime_plugins(
-+            super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacks::operation_runtime_plugins(
++            super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacks::operation_runtime_plugins(
                  handle.runtime_plugins.clone(),
                  &handle.conf,
                  ::std::option::Option::None,
              )
 -            .with_operation_plugin(crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
-+            .with_operation_plugin(super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
++            .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
          ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
              move |tx| {
                  ::std::boxed::Box::pin(async move {
@@ -65,7 +65,7 @@
                      };
                      loop {
 -                        let resp = crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacks::orchestrate(
-+                        let resp = super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacks::orchestrate(
++                        let resp = super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacks::orchestrate(
                              &runtime_plugins,
                              input.clone(),
                          )
@@ -74,7 +74,7 @@
                          let done = match resp {
                              ::std::result::Result::Ok(ref resp) => {
 -                                let new_token = crate::lens::reflens_describe_organization_conformance_packs_output_output_next_token(resp);
-+                                let new_token = super::lens::reflens_describe_organization_conformance_packs_output_output_next_token(resp);
++                                let new_token = super::super::super::lens::reflens_describe_organization_conformance_packs_output_output_next_token(resp);
                                  // Pagination is exhausted when the next token is an empty string
                                  let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                  if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {
@@ -83,17 +83,17 @@
      ) -> ::aws_smithy_async::future::pagination_stream::PaginationStream<
          ::std::result::Result<
 -            crate::types::OrganizationConformancePack,
-+            super::types::OrganizationConformancePack,
++            super::super::super::types::OrganizationConformancePack,
              ::aws_smithy_runtime_api::client::result::SdkError<
 -                crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError,
-+                super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError,
++                super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError,
                  ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
              >,
          >,
      > {
          ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
 -            crate::lens::lens_describe_organization_conformance_packs_output_output_organization_conformance_packs(page)
-+            super::lens::lens_describe_organization_conformance_packs_output_output_organization_conformance_packs(page)
++            super::super::super::lens::lens_describe_organization_conformance_packs_output_output_organization_conformance_packs(page)
                  .unwrap_or_default()
                  .into_iter()
          })

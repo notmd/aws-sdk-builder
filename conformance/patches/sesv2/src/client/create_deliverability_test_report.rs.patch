@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportFluentBuilder {
 -        crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportFluentBuilder {
-+        super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportFluentBuilder {
++        super::super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportFluentBuilder::new(self.handle.clone())
      }
  }

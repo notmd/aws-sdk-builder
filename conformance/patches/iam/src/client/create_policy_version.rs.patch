@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreatePolicyVersionError>`](crate::operation::create_policy_version::CreatePolicyVersionError)
 -    pub fn create_policy_version(&self) -> crate::operation::create_policy_version::builders::CreatePolicyVersionFluentBuilder {
 -        crate::operation::create_policy_version::builders::CreatePolicyVersionFluentBuilder::new(self.handle.clone())
-+    pub fn create_policy_version(&self) -> super::operation::create_policy_version::builders::CreatePolicyVersionFluentBuilder {
-+        super::operation::create_policy_version::builders::CreatePolicyVersionFluentBuilder::new(self.handle.clone())
++    pub fn create_policy_version(&self) -> super::super::operation::create_policy_version::builders::CreatePolicyVersionFluentBuilder {
++        super::super::operation::create_policy_version::builders::CreatePolicyVersionFluentBuilder::new(self.handle.clone())
      }
  }

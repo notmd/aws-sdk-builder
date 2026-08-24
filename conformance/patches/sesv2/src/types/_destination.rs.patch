@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Destination`](crate::types::Destination).
 -    pub fn builder() -> crate::types::builders::DestinationBuilder {
 -        crate::types::builders::DestinationBuilder::default()
-+    pub fn builder() -> super::types::builders::DestinationBuilder {
-+        super::types::builders::DestinationBuilder::default()
++    pub fn builder() -> super::super::types::builders::DestinationBuilder {
++        super::super::types::builders::DestinationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Destination`](crate::types::Destination).
 -    pub fn build(self) -> crate::types::Destination {
 -        crate::types::Destination {
-+    pub fn build(self) -> super::types::Destination {
-+        super::types::Destination {
++    pub fn build(self) -> super::super::types::Destination {
++        super::super::types::Destination {
              to_addresses: self.to_addresses,
              cc_addresses: self.cc_addresses,
              bcc_addresses: self.bcc_addresses,

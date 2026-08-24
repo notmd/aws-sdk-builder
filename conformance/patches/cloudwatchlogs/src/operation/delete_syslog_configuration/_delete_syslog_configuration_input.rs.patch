@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteSyslogConfigurationInput`](crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput).
 -    pub fn builder() -> crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationInputBuilder {
 -        crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationInputBuilder {
-+        super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationInputBuilder {
++        super::super::super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput,
-+        super::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput,
++        super::super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput {
-+        ::std::result::Result::Ok(super::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput {
              log_group_identifier: self.log_group_identifier,
              vpc_endpoint_id: self.vpc_endpoint_id,
          })

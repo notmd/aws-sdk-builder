@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EksAttemptContainerDetail`](crate::types::EksAttemptContainerDetail).
 -    pub fn builder() -> crate::types::builders::EksAttemptContainerDetailBuilder {
 -        crate::types::builders::EksAttemptContainerDetailBuilder::default()
-+    pub fn builder() -> super::types::builders::EksAttemptContainerDetailBuilder {
-+        super::types::builders::EksAttemptContainerDetailBuilder::default()
++    pub fn builder() -> super::super::types::builders::EksAttemptContainerDetailBuilder {
++        super::super::types::builders::EksAttemptContainerDetailBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EksAttemptContainerDetail`](crate::types::EksAttemptContainerDetail).
 -    pub fn build(self) -> crate::types::EksAttemptContainerDetail {
 -        crate::types::EksAttemptContainerDetail {
-+    pub fn build(self) -> super::types::EksAttemptContainerDetail {
-+        super::types::EksAttemptContainerDetail {
++    pub fn build(self) -> super::super::types::EksAttemptContainerDetail {
++        super::super::types::EksAttemptContainerDetail {
              name: self.name,
              container_id: self.container_id,
              exit_code: self.exit_code,

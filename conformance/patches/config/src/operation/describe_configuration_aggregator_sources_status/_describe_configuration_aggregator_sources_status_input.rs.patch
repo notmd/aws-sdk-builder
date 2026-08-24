@@ -5,7 +5,7 @@
      /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
      /// </ul>
 -    pub update_status: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>,
-+    pub update_status: ::std::option::Option<::std::vec::Vec<super::types::AggregatedSourceStatusType>>,
++    pub update_status: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregatedSourceStatusType>>,
      /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      /// <p>The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.update_status.is_none()`.
 -    pub fn update_status(&self) -> &[crate::types::AggregatedSourceStatusType] {
-+    pub fn update_status(&self) -> &[super::types::AggregatedSourceStatusType] {
++    pub fn update_status(&self) -> &[super::super::super::types::AggregatedSourceStatusType] {
          self.update_status.as_deref().unwrap_or_default()
      }
      /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -24,8 +24,8 @@
      pub fn builder(
 -    ) -> crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder {
 -        crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder::default()
-+    ) -> super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder {
-+        super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder::default()
++    ) -> super::super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder {
++        super::super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct DescribeConfigurationAggregatorSourcesStatusInputBuilder {
      pub(crate) configuration_aggregator_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) update_status: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>,
-+    pub(crate) update_status: ::std::option::Option<::std::vec::Vec<super::types::AggregatedSourceStatusType>>,
++    pub(crate) update_status: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregatedSourceStatusType>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      pub(crate) limit: ::std::option::Option<i32>,
  }
@@ -43,7 +43,7 @@
      /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
      /// </ul>
 -    pub fn update_status(mut self, input: crate::types::AggregatedSourceStatusType) -> Self {
-+    pub fn update_status(mut self, input: super::types::AggregatedSourceStatusType) -> Self {
++    pub fn update_status(mut self, input: super::super::super::types::AggregatedSourceStatusType) -> Self {
          let mut v = self.update_status.unwrap_or_default();
          v.push(input);
          self.update_status = ::std::option::Option::Some(v);
@@ -52,7 +52,7 @@
      /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
      /// </ul>
 -    pub fn set_update_status(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>) -> Self {
-+    pub fn set_update_status(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AggregatedSourceStatusType>>) -> Self {
++    pub fn set_update_status(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregatedSourceStatusType>>) -> Self {
          self.update_status = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
      /// </ul>
 -    pub fn get_update_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>> {
-+    pub fn get_update_status(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AggregatedSourceStatusType>> {
++    pub fn get_update_status(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AggregatedSourceStatusType>> {
          &self.update_status
      }
      /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -70,12 +70,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput,
-+        super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput,
++        super::super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput {
-+            super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput {
++            super::super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput {
                  configuration_aggregator_name: self.configuration_aggregator_name,
                  update_status: self.update_status,
                  next_token: self.next_token,

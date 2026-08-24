@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SamlProviderListEntry`](crate::types::SamlProviderListEntry).
 -    pub fn builder() -> crate::types::builders::SamlProviderListEntryBuilder {
 -        crate::types::builders::SamlProviderListEntryBuilder::default()
-+    pub fn builder() -> super::types::builders::SamlProviderListEntryBuilder {
-+        super::types::builders::SamlProviderListEntryBuilder::default()
++    pub fn builder() -> super::super::types::builders::SamlProviderListEntryBuilder {
++        super::super::types::builders::SamlProviderListEntryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`SamlProviderListEntry`](crate::types::SamlProviderListEntry).
 -    pub fn build(self) -> crate::types::SamlProviderListEntry {
 -        crate::types::SamlProviderListEntry {
-+    pub fn build(self) -> super::types::SamlProviderListEntry {
-+        super::types::SamlProviderListEntry {
++    pub fn build(self) -> super::super::types::SamlProviderListEntry {
++        super::super::types::SamlProviderListEntry {
              arn: self.arn,
              valid_until: self.valid_until,
              create_date: self.create_date,

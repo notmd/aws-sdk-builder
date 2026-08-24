@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribePendingAggregationRequestsInput`](crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput).
 -    pub fn builder() -> crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder {
 -        crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder {
-+        super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder {
++        super::super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput,
-+        super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput,
++        super::super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput {
-+            super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput {
++            super::super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput {
                  limit: self.limit,
                  next_token: self.next_token,
              },

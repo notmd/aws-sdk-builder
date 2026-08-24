@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder {
 -        crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder {
-+        super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder {
++        super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder::new(self.handle.clone())
      }
  }

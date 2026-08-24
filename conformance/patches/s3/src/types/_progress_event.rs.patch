@@ -5,12 +5,12 @@
  pub struct ProgressEvent {
      /// <p>The Progress event details.</p>
 -    pub details: ::std::option::Option<crate::types::Progress>,
-+    pub details: ::std::option::Option<super::types::Progress>,
++    pub details: ::std::option::Option<super::super::types::Progress>,
  }
  impl ProgressEvent {
      /// <p>The Progress event details.</p>
 -    pub fn details(&self) -> ::std::option::Option<&crate::types::Progress> {
-+    pub fn details(&self) -> ::std::option::Option<&super::types::Progress> {
++    pub fn details(&self) -> ::std::option::Option<&super::super::types::Progress> {
          self.details.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`ProgressEvent`](crate::types::ProgressEvent).
 -    pub fn builder() -> crate::types::builders::ProgressEventBuilder {
 -        crate::types::builders::ProgressEventBuilder::default()
-+    pub fn builder() -> super::types::builders::ProgressEventBuilder {
-+        super::types::builders::ProgressEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::ProgressEventBuilder {
++        super::super::types::builders::ProgressEventBuilder::default()
      }
  }
 
@@ -28,30 +28,30 @@
  #[non_exhaustive]
  pub struct ProgressEventBuilder {
 -    pub(crate) details: ::std::option::Option<crate::types::Progress>,
-+    pub(crate) details: ::std::option::Option<super::types::Progress>,
++    pub(crate) details: ::std::option::Option<super::super::types::Progress>,
  }
  impl ProgressEventBuilder {
      /// <p>The Progress event details.</p>
 -    pub fn details(mut self, input: crate::types::Progress) -> Self {
-+    pub fn details(mut self, input: super::types::Progress) -> Self {
++    pub fn details(mut self, input: super::super::types::Progress) -> Self {
          self.details = ::std::option::Option::Some(input);
          self
      }
      /// <p>The Progress event details.</p>
 -    pub fn set_details(mut self, input: ::std::option::Option<crate::types::Progress>) -> Self {
-+    pub fn set_details(mut self, input: ::std::option::Option<super::types::Progress>) -> Self {
++    pub fn set_details(mut self, input: ::std::option::Option<super::super::types::Progress>) -> Self {
          self.details = input;
          self
      }
      /// <p>The Progress event details.</p>
 -    pub fn get_details(&self) -> &::std::option::Option<crate::types::Progress> {
-+    pub fn get_details(&self) -> &::std::option::Option<super::types::Progress> {
++    pub fn get_details(&self) -> &::std::option::Option<super::super::types::Progress> {
          &self.details
      }
      /// Consumes the builder and constructs a [`ProgressEvent`](crate::types::ProgressEvent).
 -    pub fn build(self) -> crate::types::ProgressEvent {
 -        crate::types::ProgressEvent { details: self.details }
-+    pub fn build(self) -> super::types::ProgressEvent {
-+        super::types::ProgressEvent { details: self.details }
++    pub fn build(self) -> super::super::types::ProgressEvent {
++        super::super::types::ProgressEvent { details: self.details }
      }
  }

@@ -5,7 +5,7 @@
      pub next_token: ::std::option::Option<::std::string::String>,
      /// <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
 -    pub conformance_pack_compliance_scores: ::std::vec::Vec<crate::types::ConformancePackComplianceScore>,
-+    pub conformance_pack_compliance_scores: ::std::vec::Vec<super::types::ConformancePackComplianceScore>,
++    pub conformance_pack_compliance_scores: ::std::vec::Vec<super::super::super::types::ConformancePackComplianceScore>,
      _request_id: Option<String>,
  }
  impl ListConformancePackComplianceScoresOutput {
@@ -14,7 +14,7 @@
      }
      /// <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
 -    pub fn conformance_pack_compliance_scores(&self) -> &[crate::types::ConformancePackComplianceScore] {
-+    pub fn conformance_pack_compliance_scores(&self) -> &[super::types::ConformancePackComplianceScore] {
++    pub fn conformance_pack_compliance_scores(&self) -> &[super::super::super::types::ConformancePackComplianceScore] {
          use std::ops::Deref;
          self.conformance_pack_compliance_scores.deref()
      }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListConformancePackComplianceScoresOutput`](crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput).
 -    pub fn builder() -> crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder {
 -        crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder {
-+        super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder {
++        super::super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct ListConformancePackComplianceScoresOutputBuilder {
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    pub(crate) conformance_pack_compliance_scores: ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackComplianceScore>>,
-+    pub(crate) conformance_pack_compliance_scores: ::std::option::Option<::std::vec::Vec<super::types::ConformancePackComplianceScore>>,
++    pub(crate) conformance_pack_compliance_scores: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackComplianceScore>>,
      _request_id: Option<String>,
  }
  impl ListConformancePackComplianceScoresOutputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
 -    pub fn conformance_pack_compliance_scores(mut self, input: crate::types::ConformancePackComplianceScore) -> Self {
-+    pub fn conformance_pack_compliance_scores(mut self, input: super::types::ConformancePackComplianceScore) -> Self {
++    pub fn conformance_pack_compliance_scores(mut self, input: super::super::super::types::ConformancePackComplianceScore) -> Self {
          let mut v = self.conformance_pack_compliance_scores.unwrap_or_default();
          v.push(input);
          self.conformance_pack_compliance_scores = ::std::option::Option::Some(v);
@@ -52,14 +52,14 @@
      pub fn set_conformance_pack_compliance_scores(
          mut self,
 -        input: ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackComplianceScore>>,
-+        input: ::std::option::Option<::std::vec::Vec<super::types::ConformancePackComplianceScore>>,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackComplianceScore>>,
      ) -> Self {
          self.conformance_pack_compliance_scores = input;
          self
      }
      /// <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
 -    pub fn get_conformance_pack_compliance_scores(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConformancePackComplianceScore>> {
-+    pub fn get_conformance_pack_compliance_scores(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ConformancePackComplianceScore>> {
++    pub fn get_conformance_pack_compliance_scores(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackComplianceScore>> {
          &self.conformance_pack_compliance_scores
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -68,12 +68,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput,
-+        super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput,
++        super::super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput {
-+            super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput {
++            super::super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput {
                  next_token: self.next_token
                  ,
                  conformance_pack_compliance_scores: self.conformance_pack_compliance_scores

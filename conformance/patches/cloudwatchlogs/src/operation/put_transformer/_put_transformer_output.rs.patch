@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutTransformerOutput`](crate::operation::put_transformer::PutTransformerOutput).
 -    pub fn builder() -> crate::operation::put_transformer::builders::PutTransformerOutputBuilder {
 -        crate::operation::put_transformer::builders::PutTransformerOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_transformer::builders::PutTransformerOutputBuilder {
-+        super::operation::put_transformer::builders::PutTransformerOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_transformer::builders::PutTransformerOutputBuilder {
++        super::super::super::operation::put_transformer::builders::PutTransformerOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutTransformerOutput`](crate::operation::put_transformer::PutTransformerOutput).
 -    pub fn build(self) -> crate::operation::put_transformer::PutTransformerOutput {
 -        crate::operation::put_transformer::PutTransformerOutput {
-+    pub fn build(self) -> super::operation::put_transformer::PutTransformerOutput {
-+        super::operation::put_transformer::PutTransformerOutput {
++    pub fn build(self) -> super::super::super::operation::put_transformer::PutTransformerOutput {
++        super::super::super::operation::put_transformer::PutTransformerOutput {
              _request_id: self._request_id,
          }
      }

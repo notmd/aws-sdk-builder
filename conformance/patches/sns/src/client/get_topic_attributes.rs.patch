@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetTopicAttributesError>`](crate::operation::get_topic_attributes::GetTopicAttributesError)
 -    pub fn get_topic_attributes(&self) -> crate::operation::get_topic_attributes::builders::GetTopicAttributesFluentBuilder {
 -        crate::operation::get_topic_attributes::builders::GetTopicAttributesFluentBuilder::new(self.handle.clone())
-+    pub fn get_topic_attributes(&self) -> super::operation::get_topic_attributes::builders::GetTopicAttributesFluentBuilder {
-+        super::operation::get_topic_attributes::builders::GetTopicAttributesFluentBuilder::new(self.handle.clone())
++    pub fn get_topic_attributes(&self) -> super::super::operation::get_topic_attributes::builders::GetTopicAttributesFluentBuilder {
++        super::super::operation::get_topic_attributes::builders::GetTopicAttributesFluentBuilder::new(self.handle.clone())
      }
  }

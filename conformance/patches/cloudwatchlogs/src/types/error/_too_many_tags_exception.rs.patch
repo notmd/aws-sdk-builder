@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for TooManyTagsException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::TooManyTagsException {
-+impl ::aws_types::request_id::RequestId for super::types::error::TooManyTagsException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::TooManyTagsException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`TooManyTagsException`](crate::types::error::TooManyTagsException).
 -    pub fn builder() -> crate::types::error::builders::TooManyTagsExceptionBuilder {
 -        crate::types::error::builders::TooManyTagsExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::TooManyTagsExceptionBuilder {
-+        super::types::error::builders::TooManyTagsExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::TooManyTagsExceptionBuilder {
++        super::super::super::types::error::builders::TooManyTagsExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`TooManyTagsException`](crate::types::error::TooManyTagsException).
 -    pub fn build(self) -> crate::types::error::TooManyTagsException {
 -        crate::types::error::TooManyTagsException {
-+    pub fn build(self) -> super::types::error::TooManyTagsException {
-+        super::types::error::TooManyTagsException {
++    pub fn build(self) -> super::super::super::types::error::TooManyTagsException {
++        super::super::super::types::error::TooManyTagsException {
              message: self.message,
              resource_name: self.resource_name,
              meta: self.meta.unwrap_or_default(),

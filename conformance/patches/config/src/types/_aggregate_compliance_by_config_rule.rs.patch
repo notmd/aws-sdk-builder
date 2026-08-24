@@ -5,7 +5,7 @@
      pub config_rule_name: ::std::option::Option<::std::string::String>,
      /// <p>Indicates whether an Amazon Web Services resource or Config rule is compliant and provides the number of contributors that affect the compliance.</p>
 -    pub compliance: ::std::option::Option<crate::types::Compliance>,
-+    pub compliance: ::std::option::Option<super::types::Compliance>,
++    pub compliance: ::std::option::Option<super::super::types::Compliance>,
      /// <p>The 12-digit account ID of the source account.</p>
      pub account_id: ::std::option::Option<::std::string::String>,
      /// <p>The source region from where the data is aggregated.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>Indicates whether an Amazon Web Services resource or Config rule is compliant and provides the number of contributors that affect the compliance.</p>
 -    pub fn compliance(&self) -> ::std::option::Option<&crate::types::Compliance> {
-+    pub fn compliance(&self) -> ::std::option::Option<&super::types::Compliance> {
++    pub fn compliance(&self) -> ::std::option::Option<&super::super::types::Compliance> {
          self.compliance.as_ref()
      }
      /// <p>The 12-digit account ID of the source account.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`AggregateComplianceByConfigRule`](crate::types::AggregateComplianceByConfigRule).
 -    pub fn builder() -> crate::types::builders::AggregateComplianceByConfigRuleBuilder {
 -        crate::types::builders::AggregateComplianceByConfigRuleBuilder::default()
-+    pub fn builder() -> super::types::builders::AggregateComplianceByConfigRuleBuilder {
-+        super::types::builders::AggregateComplianceByConfigRuleBuilder::default()
++    pub fn builder() -> super::super::types::builders::AggregateComplianceByConfigRuleBuilder {
++        super::super::types::builders::AggregateComplianceByConfigRuleBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct AggregateComplianceByConfigRuleBuilder {
      pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) compliance: ::std::option::Option<crate::types::Compliance>,
-+    pub(crate) compliance: ::std::option::Option<super::types::Compliance>,
++    pub(crate) compliance: ::std::option::Option<super::super::types::Compliance>,
      pub(crate) account_id: ::std::option::Option<::std::string::String>,
      pub(crate) aws_region: ::std::option::Option<::std::string::String>,
  }
@@ -43,19 +43,19 @@
      }
      /// <p>Indicates whether an Amazon Web Services resource or Config rule is compliant and provides the number of contributors that affect the compliance.</p>
 -    pub fn compliance(mut self, input: crate::types::Compliance) -> Self {
-+    pub fn compliance(mut self, input: super::types::Compliance) -> Self {
++    pub fn compliance(mut self, input: super::super::types::Compliance) -> Self {
          self.compliance = ::std::option::Option::Some(input);
          self
      }
      /// <p>Indicates whether an Amazon Web Services resource or Config rule is compliant and provides the number of contributors that affect the compliance.</p>
 -    pub fn set_compliance(mut self, input: ::std::option::Option<crate::types::Compliance>) -> Self {
-+    pub fn set_compliance(mut self, input: ::std::option::Option<super::types::Compliance>) -> Self {
++    pub fn set_compliance(mut self, input: ::std::option::Option<super::super::types::Compliance>) -> Self {
          self.compliance = input;
          self
      }
      /// <p>Indicates whether an Amazon Web Services resource or Config rule is compliant and provides the number of contributors that affect the compliance.</p>
 -    pub fn get_compliance(&self) -> &::std::option::Option<crate::types::Compliance> {
-+    pub fn get_compliance(&self) -> &::std::option::Option<super::types::Compliance> {
++    pub fn get_compliance(&self) -> &::std::option::Option<super::super::types::Compliance> {
          &self.compliance
      }
      /// <p>The 12-digit account ID of the source account.</p>
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`AggregateComplianceByConfigRule`](crate::types::AggregateComplianceByConfigRule).
 -    pub fn build(self) -> crate::types::AggregateComplianceByConfigRule {
 -        crate::types::AggregateComplianceByConfigRule {
-+    pub fn build(self) -> super::types::AggregateComplianceByConfigRule {
-+        super::types::AggregateComplianceByConfigRule {
++    pub fn build(self) -> super::super::types::AggregateComplianceByConfigRule {
++        super::super::types::AggregateComplianceByConfigRule {
              config_rule_name: self.config_rule_name,
              compliance: self.compliance,
              account_id: self.account_id,

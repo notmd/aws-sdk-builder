@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EksPersistentVolumeClaim`](crate::types::EksPersistentVolumeClaim).
 -    pub fn builder() -> crate::types::builders::EksPersistentVolumeClaimBuilder {
 -        crate::types::builders::EksPersistentVolumeClaimBuilder::default()
-+    pub fn builder() -> super::types::builders::EksPersistentVolumeClaimBuilder {
-+        super::types::builders::EksPersistentVolumeClaimBuilder::default()
++    pub fn builder() -> super::super::types::builders::EksPersistentVolumeClaimBuilder {
++        super::super::types::builders::EksPersistentVolumeClaimBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EksPersistentVolumeClaim`](crate::types::EksPersistentVolumeClaim).
 -    pub fn build(self) -> crate::types::EksPersistentVolumeClaim {
 -        crate::types::EksPersistentVolumeClaim {
-+    pub fn build(self) -> super::types::EksPersistentVolumeClaim {
-+        super::types::EksPersistentVolumeClaim {
++    pub fn build(self) -> super::super::types::EksPersistentVolumeClaim {
++        super::super::types::EksPersistentVolumeClaim {
              claim_name: self.claim_name,
              read_only: self.read_only,
          }

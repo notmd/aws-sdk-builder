@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListKeyRotationsError>`](crate::operation::list_key_rotations::ListKeyRotationsError)
 -    pub fn list_key_rotations(&self) -> crate::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder {
 -        crate::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder::new(self.handle.clone())
-+    pub fn list_key_rotations(&self) -> super::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder {
-+        super::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder::new(self.handle.clone())
++    pub fn list_key_rotations(&self) -> super::super::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder {
++        super::super::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetDeviceError>`](crate::operation::get_device::GetDeviceError)
 -    pub fn get_device(&self) -> crate::operation::get_device::builders::GetDeviceFluentBuilder {
 -        crate::operation::get_device::builders::GetDeviceFluentBuilder::new(self.handle.clone())
-+    pub fn get_device(&self) -> super::operation::get_device::builders::GetDeviceFluentBuilder {
-+        super::operation::get_device::builders::GetDeviceFluentBuilder::new(self.handle.clone())
++    pub fn get_device(&self) -> super::super::operation::get_device::builders::GetDeviceFluentBuilder {
++        super::super::operation::get_device::builders::GetDeviceFluentBuilder::new(self.handle.clone())
      }
  }

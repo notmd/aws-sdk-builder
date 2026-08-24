@@ -5,13 +5,13 @@
      /// <p><code>DISABLED</code> – Amazon SES disables VDM for your account.</p></li>
      /// </ul>
 -    pub vdm_enabled: crate::types::FeatureStatus,
-+    pub vdm_enabled: super::types::FeatureStatus,
++    pub vdm_enabled: super::super::types::FeatureStatus,
      /// <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
 -    pub dashboard_attributes: ::std::option::Option<crate::types::DashboardAttributes>,
-+    pub dashboard_attributes: ::std::option::Option<super::types::DashboardAttributes>,
++    pub dashboard_attributes: ::std::option::Option<super::super::types::DashboardAttributes>,
      /// <p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>
 -    pub guardian_attributes: ::std::option::Option<crate::types::GuardianAttributes>,
-+    pub guardian_attributes: ::std::option::Option<super::types::GuardianAttributes>,
++    pub guardian_attributes: ::std::option::Option<super::super::types::GuardianAttributes>,
  }
  impl VdmAttributes {
      /// <p>Specifies the status of your VDM configuration. Can be one of the following:</p>
@@ -20,17 +20,17 @@
      /// <p><code>DISABLED</code> – Amazon SES disables VDM for your account.</p></li>
      /// </ul>
 -    pub fn vdm_enabled(&self) -> &crate::types::FeatureStatus {
-+    pub fn vdm_enabled(&self) -> &super::types::FeatureStatus {
++    pub fn vdm_enabled(&self) -> &super::super::types::FeatureStatus {
          &self.vdm_enabled
      }
      /// <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
 -    pub fn dashboard_attributes(&self) -> ::std::option::Option<&crate::types::DashboardAttributes> {
-+    pub fn dashboard_attributes(&self) -> ::std::option::Option<&super::types::DashboardAttributes> {
++    pub fn dashboard_attributes(&self) -> ::std::option::Option<&super::super::types::DashboardAttributes> {
          self.dashboard_attributes.as_ref()
      }
      /// <p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>
 -    pub fn guardian_attributes(&self) -> ::std::option::Option<&crate::types::GuardianAttributes> {
-+    pub fn guardian_attributes(&self) -> ::std::option::Option<&super::types::GuardianAttributes> {
++    pub fn guardian_attributes(&self) -> ::std::option::Option<&super::super::types::GuardianAttributes> {
          self.guardian_attributes.as_ref()
      }
  }
@@ -38,8 +38,8 @@
      /// Creates a new builder-style object to manufacture [`VdmAttributes`](crate::types::VdmAttributes).
 -    pub fn builder() -> crate::types::builders::VdmAttributesBuilder {
 -        crate::types::builders::VdmAttributesBuilder::default()
-+    pub fn builder() -> super::types::builders::VdmAttributesBuilder {
-+        super::types::builders::VdmAttributesBuilder::default()
++    pub fn builder() -> super::super::types::builders::VdmAttributesBuilder {
++        super::super::types::builders::VdmAttributesBuilder::default()
      }
  }
 
@@ -50,9 +50,9 @@
 -    pub(crate) vdm_enabled: ::std::option::Option<crate::types::FeatureStatus>,
 -    pub(crate) dashboard_attributes: ::std::option::Option<crate::types::DashboardAttributes>,
 -    pub(crate) guardian_attributes: ::std::option::Option<crate::types::GuardianAttributes>,
-+    pub(crate) vdm_enabled: ::std::option::Option<super::types::FeatureStatus>,
-+    pub(crate) dashboard_attributes: ::std::option::Option<super::types::DashboardAttributes>,
-+    pub(crate) guardian_attributes: ::std::option::Option<super::types::GuardianAttributes>,
++    pub(crate) vdm_enabled: ::std::option::Option<super::super::types::FeatureStatus>,
++    pub(crate) dashboard_attributes: ::std::option::Option<super::super::types::DashboardAttributes>,
++    pub(crate) guardian_attributes: ::std::option::Option<super::super::types::GuardianAttributes>,
  }
  impl VdmAttributesBuilder {
      /// <p>Specifies the status of your VDM configuration. Can be one of the following:</p>
@@ -61,7 +61,7 @@
      /// </ul>
      /// This field is required.
 -    pub fn vdm_enabled(mut self, input: crate::types::FeatureStatus) -> Self {
-+    pub fn vdm_enabled(mut self, input: super::types::FeatureStatus) -> Self {
++    pub fn vdm_enabled(mut self, input: super::super::types::FeatureStatus) -> Self {
          self.vdm_enabled = ::std::option::Option::Some(input);
          self
      }
@@ -70,7 +70,7 @@
      /// <p><code>DISABLED</code> – Amazon SES disables VDM for your account.</p></li>
      /// </ul>
 -    pub fn set_vdm_enabled(mut self, input: ::std::option::Option<crate::types::FeatureStatus>) -> Self {
-+    pub fn set_vdm_enabled(mut self, input: ::std::option::Option<super::types::FeatureStatus>) -> Self {
++    pub fn set_vdm_enabled(mut self, input: ::std::option::Option<super::super::types::FeatureStatus>) -> Self {
          self.vdm_enabled = input;
          self
      }
@@ -79,41 +79,41 @@
      /// <p><code>DISABLED</code> – Amazon SES disables VDM for your account.</p></li>
      /// </ul>
 -    pub fn get_vdm_enabled(&self) -> &::std::option::Option<crate::types::FeatureStatus> {
-+    pub fn get_vdm_enabled(&self) -> &::std::option::Option<super::types::FeatureStatus> {
++    pub fn get_vdm_enabled(&self) -> &::std::option::Option<super::super::types::FeatureStatus> {
          &self.vdm_enabled
      }
      /// <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
 -    pub fn dashboard_attributes(mut self, input: crate::types::DashboardAttributes) -> Self {
-+    pub fn dashboard_attributes(mut self, input: super::types::DashboardAttributes) -> Self {
++    pub fn dashboard_attributes(mut self, input: super::super::types::DashboardAttributes) -> Self {
          self.dashboard_attributes = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
 -    pub fn set_dashboard_attributes(mut self, input: ::std::option::Option<crate::types::DashboardAttributes>) -> Self {
-+    pub fn set_dashboard_attributes(mut self, input: ::std::option::Option<super::types::DashboardAttributes>) -> Self {
++    pub fn set_dashboard_attributes(mut self, input: ::std::option::Option<super::super::types::DashboardAttributes>) -> Self {
          self.dashboard_attributes = input;
          self
      }
      /// <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
 -    pub fn get_dashboard_attributes(&self) -> &::std::option::Option<crate::types::DashboardAttributes> {
-+    pub fn get_dashboard_attributes(&self) -> &::std::option::Option<super::types::DashboardAttributes> {
++    pub fn get_dashboard_attributes(&self) -> &::std::option::Option<super::super::types::DashboardAttributes> {
          &self.dashboard_attributes
      }
      /// <p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>
 -    pub fn guardian_attributes(mut self, input: crate::types::GuardianAttributes) -> Self {
-+    pub fn guardian_attributes(mut self, input: super::types::GuardianAttributes) -> Self {
++    pub fn guardian_attributes(mut self, input: super::super::types::GuardianAttributes) -> Self {
          self.guardian_attributes = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>
 -    pub fn set_guardian_attributes(mut self, input: ::std::option::Option<crate::types::GuardianAttributes>) -> Self {
-+    pub fn set_guardian_attributes(mut self, input: ::std::option::Option<super::types::GuardianAttributes>) -> Self {
++    pub fn set_guardian_attributes(mut self, input: ::std::option::Option<super::super::types::GuardianAttributes>) -> Self {
          self.guardian_attributes = input;
          self
      }
      /// <p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>
 -    pub fn get_guardian_attributes(&self) -> &::std::option::Option<crate::types::GuardianAttributes> {
-+    pub fn get_guardian_attributes(&self) -> &::std::option::Option<super::types::GuardianAttributes> {
++    pub fn get_guardian_attributes(&self) -> &::std::option::Option<super::super::types::GuardianAttributes> {
          &self.guardian_attributes
      }
      /// Consumes the builder and constructs a [`VdmAttributes`](crate::types::VdmAttributes).
@@ -121,8 +121,8 @@
      /// - [`vdm_enabled`](crate::types::builders::VdmAttributesBuilder::vdm_enabled)
 -    pub fn build(self) -> ::std::result::Result<crate::types::VdmAttributes, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::VdmAttributes {
-+    pub fn build(self) -> ::std::result::Result<super::types::VdmAttributes, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::VdmAttributes {
++    pub fn build(self) -> ::std::result::Result<super::super::types::VdmAttributes, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::VdmAttributes {
              vdm_enabled: self.vdm_enabled.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "vdm_enabled",

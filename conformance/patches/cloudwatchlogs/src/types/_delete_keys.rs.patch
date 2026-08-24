@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteKeys`](crate::types::DeleteKeys).
 -    pub fn builder() -> crate::types::builders::DeleteKeysBuilder {
 -        crate::types::builders::DeleteKeysBuilder::default()
-+    pub fn builder() -> super::types::builders::DeleteKeysBuilder {
-+        super::types::builders::DeleteKeysBuilder::default()
++    pub fn builder() -> super::super::types::builders::DeleteKeysBuilder {
++        super::super::types::builders::DeleteKeysBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`with_keys`](crate::types::builders::DeleteKeysBuilder::with_keys)
 -    pub fn build(self) -> ::std::result::Result<crate::types::DeleteKeys, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::DeleteKeys {
-+    pub fn build(self) -> ::std::result::Result<super::types::DeleteKeys, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::DeleteKeys {
++    pub fn build(self) -> ::std::result::Result<super::super::types::DeleteKeys, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::DeleteKeys {
              with_keys: self.with_keys.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "with_keys",

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutResourceConfigInput`](crate::operation::put_resource_config::PutResourceConfigInput).
 -    pub fn builder() -> crate::operation::put_resource_config::builders::PutResourceConfigInputBuilder {
 -        crate::operation::put_resource_config::builders::PutResourceConfigInputBuilder::default()
-+    pub fn builder() -> super::operation::put_resource_config::builders::PutResourceConfigInputBuilder {
-+        super::operation::put_resource_config::builders::PutResourceConfigInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_resource_config::builders::PutResourceConfigInputBuilder {
++        super::super::super::operation::put_resource_config::builders::PutResourceConfigInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::put_resource_config::PutResourceConfigInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::put_resource_config::PutResourceConfigInput {
-+    ) -> ::std::result::Result<super::operation::put_resource_config::PutResourceConfigInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::put_resource_config::PutResourceConfigInput {
++    ) -> ::std::result::Result<super::super::super::operation::put_resource_config::PutResourceConfigInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::put_resource_config::PutResourceConfigInput {
              resource_type: self.resource_type,
              schema_version_id: self.schema_version_id,
              resource_id: self.resource_id,

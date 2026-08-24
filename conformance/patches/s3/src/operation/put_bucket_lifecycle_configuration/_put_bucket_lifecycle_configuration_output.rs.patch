@@ -5,7 +5,7 @@
      /// </ul>
      /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
 -    pub transition_default_minimum_object_size: ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
-+    pub transition_default_minimum_object_size: ::std::option::Option<super::types::TransitionDefaultMinimumObjectSize>,
++    pub transition_default_minimum_object_size: ::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
@@ -14,12 +14,12 @@
      /// </ul>
      /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
 -    pub fn transition_default_minimum_object_size(&self) -> ::std::option::Option<&crate::types::TransitionDefaultMinimumObjectSize> {
-+    pub fn transition_default_minimum_object_size(&self) -> ::std::option::Option<&super::types::TransitionDefaultMinimumObjectSize> {
++    pub fn transition_default_minimum_object_size(&self) -> ::std::option::Option<&super::super::super::types::TransitionDefaultMinimumObjectSize> {
          self.transition_default_minimum_object_size.as_ref()
      }
  }
 -impl crate::s3_request_id::RequestIdExt for PutBucketLifecycleConfigurationOutput {
-+impl super::s3_request_id::RequestIdExt for PutBucketLifecycleConfigurationOutput {
++impl super::super::super::s3_request_id::RequestIdExt for PutBucketLifecycleConfigurationOutput {
      fn extended_request_id(&self) -> Option<&str> {
          self._extended_request_id.as_deref()
      }
@@ -29,8 +29,8 @@
      /// Creates a new builder-style object to manufacture [`PutBucketLifecycleConfigurationOutput`](crate::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationOutput).
 -    pub fn builder() -> crate::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationOutputBuilder {
 -        crate::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationOutputBuilder {
-+        super::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationOutputBuilder {
++        super::super::super::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationOutputBuilder::default()
      }
  }
 
@@ -39,7 +39,7 @@
  #[non_exhaustive]
  pub struct PutBucketLifecycleConfigurationOutputBuilder {
 -    pub(crate) transition_default_minimum_object_size: ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
-+    pub(crate) transition_default_minimum_object_size: ::std::option::Option<super::types::TransitionDefaultMinimumObjectSize>,
++    pub(crate) transition_default_minimum_object_size: ::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
@@ -48,7 +48,7 @@
      /// </ul>
      /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
 -    pub fn transition_default_minimum_object_size(mut self, input: crate::types::TransitionDefaultMinimumObjectSize) -> Self {
-+    pub fn transition_default_minimum_object_size(mut self, input: super::types::TransitionDefaultMinimumObjectSize) -> Self {
++    pub fn transition_default_minimum_object_size(mut self, input: super::super::super::types::TransitionDefaultMinimumObjectSize) -> Self {
          self.transition_default_minimum_object_size = ::std::option::Option::Some(input);
          self
      }
@@ -57,7 +57,7 @@
      pub fn set_transition_default_minimum_object_size(
          mut self,
 -        input: ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
-+        input: ::std::option::Option<super::types::TransitionDefaultMinimumObjectSize>,
++        input: ::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize>,
      ) -> Self {
          self.transition_default_minimum_object_size = input;
          self
@@ -66,7 +66,7 @@
      /// </ul>
      /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
 -    pub fn get_transition_default_minimum_object_size(&self) -> &::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize> {
-+    pub fn get_transition_default_minimum_object_size(&self) -> &::std::option::Option<super::types::TransitionDefaultMinimumObjectSize> {
++    pub fn get_transition_default_minimum_object_size(&self) -> &::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize> {
          &self.transition_default_minimum_object_size
      }
      pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -76,8 +76,8 @@
      /// Consumes the builder and constructs a [`PutBucketLifecycleConfigurationOutput`](crate::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationOutput).
 -    pub fn build(self) -> crate::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationOutput {
 -        crate::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationOutput {
-+    pub fn build(self) -> super::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationOutput {
-+        super::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationOutput {
++    pub fn build(self) -> super::super::super::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationOutput {
++        super::super::super::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationOutput {
              transition_default_minimum_object_size: self.transition_default_minimum_object_size,
              _extended_request_id: self._extended_request_id,
              _request_id: self._request_id,

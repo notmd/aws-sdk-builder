@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateTenantResourceAssociationOutput`](crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput).
 -    pub fn builder() -> crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder {
 -        crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder {
-+        super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder {
++        super::super::super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateTenantResourceAssociationOutput`](crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput).
 -    pub fn build(self) -> crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput {
 -        crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput {
-+    pub fn build(self) -> super::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput {
-+        super::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput {
++    pub fn build(self) -> super::super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput {
++        super::super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput {
              _request_id: self._request_id,
          }
      }

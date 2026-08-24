@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteUserOutput`](crate::operation::delete_user::DeleteUserOutput).
 -    pub fn builder() -> crate::operation::delete_user::builders::DeleteUserOutputBuilder {
 -        crate::operation::delete_user::builders::DeleteUserOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_user::builders::DeleteUserOutputBuilder {
-+        super::operation::delete_user::builders::DeleteUserOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_user::builders::DeleteUserOutputBuilder {
++        super::super::super::operation::delete_user::builders::DeleteUserOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteUserOutput`](crate::operation::delete_user::DeleteUserOutput).
 -    pub fn build(self) -> crate::operation::delete_user::DeleteUserOutput {
 -        crate::operation::delete_user::DeleteUserOutput {
-+    pub fn build(self) -> super::operation::delete_user::DeleteUserOutput {
-+        super::operation::delete_user::DeleteUserOutput {
++    pub fn build(self) -> super::super::super::operation::delete_user::DeleteUserOutput {
++        super::super::super::operation::delete_user::DeleteUserOutput {
              _request_id: self._request_id,
          }
      }

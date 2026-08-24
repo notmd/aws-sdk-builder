@@ -5,16 +5,16 @@
      pub job_id: ::std::option::Option<::std::string::String>,
      /// <p>The destination of the import job.</p>
 -    pub import_destination: ::std::option::Option<crate::types::ImportDestination>,
-+    pub import_destination: ::std::option::Option<super::types::ImportDestination>,
++    pub import_destination: ::std::option::Option<super::super::super::types::ImportDestination>,
      /// <p>The data source of the import job.</p>
 -    pub import_data_source: ::std::option::Option<crate::types::ImportDataSource>,
-+    pub import_data_source: ::std::option::Option<super::types::ImportDataSource>,
++    pub import_data_source: ::std::option::Option<super::super::super::types::ImportDataSource>,
      /// <p>The failure details about an import job.</p>
 -    pub failure_info: ::std::option::Option<crate::types::FailureInfo>,
-+    pub failure_info: ::std::option::Option<super::types::FailureInfo>,
++    pub failure_info: ::std::option::Option<super::super::super::types::FailureInfo>,
      /// <p>The status of the import job.</p>
 -    pub job_status: ::std::option::Option<crate::types::JobStatus>,
-+    pub job_status: ::std::option::Option<super::types::JobStatus>,
++    pub job_status: ::std::option::Option<super::super::super::types::JobStatus>,
      /// <p>The time stamp of when the import job was created.</p>
      pub created_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The time stamp of when the import job was completed.</p>
@@ -23,22 +23,22 @@
      }
      /// <p>The destination of the import job.</p>
 -    pub fn import_destination(&self) -> ::std::option::Option<&crate::types::ImportDestination> {
-+    pub fn import_destination(&self) -> ::std::option::Option<&super::types::ImportDestination> {
++    pub fn import_destination(&self) -> ::std::option::Option<&super::super::super::types::ImportDestination> {
          self.import_destination.as_ref()
      }
      /// <p>The data source of the import job.</p>
 -    pub fn import_data_source(&self) -> ::std::option::Option<&crate::types::ImportDataSource> {
-+    pub fn import_data_source(&self) -> ::std::option::Option<&super::types::ImportDataSource> {
++    pub fn import_data_source(&self) -> ::std::option::Option<&super::super::super::types::ImportDataSource> {
          self.import_data_source.as_ref()
      }
      /// <p>The failure details about an import job.</p>
 -    pub fn failure_info(&self) -> ::std::option::Option<&crate::types::FailureInfo> {
-+    pub fn failure_info(&self) -> ::std::option::Option<&super::types::FailureInfo> {
++    pub fn failure_info(&self) -> ::std::option::Option<&super::super::super::types::FailureInfo> {
          self.failure_info.as_ref()
      }
      /// <p>The status of the import job.</p>
 -    pub fn job_status(&self) -> ::std::option::Option<&crate::types::JobStatus> {
-+    pub fn job_status(&self) -> ::std::option::Option<&super::types::JobStatus> {
++    pub fn job_status(&self) -> ::std::option::Option<&super::super::super::types::JobStatus> {
          self.job_status.as_ref()
      }
      /// <p>The time stamp of when the import job was created.</p>
@@ -48,8 +48,8 @@
      /// Creates a new builder-style object to manufacture [`GetImportJobOutput`](crate::operation::get_import_job::GetImportJobOutput).
 -    pub fn builder() -> crate::operation::get_import_job::builders::GetImportJobOutputBuilder {
 -        crate::operation::get_import_job::builders::GetImportJobOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_import_job::builders::GetImportJobOutputBuilder {
-+        super::operation::get_import_job::builders::GetImportJobOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_import_job::builders::GetImportJobOutputBuilder {
++        super::super::super::operation::get_import_job::builders::GetImportJobOutputBuilder::default()
      }
  }
 
@@ -61,10 +61,10 @@
 -    pub(crate) import_data_source: ::std::option::Option<crate::types::ImportDataSource>,
 -    pub(crate) failure_info: ::std::option::Option<crate::types::FailureInfo>,
 -    pub(crate) job_status: ::std::option::Option<crate::types::JobStatus>,
-+    pub(crate) import_destination: ::std::option::Option<super::types::ImportDestination>,
-+    pub(crate) import_data_source: ::std::option::Option<super::types::ImportDataSource>,
-+    pub(crate) failure_info: ::std::option::Option<super::types::FailureInfo>,
-+    pub(crate) job_status: ::std::option::Option<super::types::JobStatus>,
++    pub(crate) import_destination: ::std::option::Option<super::super::super::types::ImportDestination>,
++    pub(crate) import_data_source: ::std::option::Option<super::super::super::types::ImportDataSource>,
++    pub(crate) failure_info: ::std::option::Option<super::super::super::types::FailureInfo>,
++    pub(crate) job_status: ::std::option::Option<super::super::super::types::JobStatus>,
      pub(crate) created_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) completed_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) processed_records_count: ::std::option::Option<i32>,
@@ -73,70 +73,70 @@
      }
      /// <p>The destination of the import job.</p>
 -    pub fn import_destination(mut self, input: crate::types::ImportDestination) -> Self {
-+    pub fn import_destination(mut self, input: super::types::ImportDestination) -> Self {
++    pub fn import_destination(mut self, input: super::super::super::types::ImportDestination) -> Self {
          self.import_destination = ::std::option::Option::Some(input);
          self
      }
      /// <p>The destination of the import job.</p>
 -    pub fn set_import_destination(mut self, input: ::std::option::Option<crate::types::ImportDestination>) -> Self {
-+    pub fn set_import_destination(mut self, input: ::std::option::Option<super::types::ImportDestination>) -> Self {
++    pub fn set_import_destination(mut self, input: ::std::option::Option<super::super::super::types::ImportDestination>) -> Self {
          self.import_destination = input;
          self
      }
      /// <p>The destination of the import job.</p>
 -    pub fn get_import_destination(&self) -> &::std::option::Option<crate::types::ImportDestination> {
-+    pub fn get_import_destination(&self) -> &::std::option::Option<super::types::ImportDestination> {
++    pub fn get_import_destination(&self) -> &::std::option::Option<super::super::super::types::ImportDestination> {
          &self.import_destination
      }
      /// <p>The data source of the import job.</p>
 -    pub fn import_data_source(mut self, input: crate::types::ImportDataSource) -> Self {
-+    pub fn import_data_source(mut self, input: super::types::ImportDataSource) -> Self {
++    pub fn import_data_source(mut self, input: super::super::super::types::ImportDataSource) -> Self {
          self.import_data_source = ::std::option::Option::Some(input);
          self
      }
      /// <p>The data source of the import job.</p>
 -    pub fn set_import_data_source(mut self, input: ::std::option::Option<crate::types::ImportDataSource>) -> Self {
-+    pub fn set_import_data_source(mut self, input: ::std::option::Option<super::types::ImportDataSource>) -> Self {
++    pub fn set_import_data_source(mut self, input: ::std::option::Option<super::super::super::types::ImportDataSource>) -> Self {
          self.import_data_source = input;
          self
      }
      /// <p>The data source of the import job.</p>
 -    pub fn get_import_data_source(&self) -> &::std::option::Option<crate::types::ImportDataSource> {
-+    pub fn get_import_data_source(&self) -> &::std::option::Option<super::types::ImportDataSource> {
++    pub fn get_import_data_source(&self) -> &::std::option::Option<super::super::super::types::ImportDataSource> {
          &self.import_data_source
      }
      /// <p>The failure details about an import job.</p>
 -    pub fn failure_info(mut self, input: crate::types::FailureInfo) -> Self {
-+    pub fn failure_info(mut self, input: super::types::FailureInfo) -> Self {
++    pub fn failure_info(mut self, input: super::super::super::types::FailureInfo) -> Self {
          self.failure_info = ::std::option::Option::Some(input);
          self
      }
      /// <p>The failure details about an import job.</p>
 -    pub fn set_failure_info(mut self, input: ::std::option::Option<crate::types::FailureInfo>) -> Self {
-+    pub fn set_failure_info(mut self, input: ::std::option::Option<super::types::FailureInfo>) -> Self {
++    pub fn set_failure_info(mut self, input: ::std::option::Option<super::super::super::types::FailureInfo>) -> Self {
          self.failure_info = input;
          self
      }
      /// <p>The failure details about an import job.</p>
 -    pub fn get_failure_info(&self) -> &::std::option::Option<crate::types::FailureInfo> {
-+    pub fn get_failure_info(&self) -> &::std::option::Option<super::types::FailureInfo> {
++    pub fn get_failure_info(&self) -> &::std::option::Option<super::super::super::types::FailureInfo> {
          &self.failure_info
      }
      /// <p>The status of the import job.</p>
 -    pub fn job_status(mut self, input: crate::types::JobStatus) -> Self {
-+    pub fn job_status(mut self, input: super::types::JobStatus) -> Self {
++    pub fn job_status(mut self, input: super::super::super::types::JobStatus) -> Self {
          self.job_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status of the import job.</p>
 -    pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::JobStatus>) -> Self {
-+    pub fn set_job_status(mut self, input: ::std::option::Option<super::types::JobStatus>) -> Self {
++    pub fn set_job_status(mut self, input: ::std::option::Option<super::super::super::types::JobStatus>) -> Self {
          self.job_status = input;
          self
      }
      /// <p>The status of the import job.</p>
 -    pub fn get_job_status(&self) -> &::std::option::Option<crate::types::JobStatus> {
-+    pub fn get_job_status(&self) -> &::std::option::Option<super::types::JobStatus> {
++    pub fn get_job_status(&self) -> &::std::option::Option<super::super::super::types::JobStatus> {
          &self.job_status
      }
      /// <p>The time stamp of when the import job was created.</p>
@@ -146,8 +146,8 @@
      /// Consumes the builder and constructs a [`GetImportJobOutput`](crate::operation::get_import_job::GetImportJobOutput).
 -    pub fn build(self) -> crate::operation::get_import_job::GetImportJobOutput {
 -        crate::operation::get_import_job::GetImportJobOutput {
-+    pub fn build(self) -> super::operation::get_import_job::GetImportJobOutput {
-+        super::operation::get_import_job::GetImportJobOutput {
++    pub fn build(self) -> super::super::super::operation::get_import_job::GetImportJobOutput {
++        super::super::super::operation::get_import_job::GetImportJobOutput {
              job_id: self.job_id,
              import_destination: self.import_destination,
              import_data_source: self.import_data_source,

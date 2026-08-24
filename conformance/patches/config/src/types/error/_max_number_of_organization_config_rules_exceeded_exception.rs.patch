@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for MaxNumberOfOrganizationConfigRulesExceededException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::MaxNumberOfOrganizationConfigRulesExceededException {
-+impl ::aws_types::request_id::RequestId for super::types::error::MaxNumberOfOrganizationConfigRulesExceededException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::MaxNumberOfOrganizationConfigRulesExceededException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`MaxNumberOfOrganizationConfigRulesExceededException`](crate::types::error::MaxNumberOfOrganizationConfigRulesExceededException).
 -    pub fn builder() -> crate::types::error::builders::MaxNumberOfOrganizationConfigRulesExceededExceptionBuilder {
 -        crate::types::error::builders::MaxNumberOfOrganizationConfigRulesExceededExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::MaxNumberOfOrganizationConfigRulesExceededExceptionBuilder {
-+        super::types::error::builders::MaxNumberOfOrganizationConfigRulesExceededExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::MaxNumberOfOrganizationConfigRulesExceededExceptionBuilder {
++        super::super::super::types::error::builders::MaxNumberOfOrganizationConfigRulesExceededExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`MaxNumberOfOrganizationConfigRulesExceededException`](crate::types::error::MaxNumberOfOrganizationConfigRulesExceededException).
 -    pub fn build(self) -> crate::types::error::MaxNumberOfOrganizationConfigRulesExceededException {
 -        crate::types::error::MaxNumberOfOrganizationConfigRulesExceededException {
-+    pub fn build(self) -> super::types::error::MaxNumberOfOrganizationConfigRulesExceededException {
-+        super::types::error::MaxNumberOfOrganizationConfigRulesExceededException {
++    pub fn build(self) -> super::super::super::types::error::MaxNumberOfOrganizationConfigRulesExceededException {
++        super::super::super::types::error::MaxNumberOfOrganizationConfigRulesExceededException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

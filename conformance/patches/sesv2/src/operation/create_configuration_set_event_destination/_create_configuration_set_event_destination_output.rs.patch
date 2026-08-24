@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateConfigurationSetEventDestinationOutput`](crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput).
 -    pub fn builder() -> crate::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder {
 -        crate::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder {
-+        super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder {
++        super::super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateConfigurationSetEventDestinationOutput`](crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput).
 -    pub fn build(self) -> crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput {
 -        crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput {
-+    pub fn build(self) -> super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput {
-+        super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput {
++    pub fn build(self) -> super::super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput {
++        super::super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput {
              _request_id: self._request_id,
          }
      }

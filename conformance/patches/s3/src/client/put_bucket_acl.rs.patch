@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutBucketAclError>`](crate::operation::put_bucket_acl::PutBucketAclError)
 -    pub fn put_bucket_acl(&self) -> crate::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder {
 -        crate::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder::new(self.handle.clone())
-+    pub fn put_bucket_acl(&self) -> super::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder {
-+        super::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder::new(self.handle.clone())
++    pub fn put_bucket_acl(&self) -> super::super::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder {
++        super::super::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder::new(self.handle.clone())
      }
  }

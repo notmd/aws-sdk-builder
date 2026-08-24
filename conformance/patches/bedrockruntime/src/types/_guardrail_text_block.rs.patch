@@ -5,7 +5,7 @@
      pub text: ::std::string::String,
      /// <p>The qualifiers describing the text block.</p>
 -    pub qualifiers: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentQualifier>>,
-+    pub qualifiers: ::std::option::Option<::std::vec::Vec<super::types::GuardrailContentQualifier>>,
++    pub qualifiers: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailContentQualifier>>,
  }
  impl GuardrailTextBlock {
      /// <p>The input text details to be evaluated by the guardrail.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.qualifiers.is_none()`.
 -    pub fn qualifiers(&self) -> &[crate::types::GuardrailContentQualifier] {
-+    pub fn qualifiers(&self) -> &[super::types::GuardrailContentQualifier] {
++    pub fn qualifiers(&self) -> &[super::super::types::GuardrailContentQualifier] {
          self.qualifiers.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailTextBlock`](crate::types::GuardrailTextBlock).
 -    pub fn builder() -> crate::types::builders::GuardrailTextBlockBuilder {
 -        crate::types::builders::GuardrailTextBlockBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailTextBlockBuilder {
-+        super::types::builders::GuardrailTextBlockBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailTextBlockBuilder {
++        super::super::types::builders::GuardrailTextBlockBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct GuardrailTextBlockBuilder {
      pub(crate) text: ::std::option::Option<::std::string::String>,
 -    pub(crate) qualifiers: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentQualifier>>,
-+    pub(crate) qualifiers: ::std::option::Option<::std::vec::Vec<super::types::GuardrailContentQualifier>>,
++    pub(crate) qualifiers: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailContentQualifier>>,
  }
  impl GuardrailTextBlockBuilder {
      /// <p>The input text details to be evaluated by the guardrail.</p>
@@ -41,7 +41,7 @@
      ///
      /// <p>The qualifiers describing the text block.</p>
 -    pub fn qualifiers(mut self, input: crate::types::GuardrailContentQualifier) -> Self {
-+    pub fn qualifiers(mut self, input: super::types::GuardrailContentQualifier) -> Self {
++    pub fn qualifiers(mut self, input: super::super::types::GuardrailContentQualifier) -> Self {
          let mut v = self.qualifiers.unwrap_or_default();
          v.push(input);
          self.qualifiers = ::std::option::Option::Some(v);
@@ -50,13 +50,13 @@
      }
      /// <p>The qualifiers describing the text block.</p>
 -    pub fn set_qualifiers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentQualifier>>) -> Self {
-+    pub fn set_qualifiers(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailContentQualifier>>) -> Self {
++    pub fn set_qualifiers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailContentQualifier>>) -> Self {
          self.qualifiers = input;
          self
      }
      /// <p>The qualifiers describing the text block.</p>
 -    pub fn get_qualifiers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentQualifier>> {
-+    pub fn get_qualifiers(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailContentQualifier>> {
++    pub fn get_qualifiers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailContentQualifier>> {
          &self.qualifiers
      }
      /// Consumes the builder and constructs a [`GuardrailTextBlock`](crate::types::GuardrailTextBlock).
@@ -64,8 +64,8 @@
      /// - [`text`](crate::types::builders::GuardrailTextBlockBuilder::text)
 -    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailTextBlock, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailTextBlock {
-+    pub fn build(self) -> ::std::result::Result<super::types::GuardrailTextBlock, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailTextBlock {
++    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailTextBlock, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailTextBlock {
              text: self.text.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "text",

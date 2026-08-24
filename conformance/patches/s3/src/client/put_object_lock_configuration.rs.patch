@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder {
 -        crate::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder {
-+        super::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder {
++        super::super::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

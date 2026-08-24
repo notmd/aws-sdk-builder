@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeCustomKeyStoresError>`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError)
 -    pub fn describe_custom_key_stores(&self) -> crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder {
 -        crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder::new(self.handle.clone())
-+    pub fn describe_custom_key_stores(&self) -> super::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder {
-+        super::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder::new(self.handle.clone())
++    pub fn describe_custom_key_stores(&self) -> super::super::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder {
++        super::super::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder::new(self.handle.clone())
      }
  }

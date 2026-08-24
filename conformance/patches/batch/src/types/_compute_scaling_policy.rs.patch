@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ComputeScalingPolicy`](crate::types::ComputeScalingPolicy).
 -    pub fn builder() -> crate::types::builders::ComputeScalingPolicyBuilder {
 -        crate::types::builders::ComputeScalingPolicyBuilder::default()
-+    pub fn builder() -> super::types::builders::ComputeScalingPolicyBuilder {
-+        super::types::builders::ComputeScalingPolicyBuilder::default()
++    pub fn builder() -> super::super::types::builders::ComputeScalingPolicyBuilder {
++        super::super::types::builders::ComputeScalingPolicyBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ComputeScalingPolicy`](crate::types::ComputeScalingPolicy).
 -    pub fn build(self) -> crate::types::ComputeScalingPolicy {
 -        crate::types::ComputeScalingPolicy {
-+    pub fn build(self) -> super::types::ComputeScalingPolicy {
-+        super::types::ComputeScalingPolicy {
++    pub fn build(self) -> super::super::types::ComputeScalingPolicy {
++        super::super::types::ComputeScalingPolicy {
              min_scale_down_delay_minutes: self.min_scale_down_delay_minutes,
          }
      }

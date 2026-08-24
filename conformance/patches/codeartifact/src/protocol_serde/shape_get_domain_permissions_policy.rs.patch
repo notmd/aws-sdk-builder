@@ -6,135 +6,135 @@
  ) -> std::result::Result<
 -    crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput,
 -    crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError,
-+    super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput,
-+    super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError,
++    super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput,
++    super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled(generic)),
-+        None => return Err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled(generic)),
++        None => return Err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "AccessDeniedException" => crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::AccessDeniedException({
-+        "AccessDeniedException" => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::AccessDeniedException({
++        "AccessDeniedException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::AccessDeniedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::AccessDeniedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
 -                crate::serde_util::access_denied_exception_correct_errors(output)
-+                super::serde_util::access_denied_exception_correct_errors(output)
++                super::super::serde_util::access_denied_exception_correct_errors(output)
                      .build()
 -                    .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
-+                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
++                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
              };
              tmp
          }),
 -        "InternalServerException" => crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::InternalServerException({
-+        "InternalServerException" => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::InternalServerException({
++        "InternalServerException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::InternalServerException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalServerExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalServerExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
 -                crate::serde_util::internal_server_exception_correct_errors(output)
-+                super::serde_util::internal_server_exception_correct_errors(output)
++                super::super::serde_util::internal_server_exception_correct_errors(output)
                      .build()
 -                    .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
-+                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
++                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
              };
              tmp
          }),
 -        "ResourceNotFoundException" => crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ResourceNotFoundException({
-+        "ResourceNotFoundException" => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ResourceNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
 -                crate::serde_util::resource_not_found_exception_correct_errors(output)
-+                super::serde_util::resource_not_found_exception_correct_errors(output)
++                super::super::serde_util::resource_not_found_exception_correct_errors(output)
                      .build()
 -                    .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
-+                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
++                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
              };
              tmp
          }),
 -        "ThrottlingException" => crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ThrottlingException({
-+        "ThrottlingException" => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ThrottlingException({
++        "ThrottlingException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ThrottlingException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ThrottlingExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-+                output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                  output = output.set_retry_after_seconds(
 -                    crate::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
 -                        crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled(
-+                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
-+                        super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled(
++                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
++                        super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled(
                              "Failed to parse retryAfterSeconds from header `Retry-After",
                          )
                      })?,
                  );
                  let output = output.meta(generic);
 -                crate::serde_util::throttling_exception_correct_errors(output)
-+                super::serde_util::throttling_exception_correct_errors(output)
++                super::super::serde_util::throttling_exception_correct_errors(output)
                      .build()
 -                    .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
-+                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
++                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
              };
              tmp
          }),
 -        "ValidationException" => crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ValidationException({
-+        "ValidationException" => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ValidationException({
++        "ValidationException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ValidationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
 -                crate::serde_util::validation_exception_correct_errors(output)
-+                super::serde_util::validation_exception_correct_errors(output)
++                super::super::serde_util::validation_exception_correct_errors(output)
                      .build()
 -                    .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
-+                    .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
++                    .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
              };
              tmp
          }),
 -        _ => crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::generic(generic),
-+        _ => super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::generic(generic),
++        _ => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::generic(generic),
      })
  }
 
@@ -144,17 +144,17 @@
  ) -> std::result::Result<
 -    crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput,
 -    crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError,
-+    super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput,
-+    super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError,
++    super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput,
++    super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder::default();
 -        output = crate::protocol_serde::shape_get_domain_permissions_policy::de_get_domain_permissions_policy(_response_body, output)
 -            .map_err(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
-+        let mut output = super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder::default();
-+        output = super::protocol_serde::shape_get_domain_permissions_policy::de_get_domain_permissions_policy(_response_body, output)
-+            .map_err(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
++        let mut output = super::super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder::default();
++        output = super::super::protocol_serde::shape_get_domain_permissions_policy::de_get_domain_permissions_policy(_response_body, output)
++            .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -163,14 +163,14 @@
  pub(crate) fn de_get_domain_permissions_policy(
      _value: &[u8],
 -    mut builder: crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,
-+    mut builder: super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,
++    mut builder: super::super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,
-+    super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,
++    super::super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -179,7 +179,7 @@
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                  "policy" => {
 -                    builder = builder.set_policy(crate::protocol_serde::shape_resource_policy::de_resource_policy(
-+                    builder = builder.set_policy(super::protocol_serde::shape_resource_policy::de_resource_policy(
++                    builder = builder.set_policy(super::super::protocol_serde::shape_resource_policy::de_resource_policy(
                          tokens,
                          _value,
                          depth + 1,

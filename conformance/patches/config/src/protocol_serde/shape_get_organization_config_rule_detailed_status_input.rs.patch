@@ -5,7 +5,7 @@
  pub fn ser_get_organization_config_rule_detailed_status_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusInput,
-+    input: &super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusInput,
++    input: &super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.organization_config_rule_name {
          object.key("OrganizationConfigRuleName").string(var_1.as_str());
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_3 = object.key("Filters").start_object();
 -        crate::protocol_serde::shape_status_detail_filters::ser_status_detail_filters(&mut object_3, var_2)?;
-+        super::protocol_serde::shape_status_detail_filters::ser_status_detail_filters(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_status_detail_filters::ser_status_detail_filters(&mut object_3, var_2)?;
          object_3.finish();
      }
      if let Some(var_4) = &input.limit {

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteCustomKeyStoreError>`](crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError)
 -    pub fn delete_custom_key_store(&self) -> crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder {
 -        crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder::new(self.handle.clone())
-+    pub fn delete_custom_key_store(&self) -> super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder {
-+        super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder::new(self.handle.clone())
++    pub fn delete_custom_key_store(&self) -> super::super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder {
++        super::super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder::new(self.handle.clone())
      }
  }

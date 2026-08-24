@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListTermsError>`](crate::operation::list_terms::ListTermsError)
 -    pub fn list_terms(&self) -> crate::operation::list_terms::builders::ListTermsFluentBuilder {
 -        crate::operation::list_terms::builders::ListTermsFluentBuilder::new(self.handle.clone())
-+    pub fn list_terms(&self) -> super::operation::list_terms::builders::ListTermsFluentBuilder {
-+        super::operation::list_terms::builders::ListTermsFluentBuilder::new(self.handle.clone())
++    pub fn list_terms(&self) -> super::super::operation::list_terms::builders::ListTermsFluentBuilder {
++        super::super::operation::list_terms::builders::ListTermsFluentBuilder::new(self.handle.clone())
      }
  }

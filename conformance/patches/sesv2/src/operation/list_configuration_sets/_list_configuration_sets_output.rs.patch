@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListConfigurationSetsOutput`](crate::operation::list_configuration_sets::ListConfigurationSetsOutput).
 -    pub fn builder() -> crate::operation::list_configuration_sets::builders::ListConfigurationSetsOutputBuilder {
 -        crate::operation::list_configuration_sets::builders::ListConfigurationSetsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_configuration_sets::builders::ListConfigurationSetsOutputBuilder {
-+        super::operation::list_configuration_sets::builders::ListConfigurationSetsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_configuration_sets::builders::ListConfigurationSetsOutputBuilder {
++        super::super::super::operation::list_configuration_sets::builders::ListConfigurationSetsOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ListConfigurationSetsOutput`](crate::operation::list_configuration_sets::ListConfigurationSetsOutput).
 -    pub fn build(self) -> crate::operation::list_configuration_sets::ListConfigurationSetsOutput {
 -        crate::operation::list_configuration_sets::ListConfigurationSetsOutput {
-+    pub fn build(self) -> super::operation::list_configuration_sets::ListConfigurationSetsOutput {
-+        super::operation::list_configuration_sets::ListConfigurationSetsOutput {
++    pub fn build(self) -> super::super::super::operation::list_configuration_sets::ListConfigurationSetsOutput {
++        super::super::super::operation::list_configuration_sets::ListConfigurationSetsOutput {
              configuration_sets: self.configuration_sets,
              next_token: self.next_token,
              _request_id: self._request_id,

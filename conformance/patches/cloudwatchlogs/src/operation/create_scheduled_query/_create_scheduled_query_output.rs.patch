@@ -5,7 +5,7 @@
      pub scheduled_query_arn: ::std::option::Option<::std::string::String>,
      /// <p>The current state of the scheduled query.</p>
 -    pub state: ::std::option::Option<crate::types::ScheduledQueryState>,
-+    pub state: ::std::option::Option<super::types::ScheduledQueryState>,
++    pub state: ::std::option::Option<super::super::super::types::ScheduledQueryState>,
      _request_id: Option<String>,
  }
  impl CreateScheduledQueryOutput {
@@ -14,7 +14,7 @@
      }
      /// <p>The current state of the scheduled query.</p>
 -    pub fn state(&self) -> ::std::option::Option<&crate::types::ScheduledQueryState> {
-+    pub fn state(&self) -> ::std::option::Option<&super::types::ScheduledQueryState> {
++    pub fn state(&self) -> ::std::option::Option<&super::super::super::types::ScheduledQueryState> {
          self.state.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`CreateScheduledQueryOutput`](crate::operation::create_scheduled_query::CreateScheduledQueryOutput).
 -    pub fn builder() -> crate::operation::create_scheduled_query::builders::CreateScheduledQueryOutputBuilder {
 -        crate::operation::create_scheduled_query::builders::CreateScheduledQueryOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_scheduled_query::builders::CreateScheduledQueryOutputBuilder {
-+        super::operation::create_scheduled_query::builders::CreateScheduledQueryOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_scheduled_query::builders::CreateScheduledQueryOutputBuilder {
++        super::super::super::operation::create_scheduled_query::builders::CreateScheduledQueryOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct CreateScheduledQueryOutputBuilder {
      pub(crate) scheduled_query_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) state: ::std::option::Option<crate::types::ScheduledQueryState>,
-+    pub(crate) state: ::std::option::Option<super::types::ScheduledQueryState>,
++    pub(crate) state: ::std::option::Option<super::super::super::types::ScheduledQueryState>,
      _request_id: Option<String>,
  }
  impl CreateScheduledQueryOutputBuilder {
@@ -43,19 +43,19 @@
      }
      /// <p>The current state of the scheduled query.</p>
 -    pub fn state(mut self, input: crate::types::ScheduledQueryState) -> Self {
-+    pub fn state(mut self, input: super::types::ScheduledQueryState) -> Self {
++    pub fn state(mut self, input: super::super::super::types::ScheduledQueryState) -> Self {
          self.state = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current state of the scheduled query.</p>
 -    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
-+    pub fn set_state(mut self, input: ::std::option::Option<super::types::ScheduledQueryState>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::super::super::types::ScheduledQueryState>) -> Self {
          self.state = input;
          self
      }
      /// <p>The current state of the scheduled query.</p>
 -    pub fn get_state(&self) -> &::std::option::Option<crate::types::ScheduledQueryState> {
-+    pub fn get_state(&self) -> &::std::option::Option<super::types::ScheduledQueryState> {
++    pub fn get_state(&self) -> &::std::option::Option<super::super::super::types::ScheduledQueryState> {
          &self.state
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`CreateScheduledQueryOutput`](crate::operation::create_scheduled_query::CreateScheduledQueryOutput).
 -    pub fn build(self) -> crate::operation::create_scheduled_query::CreateScheduledQueryOutput {
 -        crate::operation::create_scheduled_query::CreateScheduledQueryOutput {
-+    pub fn build(self) -> super::operation::create_scheduled_query::CreateScheduledQueryOutput {
-+        super::operation::create_scheduled_query::CreateScheduledQueryOutput {
++    pub fn build(self) -> super::super::super::operation::create_scheduled_query::CreateScheduledQueryOutput {
++        super::super::super::operation::create_scheduled_query::CreateScheduledQueryOutput {
              scheduled_query_arn: self.scheduled_query_arn,
              state: self.state,
              _request_id: self._request_id,

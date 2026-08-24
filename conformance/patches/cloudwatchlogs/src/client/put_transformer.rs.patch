@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutTransformerError>`](crate::operation::put_transformer::PutTransformerError)
 -    pub fn put_transformer(&self) -> crate::operation::put_transformer::builders::PutTransformerFluentBuilder {
 -        crate::operation::put_transformer::builders::PutTransformerFluentBuilder::new(self.handle.clone())
-+    pub fn put_transformer(&self) -> super::operation::put_transformer::builders::PutTransformerFluentBuilder {
-+        super::operation::put_transformer::builders::PutTransformerFluentBuilder::new(self.handle.clone())
++    pub fn put_transformer(&self) -> super::super::operation::put_transformer::builders::PutTransformerFluentBuilder {
++        super::super::operation::put_transformer::builders::PutTransformerFluentBuilder::new(self.handle.clone())
      }
  }

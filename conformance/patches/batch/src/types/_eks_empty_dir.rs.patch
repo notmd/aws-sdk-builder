@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EksEmptyDir`](crate::types::EksEmptyDir).
 -    pub fn builder() -> crate::types::builders::EksEmptyDirBuilder {
 -        crate::types::builders::EksEmptyDirBuilder::default()
-+    pub fn builder() -> super::types::builders::EksEmptyDirBuilder {
-+        super::types::builders::EksEmptyDirBuilder::default()
++    pub fn builder() -> super::super::types::builders::EksEmptyDirBuilder {
++        super::super::types::builders::EksEmptyDirBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EksEmptyDir`](crate::types::EksEmptyDir).
 -    pub fn build(self) -> crate::types::EksEmptyDir {
 -        crate::types::EksEmptyDir {
-+    pub fn build(self) -> super::types::EksEmptyDir {
-+        super::types::EksEmptyDir {
++    pub fn build(self) -> super::super::types::EksEmptyDir {
++        super::super::types::EksEmptyDir {
              medium: self.medium,
              size_limit: self.size_limit,
          }

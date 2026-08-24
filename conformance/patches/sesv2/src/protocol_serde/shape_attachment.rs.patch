@@ -5,7 +5,7 @@
  pub fn ser_attachment(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::Attachment,
-+    input: &super::types::Attachment,
++    input: &super::super::types::Attachment,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object

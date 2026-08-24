@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingFluentBuilder {
 -        crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingFluentBuilder {
-+        super::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingFluentBuilder {
++        super::super::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingFluentBuilder::new(self.handle.clone())
      }
  }

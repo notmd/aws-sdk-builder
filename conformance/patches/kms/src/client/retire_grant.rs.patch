@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<RetireGrantError>`](crate::operation::retire_grant::RetireGrantError)
 -    pub fn retire_grant(&self) -> crate::operation::retire_grant::builders::RetireGrantFluentBuilder {
 -        crate::operation::retire_grant::builders::RetireGrantFluentBuilder::new(self.handle.clone())
-+    pub fn retire_grant(&self) -> super::operation::retire_grant::builders::RetireGrantFluentBuilder {
-+        super::operation::retire_grant::builders::RetireGrantFluentBuilder::new(self.handle.clone())
++    pub fn retire_grant(&self) -> super::super::operation::retire_grant::builders::RetireGrantFluentBuilder {
++        super::super::operation::retire_grant::builders::RetireGrantFluentBuilder::new(self.handle.clone())
      }
  }

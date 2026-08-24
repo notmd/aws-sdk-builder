@@ -6,8 +6,8 @@
  pub struct GetAggregateComplianceDetailsByConfigRulePaginator {
 -    handle: std::sync::Arc<crate::client::Handle>,
 -    builder: crate::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder,
-+    handle: std::sync::Arc<super::client::Handle>,
-+    builder: super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder,
++    handle: std::sync::Arc<super::super::super::client::Handle>,
++    builder: super::super::super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder,
      stop_on_duplicate_token: bool,
  }
 
@@ -17,8 +17,8 @@
      pub(crate) fn new(
 -        handle: std::sync::Arc<crate::client::Handle>,
 -        builder: crate::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder,
-+        handle: std::sync::Arc<super::client::Handle>,
-+        builder: super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder,
++        handle: std::sync::Arc<super::super::super::client::Handle>,
++        builder: super::super::super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder,
      ) -> Self {
          Self {
              handle,
@@ -28,8 +28,8 @@
          self,
 -    ) -> crate::operation::get_aggregate_compliance_details_by_config_rule::paginator::GetAggregateComplianceDetailsByConfigRulePaginatorItems {
 -        crate::operation::get_aggregate_compliance_details_by_config_rule::paginator::GetAggregateComplianceDetailsByConfigRulePaginatorItems(self)
-+    ) -> super::operation::get_aggregate_compliance_details_by_config_rule::paginator::GetAggregateComplianceDetailsByConfigRulePaginatorItems {
-+        super::operation::get_aggregate_compliance_details_by_config_rule::paginator::GetAggregateComplianceDetailsByConfigRulePaginatorItems(self)
++    ) -> super::super::super::operation::get_aggregate_compliance_details_by_config_rule::paginator::GetAggregateComplianceDetailsByConfigRulePaginatorItems {
++        super::super::super::operation::get_aggregate_compliance_details_by_config_rule::paginator::GetAggregateComplianceDetailsByConfigRulePaginatorItems(self)
      }
 
      /// Stop paginating when the service returns the same pagination token twice in a row.
@@ -38,10 +38,10 @@
      ) -> ::aws_smithy_async::future::pagination_stream::PaginationStream<
          ::std::result::Result<
 -            crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput,
-+            super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput,
++            super::super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput,
              ::aws_smithy_runtime_api::client::result::SdkError<
 -                crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError,
-+                super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError,
++                super::super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError,
                  ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
              >,
          >,
@@ -50,13 +50,13 @@
          let handle = self.handle;
          let runtime_plugins =
 -            crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRule::operation_runtime_plugins(
-+            super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRule::operation_runtime_plugins(
++            super::super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRule::operation_runtime_plugins(
                  handle.runtime_plugins.clone(),
                  &handle.conf,
                  ::std::option::Option::None,
              )
 -            .with_operation_plugin(crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
-+            .with_operation_plugin(super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
++            .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
          ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
              move |tx| {
                  ::std::boxed::Box::pin(async move {
@@ -65,12 +65,12 @@
                      };
                      loop {
 -                        let resp = crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRule::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRule::orchestrate(&runtime_plugins, input.clone()).await;
++                        let resp = super::super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRule::orchestrate(&runtime_plugins, input.clone()).await;
                          // If the input member is None or it was an error
                          let done = match resp {
                              ::std::result::Result::Ok(ref resp) => {
 -                                let new_token = crate::lens::reflens_get_aggregate_compliance_details_by_config_rule_output_output_next_token(resp);
-+                                let new_token = super::lens::reflens_get_aggregate_compliance_details_by_config_rule_output_output_next_token(resp);
++                                let new_token = super::super::super::lens::reflens_get_aggregate_compliance_details_by_config_rule_output_output_next_token(resp);
                                  // Pagination is exhausted when the next token is an empty string
                                  let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                  if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {
@@ -79,17 +79,17 @@
      ) -> ::aws_smithy_async::future::pagination_stream::PaginationStream<
          ::std::result::Result<
 -            crate::types::AggregateEvaluationResult,
-+            super::types::AggregateEvaluationResult,
++            super::super::super::types::AggregateEvaluationResult,
              ::aws_smithy_runtime_api::client::result::SdkError<
 -                crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError,
-+                super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError,
++                super::super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError,
                  ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
              >,
          >,
      > {
          ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
 -            crate::lens::lens_get_aggregate_compliance_details_by_config_rule_output_output_aggregate_evaluation_results(page)
-+            super::lens::lens_get_aggregate_compliance_details_by_config_rule_output_output_aggregate_evaluation_results(page)
++            super::super::super::lens::lens_get_aggregate_compliance_details_by_config_rule_output_output_aggregate_evaluation_results(page)
                  .unwrap_or_default()
                  .into_iter()
          })

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AdminDeleteUserAttributesError>`](crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError)
 -    pub fn admin_delete_user_attributes(&self) -> crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesFluentBuilder {
 -        crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesFluentBuilder::new(self.handle.clone())
-+    pub fn admin_delete_user_attributes(&self) -> super::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesFluentBuilder {
-+        super::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesFluentBuilder::new(self.handle.clone())
++    pub fn admin_delete_user_attributes(&self) -> super::super::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesFluentBuilder {
++        super::super::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesFluentBuilder::new(self.handle.clone())
      }
  }

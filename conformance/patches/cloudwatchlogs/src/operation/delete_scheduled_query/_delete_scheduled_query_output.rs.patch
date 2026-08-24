@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteScheduledQueryOutput`](crate::operation::delete_scheduled_query::DeleteScheduledQueryOutput).
 -    pub fn builder() -> crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder {
 -        crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder {
-+        super::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder {
++        super::super::super::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteScheduledQueryOutput`](crate::operation::delete_scheduled_query::DeleteScheduledQueryOutput).
 -    pub fn build(self) -> crate::operation::delete_scheduled_query::DeleteScheduledQueryOutput {
 -        crate::operation::delete_scheduled_query::DeleteScheduledQueryOutput {
-+    pub fn build(self) -> super::operation::delete_scheduled_query::DeleteScheduledQueryOutput {
-+        super::operation::delete_scheduled_query::DeleteScheduledQueryOutput {
++    pub fn build(self) -> super::super::super::operation::delete_scheduled_query::DeleteScheduledQueryOutput {
++        super::super::super::operation::delete_scheduled_query::DeleteScheduledQueryOutput {
              _request_id: self._request_id,
          }
      }

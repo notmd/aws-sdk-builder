@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`QuotaShareCapacityUsage`](crate::types::QuotaShareCapacityUsage).
 -    pub fn builder() -> crate::types::builders::QuotaShareCapacityUsageBuilder {
 -        crate::types::builders::QuotaShareCapacityUsageBuilder::default()
-+    pub fn builder() -> super::types::builders::QuotaShareCapacityUsageBuilder {
-+        super::types::builders::QuotaShareCapacityUsageBuilder::default()
++    pub fn builder() -> super::super::types::builders::QuotaShareCapacityUsageBuilder {
++        super::super::types::builders::QuotaShareCapacityUsageBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`QuotaShareCapacityUsage`](crate::types::QuotaShareCapacityUsage).
 -    pub fn build(self) -> crate::types::QuotaShareCapacityUsage {
 -        crate::types::QuotaShareCapacityUsage {
-+    pub fn build(self) -> super::types::QuotaShareCapacityUsage {
-+        super::types::QuotaShareCapacityUsage {
++    pub fn build(self) -> super::super::types::QuotaShareCapacityUsage {
++        super::super::types::QuotaShareCapacityUsage {
              capacity_unit: self.capacity_unit,
              quantity: self.quantity,
          }

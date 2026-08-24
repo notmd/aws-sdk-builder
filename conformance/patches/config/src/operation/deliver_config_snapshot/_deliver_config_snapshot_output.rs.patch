@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeliverConfigSnapshotOutput`](crate::operation::deliver_config_snapshot::DeliverConfigSnapshotOutput).
 -    pub fn builder() -> crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotOutputBuilder {
 -        crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotOutputBuilder::default()
-+    pub fn builder() -> super::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotOutputBuilder {
-+        super::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotOutputBuilder {
++        super::super::super::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeliverConfigSnapshotOutput`](crate::operation::deliver_config_snapshot::DeliverConfigSnapshotOutput).
 -    pub fn build(self) -> crate::operation::deliver_config_snapshot::DeliverConfigSnapshotOutput {
 -        crate::operation::deliver_config_snapshot::DeliverConfigSnapshotOutput {
-+    pub fn build(self) -> super::operation::deliver_config_snapshot::DeliverConfigSnapshotOutput {
-+        super::operation::deliver_config_snapshot::DeliverConfigSnapshotOutput {
++    pub fn build(self) -> super::super::super::operation::deliver_config_snapshot::DeliverConfigSnapshotOutput {
++        super::super::super::operation::deliver_config_snapshot::DeliverConfigSnapshotOutput {
              config_snapshot_id: self.config_snapshot_id,
              _request_id: self._request_id,
          }

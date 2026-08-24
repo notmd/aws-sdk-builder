@@ -5,7 +5,7 @@
      /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
      /// </note>
 -    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
-+    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
++    pub server_side_encryption: ::std::option::Option<super::super::super::types::ServerSideEncryption>,
      /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
@@ -14,13 +14,13 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
-+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
++    pub request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
      /// <p>The algorithm that was used to create a checksum of the object.</p>
 -    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-+    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
++    pub checksum_algorithm: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>,
      /// <p>Indicates the checksum type that you want Amazon S3 to use to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
 -    pub checksum_type: ::std::option::Option<crate::types::ChecksumType>,
-+    pub checksum_type: ::std::option::Option<super::types::ChecksumType>,
++    pub checksum_type: ::std::option::Option<super::super::super::types::ChecksumType>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
@@ -29,7 +29,7 @@
      /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
      /// </note>
 -    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
-+    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
++    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::super::super::types::ServerSideEncryption> {
          self.server_side_encryption.as_ref()
      }
      /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
@@ -38,17 +38,17 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
-+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
++    pub fn request_charged(&self) -> ::std::option::Option<&super::super::super::types::RequestCharged> {
          self.request_charged.as_ref()
      }
      /// <p>The algorithm that was used to create a checksum of the object.</p>
 -    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
-+    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
++    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::super::super::types::ChecksumAlgorithm> {
          self.checksum_algorithm.as_ref()
      }
      /// <p>Indicates the checksum type that you want Amazon S3 to use to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
 -    pub fn checksum_type(&self) -> ::std::option::Option<&crate::types::ChecksumType> {
-+    pub fn checksum_type(&self) -> ::std::option::Option<&super::types::ChecksumType> {
++    pub fn checksum_type(&self) -> ::std::option::Option<&super::super::super::types::ChecksumType> {
          self.checksum_type.as_ref()
      }
  }
@@ -57,7 +57,7 @@
      }
  }
 -impl crate::s3_request_id::RequestIdExt for CreateMultipartUploadOutput {
-+impl super::s3_request_id::RequestIdExt for CreateMultipartUploadOutput {
++impl super::super::super::s3_request_id::RequestIdExt for CreateMultipartUploadOutput {
      fn extended_request_id(&self) -> Option<&str> {
          self._extended_request_id.as_deref()
      }
@@ -67,8 +67,8 @@
      /// Creates a new builder-style object to manufacture [`CreateMultipartUploadOutput`](crate::operation::create_multipart_upload::CreateMultipartUploadOutput).
 -    pub fn builder() -> crate::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder {
 -        crate::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder {
-+        super::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder {
++        super::super::super::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder::default()
      }
  }
 
@@ -77,7 +77,7 @@
      pub(crate) key: ::std::option::Option<::std::string::String>,
      pub(crate) upload_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
-+    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
++    pub(crate) server_side_encryption: ::std::option::Option<super::super::super::types::ServerSideEncryption>,
      pub(crate) sse_customer_algorithm: ::std::option::Option<::std::string::String>,
      pub(crate) sse_customer_key_md5: ::std::option::Option<::std::string::String>,
      pub(crate) ssekms_key_id: ::std::option::Option<::std::string::String>,
@@ -86,9 +86,9 @@
 -    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
 -    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
 -    pub(crate) checksum_type: ::std::option::Option<crate::types::ChecksumType>,
-+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
-+    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
-+    pub(crate) checksum_type: ::std::option::Option<super::types::ChecksumType>,
++    pub(crate) request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
++    pub(crate) checksum_algorithm: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>,
++    pub(crate) checksum_type: ::std::option::Option<super::super::super::types::ChecksumType>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
@@ -97,7 +97,7 @@
      /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
      /// </note>
 -    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
-+    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
++    pub fn server_side_encryption(mut self, input: super::super::super::types::ServerSideEncryption) -> Self {
          self.server_side_encryption = ::std::option::Option::Some(input);
          self
      }
@@ -106,7 +106,7 @@
      /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
      /// </note>
 -    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
-+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
++    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::super::super::types::ServerSideEncryption>) -> Self {
          self.server_side_encryption = input;
          self
      }
@@ -115,7 +115,7 @@
      /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
      /// </note>
 -    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
-+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
++    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::super::super::types::ServerSideEncryption> {
          &self.server_side_encryption
      }
      /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
@@ -124,7 +124,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
-+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
++    pub fn request_charged(mut self, input: super::super::super::types::RequestCharged) -> Self {
          self.request_charged = ::std::option::Option::Some(input);
          self
      }
@@ -133,7 +133,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
-+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
++    pub fn set_request_charged(mut self, input: ::std::option::Option<super::super::super::types::RequestCharged>) -> Self {
          self.request_charged = input;
          self
      }
@@ -142,41 +142,41 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
-+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
++    pub fn get_request_charged(&self) -> &::std::option::Option<super::super::super::types::RequestCharged> {
          &self.request_charged
      }
      /// <p>The algorithm that was used to create a checksum of the object.</p>
 -    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
-+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
++    pub fn checksum_algorithm(mut self, input: super::super::super::types::ChecksumAlgorithm) -> Self {
          self.checksum_algorithm = ::std::option::Option::Some(input);
          self
      }
      /// <p>The algorithm that was used to create a checksum of the object.</p>
 -    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
-+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
++    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>) -> Self {
          self.checksum_algorithm = input;
          self
      }
      /// <p>The algorithm that was used to create a checksum of the object.</p>
 -    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
-+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
++    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::super::super::types::ChecksumAlgorithm> {
          &self.checksum_algorithm
      }
      /// <p>Indicates the checksum type that you want Amazon S3 to use to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
 -    pub fn checksum_type(mut self, input: crate::types::ChecksumType) -> Self {
-+    pub fn checksum_type(mut self, input: super::types::ChecksumType) -> Self {
++    pub fn checksum_type(mut self, input: super::super::super::types::ChecksumType) -> Self {
          self.checksum_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>Indicates the checksum type that you want Amazon S3 to use to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
 -    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
-+    pub fn set_checksum_type(mut self, input: ::std::option::Option<super::types::ChecksumType>) -> Self {
++    pub fn set_checksum_type(mut self, input: ::std::option::Option<super::super::super::types::ChecksumType>) -> Self {
          self.checksum_type = input;
          self
      }
      /// <p>Indicates the checksum type that you want Amazon S3 to use to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
 -    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> {
-+    pub fn get_checksum_type(&self) -> &::std::option::Option<super::types::ChecksumType> {
++    pub fn get_checksum_type(&self) -> &::std::option::Option<super::super::super::types::ChecksumType> {
          &self.checksum_type
      }
      pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -186,8 +186,8 @@
      /// Consumes the builder and constructs a [`CreateMultipartUploadOutput`](crate::operation::create_multipart_upload::CreateMultipartUploadOutput).
 -    pub fn build(self) -> crate::operation::create_multipart_upload::CreateMultipartUploadOutput {
 -        crate::operation::create_multipart_upload::CreateMultipartUploadOutput {
-+    pub fn build(self) -> super::operation::create_multipart_upload::CreateMultipartUploadOutput {
-+        super::operation::create_multipart_upload::CreateMultipartUploadOutput {
++    pub fn build(self) -> super::super::super::operation::create_multipart_upload::CreateMultipartUploadOutput {
++        super::super::super::operation::create_multipart_upload::CreateMultipartUploadOutput {
              abort_date: self.abort_date,
              abort_rule_id: self.abort_rule_id,
              bucket: self.bucket,

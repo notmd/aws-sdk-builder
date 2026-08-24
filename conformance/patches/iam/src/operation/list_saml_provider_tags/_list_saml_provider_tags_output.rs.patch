@@ -5,7 +5,7 @@
  pub struct ListSamlProviderTagsOutput {
      /// <p>The list of tags that are currently attached to the Security Assertion Markup Language (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
 -    pub tags: ::std::vec::Vec<crate::types::Tag>,
-+    pub tags: ::std::vec::Vec<super::types::Tag>,
++    pub tags: ::std::vec::Vec<super::super::super::types::Tag>,
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
      pub is_truncated: bool,
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -14,7 +14,7 @@
  impl ListSamlProviderTagsOutput {
      /// <p>The list of tags that are currently attached to the Security Assertion Markup Language (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
 -    pub fn tags(&self) -> &[crate::types::Tag] {
-+    pub fn tags(&self) -> &[super::types::Tag] {
++    pub fn tags(&self) -> &[super::super::super::types::Tag] {
          use std::ops::Deref;
          self.tags.deref()
      }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListSamlProviderTagsOutput`](crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput).
 -    pub fn builder() -> crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder {
 -        crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder {
-+        super::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder {
++        super::super::super::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListSamlProviderTagsOutputBuilder {
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
      pub(crate) is_truncated: ::std::option::Option<bool>,
      pub(crate) marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -43,7 +43,7 @@
      ///
      /// <p>The list of tags that are currently attached to the Security Assertion Markup Language (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
 -    pub fn tags(mut self, input: crate::types::Tag) -> Self {
-+    pub fn tags(mut self, input: super::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::super::super::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
          self.tags = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The list of tags that are currently attached to the Security Assertion Markup Language (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
 -    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self {
          self.tags = input;
          self
      }
      /// <p>The list of tags that are currently attached to the Security Assertion Markup Language (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
 -    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
-+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> {
          &self.tags
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -67,10 +67,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput {
-+        ::std::result::Result::Ok(super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput {
++        ::std::result::Result::Ok(super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput {
              tags: self.tags.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "tags",

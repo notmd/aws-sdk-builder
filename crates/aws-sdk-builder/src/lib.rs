@@ -1,3 +1,4 @@
+pub mod canonical;
 mod codegen;
 mod config;
 mod endpoint_codegen;
@@ -7,6 +8,7 @@ mod names;
 mod output;
 pub mod registry;
 
+pub use canonical::{ORIGINAL_FILE, split};
 pub use config::{Builder, OperationNames};
 pub use error::BuildError;
 pub use registry::{ServiceMetadata, ServiceSource};
@@ -15,6 +17,13 @@ pub use registry::{ServiceMetadata, ServiceSource};
 pub struct CompileReport {
     pub generated_root: std::path::PathBuf,
     pub operations: Vec<String>,
+}
+
+/// The file plan needed to project a generated canonical artifact for review.
+#[derive(Debug, Clone)]
+pub struct ConformanceSnapshot {
+    pub operation_count: usize,
+    pub service_files: std::collections::BTreeMap<String, std::collections::BTreeSet<String>>,
 }
 
 pub fn configure() -> Builder {
@@ -98,7 +107,7 @@ pub fn compile_source<O: OperationNames>(
     if out_dir.join("generated").is_dir() {
         output::copy_tree(&out_dir.join("generated"), &stage.path().join("generated"))?;
     }
-    let generated = codegen::generate(stage.path(), true, false, &[merged])?;
+    let generated = codegen::generate(stage.path(), &[merged])?;
     let mut next_state = state;
     next_state["services"][source.metadata.key] = serde_json::json!({
         "all_operations": merged_all,
@@ -135,7 +144,7 @@ fn read_state(path: &std::path::Path) -> Result<serde_json::Value, BuildError> {
 pub fn generate_all<I>(
     output_dir: impl AsRef<std::path::Path>,
     services: I,
-) -> Result<usize, BuildError>
+) -> Result<ConformanceSnapshot, BuildError>
 where
     I: IntoIterator<Item = ServiceSource>,
 {
@@ -162,9 +171,16 @@ where
             path: parent.to_owned(),
             source,
         })?;
-    let generated = codegen::generate(stage.path(), false, true, &selections)?;
+    let generated = codegen::generate(stage.path(), &selections)?;
     output::install_snapshot(stage.path(), output_dir)?;
-    Ok(generated.operations.len())
+    Ok(ConformanceSnapshot {
+        operation_count: generated.operations.len(),
+        service_files: generated
+            .files
+            .into_iter()
+            .map(|(service, files)| (service, files.into_keys().collect()))
+            .collect(),
+    })
 }
 
 impl Builder {
@@ -182,7 +198,7 @@ impl Builder {
                 path: out_dir.clone(),
                 source,
             })?;
-        let generated = codegen::generate(stage.path(), true, false, &selections)?;
+        let generated = codegen::generate(stage.path(), &selections)?;
         output::install(stage.path(), &out_dir, generated.operations)
     }
 }

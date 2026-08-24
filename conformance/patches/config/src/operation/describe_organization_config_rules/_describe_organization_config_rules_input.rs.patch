@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeOrganizationConfigRulesInput`](crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesInput).
 -    pub fn builder() -> crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesInputBuilder {
 -        crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesInputBuilder {
-+        super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesInputBuilder {
++        super::super::super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesInput,
-+        super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesInput,
++        super::super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesInput {
-+            super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesInput {
++            super::super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesInput {
                  organization_config_rule_names: self.organization_config_rule_names,
                  limit: self.limit,
                  next_token: self.next_token,

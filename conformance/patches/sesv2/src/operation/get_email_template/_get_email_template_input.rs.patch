@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetEmailTemplateInput`](crate::operation::get_email_template::GetEmailTemplateInput).
 -    pub fn builder() -> crate::operation::get_email_template::builders::GetEmailTemplateInputBuilder {
 -        crate::operation::get_email_template::builders::GetEmailTemplateInputBuilder::default()
-+    pub fn builder() -> super::operation::get_email_template::builders::GetEmailTemplateInputBuilder {
-+        super::operation::get_email_template::builders::GetEmailTemplateInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_email_template::builders::GetEmailTemplateInputBuilder {
++        super::super::super::operation::get_email_template::builders::GetEmailTemplateInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_email_template::GetEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_email_template::GetEmailTemplateInput {
-+    ) -> ::std::result::Result<super::operation::get_email_template::GetEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_email_template::GetEmailTemplateInput {
++    ) -> ::std::result::Result<super::super::super::operation::get_email_template::GetEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_email_template::GetEmailTemplateInput {
              template_name: self.template_name,
          })
      }

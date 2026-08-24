@@ -5,7 +5,7 @@
  pub fn ser_describe_jobs_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::describe_jobs::DescribeJobsInput,
-+    input: &super::operation::describe_jobs::DescribeJobsInput,
++    input: &super::super::operation::describe_jobs::DescribeJobsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.jobs {
          let mut array_2 = object.key("jobs").start_array();

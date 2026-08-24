@@ -5,20 +5,20 @@
  pub struct GuardrailChecksMessage {
      /// <p>The role of the message sender.</p>
 -    pub role: crate::types::GuardrailChecksRole,
-+    pub role: super::types::GuardrailChecksRole,
++    pub role: super::super::types::GuardrailChecksRole,
      /// <p>The content blocks for the message.</p>
 -    pub content: ::std::vec::Vec<crate::types::GuardrailChecksContentBlock>,
-+    pub content: ::std::vec::Vec<super::types::GuardrailChecksContentBlock>,
++    pub content: ::std::vec::Vec<super::super::types::GuardrailChecksContentBlock>,
  }
  impl GuardrailChecksMessage {
      /// <p>The role of the message sender.</p>
 -    pub fn role(&self) -> &crate::types::GuardrailChecksRole {
-+    pub fn role(&self) -> &super::types::GuardrailChecksRole {
++    pub fn role(&self) -> &super::super::types::GuardrailChecksRole {
          &self.role
      }
      /// <p>The content blocks for the message.</p>
 -    pub fn content(&self) -> &[crate::types::GuardrailChecksContentBlock] {
-+    pub fn content(&self) -> &[super::types::GuardrailChecksContentBlock] {
++    pub fn content(&self) -> &[super::super::types::GuardrailChecksContentBlock] {
          use std::ops::Deref;
          self.content.deref()
      }
@@ -28,8 +28,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailChecksMessage`](crate::types::GuardrailChecksMessage).
 -    pub fn builder() -> crate::types::builders::GuardrailChecksMessageBuilder {
 -        crate::types::builders::GuardrailChecksMessageBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailChecksMessageBuilder {
-+        super::types::builders::GuardrailChecksMessageBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailChecksMessageBuilder {
++        super::super::types::builders::GuardrailChecksMessageBuilder::default()
      }
  }
 
@@ -39,26 +39,26 @@
  pub struct GuardrailChecksMessageBuilder {
 -    pub(crate) role: ::std::option::Option<crate::types::GuardrailChecksRole>,
 -    pub(crate) content: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentBlock>>,
-+    pub(crate) role: ::std::option::Option<super::types::GuardrailChecksRole>,
-+    pub(crate) content: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksContentBlock>>,
++    pub(crate) role: ::std::option::Option<super::super::types::GuardrailChecksRole>,
++    pub(crate) content: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentBlock>>,
  }
  impl GuardrailChecksMessageBuilder {
      /// <p>The role of the message sender.</p>
      /// This field is required.
 -    pub fn role(mut self, input: crate::types::GuardrailChecksRole) -> Self {
-+    pub fn role(mut self, input: super::types::GuardrailChecksRole) -> Self {
++    pub fn role(mut self, input: super::super::types::GuardrailChecksRole) -> Self {
          self.role = ::std::option::Option::Some(input);
          self
      }
      /// <p>The role of the message sender.</p>
 -    pub fn set_role(mut self, input: ::std::option::Option<crate::types::GuardrailChecksRole>) -> Self {
-+    pub fn set_role(mut self, input: ::std::option::Option<super::types::GuardrailChecksRole>) -> Self {
++    pub fn set_role(mut self, input: ::std::option::Option<super::super::types::GuardrailChecksRole>) -> Self {
          self.role = input;
          self
      }
      /// <p>The role of the message sender.</p>
 -    pub fn get_role(&self) -> &::std::option::Option<crate::types::GuardrailChecksRole> {
-+    pub fn get_role(&self) -> &::std::option::Option<super::types::GuardrailChecksRole> {
++    pub fn get_role(&self) -> &::std::option::Option<super::super::types::GuardrailChecksRole> {
          &self.role
      }
      /// Appends an item to `content`.
@@ -67,7 +67,7 @@
      ///
      /// <p>The content blocks for the message.</p>
 -    pub fn content(mut self, input: crate::types::GuardrailChecksContentBlock) -> Self {
-+    pub fn content(mut self, input: super::types::GuardrailChecksContentBlock) -> Self {
++    pub fn content(mut self, input: super::super::types::GuardrailChecksContentBlock) -> Self {
          let mut v = self.content.unwrap_or_default();
          v.push(input);
          self.content = ::std::option::Option::Some(v);
@@ -76,13 +76,13 @@
      }
      /// <p>The content blocks for the message.</p>
 -    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentBlock>>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksContentBlock>>) -> Self {
++    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentBlock>>) -> Self {
          self.content = input;
          self
      }
      /// <p>The content blocks for the message.</p>
 -    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentBlock>> {
-+    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksContentBlock>> {
++    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentBlock>> {
          &self.content
      }
      /// Consumes the builder and constructs a [`GuardrailChecksMessage`](crate::types::GuardrailChecksMessage).
@@ -92,8 +92,8 @@
      /// - [`content`](crate::types::builders::GuardrailChecksMessageBuilder::content)
 -    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailChecksMessage, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailChecksMessage {
-+    pub fn build(self) -> ::std::result::Result<super::types::GuardrailChecksMessage, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailChecksMessage {
++    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksMessage, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailChecksMessage {
              role: self.role.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "role",

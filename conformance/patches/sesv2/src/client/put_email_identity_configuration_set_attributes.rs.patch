@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder {
 -        crate::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder::new(
-+    ) -> super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder {
-+        super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder::new(
++    ) -> super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder {
++        super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder::new(
              self.handle.clone(),
          )
      }

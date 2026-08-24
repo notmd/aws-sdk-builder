@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AggregateConformancePackComplianceSummaryFilters`](crate::types::AggregateConformancePackComplianceSummaryFilters).
 -    pub fn builder() -> crate::types::builders::AggregateConformancePackComplianceSummaryFiltersBuilder {
 -        crate::types::builders::AggregateConformancePackComplianceSummaryFiltersBuilder::default()
-+    pub fn builder() -> super::types::builders::AggregateConformancePackComplianceSummaryFiltersBuilder {
-+        super::types::builders::AggregateConformancePackComplianceSummaryFiltersBuilder::default()
++    pub fn builder() -> super::super::types::builders::AggregateConformancePackComplianceSummaryFiltersBuilder {
++        super::super::types::builders::AggregateConformancePackComplianceSummaryFiltersBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AggregateConformancePackComplianceSummaryFilters`](crate::types::AggregateConformancePackComplianceSummaryFilters).
 -    pub fn build(self) -> crate::types::AggregateConformancePackComplianceSummaryFilters {
 -        crate::types::AggregateConformancePackComplianceSummaryFilters {
-+    pub fn build(self) -> super::types::AggregateConformancePackComplianceSummaryFilters {
-+        super::types::AggregateConformancePackComplianceSummaryFilters {
++    pub fn build(self) -> super::super::types::AggregateConformancePackComplianceSummaryFilters {
++        super::super::types::AggregateConformancePackComplianceSummaryFilters {
              account_id: self.account_id,
              aws_region: self.aws_region,
          }

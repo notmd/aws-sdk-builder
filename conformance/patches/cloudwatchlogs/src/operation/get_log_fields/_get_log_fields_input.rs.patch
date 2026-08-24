@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetLogFieldsInput`](crate::operation::get_log_fields::GetLogFieldsInput).
 -    pub fn builder() -> crate::operation::get_log_fields::builders::GetLogFieldsInputBuilder {
 -        crate::operation::get_log_fields::builders::GetLogFieldsInputBuilder::default()
-+    pub fn builder() -> super::operation::get_log_fields::builders::GetLogFieldsInputBuilder {
-+        super::operation::get_log_fields::builders::GetLogFieldsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_log_fields::builders::GetLogFieldsInputBuilder {
++        super::super::super::operation::get_log_fields::builders::GetLogFieldsInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_log_fields::GetLogFieldsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_log_fields::GetLogFieldsInput {
-+    ) -> ::std::result::Result<super::operation::get_log_fields::GetLogFieldsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_log_fields::GetLogFieldsInput {
++    ) -> ::std::result::Result<super::super::super::operation::get_log_fields::GetLogFieldsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_log_fields::GetLogFieldsInput {
              data_source_name: self.data_source_name,
              data_source_type: self.data_source_type,
          })

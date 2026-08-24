@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListSSHPublicKeysError>`](crate::operation::list_ssh_public_keys::ListSSHPublicKeysError)
 -    pub fn list_ssh_public_keys(&self) -> crate::operation::list_ssh_public_keys::builders::ListSSHPublicKeysFluentBuilder {
 -        crate::operation::list_ssh_public_keys::builders::ListSSHPublicKeysFluentBuilder::new(self.handle.clone())
-+    pub fn list_ssh_public_keys(&self) -> super::operation::list_ssh_public_keys::builders::ListSSHPublicKeysFluentBuilder {
-+        super::operation::list_ssh_public_keys::builders::ListSSHPublicKeysFluentBuilder::new(self.handle.clone())
++    pub fn list_ssh_public_keys(&self) -> super::super::operation::list_ssh_public_keys::builders::ListSSHPublicKeysFluentBuilder {
++        super::super::operation::list_ssh_public_keys::builders::ListSSHPublicKeysFluentBuilder::new(self.handle.clone())
      }
  }

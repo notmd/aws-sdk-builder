@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AddClientIdToOpenIdConnectProviderOutput`](crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput).
 -    pub fn builder() -> crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder {
 -        crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder::default()
-+    pub fn builder() -> super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder {
-+        super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder {
++        super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AddClientIdToOpenIdConnectProviderOutput`](crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput).
 -    pub fn build(self) -> crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput {
 -        crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput {
-+    pub fn build(self) -> super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput {
-+        super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput {
++    pub fn build(self) -> super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput {
++        super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput {
              _request_id: self._request_id,
          }
      }

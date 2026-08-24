@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteDestinationOutput`](crate::operation::delete_destination::DeleteDestinationOutput).
 -    pub fn builder() -> crate::operation::delete_destination::builders::DeleteDestinationOutputBuilder {
 -        crate::operation::delete_destination::builders::DeleteDestinationOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_destination::builders::DeleteDestinationOutputBuilder {
-+        super::operation::delete_destination::builders::DeleteDestinationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_destination::builders::DeleteDestinationOutputBuilder {
++        super::super::super::operation::delete_destination::builders::DeleteDestinationOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteDestinationOutput`](crate::operation::delete_destination::DeleteDestinationOutput).
 -    pub fn build(self) -> crate::operation::delete_destination::DeleteDestinationOutput {
 -        crate::operation::delete_destination::DeleteDestinationOutput {
-+    pub fn build(self) -> super::operation::delete_destination::DeleteDestinationOutput {
-+        super::operation::delete_destination::DeleteDestinationOutput {
++    pub fn build(self) -> super::super::super::operation::delete_destination::DeleteDestinationOutput {
++        super::super::super::operation::delete_destination::DeleteDestinationOutput {
              _request_id: self._request_id,
          }
      }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CancelJobOutput`](crate::operation::cancel_job::CancelJobOutput).
 -    pub fn builder() -> crate::operation::cancel_job::builders::CancelJobOutputBuilder {
 -        crate::operation::cancel_job::builders::CancelJobOutputBuilder::default()
-+    pub fn builder() -> super::operation::cancel_job::builders::CancelJobOutputBuilder {
-+        super::operation::cancel_job::builders::CancelJobOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::cancel_job::builders::CancelJobOutputBuilder {
++        super::super::super::operation::cancel_job::builders::CancelJobOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CancelJobOutput`](crate::operation::cancel_job::CancelJobOutput).
 -    pub fn build(self) -> crate::operation::cancel_job::CancelJobOutput {
 -        crate::operation::cancel_job::CancelJobOutput {
-+    pub fn build(self) -> super::operation::cancel_job::CancelJobOutput {
-+        super::operation::cancel_job::CancelJobOutput {
++    pub fn build(self) -> super::super::super::operation::cancel_job::CancelJobOutput {
++        super::super::super::operation::cancel_job::CancelJobOutput {
              _request_id: self._request_id,
          }
      }

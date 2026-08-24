@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput,
 -    crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
-+    super::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput,
-+    super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
++    super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput,
++    super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled(
-+            return Err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled(
++            return Err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled(
                  generic,
              ))
          }
@@ -29,16 +29,16 @@
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "AliasExistsException" => crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::AliasExistsException({
-+        "AliasExistsException" => super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::AliasExistsException({
++        "AliasExistsException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::AliasExistsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::AliasExistsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_alias_exists_exception::de_alias_exists_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::AliasExistsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_alias_exists_exception::de_alias_exists_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::AliasExistsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_alias_exists_exception::de_alias_exists_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -47,16 +47,16 @@
              tmp
          }),
 -        "InternalErrorException" => crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InternalErrorException({
-+        "InternalErrorException" => super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InternalErrorException({
++        "InternalErrorException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InternalErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -65,14 +65,14 @@
          }),
          "InvalidEmailRoleAccessPolicyException" => {
 -            crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidEmailRoleAccessPolicyException({
-+            super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidEmailRoleAccessPolicyException({
++            super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidEmailRoleAccessPolicyException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -81,19 +81,19 @@
          }
          "InvalidLambdaResponseException" => {
 -            crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidLambdaResponseException({
-+            super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidLambdaResponseException({
++            super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidLambdaResponseException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
-+                    let mut output = super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
++                    let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -102,16 +102,16 @@
              })
          }
 -        "InvalidParameterException" => crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidParameterException({
-+        "InvalidParameterException" => super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidParameterException({
++        "InvalidParameterException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidParameterException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -120,20 +120,20 @@
          }),
          "InvalidSmsRoleAccessPolicyException" => {
 -            crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidSmsRoleAccessPolicyException({
-+            super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidSmsRoleAccessPolicyException({
++            super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidSmsRoleAccessPolicyException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
-+                        super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
++                        super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
                              _response_body,
                              output,
                          )
 -                        .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                        .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                        .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -142,14 +142,14 @@
          }
          "InvalidSmsRoleTrustRelationshipException" => {
 -            crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidSmsRoleTrustRelationshipException({
-+            super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidSmsRoleTrustRelationshipException({
++            super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidSmsRoleTrustRelationshipException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -158,16 +158,16 @@
              })
          }
 -        "NotAuthorizedException" => crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::NotAuthorizedException({
-+        "NotAuthorizedException" => super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::NotAuthorizedException({
++        "NotAuthorizedException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::NotAuthorizedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -176,19 +176,19 @@
          }),
          "OperationNotEnabledException" => {
 -            crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::OperationNotEnabledException({
-+            super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::OperationNotEnabledException({
++            super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::OperationNotEnabledException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-+                    let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
++                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -197,16 +197,16 @@
              })
          }
 -        "ResourceNotFoundException" => crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::ResourceNotFoundException({
-+        "ResourceNotFoundException" => super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::ResourceNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -215,16 +215,16 @@
              tmp
          }),
 -        "TooManyRequestsException" => crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::TooManyRequestsException({
-+        "TooManyRequestsException" => super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::TooManyRequestsException({
++        "TooManyRequestsException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::TooManyRequestsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -233,16 +233,16 @@
              tmp
          }),
 -        "UnexpectedLambdaException" => crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UnexpectedLambdaException({
-+        "UnexpectedLambdaException" => super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UnexpectedLambdaException({
++        "UnexpectedLambdaException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UnexpectedLambdaException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-+                output = super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -251,19 +251,19 @@
          }),
          "UserLambdaValidationException" => {
 -            crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UserLambdaValidationException({
-+            super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UserLambdaValidationException({
++            super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UserLambdaValidationException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::UserLambdaValidationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
-+                    let mut output = super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
++                    let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -272,16 +272,16 @@
              })
          }
 -        "UserNotFoundException" => crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UserNotFoundException({
-+        "UserNotFoundException" => super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UserNotFoundException({
++        "UserNotFoundException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UserNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::UserNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::UserNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -290,7 +290,7 @@
              tmp
          }),
 -        _ => crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::generic(generic),
-+        _ => super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::generic(generic),
++        _ => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::generic(generic),
      })
  }
 
@@ -300,13 +300,13 @@
  ) -> std::result::Result<
 -    crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput,
 -    crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
-+    super::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput,
-+    super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
++    super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput,
++    super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesOutputBuilder::default();
-+        let mut output = super::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesOutputBuilder::default();
++        let mut output = super::super::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -315,12 +315,12 @@
 
  pub fn ser_admin_update_user_attributes_input(
 -    input: &crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
-+    input: &super::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
++    input: &super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_admin_update_user_attributes_input::ser_admin_update_user_attributes_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_admin_update_user_attributes_input::ser_admin_update_user_attributes_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_admin_update_user_attributes_input::ser_admin_update_user_attributes_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteUserPoolOutput`](crate::operation::delete_user_pool::DeleteUserPoolOutput).
 -    pub fn builder() -> crate::operation::delete_user_pool::builders::DeleteUserPoolOutputBuilder {
 -        crate::operation::delete_user_pool::builders::DeleteUserPoolOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_user_pool::builders::DeleteUserPoolOutputBuilder {
-+        super::operation::delete_user_pool::builders::DeleteUserPoolOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_user_pool::builders::DeleteUserPoolOutputBuilder {
++        super::super::super::operation::delete_user_pool::builders::DeleteUserPoolOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteUserPoolOutput`](crate::operation::delete_user_pool::DeleteUserPoolOutput).
 -    pub fn build(self) -> crate::operation::delete_user_pool::DeleteUserPoolOutput {
 -        crate::operation::delete_user_pool::DeleteUserPoolOutput {
-+    pub fn build(self) -> super::operation::delete_user_pool::DeleteUserPoolOutput {
-+        super::operation::delete_user_pool::DeleteUserPoolOutput {
++    pub fn build(self) -> super::super::super::operation::delete_user_pool::DeleteUserPoolOutput {
++        super::super::super::operation::delete_user_pool::DeleteUserPoolOutput {
              _request_id: self._request_id,
          }
      }

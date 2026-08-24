@@ -5,13 +5,13 @@
      pub(crate) async fn orchestrate(
          runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
 -        input: crate::operation::import_table::ImportTableInput,
-+        input: super::operation::import_table::ImportTableInput,
++        input: super::super::operation::import_table::ImportTableInput,
      ) -> ::std::result::Result<
 -        crate::operation::import_table::ImportTableOutput,
-+        super::operation::import_table::ImportTableOutput,
++        super::super::operation::import_table::ImportTableOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
 -            crate::operation::import_table::ImportTableError,
-+            super::operation::import_table::ImportTableError,
++            super::super::operation::import_table::ImportTableError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -20,7 +20,7 @@
          >| {
              err.map_service_error(|err| {
 -                err.downcast::<crate::operation::import_table::ImportTableError>()
-+                err.downcast::<super::operation::import_table::ImportTableError>()
++                err.downcast::<super::super::operation::import_table::ImportTableError>()
                      .expect("correct error type")
              })
          };
@@ -29,7 +29,7 @@
          ::std::result::Result::Ok(
              output
 -                .downcast::<crate::operation::import_table::ImportTableOutput>()
-+                .downcast::<super::operation::import_table::ImportTableOutput>()
++                .downcast::<super::super::operation::import_table::ImportTableOutput>()
                  .expect("correct output type"),
          )
      }
@@ -38,7 +38,7 @@
      pub(crate) async fn orchestrate_with_stop_point(
          runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
 -        input: crate::operation::import_table::ImportTableInput,
-+        input: super::operation::import_table::ImportTableInput,
++        input: super::super::operation::import_table::ImportTableInput,
          stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
      ) -> ::std::result::Result<
          ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -48,15 +48,15 @@
          client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
 -        client_config: &crate::config::Config,
 -        config_override: ::std::option::Option<crate::config::Builder>,
-+        client_config: &super::config::Config,
-+        config_override: ::std::option::Option<super::config::Builder>,
++        client_config: &super::super::config::Config,
++        config_override: ::std::option::Option<super::super::config::Builder>,
      ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
          let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 -        runtime_plugins = runtime_plugins.with_operation_plugin(crate::client_idempotency_token::IdempotencyTokenRuntimePlugin::new(
-+        runtime_plugins = runtime_plugins.with_operation_plugin(super::client_idempotency_token::IdempotencyTokenRuntimePlugin::new(
++        runtime_plugins = runtime_plugins.with_operation_plugin(super::super::client_idempotency_token::IdempotencyTokenRuntimePlugin::new(
              |token_provider, input| {
 -                let input: &mut crate::operation::import_table::ImportTableInput = input.downcast_mut().expect("correct type");
-+                let input: &mut super::operation::import_table::ImportTableInput = input.downcast_mut().expect("correct type");
++                let input: &mut super::super::operation::import_table::ImportTableInput = input.downcast_mut().expect("correct type");
                  if input.client_token.is_none() {
                      input.client_token = ::std::option::Option::Some(token_provider.make_idempotency_token());
                  }
@@ -65,7 +65,7 @@
                  runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
              }
 -            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
++            runtime_plugins = runtime_plugins.with_operation_plugin(super::super::config::ConfigOverrideRuntimePlugin::new(
                  config_override,
                  client_config.config.clone(),
                  &client_config.runtime_components,
@@ -74,7 +74,7 @@
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
 -            crate::config::auth::Params::builder()
-+            super::config::auth::Params::builder()
++            super::super::config::auth::Params::builder()
                  .operation_name("ImportTable")
                  .build()
                  .expect("required fields set"),
@@ -83,15 +83,15 @@
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
 -                crate::operation::import_table::ImportTableError,
-+                super::operation::import_table::ImportTableError,
++                super::super::operation::import_table::ImportTableError,
              >::new())
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
 -                crate::operation::import_table::ImportTableError,
-+                super::operation::import_table::ImportTableError,
++                super::super::operation::import_table::ImportTableError,
              >::new())
              .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
 -                crate::operation::import_table::ImportTableError,
-+                super::operation::import_table::ImportTableError,
++                super::super::operation::import_table::ImportTableError,
              >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -100,13 +100,13 @@
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
          let parse_result = if !success && status != 200 || force_error {
 -            crate::protocol_serde::shape_import_table::de_import_table_http_error(status, headers, body)
-+            super::protocol_serde::shape_import_table::de_import_table_http_error(status, headers, body)
++            super::super::protocol_serde::shape_import_table::de_import_table_http_error(status, headers, body)
          } else {
 -            crate::protocol_serde::shape_import_table::de_import_table_http_response(status, headers, body)
-+            super::protocol_serde::shape_import_table::de_import_table_http_response(status, headers, body)
++            super::super::protocol_serde::shape_import_table::de_import_table_http_response(status, headers, body)
          };
 -        crate::protocol_serde::type_erase_result(parse_result)
-+        super::protocol_serde::type_erase_result(parse_result)
++        super::super::protocol_serde::type_erase_result(parse_result)
      }
  }
  #[derive(Debug)]
@@ -115,18 +115,18 @@
      ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
          let input = input
 -            .downcast::<crate::operation::import_table::ImportTableInput>()
-+            .downcast::<super::operation::import_table::ImportTableInput>()
++            .downcast::<super::super::operation::import_table::ImportTableInput>()
              .expect("correct type");
          let _header_serialization_settings = _cfg
 -            .load::<crate::serialization_settings::HeaderSerializationSettings>()
-+            .load::<super::serialization_settings::HeaderSerializationSettings>()
++            .load::<super::super::serialization_settings::HeaderSerializationSettings>()
              .cloned()
              .unwrap_or_default();
          let mut request_builder = {
              #[allow(clippy::uninlined_format_args)]
              fn uri_base(
 -                _input: &crate::operation::import_table::ImportTableInput,
-+                _input: &super::operation::import_table::ImportTableInput,
++                _input: &super::super::operation::import_table::ImportTableInput,
                  output: &mut ::std::string::String,
              ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                  use ::std::fmt::Write as _;
@@ -135,7 +135,7 @@
              #[allow(clippy::unnecessary_wraps)]
              fn update_http_builder(
 -                input: &crate::operation::import_table::ImportTableInput,
-+                input: &super::operation::import_table::ImportTableInput,
++                input: &super::super::operation::import_table::ImportTableInput,
                  builder: ::http_1x::request::Builder,
              ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                  let mut uri = ::std::string::String::new();
@@ -144,7 +144,7 @@
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_import_table::ser_import_table_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_import_table::ser_import_table_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_import_table::ser_import_table_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -153,7 +153,7 @@
              .ok_or("failed to downcast to ImportTableInput")?;
 
 -        let params = crate::config::endpoint::Params::builder()
-+        let params = super::config::endpoint::Params::builder()
++        let params = super::super::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
              .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
              .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -162,7 +162,7 @@
 
  // Generated from JMESPath Expression: TableCreationParameters.TableName
 -fn get_resource_arn(input: &crate::operation::import_table::ImportTableInput) -> Option<&::std::string::String> {
-+fn get_resource_arn(input: &super::operation::import_table::ImportTableInput) -> Option<&::std::string::String> {
++fn get_resource_arn(input: &super::super::operation::import_table::ImportTableInput) -> Option<&::std::string::String> {
      let _fld_1 = input.table_creation_parameters.as_ref()?;
      let _fld_2 = &_fld_1.table_name;
      Some(_fld_2)
@@ -171,7 +171,7 @@
  pub enum ImportTableError {
      /// <p>There was a conflict when importing from the specified S3 source. This can occur when the current import conflicts with a previous import request that had the same client token.</p>
 -    ImportConflictException(crate::types::error::ImportConflictException),
-+    ImportConflictException(super::types::error::ImportConflictException),
++    ImportConflictException(super::super::types::error::ImportConflictException),
      /// <p>There is no limit to the number of daily on-demand backups that can be taken.</p>
      /// <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>.</p>
      /// <p>When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.</p>
@@ -180,7 +180,7 @@
      /// <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
      /// <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.</p>
 -    LimitExceededException(crate::types::error::LimitExceededException),
-+    LimitExceededException(super::types::error::LimitExceededException),
++    LimitExceededException(super::super::types::error::LimitExceededException),
      /// <p>The operation conflicts with the resource's availability. For example:</p>
      /// <ul>
      /// <li>
@@ -189,7 +189,7 @@
      /// </ul>
      /// <p>When appropriate, wait for the ongoing update to complete and attempt the request again.</p>
 -    ResourceInUseException(crate::types::error::ResourceInUseException),
-+    ResourceInUseException(super::types::error::ResourceInUseException),
++    ResourceInUseException(super::super::types::error::ResourceInUseException),
      /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
      #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
      variable wildcard pattern and check `.code()`:
@@ -198,7 +198,7 @@
       \
      See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ImportTableError) for what information is available for the error.")]
 -    Unhandled(crate::error::sealed_unhandled::Unhandled),
-+    Unhandled(super::error::sealed_unhandled::Unhandled),
++    Unhandled(super::super::error::sealed_unhandled::Unhandled),
  }
  impl ImportTableError {
      /// Creates the `ImportTableError::Unhandled` variant from any error type.
@@ -207,7 +207,7 @@
          err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
      ) -> Self {
 -        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
-+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::super::error::sealed_unhandled::Unhandled {
              source: err.into(),
              meta: ::std::default::Default::default(),
          })
@@ -216,7 +216,7 @@
      /// Creates the `ImportTableError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
      pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
 -        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
-+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::super::error::sealed_unhandled::Unhandled {
              source: err.clone().into(),
              meta: err,
          })
@@ -225,24 +225,24 @@
          meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
      ) -> Self {
 -        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
-+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::super::error::sealed_unhandled::Unhandled {
              source,
              meta: meta.unwrap_or_default(),
          })
      }
  }
 -impl ::aws_types::request_id::RequestId for crate::operation::import_table::ImportTableError {
-+impl ::aws_types::request_id::RequestId for super::operation::import_table::ImportTableError {
++impl ::aws_types::request_id::RequestId for super::super::operation::import_table::ImportTableError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
      }
  }
 
 -pub use crate::operation::import_table::_import_table_input::ImportTableInput;
-+pub use super::operation::import_table::_import_table_input::ImportTableInput;
++pub use super::super::operation::import_table::_import_table_input::ImportTableInput;
 
 -pub use crate::operation::import_table::_import_table_output::ImportTableOutput;
-+pub use super::operation::import_table::_import_table_output::ImportTableOutput;
++pub use super::super::operation::import_table::_import_table_output::ImportTableOutput;
 
  mod _import_table_input;
 

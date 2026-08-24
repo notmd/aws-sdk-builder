@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutConfigRuleError>`](crate::operation::put_config_rule::PutConfigRuleError)
 -    pub fn put_config_rule(&self) -> crate::operation::put_config_rule::builders::PutConfigRuleFluentBuilder {
 -        crate::operation::put_config_rule::builders::PutConfigRuleFluentBuilder::new(self.handle.clone())
-+    pub fn put_config_rule(&self) -> super::operation::put_config_rule::builders::PutConfigRuleFluentBuilder {
-+        super::operation::put_config_rule::builders::PutConfigRuleFluentBuilder::new(self.handle.clone())
++    pub fn put_config_rule(&self) -> super::super::operation::put_config_rule::builders::PutConfigRuleFluentBuilder {
++        super::super::operation::put_config_rule::builders::PutConfigRuleFluentBuilder::new(self.handle.clone())
      }
  }

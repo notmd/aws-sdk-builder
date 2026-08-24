@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`FunctionScalingConfig`](crate::types::FunctionScalingConfig).
 -    pub fn builder() -> crate::types::builders::FunctionScalingConfigBuilder {
 -        crate::types::builders::FunctionScalingConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::FunctionScalingConfigBuilder {
-+        super::types::builders::FunctionScalingConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::FunctionScalingConfigBuilder {
++        super::super::types::builders::FunctionScalingConfigBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`FunctionScalingConfig`](crate::types::FunctionScalingConfig).
 -    pub fn build(self) -> crate::types::FunctionScalingConfig {
 -        crate::types::FunctionScalingConfig {
-+    pub fn build(self) -> super::types::FunctionScalingConfig {
-+        super::types::FunctionScalingConfig {
++    pub fn build(self) -> super::super::types::FunctionScalingConfig {
++        super::super::types::FunctionScalingConfig {
              min_execution_environments: self.min_execution_environments,
              max_execution_environments: self.max_execution_environments,
          }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetEmailIdentityPoliciesOutput`](crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesOutput).
 -    pub fn builder() -> crate::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesOutputBuilder {
 -        crate::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesOutputBuilder {
-+        super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesOutputBuilder {
++        super::super::super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetEmailIdentityPoliciesOutput`](crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesOutput).
 -    pub fn build(self) -> crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesOutput {
 -        crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesOutput {
-+    pub fn build(self) -> super::operation::get_email_identity_policies::GetEmailIdentityPoliciesOutput {
-+        super::operation::get_email_identity_policies::GetEmailIdentityPoliciesOutput {
++    pub fn build(self) -> super::super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesOutput {
++        super::super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesOutput {
              policies: self.policies,
              _request_id: self._request_id,
          }

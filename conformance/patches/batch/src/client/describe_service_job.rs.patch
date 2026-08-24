@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeServiceJobError>`](crate::operation::describe_service_job::DescribeServiceJobError)
 -    pub fn describe_service_job(&self) -> crate::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder {
 -        crate::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder::new(self.handle.clone())
-+    pub fn describe_service_job(&self) -> super::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder {
-+        super::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder::new(self.handle.clone())
++    pub fn describe_service_job(&self) -> super::super::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder {
++        super::super::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder::new(self.handle.clone())
      }
  }

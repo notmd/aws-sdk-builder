@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetLayerVersionPolicyInput`](crate::operation::get_layer_version_policy::GetLayerVersionPolicyInput).
 -    pub fn builder() -> crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyInputBuilder {
 -        crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyInputBuilder {
-+        super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyInputBuilder {
++        super::super::super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_layer_version_policy::GetLayerVersionPolicyInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_layer_version_policy::GetLayerVersionPolicyInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_layer_version_policy::GetLayerVersionPolicyInput {
-+        ::std::result::Result::Ok(super::operation::get_layer_version_policy::GetLayerVersionPolicyInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput {
              layer_name: self.layer_name,
              version_number: self.version_number,
          })

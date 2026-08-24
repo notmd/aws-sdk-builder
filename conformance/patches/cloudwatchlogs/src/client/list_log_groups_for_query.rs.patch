@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListLogGroupsForQueryError>`](crate::operation::list_log_groups_for_query::ListLogGroupsForQueryError)
 -    pub fn list_log_groups_for_query(&self) -> crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder {
 -        crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder::new(self.handle.clone())
-+    pub fn list_log_groups_for_query(&self) -> super::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder {
-+        super::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder::new(self.handle.clone())
++    pub fn list_log_groups_for_query(&self) -> super::super::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder {
++        super::super::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder::new(self.handle.clone())
      }
  }

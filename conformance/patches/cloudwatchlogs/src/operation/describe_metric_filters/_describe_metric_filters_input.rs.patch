@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeMetricFiltersInput`](crate::operation::describe_metric_filters::DescribeMetricFiltersInput).
 -    pub fn builder() -> crate::operation::describe_metric_filters::builders::DescribeMetricFiltersInputBuilder {
 -        crate::operation::describe_metric_filters::builders::DescribeMetricFiltersInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_metric_filters::builders::DescribeMetricFiltersInputBuilder {
-+        super::operation::describe_metric_filters::builders::DescribeMetricFiltersInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_metric_filters::builders::DescribeMetricFiltersInputBuilder {
++        super::super::super::operation::describe_metric_filters::builders::DescribeMetricFiltersInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_metric_filters::DescribeMetricFiltersInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::describe_metric_filters::DescribeMetricFiltersInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::describe_metric_filters::DescribeMetricFiltersInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::describe_metric_filters::DescribeMetricFiltersInput {
-+        ::std::result::Result::Ok(super::operation::describe_metric_filters::DescribeMetricFiltersInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_metric_filters::DescribeMetricFiltersInput {
              log_group_name: self.log_group_name,
              filter_name_prefix: self.filter_name_prefix,
              next_token: self.next_token,

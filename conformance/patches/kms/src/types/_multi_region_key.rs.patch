@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`MultiRegionKey`](crate::types::MultiRegionKey).
 -    pub fn builder() -> crate::types::builders::MultiRegionKeyBuilder {
 -        crate::types::builders::MultiRegionKeyBuilder::default()
-+    pub fn builder() -> super::types::builders::MultiRegionKeyBuilder {
-+        super::types::builders::MultiRegionKeyBuilder::default()
++    pub fn builder() -> super::super::types::builders::MultiRegionKeyBuilder {
++        super::super::types::builders::MultiRegionKeyBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`MultiRegionKey`](crate::types::MultiRegionKey).
 -    pub fn build(self) -> crate::types::MultiRegionKey {
 -        crate::types::MultiRegionKey {
-+    pub fn build(self) -> super::types::MultiRegionKey {
-+        super::types::MultiRegionKey {
++    pub fn build(self) -> super::super::types::MultiRegionKey {
++        super::super::types::MultiRegionKey {
              arn: self.arn,
              region: self.region,
          }

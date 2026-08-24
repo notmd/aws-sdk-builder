@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesFluentBuilder {
 -        crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesFluentBuilder::new(
-+    ) -> super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesFluentBuilder {
-+        super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesFluentBuilder::new(
++    ) -> super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesFluentBuilder {
++        super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesFluentBuilder::new(
              self.handle.clone(),
          )
      }

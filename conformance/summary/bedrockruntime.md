@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `538/538` files compared · `293` matched · `235` mismatches · `8` missing · `2` extra · `54.46%` match (100.00% means fully matched)
+**Progress:** `538/538` files compared · `234` matched · `294` mismatches · `8` missing · `2` extra · `43.49%` match (100.00% means fully matched)
 
 ### `src/client/converse.rs`
 
@@ -33,8 +33,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ///   - [`output_data_config(Option<AsyncInvokeOutputDataConfig>)`](crate::operation::get_async_invoke::GetAsyncInvokeOutput::output_data_config): <p>Output data settings.</p>
 +    ///   - [`output_data_config(AsyncInvokeOutputDataConfig)`](crate::operation::get_async_invoke::GetAsyncInvokeOutput::output_data_config): <p>Output data settings.</p>
      /// - On failure, responds with [`SdkError<GetAsyncInvokeError>`](crate::operation::get_async_invoke::GetAsyncInvokeError)
-     pub fn get_async_invoke(&self) -> super::operation::get_async_invoke::builders::GetAsyncInvokeFluentBuilder {
-         super::operation::get_async_invoke::builders::GetAsyncInvokeFluentBuilder::new(self.handle.clone())
+     pub fn get_async_invoke(&self) -> super::super::operation::get_async_invoke::builders::GetAsyncInvokeFluentBuilder {
+         super::super::operation::get_async_invoke::builders::GetAsyncInvokeFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/invoke_model_with_bidirectional_stream.rs`
@@ -51,6 +51,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On success, responds with [`InvokeModelWithBidirectionalStreamOutput`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput) with field(s):
      ///   - [`body(EventReceiver<InvokeModelWithBidirectionalStreamOutput, InvokeModelWithBidirectionalStreamOutputError>)`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput::body): <p>Streaming response from the model in the format specified by the <code>BidirectionalOutputPayloadPart</code> header.</p>
      /// - On failure, responds with [`SdkError<InvokeModelWithBidirectionalStreamError>`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError)
+@@ -11,6 +11,8 @@
+     pub fn invoke_model_with_bidirectional_stream(
+         &self,
+     ) -> super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamFluentBuilder {
+-        super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamFluentBuilder::new(self.handle.clone())
++        super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamFluentBuilder::new(
++            self.handle.clone(),
++        )
+     }
+ }
 ```
 
 ### `src/config/auth.rs`
@@ -70,6 +80,37 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ],
              operation_overrides: ::std::collections::HashMap::new(),
          }
+```
+
+### `src/config/endpoint.rs`
+
+```diff
+--- reference/src/config/endpoint.rs
++++ generated/src/config/endpoint.rs
+@@ -29,7 +29,10 @@
+ /// Endpoint resolver trait specific to Amazon Bedrock Runtime
+ pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
+     /// Resolve an endpoint with the given parameters
+-    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
++    fn resolve_endpoint<'a>(
++        &'a self,
++        params: &'a super::super::config::endpoint::Params,
++    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
+
+     /// Convert this service-specific resolver into a `SharedEndpointResolver`
+     ///
+@@ -268,7 +271,10 @@
+ }
+
+ impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
+-    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
++    fn resolve_endpoint<'a>(
++        &'a self,
++        params: &'a super::super::config::endpoint::Params,
++    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
+         // Check single-entry cache (lock-free read via ArcSwap)
+         let cached = self.endpoint_cache.load();
+         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
 ```
 
 ### `src/config.rs`
@@ -969,14 +1010,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/converse/_converse_input.rs
 @@ -30,7 +30,7 @@
      /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
-     pub guardrail_config: ::std::option::Option<super::types::GuardrailConfiguration>,
+     pub guardrail_config: ::std::option::Option<super::super::super::types::GuardrailConfiguration>,
      /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
 -    pub additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub additional_model_request_fields: ::std::option::Option<::std::string::String>,
      /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-     pub prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PromptVariableValues>>,
+     pub prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
      /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
-@@ -91,7 +91,7 @@
+@@ -91,11 +91,13 @@
          self.guardrail_config.as_ref()
      }
      /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
@@ -985,16 +1026,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.additional_model_request_fields.as_ref()
      }
      /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-@@ -160,7 +160,7 @@
-     pub(crate) inference_config: ::std::option::Option<super::types::InferenceConfiguration>,
-     pub(crate) tool_config: ::std::option::Option<super::types::ToolConfiguration>,
-     pub(crate) guardrail_config: ::std::option::Option<super::types::GuardrailConfiguration>,
+-    pub fn prompt_variables(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>> {
++    pub fn prompt_variables(
++        &self,
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>> {
+         self.prompt_variables.as_ref()
+     }
+     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
+@@ -160,8 +162,9 @@
+     pub(crate) inference_config: ::std::option::Option<super::super::super::types::InferenceConfiguration>,
+     pub(crate) tool_config: ::std::option::Option<super::super::super::types::ToolConfiguration>,
+     pub(crate) guardrail_config: ::std::option::Option<super::super::super::types::GuardrailConfiguration>,
 -    pub(crate) additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
+-    pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
 +    pub(crate) additional_model_request_fields: ::std::option::Option<::std::string::String>,
-     pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PromptVariableValues>>,
++    pub(crate) prompt_variables:
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
      pub(crate) additional_model_response_field_paths: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) request_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -309,17 +309,17 @@
+     pub(crate) performance_config: ::std::option::Option<super::super::super::types::PerformanceConfiguration>,
+@@ -309,17 +312,17 @@
          &self.guardrail_config
      }
      /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
@@ -1015,6 +1066,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.additional_model_request_fields
      }
      /// Adds a key-value pair to `prompt_variables`.
+@@ -327,7 +330,11 @@
+     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
+     ///
+     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+-    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PromptVariableValues) -> Self {
++    pub fn prompt_variables(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::PromptVariableValues,
++    ) -> Self {
+         let mut hash_map = self.prompt_variables.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.prompt_variables = ::std::option::Option::Some(hash_map);
+@@ -446,7 +453,9 @@
+         &self.output_config
+     }
+     /// Consumes the builder and constructs a [`ConverseInput`](crate::operation::converse::ConverseInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::converse::ConverseInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::converse::ConverseInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::converse::ConverseInput {
+             model_id: self.model_id,
+             messages: self.messages,
 ```
 
 ### `src/operation/converse/_converse_output.rs`
@@ -1026,31 +1101,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ConverseOutput {
      /// <p>The result from the call to <code>Converse</code>.</p>
--    pub output: ::std::option::Option<super::types::ConverseOutput>,
-+    pub output: super::operation::converse::Output,
+-    pub output: ::std::option::Option<super::super::super::types::ConverseOutput>,
++    pub output: super::super::super::operation::converse::Output,
      /// <p>The reason why the model stopped generating output.</p>
-     pub stop_reason: super::types::StopReason,
+     pub stop_reason: super::super::super::types::StopReason,
      /// <p>The total number of tokens used in the call to <code>Converse</code>. The total includes the tokens input to the model and the tokens generated by the model.</p>
 @@ -12,7 +12,7 @@
      /// <p>Metrics for the call to <code>Converse</code>.</p>
-     pub metrics: ::std::option::Option<super::types::ConverseMetrics>,
+     pub metrics: ::std::option::Option<super::super::super::types::ConverseMetrics>,
      /// <p>Additional fields in the response that are unique to the model.</p>
 -    pub additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub additional_model_response_fields: ::std::option::Option<::std::string::String>,
      /// <p>A trace object that contains information about the Guardrail behavior.</p>
-     pub trace: ::std::option::Option<super::types::ConverseTrace>,
+     pub trace: ::std::option::Option<super::super::super::types::ConverseTrace>,
      /// <p>Model performance settings for the request.</p>
 @@ -23,8 +23,8 @@
  }
  impl ConverseOutput {
      /// <p>The result from the call to <code>Converse</code>.</p>
--    pub fn output(&self) -> ::std::option::Option<&super::types::ConverseOutput> {
+-    pub fn output(&self) -> ::std::option::Option<&super::super::super::types::ConverseOutput> {
 -        self.output.as_ref()
-+    pub fn output(&self) -> &super::operation::converse::Output {
++    pub fn output(&self) -> &super::super::super::operation::converse::Output {
 +        &self.output
      }
      /// <p>The reason why the model stopped generating output.</p>
-     pub fn stop_reason(&self) -> &super::types::StopReason {
+     pub fn stop_reason(&self) -> &super::super::super::types::StopReason {
 @@ -39,7 +39,7 @@
          self.metrics.as_ref()
      }
@@ -1064,34 +1139,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
  #[non_exhaustive]
  pub struct ConverseOutputBuilder {
--    pub(crate) output: ::std::option::Option<super::types::ConverseOutput>,
-+    pub(crate) output: ::std::option::Option<super::operation::converse::Output>,
-     pub(crate) stop_reason: ::std::option::Option<super::types::StopReason>,
-     pub(crate) usage: ::std::option::Option<super::types::TokenUsage>,
-     pub(crate) metrics: ::std::option::Option<super::types::ConverseMetrics>,
+-    pub(crate) output: ::std::option::Option<super::super::super::types::ConverseOutput>,
++    pub(crate) output: ::std::option::Option<super::super::super::operation::converse::Output>,
+     pub(crate) stop_reason: ::std::option::Option<super::super::super::types::StopReason>,
+     pub(crate) usage: ::std::option::Option<super::super::super::types::TokenUsage>,
+     pub(crate) metrics: ::std::option::Option<super::super::super::types::ConverseMetrics>,
 -    pub(crate) additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub(crate) additional_model_response_fields: ::std::option::Option<::std::string::String>,
-     pub(crate) trace: ::std::option::Option<super::types::ConverseTrace>,
-     pub(crate) performance_config: ::std::option::Option<super::types::PerformanceConfiguration>,
-     pub(crate) service_tier: ::std::option::Option<super::types::ServiceTier>,
+     pub(crate) trace: ::std::option::Option<super::super::super::types::ConverseTrace>,
+     pub(crate) performance_config: ::std::option::Option<super::super::super::types::PerformanceConfiguration>,
+     pub(crate) service_tier: ::std::option::Option<super::super::super::types::ServiceTier>,
 @@ -84,17 +84,17 @@
  impl ConverseOutputBuilder {
      /// <p>The result from the call to <code>Converse</code>.</p>
      /// This field is required.
--    pub fn output(mut self, input: super::types::ConverseOutput) -> Self {
-+    pub fn output(mut self, input: super::operation::converse::Output) -> Self {
+-    pub fn output(mut self, input: super::super::super::types::ConverseOutput) -> Self {
++    pub fn output(mut self, input: super::super::super::operation::converse::Output) -> Self {
          self.output = ::std::option::Option::Some(input);
          self
      }
      /// <p>The result from the call to <code>Converse</code>.</p>
--    pub fn set_output(mut self, input: ::std::option::Option<super::types::ConverseOutput>) -> Self {
-+    pub fn set_output(mut self, input: ::std::option::Option<super::operation::converse::Output>) -> Self {
+-    pub fn set_output(mut self, input: ::std::option::Option<super::super::super::types::ConverseOutput>) -> Self {
++    pub fn set_output(mut self, input: ::std::option::Option<super::super::super::operation::converse::Output>) -> Self {
          self.output = input;
          self
      }
      /// <p>The result from the call to <code>Converse</code>.</p>
--    pub fn get_output(&self) -> &::std::option::Option<super::types::ConverseOutput> {
-+    pub fn get_output(&self) -> &::std::option::Option<super::operation::converse::Output> {
+-    pub fn get_output(&self) -> &::std::option::Option<super::super::super::types::ConverseOutput> {
++    pub fn get_output(&self) -> &::std::option::Option<super::super::super::operation::converse::Output> {
          &self.output
      }
      /// <p>The reason why the model stopped generating output.</p>
@@ -1116,14 +1191,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.additional_model_response_fields
      }
      /// <p>A trace object that contains information about the Guardrail behavior.</p>
-@@ -209,10 +209,16 @@
+@@ -209,10 +209,18 @@
      }
      /// Consumes the builder and constructs a [`ConverseOutput`](crate::operation::converse::ConverseOutput).
      /// This method will fail if any of the following fields are not set:
 +    /// - [`output`](crate::operation::converse::builders::ConverseOutputBuilder::output)
      /// - [`stop_reason`](crate::operation::converse::builders::ConverseOutputBuilder::stop_reason)
-     pub fn build(self) -> ::std::result::Result<super::operation::converse::ConverseOutput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::operation::converse::ConverseOutput {
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::converse::ConverseOutput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::converse::ConverseOutput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::converse::ConverseOutput {
 -            output: self.output,
 +            output: self.output.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -1141,7 +1219,45 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/converse/builders.rs
 +++ generated/src/operation/converse/builders.rs
-@@ -245,17 +245,17 @@
+@@ -38,14 +38,20 @@
+     inner: super::super::super::operation::converse::builders::ConverseInputBuilder,
+     config_override: ::std::option::Option<super::super::super::config::Builder>,
+ }
+-impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::converse::ConverseOutput, super::super::super::operation::converse::ConverseError>
+-    for ConverseFluentBuilder
++impl
++    super::super::super::client::customize::internal::CustomizableSend<
++        super::super::super::operation::converse::ConverseOutput,
++        super::super::super::operation::converse::ConverseError,
++    > for ConverseFluentBuilder
+ {
+     fn send(
+         self,
+         config_override: super::super::super::config::Builder,
+     ) -> super::super::super::client::customize::internal::BoxFuture<
+-        super::super::super::client::customize::internal::SendResult<super::super::super::operation::converse::ConverseOutput, super::super::super::operation::converse::ConverseError>,
++        super::super::super::client::customize::internal::SendResult<
++            super::super::super::operation::converse::ConverseOutput,
++            super::super::super::operation::converse::ConverseError,
++        >,
+     > {
+         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+     }
+@@ -95,8 +101,11 @@
+     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+     pub fn customize(
+         self,
+-    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::converse::ConverseOutput, super::super::super::operation::converse::ConverseError, Self>
+-    {
++    ) -> super::super::super::client::customize::CustomizableOperation<
++        super::super::super::operation::converse::ConverseOutput,
++        super::super::super::operation::converse::ConverseError,
++        Self,
++    > {
+         super::super::super::client::customize::CustomizableOperation::new(self)
+     }
+     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
+@@ -245,17 +254,17 @@
          self.inner.get_guardrail_config()
      }
      /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
@@ -1162,6 +1278,58 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.inner.get_additional_model_request_fields()
      }
      ///
+@@ -264,7 +273,11 @@
+     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
+     ///
+     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+-    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PromptVariableValues) -> Self {
++    pub fn prompt_variables(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::PromptVariableValues,
++    ) -> Self {
+         self.inner = self.inner.prompt_variables(k.into(), v);
+         self
+     }
+```
+
+### `src/operation/converse.rs`
+
+```diff
+--- reference/src/operation/converse.rs
++++ generated/src/operation/converse.rs
+@@ -18,11 +18,15 @@
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >,
+     > {
+-        let map_err =
+-            |err: ::aws_smithy_runtime_api::client::result::SdkError<
+-                ::aws_smithy_runtime_api::client::interceptors::context::Error,
+-                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+-            >| { err.map_service_error(|err| err.downcast::<super::super::operation::converse::ConverseError>().expect("correct error type")) };
++        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
++            ::aws_smithy_runtime_api::client::interceptors::context::Error,
++            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
++        >| {
++            err.map_service_error(|err| {
++                err.downcast::<super::super::operation::converse::ConverseError>()
++                    .expect("correct error type")
++            })
++        };
+         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
+             .await
+             .map_err(map_err)?;
+@@ -220,7 +224,9 @@
+         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+-        let input = input.downcast::<super::super::operation::converse::ConverseInput>().expect("correct type");
++        let input = input
++            .downcast::<super::super::operation::converse::ConverseInput>()
++            .expect("correct type");
+         let _header_serialization_settings = _cfg
+             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
 ```
 
 ### `src/operation/converse_stream/_converse_stream_input.rs`
@@ -1171,14 +1339,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/converse_stream/_converse_stream_input.rs
 @@ -30,7 +30,7 @@
      /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
-     pub guardrail_config: ::std::option::Option<super::types::GuardrailStreamConfiguration>,
+     pub guardrail_config: ::std::option::Option<super::super::super::types::GuardrailStreamConfiguration>,
      /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
 -    pub additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub additional_model_request_fields: ::std::option::Option<::std::string::String>,
      /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-     pub prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PromptVariableValues>>,
+     pub prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
      /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
-@@ -91,7 +91,7 @@
+@@ -91,11 +91,13 @@
          self.guardrail_config.as_ref()
      }
      /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
@@ -1187,16 +1355,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.additional_model_request_fields.as_ref()
      }
      /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-@@ -160,7 +160,7 @@
-     pub(crate) inference_config: ::std::option::Option<super::types::InferenceConfiguration>,
-     pub(crate) tool_config: ::std::option::Option<super::types::ToolConfiguration>,
-     pub(crate) guardrail_config: ::std::option::Option<super::types::GuardrailStreamConfiguration>,
+-    pub fn prompt_variables(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>> {
++    pub fn prompt_variables(
++        &self,
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>> {
+         self.prompt_variables.as_ref()
+     }
+     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
+@@ -160,8 +162,9 @@
+     pub(crate) inference_config: ::std::option::Option<super::super::super::types::InferenceConfiguration>,
+     pub(crate) tool_config: ::std::option::Option<super::super::super::types::ToolConfiguration>,
+     pub(crate) guardrail_config: ::std::option::Option<super::super::super::types::GuardrailStreamConfiguration>,
 -    pub(crate) additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
+-    pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
 +    pub(crate) additional_model_request_fields: ::std::option::Option<::std::string::String>,
-     pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PromptVariableValues>>,
++    pub(crate) prompt_variables:
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
      pub(crate) additional_model_response_field_paths: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) request_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -309,17 +309,17 @@
+     pub(crate) performance_config: ::std::option::Option<super::super::super::types::PerformanceConfiguration>,
+@@ -309,17 +312,17 @@
          &self.guardrail_config
      }
      /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
@@ -1217,6 +1395,118 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.additional_model_request_fields
      }
      /// Adds a key-value pair to `prompt_variables`.
+@@ -327,7 +330,11 @@
+     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
+     ///
+     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+-    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PromptVariableValues) -> Self {
++    pub fn prompt_variables(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::PromptVariableValues,
++    ) -> Self {
+         let mut hash_map = self.prompt_variables.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.prompt_variables = ::std::option::Option::Some(hash_map);
+@@ -448,7 +455,8 @@
+     /// Consumes the builder and constructs a [`ConverseStreamInput`](crate::operation::converse_stream::ConverseStreamInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::converse_stream::ConverseStreamInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<super::super::super::operation::converse_stream::ConverseStreamInput, ::aws_smithy_types::error::operation::BuildError>
++    {
+         ::std::result::Result::Ok(super::super::super::operation::converse_stream::ConverseStreamInput {
+             model_id: self.model_id,
+             messages: self.messages,
+```
+
+### `src/operation/converse_stream/_converse_stream_output.rs`
+
+```diff
+--- reference/src/operation/converse_stream/_converse_stream_output.rs
++++ generated/src/operation/converse_stream/_converse_stream_output.rs
+@@ -4,7 +4,10 @@
+ #[derive(::std::fmt::Debug)]
+ pub struct ConverseStreamOutput {
+     /// <p>The output stream that the model generated.</p>
+-    pub stream: super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError>,
++    pub stream: super::super::super::event_receiver::EventReceiver<
++        super::super::super::types::ConverseStreamOutput,
++        super::super::super::types::error::ConverseStreamOutputError,
++    >,
+     _request_id: Option<String>,
+ }
+ impl ConverseStreamOutput {
+@@ -11,7 +14,10 @@
+     /// <p>The output stream that the model generated.</p>
+     pub fn stream(
+         &self,
+-    ) -> &super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError> {
++    ) -> &super::super::super::event_receiver::EventReceiver<
++        super::super::super::types::ConverseStreamOutput,
++        super::super::super::types::error::ConverseStreamOutputError,
++    > {
+         &self.stream
+     }
+ }
+@@ -32,7 +38,10 @@
+ #[non_exhaustive]
+ pub struct ConverseStreamOutputBuilder {
+     pub(crate) stream: ::std::option::Option<
+-        super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError>,
++        super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::ConverseStreamOutput,
++            super::super::super::types::error::ConverseStreamOutputError,
++        >,
+     >,
+     _request_id: Option<String>,
+ }
+@@ -40,7 +49,10 @@
+     /// <p>The output stream that the model generated.</p>
+     pub fn stream(
+         mut self,
+-        input: super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError>,
++        input: super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::ConverseStreamOutput,
++            super::super::super::types::error::ConverseStreamOutputError,
++        >,
+     ) -> Self {
+         self.stream = ::std::option::Option::Some(input);
+         self
+@@ -49,7 +61,10 @@
+     pub fn set_stream(
+         mut self,
+         input: ::std::option::Option<
+-            super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError>,
++            super::super::super::event_receiver::EventReceiver<
++                super::super::super::types::ConverseStreamOutput,
++                super::super::super::types::error::ConverseStreamOutputError,
++            >,
+         >,
+     ) -> Self {
+         self.stream = input;
+@@ -59,7 +74,10 @@
+     pub fn get_stream(
+         &self,
+     ) -> &::std::option::Option<
+-        super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError>,
++        super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::ConverseStreamOutput,
++            super::super::super::types::error::ConverseStreamOutputError,
++        >,
+     > {
+         &self.stream
+     }
+@@ -77,7 +95,8 @@
+     /// - [`stream`](crate::operation::converse_stream::builders::ConverseStreamOutputBuilder::stream)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::converse_stream::ConverseStreamOutput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<super::super::super::operation::converse_stream::ConverseStreamOutput, ::aws_smithy_types::error::operation::BuildError>
++    {
+         ::std::result::Result::Ok(super::super::super::operation::converse_stream::ConverseStreamOutput {
+             stream: self.stream.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/operation/converse_stream/builders.rs`
@@ -1245,6 +1535,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.inner.get_additional_model_request_fields()
      }
      ///
+@@ -276,7 +276,11 @@
+     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
+     ///
+     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+-    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PromptVariableValues) -> Self {
++    pub fn prompt_variables(
++        mut self,
++        k: impl ::std::convert::Into<::std::string::String>,
++        v: super::super::super::types::PromptVariableValues,
++    ) -> Self {
+         self.inner = self.inner.prompt_variables(k.into(), v);
+         self
+     }
 ```
 
 ### `src/operation/converse_stream.rs`
@@ -1261,11 +1564,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          // If this is an error, defer to the non-streaming parser
 @@ -346,8 +347,6 @@
-     ThrottlingException(super::types::error::ThrottlingException),
+     ThrottlingException(super::super::types::error::ThrottlingException),
      /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
-     ValidationException(super::types::error::ValidationException),
+     ValidationException(super::super::types::error::ValidationException),
 -    /// <p>An error occurred while streaming the response. Retry your request.</p>
--    ModelStreamErrorException(super::types::error::ModelStreamErrorException),
+-    ModelStreamErrorException(super::super::types::error::ModelStreamErrorException),
      /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
      #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
      variable wildcard pattern and check `.code()`:
@@ -1323,8 +1626,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
      /// </ul>
      /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
--    pub input: ::std::option::Option<super::types::CountTokensInput>,
-+    pub input: ::std::option::Option<super::operation::count_tokens::Input>,
+-    pub input: ::std::option::Option<super::super::super::types::CountTokensInput>,
++    pub input: ::std::option::Option<super::super::super::operation::count_tokens::Input>,
  }
  impl CountTokensInput {
      /// <p>The unique identifier or ARN of the foundation model to use for token counting. Each model processes tokens differently, so the token count is specific to the model you specify.</p>
@@ -1332,8 +1635,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
      /// </ul>
      /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
--    pub fn input(&self) -> ::std::option::Option<&super::types::CountTokensInput> {
-+    pub fn input(&self) -> ::std::option::Option<&super::operation::count_tokens::Input> {
+-    pub fn input(&self) -> ::std::option::Option<&super::super::super::types::CountTokensInput> {
++    pub fn input(&self) -> ::std::option::Option<&super::super::super::operation::count_tokens::Input> {
          self.input.as_ref()
      }
  }
@@ -1341,8 +1644,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct CountTokensInputBuilder {
      pub(crate) model_id: ::std::option::Option<::std::string::String>,
--    pub(crate) input: ::std::option::Option<super::types::CountTokensInput>,
-+    pub(crate) input: ::std::option::Option<super::operation::count_tokens::Input>,
+-    pub(crate) input: ::std::option::Option<super::super::super::types::CountTokensInput>,
++    pub(crate) input: ::std::option::Option<super::super::super::operation::count_tokens::Input>,
  }
  impl CountTokensInputBuilder {
      /// <p>The unique identifier or ARN of the foundation model to use for token counting. Each model processes tokens differently, so the token count is specific to the model you specify.</p>
@@ -1350,8 +1653,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// </ul>
      /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
      /// This field is required.
--    pub fn input(mut self, input: super::types::CountTokensInput) -> Self {
-+    pub fn input(mut self, input: super::operation::count_tokens::Input) -> Self {
+-    pub fn input(mut self, input: super::super::super::types::CountTokensInput) -> Self {
++    pub fn input(mut self, input: super::super::super::operation::count_tokens::Input) -> Self {
          self.input = ::std::option::Option::Some(input);
          self
      }
@@ -1359,20 +1662,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
      /// </ul>
      /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
--    pub fn set_input(mut self, input: ::std::option::Option<super::types::CountTokensInput>) -> Self {
-+    pub fn set_input(mut self, input: ::std::option::Option<super::operation::count_tokens::Input>) -> Self {
+-    pub fn set_input(mut self, input: ::std::option::Option<super::super::super::types::CountTokensInput>) -> Self {
++    pub fn set_input(mut self, input: ::std::option::Option<super::super::super::operation::count_tokens::Input>) -> Self {
          self.input = input;
          self
      }
-@@ -95,7 +95,7 @@
+@@ -95,11 +95,13 @@
      /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
      /// </ul>
      /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
--    pub fn get_input(&self) -> &::std::option::Option<super::types::CountTokensInput> {
-+    pub fn get_input(&self) -> &::std::option::Option<super::operation::count_tokens::Input> {
+-    pub fn get_input(&self) -> &::std::option::Option<super::super::super::types::CountTokensInput> {
++    pub fn get_input(&self) -> &::std::option::Option<super::super::super::operation::count_tokens::Input> {
          &self.input
      }
      /// Consumes the builder and constructs a [`CountTokensInput`](crate::operation::count_tokens::CountTokensInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::count_tokens::CountTokensInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::count_tokens::CountTokensInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::count_tokens::CountTokensInput {
+             model_id: self.model_id,
+             input: self.input,
 ```
 
 ### `src/operation/count_tokens/_count_tokens_output.rs`
@@ -1391,6 +1701,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl ::aws_types::request_id::RequestId for CountTokensOutput {
+@@ -60,7 +60,10 @@
+     /// Consumes the builder and constructs a [`CountTokensOutput`](crate::operation::count_tokens::CountTokensOutput).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`input_tokens`](crate::operation::count_tokens::builders::CountTokensOutputBuilder::input_tokens)
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::count_tokens::CountTokensOutput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::count_tokens::CountTokensOutput, ::aws_smithy_types::error::operation::BuildError>
++    {
+         ::std::result::Result::Ok(super::super::super::operation::count_tokens::CountTokensOutput {
+             input_tokens: self.input_tokens.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/operation/count_tokens/builders.rs`
@@ -1402,8 +1724,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
      /// </ul>
      /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
--    pub fn input(mut self, input: super::types::CountTokensInput) -> Self {
-+    pub fn input(mut self, input: super::operation::count_tokens::Input) -> Self {
+-    pub fn input(mut self, input: super::super::super::types::CountTokensInput) -> Self {
++    pub fn input(mut self, input: super::super::super::operation::count_tokens::Input) -> Self {
          self.inner = self.inner.input(input);
          self
      }
@@ -1411,8 +1733,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
      /// </ul>
      /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
--    pub fn set_input(mut self, input: ::std::option::Option<super::types::CountTokensInput>) -> Self {
-+    pub fn set_input(mut self, input: ::std::option::Option<super::operation::count_tokens::Input>) -> Self {
+-    pub fn set_input(mut self, input: ::std::option::Option<super::super::super::types::CountTokensInput>) -> Self {
++    pub fn set_input(mut self, input: ::std::option::Option<super::super::super::operation::count_tokens::Input>) -> Self {
          self.inner = self.inner.set_input(input);
          self
      }
@@ -1420,8 +1742,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
      /// </ul>
      /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
--    pub fn get_input(&self) -> &::std::option::Option<super::types::CountTokensInput> {
-+    pub fn get_input(&self) -> &::std::option::Option<super::operation::count_tokens::Input> {
+-    pub fn get_input(&self) -> &::std::option::Option<super::super::super::types::CountTokensInput> {
++    pub fn get_input(&self) -> &::std::option::Option<super::super::super::operation::count_tokens::Input> {
          self.inner.get_input()
      }
  }
@@ -1436,8 +1758,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When the invocation ended.</p>
      pub end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>Output data settings.</p>
--    pub output_data_config: ::std::option::Option<super::types::AsyncInvokeOutputDataConfig>,
-+    pub output_data_config: super::types::AsyncInvokeOutputDataConfig,
+-    pub output_data_config: ::std::option::Option<super::super::super::types::AsyncInvokeOutputDataConfig>,
++    pub output_data_config: super::super::super::types::AsyncInvokeOutputDataConfig,
      _request_id: Option<String>,
  }
  impl GetAsyncInvokeOutput {
@@ -1445,22 +1767,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.end_time.as_ref()
      }
      /// <p>Output data settings.</p>
--    pub fn output_data_config(&self) -> ::std::option::Option<&super::types::AsyncInvokeOutputDataConfig> {
+-    pub fn output_data_config(&self) -> ::std::option::Option<&super::super::super::types::AsyncInvokeOutputDataConfig> {
 -        self.output_data_config.as_ref()
-+    pub fn output_data_config(&self) -> &super::types::AsyncInvokeOutputDataConfig {
++    pub fn output_data_config(&self) -> &super::super::super::types::AsyncInvokeOutputDataConfig {
 +        &self.output_data_config
      }
  }
  impl ::std::fmt::Debug for GetAsyncInvokeOutput {
-@@ -253,6 +253,7 @@
+@@ -253,9 +253,11 @@
      /// - [`model_arn`](crate::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder::model_arn)
      /// - [`status`](crate::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder::status)
      /// - [`submit_time`](crate::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder::submit_time)
 +    /// - [`output_data_config`](crate::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder::output_data_config)
      pub fn build(
          self,
-     ) -> ::std::result::Result<super::operation::get_async_invoke::GetAsyncInvokeOutput, ::aws_smithy_types::error::operation::BuildError> {
-@@ -285,7 +286,12 @@
+-    ) -> ::std::result::Result<super::super::super::operation::get_async_invoke::GetAsyncInvokeOutput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<super::super::super::operation::get_async_invoke::GetAsyncInvokeOutput, ::aws_smithy_types::error::operation::BuildError>
++    {
+         ::std::result::Result::Ok(super::super::super::operation::get_async_invoke::GetAsyncInvokeOutput {
+             invocation_arn: self.invocation_arn.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+@@ -285,7 +287,12 @@
              })?,
              last_modified_time: self.last_modified_time,
              end_time: self.end_time,
@@ -1490,7 +1817,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_async_invoke::ser_get_async_invoke_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_async_invoke::ser_get_async_invoke_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1500,12 +1827,63 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/invoke_guardrail_checks/_invoke_guardrail_checks_input.rs`
+
+```diff
+--- reference/src/operation/invoke_guardrail_checks/_invoke_guardrail_checks_input.rs
++++ generated/src/operation/invoke_guardrail_checks/_invoke_guardrail_checks_input.rs
+@@ -73,8 +73,10 @@
+     /// Consumes the builder and constructs a [`InvokeGuardrailChecksInput`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput {
+             messages: self.messages,
+             checks: self.checks,
+```
+
+### `src/operation/invoke_guardrail_checks.rs`
+
+```diff
+--- reference/src/operation/invoke_guardrail_checks.rs
++++ generated/src/operation/invoke_guardrail_checks.rs
+@@ -213,9 +213,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_guardrail_checks::ser_invoke_guardrail_checks_input(
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_invoke_guardrail_checks::ser_invoke_guardrail_checks_input(&input)?,
++        );
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
 ### `src/operation/invoke_model/_invoke_model_input.rs`
 
 ```diff
 --- reference/src/operation/invoke_model/_invoke_model_input.rs
 +++ generated/src/operation/invoke_model/_invoke_model_input.rs
-@@ -366,7 +366,7 @@
+@@ -357,7 +357,9 @@
+         &self.request_metadata
+     }
+     /// Consumes the builder and constructs a [`InvokeModelInput`](crate::operation::invoke_model::InvokeModelInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::invoke_model::InvokeModelInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::invoke_model::InvokeModelInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::invoke_model::InvokeModelInput {
+             body: self.body,
+             content_type: self.content_type,
+@@ -366,7 +368,7 @@
              trace: self.trace,
              guardrail_identifier: self.guardrail_identifier,
              guardrail_version: self.guardrail_version,
@@ -1514,6 +1892,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              service_tier: self.service_tier,
              request_metadata: self.request_metadata,
          })
+```
+
+### `src/operation/invoke_model/_invoke_model_output.rs`
+
+```diff
+--- reference/src/operation/invoke_model/_invoke_model_output.rs
++++ generated/src/operation/invoke_model/_invoke_model_output.rs
+@@ -137,7 +137,10 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`body`](crate::operation::invoke_model::builders::InvokeModelOutputBuilder::body)
+     /// - [`content_type`](crate::operation::invoke_model::builders::InvokeModelOutputBuilder::content_type)
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::invoke_model::InvokeModelOutput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::invoke_model::InvokeModelOutput, ::aws_smithy_types::error::operation::BuildError>
++    {
+         ::std::result::Result::Ok(super::super::super::operation::invoke_model::InvokeModelOutput {
+             body: self.body.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/operation/invoke_model.rs`
@@ -1529,8 +1926,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_invoke_model_input::ser_body_http_payload(input.body)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_invoke_model::ser_invoke_model_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_model_input::ser_body_http_payload(input.body)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_model::ser_invoke_model_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1546,50 +1943,58 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub model_id: ::std::option::Option<::std::string::String>,
      /// <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
 -    pub body: ::aws_smithy_http::event_stream::EventStreamSender<
--        super::types::InvokeModelWithBidirectionalStreamInput,
--        super::types::error::InvokeModelWithBidirectionalStreamInputError,
+-        super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+-        super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
 -    >,
 +    pub body: ::aws_smithy_types::byte_stream::ByteStream,
  }
  impl InvokeModelWithBidirectionalStreamInput {
      /// <p>The model ID or ARN of the model ID to use. Currently, only <code>amazon.nova-sonic-v1:0</code> is supported.</p>
-@@ -17,12 +14,7 @@
+@@ -17,18 +14,14 @@
          self.model_id.as_deref()
      }
      /// <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
 -    pub fn body(
 -        &self,
 -    ) -> &::aws_smithy_http::event_stream::EventStreamSender<
--        super::types::InvokeModelWithBidirectionalStreamInput,
--        super::types::error::InvokeModelWithBidirectionalStreamInputError,
+-        super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+-        super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
 -    > {
 +    pub fn body(&self) -> &::aws_smithy_types::byte_stream::ByteStream {
          &self.body
      }
  }
-@@ -38,12 +30,7 @@
+ impl InvokeModelWithBidirectionalStreamInput {
+     /// Creates a new builder-style object to manufacture [`InvokeModelWithBidirectionalStreamInput`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput).
+-    pub fn builder() -> super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder {
++    pub fn builder(
++    ) -> super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder {
+         super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder::default()
+     }
+ }
+@@ -38,12 +31,7 @@
  #[non_exhaustive]
  pub struct InvokeModelWithBidirectionalStreamInputBuilder {
      pub(crate) model_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) body: ::std::option::Option<
 -        ::aws_smithy_http::event_stream::EventStreamSender<
--            super::types::InvokeModelWithBidirectionalStreamInput,
--            super::types::error::InvokeModelWithBidirectionalStreamInputError,
+-            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+-            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
 -        >,
 -    >,
 +    pub(crate) body: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
  }
  impl InvokeModelWithBidirectionalStreamInputBuilder {
      /// <p>The model ID or ARN of the model ID to use. Currently, only <code>amazon.nova-sonic-v1:0</code> is supported.</p>
-@@ -63,43 +50,20 @@
+@@ -63,43 +51,20 @@
      }
      /// <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
      /// This field is required.
 -    pub fn body(
 -        mut self,
 -        input: ::aws_smithy_http::event_stream::EventStreamSender<
--            super::types::InvokeModelWithBidirectionalStreamInput,
--            super::types::error::InvokeModelWithBidirectionalStreamInputError,
+-            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+-            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
 -        >,
 -    ) -> Self {
 +    pub fn body(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
@@ -1601,8 +2006,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        mut self,
 -        input: ::std::option::Option<
 -            ::aws_smithy_http::event_stream::EventStreamSender<
--                super::types::InvokeModelWithBidirectionalStreamInput,
--                super::types::error::InvokeModelWithBidirectionalStreamInputError,
+-                super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+-                super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
 -            >,
 -        >,
 -    ) -> Self {
@@ -1615,8 +2020,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self,
 -    ) -> &::std::option::Option<
 -        ::aws_smithy_http::event_stream::EventStreamSender<
--            super::types::InvokeModelWithBidirectionalStreamInput,
--            super::types::error::InvokeModelWithBidirectionalStreamInputError,
+-            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+-            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
 -        >,
 -    > {
 +    pub fn get_body(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
@@ -1628,9 +2033,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(
          self,
      ) -> ::std::result::Result<
-@@ -109,12 +73,7 @@
+@@ -109,12 +74,7 @@
          ::std::result::Result::Ok(
-             super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput {
+             super::super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput {
                  model_id: self.model_id,
 -                body: self.body.ok_or_else(|| {
 -                    ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -1649,15 +2054,50 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/invoke_model_with_bidirectional_stream/builders.rs
 +++ generated/src/operation/invoke_model_with_bidirectional_stream/builders.rs
-@@ -124,38 +124,17 @@
+@@ -58,7 +58,9 @@
+         }
+     }
+     /// Access the InvokeModelWithBidirectionalStream as a reference.
+-    pub fn as_input(&self) -> &super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder {
++    pub fn as_input(
++        &self,
++    ) -> &super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder {
+         &self.inner
+     }
+     /// Sends the request and returns the response.
+@@ -82,12 +84,17 @@
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+-        let runtime_plugins = super::super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStream::operation_runtime_plugins(
+-            self.handle.runtime_plugins.clone(),
+-            &self.handle.conf,
+-            self.config_override,
+-        );
+-        super::super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStream::orchestrate(&runtime_plugins, input).await
++        let runtime_plugins =
++            super::super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStream::operation_runtime_plugins(
++                self.handle.runtime_plugins.clone(),
++                &self.handle.conf,
++                self.config_override,
++            );
++        super::super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStream::orchestrate(
++            &runtime_plugins,
++            input,
++        )
++        .await
+     }
+
+     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+@@ -124,38 +131,17 @@
          self.inner.get_model_id()
      }
      /// <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
 -    pub fn body(
 -        mut self,
 -        input: ::aws_smithy_http::event_stream::EventStreamSender<
--            super::types::InvokeModelWithBidirectionalStreamInput,
--            super::types::error::InvokeModelWithBidirectionalStreamInputError,
+-            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+-            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
 -        >,
 -    ) -> Self {
 +    pub fn body(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
@@ -1669,8 +2109,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        mut self,
 -        input: ::std::option::Option<
 -            ::aws_smithy_http::event_stream::EventStreamSender<
--                super::types::InvokeModelWithBidirectionalStreamInput,
--                super::types::error::InvokeModelWithBidirectionalStreamInputError,
+-                super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+-                super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
 -            >,
 -        >,
 -    ) -> Self {
@@ -1683,8 +2123,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self,
 -    ) -> &::std::option::Option<
 -        ::aws_smithy_http::event_stream::EventStreamSender<
--            super::types::InvokeModelWithBidirectionalStreamInput,
--            super::types::error::InvokeModelWithBidirectionalStreamInputError,
+-            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+-            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
 -        >,
 -    > {
 +    pub fn get_body(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
@@ -1715,7 +2155,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
          // If this is an error, defer to the non-streaming parser
-@@ -279,22 +280,12 @@
+@@ -212,7 +213,9 @@
+             return ::std::option::Option::None;
+         }
+         ::std::option::Option::Some(super::super::protocol_serde::type_erase_result(
+-            super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream::de_invoke_model_with_bidirectional_stream_http_response(response),
++            super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream::de_invoke_model_with_bidirectional_stream_http_response(
++                response,
++            ),
+         ))
+     }
+
+@@ -279,22 +282,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1725,8 +2176,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from({
--            let error_marshaller = super::event_stream_serde::InvokeModelWithBidirectionalStreamInputErrorMarshaller::new();
--            let marshaller = super::event_stream_serde::InvokeModelWithBidirectionalStreamInputMarshaller::new();
+-            let error_marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputErrorMarshaller::new();
+-            let marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputMarshaller::new();
 -
 -            let (signer, signer_sender) = ::aws_smithy_eventstream::frame::DeferredSigner::new();
 -            _cfg.interceptor_state().store_put(signer_sender);
@@ -1737,7 +2188,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            )))
 -        });
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::protocol_serde::shape_invoke_model_with_bidirectional_stream::ser_invoke_model_with_bidirectional_stream_input(&input)?,
++            super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream::ser_invoke_model_with_bidirectional_stream_input(&input)?,
 +        );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1749,15 +2200,205 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/invoke_model_with_response_stream/_invoke_model_with_response_stream_input.rs
 +++ generated/src/operation/invoke_model_with_response_stream/_invoke_model_with_response_stream_input.rs
-@@ -371,7 +371,7 @@
-             trace: self.trace,
-             guardrail_identifier: self.guardrail_identifier,
-             guardrail_version: self.guardrail_version,
+@@ -363,18 +363,20 @@
+         super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput {
+-            body: self.body,
+-            content_type: self.content_type,
+-            accept: self.accept,
+-            model_id: self.model_id,
+-            trace: self.trace,
+-            guardrail_identifier: self.guardrail_identifier,
+-            guardrail_version: self.guardrail_version,
 -            performance_config_latency: self.performance_config_latency,
-+            performance_config_latency: self.performance_config_latency.unwrap_or_default(),
-             service_tier: self.service_tier,
-             request_metadata: self.request_metadata,
-         })
+-            service_tier: self.service_tier,
+-            request_metadata: self.request_metadata,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput {
++                body: self.body,
++                content_type: self.content_type,
++                accept: self.accept,
++                model_id: self.model_id,
++                trace: self.trace,
++                guardrail_identifier: self.guardrail_identifier,
++                guardrail_version: self.guardrail_version,
++                performance_config_latency: self.performance_config_latency.unwrap_or_default(),
++                service_tier: self.service_tier,
++                request_metadata: self.request_metadata,
++            },
++        )
+     }
+ }
+ impl ::std::fmt::Debug for InvokeModelWithResponseStreamInputBuilder {
+```
+
+### `src/operation/invoke_model_with_response_stream/_invoke_model_with_response_stream_output.rs`
+
+```diff
+--- reference/src/operation/invoke_model_with_response_stream/_invoke_model_with_response_stream_output.rs
++++ generated/src/operation/invoke_model_with_response_stream/_invoke_model_with_response_stream_output.rs
+@@ -4,7 +4,10 @@
+ #[derive(::std::fmt::Debug)]
+ pub struct InvokeModelWithResponseStreamOutput {
+     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+-    pub body: super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError>,
++    pub body: super::super::super::event_receiver::EventReceiver<
++        super::super::super::types::ResponseStream,
++        super::super::super::types::error::ResponseStreamError,
++    >,
+     /// <p>The MIME type of the inference result.</p>
+     pub content_type: ::std::string::String,
+     /// <p>Model performance settings for the request.</p>
+@@ -15,7 +18,12 @@
+ }
+ impl InvokeModelWithResponseStreamOutput {
+     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+-    pub fn body(&self) -> &super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError> {
++    pub fn body(
++        &self,
++    ) -> &super::super::super::event_receiver::EventReceiver<
++        super::super::super::types::ResponseStream,
++        super::super::super::types::error::ResponseStreamError,
++    > {
+         &self.body
+     }
+     /// <p>The MIME type of the inference result.</p>
+@@ -48,8 +56,12 @@
+ #[derive(::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct InvokeModelWithResponseStreamOutputBuilder {
+-    pub(crate) body:
+-        ::std::option::Option<super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError>>,
++    pub(crate) body: ::std::option::Option<
++        super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::ResponseStream,
++            super::super::super::types::error::ResponseStreamError,
++        >,
++    >,
+     pub(crate) content_type: ::std::option::Option<::std::string::String>,
+     pub(crate) performance_config_latency: ::std::option::Option<super::super::super::types::PerformanceConfigLatency>,
+     pub(crate) service_tier: ::std::option::Option<super::super::super::types::ServiceTierType>,
+@@ -60,7 +72,10 @@
+     /// This field is required.
+     pub fn body(
+         mut self,
+-        input: super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError>,
++        input: super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::ResponseStream,
++            super::super::super::types::error::ResponseStreamError,
++        >,
+     ) -> Self {
+         self.body = ::std::option::Option::Some(input);
+         self
+@@ -68,7 +83,12 @@
+     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+     pub fn set_body(
+         mut self,
+-        input: ::std::option::Option<super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError>>,
++        input: ::std::option::Option<
++            super::super::super::event_receiver::EventReceiver<
++                super::super::super::types::ResponseStream,
++                super::super::super::types::error::ResponseStreamError,
++            >,
++        >,
+     ) -> Self {
+         self.body = input;
+         self
+@@ -76,7 +96,12 @@
+     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+     pub fn get_body(
+         &self,
+-    ) -> &::std::option::Option<super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError>> {
++    ) -> &::std::option::Option<
++        super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::ResponseStream,
++            super::super::super::types::error::ResponseStreamError,
++        >,
++    > {
+         &self.body
+     }
+     /// <p>The MIME type of the inference result.</p>
+@@ -141,22 +166,24 @@
+         super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput {
+-            body: self.body.ok_or_else(|| {
+-                ::aws_smithy_types::error::operation::BuildError::missing_field(
+-                    "body",
+-                    "body was not specified but it is required when building InvokeModelWithResponseStreamOutput",
+-                )
+-            })?,
+-            content_type: self.content_type.ok_or_else(|| {
+-                ::aws_smithy_types::error::operation::BuildError::missing_field(
+-                    "content_type",
+-                    "content_type was not specified but it is required when building InvokeModelWithResponseStreamOutput",
+-                )
+-            })?,
+-            performance_config_latency: self.performance_config_latency,
+-            service_tier: self.service_tier,
+-            _request_id: self._request_id,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput {
++                body: self.body.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "body",
++                        "body was not specified but it is required when building InvokeModelWithResponseStreamOutput",
++                    )
++                })?,
++                content_type: self.content_type.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "content_type",
++                        "content_type was not specified but it is required when building InvokeModelWithResponseStreamOutput",
++                    )
++                })?,
++                performance_config_latency: self.performance_config_latency,
++                service_tier: self.service_tier,
++                _request_id: self._request_id,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/invoke_model_with_response_stream/builders.rs`
+
+```diff
+--- reference/src/operation/invoke_model_with_response_stream/builders.rs
++++ generated/src/operation/invoke_model_with_response_stream/builders.rs
+@@ -65,7 +65,9 @@
+         }
+     }
+     /// Access the InvokeModelWithResponseStream as a reference.
+-    pub fn as_input(&self) -> &super::super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamInputBuilder {
++    pub fn as_input(
++        &self,
++    ) -> &super::super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamInputBuilder {
+         &self.inner
+     }
+     /// Sends the request and returns the response.
+@@ -89,11 +91,12 @@
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+-        let runtime_plugins = super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStream::operation_runtime_plugins(
+-            self.handle.runtime_plugins.clone(),
+-            &self.handle.conf,
+-            self.config_override,
+-        );
++        let runtime_plugins =
++            super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStream::operation_runtime_plugins(
++                self.handle.runtime_plugins.clone(),
++                &self.handle.conf,
++                self.config_override,
++            );
+         super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStream::orchestrate(&runtime_plugins, input).await
+     }
+
 ```
 
 ### `src/operation/invoke_model_with_response_stream.rs`
@@ -1773,7 +2414,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
          // If this is an error, defer to the non-streaming parser
-@@ -301,11 +302,11 @@
+@@ -296,16 +297,17 @@
+             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+                 let mut uri = ::std::string::String::new();
+                 uri_base(input, &mut uri)?;
+-                let builder =
+-                    super::super::protocol_serde::shape_invoke_model_with_response_stream::ser_invoke_model_with_response_stream_headers(input, builder)?;
++                let builder = super::super::protocol_serde::shape_invoke_model_with_response_stream::ser_invoke_model_with_response_stream_headers(
++                    input, builder,
++                )?;
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1782,8 +2431,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            super::protocol_serde::shape_invoke_model_with_response_stream_input::ser_body_http_payload(input.body)?,
-+            super::protocol_serde::shape_invoke_model_with_response_stream::ser_invoke_model_with_response_stream_input(&input)?,
+-            super::super::protocol_serde::shape_invoke_model_with_response_stream_input::ser_body_http_payload(input.body)?,
++            super::super::protocol_serde::shape_invoke_model_with_response_stream::ser_invoke_model_with_response_stream_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1794,7 +2443,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_async_invokes/_list_async_invokes_input.rs
 +++ generated/src/operation/list_async_invokes/_list_async_invokes_input.rs
-@@ -176,8 +176,8 @@
+@@ -169,7 +169,10 @@
+     /// Consumes the builder and constructs a [`ListAsyncInvokesInput`](crate::operation::list_async_invokes::ListAsyncInvokesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::list_async_invokes::ListAsyncInvokesInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::list_async_invokes::ListAsyncInvokesInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::list_async_invokes::ListAsyncInvokesInput {
+             submit_time_after: self.submit_time_after,
+             submit_time_before: self.submit_time_before,
+@@ -176,8 +179,8 @@
              status_equals: self.status_equals,
              max_results: self.max_results,
              next_token: self.next_token,
@@ -1805,6 +2466,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
+```
+
+### `src/operation/list_async_invokes/_list_async_invokes_output.rs`
+
+```diff
+--- reference/src/operation/list_async_invokes/_list_async_invokes_output.rs
++++ generated/src/operation/list_async_invokes/_list_async_invokes_output.rs
+@@ -68,7 +68,10 @@
+         self
+     }
+     /// <p>A list of invocation summaries.</p>
+-    pub fn set_async_invoke_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AsyncInvokeSummary>>) -> Self {
++    pub fn set_async_invoke_summaries(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AsyncInvokeSummary>>,
++    ) -> Self {
+         self.async_invoke_summaries = input;
+         self
+     }
 ```
 
 ### `src/operation/list_async_invokes.rs`
@@ -1830,7 +2510,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          );
                      }
                  }
-@@ -300,10 +300,14 @@
+@@ -300,10 +300,16 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1839,7 +2519,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_async_invokes::ser_list_async_invokes_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_async_invokes::ser_list_async_invokes_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1861,7 +2543,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub model_input: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub model_input: ::std::option::Option<::std::string::String>,
      /// <p>Where to store the output.</p>
-     pub output_data_config: ::std::option::Option<super::types::AsyncInvokeOutputDataConfig>,
+     pub output_data_config: ::std::option::Option<super::super::super::types::AsyncInvokeOutputDataConfig>,
      /// <p>Tags to apply to the invocation.</p>
 @@ -24,7 +24,7 @@
          self.model_id.as_deref()
@@ -1878,8 +2560,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) model_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) model_input: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub(crate) model_input: ::std::option::Option<::std::string::String>,
-     pub(crate) output_data_config: ::std::option::Option<super::types::AsyncInvokeOutputDataConfig>,
-     pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+     pub(crate) output_data_config: ::std::option::Option<super::super::super::types::AsyncInvokeOutputDataConfig>,
+     pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 @@ -98,17 +98,17 @@
      }
@@ -1902,6 +2584,37 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.model_input
      }
      /// <p>Where to store the output.</p>
+@@ -149,7 +149,10 @@
+     /// Consumes the builder and constructs a [`StartAsyncInvokeInput`](crate::operation::start_async_invoke::StartAsyncInvokeInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::start_async_invoke::StartAsyncInvokeInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::start_async_invoke::StartAsyncInvokeInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::start_async_invoke::StartAsyncInvokeInput {
+             client_request_token: self.client_request_token,
+             model_id: self.model_id,
+```
+
+### `src/operation/start_async_invoke/_start_async_invoke_output.rs`
+
+```diff
+--- reference/src/operation/start_async_invoke/_start_async_invoke_output.rs
++++ generated/src/operation/start_async_invoke/_start_async_invoke_output.rs
+@@ -63,7 +63,10 @@
+     /// - [`invocation_arn`](crate::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder::invocation_arn)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::start_async_invoke::StartAsyncInvokeOutput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::start_async_invoke::StartAsyncInvokeOutput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::start_async_invoke::StartAsyncInvokeOutput {
+             invocation_arn: self.invocation_arn.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/operation/start_async_invoke/builders.rs`
@@ -1932,6 +2645,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>Where to store the output.</p>
 ```
 
+### `src/operation/start_async_invoke.rs`
+
+```diff
+--- reference/src/operation/start_async_invoke.rs
++++ generated/src/operation/start_async_invoke.rs
+@@ -265,7 +265,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_start_async_invoke::ser_start_async_invoke_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_start_async_invoke::ser_start_async_invoke_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
 ### `src/primitives.rs`
 
 ```diff
@@ -1952,17 +2683,88 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub use ::aws_smithy_types::DateTime;
 ```
 
+### `src/protocol_serde/shape_applied_guardrail_details.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_applied_guardrail_details.rs
++++ generated/src/protocol_serde/shape_applied_guardrail_details.rs
+@@ -43,11 +43,9 @@
+                             );
+                         }
+                         "guardrailOrigin" => {
+-                            builder = builder.set_guardrail_origin(super::super::protocol_serde::shape_guardrail_origin_list::de_guardrail_origin_list(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_guardrail_origin(
++                                super::super::protocol_serde::shape_guardrail_origin_list::de_guardrail_origin_list(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         "guardrailOwnership" => {
+                             builder = builder.set_guardrail_ownership(
+```
+
 ### `src/protocol_serde/shape_apply_guardrail.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_apply_guardrail.rs
 +++ generated/src/protocol_serde/shape_apply_guardrail.rs
-@@ -174,6 +174,13 @@
+@@ -4,7 +4,8 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::apply_guardrail::ApplyGuardrailOutput, super::super::operation::apply_guardrail::ApplyGuardrailError> {
++) -> std::result::Result<super::super::operation::apply_guardrail::ApplyGuardrailOutput, super::super::operation::apply_guardrail::ApplyGuardrailError>
++{
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+@@ -52,8 +53,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -85,9 +89,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+-                output =
+-                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
++                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -135,7 +141,8 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::apply_guardrail::ApplyGuardrailOutput, super::super::operation::apply_guardrail::ApplyGuardrailError> {
++) -> std::result::Result<super::super::operation::apply_guardrail::ApplyGuardrailOutput, super::super::operation::apply_guardrail::ApplyGuardrailError>
++{
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::apply_guardrail::builders::ApplyGuardrailOutputBuilder::default();
+@@ -174,6 +181,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 +                "usage" => {
-+                    builder = builder.set_usage(super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
++                    builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -1971,7 +2773,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "action" => {
                      builder = builder.set_action(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -182,10 +189,11 @@
+@@ -182,18 +196,21 @@
                      );
                  }
                  "actionReason" => {
@@ -1983,21 +2785,36 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                }
 +                "outputs" => {
 +                    builder = builder.set_outputs(
-+                        super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(tokens, _value, depth + 1)?,
++                        super::super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?,
                      );
                  }
                  "assessments" => {
-@@ -202,18 +210,6 @@
+-                    builder = builder.set_assessments(super::super::protocol_serde::shape_guardrail_assessment_list::de_guardrail_assessment_list(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
++                    builder = builder.set_assessments(
++                        super::super::protocol_serde::shape_guardrail_assessment_list::de_guardrail_assessment_list(tokens, _value, depth + 1)?,
++                    );
+                 }
+                 "guardrailCoverage" => {
+                     builder = builder.set_guardrail_coverage(super::super::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(
+@@ -202,18 +219,6 @@
                          depth + 1,
                      )?);
                  }
 -                "outputs" => {
 -                    builder = builder.set_outputs(
--                        super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(tokens, _value, depth + 1)?,
+-                        super::super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(tokens, _value, depth + 1)?,
 -                    );
 -                }
 -                "usage" => {
--                    builder = builder.set_usage(super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
+-                    builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -2015,7 +2832,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_apply_guardrail_input.rs
 @@ -3,23 +3,29 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::apply_guardrail::ApplyGuardrailInput,
+     input: &super::super::operation::apply_guardrail::ApplyGuardrailInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.content {
 -        let mut array_2 = object.key("content").start_array();
@@ -2035,10 +2852,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_4, item_3)?;
 -                object_4.finish();
 +                let mut object_7 = array_5.value().start_object();
-+                super::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_7, item_6)?;
++                super::super::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_7, item_6)?;
 +                object_7.finish();
              }
          }
@@ -2066,16 +2883,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_async_invoke_output_data_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::types::AsyncInvokeOutputDataConfig,
++    input: &super::super::types::AsyncInvokeOutputDataConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    match input {
-+        super::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(inner) => {
++        super::super::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(inner) => {
 +            #[allow(unused_mut)]
 +            let mut object_1 = object.key("s3OutputDataConfig").start_object();
-+            super::protocol_serde::shape_async_invoke_s3_output_data_config::ser_async_invoke_s3_output_data_config(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_async_invoke_s3_output_data_config::ser_async_invoke_s3_output_data_config(&mut object_1, inner)?;
 +            object_1.finish();
 +        }
-+        super::types::AsyncInvokeOutputDataConfig::Unknown => {
++        super::super::types::AsyncInvokeOutputDataConfig::Unknown => {
 +            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 +                "AsyncInvokeOutputDataConfig",
 +            ))
@@ -2105,16 +2922,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_async_invoke_output_data_config(
 -    object_5: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &super::types::AsyncInvokeOutputDataConfig,
+-    input: &super::super::types::AsyncInvokeOutputDataConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    match input {
--        super::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(inner) => {
+-        super::super::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(inner) => {
 -            #[allow(unused_mut)]
 -            let mut object_1 = object_5.key("s3OutputDataConfig").start_object();
--            super::protocol_serde::shape_async_invoke_s3_output_data_config::ser_async_invoke_s3_output_data_config(&mut object_1, inner)?;
+-            super::super::protocol_serde::shape_async_invoke_s3_output_data_config::ser_async_invoke_s3_output_data_config(&mut object_1, inner)?;
 -            object_1.finish();
 -        }
--        super::types::AsyncInvokeOutputDataConfig::Unknown => {
+-        super::super::types::AsyncInvokeOutputDataConfig::Unknown => {
 -            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 -                "AsyncInvokeOutputDataConfig",
 -            ))
@@ -2133,7 +2950,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_async_invoke_s3_output_data_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::types::AsyncInvokeS3OutputDataConfig,
++    input: &super::super::types::AsyncInvokeS3OutputDataConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    {
 +        object.key("s3Uri").string(input.s3_uri.as_str());
@@ -2157,7 +2974,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_async_invoke_s3_output_data_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &super::types::AsyncInvokeS3OutputDataConfig,
+-    input: &super::super::types::AsyncInvokeS3OutputDataConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("s3Uri").string(input.s3_uri.as_str());
@@ -2170,6 +2987,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -    Ok(())
 -}
+```
+
+### `src/protocol_serde/shape_async_invoke_summary.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_async_invoke_summary.rs
++++ generated/src/protocol_serde/shape_async_invoke_summary.rs
+@@ -92,9 +92,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::async_invoke_summary_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::async_invoke_summary_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_audio_block.rs`
@@ -2185,24 +3024,58 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("source").start_object();
--        super::protocol_serde::shape_audio_source::ser_audio_source(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_audio_source::ser_audio_source(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_1 = object.key("source").start_object();
-+        super::protocol_serde::shape_audio_source::ser_audio_source(&mut object_1, &input.source)?;
++        super::super::protocol_serde::shape_audio_source::ser_audio_source(&mut object_1, &input.source)?;
 +        object_1.finish();
      }
 -    if let Some(var_3) = &input.error {
 +    if let Some(var_2) = &input.error {
          #[allow(unused_mut)]
 -        let mut object_4 = object.key("error").start_object();
--        super::protocol_serde::shape_error_block::ser_error_block(&mut object_4, var_3)?;
+-        super::super::protocol_serde::shape_error_block::ser_error_block(&mut object_4, var_3)?;
 -        object_4.finish();
 +        let mut object_3 = object.key("error").start_object();
-+        super::protocol_serde::shape_error_block::ser_error_block(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_error_block::ser_error_block(&mut object_3, var_2)?;
 +        object_3.finish();
      }
      Ok(())
  }
+@@ -51,10 +51,18 @@
+                             );
+                         }
+                         "source" => {
+-                            builder = builder.set_source(super::super::protocol_serde::shape_audio_source::de_audio_source(tokens, _value, depth + 1)?);
++                            builder = builder.set_source(super::super::protocol_serde::shape_audio_source::de_audio_source(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "error" => {
+-                            builder = builder.set_error(super::super::protocol_serde::shape_error_block::de_error_block(tokens, _value, depth + 1)?);
++                            builder = builder.set_error(super::super::protocol_serde::shape_error_block::de_error_block(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+@@ -65,9 +73,9 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::audio_block_correct_errors(builder).build().map_err(|err| {
+-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+-            })?))
++            Ok(Some(super::super::serde_util::audio_block_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_audio_source.rs`
@@ -2210,26 +3083,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_audio_source.rs
 +++ generated/src/protocol_serde/shape_audio_source.rs
-@@ -1,15 +1,13 @@
+@@ -1,19 +1,19 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
  pub fn ser_audio_source(
 -    object_2: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::AudioSource,
+     input: &super::super::types::AudioSource,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::AudioSource::Bytes(inner) => {
+-        super::super::types::AudioSource::Bytes(inner) => {
 -            object_2.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
 -        }
-+        super::types::AudioSource::Bytes(inner) => {}
-         super::types::AudioSource::S3Location(inner) => {
++        super::super::types::AudioSource::Bytes(inner) => {}
+         super::super::types::AudioSource::S3Location(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_2.key("s3Location").start_object();
 +            let mut object_1 = object.key("s3Location").start_object();
-             super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
              object_1.finish();
          }
-@@ -38,9 +36,7 @@
+-        super::super::types::AudioSource::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("AudioSource")),
++        super::super::types::AudioSource::Unknown => {
++            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("AudioSource"))
++        }
+     }
+     Ok(())
+ }
+@@ -38,9 +38,7 @@
              match tokens.next().transpose()? {
                  Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                  Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
@@ -2240,15 +3120,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          let _ = tokens.next().expect("peek returned a token")?;
                          continue;
                      }
-@@ -56,7 +52,7 @@
+@@ -56,7 +54,7 @@
                      }
                      variant = match key.as_ref() {
-                         "bytes" => Some(super::types::AudioSource::Bytes(
+                         "bytes" => Some(super::super::types::AudioSource::Bytes(
 -                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
                          )),
-                         "s3Location" => Some(super::types::AudioSource::S3Location(
+                         "s3Location" => Some(super::super::types::AudioSource::S3Location(
 ```
 
 ### `src/protocol_serde/shape_bidirectional_output_payload_part.rs`
@@ -2260,12 +3140,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_bidirectional_output_payload_part_payload(
 -    _value: &[u8],
--) -> ::std::result::Result<super::types::BidirectionalOutputPayloadPart, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-) -> ::std::result::Result<super::super::types::BidirectionalOutputPayloadPart, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
--    let result = super::protocol_serde::shape_bidirectional_output_payload_part::de_bidirectional_output_payload_part(tokens, _value, depth + 1)?
+-    let result = super::super::protocol_serde::shape_bidirectional_output_payload_part::de_bidirectional_output_payload_part(tokens, _value, depth + 1)?
 -        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
 -    if tokens.next().is_some() {
 -        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
@@ -2298,6 +3178,41 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+@@ -44,9 +40,9 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::cache_detail_correct_errors(builder).build().map_err(|err| {
+-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+-            })?))
++            Ok(Some(super::super::serde_util::cache_detail_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
+```
+
+### `src/protocol_serde/shape_cache_point_block.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_cache_point_block.rs
++++ generated/src/protocol_serde/shape_cache_point_block.rs
+@@ -57,9 +57,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::cache_point_block_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::cache_point_block_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_citation.rs`
@@ -2307,7 +3222,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_citation.rs
 @@ -3,12 +3,8 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::Citation,
+     input: &super::super::types::Citation,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.title {
 -        object.key("title").string(var_1.as_str());
@@ -2353,14 +3268,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_citation_generated_content(
 -    object_4: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::CitationGeneratedContent,
+     input: &super::super::types::CitationGeneratedContent,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::CitationGeneratedContent::Text(inner) => {
+-        super::super::types::CitationGeneratedContent::Text(inner) => {
 -            object_4.key("text").string(inner.as_str());
 -        }
-+        super::types::CitationGeneratedContent::Text(inner) => {}
-         super::types::CitationGeneratedContent::Unknown => {
++        super::super::types::CitationGeneratedContent::Text(inner) => {}
+         super::super::types::CitationGeneratedContent::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                  "CitationGeneratedContent",
 @@ -36,9 +34,7 @@
@@ -2377,7 +3292,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -54,9 +50,7 @@
                      }
                      variant = match key.as_ref() {
-                         "text" => Some(super::types::CitationGeneratedContent::Text(
+                         "text" => Some(super::super::types::CitationGeneratedContent::Text(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                .transpose()?
@@ -2385,6 +3300,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                          )),
                          _ => {
+```
+
+### `src/protocol_serde/shape_citation_generated_content_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_citation_generated_content_list.rs
++++ generated/src/protocol_serde/shape_citation_generated_content_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::CitationGeneratedContent>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::CitationGeneratedContent>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
 ```
 
 ### `src/protocol_serde/shape_citation_location.rs`
@@ -2397,53 +3331,53 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_citation_location(
 -    object_8: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::CitationLocation,
+     input: &super::super::types::CitationLocation,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         super::types::CitationLocation::Web(inner) => {
+         super::super::types::CitationLocation::Web(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_8.key("web").start_object();
 +            let mut object_1 = object.key("web").start_object();
-             super::protocol_serde::shape_web_location::ser_web_location(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_web_location::ser_web_location(&mut object_1, inner)?;
              object_1.finish();
          }
-         super::types::CitationLocation::DocumentChar(inner) => {
+         super::super::types::CitationLocation::DocumentChar(inner) => {
              #[allow(unused_mut)]
 -            let mut object_2 = object_8.key("documentChar").start_object();
--            super::protocol_serde::shape_document_char_location::ser_document_char_location(&mut object_2, inner)?;
+-            super::super::protocol_serde::shape_document_char_location::ser_document_char_location(&mut object_2, inner)?;
 -            object_2.finish();
 +            let mut object_1 = object.key("documentChar").start_object();
-+            super::protocol_serde::shape_document_char_location::ser_document_char_location(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_document_char_location::ser_document_char_location(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::CitationLocation::DocumentPage(inner) => {
+         super::super::types::CitationLocation::DocumentPage(inner) => {
              #[allow(unused_mut)]
 -            let mut object_3 = object_8.key("documentPage").start_object();
--            super::protocol_serde::shape_document_page_location::ser_document_page_location(&mut object_3, inner)?;
+-            super::super::protocol_serde::shape_document_page_location::ser_document_page_location(&mut object_3, inner)?;
 -            object_3.finish();
 +            let mut object_1 = object.key("documentPage").start_object();
-+            super::protocol_serde::shape_document_page_location::ser_document_page_location(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_document_page_location::ser_document_page_location(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::CitationLocation::DocumentChunk(inner) => {
+         super::super::types::CitationLocation::DocumentChunk(inner) => {
              #[allow(unused_mut)]
 -            let mut object_4 = object_8.key("documentChunk").start_object();
--            super::protocol_serde::shape_document_chunk_location::ser_document_chunk_location(&mut object_4, inner)?;
+-            super::super::protocol_serde::shape_document_chunk_location::ser_document_chunk_location(&mut object_4, inner)?;
 -            object_4.finish();
 +            let mut object_1 = object.key("documentChunk").start_object();
-+            super::protocol_serde::shape_document_chunk_location::ser_document_chunk_location(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_document_chunk_location::ser_document_chunk_location(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::CitationLocation::SearchResultLocation(inner) => {
+         super::super::types::CitationLocation::SearchResultLocation(inner) => {
              #[allow(unused_mut)]
 -            let mut object_5 = object_8.key("searchResultLocation").start_object();
--            super::protocol_serde::shape_search_result_location::ser_search_result_location(&mut object_5, inner)?;
+-            super::super::protocol_serde::shape_search_result_location::ser_search_result_location(&mut object_5, inner)?;
 -            object_5.finish();
 +            let mut object_1 = object.key("searchResultLocation").start_object();
-+            super::protocol_serde::shape_search_result_location::ser_search_result_location(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_search_result_location::ser_search_result_location(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::CitationLocation::Unknown => {
+         super::super::types::CitationLocation::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 @@ -63,9 +63,7 @@
              match tokens.next().transpose()? {
@@ -2456,6 +3390,47 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          let _ = tokens.next().expect("peek returned a token")?;
                          continue;
                      }
+@@ -85,24 +83,28 @@
+                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'web' cannot be null"))?,
+                         )),
+                         "documentChar" => Some(super::super::types::CitationLocation::DocumentChar(
+-                            super::super::protocol_serde::shape_document_char_location::de_document_char_location(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChar' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_document_char_location::de_document_char_location(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChar' cannot be null")
++                                })?,
+                         )),
+                         "documentPage" => Some(super::super::types::CitationLocation::DocumentPage(
+-                            super::super::protocol_serde::shape_document_page_location::de_document_page_location(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentPage' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_document_page_location::de_document_page_location(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentPage' cannot be null")
++                                })?,
+                         )),
+                         "documentChunk" => Some(super::super::types::CitationLocation::DocumentChunk(
+-                            super::super::protocol_serde::shape_document_chunk_location::de_document_chunk_location(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChunk' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_document_chunk_location::de_document_chunk_location(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChunk' cannot be null")
++                                })?,
+                         )),
+                         "searchResultLocation" => Some(super::super::types::CitationLocation::SearchResultLocation(
+-                            super::super::protocol_serde::shape_search_result_location::de_search_result_location(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResultLocation' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_search_result_location::de_search_result_location(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResultLocation' cannot be null")
++                                })?,
+                         )),
+                         _ => {
+                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
 ```
 
 ### `src/protocol_serde/shape_citation_source_content.rs`
@@ -2468,14 +3443,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_citation_source_content(
 -    object_6: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::CitationSourceContent,
+     input: &super::super::types::CitationSourceContent,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::CitationSourceContent::Text(inner) => {
+-        super::super::types::CitationSourceContent::Text(inner) => {
 -            object_6.key("text").string(inner.as_str());
 -        }
-+        super::types::CitationSourceContent::Text(inner) => {}
-         super::types::CitationSourceContent::Unknown => {
++        super::super::types::CitationSourceContent::Text(inner) => {}
+         super::super::types::CitationSourceContent::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                  "CitationSourceContent",
 @@ -36,9 +34,7 @@
@@ -2492,7 +3467,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -54,9 +50,7 @@
                      }
                      variant = match key.as_ref() {
-                         "text" => Some(super::types::CitationSourceContent::Text(
+                         "text" => Some(super::super::types::CitationSourceContent::Text(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                .transpose()?
@@ -2522,6 +3497,39 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      },
 ```
 
+### `src/protocol_serde/shape_citation_source_content_list_delta.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_citation_source_content_list_delta.rs
++++ generated/src/protocol_serde/shape_citation_source_content_list_delta.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::CitationSourceContentDelta>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::CitationSourceContentDelta>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,8 +26,11 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_citation_source_content_delta::de_citation_source_content_delta(tokens, _value, depth + 1)?;
++                        let value = super::super::protocol_serde::shape_citation_source_content_delta::de_citation_source_content_delta(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
+```
+
 ### `src/protocol_serde/shape_citations_config.rs`
 
 ```diff
@@ -2529,7 +3537,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_citations_config.rs
 @@ -3,9 +3,7 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::CitationsConfig,
+     input: &super::super::types::CitationsConfig,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("enabled").boolean(input.enabled);
@@ -2582,136 +3590,141 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_content_block.rs
 +++ generated/src/protocol_serde/shape_content_block.rs
-@@ -1,89 +1,87 @@
+@@ -1,91 +1,91 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
  pub fn ser_content_block(
 -    object_3: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ContentBlock,
+     input: &super::super::types::ContentBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::ContentBlock::Text(inner) => {
+-        super::super::types::ContentBlock::Text(inner) => {
 -            object_3.key("text").string(inner.as_str());
 -        }
-+        super::types::ContentBlock::Text(inner) => {}
-         super::types::ContentBlock::Image(inner) => {
++        super::super::types::ContentBlock::Text(inner) => {}
+         super::super::types::ContentBlock::Image(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_3.key("image").start_object();
 +            let mut object_1 = object.key("image").start_object();
-             super::protocol_serde::shape_image_block::ser_image_block(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_image_block::ser_image_block(&mut object_1, inner)?;
              object_1.finish();
          }
-         super::types::ContentBlock::Document(inner) => {
+         super::super::types::ContentBlock::Document(inner) => {
              #[allow(unused_mut)]
 -            let mut object_2 = object_3.key("document").start_object();
--            super::protocol_serde::shape_document_block::ser_document_block(&mut object_2, inner)?;
+-            super::super::protocol_serde::shape_document_block::ser_document_block(&mut object_2, inner)?;
 -            object_2.finish();
 +            let mut object_1 = object.key("document").start_object();
-+            super::protocol_serde::shape_document_block::ser_document_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_document_block::ser_document_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::Video(inner) => {
+         super::super::types::ContentBlock::Video(inner) => {
              #[allow(unused_mut)]
 -            let mut object_3 = object_3.key("video").start_object();
--            super::protocol_serde::shape_video_block::ser_video_block(&mut object_3, inner)?;
+-            super::super::protocol_serde::shape_video_block::ser_video_block(&mut object_3, inner)?;
 -            object_3.finish();
 +            let mut object_1 = object.key("video").start_object();
-+            super::protocol_serde::shape_video_block::ser_video_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_video_block::ser_video_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::Audio(inner) => {
+         super::super::types::ContentBlock::Audio(inner) => {
              #[allow(unused_mut)]
 -            let mut object_4 = object_3.key("audio").start_object();
--            super::protocol_serde::shape_audio_block::ser_audio_block(&mut object_4, inner)?;
+-            super::super::protocol_serde::shape_audio_block::ser_audio_block(&mut object_4, inner)?;
 -            object_4.finish();
 +            let mut object_1 = object.key("audio").start_object();
-+            super::protocol_serde::shape_audio_block::ser_audio_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_audio_block::ser_audio_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::ToolUse(inner) => {
+         super::super::types::ContentBlock::ToolUse(inner) => {
              #[allow(unused_mut)]
 -            let mut object_5 = object_3.key("toolUse").start_object();
--            super::protocol_serde::shape_tool_use_block::ser_tool_use_block(&mut object_5, inner)?;
+-            super::super::protocol_serde::shape_tool_use_block::ser_tool_use_block(&mut object_5, inner)?;
 -            object_5.finish();
 +            let mut object_1 = object.key("toolUse").start_object();
-+            super::protocol_serde::shape_tool_use_block::ser_tool_use_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_tool_use_block::ser_tool_use_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::ToolResult(inner) => {
+         super::super::types::ContentBlock::ToolResult(inner) => {
              #[allow(unused_mut)]
 -            let mut object_6 = object_3.key("toolResult").start_object();
--            super::protocol_serde::shape_tool_result_block::ser_tool_result_block(&mut object_6, inner)?;
+-            super::super::protocol_serde::shape_tool_result_block::ser_tool_result_block(&mut object_6, inner)?;
 -            object_6.finish();
 +            let mut object_1 = object.key("toolResult").start_object();
-+            super::protocol_serde::shape_tool_result_block::ser_tool_result_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_tool_result_block::ser_tool_result_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::GuardContent(inner) => {
+         super::super::types::ContentBlock::GuardContent(inner) => {
              #[allow(unused_mut)]
 -            let mut object_7 = object_3.key("guardContent").start_object();
--            super::protocol_serde::shape_guardrail_converse_content_block::ser_guardrail_converse_content_block(&mut object_7, inner)?;
+-            super::super::protocol_serde::shape_guardrail_converse_content_block::ser_guardrail_converse_content_block(&mut object_7, inner)?;
 -            object_7.finish();
 +            let mut object_1 = object.key("guardContent").start_object();
-+            super::protocol_serde::shape_guardrail_converse_content_block::ser_guardrail_converse_content_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_guardrail_converse_content_block::ser_guardrail_converse_content_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::CachePoint(inner) => {
+         super::super::types::ContentBlock::CachePoint(inner) => {
              #[allow(unused_mut)]
 -            let mut object_8 = object_3.key("cachePoint").start_object();
--            super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_8, inner)?;
+-            super::super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_8, inner)?;
 -            object_8.finish();
 +            let mut object_1 = object.key("cachePoint").start_object();
-+            super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::ReasoningContent(inner) => {
+         super::super::types::ContentBlock::ReasoningContent(inner) => {
              #[allow(unused_mut)]
 -            let mut object_9 = object_3.key("reasoningContent").start_object();
--            super::protocol_serde::shape_reasoning_content_block::ser_reasoning_content_block(&mut object_9, inner)?;
+-            super::super::protocol_serde::shape_reasoning_content_block::ser_reasoning_content_block(&mut object_9, inner)?;
 -            object_9.finish();
 +            let mut object_1 = object.key("reasoningContent").start_object();
-+            super::protocol_serde::shape_reasoning_content_block::ser_reasoning_content_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_reasoning_content_block::ser_reasoning_content_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::CitationsContent(inner) => {
+         super::super::types::ContentBlock::CitationsContent(inner) => {
              #[allow(unused_mut)]
 -            let mut object_10 = object_3.key("citationsContent").start_object();
--            super::protocol_serde::shape_citations_content_block::ser_citations_content_block(&mut object_10, inner)?;
+-            super::super::protocol_serde::shape_citations_content_block::ser_citations_content_block(&mut object_10, inner)?;
 -            object_10.finish();
 +            let mut object_1 = object.key("citationsContent").start_object();
-+            super::protocol_serde::shape_citations_content_block::ser_citations_content_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_citations_content_block::ser_citations_content_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::SearchResult(inner) => {
+         super::super::types::ContentBlock::SearchResult(inner) => {
              #[allow(unused_mut)]
 -            let mut object_11 = object_3.key("searchResult").start_object();
--            super::protocol_serde::shape_search_result_block::ser_search_result_block(&mut object_11, inner)?;
+-            super::super::protocol_serde::shape_search_result_block::ser_search_result_block(&mut object_11, inner)?;
 -            object_11.finish();
 +            let mut object_1 = object.key("searchResult").start_object();
-+            super::protocol_serde::shape_search_result_block::ser_search_result_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_search_result_block::ser_search_result_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::ToolAddition(inner) => {
+         super::super::types::ContentBlock::ToolAddition(inner) => {
              #[allow(unused_mut)]
 -            let mut object_12 = object_3.key("toolAddition").start_object();
--            super::protocol_serde::shape_tool_addition_block::ser_tool_addition_block(&mut object_12, inner)?;
+-            super::super::protocol_serde::shape_tool_addition_block::ser_tool_addition_block(&mut object_12, inner)?;
 -            object_12.finish();
 +            let mut object_1 = object.key("toolAddition").start_object();
-+            super::protocol_serde::shape_tool_addition_block::ser_tool_addition_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_tool_addition_block::ser_tool_addition_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ContentBlock::ToolRemoval(inner) => {
+         super::super::types::ContentBlock::ToolRemoval(inner) => {
              #[allow(unused_mut)]
 -            let mut object_13 = object_3.key("toolRemoval").start_object();
--            super::protocol_serde::shape_tool_removal_block::ser_tool_removal_block(&mut object_13, inner)?;
+-            super::super::protocol_serde::shape_tool_removal_block::ser_tool_removal_block(&mut object_13, inner)?;
 -            object_13.finish();
 +            let mut object_1 = object.key("toolRemoval").start_object();
-+            super::protocol_serde::shape_tool_removal_block::ser_tool_removal_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_tool_removal_block::ser_tool_removal_block(&mut object_1, inner)?;
 +            object_1.finish();
++        }
++        super::super::types::ContentBlock::Unknown => {
++            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ContentBlock"))
          }
-         super::types::ContentBlock::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ContentBlock")),
+-        super::super::types::ContentBlock::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ContentBlock")),
      }
-@@ -110,9 +108,7 @@
+     Ok(())
+ }
+@@ -110,9 +110,7 @@
              match tokens.next().transpose()? {
                  Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                  Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
@@ -2722,17 +3735,74 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          let _ = tokens.next().expect("peek returned a token")?;
                          continue;
                      }
-@@ -128,9 +124,7 @@
+@@ -128,9 +126,7 @@
                      }
                      variant = match key.as_ref() {
-                         "text" => Some(super::types::ContentBlock::Text(
+                         "text" => Some(super::super::types::ContentBlock::Text(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                .transpose()?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                          )),
-                         "image" => Some(super::types::ContentBlock::Image(
+                         "image" => Some(super::super::types::ContentBlock::Image(
+@@ -156,9 +152,9 @@
+                             })?,
+                         )),
+                         "toolResult" => Some(super::super::types::ContentBlock::ToolResult(
+-                            super::super::protocol_serde::shape_tool_result_block::de_tool_result_block(tokens, _value, depth + 1)?.ok_or_else(|| {
+-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null")
+-                            })?,
++                            super::super::protocol_serde::shape_tool_result_block::de_tool_result_block(tokens, _value, depth + 1)?.ok_or_else(
++                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"),
++                            )?,
+                         )),
+                         "guardContent" => Some(super::super::types::ContentBlock::GuardContent(
+                             super::super::protocol_serde::shape_guardrail_converse_content_block::de_guardrail_converse_content_block(
+@@ -171,19 +167,21 @@
+                             })?,
+                         )),
+                         "cachePoint" => Some(super::super::types::ContentBlock::CachePoint(
+-                            super::super::protocol_serde::shape_cache_point_block::de_cache_point_block(tokens, _value, depth + 1)?.ok_or_else(|| {
+-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'cachePoint' cannot be null")
+-                            })?,
++                            super::super::protocol_serde::shape_cache_point_block::de_cache_point_block(tokens, _value, depth + 1)?.ok_or_else(
++                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'cachePoint' cannot be null"),
++                            )?,
+                         )),
+                         "reasoningContent" => Some(super::super::types::ContentBlock::ReasoningContent(
+-                            super::super::protocol_serde::shape_reasoning_content_block::de_reasoning_content_block(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_reasoning_content_block::de_reasoning_content_block(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null")
++                                })?,
+                         )),
+                         "citationsContent" => Some(super::super::types::ContentBlock::CitationsContent(
+-                            super::super::protocol_serde::shape_citations_content_block::de_citations_content_block(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'citationsContent' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_citations_content_block::de_citations_content_block(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'citationsContent' cannot be null")
++                                })?,
+                         )),
+                         "searchResult" => Some(super::super::types::ContentBlock::SearchResult(
+                             super::super::protocol_serde::shape_search_result_block::de_search_result_block(tokens, _value, depth + 1)?.ok_or_else(
+@@ -196,9 +194,9 @@
+                             )?,
+                         )),
+                         "toolRemoval" => Some(super::super::types::ContentBlock::ToolRemoval(
+-                            super::super::protocol_serde::shape_tool_removal_block::de_tool_removal_block(tokens, _value, depth + 1)?.ok_or_else(|| {
+-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolRemoval' cannot be null")
+-                            })?,
++                            super::super::protocol_serde::shape_tool_removal_block::de_tool_removal_block(tokens, _value, depth + 1)?.ok_or_else(
++                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolRemoval' cannot be null"),
++                            )?,
+                         )),
+                         _ => {
+                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
 ```
 
 ### `src/protocol_serde/shape_content_block_delta.rs`
@@ -2751,17 +3821,46 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          let _ = tokens.next().expect("peek returned a token")?;
                          continue;
                      }
-@@ -37,9 +35,7 @@
+@@ -37,15 +35,14 @@
                      }
                      variant = match key.as_ref() {
-                         "text" => Some(super::types::ContentBlockDelta::Text(
+                         "text" => Some(super::super::types::ContentBlockDelta::Text(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                .transpose()?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                          )),
-                         "toolUse" => Some(super::types::ContentBlockDelta::ToolUse(
+                         "toolUse" => Some(super::super::types::ContentBlockDelta::ToolUse(
+-                            super::super::protocol_serde::shape_tool_use_block_delta::de_tool_use_block_delta(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_tool_use_block_delta::de_tool_use_block_delta(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null")
++                                })?,
+                         )),
+                         "toolResult" => Some(super::super::types::ContentBlockDelta::ToolResult(
+                             super::super::protocol_serde::shape_tool_result_blocks_delta::de_tool_result_blocks_delta(tokens, _value, depth + 1)?
+@@ -54,10 +51,14 @@
+                                 })?,
+                         )),
+                         "reasoningContent" => Some(super::super::types::ContentBlockDelta::ReasoningContent(
+-                            super::super::protocol_serde::shape_reasoning_content_block_delta::de_reasoning_content_block_delta(tokens, _value, depth + 1)?
+-                                .ok_or_else(|| {
+-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null")
+-                                })?,
++                            super::super::protocol_serde::shape_reasoning_content_block_delta::de_reasoning_content_block_delta(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?
++                            .ok_or_else(|| {
++                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null")
++                            })?,
+                         )),
+                         "citation" => Some(super::super::types::ContentBlockDelta::Citation(
+                             super::super::protocol_serde::shape_citations_delta::de_citations_delta(tokens, _value, depth + 1)?.ok_or_else(|| {
 ```
 
 ### `src/protocol_serde/shape_content_block_delta_event.rs`
@@ -2773,12 +3872,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_content_block_delta_event_payload(
 -    _value: &[u8],
--) -> ::std::result::Result<super::types::ContentBlockDeltaEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-) -> ::std::result::Result<super::super::types::ContentBlockDeltaEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
--    let result = super::protocol_serde::shape_content_block_delta_event::de_content_block_delta_event(tokens, _value, depth + 1)?
+-    let result = super::super::protocol_serde::shape_content_block_delta_event::de_content_block_delta_event(tokens, _value, depth + 1)?
 -        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
 -    if tokens.next().is_some() {
 -        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
@@ -2809,6 +3908,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          let _ = tokens.next().expect("peek returned a token")?;
                          continue;
                      }
+@@ -37,14 +35,16 @@
+                     }
+                     variant = match key.as_ref() {
+                         "toolUse" => Some(super::super::types::ContentBlockStart::ToolUse(
+-                            super::super::protocol_serde::shape_tool_use_block_start::de_tool_use_block_start(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_tool_use_block_start::de_tool_use_block_start(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null")
++                                })?,
+                         )),
+                         "toolResult" => Some(super::super::types::ContentBlockStart::ToolResult(
+-                            super::super::protocol_serde::shape_tool_result_block_start::de_tool_result_block_start(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_tool_result_block_start::de_tool_result_block_start(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null")
++                                })?,
+                         )),
+                         "image" => Some(super::super::types::ContentBlockStart::Image(
+                             super::super::protocol_serde::shape_image_block_start::de_image_block_start(tokens, _value, depth + 1)?
 ```
 
 ### `src/protocol_serde/shape_content_block_start_event.rs`
@@ -2820,12 +3942,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_content_block_start_event_payload(
 -    _value: &[u8],
--) -> ::std::result::Result<super::types::ContentBlockStartEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-) -> ::std::result::Result<super::super::types::ContentBlockStartEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
--    let result = super::protocol_serde::shape_content_block_start_event::de_content_block_start_event(tokens, _value, depth + 1)?
+-    let result = super::super::protocol_serde::shape_content_block_start_event::de_content_block_start_event(tokens, _value, depth + 1)?
 -        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
 -    if tokens.next().is_some() {
 -        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
@@ -2849,12 +3971,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_content_block_stop_event_payload(
 -    _value: &[u8],
--) -> ::std::result::Result<super::types::ContentBlockStopEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-) -> ::std::result::Result<super::super::types::ContentBlockStopEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
--    let result = super::protocol_serde::shape_content_block_stop_event::de_content_block_stop_event(tokens, _value, depth + 1)?
+-    let result = super::super::protocol_serde::shape_content_block_stop_event::de_content_block_stop_event(tokens, _value, depth + 1)?
 -        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
 -    if tokens.next().is_some() {
 -        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
@@ -2874,70 +3996,147 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_converse.rs
 +++ generated/src/protocol_serde/shape_converse.rs
-@@ -199,23 +199,36 @@
+@@ -97,8 +97,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::converse::ConverseError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::converse::ConverseError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -112,9 +115,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+-                output =
+-                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::converse::ConverseError::unhandled)?;
++                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::converse::ConverseError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -188,7 +193,8 @@
+ pub(crate) fn de_converse(
+     _value: &[u8],
+     mut builder: super::super::operation::converse::builders::ConverseOutputBuilder,
+-) -> ::std::result::Result<super::super::operation::converse::builders::ConverseOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++) -> ::std::result::Result<super::super::operation::converse::builders::ConverseOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+@@ -197,49 +203,59 @@
+     loop {
+         match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                 match key.to_unescaped()?.as_ref() {
+-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                match key.to_unescaped()?.as_ref() {
 -                    "additionalModelResponseFields" => {
 -                        builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
 -                    }
 -                    "metrics" => {
--                        builder = builder.set_metrics(super::protocol_serde::shape_converse_metrics::de_converse_metrics(
-+                    "output" => {
-+                        builder = builder.set_output(super::protocol_serde::shape_converse_output::de_converse_output(
-                             tokens,
-                             _value,
-                             depth + 1,
-                         )?);
-                     }
+-                        builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(
+-                            tokens,
+-                            _value,
+-                            depth + 1,
+-                        )?);
+-                    }
 -                    "output" => {
--                        builder = builder.set_output(super::protocol_serde::shape_converse_output::de_converse_output(
-+                    "stopReason" => {
-+                        builder = builder.set_stop_reason(
-+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                .map(|s| s.to_unescaped().map(|u| super::types::StopReason::from(u.as_ref())))
-+                                .transpose()?,
-+                        );
-+                    }
-+                    "usage" => {
-+                        builder = builder.set_usage(super::protocol_serde::shape_token_usage::de_token_usage(tokens, _value, depth + 1)?);
-+                    }
-+                    "metrics" => {
-+                        builder = builder.set_metrics(super::protocol_serde::shape_converse_metrics::de_converse_metrics(
-                             tokens,
-                             _value,
-                             depth + 1,
-                         )?);
-                     }
-+                    "additionalModelResponseFields" => {
-+                        builder = builder.set_additional_model_response_fields(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
-+                    }
-+                    "trace" => {
-+                        builder = builder.set_trace(super::protocol_serde::shape_converse_trace::de_converse_trace(tokens, _value, depth + 1)?);
-+                    }
-                     "performanceConfig" => {
-                         builder = builder.set_performance_config(
-                             super::protocol_serde::shape_performance_configuration::de_performance_configuration(tokens, _value, depth + 1)?,
-@@ -224,19 +237,6 @@
-                     "serviceTier" => {
-                         builder = builder.set_service_tier(super::protocol_serde::shape_service_tier::de_service_tier(tokens, _value, depth + 1)?);
-                     }
+-                        builder = builder.set_output(super::super::protocol_serde::shape_converse_output::de_converse_output(
+-                            tokens,
+-                            _value,
+-                            depth + 1,
+-                        )?);
+-                    }
+-                    "performanceConfig" => {
+-                        builder = builder.set_performance_config(
+-                            super::super::protocol_serde::shape_performance_configuration::de_performance_configuration(tokens, _value, depth + 1)?,
+-                        );
+-                    }
+-                    "serviceTier" => {
+-                        builder = builder.set_service_tier(super::super::protocol_serde::shape_service_tier::de_service_tier(tokens, _value, depth + 1)?);
+-                    }
 -                    "stopReason" => {
 -                        builder = builder.set_stop_reason(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                .map(|s| s.to_unescaped().map(|u| super::types::StopReason::from(u.as_ref())))
+-                                .map(|s| s.to_unescaped().map(|u| super::super::types::StopReason::from(u.as_ref())))
 -                                .transpose()?,
 -                        );
 -                    }
 -                    "trace" => {
--                        builder = builder.set_trace(super::protocol_serde::shape_converse_trace::de_converse_trace(tokens, _value, depth + 1)?);
+-                        builder = builder.set_trace(super::super::protocol_serde::shape_converse_trace::de_converse_trace(tokens, _value, depth + 1)?);
 -                    }
 -                    "usage" => {
--                        builder = builder.set_usage(super::protocol_serde::shape_token_usage::de_token_usage(tokens, _value, depth + 1)?);
+-                        builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(tokens, _value, depth + 1)?);
 -                    }
-                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                "output" => {
++                    builder = builder.set_output(super::super::protocol_serde::shape_converse_output::de_converse_output(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
++                }
++                "stopReason" => {
++                    builder = builder.set_stop_reason(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::StopReason::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                "usage" => {
++                    builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
++                }
++                "metrics" => {
++                    builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
++                }
++                "additionalModelResponseFields" => {
++                    builder = builder.set_additional_model_response_fields(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
++                }
++                "trace" => {
++                    builder = builder.set_trace(super::super::protocol_serde::shape_converse_trace::de_converse_trace(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
++                }
++                "performanceConfig" => {
++                    builder = builder.set_performance_config(
++                        super::super::protocol_serde::shape_performance_configuration::de_performance_configuration(tokens, _value, depth + 1)?,
++                    );
++                }
++                "serviceTier" => {
++                    builder = builder.set_service_tier(super::super::protocol_serde::shape_service_tier::de_service_tier(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
                  }
-             }
+-            }
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
+             other => {
+                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                     "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_converse_input.rs`
@@ -2947,7 +4146,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_converse_input.rs
 @@ -3,54 +3,52 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::converse::ConverseInput,
+     input: &super::super::operation::converse::ConverseInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.additional_model_request_fields {
 -        object.key("additionalModelRequestFields").document(var_1);
@@ -2963,7 +4162,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                array_3.value().string(item_4.as_str());
 +                #[allow(unused_mut)]
 +                let mut object_5 = array_3.value().start_object();
-+                super::protocol_serde::shape_message::ser_message(&mut object_5, item_4)?;
++                super::super::protocol_serde::shape_message::ser_message(&mut object_5, item_4)?;
 +                object_5.finish();
              }
          }
@@ -2972,13 +4171,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_5) = &input.guardrail_config {
 -        #[allow(unused_mut)]
 -        let mut object_6 = object.key("guardrailConfig").start_object();
--        super::protocol_serde::shape_guardrail_configuration::ser_guardrail_configuration(&mut object_6, var_5)?;
+-        super::super::protocol_serde::shape_guardrail_configuration::ser_guardrail_configuration(&mut object_6, var_5)?;
 -        object_6.finish();
 -    }
 -    if let Some(var_7) = &input.inference_config {
 -        #[allow(unused_mut)]
 -        let mut object_8 = object.key("inferenceConfig").start_object();
--        super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_8, var_7)?;
+-        super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_8, var_7)?;
 -        object_8.finish();
 -    }
 -    if let Some(var_9) = &input.messages {
@@ -2990,10 +4189,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_12 = array_10.value().start_object();
--                super::protocol_serde::shape_message::ser_message(&mut object_12, item_11)?;
+-                super::super::protocol_serde::shape_message::ser_message(&mut object_12, item_11)?;
 -                object_12.finish();
 +                let mut object_9 = array_7.value().start_object();
-+                super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_9, item_8)?;
++                super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_9, item_8)?;
 +                object_9.finish();
              }
          }
@@ -3004,26 +4203,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_10) = &input.inference_config {
          #[allow(unused_mut)]
 -        let mut object_14 = object.key("outputConfig").start_object();
--        super::protocol_serde::shape_output_config::ser_output_config(&mut object_14, var_13)?;
+-        super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_14, var_13)?;
 -        object_14.finish();
 +        let mut object_11 = object.key("inferenceConfig").start_object();
-+        super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_11, var_10)?;
++        super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_11, var_10)?;
 +        object_11.finish();
      }
 -    if let Some(var_15) = &input.performance_config {
 +    if let Some(var_12) = &input.tool_config {
          #[allow(unused_mut)]
 -        let mut object_16 = object.key("performanceConfig").start_object();
--        super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_16, var_15)?;
+-        super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_16, var_15)?;
 -        object_16.finish();
 +        let mut object_13 = object.key("toolConfig").start_object();
-+        super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_13, var_12)?;
++        super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_13, var_12)?;
 +        object_13.finish();
      }
 +    if let Some(var_14) = &input.guardrail_config {
 +        #[allow(unused_mut)]
 +        let mut object_15 = object.key("guardrailConfig").start_object();
-+        super::protocol_serde::shape_guardrail_configuration::ser_guardrail_configuration(&mut object_15, var_14)?;
++        super::super::protocol_serde::shape_guardrail_configuration::ser_guardrail_configuration(&mut object_15, var_14)?;
 +        object_15.finish();
 +    }
 +    if let Some(var_16) = &input.additional_model_request_fields {}
@@ -3060,10 +4259,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_29) = &input.performance_config {
          #[allow(unused_mut)]
 -        let mut object_27 = object.key("serviceTier").start_object();
--        super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_27, var_26)?;
+-        super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_27, var_26)?;
 -        object_27.finish();
 +        let mut object_30 = object.key("performanceConfig").start_object();
-+        super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_30, var_29)?;
++        super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_30, var_29)?;
 +        object_30.finish();
      }
 -    if let Some(var_28) = &input.system {
@@ -3072,7 +4271,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            {
 -                #[allow(unused_mut)]
 -                let mut object_31 = array_29.value().start_object();
--                super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_31, item_30)?;
+-                super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_31, item_30)?;
 -                object_31.finish();
 -            }
 -        }
@@ -3080,17 +4279,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_31) = &input.service_tier {
 +        #[allow(unused_mut)]
 +        let mut object_32 = object.key("serviceTier").start_object();
-+        super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_32, var_31)?;
++        super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_32, var_31)?;
 +        object_32.finish();
      }
 -    if let Some(var_32) = &input.tool_config {
 +    if let Some(var_33) = &input.output_config {
          #[allow(unused_mut)]
 -        let mut object_33 = object.key("toolConfig").start_object();
--        super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_33, var_32)?;
+-        super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_33, var_32)?;
 -        object_33.finish();
 +        let mut object_34 = object.key("outputConfig").start_object();
-+        super::protocol_serde::shape_output_config::ser_output_config(&mut object_34, var_33)?;
++        super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_34, var_33)?;
 +        object_34.finish();
      }
      Ok(())
@@ -3140,12 +4339,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_converse_stream.rs
 +++ generated/src/protocol_serde/shape_converse_stream.rs
-@@ -1,28 +1,5 @@
+@@ -1,33 +1,11 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
  #[allow(clippy::unnecessary_wraps)]
 -pub fn de_converse_stream_http_response(
 -    response: &mut ::aws_smithy_runtime_api::http::Response,
--) -> std::result::Result<super::operation::converse_stream::ConverseStreamOutput, super::operation::converse_stream::ConverseStreamError> {
+-) -> std::result::Result<super::super::operation::converse_stream::ConverseStreamOutput, super::super::operation::converse_stream::ConverseStreamError> {
 -    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
 -    std::mem::swap(&mut _response_body, response.body_mut());
 -    let _response_body = &mut _response_body;
@@ -3154,14 +4353,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    let _response_headers = response.headers();
 -    Ok({
 -        #[allow(unused_mut)]
--        let mut output = super::operation::converse_stream::builders::ConverseStreamOutputBuilder::default();
--        output = output.set_stream(Some(super::protocol_serde::shape_converse_stream_output::de_stream_payload(
+-        let mut output = super::super::operation::converse_stream::builders::ConverseStreamOutputBuilder::default();
+-        output = output.set_stream(Some(super::super::protocol_serde::shape_converse_stream_output::de_stream_payload(
 -            _response_body,
 -        )?));
 -        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        output
 -            .build()
--            .map_err(super::operation::converse_stream::ConverseStreamError::unhandled)?
+-            .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?
 -    })
 -}
 -
@@ -3169,17 +4368,53 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn de_converse_stream_http_error(
      _response_status: u16,
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -176,25 +153,26 @@
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::converse_stream::ConverseStreamOutput, super::super::operation::converse_stream::ConverseStreamError> {
++) -> std::result::Result<super::super::operation::converse_stream::ConverseStreamOutput, super::super::operation::converse_stream::ConverseStreamError>
++{
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
+@@ -120,8 +98,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -135,9 +116,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+-                output =
+-                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
++                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -176,25 +159,27 @@
              }
              tmp
          }),
--        "ModelStreamErrorException" => super::operation::converse_stream::ConverseStreamError::ModelStreamErrorException({
+-        "ModelStreamErrorException" => super::super::operation::converse_stream::ConverseStreamError::ModelStreamErrorException({
 -            #[allow(unused_mut)]
 -            let mut tmp = {
 -                #[allow(unused_mut)]
--                let mut output = super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
--                output = super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output)
--                    .map_err(super::operation::converse_stream::ConverseStreamError::unhandled)?;
+-                let mut output = super::super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
 -                let output = output.meta(generic);
 -                output.build()
 -            };
@@ -3188,7 +4423,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            }
 -            tmp
 -        }),
-         _ => super::operation::converse_stream::ConverseStreamError::generic(generic),
+         _ => super::super::operation::converse_stream::ConverseStreamError::generic(generic),
      })
  }
 
@@ -3197,33 +4432,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    _response_status: u16,
 +    _response_headers: &::aws_smithy_runtime_api::http::Headers,
 +    _response_body: &[u8],
-+) -> std::result::Result<super::operation::converse_stream::ConverseStreamOutput, super::operation::converse_stream::ConverseStreamError> {
++) -> std::result::Result<super::super::operation::converse_stream::ConverseStreamOutput, super::super::operation::converse_stream::ConverseStreamError>
++{
 +    Ok({
 +        #[allow(unused_mut)]
-+        let mut output = super::operation::converse_stream::builders::ConverseStreamOutputBuilder::default();
-+        output = super::protocol_serde::shape_converse_stream::de_converse_stream(_response_body, output)
-+            .map_err(super::operation::converse_stream::ConverseStreamError::unhandled)?;
++        let mut output = super::super::operation::converse_stream::builders::ConverseStreamOutputBuilder::default();
++        output = super::super::protocol_serde::shape_converse_stream::de_converse_stream(_response_body, output)
++            .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
 +        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 +        output.build()
 +    })
 +}
 +
  pub fn ser_converse_stream_input(
-     input: &super::operation::converse_stream::ConverseStreamInput,
+     input: &super::super::operation::converse_stream::ConverseStreamInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-@@ -204,3 +182,43 @@
+@@ -204,3 +189,43 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_converse_stream(
 +    _value: &[u8],
-+    mut builder: super::operation::converse_stream::builders::ConverseStreamOutputBuilder,
++    mut builder: super::super::operation::converse_stream::builders::ConverseStreamOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::converse_stream::builders::ConverseStreamOutputBuilder,
++    super::super::operation::converse_stream::builders::ConverseStreamOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -3233,7 +4469,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
 +            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 +                "stream" => {
-+                    builder = builder.set_stream(super::protocol_serde::shape_converse_stream_output::de_converse_stream_output(
++                    builder = builder.set_stream(super::super::protocol_serde::shape_converse_stream_output::de_converse_stream_output(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -3264,7 +4500,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_converse_stream_input.rs
 @@ -3,54 +3,52 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::converse_stream::ConverseStreamInput,
+     input: &super::super::operation::converse_stream::ConverseStreamInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.additional_model_request_fields {
 -        object.key("additionalModelRequestFields").document(var_1);
@@ -3280,7 +4516,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                array_3.value().string(item_4.as_str());
 +                #[allow(unused_mut)]
 +                let mut object_5 = array_3.value().start_object();
-+                super::protocol_serde::shape_message::ser_message(&mut object_5, item_4)?;
++                super::super::protocol_serde::shape_message::ser_message(&mut object_5, item_4)?;
 +                object_5.finish();
              }
          }
@@ -3289,13 +4525,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_5) = &input.guardrail_config {
 -        #[allow(unused_mut)]
 -        let mut object_6 = object.key("guardrailConfig").start_object();
--        super::protocol_serde::shape_guardrail_stream_configuration::ser_guardrail_stream_configuration(&mut object_6, var_5)?;
+-        super::super::protocol_serde::shape_guardrail_stream_configuration::ser_guardrail_stream_configuration(&mut object_6, var_5)?;
 -        object_6.finish();
 -    }
 -    if let Some(var_7) = &input.inference_config {
 -        #[allow(unused_mut)]
 -        let mut object_8 = object.key("inferenceConfig").start_object();
--        super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_8, var_7)?;
+-        super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_8, var_7)?;
 -        object_8.finish();
 -    }
 -    if let Some(var_9) = &input.messages {
@@ -3307,10 +4543,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_12 = array_10.value().start_object();
--                super::protocol_serde::shape_message::ser_message(&mut object_12, item_11)?;
+-                super::super::protocol_serde::shape_message::ser_message(&mut object_12, item_11)?;
 -                object_12.finish();
 +                let mut object_9 = array_7.value().start_object();
-+                super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_9, item_8)?;
++                super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_9, item_8)?;
 +                object_9.finish();
              }
          }
@@ -3321,26 +4557,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_10) = &input.inference_config {
          #[allow(unused_mut)]
 -        let mut object_14 = object.key("outputConfig").start_object();
--        super::protocol_serde::shape_output_config::ser_output_config(&mut object_14, var_13)?;
+-        super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_14, var_13)?;
 -        object_14.finish();
 +        let mut object_11 = object.key("inferenceConfig").start_object();
-+        super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_11, var_10)?;
++        super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_11, var_10)?;
 +        object_11.finish();
      }
 -    if let Some(var_15) = &input.performance_config {
 +    if let Some(var_12) = &input.tool_config {
          #[allow(unused_mut)]
 -        let mut object_16 = object.key("performanceConfig").start_object();
--        super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_16, var_15)?;
+-        super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_16, var_15)?;
 -        object_16.finish();
 +        let mut object_13 = object.key("toolConfig").start_object();
-+        super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_13, var_12)?;
++        super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_13, var_12)?;
 +        object_13.finish();
      }
 +    if let Some(var_14) = &input.guardrail_config {
 +        #[allow(unused_mut)]
 +        let mut object_15 = object.key("guardrailConfig").start_object();
-+        super::protocol_serde::shape_guardrail_stream_configuration::ser_guardrail_stream_configuration(&mut object_15, var_14)?;
++        super::super::protocol_serde::shape_guardrail_stream_configuration::ser_guardrail_stream_configuration(&mut object_15, var_14)?;
 +        object_15.finish();
 +    }
 +    if let Some(var_16) = &input.additional_model_request_fields {}
@@ -3377,10 +4613,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_29) = &input.performance_config {
          #[allow(unused_mut)]
 -        let mut object_27 = object.key("serviceTier").start_object();
--        super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_27, var_26)?;
+-        super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_27, var_26)?;
 -        object_27.finish();
 +        let mut object_30 = object.key("performanceConfig").start_object();
-+        super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_30, var_29)?;
++        super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_30, var_29)?;
 +        object_30.finish();
      }
 -    if let Some(var_28) = &input.system {
@@ -3389,7 +4625,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            {
 -                #[allow(unused_mut)]
 -                let mut object_31 = array_29.value().start_object();
--                super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_31, item_30)?;
+-                super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_31, item_30)?;
 -                object_31.finish();
 -            }
 -        }
@@ -3397,17 +4633,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_31) = &input.service_tier {
 +        #[allow(unused_mut)]
 +        let mut object_32 = object.key("serviceTier").start_object();
-+        super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_32, var_31)?;
++        super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_32, var_31)?;
 +        object_32.finish();
      }
 -    if let Some(var_32) = &input.tool_config {
 +    if let Some(var_33) = &input.output_config {
          #[allow(unused_mut)]
 -        let mut object_33 = object.key("toolConfig").start_object();
--        super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_33, var_32)?;
+-        super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_33, var_32)?;
 -        object_33.finish();
 +        let mut object_34 = object.key("outputConfig").start_object();
-+        super::protocol_serde::shape_output_config::ser_output_config(&mut object_34, var_33)?;
++        super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_34, var_33)?;
 +        object_34.finish();
      }
      Ok(())
@@ -3423,12 +4659,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_converse_stream_metadata_event_payload(
 -    _value: &[u8],
--) -> ::std::result::Result<super::types::ConverseStreamMetadataEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-) -> ::std::result::Result<super::super::types::ConverseStreamMetadataEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
--    let result = super::protocol_serde::shape_converse_stream_metadata_event::de_converse_stream_metadata_event(tokens, _value, depth + 1)?
+-    let result = super::super::protocol_serde::shape_converse_stream_metadata_event::de_converse_stream_metadata_event(tokens, _value, depth + 1)?
 -        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
 -    if tokens.next().is_some() {
 -        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
@@ -3441,6 +4677,53 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_converse_stream_metadata_event<'a, I>(
      tokens: &mut ::std::iter::Peekable<I>,
      _value: &'a [u8],
+@@ -39,7 +22,11 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "usage" => {
+-                            builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(tokens, _value, depth + 1)?);
++                            builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "metrics" => {
+                             builder = builder.set_metrics(super::super::protocol_serde::shape_converse_stream_metrics::de_converse_stream_metrics(
+@@ -57,12 +44,19 @@
+                         }
+                         "performanceConfig" => {
+                             builder = builder.set_performance_config(
+-                                super::super::protocol_serde::shape_performance_configuration::de_performance_configuration(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_performance_configuration::de_performance_configuration(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         "serviceTier" => {
+-                            builder =
+-                                builder.set_service_tier(super::super::protocol_serde::shape_service_tier::de_service_tier(tokens, _value, depth + 1)?);
++                            builder = builder.set_service_tier(super::super::protocol_serde::shape_service_tier::de_service_tier(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+@@ -73,7 +67,9 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::converse_stream_metadata_event_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::converse_stream_metadata_event_correct_errors(builder).build(),
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_converse_stream_metrics.rs`
@@ -3461,6 +4744,47 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+@@ -37,9 +33,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::converse_stream_metrics_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::converse_stream_metrics_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
+```
+
+### `src/protocol_serde/shape_converse_stream_trace.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_converse_stream_trace.rs
++++ generated/src/protocol_serde/shape_converse_stream_trace.rs
+@@ -22,11 +22,13 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "guardrail" => {
+-                            builder = builder.set_guardrail(super::super::protocol_serde::shape_guardrail_trace_assessment::de_guardrail_trace_assessment(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_guardrail(
++                                super::super::protocol_serde::shape_guardrail_trace_assessment::de_guardrail_trace_assessment(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
++                            );
+                         }
+                         "promptRouter" => {
+                             builder = builder.set_prompt_router(super::super::protocol_serde::shape_prompt_router_trace::de_prompt_router_trace(
 ```
 
 ### `src/protocol_serde/shape_converse_tokens_request.rs`
@@ -3469,7 +4793,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_converse_tokens_request.rs
 +++ generated/src/protocol_serde/shape_converse_tokens_request.rs
 @@ -33,8 +33,6 @@
-         super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_10, var_9)?;
+         super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_10, var_9)?;
          object_10.finish();
      }
 -    if let Some(var_11) = &input.additional_model_request_fields {
@@ -3480,12 +4804,80 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/protocol_serde/shape_converse_trace.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_converse_trace.rs
++++ generated/src/protocol_serde/shape_converse_trace.rs
+@@ -22,11 +22,13 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "guardrail" => {
+-                            builder = builder.set_guardrail(super::super::protocol_serde::shape_guardrail_trace_assessment::de_guardrail_trace_assessment(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_guardrail(
++                                super::super::protocol_serde::shape_guardrail_trace_assessment::de_guardrail_trace_assessment(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
++                            );
+                         }
+                         "promptRouter" => {
+                             builder = builder.set_prompt_router(super::super::protocol_serde::shape_prompt_router_trace::de_prompt_router_trace(
+```
+
 ### `src/protocol_serde/shape_count_tokens.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_count_tokens.rs
 +++ generated/src/protocol_serde/shape_count_tokens.rs
-@@ -155,11 +155,7 @@
+@@ -52,8 +52,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::count_tokens::CountTokensError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::count_tokens::CountTokensError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -67,9 +70,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+-                output =
+-                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::count_tokens::CountTokensError::unhandled)?;
++                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::count_tokens::CountTokensError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -143,8 +148,10 @@
+ pub(crate) fn de_count_tokens(
+     _value: &[u8],
+     mut builder: super::super::operation::count_tokens::builders::CountTokensOutputBuilder,
+-) -> ::std::result::Result<super::super::operation::count_tokens::builders::CountTokensOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+-{
++) -> ::std::result::Result<
++    super::super::operation::count_tokens::builders::CountTokensOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+@@ -155,11 +162,7 @@
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                  "inputTokens" => {
@@ -3509,12 +4901,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub fn ser_count_tokens_input_input(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &super::operation::count_tokens::CountTokensInput,
+-    input: &super::super::operation::count_tokens::CountTokensInput,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.input {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("input").start_object();
--        super::protocol_serde::shape_count_tokens_input::ser_count_tokens_input(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_count_tokens_input::ser_count_tokens_input(&mut object_2, var_1)?;
 -        object_2.finish();
 -    }
 -    Ok(())
@@ -3523,28 +4915,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_count_tokens_input(
 -    object_2: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::CountTokensInput,
+     input: &super::super::types::CountTokensInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         super::types::CountTokensInput::InvokeModel(inner) => {
+         super::super::types::CountTokensInput::InvokeModel(inner) => {
              #[allow(unused_mut)]
 -            let mut object_3 = object_2.key("invokeModel").start_object();
--            super::protocol_serde::shape_invoke_model_tokens_request::ser_invoke_model_tokens_request(&mut object_3, inner)?;
+-            super::super::protocol_serde::shape_invoke_model_tokens_request::ser_invoke_model_tokens_request(&mut object_3, inner)?;
 -            object_3.finish();
 +            let mut object_1 = object.key("invokeModel").start_object();
-+            super::protocol_serde::shape_invoke_model_tokens_request::ser_invoke_model_tokens_request(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_invoke_model_tokens_request::ser_invoke_model_tokens_request(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::CountTokensInput::Converse(inner) => {
+         super::super::types::CountTokensInput::Converse(inner) => {
              #[allow(unused_mut)]
 -            let mut object_4 = object_2.key("converse").start_object();
--            super::protocol_serde::shape_converse_tokens_request::ser_converse_tokens_request(&mut object_4, inner)?;
+-            super::super::protocol_serde::shape_converse_tokens_request::ser_converse_tokens_request(&mut object_4, inner)?;
 -            object_4.finish();
 +            let mut object_1 = object.key("converse").start_object();
-+            super::protocol_serde::shape_converse_tokens_request::ser_converse_tokens_request(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_converse_tokens_request::ser_converse_tokens_request(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::CountTokensInput::Unknown => {
+         super::super::types::CountTokensInput::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 ```
 
@@ -3564,13 +4956,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_1) = &input.source {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("source").start_object();
--        super::protocol_serde::shape_document_source::ser_document_source(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_document_source::ser_document_source(&mut object_2, var_1)?;
 -        object_2.finish();
 -    }
 -    if let Some(var_3) = &input.context {
 -        object.key("context").string(var_3.as_str());
 +        let mut object_1 = object.key("source").start_object();
-+        super::protocol_serde::shape_document_source::ser_document_source(&mut object_1, &input.source)?;
++        super::super::protocol_serde::shape_document_source::ser_document_source(&mut object_1, &input.source)?;
 +        object_1.finish();
      }
 -    if let Some(var_4) = &input.citations {
@@ -3578,10 +4970,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_3) = &input.citations {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("citations").start_object();
--        super::protocol_serde::shape_citations_config::ser_citations_config(&mut object_5, var_4)?;
+-        super::super::protocol_serde::shape_citations_config::ser_citations_config(&mut object_5, var_4)?;
 -        object_5.finish();
 +        let mut object_4 = object.key("citations").start_object();
-+        super::protocol_serde::shape_citations_config::ser_citations_config(&mut object_4, var_3)?;
++        super::super::protocol_serde::shape_citations_config::ser_citations_config(&mut object_4, var_3)?;
 +        object_4.finish();
      }
      Ok(())
@@ -3598,7 +4990,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            builder = builder.set_name(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
                          }
                          "source" => {
-                             builder = builder.set_source(super::protocol_serde::shape_document_source::de_document_source(
+                             builder = builder.set_source(super::super::protocol_serde::shape_document_source::de_document_source(
 @@ -71,11 +63,7 @@
                              )?);
                          }
@@ -3611,7 +5003,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            builder = builder.set_context(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
                          }
                          "citations" => {
-                             builder = builder.set_citations(super::protocol_serde::shape_citations_config::de_citations_config(
+                             builder = builder.set_citations(super::super::protocol_serde::shape_citations_config::de_citations_config(
 ```
 
 ### `src/protocol_serde/shape_document_char_location.rs`
@@ -3621,7 +5013,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_document_char_location.rs
 @@ -3,24 +3,9 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::DocumentCharLocation,
+     input: &super::super::types::DocumentCharLocation,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.document_index {
 -        object.key("documentIndex").number(
@@ -3685,7 +5077,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_document_chunk_location.rs
 @@ -3,24 +3,9 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::DocumentChunkLocation,
+     input: &super::super::types::DocumentChunkLocation,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.document_index {
 -        object.key("documentIndex").number(
@@ -3752,14 +5144,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_document_content_block(
 -    object_4: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::DocumentContentBlock,
+     input: &super::super::types::DocumentContentBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::DocumentContentBlock::Text(inner) => {
+-        super::super::types::DocumentContentBlock::Text(inner) => {
 -            object_4.key("text").string(inner.as_str());
 -        }
-+        super::types::DocumentContentBlock::Text(inner) => {}
-         super::types::DocumentContentBlock::Unknown => {
++        super::super::types::DocumentContentBlock::Text(inner) => {}
+         super::super::types::DocumentContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                  "DocumentContentBlock",
 @@ -36,9 +34,7 @@
@@ -3776,7 +5168,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -54,9 +50,7 @@
                      }
                      variant = match key.as_ref() {
-                         "text" => Some(super::types::DocumentContentBlock::Text(
+                         "text" => Some(super::super::types::DocumentContentBlock::Text(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                .transpose()?
@@ -3793,7 +5185,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_document_page_location.rs
 @@ -3,24 +3,9 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::DocumentPageLocation,
+     input: &super::super::types::DocumentPageLocation,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.document_index {
 -        object.key("documentIndex").number(
@@ -3860,25 +5252,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_document_source(
 -    object_2: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::DocumentSource,
+     input: &super::super::types::DocumentSource,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::DocumentSource::Bytes(inner) => {
+-        super::super::types::DocumentSource::Bytes(inner) => {
 -            object_2.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
 -        }
-+        super::types::DocumentSource::Bytes(inner) => {}
-         super::types::DocumentSource::S3Location(inner) => {
++        super::super::types::DocumentSource::Bytes(inner) => {}
+         super::super::types::DocumentSource::S3Location(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_2.key("s3Location").start_object();
 +            let mut object_1 = object.key("s3Location").start_object();
-             super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
              object_1.finish();
          }
--        super::types::DocumentSource::Text(inner) => {
+-        super::super::types::DocumentSource::Text(inner) => {
 -            object_2.key("text").string(inner.as_str());
 -        }
-+        super::types::DocumentSource::Text(inner) => {}
-         super::types::DocumentSource::Content(inner) => {
++        super::super::types::DocumentSource::Text(inner) => {}
+         super::super::types::DocumentSource::Content(inner) => {
 -            let mut array_2 = object_2.key("content").start_array();
 -            for item_3 in inner {
 +            let mut array_1 = object.key("content").start_array();
@@ -3886,17 +5278,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  {
                      #[allow(unused_mut)]
 -                    let mut object_4 = array_2.value().start_object();
--                    super::protocol_serde::shape_document_content_block::ser_document_content_block(&mut object_4, item_3)?;
+-                    super::super::protocol_serde::shape_document_content_block::ser_document_content_block(&mut object_4, item_3)?;
 -                    object_4.finish();
 +                    let mut object_3 = array_1.value().start_object();
-+                    super::protocol_serde::shape_document_content_block::ser_document_content_block(&mut object_3, item_2)?;
++                    super::super::protocol_serde::shape_document_content_block::ser_document_content_block(&mut object_3, item_2)?;
 +                    object_3.finish();
                  }
              }
 -            array_2.finish();
 +            array_1.finish();
          }
-         super::types::DocumentSource::Unknown => {
+         super::super::types::DocumentSource::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 @@ -57,9 +53,7 @@
              match tokens.next().transpose()? {
@@ -3912,23 +5304,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -75,7 +69,7 @@
                      }
                      variant = match key.as_ref() {
-                         "bytes" => Some(super::types::DocumentSource::Bytes(
+                         "bytes" => Some(super::super::types::DocumentSource::Bytes(
 -                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
                          )),
-                         "s3Location" => Some(super::types::DocumentSource::S3Location(
-@@ -84,9 +78,7 @@
+                         "s3Location" => Some(super::super::types::DocumentSource::S3Location(
+@@ -84,15 +78,14 @@
                              })?,
                          )),
-                         "text" => Some(super::types::DocumentSource::Text(
+                         "text" => Some(super::super::types::DocumentSource::Text(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                .transpose()?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                          )),
-                         "content" => Some(super::types::DocumentSource::Content(
+                         "content" => Some(super::super::types::DocumentSource::Content(
+-                            super::super::protocol_serde::shape_document_content_blocks::de_document_content_blocks(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'content' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_document_content_blocks::de_document_content_blocks(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'content' cannot be null")
++                                })?,
+                         )),
+                         _ => {
+                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
 ```
 
 ### `src/protocol_serde/shape_error_block.rs`
@@ -3938,7 +5340,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_error_block.rs
 @@ -3,9 +3,7 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ErrorBlock,
+     input: &super::super::types::ErrorBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.message {
 -        object.key("message").string(var_1.as_str());
@@ -3967,24 +5369,48 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_async_invoke.rs
 +++ generated/src/protocol_serde/shape_get_async_invoke.rs
-@@ -99,6 +99,16 @@
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::get_async_invoke::GetAsyncInvokeOutput, super::super::operation::get_async_invoke::GetAsyncInvokeError> {
++) -> std::result::Result<
++    super::super::operation::get_async_invoke::GetAsyncInvokeOutput,
++    super::super::operation::get_async_invoke::GetAsyncInvokeError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::get_async_invoke::GetAsyncInvokeError::unhandled)?;
+@@ -86,7 +89,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::get_async_invoke::GetAsyncInvokeOutput, super::super::operation::get_async_invoke::GetAsyncInvokeError> {
++) -> std::result::Result<
++    super::super::operation::get_async_invoke::GetAsyncInvokeOutput,
++    super::super::operation::get_async_invoke::GetAsyncInvokeError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder::default();
+@@ -99,6 +105,16 @@
      })
  }
 
 +pub fn ser_get_async_invoke_input(
-+    input: &super::operation::get_async_invoke::GetAsyncInvokeInput,
++    input: &super::super::operation::get_async_invoke::GetAsyncInvokeInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_get_async_invoke_input::ser_get_async_invoke_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_get_async_invoke_input::ser_get_async_invoke_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_async_invoke(
      _value: &[u8],
-     mut builder: super::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder,
-@@ -115,55 +125,38 @@
+     mut builder: super::super::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder,
+@@ -115,55 +131,38 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -4033,13 +5459,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    builder = builder.set_status(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .map(|s| s.to_unescaped().map(|u| super::types::AsyncInvokeStatus::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::AsyncInvokeStatus::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
 -                "outputDataConfig" => {
 -                    builder = builder.set_output_data_config(
--                        super::protocol_serde::shape_async_invoke_output_data_config::de_async_invoke_output_data_config(tokens, _value, depth + 1)?,
+-                        super::super::protocol_serde::shape_async_invoke_output_data_config::de_async_invoke_output_data_config(tokens, _value, depth + 1)?,
 -                    );
 -                }
 -                "status" => {
@@ -4047,12 +5473,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "failureMessage" => {
 +                    builder = builder.set_failure_message(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| super::types::AsyncInvokeStatus::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::super::types::AsyncInvokeStatus::from(u.as_ref())))
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
                      );
                  }
-@@ -173,6 +166,23 @@
+@@ -173,6 +172,27 @@
                          ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
                      )?);
                  }
@@ -4070,7 +5496,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                }
 +                "outputDataConfig" => {
 +                    builder = builder.set_output_data_config(
-+                        super::protocol_serde::shape_async_invoke_output_data_config::de_async_invoke_output_data_config(tokens, _value, depth + 1)?,
++                        super::super::protocol_serde::shape_async_invoke_output_data_config::de_async_invoke_output_data_config(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?,
 +                    );
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -4088,24 +5518,37 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          "sensitiveInformationPolicy" => {
 -                            builder = builder.set_sensitive_information_policy(
--                                    super::protocol_serde::shape_guardrail_sensitive_information_policy_assessment::de_guardrail_sensitive_information_policy_assessment(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_sensitive_information_policy_assessment::de_guardrail_sensitive_information_policy_assessment(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_sensitive_information_policy(super::protocol_serde::shape_guardrail_sensitive_information_policy_assessment::de_guardrail_sensitive_information_policy_assessment(tokens, _value, depth + 1)?);
++                            builder = builder.set_sensitive_information_policy(super::super::protocol_serde::shape_guardrail_sensitive_information_policy_assessment::de_guardrail_sensitive_information_policy_assessment(tokens, _value, depth + 1)?);
                          }
                          "contextualGroundingPolicy" => {
 -                            builder = builder.set_contextual_grounding_policy(
--                                    super::protocol_serde::shape_guardrail_contextual_grounding_policy_assessment::de_guardrail_contextual_grounding_policy_assessment(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_contextual_grounding_policy_assessment::de_guardrail_contextual_grounding_policy_assessment(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_contextual_grounding_policy(super::protocol_serde::shape_guardrail_contextual_grounding_policy_assessment::de_guardrail_contextual_grounding_policy_assessment(tokens, _value, depth + 1)?);
++                            builder = builder.set_contextual_grounding_policy(super::super::protocol_serde::shape_guardrail_contextual_grounding_policy_assessment::de_guardrail_contextual_grounding_policy_assessment(tokens, _value, depth + 1)?);
                          }
                          "automatedReasoningPolicy" => {
 -                            builder = builder.set_automated_reasoning_policy(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_policy_assessment::de_guardrail_automated_reasoning_policy_assessment(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_policy_assessment::de_guardrail_automated_reasoning_policy_assessment(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_automated_reasoning_policy(super::protocol_serde::shape_guardrail_automated_reasoning_policy_assessment::de_guardrail_automated_reasoning_policy_assessment(tokens, _value, depth + 1)?);
++                            builder = builder.set_automated_reasoning_policy(super::super::protocol_serde::shape_guardrail_automated_reasoning_policy_assessment::de_guardrail_automated_reasoning_policy_assessment(tokens, _value, depth + 1)?);
                          }
                          "invocationMetrics" => {
                              builder = builder.set_invocation_metrics(
+@@ -74,7 +68,11 @@
+                         }
+                         "appliedGuardrailDetails" => {
+                             builder = builder.set_applied_guardrail_details(
+-                                super::super::protocol_serde::shape_applied_guardrail_details::de_applied_guardrail_details(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_applied_guardrail_details::de_applied_guardrail_details(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
 ```
 
 ### `src/protocol_serde/shape_guardrail_automated_reasoning_finding.rs`
@@ -4129,62 +5572,62 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                      variant = match key.as_ref() {
 -                            "valid" => {
--                                Some(super::types::GuardrailAutomatedReasoningFinding::Valid(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_valid_finding::de_guardrail_automated_reasoning_valid_finding(tokens, _value, depth + 1)?
+-                                Some(super::super::types::GuardrailAutomatedReasoningFinding::Valid(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_valid_finding::de_guardrail_automated_reasoning_valid_finding(tokens, _value, depth + 1)?
 -                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'valid' cannot be null"))?
 -                                ))
 -                            }
 -                            "invalid" => {
--                                Some(super::types::GuardrailAutomatedReasoningFinding::Invalid(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_invalid_finding::de_guardrail_automated_reasoning_invalid_finding(tokens, _value, depth + 1)?
+-                                Some(super::super::types::GuardrailAutomatedReasoningFinding::Invalid(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_invalid_finding::de_guardrail_automated_reasoning_invalid_finding(tokens, _value, depth + 1)?
 -                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'invalid' cannot be null"))?
 -                                ))
 -                            }
 -                            "satisfiable" => {
--                                Some(super::types::GuardrailAutomatedReasoningFinding::Satisfiable(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_satisfiable_finding::de_guardrail_automated_reasoning_satisfiable_finding(tokens, _value, depth + 1)?
+-                                Some(super::super::types::GuardrailAutomatedReasoningFinding::Satisfiable(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_satisfiable_finding::de_guardrail_automated_reasoning_satisfiable_finding(tokens, _value, depth + 1)?
 -                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'satisfiable' cannot be null"))?
 -                                ))
 -                            }
 -                            "impossible" => {
--                                Some(super::types::GuardrailAutomatedReasoningFinding::Impossible(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_impossible_finding::de_guardrail_automated_reasoning_impossible_finding(tokens, _value, depth + 1)?
+-                                Some(super::super::types::GuardrailAutomatedReasoningFinding::Impossible(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_impossible_finding::de_guardrail_automated_reasoning_impossible_finding(tokens, _value, depth + 1)?
 -                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'impossible' cannot be null"))?
 -                                ))
 -                            }
 -                            "translationAmbiguous" => {
--                                Some(super::types::GuardrailAutomatedReasoningFinding::TranslationAmbiguous(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_translation_ambiguous_finding::de_guardrail_automated_reasoning_translation_ambiguous_finding(tokens, _value, depth + 1)?
+-                                Some(super::super::types::GuardrailAutomatedReasoningFinding::TranslationAmbiguous(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_translation_ambiguous_finding::de_guardrail_automated_reasoning_translation_ambiguous_finding(tokens, _value, depth + 1)?
 -                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'translationAmbiguous' cannot be null"))?
 -                                ))
 -                            }
 -                            "tooComplex" => {
--                                Some(super::types::GuardrailAutomatedReasoningFinding::TooComplex(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_too_complex_finding::de_guardrail_automated_reasoning_too_complex_finding(tokens, _value, depth + 1)?
+-                                Some(super::super::types::GuardrailAutomatedReasoningFinding::TooComplex(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_too_complex_finding::de_guardrail_automated_reasoning_too_complex_finding(tokens, _value, depth + 1)?
 -                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'tooComplex' cannot be null"))?
 -                                ))
 -                            }
 -                            "noTranslations" => {
--                                Some(super::types::GuardrailAutomatedReasoningFinding::NoTranslations(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_no_translations_finding::de_guardrail_automated_reasoning_no_translations_finding(tokens, _value, depth + 1)?
+-                                Some(super::super::types::GuardrailAutomatedReasoningFinding::NoTranslations(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_no_translations_finding::de_guardrail_automated_reasoning_no_translations_finding(tokens, _value, depth + 1)?
 -                                    .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'noTranslations' cannot be null"))?
 -                                ))
 -                            }
 -                            _ => {
 -                                                                              ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
--                                                                              Some(super::types::GuardrailAutomatedReasoningFinding::Unknown)
+-                                                                              Some(super::super::types::GuardrailAutomatedReasoningFinding::Unknown)
 -                                                                            }
 -                        };
-+                        "valid" => Some(super::types::GuardrailAutomatedReasoningFinding::Valid(super::protocol_serde::shape_guardrail_automated_reasoning_valid_finding::de_guardrail_automated_reasoning_valid_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'valid' cannot be null"))?)),
-+                        "invalid" => Some(super::types::GuardrailAutomatedReasoningFinding::Invalid(super::protocol_serde::shape_guardrail_automated_reasoning_invalid_finding::de_guardrail_automated_reasoning_invalid_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'invalid' cannot be null"))?)),
-+                        "satisfiable" => Some(super::types::GuardrailAutomatedReasoningFinding::Satisfiable(super::protocol_serde::shape_guardrail_automated_reasoning_satisfiable_finding::de_guardrail_automated_reasoning_satisfiable_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'satisfiable' cannot be null"))?)),
-+                        "impossible" => Some(super::types::GuardrailAutomatedReasoningFinding::Impossible(super::protocol_serde::shape_guardrail_automated_reasoning_impossible_finding::de_guardrail_automated_reasoning_impossible_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'impossible' cannot be null"))?)),
-+                        "translationAmbiguous" => Some(super::types::GuardrailAutomatedReasoningFinding::TranslationAmbiguous(super::protocol_serde::shape_guardrail_automated_reasoning_translation_ambiguous_finding::de_guardrail_automated_reasoning_translation_ambiguous_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'translationAmbiguous' cannot be null"))?)),
-+                        "tooComplex" => Some(super::types::GuardrailAutomatedReasoningFinding::TooComplex(super::protocol_serde::shape_guardrail_automated_reasoning_too_complex_finding::de_guardrail_automated_reasoning_too_complex_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'tooComplex' cannot be null"))?)),
-+                        "noTranslations" => Some(super::types::GuardrailAutomatedReasoningFinding::NoTranslations(super::protocol_serde::shape_guardrail_automated_reasoning_no_translations_finding::de_guardrail_automated_reasoning_no_translations_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'noTranslations' cannot be null"))?)),
++                        "valid" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Valid(super::super::protocol_serde::shape_guardrail_automated_reasoning_valid_finding::de_guardrail_automated_reasoning_valid_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'valid' cannot be null"))?)),
++                        "invalid" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Invalid(super::super::protocol_serde::shape_guardrail_automated_reasoning_invalid_finding::de_guardrail_automated_reasoning_invalid_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'invalid' cannot be null"))?)),
++                        "satisfiable" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Satisfiable(super::super::protocol_serde::shape_guardrail_automated_reasoning_satisfiable_finding::de_guardrail_automated_reasoning_satisfiable_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'satisfiable' cannot be null"))?)),
++                        "impossible" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Impossible(super::super::protocol_serde::shape_guardrail_automated_reasoning_impossible_finding::de_guardrail_automated_reasoning_impossible_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'impossible' cannot be null"))?)),
++                        "translationAmbiguous" => Some(super::super::types::GuardrailAutomatedReasoningFinding::TranslationAmbiguous(super::super::protocol_serde::shape_guardrail_automated_reasoning_translation_ambiguous_finding::de_guardrail_automated_reasoning_translation_ambiguous_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'translationAmbiguous' cannot be null"))?)),
++                        "tooComplex" => Some(super::super::types::GuardrailAutomatedReasoningFinding::TooComplex(super::super::protocol_serde::shape_guardrail_automated_reasoning_too_complex_finding::de_guardrail_automated_reasoning_too_complex_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'tooComplex' cannot be null"))?)),
++                        "noTranslations" => Some(super::super::types::GuardrailAutomatedReasoningFinding::NoTranslations(super::super::protocol_serde::shape_guardrail_automated_reasoning_no_translations_finding::de_guardrail_automated_reasoning_no_translations_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'noTranslations' cannot be null"))?)),
 +                        _ => {
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
-+                            Some(super::types::GuardrailAutomatedReasoningFinding::Unknown)
++                            Some(super::super::types::GuardrailAutomatedReasoningFinding::Unknown)
 +                        }
 +                    };
                  }
@@ -4197,46 +5640,79 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_automated_reasoning_impossible_finding.rs
 +++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_impossible_finding.rs
-@@ -23,9 +23,7 @@
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                         match key.to_unescaped()?.as_ref() {
-                             "translation" => {
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningImpossibleFinding>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailAutomatedReasoningImpossibleFinding>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -20,30 +23,18 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "translation" => {
 -                                builder = builder.set_translation(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_translation(super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?);
-                             }
-                             "contradictingRules" => {
-                                 builder = builder.set_contradicting_rules(
-@@ -37,9 +35,7 @@
-                                 );
-                             }
-                             "logicWarning" => {
+-                            }
+-                            "contradictingRules" => {
+-                                builder = builder.set_contradicting_rules(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_rule_list::de_guardrail_automated_reasoning_rule_list(
+-                                        tokens,
+-                                        _value,
+-                                        depth + 1,
+-                                    )?,
+-                                );
+-                            }
+-                            "logicWarning" => {
 -                                builder = builder.set_logic_warning(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_logic_warning(super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?);
-                             }
-                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "translation" => {
++                            builder = builder.set_translation(super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?);
                          }
+-                    }
++                        "contradictingRules" => {
++                            builder = builder.set_contradicting_rules(super::super::protocol_serde::shape_guardrail_automated_reasoning_rule_list::de_guardrail_automated_reasoning_rule_list(tokens, _value, depth + 1)?);
++                        }
++                        "logicWarning" => {
++                            builder = builder.set_logic_warning(super::super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?);
++                        }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
-### `src/protocol_serde/shape_guardrail_automated_reasoning_input_text_reference_list.rs`
+### `src/protocol_serde/shape_guardrail_automated_reasoning_input_text_reference.rs`
 
 ```diff
---- reference/src/protocol_serde/shape_guardrail_automated_reasoning_input_text_reference_list.rs
-+++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_input_text_reference_list.rs
-@@ -26,9 +26,7 @@
-                         break;
-                     }
-                     _ => {
--                        let value =
--                            super::protocol_serde::shape_guardrail_automated_reasoning_input_text_reference::de_guardrail_automated_reasoning_input_text_reference(tokens, _value, depth + 1)?
--                        ;
-+                        let value = super::protocol_serde::shape_guardrail_automated_reasoning_input_text_reference::de_guardrail_automated_reasoning_input_text_reference(tokens, _value, depth + 1)?;
-                         if let Some(value) = value {
-                             items.push(value);
-                         } else {
+--- reference/src/protocol_serde/shape_guardrail_automated_reasoning_input_text_reference.rs
++++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_input_text_reference.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningInputTextReference>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailAutomatedReasoningInputTextReference>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
 ```
 
 ### `src/protocol_serde/shape_guardrail_automated_reasoning_invalid_finding.rs`
@@ -4244,28 +5720,60 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_automated_reasoning_invalid_finding.rs
 +++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_invalid_finding.rs
-@@ -23,9 +23,7 @@
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                         match key.to_unescaped()?.as_ref() {
-                             "translation" => {
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningInvalidFinding>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailAutomatedReasoningInvalidFinding>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -20,30 +23,18 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "translation" => {
 -                                builder = builder.set_translation(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_translation(super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?);
-                             }
-                             "contradictingRules" => {
-                                 builder = builder.set_contradicting_rules(
-@@ -37,9 +35,7 @@
-                                 );
-                             }
-                             "logicWarning" => {
+-                            }
+-                            "contradictingRules" => {
+-                                builder = builder.set_contradicting_rules(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_rule_list::de_guardrail_automated_reasoning_rule_list(
+-                                        tokens,
+-                                        _value,
+-                                        depth + 1,
+-                                    )?,
+-                                );
+-                            }
+-                            "logicWarning" => {
 -                                builder = builder.set_logic_warning(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_logic_warning(super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?);
-                             }
-                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "translation" => {
++                            builder = builder.set_translation(super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?);
                          }
+-                    }
++                        "contradictingRules" => {
++                            builder = builder.set_contradicting_rules(super::super::protocol_serde::shape_guardrail_automated_reasoning_rule_list::de_guardrail_automated_reasoning_rule_list(tokens, _value, depth + 1)?);
++                        }
++                        "logicWarning" => {
++                            builder = builder.set_logic_warning(super::super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?);
++                        }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_guardrail_automated_reasoning_logic_warning.rs`
@@ -4273,20 +5781,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_automated_reasoning_logic_warning.rs
 +++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_logic_warning.rs
-@@ -32,14 +32,10 @@
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningLogicWarning>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailAutomatedReasoningLogicWarning>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -32,14 +35,10 @@
                              );
                          }
                          "premises" => {
 -                            builder = builder.set_premises(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_premises(super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_premises(super::super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?);
                          }
                          "claims" => {
 -                            builder = builder.set_claims(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_claims(super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_claims(super::super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?);
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
@@ -4297,14 +5817,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_automated_reasoning_policy_assessment.rs
 +++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_policy_assessment.rs
-@@ -22,9 +22,7 @@
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningPolicyAssessment>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailAutomatedReasoningPolicyAssessment>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -22,9 +25,7 @@
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "findings" => {
 -                            builder = builder.set_findings(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_finding_list::de_guardrail_automated_reasoning_finding_list(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_finding_list::de_guardrail_automated_reasoning_finding_list(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_findings(super::protocol_serde::shape_guardrail_automated_reasoning_finding_list::de_guardrail_automated_reasoning_finding_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_findings(super::super::protocol_serde::shape_guardrail_automated_reasoning_finding_list::de_guardrail_automated_reasoning_finding_list(tokens, _value, depth + 1)?);
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
@@ -4315,106 +5847,93 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_automated_reasoning_satisfiable_finding.rs
 +++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_satisfiable_finding.rs
-@@ -23,9 +23,7 @@
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                         match key.to_unescaped()?.as_ref() {
-                             "translation" => {
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningSatisfiableFinding>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailAutomatedReasoningSatisfiableFinding>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -20,39 +23,21 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "translation" => {
 -                                builder = builder.set_translation(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_translation(super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?);
-                             }
-                             "claimsTrueScenario" => {
-                                 builder = builder.set_claims_true_scenario(
-@@ -46,9 +44,7 @@
-                                 );
-                             }
-                             "logicWarning" => {
+-                            }
+-                            "claimsTrueScenario" => {
+-                                builder = builder.set_claims_true_scenario(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_scenario::de_guardrail_automated_reasoning_scenario(
+-                                        tokens,
+-                                        _value,
+-                                        depth + 1,
+-                                    )?,
+-                                );
+-                            }
+-                            "claimsFalseScenario" => {
+-                                builder = builder.set_claims_false_scenario(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_scenario::de_guardrail_automated_reasoning_scenario(
+-                                        tokens,
+-                                        _value,
+-                                        depth + 1,
+-                                    )?,
+-                                );
+-                            }
+-                            "logicWarning" => {
 -                                builder = builder.set_logic_warning(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_logic_warning(super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?);
-                             }
-                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "translation" => {
++                            builder = builder.set_translation(super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?);
++                        }
++                        "claimsTrueScenario" => {
++                            builder = builder.set_claims_true_scenario(super::super::protocol_serde::shape_guardrail_automated_reasoning_scenario::de_guardrail_automated_reasoning_scenario(tokens, _value, depth + 1)?);
++                        }
++                        "claimsFalseScenario" => {
++                            builder = builder.set_claims_false_scenario(super::super::protocol_serde::shape_guardrail_automated_reasoning_scenario::de_guardrail_automated_reasoning_scenario(tokens, _value, depth + 1)?);
++                        }
++                        "logicWarning" => {
++                            builder = builder.set_logic_warning(super::super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?);
                          }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
-### `src/protocol_serde/shape_guardrail_automated_reasoning_scenario.rs`
+### `src/protocol_serde/shape_guardrail_automated_reasoning_translation_list.rs`
 
 ```diff
---- reference/src/protocol_serde/shape_guardrail_automated_reasoning_scenario.rs
-+++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_scenario.rs
-@@ -22,9 +22,7 @@
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                         "statements" => {
--                            builder = builder.set_statements(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_statements(super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?);
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                     },
-```
-
-### `src/protocol_serde/shape_guardrail_automated_reasoning_translation.rs`
-
-```diff
---- reference/src/protocol_serde/shape_guardrail_automated_reasoning_translation.rs
-+++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_translation.rs
-@@ -22,24 +22,16 @@
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                         "premises" => {
--                            builder = builder.set_premises(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_premises(super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?);
-                         }
-                         "claims" => {
--                            builder = builder.set_claims(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_claims(super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?);
-                         }
-                         "untranslatedPremises" => {
--                            builder = builder.set_untranslated_premises(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_input_text_reference_list::de_guardrail_automated_reasoning_input_text_reference_list(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_untranslated_premises(super::protocol_serde::shape_guardrail_automated_reasoning_input_text_reference_list::de_guardrail_automated_reasoning_input_text_reference_list(tokens, _value, depth + 1)?);
-                         }
-                         "untranslatedClaims" => {
--                            builder = builder.set_untranslated_claims(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_input_text_reference_list::de_guardrail_automated_reasoning_input_text_reference_list(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_untranslated_claims(super::protocol_serde::shape_guardrail_automated_reasoning_input_text_reference_list::de_guardrail_automated_reasoning_input_text_reference_list(tokens, _value, depth + 1)?);
-                         }
-                         "confidence" => {
-                             builder = builder.set_confidence(
-```
-
-### `src/protocol_serde/shape_guardrail_automated_reasoning_translation_ambiguous_finding.rs`
-
-```diff
---- reference/src/protocol_serde/shape_guardrail_automated_reasoning_translation_ambiguous_finding.rs
-+++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_translation_ambiguous_finding.rs
-@@ -25,14 +25,10 @@
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                         "options" => {
--                            builder = builder.set_options(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_translation_option_list::de_guardrail_automated_reasoning_translation_option_list(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_options(super::protocol_serde::shape_guardrail_automated_reasoning_translation_option_list::de_guardrail_automated_reasoning_translation_option_list(tokens, _value, depth + 1)?);
-                         }
-                         "differenceScenarios" => {
--                            builder = builder.set_difference_scenarios(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_difference_scenario_list::de_guardrail_automated_reasoning_difference_scenario_list(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_difference_scenarios(super::protocol_serde::shape_guardrail_automated_reasoning_difference_scenario_list::de_guardrail_automated_reasoning_difference_scenario_list(tokens, _value, depth + 1)?);
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                     },
+--- reference/src/protocol_serde/shape_guardrail_automated_reasoning_translation_list.rs
++++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_translation_list.rs
+@@ -26,12 +26,7 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?;
++                        let value = super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_guardrail_automated_reasoning_translation_option.rs`
@@ -4422,35 +5941,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_automated_reasoning_translation_option.rs
 +++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_translation_option.rs
-@@ -22,9 +22,7 @@
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningTranslationOption>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailAutomatedReasoningTranslationOption>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -22,9 +25,7 @@
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "translations" => {
 -                            builder = builder.set_translations(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_translation_list::de_guardrail_automated_reasoning_translation_list(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_translation_list::de_guardrail_automated_reasoning_translation_list(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_translations(super::protocol_serde::shape_guardrail_automated_reasoning_translation_list::de_guardrail_automated_reasoning_translation_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_translations(super::super::protocol_serde::shape_guardrail_automated_reasoning_translation_list::de_guardrail_automated_reasoning_translation_list(tokens, _value, depth + 1)?);
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
-```
-
-### `src/protocol_serde/shape_guardrail_automated_reasoning_translation_option_list.rs`
-
-```diff
---- reference/src/protocol_serde/shape_guardrail_automated_reasoning_translation_option_list.rs
-+++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_translation_option_list.rs
-@@ -26,9 +26,7 @@
-                         break;
-                     }
-                     _ => {
--                        let value =
--                            super::protocol_serde::shape_guardrail_automated_reasoning_translation_option::de_guardrail_automated_reasoning_translation_option(tokens, _value, depth + 1)?
--                        ;
-+                        let value = super::protocol_serde::shape_guardrail_automated_reasoning_translation_option::de_guardrail_automated_reasoning_translation_option(tokens, _value, depth + 1)?;
-                         if let Some(value) = value {
-                             items.push(value);
-                         } else {
 ```
 
 ### `src/protocol_serde/shape_guardrail_automated_reasoning_valid_finding.rs`
@@ -4458,28 +5971,72 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_automated_reasoning_valid_finding.rs
 +++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_valid_finding.rs
-@@ -23,9 +23,7 @@
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                         match key.to_unescaped()?.as_ref() {
-                             "translation" => {
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningValidFinding>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailAutomatedReasoningValidFinding>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -20,39 +23,21 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "translation" => {
 -                                builder = builder.set_translation(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_translation(super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?);
-                             }
-                             "claimsTrueScenario" => {
-                                 builder = builder.set_claims_true_scenario(
-@@ -46,9 +44,7 @@
-                                 );
-                             }
-                             "logicWarning" => {
+-                            }
+-                            "claimsTrueScenario" => {
+-                                builder = builder.set_claims_true_scenario(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_scenario::de_guardrail_automated_reasoning_scenario(
+-                                        tokens,
+-                                        _value,
+-                                        depth + 1,
+-                                    )?,
+-                                );
+-                            }
+-                            "supportingRules" => {
+-                                builder = builder.set_supporting_rules(
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_rule_list::de_guardrail_automated_reasoning_rule_list(
+-                                        tokens,
+-                                        _value,
+-                                        depth + 1,
+-                                    )?,
+-                                );
+-                            }
+-                            "logicWarning" => {
 -                                builder = builder.set_logic_warning(
--                                    super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_logic_warning(super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?);
-                             }
-                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "translation" => {
++                            builder = builder.set_translation(super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?);
++                        }
++                        "claimsTrueScenario" => {
++                            builder = builder.set_claims_true_scenario(super::super::protocol_serde::shape_guardrail_automated_reasoning_scenario::de_guardrail_automated_reasoning_scenario(tokens, _value, depth + 1)?);
++                        }
++                        "supportingRules" => {
++                            builder = builder.set_supporting_rules(super::super::protocol_serde::shape_guardrail_automated_reasoning_rule_list::de_guardrail_automated_reasoning_rule_list(tokens, _value, depth + 1)?);
++                        }
++                        "logicWarning" => {
++                            builder = builder.set_logic_warning(super::super::protocol_serde::shape_guardrail_automated_reasoning_logic_warning::de_guardrail_automated_reasoning_logic_warning(tokens, _value, depth + 1)?);
                          }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_guardrail_checks_content_block.rs`
@@ -4492,33 +6049,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_guardrail_checks_content_block(
 -    object_3: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::GuardrailChecksContentBlock,
+     input: &super::super::types::GuardrailChecksContentBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         super::types::GuardrailChecksContentBlock::Text(inner) => {
+         super::super::types::GuardrailChecksContentBlock::Text(inner) => {
 -            object_3.key("text").string(inner.as_str());
 +            object.key("text").string(inner.as_str());
          }
-         super::types::GuardrailChecksContentBlock::Unknown => {
+         super::super::types::GuardrailChecksContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 ```
 
-### `src/protocol_serde/shape_guardrail_checks_content_filter_result.rs`
+### `src/protocol_serde/shape_guardrail_checks_content_filter_config.rs`
 
 ```diff
---- reference/src/protocol_serde/shape_guardrail_checks_content_filter_result.rs
-+++ generated/src/protocol_serde/shape_guardrail_checks_content_filter_result.rs
-@@ -22,9 +22,7 @@
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                         "results" => {
--                            builder = builder.set_results(
--                                    super::protocol_serde::shape_guardrail_checks_content_filter_result_list::de_guardrail_checks_content_filter_result_list(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_results(super::protocol_serde::shape_guardrail_checks_content_filter_result_list::de_guardrail_checks_content_filter_result_list(tokens, _value, depth + 1)?);
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                     },
+--- reference/src/protocol_serde/shape_guardrail_checks_content_filter_config.rs
++++ generated/src/protocol_serde/shape_guardrail_checks_content_filter_config.rs
+@@ -9,10 +9,7 @@
+             {
+                 #[allow(unused_mut)]
+                 let mut object_3 = array_1.value().start_object();
+-                super::super::protocol_serde::shape_guardrail_checks_content_filter_category_config::ser_guardrail_checks_content_filter_category_config(
+-                    &mut object_3,
+-                    item_2,
+-                )?;
++                super::super::protocol_serde::shape_guardrail_checks_content_filter_category_config::ser_guardrail_checks_content_filter_category_config(&mut object_3, item_2)?;
+                 object_3.finish();
+             }
+         }
 ```
 
 ### `src/protocol_serde/shape_guardrail_checks_content_filter_result_entry.rs`
@@ -4526,7 +6084,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_checks_content_filter_result_entry.rs
 +++ generated/src/protocol_serde/shape_guardrail_checks_content_filter_result_entry.rs
-@@ -32,9 +32,7 @@
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailChecksContentFilterResultEntry>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailChecksContentFilterResultEntry>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -32,9 +35,7 @@
                              );
                          }
                          "severityScore" => {
@@ -4537,24 +6107,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
-```
-
-### `src/protocol_serde/shape_guardrail_checks_content_filter_result_list.rs`
-
-```diff
---- reference/src/protocol_serde/shape_guardrail_checks_content_filter_result_list.rs
-+++ generated/src/protocol_serde/shape_guardrail_checks_content_filter_result_list.rs
-@@ -26,9 +26,7 @@
-                         break;
-                     }
-                     _ => {
--                        let value =
--                            super::protocol_serde::shape_guardrail_checks_content_filter_result_entry::de_guardrail_checks_content_filter_result_entry(tokens, _value, depth + 1)?
--                        ;
-+                        let value = super::protocol_serde::shape_guardrail_checks_content_filter_result_entry::de_guardrail_checks_content_filter_result_entry(tokens, _value, depth + 1)?;
-                         if let Some(value) = value {
-                             items.push(value);
-                         } else {
 ```
 
 ### `src/protocol_serde/shape_guardrail_checks_content_filter_usage.rs`
@@ -4577,22 +6129,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      },
 ```
 
-### `src/protocol_serde/shape_guardrail_checks_prompt_attack_result.rs`
+### `src/protocol_serde/shape_guardrail_checks_prompt_attack_config.rs`
 
 ```diff
---- reference/src/protocol_serde/shape_guardrail_checks_prompt_attack_result.rs
-+++ generated/src/protocol_serde/shape_guardrail_checks_prompt_attack_result.rs
-@@ -22,9 +22,7 @@
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                         "results" => {
--                            builder = builder.set_results(
--                                    super::protocol_serde::shape_guardrail_checks_prompt_attack_result_list::de_guardrail_checks_prompt_attack_result_list(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_results(super::protocol_serde::shape_guardrail_checks_prompt_attack_result_list::de_guardrail_checks_prompt_attack_result_list(tokens, _value, depth + 1)?);
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                     },
+--- reference/src/protocol_serde/shape_guardrail_checks_prompt_attack_config.rs
++++ generated/src/protocol_serde/shape_guardrail_checks_prompt_attack_config.rs
+@@ -9,10 +9,7 @@
+             {
+                 #[allow(unused_mut)]
+                 let mut object_3 = array_1.value().start_object();
+-                super::super::protocol_serde::shape_guardrail_checks_prompt_attack_category_config::ser_guardrail_checks_prompt_attack_category_config(
+-                    &mut object_3,
+-                    item_2,
+-                )?;
++                super::super::protocol_serde::shape_guardrail_checks_prompt_attack_category_config::ser_guardrail_checks_prompt_attack_category_config(&mut object_3, item_2)?;
+                 object_3.finish();
+             }
+         }
 ```
 
 ### `src/protocol_serde/shape_guardrail_checks_prompt_attack_result_entry.rs`
@@ -4611,6 +6164,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+```
+
+### `src/protocol_serde/shape_guardrail_checks_prompt_attack_result_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_guardrail_checks_prompt_attack_result_list.rs
++++ generated/src/protocol_serde/shape_guardrail_checks_prompt_attack_result_list.rs
+@@ -26,12 +26,7 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_guardrail_checks_prompt_attack_result_entry::de_guardrail_checks_prompt_attack_result_entry(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?;
++                        let value = super::super::protocol_serde::shape_guardrail_checks_prompt_attack_result_entry::de_guardrail_checks_prompt_attack_result_entry(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_guardrail_checks_prompt_attack_usage.rs`
@@ -4638,17 +6212,52 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_checks_results.rs
 +++ generated/src/protocol_serde/shape_guardrail_checks_results.rs
-@@ -40,9 +40,7 @@
-                             );
+@@ -20,32 +20,20 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                        "contentFilter" => {
+-                            builder = builder.set_content_filter(
+-                                super::super::protocol_serde::shape_guardrail_checks_content_filter_result::de_guardrail_checks_content_filter_result(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?,
+-                            );
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                        match key.to_unescaped()?.as_ref() {
++                            "contentFilter" => {
++                                builder = builder.set_content_filter(super::super::protocol_serde::shape_guardrail_checks_content_filter_result::de_guardrail_checks_content_filter_result(tokens, _value, depth + 1)?);
++                            }
++                            "promptAttack" => {
++                                builder = builder.set_prompt_attack(super::super::protocol_serde::shape_guardrail_checks_prompt_attack_result::de_guardrail_checks_prompt_attack_result(tokens, _value, depth + 1)?);
++                            }
++                            "sensitiveInformation" => {
++                                builder = builder.set_sensitive_information(super::super::protocol_serde::shape_guardrail_checks_sensitive_information_result::de_guardrail_checks_sensitive_information_result(tokens, _value, depth + 1)?);
++                            }
++                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                          }
-                         "sensitiveInformation" => {
+-                        "promptAttack" => {
+-                            builder = builder.set_prompt_attack(
+-                                super::super::protocol_serde::shape_guardrail_checks_prompt_attack_result::de_guardrail_checks_prompt_attack_result(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?,
+-                            );
+-                        }
+-                        "sensitiveInformation" => {
 -                            builder = builder.set_sensitive_information(
--                                    super::protocol_serde::shape_guardrail_checks_sensitive_information_result::de_guardrail_checks_sensitive_information_result(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_checks_sensitive_information_result::de_guardrail_checks_sensitive_information_result(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_sensitive_information(super::protocol_serde::shape_guardrail_checks_sensitive_information_result::de_guardrail_checks_sensitive_information_result(tokens, _value, depth + 1)?);
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                     },
+-                        }
+-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    },
++                    }
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_guardrail_checks_sensitive_information_result.rs`
@@ -4656,14 +6265,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_checks_sensitive_information_result.rs
 +++ generated/src/protocol_serde/shape_guardrail_checks_sensitive_information_result.rs
-@@ -22,12 +22,10 @@
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailChecksSensitiveInformationResult>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailChecksSensitiveInformationResult>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -22,12 +25,10 @@
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "results" => {
 -                            builder = builder.set_results(
--                                    super::protocol_serde::shape_guardrail_checks_sensitive_information_result_list::de_guardrail_checks_sensitive_information_result_list(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_checks_sensitive_information_result_list::de_guardrail_checks_sensitive_information_result_list(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_results(super::protocol_serde::shape_guardrail_checks_sensitive_information_result_list::de_guardrail_checks_sensitive_information_result_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_results(super::super::protocol_serde::shape_guardrail_checks_sensitive_information_result_list::de_guardrail_checks_sensitive_information_result_list(tokens, _value, depth + 1)?);
                          }
                          "truncated" => {
 -                            builder = builder.set_truncated(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
@@ -4723,30 +6344,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      },
 ```
 
-### `src/protocol_serde/shape_guardrail_checks_sensitive_information_result_list.rs`
-
-```diff
---- reference/src/protocol_serde/shape_guardrail_checks_sensitive_information_result_list.rs
-+++ generated/src/protocol_serde/shape_guardrail_checks_sensitive_information_result_list.rs
-@@ -26,9 +26,7 @@
-                         break;
-                     }
-                     _ => {
--                        let value =
--                            super::protocol_serde::shape_guardrail_checks_sensitive_information_result_entry::de_guardrail_checks_sensitive_information_result_entry(tokens, _value, depth + 1)?
--                        ;
-+                        let value = super::protocol_serde::shape_guardrail_checks_sensitive_information_result_entry::de_guardrail_checks_sensitive_information_result_entry(tokens, _value, depth + 1)?;
-                         if let Some(value) = value {
-                             items.push(value);
-                         } else {
-```
-
 ### `src/protocol_serde/shape_guardrail_checks_sensitive_information_usage.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_checks_sensitive_information_usage.rs
 +++ generated/src/protocol_serde/shape_guardrail_checks_sensitive_information_usage.rs
-@@ -22,11 +22,7 @@
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailChecksSensitiveInformationUsage>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailChecksSensitiveInformationUsage>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -22,11 +25,7 @@
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "textUnits" => {
@@ -4766,17 +6381,52 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_checks_usage_results.rs
 +++ generated/src/protocol_serde/shape_guardrail_checks_usage_results.rs
-@@ -40,9 +40,7 @@
-                             );
+@@ -20,32 +20,20 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                        "contentFilter" => {
+-                            builder = builder.set_content_filter(
+-                                super::super::protocol_serde::shape_guardrail_checks_content_filter_usage::de_guardrail_checks_content_filter_usage(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?,
+-                            );
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                        match key.to_unescaped()?.as_ref() {
++                            "contentFilter" => {
++                                builder = builder.set_content_filter(super::super::protocol_serde::shape_guardrail_checks_content_filter_usage::de_guardrail_checks_content_filter_usage(tokens, _value, depth + 1)?);
++                            }
++                            "promptAttack" => {
++                                builder = builder.set_prompt_attack(super::super::protocol_serde::shape_guardrail_checks_prompt_attack_usage::de_guardrail_checks_prompt_attack_usage(tokens, _value, depth + 1)?);
++                            }
++                            "sensitiveInformation" => {
++                                builder = builder.set_sensitive_information(super::super::protocol_serde::shape_guardrail_checks_sensitive_information_usage::de_guardrail_checks_sensitive_information_usage(tokens, _value, depth + 1)?);
++                            }
++                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                          }
-                         "sensitiveInformation" => {
+-                        "promptAttack" => {
+-                            builder = builder.set_prompt_attack(
+-                                super::super::protocol_serde::shape_guardrail_checks_prompt_attack_usage::de_guardrail_checks_prompt_attack_usage(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?,
+-                            );
+-                        }
+-                        "sensitiveInformation" => {
 -                            builder = builder.set_sensitive_information(
--                                    super::protocol_serde::shape_guardrail_checks_sensitive_information_usage::de_guardrail_checks_sensitive_information_usage(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_checks_sensitive_information_usage::de_guardrail_checks_sensitive_information_usage(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_sensitive_information(super::protocol_serde::shape_guardrail_checks_sensitive_information_usage::de_guardrail_checks_sensitive_information_usage(tokens, _value, depth + 1)?);
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                     },
+-                        }
+-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    },
++                    }
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_guardrail_content_block.rs`
@@ -4789,26 +6439,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_guardrail_content_block(
 -    object_4: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::GuardrailContentBlock,
+     input: &super::super::types::GuardrailContentBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         super::types::GuardrailContentBlock::Text(inner) => {
+         super::super::types::GuardrailContentBlock::Text(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_4.key("text").start_object();
 +            let mut object_1 = object.key("text").start_object();
-             super::protocol_serde::shape_guardrail_text_block::ser_guardrail_text_block(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_guardrail_text_block::ser_guardrail_text_block(&mut object_1, inner)?;
              object_1.finish();
          }
-         super::types::GuardrailContentBlock::Image(inner) => {
+         super::super::types::GuardrailContentBlock::Image(inner) => {
              #[allow(unused_mut)]
 -            let mut object_2 = object_4.key("image").start_object();
--            super::protocol_serde::shape_guardrail_image_block::ser_guardrail_image_block(&mut object_2, inner)?;
+-            super::super::protocol_serde::shape_guardrail_image_block::ser_guardrail_image_block(&mut object_2, inner)?;
 -            object_2.finish();
 +            let mut object_1 = object.key("image").start_object();
-+            super::protocol_serde::shape_guardrail_image_block::ser_guardrail_image_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_guardrail_image_block::ser_guardrail_image_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::GuardrailContentBlock::Unknown => {
+         super::super::types::GuardrailContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 ```
 
@@ -4817,7 +6467,52 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_content_filter.rs
 +++ generated/src/protocol_serde/shape_guardrail_content_filter.rs
-@@ -50,7 +50,7 @@
+@@ -24,7 +24,10 @@
+                         "type" => {
+                             builder = builder.set_type(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailContentFilterType::from(u.as_ref())))
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::GuardrailContentFilterType::from(u.as_ref()))
++                                    })
+                                     .transpose()?,
+                             );
+                         }
+@@ -31,7 +34,10 @@
+                         "confidence" => {
+                             builder = builder.set_confidence(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailContentFilterConfidence::from(u.as_ref())))
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::GuardrailContentFilterConfidence::from(u.as_ref()))
++                                    })
+                                     .transpose()?,
+                             );
+                         }
+@@ -38,7 +44,10 @@
+                         "filterStrength" => {
+                             builder = builder.set_filter_strength(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailContentFilterStrength::from(u.as_ref())))
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::GuardrailContentFilterStrength::from(u.as_ref()))
++                                    })
+                                     .transpose()?,
+                             );
+                         }
+@@ -45,12 +54,15 @@
+                         "action" => {
+                             builder = builder.set_action(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailContentPolicyAction::from(u.as_ref())))
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::GuardrailContentPolicyAction::from(u.as_ref()))
++                                    })
+                                     .transpose()?,
                              );
                          }
                          "detected" => {
@@ -4826,6 +6521,35 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+```
+
+### `src/protocol_serde/shape_guardrail_content_filter_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_guardrail_content_filter_list.rs
++++ generated/src/protocol_serde/shape_guardrail_content_filter_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::GuardrailContentFilter>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::GuardrailContentFilter>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +26,8 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = super::super::protocol_serde::shape_guardrail_content_filter::de_guardrail_content_filter(tokens, _value, depth + 1)?;
++                        let value =
++                            super::super::protocol_serde::shape_guardrail_content_filter::de_guardrail_content_filter(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_guardrail_contextual_grounding_filter.rs`
@@ -4860,6 +6584,40 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      },
 ```
 
+### `src/protocol_serde/shape_guardrail_contextual_grounding_policy_assessment.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_guardrail_contextual_grounding_policy_assessment.rs
++++ generated/src/protocol_serde/shape_guardrail_contextual_grounding_policy_assessment.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailContextualGroundingPolicyAssessment>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailContextualGroundingPolicyAssessment>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -22,13 +25,7 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "filters" => {
+-                            builder = builder.set_filters(
+-                                super::super::protocol_serde::shape_guardrail_contextual_grounding_filters::de_guardrail_contextual_grounding_filters(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?,
+-                            );
++                            builder = builder.set_filters(super::super::protocol_serde::shape_guardrail_contextual_grounding_filters::de_guardrail_contextual_grounding_filters(tokens, _value, depth + 1)?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+```
+
 ### `src/protocol_serde/shape_guardrail_converse_content_block.rs`
 
 ```diff
@@ -4870,26 +6628,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_guardrail_converse_content_block(
 -    object_1: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::GuardrailConverseContentBlock,
+     input: &super::super::types::GuardrailConverseContentBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         super::types::GuardrailConverseContentBlock::Text(inner) => {
+         super::super::types::GuardrailConverseContentBlock::Text(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_1.key("text").start_object();
 +            let mut object_1 = object.key("text").start_object();
-             super::protocol_serde::shape_guardrail_converse_text_block::ser_guardrail_converse_text_block(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_guardrail_converse_text_block::ser_guardrail_converse_text_block(&mut object_1, inner)?;
              object_1.finish();
          }
-         super::types::GuardrailConverseContentBlock::Image(inner) => {
+         super::super::types::GuardrailConverseContentBlock::Image(inner) => {
              #[allow(unused_mut)]
 -            let mut object_2 = object_1.key("image").start_object();
--            super::protocol_serde::shape_guardrail_converse_image_block::ser_guardrail_converse_image_block(&mut object_2, inner)?;
+-            super::super::protocol_serde::shape_guardrail_converse_image_block::ser_guardrail_converse_image_block(&mut object_2, inner)?;
 -            object_2.finish();
 +            let mut object_1 = object.key("image").start_object();
-+            super::protocol_serde::shape_guardrail_converse_image_block::ser_guardrail_converse_image_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_guardrail_converse_image_block::ser_guardrail_converse_image_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::GuardrailConverseContentBlock::Unknown => {
+         super::super::types::GuardrailConverseContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 @@ -45,9 +45,7 @@
              match tokens.next().transpose()? {
@@ -4902,6 +6660,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          let _ = tokens.next().expect("peek returned a token")?;
                          continue;
                      }
+@@ -63,8 +61,12 @@
+                     }
+                     variant = match key.as_ref() {
+                         "text" => Some(super::super::types::GuardrailConverseContentBlock::Text(
+-                            super::super::protocol_serde::shape_guardrail_converse_text_block::de_guardrail_converse_text_block(tokens, _value, depth + 1)?
+-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
++                            super::super::protocol_serde::shape_guardrail_converse_text_block::de_guardrail_converse_text_block(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?
++                            .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
+                         )),
+                         "image" => Some(super::super::types::GuardrailConverseContentBlock::Image(
+                             super::super::protocol_serde::shape_guardrail_converse_image_block::de_guardrail_converse_image_block(
 ```
 
 ### `src/protocol_serde/shape_guardrail_converse_image_block.rs`
@@ -4917,14 +6690,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("source").start_object();
--        super::protocol_serde::shape_guardrail_converse_image_source::ser_guardrail_converse_image_source(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_guardrail_converse_image_source::ser_guardrail_converse_image_source(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_1 = object.key("source").start_object();
-+        super::protocol_serde::shape_guardrail_converse_image_source::ser_guardrail_converse_image_source(&mut object_1, &input.source)?;
++        super::super::protocol_serde::shape_guardrail_converse_image_source::ser_guardrail_converse_image_source(&mut object_1, &input.source)?;
 +        object_1.finish();
      }
      Ok(())
  }
+@@ -40,7 +40,10 @@
+                         "format" => {
+                             builder = builder.set_format(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailConverseImageFormat::from(u.as_ref())))
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::GuardrailConverseImageFormat::from(u.as_ref()))
++                                    })
+                                     .transpose()?,
+                             );
+                         }
 ```
 
 ### `src/protocol_serde/shape_guardrail_converse_image_source.rs`
@@ -4937,14 +6722,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_guardrail_converse_image_source(
 -    object_2: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::GuardrailConverseImageSource,
+     input: &super::super::types::GuardrailConverseImageSource,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::GuardrailConverseImageSource::Bytes(inner) => {
+-        super::super::types::GuardrailConverseImageSource::Bytes(inner) => {
 -            object_2.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
 -        }
-+        super::types::GuardrailConverseImageSource::Bytes(inner) => {}
-         super::types::GuardrailConverseImageSource::Unknown => {
++        super::super::types::GuardrailConverseImageSource::Bytes(inner) => {}
+         super::super::types::GuardrailConverseImageSource::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                  "GuardrailConverseImageSource",
 @@ -36,9 +34,7 @@
@@ -4961,7 +6746,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -54,7 +50,7 @@
                      }
                      variant = match key.as_ref() {
-                         "bytes" => Some(super::types::GuardrailConverseImageSource::Bytes(
+                         "bytes" => Some(super::super::types::GuardrailConverseImageSource::Bytes(
 -                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
@@ -4976,7 +6761,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_guardrail_converse_text_block.rs
 @@ -3,9 +3,7 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::GuardrailConverseTextBlock,
+     input: &super::super::types::GuardrailConverseTextBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("text").string(input.text.as_str());
@@ -4985,25 +6770,38 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      if let Some(var_1) = &input.qualifiers {
          let mut array_2 = object.key("qualifiers").start_array();
          for item_3 in var_1 {
-@@ -42,16 +40,10 @@
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                         match key.to_unescaped()?.as_ref() {
-                             "text" => {
+@@ -39,23 +37,15 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "text" => {
 -                                builder = builder.set_text(
 -                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                        .transpose()?,
 -                                );
-+                                builder = builder.set_text(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
-                             }
-                             "qualifiers" => {
+-                            }
+-                            "qualifiers" => {
 -                                builder = builder.set_qualifiers(
--                                    super::protocol_serde::shape_guardrail_converse_content_qualifier_list::de_guardrail_converse_content_qualifier_list(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_guardrail_converse_content_qualifier_list::de_guardrail_converse_content_qualifier_list(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_qualifiers(super::protocol_serde::shape_guardrail_converse_content_qualifier_list::de_guardrail_converse_content_qualifier_list(tokens, _value, depth + 1)?);
-                             }
-                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "text" => {
++                            builder = builder.set_text(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
++                        }
++                        "qualifiers" => {
++                            builder = builder.set_qualifiers(super::super::protocol_serde::shape_guardrail_converse_content_qualifier_list::de_guardrail_converse_content_qualifier_list(tokens, _value, depth + 1)?);
                          }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_guardrail_custom_word.rs`
@@ -5033,6 +6831,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+@@ -47,9 +43,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::guardrail_custom_word_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::guardrail_custom_word_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_guardrail_image_block.rs`
@@ -5048,10 +6861,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("source").start_object();
--        super::protocol_serde::shape_guardrail_image_source::ser_guardrail_image_source(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_guardrail_image_source::ser_guardrail_image_source(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_1 = object.key("source").start_object();
-+        super::protocol_serde::shape_guardrail_image_source::ser_guardrail_image_source(&mut object_1, &input.source)?;
++        super::super::protocol_serde::shape_guardrail_image_source::ser_guardrail_image_source(&mut object_1, &input.source)?;
 +        object_1.finish();
      }
      Ok(())
@@ -5068,16 +6881,77 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_guardrail_image_source(
 -    object_2: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::GuardrailImageSource,
+     input: &super::super::types::GuardrailImageSource,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::GuardrailImageSource::Bytes(inner) => {
+-        super::super::types::GuardrailImageSource::Bytes(inner) => {
 -            object_2.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
 -        }
-+        super::types::GuardrailImageSource::Bytes(inner) => {}
-         super::types::GuardrailImageSource::Unknown => {
++        super::super::types::GuardrailImageSource::Bytes(inner) => {}
+         super::super::types::GuardrailImageSource::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                  "GuardrailImageSource",
+```
+
+### `src/protocol_serde/shape_guardrail_invocation_metrics.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_guardrail_invocation_metrics.rs
++++ generated/src/protocol_serde/shape_guardrail_invocation_metrics.rs
+@@ -20,30 +20,30 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                        "guardrailProcessingLatency" => {
+-                            builder = builder.set_guardrail_processing_latency(
+-                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                    .map(i64::try_from)
+-                                    .transpose()?,
+-                            );
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                        match key.to_unescaped()?.as_ref() {
++                            "guardrailProcessingLatency" => {
++                                builder = builder.set_guardrail_processing_latency(
++                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                        .map(i64::try_from)
++                                        .transpose()?,
++                                );
++                            }
++                            "usage" => {
++                                builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
++                            }
++                            "guardrailCoverage" => {
++                                builder = builder.set_guardrail_coverage(
++                                    super::super::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(tokens, _value, depth + 1)?,
++                                );
++                            }
++                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                         }
+-                        "usage" => {
+-                            builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        "guardrailCoverage" => {
+-                            builder = builder.set_guardrail_coverage(super::super::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    },
++                    }
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_guardrail_managed_word.rs`
@@ -5107,6 +6981,50 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+@@ -54,9 +50,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::guardrail_managed_word_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::guardrail_managed_word_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
+```
+
+### `src/protocol_serde/shape_guardrail_output_content_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_guardrail_output_content_list.rs
++++ generated/src/protocol_serde/shape_guardrail_output_content_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::GuardrailOutputContent>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::GuardrailOutputContent>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +26,8 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = super::super::protocol_serde::shape_guardrail_output_content::de_guardrail_output_content(tokens, _value, depth + 1)?;
++                        let value =
++                            super::super::protocol_serde::shape_guardrail_output_content::de_guardrail_output_content(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_guardrail_pii_entity_filter.rs`
@@ -5136,6 +7054,39 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+```
+
+### `src/protocol_serde/shape_guardrail_pii_entity_filter_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_guardrail_pii_entity_filter_list.rs
++++ generated/src/protocol_serde/shape_guardrail_pii_entity_filter_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::GuardrailPiiEntityFilter>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::GuardrailPiiEntityFilter>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,8 +26,11 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_guardrail_pii_entity_filter::de_guardrail_pii_entity_filter(tokens, _value, depth + 1)?;
++                        let value = super::super::protocol_serde::shape_guardrail_pii_entity_filter::de_guardrail_pii_entity_filter(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_guardrail_regex_filter.rs`
@@ -5181,6 +7132,59 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+@@ -64,9 +52,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::guardrail_regex_filter_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::guardrail_regex_filter_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
+```
+
+### `src/protocol_serde/shape_guardrail_sensitive_information_policy_assessment.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_guardrail_sensitive_information_policy_assessment.rs
++++ generated/src/protocol_serde/shape_guardrail_sensitive_information_policy_assessment.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailSensitiveInformationPolicyAssessment>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::GuardrailSensitiveInformationPolicyAssessment>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -31,11 +34,13 @@
+                             );
+                         }
+                         "regexes" => {
+-                            builder = builder.set_regexes(super::super::protocol_serde::shape_guardrail_regex_filter_list::de_guardrail_regex_filter_list(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_regexes(
++                                super::super::protocol_serde::shape_guardrail_regex_filter_list::de_guardrail_regex_filter_list(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
++                            );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
 ```
 
 ### `src/protocol_serde/shape_guardrail_text_block.rs`
@@ -5190,7 +7194,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_guardrail_text_block.rs
 @@ -3,9 +3,7 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::GuardrailTextBlock,
+     input: &super::super::types::GuardrailTextBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("text").string(input.text.as_str());
@@ -5219,7 +7223,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          "type" => {
                              builder = builder.set_type(
-@@ -43,7 +39,7 @@
+@@ -38,12 +34,15 @@
+                         "action" => {
+                             builder = builder.set_action(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailTopicPolicyAction::from(u.as_ref())))
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::GuardrailTopicPolicyAction::from(u.as_ref()))
++                                    })
+                                     .transpose()?,
                              );
                          }
                          "detected" => {
@@ -5235,7 +7248,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_trace_assessment.rs
 +++ generated/src/protocol_serde/shape_guardrail_trace_assessment.rs
-@@ -40,11 +40,7 @@
+@@ -22,8 +22,11 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "modelOutput" => {
+-                            builder =
+-                                builder.set_model_output(super::super::protocol_serde::shape_model_outputs::de_model_outputs(tokens, _value, depth + 1)?);
++                            builder = builder.set_model_output(super::super::protocol_serde::shape_model_outputs::de_model_outputs(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "inputAssessment" => {
+                             builder = builder.set_input_assessment(
+@@ -40,11 +43,7 @@
                              );
                          }
                          "actionReason" => {
@@ -5248,6 +7275,36 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+```
+
+### `src/protocol_serde/shape_guardrail_word_policy_assessment.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_guardrail_word_policy_assessment.rs
++++ generated/src/protocol_serde/shape_guardrail_word_policy_assessment.rs
+@@ -23,12 +23,20 @@
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "customWords" => {
+                             builder = builder.set_custom_words(
+-                                super::super::protocol_serde::shape_guardrail_custom_word_list::de_guardrail_custom_word_list(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_guardrail_custom_word_list::de_guardrail_custom_word_list(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         "managedWordLists" => {
+                             builder = builder.set_managed_word_lists(
+-                                super::super::protocol_serde::shape_guardrail_managed_word_list::de_guardrail_managed_word_list(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_guardrail_managed_word_list::de_guardrail_managed_word_list(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
 ```
 
 ### `src/protocol_serde/shape_image_block.rs`
@@ -5263,24 +7320,108 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("source").start_object();
--        super::protocol_serde::shape_image_source::ser_image_source(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_image_source::ser_image_source(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_1 = object.key("source").start_object();
-+        super::protocol_serde::shape_image_source::ser_image_source(&mut object_1, &input.source)?;
++        super::super::protocol_serde::shape_image_source::ser_image_source(&mut object_1, &input.source)?;
 +        object_1.finish();
      }
 -    if let Some(var_3) = &input.error {
 +    if let Some(var_2) = &input.error {
          #[allow(unused_mut)]
 -        let mut object_4 = object.key("error").start_object();
--        super::protocol_serde::shape_error_block::ser_error_block(&mut object_4, var_3)?;
+-        super::super::protocol_serde::shape_error_block::ser_error_block(&mut object_4, var_3)?;
 -        object_4.finish();
 +        let mut object_3 = object.key("error").start_object();
-+        super::protocol_serde::shape_error_block::ser_error_block(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_error_block::ser_error_block(&mut object_3, var_2)?;
 +        object_3.finish();
      }
      Ok(())
  }
+@@ -51,10 +51,18 @@
+                             );
+                         }
+                         "source" => {
+-                            builder = builder.set_source(super::super::protocol_serde::shape_image_source::de_image_source(tokens, _value, depth + 1)?);
++                            builder = builder.set_source(super::super::protocol_serde::shape_image_source::de_image_source(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "error" => {
+-                            builder = builder.set_error(super::super::protocol_serde::shape_error_block::de_error_block(tokens, _value, depth + 1)?);
++                            builder = builder.set_error(super::super::protocol_serde::shape_error_block::de_error_block(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+@@ -65,9 +73,9 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::image_block_correct_errors(builder).build().map_err(|err| {
+-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+-            })?))
++            Ok(Some(super::super::serde_util::image_block_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
+```
+
+### `src/protocol_serde/shape_image_block_delta.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_image_block_delta.rs
++++ generated/src/protocol_serde/shape_image_block_delta.rs
+@@ -22,10 +22,18 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "source" => {
+-                            builder = builder.set_source(super::super::protocol_serde::shape_image_source::de_image_source(tokens, _value, depth + 1)?);
++                            builder = builder.set_source(super::super::protocol_serde::shape_image_source::de_image_source(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "error" => {
+-                            builder = builder.set_error(super::super::protocol_serde::shape_error_block::de_error_block(tokens, _value, depth + 1)?);
++                            builder = builder.set_error(super::super::protocol_serde::shape_error_block::de_error_block(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+```
+
+### `src/protocol_serde/shape_image_block_start.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_image_block_start.rs
++++ generated/src/protocol_serde/shape_image_block_start.rs
+@@ -37,9 +37,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::image_block_start_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::image_block_start_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_image_source.rs`
@@ -5288,26 +7429,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_image_source.rs
 +++ generated/src/protocol_serde/shape_image_source.rs
-@@ -1,15 +1,13 @@
+@@ -1,19 +1,19 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
  pub fn ser_image_source(
 -    object_2: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ImageSource,
+     input: &super::super::types::ImageSource,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::ImageSource::Bytes(inner) => {
+-        super::super::types::ImageSource::Bytes(inner) => {
 -            object_2.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
 -        }
-+        super::types::ImageSource::Bytes(inner) => {}
-         super::types::ImageSource::S3Location(inner) => {
++        super::super::types::ImageSource::Bytes(inner) => {}
+         super::super::types::ImageSource::S3Location(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_2.key("s3Location").start_object();
 +            let mut object_1 = object.key("s3Location").start_object();
-             super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
              object_1.finish();
          }
-@@ -38,9 +36,7 @@
+-        super::super::types::ImageSource::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ImageSource")),
++        super::super::types::ImageSource::Unknown => {
++            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ImageSource"))
++        }
+     }
+     Ok(())
+ }
+@@ -38,9 +38,7 @@
              match tokens.next().transpose()? {
                  Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                  Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
@@ -5318,15 +7466,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          let _ = tokens.next().expect("peek returned a token")?;
                          continue;
                      }
-@@ -56,7 +52,7 @@
+@@ -56,7 +54,7 @@
                      }
                      variant = match key.as_ref() {
-                         "bytes" => Some(super::types::ImageSource::Bytes(
+                         "bytes" => Some(super::super::types::ImageSource::Bytes(
 -                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
                          )),
-                         "s3Location" => Some(super::types::ImageSource::S3Location(
+                         "s3Location" => Some(super::super::types::ImageSource::S3Location(
 ```
 
 ### `src/protocol_serde/shape_inference_configuration.rs`
@@ -5336,7 +7484,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_inference_configuration.rs
 @@ -3,24 +3,9 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::InferenceConfiguration,
+     input: &super::super::types::InferenceConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.max_tokens {
 -        object.key("maxTokens").number(
@@ -5373,9 +7521,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_internal_server_exception_json_err(
 -    _value: &[u8],
--    mut builder: super::types::error::builders::InternalServerExceptionBuilder,
--) -> ::std::result::Result<super::types::error::builders::InternalServerExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    mut builder: super::super::types::error::builders::InternalServerExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::InternalServerExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
@@ -5394,7 +7542,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    tokens: &mut ::std::iter::Peekable<I>,
 +    _value: &'a [u8],
 +    depth: u32,
-+) -> ::std::result::Result<Option<super::types::InternalServerException>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::InternalServerException>, ::aws_smithy_json::deserialize::error::DeserializeError>
 +where
 +    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 +{
@@ -5407,7 +7555,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
 +        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
 +            #[allow(unused_mut)]
-+            let mut builder = super::types::builders::InternalServerExceptionBuilder::default();
++            let mut builder = super::super::types::builders::InternalServerExceptionBuilder::default();
 +            loop {
 +                match tokens.next().transpose()? {
 +                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -5449,6 +7597,54 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/protocol_serde/shape_invoke_guardrail_checks.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_invoke_guardrail_checks.rs
++++ generated/src/protocol_serde/shape_invoke_guardrail_checks.rs
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -55,9 +59,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+-                output =
+-                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksError::unhandled)?;
++                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -154,7 +160,11 @@
+                 }
+                 "usage" => {
+                     builder = builder.set_usage(
+-                        super::super::protocol_serde::shape_guardrail_checks_usage_results::de_guardrail_checks_usage_results(tokens, _value, depth + 1)?,
++                        super::super::protocol_serde::shape_guardrail_checks_usage_results::de_guardrail_checks_usage_results(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?,
+                     );
+                 }
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+```
+
 ### `src/protocol_serde/shape_invoke_guardrail_checks_input.rs`
 
 ```diff
@@ -5456,12 +7652,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_invoke_guardrail_checks_input.rs
 @@ -3,23 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput,
+     input: &super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.checks {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("checks").start_object();
--        super::protocol_serde::shape_guardrail_checks_config::ser_guardrail_checks_config(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_guardrail_checks_config::ser_guardrail_checks_config(&mut object_2, var_1)?;
 -        object_2.finish();
 -    }
 -    if let Some(var_3) = &input.messages {
@@ -5473,10 +7669,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_6 = array_4.value().start_object();
--                super::protocol_serde::shape_guardrail_checks_message::ser_guardrail_checks_message(&mut object_6, item_5)?;
+-                super::super::protocol_serde::shape_guardrail_checks_message::ser_guardrail_checks_message(&mut object_6, item_5)?;
 -                object_6.finish();
 +                let mut object_4 = array_2.value().start_object();
-+                super::protocol_serde::shape_guardrail_checks_message::ser_guardrail_checks_message(&mut object_4, item_3)?;
++                super::super::protocol_serde::shape_guardrail_checks_message::ser_guardrail_checks_message(&mut object_4, item_3)?;
 +                object_4.finish();
              }
          }
@@ -5486,7 +7682,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.checks {
 +        #[allow(unused_mut)]
 +        let mut object_6 = object.key("checks").start_object();
-+        super::protocol_serde::shape_guardrail_checks_config::ser_guardrail_checks_config(&mut object_6, var_5)?;
++        super::super::protocol_serde::shape_guardrail_checks_config::ser_guardrail_checks_config(&mut object_6, var_5)?;
 +        object_6.finish();
      }
      Ok(())
@@ -5498,39 +7694,68 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_invoke_model.rs
 +++ generated/src/protocol_serde/shape_invoke_model.rs
-@@ -184,23 +184,8 @@
+@@ -97,8 +97,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -130,9 +133,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+-                output =
+-                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?;
++                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -184,23 +189,8 @@
      Ok({
          #[allow(unused_mut)]
-         let mut output = super::operation::invoke_model::builders::InvokeModelOutputBuilder::default();
--        output = output.set_body(super::protocol_serde::shape_invoke_model_output::de_body_payload(_response_body)?);
+         let mut output = super::super::operation::invoke_model::builders::InvokeModelOutputBuilder::default();
+-        output = output.set_body(super::super::protocol_serde::shape_invoke_model_output::de_body_payload(_response_body)?);
 -        output = output.set_content_type(
--            super::protocol_serde::shape_invoke_model_output::de_content_type_header(_response_headers)
--                .map_err(|_| super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse contentType from header `Content-Type"))?,
+-            super::super::protocol_serde::shape_invoke_model_output::de_content_type_header(_response_headers)
+-                .map_err(|_| super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse contentType from header `Content-Type"))?,
 -        );
 -        output = output.set_performance_config_latency(
--            super::protocol_serde::shape_invoke_model_output::de_performance_config_latency_header(_response_headers).map_err(|_| {
--                super::operation::invoke_model::InvokeModelError::unhandled(
+-            super::super::protocol_serde::shape_invoke_model_output::de_performance_config_latency_header(_response_headers).map_err(|_| {
+-                super::super::operation::invoke_model::InvokeModelError::unhandled(
 -                    "Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency",
 -                )
 -            })?,
 -        );
 -        output = output.set_service_tier(
--            super::protocol_serde::shape_invoke_model_output::de_service_tier_header(_response_headers).map_err(|_| {
--                super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier")
+-            super::super::protocol_serde::shape_invoke_model_output::de_service_tier_header(_response_headers).map_err(|_| {
+-                super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier")
 -            })?,
 -        );
-+        output = super::protocol_serde::shape_invoke_model::de_invoke_model(_response_body, output)
-+            .map_err(super::operation::invoke_model::InvokeModelError::unhandled)?;
++        output = super::super::protocol_serde::shape_invoke_model::de_invoke_model(_response_body, output)
++            .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         super::serde_util::invoke_model_output_output_correct_errors(output)
+         super::super::serde_util::invoke_model_output_output_correct_errors(output)
              .build()
-@@ -208,97 +193,67 @@
+@@ -208,97 +198,69 @@
      })
  }
 
 -pub fn ser_invoke_model_headers(
 +pub fn ser_invoke_model_input(
-     input: &super::operation::invoke_model::InvokeModelInput,
+     input: &super::super::operation::invoke_model::InvokeModelInput,
 -    mut builder: ::http_1x::request::Builder,
 -) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
 -    if let ::std::option::Option::Some(inner_1) = &input.content_type {
@@ -5543,7 +7768,63 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            )
 -        })?;
 -        builder = builder.header("Content-Type", header_value);
--    }
++) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
++    let mut out = String::new();
++    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
++    super::super::protocol_serde::shape_invoke_model_input::ser_invoke_model_input_input(&mut object, input)?;
++    object.finish();
++    Ok(::aws_smithy_types::body::SdkBody::from(out))
++}
++
++pub(crate) fn de_invoke_model(
++    _value: &[u8],
++    mut builder: super::super::operation::invoke_model::builders::InvokeModelOutputBuilder,
++) -> ::std::result::Result<
++    super::super::operation::invoke_model::builders::InvokeModelOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                "body" => {
++                    builder = builder.set_body(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
++                }
++                "contentType" => {
++                    builder = builder.set_content_type(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "performanceConfigLatency" => {
++                    builder = builder.set_performance_config_latency(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::PerformanceConfigLatency::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                "serviceTier" => {
++                    builder = builder.set_service_tier(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::ServiceTierType::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
+     }
 -    if let ::std::option::Option::Some(inner_3) = &input.accept {
 -        let formatted_4 = inner_3.as_str();
 -        let header_value = formatted_4;
@@ -5609,61 +7890,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            )
 -        })?;
 -        builder = builder.header("X-Amzn-Bedrock-Service-Tier", header_value);
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_invoke_model_input::ser_invoke_model_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
-+pub(crate) fn de_invoke_model(
-+    _value: &[u8],
-+    mut builder: super::operation::invoke_model::builders::InvokeModelOutputBuilder,
-+) -> ::std::result::Result<super::operation::invoke_model::builders::InvokeModelOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "body" => {
-+                    builder = builder.set_body(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
-+                }
-+                "contentType" => {
-+                    builder = builder.set_content_type(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
-+                "performanceConfigLatency" => {
-+                    builder = builder.set_performance_config_latency(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| super::types::PerformanceConfigLatency::from(u.as_ref())))
-+                            .transpose()?,
-+                    );
-+                }
-+                "serviceTier" => {
-+                    builder = builder.set_service_tier(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| super::types::ServiceTierType::from(u.as_ref())))
-+                            .transpose()?,
-+                    );
-+                }
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-     }
+-    }
 -    if let ::std::option::Option::Some(inner_15) = &input.request_metadata {
 -        let formatted_16 = inner_15.as_str();
 -        let header_value = formatted_16;
@@ -5700,7 +7927,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 +pub fn ser_invoke_model_input_input(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::operation::invoke_model::InvokeModelInput,
++    input: &super::super::operation::invoke_model::InvokeModelInput,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.body {
 +        object.key("body").string_unchecked(&::aws_smithy_types::base64::encode(var_1));
@@ -5742,7 +7969,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_invoke_model_tokens_request.rs
 +++ generated/src/protocol_serde/shape_invoke_model_tokens_request.rs
 @@ -4,7 +4,7 @@
-     input: &super::types::InvokeModelTokensRequest,
+     input: &super::super::types::InvokeModelTokensRequest,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
 -        object.key("body").string_unchecked(&::aws_smithy_types::base64::encode(&input.body));
@@ -5763,8 +7990,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub fn de_invoke_model_with_bidirectional_stream_http_response(
 -    response: &mut ::aws_smithy_runtime_api::http::Response,
 -) -> std::result::Result<
--    super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
--    super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
+-    super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
+-    super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
 -> {
 -    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
 -    std::mem::swap(&mut _response_body, response.body_mut());
@@ -5775,14 +8002,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    Ok({
 -        #[allow(unused_mut)]
 -        let mut output =
--            super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
+-            super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
 -        output = output.set_body(Some(
--            super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?,
+-            super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?,
 -        ));
 -        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        output
 -            .build()
--            .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
+-            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
 -    })
 -}
 -
@@ -5790,8 +8017,147 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn de_invoke_model_with_bidirectional_stream_http_error(
      _response_status: u16,
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -243,3 +216,77 @@
-         _ => super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::generic(generic),
+@@ -42,7 +15,9 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled(generic))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -54,7 +29,9 @@
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                        .map_err(
++                            super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
++                        )?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -70,8 +47,11 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(
++                                super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
++                            )?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -88,7 +68,9 @@
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ModelErrorExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                        .map_err(
++                            super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
++                        )?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -104,8 +86,11 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ModelNotReadyExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
++                            .map_err(
++                                super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
++                            )?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -121,9 +106,11 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    output = super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -140,7 +127,9 @@
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ModelTimeoutExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                        .map_err(
++                            super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
++                        )?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -156,9 +145,11 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -194,9 +185,11 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -213,7 +206,9 @@
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                        .map_err(
++                            super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
++                        )?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -230,7 +225,9 @@
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                        .map_err(
++                            super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
++                        )?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -243,3 +240,77 @@
+         _ => super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::generic(generic),
      })
  }
 +
@@ -5801,29 +8167,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    _response_headers: &::aws_smithy_runtime_api::http::Headers,
 +    _response_body: &[u8],
 +) -> std::result::Result<
-+    super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
-+    super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
++    super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
++    super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
 +> {
 +    Ok({
 +        #[allow(unused_mut)]
 +        let mut output =
-+            super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
-+        output =
-+            super::protocol_serde::shape_invoke_model_with_bidirectional_stream::de_invoke_model_with_bidirectional_stream(_response_body, output)
-+                .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++            super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
++        output = super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream::de_invoke_model_with_bidirectional_stream(
++            _response_body,
++            output,
++        )
++        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
 +        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-+        super::serde_util::invoke_model_with_bidirectional_stream_output_output_correct_errors(output)
++        super::super::serde_util::invoke_model_with_bidirectional_stream_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
++            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
 +    })
 +}
 +
 +pub fn ser_invoke_model_with_bidirectional_stream_input(
-+    input: &super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput,
++    input: &super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input::ser_invoke_model_with_bidirectional_stream_input_input(
++    super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input::ser_invoke_model_with_bidirectional_stream_input_input(
 +        &mut object,
 +        input,
 +    )?;
@@ -5833,12 +8201,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_invoke_model_with_bidirectional_stream(
 +    _value: &[u8],
-+    mut builder: super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
++    mut builder: super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
++    super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -5846,14 +8214,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    loop {
 +        match tokens.next().transpose()? {
 +            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-+                match key.to_unescaped()?.as_ref() {
-+                    "body" => {
-+                        builder = builder.set_body(super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_invoke_model_with_bidirectional_stream_output(tokens, _value, depth + 1)?);
-+                    }
-+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                "body" => {
++                    builder = builder.set_body(super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_invoke_model_with_bidirectional_stream_output(tokens, _value, depth + 1)?);
 +                }
-+            }
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
 +            other => {
 +                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
 +                    "expected object key or end object, found: {other:?}"
@@ -5878,16 +8244,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -1,10 +1,19 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub fn ser_chunk_payload(
--    input: &super::types::BidirectionalInputPayloadPart,
+-    input: &super::super::types::BidirectionalInputPayloadPart,
 -) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
 -    let mut out = String::new();
 -    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    super::protocol_serde::shape_bidirectional_input_payload_part::ser_bidirectional_input_payload_part(&mut object, input)?;
+-    super::super::protocol_serde::shape_bidirectional_input_payload_part::ser_bidirectional_input_payload_part(&mut object, input)?;
 -    object.finish();
 -    Ok(out.into_bytes())
 +pub fn ser_invoke_model_with_bidirectional_stream_input_input(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput,
++    input: &super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.model_id {
 +        object.key("modelId").string(var_1.as_str());
@@ -5895,7 +8261,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.body {
 +        #[allow(unused_mut)]
 +        let mut object_3 = object.key("body").start_object();
-+        super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input::ser_invoke_model_with_bidirectional_stream_input(
++        super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input::ser_invoke_model_with_bidirectional_stream_input(
 +            &mut object_3,
 +            var_2,
 +        )?;
@@ -5916,8 +8282,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub fn de_invoke_model_with_response_stream_http_response(
 -    response: &mut ::aws_smithy_runtime_api::http::Response,
 -) -> std::result::Result<
--    super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput,
--    super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError,
+-    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput,
+-    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError,
 -> {
 -    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
 -    std::mem::swap(&mut _response_body, response.body_mut());
@@ -5927,37 +8293,37 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    let _response_headers = response.headers();
 -    Ok({
 -        #[allow(unused_mut)]
--        let mut output = super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder::default();
+-        let mut output = super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder::default();
 -        output = output.set_body(Some(
--            super::protocol_serde::shape_invoke_model_with_response_stream_output::de_body_payload(_response_body)?,
+-            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_body_payload(_response_body)?,
 -        ));
 -        output = output.set_content_type(
--            super::protocol_serde::shape_invoke_model_with_response_stream_output::de_content_type_header(_response_headers).map_err(|_| {
--                super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
+-            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_content_type_header(_response_headers).map_err(|_| {
+-                super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
 -                    "Failed to parse contentType from header `X-Amzn-Bedrock-Content-Type",
 -                )
 -            })?,
 -        );
 -        output = output.set_performance_config_latency(
--            super::protocol_serde::shape_invoke_model_with_response_stream_output::de_performance_config_latency_header(_response_headers).map_err(
+-            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_performance_config_latency_header(_response_headers).map_err(
 -                |_| {
--                    super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
+-                    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
 -                        "Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency",
 -                    )
 -                },
 -            )?,
 -        );
 -        output = output.set_service_tier(
--            super::protocol_serde::shape_invoke_model_with_response_stream_output::de_service_tier_header(_response_headers).map_err(|_| {
--                super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
+-            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_service_tier_header(_response_headers).map_err(|_| {
+-                super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
 -                    "Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier",
 -                )
 -            })?,
 -        );
 -        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::invoke_model_with_response_stream_output_output_correct_errors(output)
+-        super::super::serde_util::invoke_model_with_response_stream_output_output_correct_errors(output)
 -            .build()
--            .map_err(super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
+-            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
 -    })
 -}
 -
@@ -5965,7 +8331,256 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn de_invoke_model_with_response_stream_http_error(
      _response_status: u16,
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -256,97 +207,94 @@
+@@ -69,21 +20,23 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AccessDeniedException" => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::AccessDeniedException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "AccessDeniedException" => {
++            super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::AccessDeniedException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+-                let output = output.meta(generic);
+-                output.build()
+-            };
+-            if tmp.message.is_none() {
+-                tmp.message = _error_message;
+-            }
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "InternalServerException" => {
+             super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::InternalServerException({
+                 #[allow(unused_mut)]
+@@ -90,8 +43,9 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -101,21 +55,23 @@
+                 tmp
+             })
+         }
+-        "ModelErrorException" => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ModelErrorException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ModelErrorException" => {
++            super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ModelErrorException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ModelErrorExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+-                let output = output.meta(generic);
+-                output.build()
+-            };
+-            if tmp.message.is_none() {
+-                tmp.message = _error_message;
+-            }
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ModelErrorExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ModelNotReadyException" => {
+             super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ModelNotReadyException({
+                 #[allow(unused_mut)]
+@@ -122,8 +78,9 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ModelNotReadyExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++                    output =
++                        super::super::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -139,9 +96,11 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++                    output = super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -151,21 +110,23 @@
+                 tmp
+             })
+         }
+-        "ModelTimeoutException" => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ModelTimeoutException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ModelTimeoutException" => {
++            super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ModelTimeoutException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ModelTimeoutExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+-                let output = output.meta(generic);
+-                output.build()
+-            };
+-            if tmp.message.is_none() {
+-                tmp.message = _error_message;
+-            }
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ModelTimeoutExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         "ResourceNotFoundException" => {
+             super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+@@ -172,9 +133,11 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -210,9 +173,11 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+-                    output =
+-                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
++                        _response_body,
++                        output,
++                    )
++                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -222,131 +187,135 @@
+                 tmp
+             })
+         }
+-        "ThrottlingException" => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ThrottlingException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++        "ThrottlingException" => {
++            super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ThrottlingException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+-                let output = output.meta(generic);
+-                output.build()
+-            };
+-            if tmp.message.is_none() {
+-                tmp.message = _error_message;
+-            }
+-            tmp
+-        }),
+-        "ValidationException" => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ValidationException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
++        "ValidationException" => {
++            super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ValidationException({
+                 #[allow(unused_mut)]
+-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+-                let output = output.meta(generic);
+-                output.build()
+-            };
+-            if tmp.message.is_none() {
+-                tmp.message = _error_message;
+-            }
+-            tmp
+-        }),
++                let mut tmp = {
++                    #[allow(unused_mut)]
++                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++                    let output = output.meta(generic);
++                    output.build()
++                };
++                if tmp.message.is_none() {
++                    tmp.message = _error_message;
++                }
++                tmp
++            })
++        }
+         _ => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::generic(generic),
      })
  }
 
@@ -5976,23 +8591,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    _response_headers: &::aws_smithy_runtime_api::http::Headers,
 +    _response_body: &[u8],
 +) -> std::result::Result<
-+    super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput,
-+    super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError,
++    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput,
++    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError,
 +> {
 +    Ok({
 +        #[allow(unused_mut)]
-+        let mut output = super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder::default();
-+        output = super::protocol_serde::shape_invoke_model_with_response_stream::de_invoke_model_with_response_stream(_response_body, output)
-+            .map_err(super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
++        let mut output = super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder::default();
++        output = super::super::protocol_serde::shape_invoke_model_with_response_stream::de_invoke_model_with_response_stream(_response_body, output)
++            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
 +        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-+        super::serde_util::invoke_model_with_response_stream_output_output_correct_errors(output)
++        super::super::serde_util::invoke_model_with_response_stream_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
++            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
 +    })
 +}
 +
 +pub fn ser_invoke_model_with_response_stream_input(
-     input: &super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
+     input: &super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
 -    mut builder: ::http_1x::request::Builder,
 -) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
 -    if let ::std::option::Option::Some(inner_1) = &input.content_type {
@@ -6005,67 +8620,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            )
 -        })?;
 -        builder = builder.header("Content-Type", header_value);
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_invoke_model_with_response_stream_input::ser_invoke_model_with_response_stream_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
-+pub(crate) fn de_invoke_model_with_response_stream(
-+    _value: &[u8],
-+    mut builder: super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
-+) -> ::std::result::Result<
-+    super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "body" => {
-+                    builder = builder.set_body(super::protocol_serde::shape_response_stream::de_response_stream(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
-+                "contentType" => {
-+                    builder = builder.set_content_type(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
-+                "performanceConfigLatency" => {
-+                    builder = builder.set_performance_config_latency(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| super::types::PerformanceConfigLatency::from(u.as_ref())))
-+                            .transpose()?,
-+                    );
-+                }
-+                "serviceTier" => {
-+                    builder = builder.set_service_tier(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| super::types::ServiceTierType::from(u.as_ref())))
-+                            .transpose()?,
-+                    );
-+                }
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-     }
+-    }
 -    if let ::std::option::Option::Some(inner_3) = &input.accept {
 -        let formatted_4 = inner_3.as_str();
 -        let header_value = formatted_4;
@@ -6131,7 +8686,70 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            )
 -        })?;
 -        builder = builder.header("X-Amzn-Bedrock-Service-Tier", header_value);
--    }
++) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
++    let mut out = String::new();
++    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
++    super::super::protocol_serde::shape_invoke_model_with_response_stream_input::ser_invoke_model_with_response_stream_input_input(
++        &mut object,
++        input,
++    )?;
++    object.finish();
++    Ok(::aws_smithy_types::body::SdkBody::from(out))
++}
++
++pub(crate) fn de_invoke_model_with_response_stream(
++    _value: &[u8],
++    mut builder: super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
++) -> ::std::result::Result<
++    super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                "body" => {
++                    builder = builder.set_body(super::super::protocol_serde::shape_response_stream::de_response_stream(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
++                }
++                "contentType" => {
++                    builder = builder.set_content_type(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "performanceConfigLatency" => {
++                    builder = builder.set_performance_config_latency(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::PerformanceConfigLatency::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                "serviceTier" => {
++                    builder = builder.set_service_tier(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::ServiceTierType::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
+     }
 -    if let ::std::option::Option::Some(inner_15) = &input.request_metadata {
 -        let formatted_16 = inner_15.as_str();
 -        let header_value = formatted_16;
@@ -6168,7 +8786,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 +pub fn ser_invoke_model_with_response_stream_input_input(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
++    input: &super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.body {
 +        object.key("body").string_unchecked(&::aws_smithy_types::base64::encode(var_1));
@@ -6211,7 +8829,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_json_schema_definition.rs
 @@ -3,14 +3,8 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::JsonSchemaDefinition,
+     input: &super::super::types::JsonSchemaDefinition,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("schema").string(input.schema.as_str());
@@ -6234,51 +8852,106 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_async_invokes.rs
 +++ generated/src/protocol_serde/shape_list_async_invokes.rs
-@@ -97,6 +97,16 @@
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_async_invokes::ListAsyncInvokesOutput, super::super::operation::list_async_invokes::ListAsyncInvokesError> {
++) -> std::result::Result<
++    super::super::operation::list_async_invokes::ListAsyncInvokesOutput,
++    super::super::operation::list_async_invokes::ListAsyncInvokesError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
+@@ -86,7 +89,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_async_invokes::ListAsyncInvokesOutput, super::super::operation::list_async_invokes::ListAsyncInvokesError> {
++) -> std::result::Result<
++    super::super::operation::list_async_invokes::ListAsyncInvokesOutput,
++    super::super::operation::list_async_invokes::ListAsyncInvokesError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_async_invokes::builders::ListAsyncInvokesOutputBuilder::default();
+@@ -97,6 +103,16 @@
      })
  }
 
 +pub fn ser_list_async_invokes_input(
-+    input: &super::operation::list_async_invokes::ListAsyncInvokesInput,
++    input: &super::super::operation::list_async_invokes::ListAsyncInvokesInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_async_invokes_input::ser_list_async_invokes_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_async_invokes_input::ser_list_async_invokes_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_async_invokes(
      _value: &[u8],
-     mut builder: super::operation::list_async_invokes::builders::ListAsyncInvokesOutputBuilder,
-@@ -113,6 +123,13 @@
+     mut builder: super::super::operation::list_async_invokes::builders::ListAsyncInvokesOutputBuilder,
+@@ -113,13 +129,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "nextToken" => {
-+                    builder = builder.set_next_token(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
+-                "asyncInvokeSummaries" => {
+-                    builder = builder.set_async_invoke_summaries(super::super::protocol_serde::shape_async_invoke_summaries::de_async_invoke_summaries(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
+-                }
+                 "nextToken" => {
+                     builder = builder.set_next_token(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -127,6 +136,11 @@
+                             .transpose()?,
+                     );
+                 }
++                "asyncInvokeSummaries" => {
++                    builder = builder.set_async_invoke_summaries(
++                        super::super::protocol_serde::shape_async_invoke_summaries::de_async_invoke_summaries(tokens, _value, depth + 1)?,
 +                    );
 +                }
-                 "asyncInvokeSummaries" => {
-                     builder = builder.set_async_invoke_summaries(super::protocol_serde::shape_async_invoke_summaries::de_async_invoke_summaries(
-                         tokens,
-@@ -120,13 +137,6 @@
-                         depth + 1,
-                     )?);
-                 }
--                "nextToken" => {
--                    builder = builder.set_next_token(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
--                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
+```
+
+### `src/protocol_serde/shape_message.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_message.rs
++++ generated/src/protocol_serde/shape_message.rs
+@@ -51,7 +51,11 @@
+                             );
+                         }
+                         "content" => {
+-                            builder = builder.set_content(super::super::protocol_serde::shape_content_blocks::de_content_blocks(tokens, _value, depth + 1)?);
++                            builder = builder.set_content(super::super::protocol_serde::shape_content_blocks::de_content_blocks(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+@@ -62,9 +66,9 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::message_correct_errors(builder).build().map_err(|err| {
+-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+-            })?))
++            Ok(Some(super::super::serde_util::message_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_message_start_event.rs`
@@ -6290,12 +8963,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_message_start_event_payload(
 -    _value: &[u8],
--) -> ::std::result::Result<super::types::MessageStartEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-) -> ::std::result::Result<super::super::types::MessageStartEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
--    let result = super::protocol_serde::shape_message_start_event::de_message_start_event(tokens, _value, depth + 1)?
+-    let result = super::super::protocol_serde::shape_message_start_event::de_message_start_event(tokens, _value, depth + 1)?
 -        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
 -    if tokens.next().is_some() {
 -        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
@@ -6308,6 +8981,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_message_start_event<'a, I>(
      tokens: &mut ::std::iter::Peekable<I>,
      _value: &'a [u8],
+@@ -54,9 +37,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::message_start_event_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::message_start_event_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_message_stop_event.rs`
@@ -6319,12 +9007,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_message_stop_event_payload(
 -    _value: &[u8],
--) -> ::std::result::Result<super::types::MessageStopEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-) -> ::std::result::Result<super::super::types::MessageStopEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
--    let result = super::protocol_serde::shape_message_stop_event::de_message_stop_event(tokens, _value, depth + 1)?
+-    let result = super::super::protocol_serde::shape_message_stop_event::de_message_stop_event(tokens, _value, depth + 1)?
 -        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
 -    if tokens.next().is_some() {
 -        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
@@ -6347,6 +9035,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+@@ -58,9 +40,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::message_stop_event_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::message_stop_event_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_model_stream_error_exception.rs`
@@ -6358,9 +9061,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_model_stream_error_exception_json_err(
 -    _value: &[u8],
--    mut builder: super::types::error::builders::ModelStreamErrorExceptionBuilder,
--) -> ::std::result::Result<super::types::error::builders::ModelStreamErrorExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    mut builder: super::super::types::error::builders::ModelStreamErrorExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ModelStreamErrorExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
@@ -6393,7 +9096,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    tokens: &mut ::std::iter::Peekable<I>,
 +    _value: &'a [u8],
 +    depth: u32,
-+) -> ::std::result::Result<Option<super::types::ModelStreamErrorException>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ModelStreamErrorException>, ::aws_smithy_json::deserialize::error::DeserializeError>
 +where
 +    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 +{
@@ -6406,7 +9109,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
 +        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
 +            #[allow(unused_mut)]
-+            let mut builder = super::types::builders::ModelStreamErrorExceptionBuilder::default();
++            let mut builder = super::super::types::builders::ModelStreamErrorExceptionBuilder::default();
 +            loop {
 +                match tokens.next().transpose()? {
 +                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -6471,9 +9174,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_model_timeout_exception_json_err(
 -    _value: &[u8],
--    mut builder: super::types::error::builders::ModelTimeoutExceptionBuilder,
--) -> ::std::result::Result<super::types::error::builders::ModelTimeoutExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    mut builder: super::super::types::error::builders::ModelTimeoutExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ModelTimeoutExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
@@ -6492,7 +9195,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    tokens: &mut ::std::iter::Peekable<I>,
 +    _value: &'a [u8],
 +    depth: u32,
-+) -> ::std::result::Result<Option<super::types::ModelTimeoutException>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ModelTimeoutException>, ::aws_smithy_json::deserialize::error::DeserializeError>
 +where
 +    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 +{
@@ -6505,7 +9208,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
 +        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
 +            #[allow(unused_mut)]
-+            let mut builder = super::types::builders::ModelTimeoutExceptionBuilder::default();
++            let mut builder = super::super::types::builders::ModelTimeoutExceptionBuilder::default();
 +            loop {
 +                match tokens.next().transpose()? {
 +                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -6553,7 +9256,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_output_config.rs
 +++ generated/src/protocol_serde/shape_output_config.rs
 @@ -9,8 +9,6 @@
-         super::protocol_serde::shape_output_format::ser_output_format(&mut object_2, var_1)?;
+         super::super::protocol_serde::shape_output_format::ser_output_format(&mut object_2, var_1)?;
          object_2.finish();
      }
 -    if let Some(var_3) = &input.effort {
@@ -6577,10 +9280,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("structure").start_object();
--        super::protocol_serde::shape_output_format_structure::ser_output_format_structure(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_output_format_structure::ser_output_format_structure(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_1 = object.key("structure").start_object();
-+        super::protocol_serde::shape_output_format_structure::ser_output_format_structure(&mut object_1, &input.structure)?;
++        super::super::protocol_serde::shape_output_format_structure::ser_output_format_structure(&mut object_1, &input.structure)?;
 +        object_1.finish();
      }
      Ok(())
@@ -6597,14 +9300,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_output_format_structure(
 -    object_2: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::OutputFormatStructure,
+     input: &super::super::types::OutputFormatStructure,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         super::types::OutputFormatStructure::JsonSchema(inner) => {
+         super::super::types::OutputFormatStructure::JsonSchema(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_2.key("jsonSchema").start_object();
 +            let mut object_1 = object.key("jsonSchema").start_object();
-             super::protocol_serde::shape_json_schema_definition::ser_json_schema_definition(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_json_schema_definition::ser_json_schema_definition(&mut object_1, inner)?;
              object_1.finish();
          }
 ```
@@ -6618,12 +9321,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_payload_part_payload(
 -    _value: &[u8],
--) -> ::std::result::Result<super::types::PayloadPart, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-) -> ::std::result::Result<super::super::types::PayloadPart, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
--    let result = super::protocol_serde::shape_payload_part::de_payload_part(tokens, _value, depth + 1)?
+-    let result = super::super::protocol_serde::shape_payload_part::de_payload_part(tokens, _value, depth + 1)?
 -        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
 -    if tokens.next().is_some() {
 -        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
@@ -6647,7 +9350,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_performance_configuration(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::types::PerformanceConfiguration,
++    input: &super::super::types::PerformanceConfiguration,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    {
 +        object.key("latency").string(input.latency.as_str());
@@ -6665,7 +9368,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_performance_configuration(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &super::types::PerformanceConfiguration,
+-    input: &super::super::types::PerformanceConfiguration,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("latency").string(input.latency.as_str());
@@ -6684,14 +9387,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_prompt_variable_values(
 -    object_21: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::PromptVariableValues,
+     input: &super::super::types::PromptVariableValues,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::PromptVariableValues::Text(inner) => {
+-        super::super::types::PromptVariableValues::Text(inner) => {
 -            object_21.key("text").string(inner.as_str());
 -        }
-+        super::types::PromptVariableValues::Text(inner) => {}
-         super::types::PromptVariableValues::Unknown => {
++        super::super::types::PromptVariableValues::Text(inner) => {}
+         super::super::types::PromptVariableValues::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                  "PromptVariableValues",
 ```
@@ -6706,23 +9409,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_reasoning_content_block(
 -    object_9: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ReasoningContentBlock,
+     input: &super::super::types::ReasoningContentBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         super::types::ReasoningContentBlock::ReasoningText(inner) => {
+         super::super::types::ReasoningContentBlock::ReasoningText(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_9.key("reasoningText").start_object();
 +            let mut object_1 = object.key("reasoningText").start_object();
-             super::protocol_serde::shape_reasoning_text_block::ser_reasoning_text_block(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_reasoning_text_block::ser_reasoning_text_block(&mut object_1, inner)?;
              object_1.finish();
          }
--        super::types::ReasoningContentBlock::RedactedContent(inner) => {
+-        super::super::types::ReasoningContentBlock::RedactedContent(inner) => {
 -            object_9
 -                .key("redactedContent")
 -                .string_unchecked(&::aws_smithy_types::base64::encode(inner));
 -        }
-+        super::types::ReasoningContentBlock::RedactedContent(inner) => {}
-         super::types::ReasoningContentBlock::Unknown => {
++        super::super::types::ReasoningContentBlock::RedactedContent(inner) => {}
+         super::super::types::ReasoningContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                  "ReasoningContentBlock",
 @@ -44,9 +40,7 @@
@@ -6736,10 +9439,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          let _ = tokens.next().expect("peek returned a token")?;
                          continue;
                      }
-@@ -67,7 +61,7 @@
-                             )?,
+@@ -62,12 +56,13 @@
+                     }
+                     variant = match key.as_ref() {
+                         "reasoningText" => Some(super::super::types::ReasoningContentBlock::ReasoningText(
+-                            super::super::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?.ok_or_else(
+-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningText' cannot be null"),
+-                            )?,
++                            super::super::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?
++                                .ok_or_else(|| {
++                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningText' cannot be null")
++                                })?,
                          )),
-                         "redactedContent" => Some(super::types::ReasoningContentBlock::RedactedContent(
+                         "redactedContent" => Some(super::super::types::ReasoningContentBlock::RedactedContent(
 -                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| {
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| {
                                  ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null")
@@ -6766,20 +9478,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -37,23 +35,18 @@
                      }
                      variant = match key.as_ref() {
-                         "text" => Some(super::types::ReasoningContentBlockDelta::Text(
+                         "text" => Some(super::super::types::ReasoningContentBlockDelta::Text(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                .transpose()?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                          )),
-                         "redactedContent" => Some(super::types::ReasoningContentBlockDelta::RedactedContent(
+                         "redactedContent" => Some(super::super::types::ReasoningContentBlockDelta::RedactedContent(
 -                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| {
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| {
                                  ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null")
                              })?,
                          )),
-                         "signature" => Some(super::types::ReasoningContentBlockDelta::Signature(
+                         "signature" => Some(super::super::types::ReasoningContentBlockDelta::Signature(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                .transpose()?
@@ -6801,7 +9513,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_reasoning_text_block.rs
 @@ -3,12 +3,8 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ReasoningTextBlock,
+     input: &super::super::types::ReasoningTextBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("text").string(input.text.as_str());
@@ -6835,6 +9547,60 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+@@ -57,9 +45,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::reasoning_text_block_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::reasoning_text_block_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
+```
+
+### `src/protocol_serde/shape_resource_not_found_exception.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_resource_not_found_exception.rs
++++ generated/src/protocol_serde/shape_resource_not_found_exception.rs
+@@ -2,7 +2,10 @@
+ pub(crate) fn de_resource_not_found_exception_json_err(
+     _value: &[u8],
+     mut builder: super::super::types::error::builders::ResourceNotFoundExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ResourceNotFoundExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++) -> ::std::result::Result<
++    super::super::types::error::builders::ResourceNotFoundExceptionBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+```
+
+### `src/protocol_serde/shape_s3_location.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_s3_location.rs
++++ generated/src/protocol_serde/shape_s3_location.rs
+@@ -57,9 +57,9 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::s3_location_correct_errors(builder).build().map_err(|err| {
+-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+-            })?))
++            Ok(Some(super::super::serde_util::s3_location_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_search_result_block.rs`
@@ -6844,7 +9610,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_search_result_block.rs
 @@ -3,13 +3,9 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::SearchResultBlock,
+     input: &super::super::types::SearchResultBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    {}
 +    {}
@@ -6879,6 +9645,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          "content" => {
                              builder = builder.set_content(
+@@ -91,9 +79,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::search_result_block_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::search_result_block_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_search_result_content_block.rs`
@@ -6888,7 +9669,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_search_result_content_block.rs
 @@ -3,9 +3,7 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::SearchResultContentBlock,
+     input: &super::super::types::SearchResultContentBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("text").string(input.text.as_str());
@@ -6912,6 +9693,39 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      },
 ```
 
+### `src/protocol_serde/shape_search_result_content_blocks.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_search_result_content_blocks.rs
++++ generated/src/protocol_serde/shape_search_result_content_blocks.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::SearchResultContentBlock>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::SearchResultContentBlock>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,8 +26,11 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_search_result_content_block::de_search_result_content_block(tokens, _value, depth + 1)?;
++                        let value = super::super::protocol_serde::shape_search_result_content_block::de_search_result_content_block(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
+```
+
 ### `src/protocol_serde/shape_search_result_location.rs`
 
 ```diff
@@ -6919,7 +9733,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_search_result_location.rs
 @@ -3,24 +3,9 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::SearchResultLocation,
+     input: &super::super::types::SearchResultLocation,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.search_result_index {
 -        object.key("searchResultIndex").number(
@@ -6976,6 +9790,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      },
 ```
 
+### `src/protocol_serde/shape_service_quota_exceeded_exception.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_service_quota_exceeded_exception.rs
++++ generated/src/protocol_serde/shape_service_quota_exceeded_exception.rs
+@@ -2,8 +2,10 @@
+ pub(crate) fn de_service_quota_exceeded_exception_json_err(
+     _value: &[u8],
+     mut builder: super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+-{
++) -> ::std::result::Result<
++    super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+```
+
 ### `src/protocol_serde/shape_service_tier.rs`
 
 ```diff
@@ -6985,7 +9819,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_service_tier(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::types::ServiceTier,
++    input: &super::super::types::ServiceTier,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    {
 +        object.key("type").string(input.r#type.as_str());
@@ -6996,6 +9830,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_service_tier<'a, I>(
      tokens: &mut ::std::iter::Peekable<I>,
      _value: &'a [u8],
+@@ -37,9 +47,9 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::service_tier_correct_errors(builder).build().map_err(|err| {
+-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+-            })?))
++            Ok(Some(super::super::serde_util::service_tier_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 @@ -46,13 +56,3 @@
          )),
      }
@@ -7003,7 +9850,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_service_tier(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &super::types::ServiceTier,
+-    input: &super::super::types::ServiceTier,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("type").string(input.r#type.as_str());
@@ -7021,17 +9868,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_service_unavailable_exception_json_err(
 -    _value: &[u8],
--    mut builder: super::types::error::builders::ServiceUnavailableExceptionBuilder,
--) -> ::std::result::Result<super::types::error::builders::ServiceUnavailableExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+-    mut builder: super::super::types::error::builders::ServiceUnavailableExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ServiceUnavailableExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +pub(crate) fn de_service_unavailable_exception<'a, I>(
 +    tokens: &mut ::std::iter::Peekable<I>,
 +    _value: &'a [u8],
 +    depth: u32,
-+) -> ::std::result::Result<Option<super::types::ServiceUnavailableException>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ServiceUnavailableException>, ::aws_smithy_json::deserialize::error::DeserializeError>
 +where
 +    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
@@ -7055,7 +9902,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
 +        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
 +            #[allow(unused_mut)]
-+            let mut builder = super::types::builders::ServiceUnavailableExceptionBuilder::default();
++            let mut builder = super::super::types::builders::ServiceUnavailableExceptionBuilder::default();
 +            loop {
 +                match tokens.next().transpose()? {
 +                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -7097,6 +9944,66 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/protocol_serde/shape_start_async_invoke.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_start_async_invoke.rs
++++ generated/src/protocol_serde/shape_start_async_invoke.rs
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::start_async_invoke::StartAsyncInvokeOutput, super::super::operation::start_async_invoke::StartAsyncInvokeError> {
++) -> std::result::Result<
++    super::super::operation::start_async_invoke::StartAsyncInvokeOutput,
++    super::super::operation::start_async_invoke::StartAsyncInvokeError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::start_async_invoke::StartAsyncInvokeError::unhandled)?;
+@@ -67,8 +70,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(super::super::operation::start_async_invoke::StartAsyncInvokeError::unhandled)?;
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::start_async_invoke::StartAsyncInvokeError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -100,9 +106,11 @@
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+-                output =
+-                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                        .map_err(super::super::operation::start_async_invoke::StartAsyncInvokeError::unhandled)?;
++                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(super::super::operation::start_async_invoke::StartAsyncInvokeError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -150,7 +158,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::start_async_invoke::StartAsyncInvokeOutput, super::super::operation::start_async_invoke::StartAsyncInvokeError> {
++) -> std::result::Result<
++    super::super::operation::start_async_invoke::StartAsyncInvokeOutput,
++    super::super::operation::start_async_invoke::StartAsyncInvokeError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder::default();
+```
+
 ### `src/protocol_serde/shape_system_content_block.rs`
 
 ```diff
@@ -7107,30 +10014,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_system_content_block(
 -    object_31: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::SystemContentBlock,
+     input: &super::super::types::SystemContentBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         super::types::SystemContentBlock::Text(inner) => {
+         super::super::types::SystemContentBlock::Text(inner) => {
 -            object_31.key("text").string(inner.as_str());
 +            object.key("text").string(inner.as_str());
          }
-         super::types::SystemContentBlock::GuardContent(inner) => {
+         super::super::types::SystemContentBlock::GuardContent(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_31.key("guardContent").start_object();
 +            let mut object_1 = object.key("guardContent").start_object();
-             super::protocol_serde::shape_guardrail_converse_content_block::ser_guardrail_converse_content_block(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_guardrail_converse_content_block::ser_guardrail_converse_content_block(&mut object_1, inner)?;
              object_1.finish();
          }
-         super::types::SystemContentBlock::CachePoint(inner) => {
+         super::super::types::SystemContentBlock::CachePoint(inner) => {
              #[allow(unused_mut)]
 -            let mut object_2 = object_31.key("cachePoint").start_object();
--            super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_2, inner)?;
+-            super::super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_2, inner)?;
 -            object_2.finish();
 +            let mut object_1 = object.key("cachePoint").start_object();
-+            super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::SystemContentBlock::Unknown => {
+         super::super::types::SystemContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 ```
 
@@ -7143,9 +10050,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_throttling_exception_json_err(
 -    _value: &[u8],
--    mut builder: super::types::error::builders::ThrottlingExceptionBuilder,
--) -> ::std::result::Result<super::types::error::builders::ThrottlingExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    mut builder: super::super::types::error::builders::ThrottlingExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ThrottlingExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
@@ -7164,7 +10071,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    tokens: &mut ::std::iter::Peekable<I>,
 +    _value: &'a [u8],
 +    depth: u32,
-+) -> ::std::result::Result<Option<super::types::ThrottlingException>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ThrottlingException>, ::aws_smithy_json::deserialize::error::DeserializeError>
 +where
 +    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 +{
@@ -7177,7 +10084,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
 +        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
 +            #[allow(unused_mut)]
-+            let mut builder = super::types::builders::ThrottlingExceptionBuilder::default();
++            let mut builder = super::super::types::builders::ThrottlingExceptionBuilder::default();
 +            loop {
 +                match tokens.next().transpose()? {
 +                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -7268,7 +10175,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            builder = builder.set_cache_write_input_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
                          }
                          "cacheDetails" => {
-                             builder = builder.set_cache_details(super::protocol_serde::shape_cache_details_list::de_cache_details_list(
+                             builder = builder.set_cache_details(super::super::protocol_serde::shape_cache_details_list::de_cache_details_list(
+@@ -72,9 +52,9 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::token_usage_correct_errors(builder).build().map_err(|err| {
+-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+-            })?))
++            Ok(Some(super::super::serde_util::token_usage_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_tool.rs`
@@ -7281,36 +10201,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_tool(
 -    object_3: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::Tool,
+     input: &super::super::types::Tool,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         super::types::Tool::ToolSpec(inner) => {
+         super::super::types::Tool::ToolSpec(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_3.key("toolSpec").start_object();
 +            let mut object_1 = object.key("toolSpec").start_object();
-             super::protocol_serde::shape_tool_specification::ser_tool_specification(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_tool_specification::ser_tool_specification(&mut object_1, inner)?;
              object_1.finish();
          }
-         super::types::Tool::SystemTool(inner) => {
+         super::super::types::Tool::SystemTool(inner) => {
              #[allow(unused_mut)]
 -            let mut object_2 = object_3.key("systemTool").start_object();
--            super::protocol_serde::shape_system_tool::ser_system_tool(&mut object_2, inner)?;
+-            super::super::protocol_serde::shape_system_tool::ser_system_tool(&mut object_2, inner)?;
 -            object_2.finish();
 +            let mut object_1 = object.key("systemTool").start_object();
-+            super::protocol_serde::shape_system_tool::ser_system_tool(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_system_tool::ser_system_tool(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::Tool::CachePoint(inner) => {
+         super::super::types::Tool::CachePoint(inner) => {
              #[allow(unused_mut)]
 -            let mut object_3 = object_3.key("cachePoint").start_object();
--            super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_3, inner)?;
+-            super::super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_3, inner)?;
 -            object_3.finish();
 +            let mut object_1 = object.key("cachePoint").start_object();
-+            super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::Tool::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("Tool")),
+         super::super::types::Tool::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("Tool")),
      }
+```
+
+### `src/protocol_serde/shape_tool_addition_block.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tool_addition_block.rs
++++ generated/src/protocol_serde/shape_tool_addition_block.rs
+@@ -35,7 +35,11 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "tool" => {
+-                            builder = builder.set_tool(super::super::protocol_serde::shape_tool_reference::de_tool_reference(tokens, _value, depth + 1)?);
++                            builder = builder.set_tool(super::super::protocol_serde::shape_tool_reference::de_tool_reference(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
 ```
 
 ### `src/protocol_serde/shape_tool_choice.rs`
@@ -7318,41 +10258,46 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_tool_choice.rs
 +++ generated/src/protocol_serde/shape_tool_choice.rs
-@@ -1,26 +1,26 @@
+@@ -1,28 +1,30 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
  pub fn ser_tool_choice(
 -    object_5: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ToolChoice,
+     input: &super::super::types::ToolChoice,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         super::types::ToolChoice::Auto(inner) => {
+         super::super::types::ToolChoice::Auto(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_5.key("auto").start_object();
 +            let mut object_1 = object.key("auto").start_object();
-             super::protocol_serde::shape_auto_tool_choice::ser_auto_tool_choice(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_auto_tool_choice::ser_auto_tool_choice(&mut object_1, inner)?;
              object_1.finish();
          }
-         super::types::ToolChoice::Any(inner) => {
+         super::super::types::ToolChoice::Any(inner) => {
              #[allow(unused_mut)]
 -            let mut object_2 = object_5.key("any").start_object();
--            super::protocol_serde::shape_any_tool_choice::ser_any_tool_choice(&mut object_2, inner)?;
+-            super::super::protocol_serde::shape_any_tool_choice::ser_any_tool_choice(&mut object_2, inner)?;
 -            object_2.finish();
 +            let mut object_1 = object.key("any").start_object();
-+            super::protocol_serde::shape_any_tool_choice::ser_any_tool_choice(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_any_tool_choice::ser_any_tool_choice(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ToolChoice::Tool(inner) => {
+         super::super::types::ToolChoice::Tool(inner) => {
              #[allow(unused_mut)]
 -            let mut object_3 = object_5.key("tool").start_object();
--            super::protocol_serde::shape_specific_tool_choice::ser_specific_tool_choice(&mut object_3, inner)?;
+-            super::super::protocol_serde::shape_specific_tool_choice::ser_specific_tool_choice(&mut object_3, inner)?;
 -            object_3.finish();
 +            let mut object_1 = object.key("tool").start_object();
-+            super::protocol_serde::shape_specific_tool_choice::ser_specific_tool_choice(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_specific_tool_choice::ser_specific_tool_choice(&mut object_1, inner)?;
 +            object_1.finish();
++        }
++        super::super::types::ToolChoice::Unknown => {
++            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ToolChoice"))
          }
-         super::types::ToolChoice::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ToolChoice")),
+-        super::super::types::ToolChoice::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ToolChoice")),
      }
+     Ok(())
+ }
 ```
 
 ### `src/protocol_serde/shape_tool_input_schema.rs`
@@ -7365,14 +10310,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_tool_input_schema(
 -    object_3: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ToolInputSchema,
+     input: &super::super::types::ToolInputSchema,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::ToolInputSchema::Json(inner) => {
+-        super::super::types::ToolInputSchema::Json(inner) => {
 -            object_3.key("json").document(inner);
 -        }
-+        super::types::ToolInputSchema::Json(inner) => {}
-         super::types::ToolInputSchema::Unknown => {
++        super::super::types::ToolInputSchema::Json(inner) => {}
+         super::super::types::ToolInputSchema::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                  "ToolInputSchema",
 ```
@@ -7384,7 +10329,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_tool_reference.rs
 @@ -3,15 +3,9 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ToolReference,
+     input: &super::super::types::ToolReference,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.r#type {
 -        object.key("type").string(var_1.as_str());
@@ -7432,6 +10377,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      },
 ```
 
+### `src/protocol_serde/shape_tool_removal_block.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tool_removal_block.rs
++++ generated/src/protocol_serde/shape_tool_removal_block.rs
+@@ -35,7 +35,11 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "tool" => {
+-                            builder = builder.set_tool(super::super::protocol_serde::shape_tool_reference::de_tool_reference(tokens, _value, depth + 1)?);
++                            builder = builder.set_tool(super::super::protocol_serde::shape_tool_reference::de_tool_reference(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+```
+
 ### `src/protocol_serde/shape_tool_result_block.rs`
 
 ```diff
@@ -7448,7 +10413,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      Ok(())
  }
 
-@@ -71,11 +69,7 @@
+@@ -57,11 +55,13 @@
+                             );
+                         }
+                         "content" => {
+-                            builder = builder.set_content(super::super::protocol_serde::shape_tool_result_content_blocks::de_tool_result_content_blocks(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_content(
++                                super::super::protocol_serde::shape_tool_result_content_blocks::de_tool_result_content_blocks(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
++                            );
+                         }
+                         "status" => {
+                             builder = builder.set_status(
+@@ -71,11 +71,7 @@
                              );
                          }
                          "type" => {
@@ -7461,6 +10445,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+@@ -86,9 +82,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::tool_result_block_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::tool_result_block_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_tool_result_block_delta.rs`
@@ -7482,14 +10481,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -37,13 +35,11 @@
                      }
                      variant = match key.as_ref() {
-                         "text" => Some(super::types::ToolResultBlockDelta::Text(
+                         "text" => Some(super::super::types::ToolResultBlockDelta::Text(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                .transpose()?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                          )),
-                         "json" => Some(super::types::ToolResultBlockDelta::Json(
+                         "json" => Some(super::super::types::ToolResultBlockDelta::Json(
 -                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?)
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?,
@@ -7515,6 +10514,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          "status" => {
                              builder = builder.set_status(
+@@ -51,9 +47,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::tool_result_block_start_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::tool_result_block_start_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_tool_result_content_block.rs`
@@ -7527,52 +10541,52 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_tool_result_content_block(
 -    object_3: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ToolResultContentBlock,
+     input: &super::super::types::ToolResultContentBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::ToolResultContentBlock::Json(inner) => {
+-        super::super::types::ToolResultContentBlock::Json(inner) => {
 -            object_3.key("json").document(inner);
 -        }
--        super::types::ToolResultContentBlock::Text(inner) => {
+-        super::super::types::ToolResultContentBlock::Text(inner) => {
 -            object_3.key("text").string(inner.as_str());
 -        }
-+        super::types::ToolResultContentBlock::Json(inner) => {}
-+        super::types::ToolResultContentBlock::Text(inner) => {}
-         super::types::ToolResultContentBlock::Image(inner) => {
++        super::super::types::ToolResultContentBlock::Json(inner) => {}
++        super::super::types::ToolResultContentBlock::Text(inner) => {}
+         super::super::types::ToolResultContentBlock::Image(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_3.key("image").start_object();
 +            let mut object_1 = object.key("image").start_object();
-             super::protocol_serde::shape_image_block::ser_image_block(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_image_block::ser_image_block(&mut object_1, inner)?;
              object_1.finish();
          }
-         super::types::ToolResultContentBlock::Document(inner) => {
+         super::super::types::ToolResultContentBlock::Document(inner) => {
              #[allow(unused_mut)]
 -            let mut object_2 = object_3.key("document").start_object();
--            super::protocol_serde::shape_document_block::ser_document_block(&mut object_2, inner)?;
+-            super::super::protocol_serde::shape_document_block::ser_document_block(&mut object_2, inner)?;
 -            object_2.finish();
 +            let mut object_1 = object.key("document").start_object();
-+            super::protocol_serde::shape_document_block::ser_document_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_document_block::ser_document_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ToolResultContentBlock::Video(inner) => {
+         super::super::types::ToolResultContentBlock::Video(inner) => {
              #[allow(unused_mut)]
 -            let mut object_3 = object_3.key("video").start_object();
--            super::protocol_serde::shape_video_block::ser_video_block(&mut object_3, inner)?;
+-            super::super::protocol_serde::shape_video_block::ser_video_block(&mut object_3, inner)?;
 -            object_3.finish();
 +            let mut object_1 = object.key("video").start_object();
-+            super::protocol_serde::shape_video_block::ser_video_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_video_block::ser_video_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ToolResultContentBlock::SearchResult(inner) => {
+         super::super::types::ToolResultContentBlock::SearchResult(inner) => {
              #[allow(unused_mut)]
 -            let mut object_4 = object_3.key("searchResult").start_object();
--            super::protocol_serde::shape_search_result_block::ser_search_result_block(&mut object_4, inner)?;
+-            super::super::protocol_serde::shape_search_result_block::ser_search_result_block(&mut object_4, inner)?;
 -            object_4.finish();
 +            let mut object_1 = object.key("searchResult").start_object();
-+            super::protocol_serde::shape_search_result_block::ser_search_result_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_search_result_block::ser_search_result_block(&mut object_1, inner)?;
 +            object_1.finish();
          }
-         super::types::ToolResultContentBlock::Unknown => {
+         super::super::types::ToolResultContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 @@ -63,9 +59,7 @@
              match tokens.next().transpose()? {
@@ -7588,19 +10602,48 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -81,13 +75,11 @@
                      }
                      variant = match key.as_ref() {
-                         "json" => Some(super::types::ToolResultContentBlock::Json(
+                         "json" => Some(super::super::types::ToolResultContentBlock::Json(
 -                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?)
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?,
                          )),
-                         "text" => Some(super::types::ToolResultContentBlock::Text(
+                         "text" => Some(super::super::types::ToolResultContentBlock::Text(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                                .transpose()?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                          )),
-                         "image" => Some(super::types::ToolResultContentBlock::Image(
+                         "image" => Some(super::super::types::ToolResultContentBlock::Image(
+```
+
+### `src/protocol_serde/shape_tool_result_content_blocks.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tool_result_content_blocks.rs
++++ generated/src/protocol_serde/shape_tool_result_content_blocks.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ToolResultContentBlock>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::ToolResultContentBlock>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +26,8 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = super::super::protocol_serde::shape_tool_result_content_block::de_tool_result_content_block(tokens, _value, depth + 1)?;
++                        let value =
++                            super::super::protocol_serde::shape_tool_result_content_block::de_tool_result_content_block(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_tool_specification.rs`
@@ -7616,13 +10659,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    {
          #[allow(unused_mut)]
 -        let mut object_3 = object.key("inputSchema").start_object();
--        super::protocol_serde::shape_tool_input_schema::ser_tool_input_schema(&mut object_3, var_2)?;
+-        super::super::protocol_serde::shape_tool_input_schema::ser_tool_input_schema(&mut object_3, var_2)?;
 -        object_3.finish();
 -    }
 -    if let Some(var_4) = &input.strict {
 -        object.key("strict").boolean(*var_4);
 +        let mut object_2 = object.key("inputSchema").start_object();
-+        super::protocol_serde::shape_tool_input_schema::ser_tool_input_schema(&mut object_2, &input.input_schema)?;
++        super::super::protocol_serde::shape_tool_input_schema::ser_tool_input_schema(&mut object_2, &input.input_schema)?;
 +        object_2.finish();
      }
 +    if let Some(var_3) = &input.strict {}
@@ -7675,6 +10718,43 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
+@@ -37,9 +33,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::tool_use_block_delta_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::tool_use_block_delta_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
+```
+
+### `src/protocol_serde/shape_tool_use_block_start.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tool_use_block_start.rs
++++ generated/src/protocol_serde/shape_tool_use_block_start.rs
+@@ -51,9 +51,11 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::tool_use_block_start_correct_errors(builder).build().map_err(
+-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+-            )?))
++            Ok(Some(
++                super::super::serde_util::tool_use_block_start_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_validation_exception.rs`
@@ -7686,9 +10766,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_validation_exception_json_err(
 -    _value: &[u8],
--    mut builder: super::types::error::builders::ValidationExceptionBuilder,
--) -> ::std::result::Result<super::types::error::builders::ValidationExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    mut builder: super::super::types::error::builders::ValidationExceptionBuilder,
+-) -> ::std::result::Result<super::super::types::error::builders::ValidationExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
@@ -7707,7 +10787,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    tokens: &mut ::std::iter::Peekable<I>,
 +    _value: &'a [u8],
 +    depth: u32,
-+) -> ::std::result::Result<Option<super::types::ValidationException>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ValidationException>, ::aws_smithy_json::deserialize::error::DeserializeError>
 +where
 +    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 +{
@@ -7720,7 +10800,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
 +        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
 +            #[allow(unused_mut)]
-+            let mut builder = super::types::builders::ValidationExceptionBuilder::default();
++            let mut builder = super::super::types::builders::ValidationExceptionBuilder::default();
 +            loop {
 +                match tokens.next().transpose()? {
 +                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -7775,14 +10855,40 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("source").start_object();
--        super::protocol_serde::shape_video_source::ser_video_source(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_video_source::ser_video_source(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_1 = object.key("source").start_object();
-+        super::protocol_serde::shape_video_source::ser_video_source(&mut object_1, &input.source)?;
++        super::super::protocol_serde::shape_video_source::ser_video_source(&mut object_1, &input.source)?;
 +        object_1.finish();
      }
      Ok(())
  }
+@@ -45,7 +45,11 @@
+                             );
+                         }
+                         "source" => {
+-                            builder = builder.set_source(super::super::protocol_serde::shape_video_source::de_video_source(tokens, _value, depth + 1)?);
++                            builder = builder.set_source(super::super::protocol_serde::shape_video_source::de_video_source(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+@@ -56,9 +60,9 @@
+                     }
+                 }
+             }
+-            Ok(Some(super::super::serde_util::video_block_correct_errors(builder).build().map_err(|err| {
+-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+-            })?))
++            Ok(Some(super::super::serde_util::video_block_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_video_source.rs`
@@ -7790,26 +10896,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_video_source.rs
 +++ generated/src/protocol_serde/shape_video_source.rs
-@@ -1,15 +1,13 @@
+@@ -1,19 +1,19 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
  pub fn ser_video_source(
 -    object_2: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::VideoSource,
+     input: &super::super::types::VideoSource,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
--        super::types::VideoSource::Bytes(inner) => {
+-        super::super::types::VideoSource::Bytes(inner) => {
 -            object_2.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
 -        }
-+        super::types::VideoSource::Bytes(inner) => {}
-         super::types::VideoSource::S3Location(inner) => {
++        super::super::types::VideoSource::Bytes(inner) => {}
+         super::super::types::VideoSource::S3Location(inner) => {
              #[allow(unused_mut)]
 -            let mut object_1 = object_2.key("s3Location").start_object();
 +            let mut object_1 = object.key("s3Location").start_object();
-             super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
+             super::super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
              object_1.finish();
          }
-@@ -38,9 +36,7 @@
+-        super::super::types::VideoSource::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("VideoSource")),
++        super::super::types::VideoSource::Unknown => {
++            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("VideoSource"))
++        }
+     }
+     Ok(())
+ }
+@@ -38,9 +38,7 @@
              match tokens.next().transpose()? {
                  Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                  Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
@@ -7820,15 +10933,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          let _ = tokens.next().expect("peek returned a token")?;
                          continue;
                      }
-@@ -56,7 +52,7 @@
+@@ -56,7 +54,7 @@
                      }
                      variant = match key.as_ref() {
-                         "bytes" => Some(super::types::VideoSource::Bytes(
+                         "bytes" => Some(super::super::types::VideoSource::Bytes(
 -                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
 +                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
                          )),
-                         "s3Location" => Some(super::types::VideoSource::S3Location(
+                         "s3Location" => Some(super::super::types::VideoSource::S3Location(
 ```
 
 ### `src/protocol_serde/shape_web_location.rs`
@@ -7838,7 +10951,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_web_location.rs
 @@ -3,12 +3,8 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::WebLocation,
+     input: &super::super::types::WebLocation,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.url {
 -        object.key("url").string(var_1.as_str());
@@ -8563,6 +11676,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/types/_async_invoke_s3_output_data_config.rs`
+
+```diff
+--- reference/src/types/_async_invoke_s3_output_data_config.rs
++++ generated/src/types/_async_invoke_s3_output_data_config.rs
+@@ -88,7 +88,9 @@
+     /// Consumes the builder and constructs a [`AsyncInvokeS3OutputDataConfig`](crate::types::AsyncInvokeS3OutputDataConfig).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`s3_uri`](crate::types::builders::AsyncInvokeS3OutputDataConfigBuilder::s3_uri)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::AsyncInvokeS3OutputDataConfig, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::AsyncInvokeS3OutputDataConfig, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::AsyncInvokeS3OutputDataConfig {
+             s3_uri: self.s3_uri.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+```
+
 ### `src/types/_async_invoke_summary.rs`
 
 ```diff
@@ -8572,8 +11703,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When the invocation ended.</p>
      pub end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The invocation's output data settings.</p>
--    pub output_data_config: ::std::option::Option<super::types::AsyncInvokeOutputDataConfig>,
-+    pub output_data_config: super::types::AsyncInvokeOutputDataConfig,
+-    pub output_data_config: ::std::option::Option<super::super::types::AsyncInvokeOutputDataConfig>,
++    pub output_data_config: super::super::types::AsyncInvokeOutputDataConfig,
  }
  impl AsyncInvokeSummary {
      /// <p>The invocation's ARN.</p>
@@ -8581,9 +11712,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.end_time.as_ref()
      }
      /// <p>The invocation's output data settings.</p>
--    pub fn output_data_config(&self) -> ::std::option::Option<&super::types::AsyncInvokeOutputDataConfig> {
+-    pub fn output_data_config(&self) -> ::std::option::Option<&super::super::types::AsyncInvokeOutputDataConfig> {
 -        self.output_data_config.as_ref()
-+    pub fn output_data_config(&self) -> &super::types::AsyncInvokeOutputDataConfig {
++    pub fn output_data_config(&self) -> &super::super::types::AsyncInvokeOutputDataConfig {
 +        &self.output_data_config
      }
  }
@@ -8593,8 +11724,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - [`model_arn`](crate::types::builders::AsyncInvokeSummaryBuilder::model_arn)
      /// - [`submit_time`](crate::types::builders::AsyncInvokeSummaryBuilder::submit_time)
 +    /// - [`output_data_config`](crate::types::builders::AsyncInvokeSummaryBuilder::output_data_config)
-     pub fn build(self) -> ::std::result::Result<super::types::AsyncInvokeSummary, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::AsyncInvokeSummary {
+     pub fn build(self) -> ::std::result::Result<super::super::types::AsyncInvokeSummary, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::AsyncInvokeSummary {
              invocation_arn: self.invocation_arn.ok_or_else(|| {
 @@ -260,7 +261,12 @@
              })?,
@@ -8619,31 +11750,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_audio_block.rs
 @@ -7,7 +7,7 @@
      /// <p>The format of the audio data, such as MP3, WAV, FLAC, or other supported audio formats.</p>
-     pub format: super::types::AudioFormat,
+     pub format: super::super::types::AudioFormat,
      /// <p>The source of the audio data, which can be provided as raw bytes or an S3 location.</p>
--    pub source: ::std::option::Option<super::types::AudioSource>,
-+    pub source: super::types::AudioSource,
+-    pub source: ::std::option::Option<super::super::types::AudioSource>,
++    pub source: super::super::types::AudioSource,
      /// <p>Error information if the audio block could not be processed or contains invalid data.</p>
-     pub error: ::std::option::Option<super::types::ErrorBlock>,
+     pub error: ::std::option::Option<super::super::types::ErrorBlock>,
  }
 @@ -17,8 +17,8 @@
          &self.format
      }
      /// <p>The source of the audio data, which can be provided as raw bytes or an S3 location.</p>
--    pub fn source(&self) -> ::std::option::Option<&super::types::AudioSource> {
+-    pub fn source(&self) -> ::std::option::Option<&super::super::types::AudioSource> {
 -        self.source.as_ref()
-+    pub fn source(&self) -> &super::types::AudioSource {
++    pub fn source(&self) -> &super::super::types::AudioSource {
 +        &self.source
      }
      /// <p>Error information if the audio block could not be processed or contains invalid data.</p>
-     pub fn error(&self) -> ::std::option::Option<&super::types::ErrorBlock> {
+     pub fn error(&self) -> ::std::option::Option<&super::super::types::ErrorBlock> {
 @@ -97,6 +97,7 @@
      /// Consumes the builder and constructs a [`AudioBlock`](crate::types::AudioBlock).
      /// This method will fail if any of the following fields are not set:
      /// - [`format`](crate::types::builders::AudioBlockBuilder::format)
 +    /// - [`source`](crate::types::builders::AudioBlockBuilder::source)
-     pub fn build(self) -> ::std::result::Result<super::types::AudioBlock, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::AudioBlock {
+     pub fn build(self) -> ::std::result::Result<super::super::types::AudioBlock, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::AudioBlock {
              format: self.format.ok_or_else(|| {
 @@ -105,7 +106,12 @@
                      "format was not specified but it is required when building AudioBlock",
@@ -8730,7 +11861,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    OneHour,
      /// `Unknown` contains new variants that have been added since this code was generated.
      #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-     Unknown(super::primitives::sealed_enum_unknown::UnknownVariantValue),
+     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
 @@ -53,8 +53,8 @@
  impl ::std::convert::From<&str> for CacheTtl {
      fn from(s: &str) -> Self {
@@ -8738,7 +11869,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            "5m" => CacheTtl::FiveMinutes,
              "1h" => CacheTtl::OneHour,
 -            "5m" => CacheTtl::FiveMinutes,
-             other => CacheTtl::Unknown(super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+             other => CacheTtl::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
          }
      }
 @@ -70,14 +70,14 @@
@@ -8801,7 +11932,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub enum ContentBlock {
      /// <p>An audio content block containing audio data in the conversation.</p>
-     Audio(super::types::AudioBlock),
+     Audio(super::super::types::AudioBlock),
 @@ -233,24 +233,3 @@
          matches!(self, Self::Unknown)
      }
@@ -8842,7 +11973,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub enum ContentBlockDelta {
      /// <p>Incremental citation information that is streamed as part of the response generation process.</p>
-     Citation(super::types::CitationsDelta),
+     Citation(super::super::types::CitationsDelta),
 @@ -79,7 +79,7 @@
      pub fn is_text(&self) -> bool {
          self.as_text().is_ok()
@@ -8850,7 +11981,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Tries to convert the enum instance into [`ToolResult`](crate::types::ContentBlockDelta::ToolResult), extracting the inner [`Vec`](::std::vec::Vec).
 +    /// Tries to convert the enum instance into [`ToolResult`](crate::types::ContentBlockDelta::ToolResult), extracting the inner [`Vec::<ToolResultBlockDelta>`](::std::vec::Vec<crate::types::ToolResultBlockDelta>).
      /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_tool_result(&self) -> ::std::result::Result<&::std::vec::Vec<super::types::ToolResultBlockDelta>, &Self> {
+     pub fn as_tool_result(&self) -> ::std::result::Result<&::std::vec::Vec<super::super::types::ToolResultBlockDelta>, &Self> {
          if let ContentBlockDelta::ToolResult(val) = &self {
 @@ -110,16 +110,3 @@
          matches!(self, Self::Unknown)
@@ -8880,16 +12011,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ContentBlockDeltaEvent {
      /// <p>The delta for a content block delta event.</p>
--    pub delta: ::std::option::Option<super::types::ContentBlockDelta>,
-+    pub delta: super::types::ContentBlockDelta,
+-    pub delta: ::std::option::Option<super::super::types::ContentBlockDelta>,
++    pub delta: super::super::types::ContentBlockDelta,
      /// <p>The block index for a content block delta event.</p>
      pub content_block_index: i32,
  }
  impl ContentBlockDeltaEvent {
      /// <p>The delta for a content block delta event.</p>
--    pub fn delta(&self) -> ::std::option::Option<&super::types::ContentBlockDelta> {
+-    pub fn delta(&self) -> ::std::option::Option<&super::super::types::ContentBlockDelta> {
 -        self.delta.as_ref()
-+    pub fn delta(&self) -> &super::types::ContentBlockDelta {
++    pub fn delta(&self) -> &super::super::types::ContentBlockDelta {
 +        &self.delta
      }
      /// <p>The block index for a content block delta event.</p>
@@ -8900,8 +12031,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This method will fail if any of the following fields are not set:
 +    /// - [`delta`](crate::types::builders::ContentBlockDeltaEventBuilder::delta)
      /// - [`content_block_index`](crate::types::builders::ContentBlockDeltaEventBuilder::content_block_index)
-     pub fn build(self) -> ::std::result::Result<super::types::ContentBlockDeltaEvent, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::ContentBlockDeltaEvent {
+     pub fn build(self) -> ::std::result::Result<super::super::types::ContentBlockDeltaEvent, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::ContentBlockDeltaEvent {
 -            delta: self.delta,
 +            delta: self.delta.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -8923,16 +12054,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ContentBlockStartEvent {
      /// <p>Start information about a content block start event.</p>
--    pub start: ::std::option::Option<super::types::ContentBlockStart>,
-+    pub start: super::types::ContentBlockStart,
+-    pub start: ::std::option::Option<super::super::types::ContentBlockStart>,
++    pub start: super::super::types::ContentBlockStart,
      /// <p>The index for a content block start event.</p>
      pub content_block_index: i32,
  }
  impl ContentBlockStartEvent {
      /// <p>Start information about a content block start event.</p>
--    pub fn start(&self) -> ::std::option::Option<&super::types::ContentBlockStart> {
+-    pub fn start(&self) -> ::std::option::Option<&super::super::types::ContentBlockStart> {
 -        self.start.as_ref()
-+    pub fn start(&self) -> &super::types::ContentBlockStart {
++    pub fn start(&self) -> &super::super::types::ContentBlockStart {
 +        &self.start
      }
      /// <p>The index for a content block start event.</p>
@@ -8943,8 +12074,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This method will fail if any of the following fields are not set:
 +    /// - [`start`](crate::types::builders::ContentBlockStartEventBuilder::start)
      /// - [`content_block_index`](crate::types::builders::ContentBlockStartEventBuilder::content_block_index)
-     pub fn build(self) -> ::std::result::Result<super::types::ContentBlockStartEvent, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::ContentBlockStartEvent {
+     pub fn build(self) -> ::std::result::Result<super::super::types::ContentBlockStartEvent, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::ContentBlockStartEvent {
 -            start: self.start,
 +            start: self.start.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -8999,26 +12130,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/types/_converse_stream_output.rs
 +++ generated/src/types/_converse_stream_output.rs
 @@ -10,6 +10,8 @@
-     ContentBlockStart(super::types::ContentBlockStartEvent),
+     ContentBlockStart(super::super::types::ContentBlockStartEvent),
      /// <p>Stop information for a content block.</p>
-     ContentBlockStop(super::types::ContentBlockStopEvent),
+     ContentBlockStop(super::super::types::ContentBlockStopEvent),
 +    /// <p>An internal server error occurred. Retry your request.</p>
-+    InternalServerException(super::types::InternalServerException),
++    InternalServerException(super::super::types::InternalServerException),
      /// <p>Message start information.</p>
-     MessageStart(super::types::MessageStartEvent),
+     MessageStart(super::super::types::MessageStartEvent),
      /// <p>Message stop information.</p>
 @@ -16,6 +18,14 @@
-     MessageStop(super::types::MessageStopEvent),
+     MessageStop(super::super::types::MessageStopEvent),
      /// <p>Metadata for the converse output stream.</p>
-     Metadata(super::types::ConverseStreamMetadataEvent),
+     Metadata(super::super::types::ConverseStreamMetadataEvent),
 +    /// <p>A streaming error occurred. Retry your request.</p>
-+    ModelStreamErrorException(super::types::ModelStreamErrorException),
++    ModelStreamErrorException(super::super::types::ModelStreamErrorException),
 +    /// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
-+    ServiceUnavailableException(super::types::ServiceUnavailableException),
++    ServiceUnavailableException(super::super::types::ServiceUnavailableException),
 +    /// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide.</p>
-+    ThrottlingException(super::types::ThrottlingException),
++    ThrottlingException(super::super::types::ThrottlingException),
 +    /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide.</p>
-+    ValidationException(super::types::ValidationException),
++    ValidationException(super::super::types::ValidationException),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -9028,7 +12159,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 +    /// Tries to convert the enum instance into [`InternalServerException`](crate::types::ConverseStreamOutput::InternalServerException), extracting the inner [`InternalServerException`](crate::types::InternalServerException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::types::InternalServerException, &Self> {
++    pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::super::types::InternalServerException, &Self> {
 +        if let ConverseStreamOutput::InternalServerException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -9041,14 +12172,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
      /// Tries to convert the enum instance into [`MessageStart`](crate::types::ConverseStreamOutput::MessageStart), extracting the inner [`MessageStartEvent`](crate::types::MessageStartEvent).
      /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_message_start(&self) -> ::std::result::Result<&super::types::MessageStartEvent, &Self> {
+     pub fn as_message_start(&self) -> ::std::result::Result<&super::super::types::MessageStartEvent, &Self> {
 @@ -105,6 +128,58 @@
      pub fn is_metadata(&self) -> bool {
          self.as_metadata().is_ok()
      }
 +    /// Tries to convert the enum instance into [`ModelStreamErrorException`](crate::types::ConverseStreamOutput::ModelStreamErrorException), extracting the inner [`ModelStreamErrorException`](crate::types::ModelStreamErrorException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::types::ModelStreamErrorException, &Self> {
++    pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::super::types::ModelStreamErrorException, &Self> {
 +        if let ConverseStreamOutput::ModelStreamErrorException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -9061,7 +12192,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ServiceUnavailableException`](crate::types::ConverseStreamOutput::ServiceUnavailableException), extracting the inner [`ServiceUnavailableException`](crate::types::ServiceUnavailableException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::types::ServiceUnavailableException, &Self> {
++    pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::super::types::ServiceUnavailableException, &Self> {
 +        if let ConverseStreamOutput::ServiceUnavailableException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -9074,7 +12205,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ThrottlingException`](crate::types::ConverseStreamOutput::ThrottlingException), extracting the inner [`ThrottlingException`](crate::types::ThrottlingException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::types::ThrottlingException, &Self> {
++    pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::super::types::ThrottlingException, &Self> {
 +        if let ConverseStreamOutput::ThrottlingException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -9087,7 +12218,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ValidationException`](crate::types::ConverseStreamOutput::ValidationException), extracting the inner [`ValidationException`](crate::types::ValidationException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_validation_exception(&self) -> ::std::result::Result<&super::types::ValidationException, &Self> {
++    pub fn as_validation_exception(&self) -> ::std::result::Result<&super::super::types::ValidationException, &Self> {
 +        if let ConverseStreamOutput::ValidationException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -9110,7 +12241,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_converse_tokens_request.rs
 @@ -12,7 +12,7 @@
      /// <p>The toolConfig of Converse input request to count tokens for. Configuration information for the tools that the model can use when generating a response.</p>
-     pub tool_config: ::std::option::Option<super::types::ToolConfiguration>,
+     pub tool_config: ::std::option::Option<super::super::types::ToolConfiguration>,
      /// <p>The additionalModelRequestFields of Converse input request to count tokens for. Use this field when you want to pass additional parameters that the model supports.</p>
 -    pub additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub additional_model_request_fields: ::std::option::Option<::std::string::String>,
@@ -9127,9 +12258,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
 @@ -50,7 +50,7 @@
-     pub(crate) messages: ::std::option::Option<::std::vec::Vec<super::types::Message>>,
-     pub(crate) system: ::std::option::Option<::std::vec::Vec<super::types::SystemContentBlock>>,
-     pub(crate) tool_config: ::std::option::Option<super::types::ToolConfiguration>,
+     pub(crate) messages: ::std::option::Option<::std::vec::Vec<super::super::types::Message>>,
+     pub(crate) system: ::std::option::Option<::std::vec::Vec<super::super::types::SystemContentBlock>>,
+     pub(crate) tool_config: ::std::option::Option<super::super::types::ToolConfiguration>,
 -    pub(crate) additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub(crate) additional_model_request_fields: ::std::option::Option<::std::string::String>,
  }
@@ -9167,8 +12298,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// </note>
      pub name: ::std::string::String,
      /// <p>Contains the content of the document.</p>
--    pub source: ::std::option::Option<super::types::DocumentSource>,
-+    pub source: super::types::DocumentSource,
+-    pub source: ::std::option::Option<super::super::types::DocumentSource>,
++    pub source: super::super::types::DocumentSource,
      /// <p>Contextual information about how the document should be processed or interpreted by the model when generating citations.</p>
      pub context: ::std::option::Option<::std::string::String>,
      /// <p>Configuration settings that control how citations should be generated for this specific document.</p>
@@ -9176,9 +12307,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.name.deref()
      }
      /// <p>Contains the content of the document.</p>
--    pub fn source(&self) -> ::std::option::Option<&super::types::DocumentSource> {
+-    pub fn source(&self) -> ::std::option::Option<&super::super::types::DocumentSource> {
 -        self.source.as_ref()
-+    pub fn source(&self) -> &super::types::DocumentSource {
++    pub fn source(&self) -> &super::super::types::DocumentSource {
 +        &self.source
      }
      /// <p>Contextual information about how the document should be processed or interpreted by the model when generating citations.</p>
@@ -9188,11 +12319,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This method will fail if any of the following fields are not set:
      /// - [`name`](crate::types::builders::DocumentBlockBuilder::name)
 +    /// - [`source`](crate::types::builders::DocumentBlockBuilder::source)
-     pub fn build(self) -> ::std::result::Result<super::types::DocumentBlock, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::DocumentBlock {
+     pub fn build(self) -> ::std::result::Result<super::super::types::DocumentBlock, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::DocumentBlock {
 -            format: self
 -                .format
--                .unwrap_or("txt".parse::<super::types::DocumentFormat>().expect("static value validated to member")),
+-                .unwrap_or("txt".parse::<super::super::types::DocumentFormat>().expect("static value validated to member")),
 +            format: self.format.unwrap_or_default(),
              name: self.name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -9315,8 +12446,208 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Tries to convert the enum instance into [`Content`](crate::types::DocumentSource::Content), extracting the inner [`Vec`](::std::vec::Vec).
 +    /// Tries to convert the enum instance into [`Content`](crate::types::DocumentSource::Content), extracting the inner [`Vec::<DocumentContentBlock>`](::std::vec::Vec<crate::types::DocumentContentBlock>).
      /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_content(&self) -> ::std::result::Result<&::std::vec::Vec<super::types::DocumentContentBlock>, &Self> {
+     pub fn as_content(&self) -> ::std::result::Result<&::std::vec::Vec<super::super::types::DocumentContentBlock>, &Self> {
          if let DocumentSource::Content(val) = &self {
+```
+
+### `src/types/_guardrail_assessment.rs`
+
+```diff
+--- reference/src/types/_guardrail_assessment.rs
++++ generated/src/types/_guardrail_assessment.rs
+@@ -158,7 +158,10 @@
+         self
+     }
+     /// <p>The automated reasoning policy assessment results, including logical validation findings for the input content.</p>
+-    pub fn set_automated_reasoning_policy(mut self, input: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningPolicyAssessment>) -> Self {
++    pub fn set_automated_reasoning_policy(
++        mut self,
++        input: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningPolicyAssessment>,
++    ) -> Self {
+         self.automated_reasoning_policy = input;
+         self
+     }
+```
+
+### `src/types/_guardrail_automated_reasoning_finding.rs`
+
+```diff
+--- reference/src/types/_guardrail_automated_reasoning_finding.rs
++++ generated/src/types/_guardrail_automated_reasoning_finding.rs
+@@ -96,7 +96,9 @@
+     }
+     /// Tries to convert the enum instance into [`TranslationAmbiguous`](crate::types::GuardrailAutomatedReasoningFinding::TranslationAmbiguous), extracting the inner [`GuardrailAutomatedReasoningTranslationAmbiguousFinding`](crate::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_translation_ambiguous(&self) -> ::std::result::Result<&super::super::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding, &Self> {
++    pub fn as_translation_ambiguous(
++        &self,
++    ) -> ::std::result::Result<&super::super::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding, &Self> {
+         if let GuardrailAutomatedReasoningFinding::TranslationAmbiguous(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+```
+
+### `src/types/_guardrail_automated_reasoning_impossible_finding.rs`
+
+```diff
+--- reference/src/types/_guardrail_automated_reasoning_impossible_finding.rs
++++ generated/src/types/_guardrail_automated_reasoning_impossible_finding.rs
+@@ -69,7 +69,10 @@
+         self
+     }
+     /// <p>The automated reasoning policy rules that contradict the claims and/or premises in the input.</p>
+-    pub fn set_contradicting_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningRule>>) -> Self {
++    pub fn set_contradicting_rules(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningRule>>,
++    ) -> Self {
+         self.contradicting_rules = input;
+         self
+     }
+```
+
+### `src/types/_guardrail_automated_reasoning_invalid_finding.rs`
+
+```diff
+--- reference/src/types/_guardrail_automated_reasoning_invalid_finding.rs
++++ generated/src/types/_guardrail_automated_reasoning_invalid_finding.rs
+@@ -69,7 +69,10 @@
+         self
+     }
+     /// <p>The automated reasoning policy rules that contradict the claims in the input.</p>
+-    pub fn set_contradicting_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningRule>>) -> Self {
++    pub fn set_contradicting_rules(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningRule>>,
++    ) -> Self {
+         self.contradicting_rules = input;
+         self
+     }
+```
+
+### `src/types/_guardrail_automated_reasoning_logic_warning_type.rs`
+
+```diff
+--- reference/src/types/_guardrail_automated_reasoning_logic_warning_type.rs
++++ generated/src/types/_guardrail_automated_reasoning_logic_warning_type.rs
+@@ -55,9 +55,9 @@
+         match s {
+             "ALWAYS_FALSE" => GuardrailAutomatedReasoningLogicWarningType::AlwaysFalse,
+             "ALWAYS_TRUE" => GuardrailAutomatedReasoningLogicWarningType::AlwaysTrue,
+-            other => {
+-                GuardrailAutomatedReasoningLogicWarningType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
+-            }
++            other => GuardrailAutomatedReasoningLogicWarningType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
++                other.to_owned(),
++            )),
+         }
+     }
+ }
+```
+
+### `src/types/_guardrail_automated_reasoning_scenario.rs`
+
+```diff
+--- reference/src/types/_guardrail_automated_reasoning_scenario.rs
++++ generated/src/types/_guardrail_automated_reasoning_scenario.rs
+@@ -41,7 +41,10 @@
+         self
+     }
+     /// <p>List of logical assignments and statements that define this scenario.</p>
+-    pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningStatement>>) -> Self {
++    pub fn set_statements(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningStatement>>,
++    ) -> Self {
+         self.statements = input;
+         self
+     }
+```
+
+### `src/types/_guardrail_automated_reasoning_translation.rs`
+
+```diff
+--- reference/src/types/_guardrail_automated_reasoning_translation.rs
++++ generated/src/types/_guardrail_automated_reasoning_translation.rs
+@@ -123,7 +123,9 @@
+         self
+     }
+     /// <p>References to portions of the original input text that correspond to the premises but could not be fully translated.</p>
+-    pub fn get_untranslated_premises(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningInputTextReference>> {
++    pub fn get_untranslated_premises(
++        &self,
++    ) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningInputTextReference>> {
+         &self.untranslated_premises
+     }
+     /// Appends an item to `untranslated_claims`.
+@@ -146,7 +148,9 @@
+         self
+     }
+     /// <p>References to portions of the original input text that correspond to the claims but could not be fully translated.</p>
+-    pub fn get_untranslated_claims(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningInputTextReference>> {
++    pub fn get_untranslated_claims(
++        &self,
++    ) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningInputTextReference>> {
+         &self.untranslated_claims
+     }
+     /// <p>A confidence score between 0 and 1 indicating how certain the system is about the logical translation.</p>
+```
+
+### `src/types/_guardrail_automated_reasoning_translation_ambiguous_finding.rs`
+
+```diff
+--- reference/src/types/_guardrail_automated_reasoning_translation_ambiguous_finding.rs
++++ generated/src/types/_guardrail_automated_reasoning_translation_ambiguous_finding.rs
+@@ -50,7 +50,10 @@
+         self
+     }
+     /// <p>Different logical interpretations that were detected during translation of the input.</p>
+-    pub fn set_options(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningTranslationOption>>) -> Self {
++    pub fn set_options(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningTranslationOption>>,
++    ) -> Self {
+         self.options = input;
+         self
+     }
+```
+
+### `src/types/_guardrail_automated_reasoning_translation_option.rs`
+
+```diff
+--- reference/src/types/_guardrail_automated_reasoning_translation_option.rs
++++ generated/src/types/_guardrail_automated_reasoning_translation_option.rs
+@@ -41,7 +41,10 @@
+         self
+     }
+     /// <p>Example translations that provide this possible interpretation of the input.</p>
+-    pub fn set_translations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningTranslation>>) -> Self {
++    pub fn set_translations(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningTranslation>>,
++    ) -> Self {
+         self.translations = input;
+         self
+     }
+```
+
+### `src/types/_guardrail_automated_reasoning_valid_finding.rs`
+
+```diff
+--- reference/src/types/_guardrail_automated_reasoning_valid_finding.rs
++++ generated/src/types/_guardrail_automated_reasoning_valid_finding.rs
+@@ -90,7 +90,10 @@
+         self
+     }
+     /// <p>The automated reasoning policy rules that support why this result is considered valid.</p>
+-    pub fn set_supporting_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningRule>>) -> Self {
++    pub fn set_supporting_rules(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningRule>>,
++    ) -> Self {
+         self.supporting_rules = input;
+         self
+     }
 ```
 
 ### `src/types/_guardrail_checks_content_block.rs`
@@ -9345,6 +12676,84 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        }
 -    }
 -}
+```
+
+### `src/types/_guardrail_checks_content_filter_category.rs`
+
+```diff
+--- reference/src/types/_guardrail_checks_content_filter_category.rs
++++ generated/src/types/_guardrail_checks_content_filter_category.rs
+@@ -67,7 +67,9 @@
+             "MISCONDUCT" => GuardrailChecksContentFilterCategory::Misconduct,
+             "SEXUAL" => GuardrailChecksContentFilterCategory::Sexual,
+             "VIOLENCE" => GuardrailChecksContentFilterCategory::Violence,
+-            other => GuardrailChecksContentFilterCategory::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
++            other => {
++                GuardrailChecksContentFilterCategory::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
++            }
+         }
+     }
+ }
+```
+
+### `src/types/_guardrail_checks_content_filter_config.rs`
+
+```diff
+--- reference/src/types/_guardrail_checks_content_filter_config.rs
++++ generated/src/types/_guardrail_checks_content_filter_config.rs
+@@ -40,7 +40,10 @@
+         self
+     }
+     /// <p>The content filter categories to evaluate.</p>
+-    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterCategoryConfig>>) -> Self {
++    pub fn set_categories(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterCategoryConfig>>,
++    ) -> Self {
+         self.categories = input;
+         self
+     }
+@@ -51,7 +54,9 @@
+     /// Consumes the builder and constructs a [`GuardrailChecksContentFilterConfig`](crate::types::GuardrailChecksContentFilterConfig).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`categories`](crate::types::builders::GuardrailChecksContentFilterConfigBuilder::categories)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterConfig, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterConfig, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailChecksContentFilterConfig {
+             categories: self.categories.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+```
+
+### `src/types/_guardrail_checks_content_filter_result.rs`
+
+```diff
+--- reference/src/types/_guardrail_checks_content_filter_result.rs
++++ generated/src/types/_guardrail_checks_content_filter_result.rs
+@@ -40,7 +40,10 @@
+         self
+     }
+     /// <p>The per-category content filter results.</p>
+-    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterResultEntry>>) -> Self {
++    pub fn set_results(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterResultEntry>>,
++    ) -> Self {
+         self.results = input;
+         self
+     }
+@@ -51,7 +54,9 @@
+     /// Consumes the builder and constructs a [`GuardrailChecksContentFilterResult`](crate::types::GuardrailChecksContentFilterResult).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`results`](crate::types::builders::GuardrailChecksContentFilterResultBuilder::results)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterResult, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterResult, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailChecksContentFilterResult {
+             results: self.results.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/types/_guardrail_checks_content_filter_result_entry.rs`
@@ -9381,6 +12790,83 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl GuardrailChecksContentFilterUsage {
+@@ -45,7 +45,9 @@
+     /// Consumes the builder and constructs a [`GuardrailChecksContentFilterUsage`](crate::types::GuardrailChecksContentFilterUsage).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`text_units`](crate::types::builders::GuardrailChecksContentFilterUsageBuilder::text_units)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterUsage, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterUsage, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailChecksContentFilterUsage {
+             text_units: self.text_units.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+```
+
+### `src/types/_guardrail_checks_prompt_attack_category.rs`
+
+```diff
+--- reference/src/types/_guardrail_checks_prompt_attack_category.rs
++++ generated/src/types/_guardrail_checks_prompt_attack_category.rs
+@@ -59,7 +59,9 @@
+             "JAILBREAK" => GuardrailChecksPromptAttackCategory::Jailbreak,
+             "PROMPT_INJECTION" => GuardrailChecksPromptAttackCategory::PromptInjection,
+             "PROMPT_LEAKAGE" => GuardrailChecksPromptAttackCategory::PromptLeakage,
+-            other => GuardrailChecksPromptAttackCategory::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
++            other => {
++                GuardrailChecksPromptAttackCategory::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
++            }
+         }
+     }
+ }
+```
+
+### `src/types/_guardrail_checks_prompt_attack_config.rs`
+
+```diff
+--- reference/src/types/_guardrail_checks_prompt_attack_config.rs
++++ generated/src/types/_guardrail_checks_prompt_attack_config.rs
+@@ -40,7 +40,10 @@
+         self
+     }
+     /// <p>The prompt attack categories to evaluate.</p>
+-    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackCategoryConfig>>) -> Self {
++    pub fn set_categories(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackCategoryConfig>>,
++    ) -> Self {
+         self.categories = input;
+         self
+     }
+@@ -51,7 +54,9 @@
+     /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackConfig`](crate::types::GuardrailChecksPromptAttackConfig).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`categories`](crate::types::builders::GuardrailChecksPromptAttackConfigBuilder::categories)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackConfig, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackConfig, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailChecksPromptAttackConfig {
+             categories: self.categories.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+```
+
+### `src/types/_guardrail_checks_prompt_attack_result.rs`
+
+```diff
+--- reference/src/types/_guardrail_checks_prompt_attack_result.rs
++++ generated/src/types/_guardrail_checks_prompt_attack_result.rs
+@@ -51,7 +51,9 @@
+     /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackResult`](crate::types::GuardrailChecksPromptAttackResult).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`results`](crate::types::builders::GuardrailChecksPromptAttackResultBuilder::results)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackResult, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackResult, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailChecksPromptAttackResult {
+             results: self.results.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/types/_guardrail_checks_prompt_attack_result_entry.rs`
@@ -9417,6 +12903,37 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl GuardrailChecksPromptAttackUsage {
+@@ -45,7 +45,9 @@
+     /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackUsage`](crate::types::GuardrailChecksPromptAttackUsage).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`text_units`](crate::types::builders::GuardrailChecksPromptAttackUsageBuilder::text_units)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackUsage, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackUsage, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailChecksPromptAttackUsage {
+             text_units: self.text_units.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+```
+
+### `src/types/_guardrail_checks_sensitive_information_entity_type.rs`
+
+```diff
+--- reference/src/types/_guardrail_checks_sensitive_information_entity_type.rs
++++ generated/src/types/_guardrail_checks_sensitive_information_entity_type.rs
+@@ -171,9 +171,9 @@
+             "US_PASSPORT_NUMBER" => GuardrailChecksSensitiveInformationEntityType::UsPassportNumber,
+             "US_SOCIAL_SECURITY_NUMBER" => GuardrailChecksSensitiveInformationEntityType::UsSocialSecurityNumber,
+             "VEHICLE_IDENTIFICATION_NUMBER" => GuardrailChecksSensitiveInformationEntityType::VehicleIdentificationNumber,
+-            other => {
+-                GuardrailChecksSensitiveInformationEntityType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
+-            }
++            other => GuardrailChecksSensitiveInformationEntityType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
++                other.to_owned(),
++            )),
+         }
+     }
+ }
 ```
 
 ### `src/types/_guardrail_checks_sensitive_information_result.rs`
@@ -9477,6 +12994,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl GuardrailChecksSensitiveInformationResultEntry {
+@@ -162,7 +162,8 @@
+     /// - [`content_index`](crate::types::builders::GuardrailChecksSensitiveInformationResultEntryBuilder::content_index)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::types::GuardrailChecksSensitiveInformationResultEntry, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<super::super::types::GuardrailChecksSensitiveInformationResultEntry, ::aws_smithy_types::error::operation::BuildError>
++    {
+         ::std::result::Result::Ok(super::super::types::GuardrailChecksSensitiveInformationResultEntry {
+             r#type: self.r#type.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/types/_guardrail_checks_sensitive_information_usage.rs`
@@ -9503,12 +13030,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/types/_guardrail_configuration.rs
 +++ generated/src/types/_guardrail_configuration.rs
 @@ -90,11 +90,7 @@
-         super::types::GuardrailConfiguration {
+         super::super::types::GuardrailConfiguration {
              guardrail_identifier: self.guardrail_identifier.unwrap_or_default(),
              guardrail_version: self.guardrail_version.unwrap_or_default(),
 -            trace: self.trace.unwrap_or(
 -                "disabled"
--                    .parse::<super::types::GuardrailTrace>()
+-                    .parse::<super::super::types::GuardrailTrace>()
 -                    .expect("static value validated to member"),
 -            ),
 +            trace: self.trace.unwrap_or_default(),
@@ -9530,7 +13057,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub enum GuardrailContentBlock {
      /// <p>Image within guardrail content block to be evaluated by the guardrail.</p>
-     Image(super::types::GuardrailImageBlock),
+     Image(super::super::types::GuardrailImageBlock),
 @@ -50,12 +50,3 @@
          matches!(self, Self::Unknown)
      }
@@ -9564,6 +13091,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl GuardrailContentFilter {
 ```
 
+### `src/types/_guardrail_content_policy_assessment.rs`
+
+```diff
+--- reference/src/types/_guardrail_content_policy_assessment.rs
++++ generated/src/types/_guardrail_content_policy_assessment.rs
+@@ -51,7 +51,9 @@
+     /// Consumes the builder and constructs a [`GuardrailContentPolicyAssessment`](crate::types::GuardrailContentPolicyAssessment).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`filters`](crate::types::builders::GuardrailContentPolicyAssessmentBuilder::filters)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailContentPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::GuardrailContentPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailContentPolicyAssessment {
+             filters: self.filters.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+```
+
 ### `src/types/_guardrail_contextual_grounding_filter.rs`
 
 ```diff
@@ -9585,7 +13130,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        &self.score
      }
      /// <p>The action performed by the guardrails contextual grounding filter.</p>
-     pub fn action(&self) -> &super::types::GuardrailContextualGroundingPolicyAction {
+     pub fn action(&self) -> &super::super::types::GuardrailContextualGroundingPolicyAction {
 @@ -33,8 +33,8 @@
          &self.action
      }
@@ -9597,6 +13142,53 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl GuardrailContextualGroundingFilter {
+@@ -135,7 +135,9 @@
+     /// - [`threshold`](crate::types::builders::GuardrailContextualGroundingFilterBuilder::threshold)
+     /// - [`score`](crate::types::builders::GuardrailContextualGroundingFilterBuilder::score)
+     /// - [`action`](crate::types::builders::GuardrailContextualGroundingFilterBuilder::action)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailContextualGroundingFilter, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::GuardrailContextualGroundingFilter, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailContextualGroundingFilter {
+             r#type: self.r#type.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+```
+
+### `src/types/_guardrail_contextual_grounding_filter_type.rs`
+
+```diff
+--- reference/src/types/_guardrail_contextual_grounding_filter_type.rs
++++ generated/src/types/_guardrail_contextual_grounding_filter_type.rs
+@@ -55,7 +55,9 @@
+         match s {
+             "GROUNDING" => GuardrailContextualGroundingFilterType::Grounding,
+             "RELEVANCE" => GuardrailContextualGroundingFilterType::Relevance,
+-            other => GuardrailContextualGroundingFilterType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
++            other => {
++                GuardrailContextualGroundingFilterType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
++            }
+         }
+     }
+ }
+```
+
+### `src/types/_guardrail_contextual_grounding_policy_action.rs`
+
+```diff
+--- reference/src/types/_guardrail_contextual_grounding_policy_action.rs
++++ generated/src/types/_guardrail_contextual_grounding_policy_action.rs
+@@ -55,7 +55,9 @@
+         match s {
+             "BLOCKED" => GuardrailContextualGroundingPolicyAction::Blocked,
+             "NONE" => GuardrailContextualGroundingPolicyAction::None,
+-            other => GuardrailContextualGroundingPolicyAction::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
++            other => GuardrailContextualGroundingPolicyAction::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
++                other.to_owned(),
++            )),
+         }
+     }
+ }
 ```
 
 ### `src/types/_guardrail_converse_content_block.rs`
@@ -9615,7 +13207,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub enum GuardrailConverseContentBlock {
      /// <p>Image within converse content block to be evaluated by the guardrail.</p>
-     Image(super::types::GuardrailConverseImageBlock),
+     Image(super::super::types::GuardrailConverseImageBlock),
 @@ -51,12 +51,3 @@
          matches!(self, Self::Unknown)
      }
@@ -9638,10 +13230,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_guardrail_converse_image_block.rs
 @@ -7,7 +7,7 @@
      /// <p>The format details for the image type of the guardrail converse image block.</p>
-     pub format: super::types::GuardrailConverseImageFormat,
+     pub format: super::super::types::GuardrailConverseImageFormat,
      /// <p>The image source (image bytes) of the guardrail converse image block.</p>
--    pub source: ::std::option::Option<super::types::GuardrailConverseImageSource>,
-+    pub source: super::types::GuardrailConverseImageSource,
+-    pub source: ::std::option::Option<super::super::types::GuardrailConverseImageSource>,
++    pub source: super::super::types::GuardrailConverseImageSource,
  }
  impl GuardrailConverseImageBlock {
      /// <p>The format details for the image type of the guardrail converse image block.</p>
@@ -9649,9 +13241,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.format
      }
      /// <p>The image source (image bytes) of the guardrail converse image block.</p>
--    pub fn source(&self) -> ::std::option::Option<&super::types::GuardrailConverseImageSource> {
+-    pub fn source(&self) -> ::std::option::Option<&super::super::types::GuardrailConverseImageSource> {
 -        self.source.as_ref()
-+    pub fn source(&self) -> &super::types::GuardrailConverseImageSource {
++    pub fn source(&self) -> &super::super::types::GuardrailConverseImageSource {
 +        &self.source
      }
  }
@@ -9661,8 +13253,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This method will fail if any of the following fields are not set:
      /// - [`format`](crate::types::builders::GuardrailConverseImageBlockBuilder::format)
 +    /// - [`source`](crate::types::builders::GuardrailConverseImageBlockBuilder::source)
-     pub fn build(self) -> ::std::result::Result<super::types::GuardrailConverseImageBlock, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::GuardrailConverseImageBlock {
+     pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailConverseImageBlock, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailConverseImageBlock {
              format: self.format.ok_or_else(|| {
 @@ -83,7 +84,12 @@
                      "format was not specified but it is required when building GuardrailConverseImageBlock",
@@ -9730,10 +13322,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_guardrail_image_block.rs
 @@ -7,7 +7,7 @@
      /// <p>The format details for the file type of the image blocked by the guardrail.</p>
-     pub format: super::types::GuardrailImageFormat,
+     pub format: super::super::types::GuardrailImageFormat,
      /// <p>The image source (image bytes) details of the image blocked by the guardrail.</p>
--    pub source: ::std::option::Option<super::types::GuardrailImageSource>,
-+    pub source: super::types::GuardrailImageSource,
+-    pub source: ::std::option::Option<super::super::types::GuardrailImageSource>,
++    pub source: super::super::types::GuardrailImageSource,
  }
  impl GuardrailImageBlock {
      /// <p>The format details for the file type of the image blocked by the guardrail.</p>
@@ -9741,9 +13333,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.format
      }
      /// <p>The image source (image bytes) details of the image blocked by the guardrail.</p>
--    pub fn source(&self) -> ::std::option::Option<&super::types::GuardrailImageSource> {
+-    pub fn source(&self) -> ::std::option::Option<&super::super::types::GuardrailImageSource> {
 -        self.source.as_ref()
-+    pub fn source(&self) -> &super::types::GuardrailImageSource {
++    pub fn source(&self) -> &super::super::types::GuardrailImageSource {
 +        &self.source
      }
  }
@@ -9753,8 +13345,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This method will fail if any of the following fields are not set:
      /// - [`format`](crate::types::builders::GuardrailImageBlockBuilder::format)
 +    /// - [`source`](crate::types::builders::GuardrailImageBlockBuilder::source)
-     pub fn build(self) -> ::std::result::Result<super::types::GuardrailImageBlock, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::GuardrailImageBlock {
+     pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailImageBlock, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailImageBlock {
              format: self.format.ok_or_else(|| {
 @@ -83,7 +84,12 @@
                      "format was not specified but it is required when building GuardrailImageBlock",
@@ -9850,14 +13442,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    SelfType,
      /// `Unknown` contains new variants that have been added since this code was generated.
      #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-     Unknown(super::primitives::sealed_enum_unknown::UnknownVariantValue),
+     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
 @@ -56,7 +54,7 @@
      fn from(s: &str) -> Self {
          match s {
              "CROSS_ACCOUNT" => GuardrailOwnership::CrossAccount,
 -            "SELF" => GuardrailOwnership::SelfValue,
 +            "SELF" => GuardrailOwnership::SelfType,
-             other => GuardrailOwnership::Unknown(super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+             other => GuardrailOwnership::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
          }
      }
 @@ -73,7 +71,7 @@
@@ -9916,23 +13508,43 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl GuardrailRegexFilter {
 ```
 
+### `src/types/_guardrail_sensitive_information_policy_action.rs`
+
+```diff
+--- reference/src/types/_guardrail_sensitive_information_policy_action.rs
++++ generated/src/types/_guardrail_sensitive_information_policy_action.rs
+@@ -59,9 +59,9 @@
+             "ANONYMIZED" => GuardrailSensitiveInformationPolicyAction::Anonymized,
+             "BLOCKED" => GuardrailSensitiveInformationPolicyAction::Blocked,
+             "NONE" => GuardrailSensitiveInformationPolicyAction::None,
+-            other => {
+-                GuardrailSensitiveInformationPolicyAction::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
+-            }
++            other => GuardrailSensitiveInformationPolicyAction::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
++                other.to_owned(),
++            )),
+         }
+     }
+ }
+```
+
 ### `src/types/_guardrail_stream_configuration.rs`
 
 ```diff
 --- reference/src/types/_guardrail_stream_configuration.rs
 +++ generated/src/types/_guardrail_stream_configuration.rs
 @@ -116,16 +116,8 @@
-         super::types::GuardrailStreamConfiguration {
+         super::super::types::GuardrailStreamConfiguration {
              guardrail_identifier: self.guardrail_identifier.unwrap_or_default(),
              guardrail_version: self.guardrail_version.unwrap_or_default(),
 -            trace: self.trace.unwrap_or(
 -                "disabled"
--                    .parse::<super::types::GuardrailTrace>()
+-                    .parse::<super::super::types::GuardrailTrace>()
 -                    .expect("static value validated to member"),
 -            ),
 -            stream_processing_mode: self.stream_processing_mode.unwrap_or(
 -                "sync"
--                    .parse::<super::types::GuardrailStreamProcessingMode>()
+-                    .parse::<super::super::types::GuardrailStreamProcessingMode>()
 -                    .expect("static value validated to member"),
 -            ),
 +            trace: self.trace.unwrap_or_default(),
@@ -9960,6 +13572,60 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl GuardrailTopic {
 ```
 
+### `src/types/_guardrail_topic_policy_assessment.rs`
+
+```diff
+--- reference/src/types/_guardrail_topic_policy_assessment.rs
++++ generated/src/types/_guardrail_topic_policy_assessment.rs
+@@ -51,7 +51,9 @@
+     /// Consumes the builder and constructs a [`GuardrailTopicPolicyAssessment`](crate::types::GuardrailTopicPolicyAssessment).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`topics`](crate::types::builders::GuardrailTopicPolicyAssessmentBuilder::topics)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailTopicPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::GuardrailTopicPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailTopicPolicyAssessment {
+             topics: self.topics.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+```
+
+### `src/types/_guardrail_trace_assessment.rs`
+
+```diff
+--- reference/src/types/_guardrail_trace_assessment.rs
++++ generated/src/types/_guardrail_trace_assessment.rs
+@@ -22,7 +22,9 @@
+         self.model_output.as_deref().unwrap_or_default()
+     }
+     /// <p>The input assessment.</p>
+-    pub fn input_assessment(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::GuardrailAssessment>> {
++    pub fn input_assessment(
++        &self,
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::GuardrailAssessment>> {
+         self.input_assessment.as_ref()
+     }
+     /// <p>the output assessments.</p>
+```
+
+### `src/types/_guardrail_word_policy_assessment.rs`
+
+```diff
+--- reference/src/types/_guardrail_word_policy_assessment.rs
++++ generated/src/types/_guardrail_word_policy_assessment.rs
+@@ -80,7 +80,9 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`custom_words`](crate::types::builders::GuardrailWordPolicyAssessmentBuilder::custom_words)
+     /// - [`managed_word_lists`](crate::types::builders::GuardrailWordPolicyAssessmentBuilder::managed_word_lists)
+-    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailWordPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::GuardrailWordPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::GuardrailWordPolicyAssessment {
+             custom_words: self.custom_words.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+```
+
 ### `src/types/_image_block.rs`
 
 ```diff
@@ -9967,31 +13633,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_image_block.rs
 @@ -7,7 +7,7 @@
      /// <p>The format of the image.</p>
-     pub format: super::types::ImageFormat,
+     pub format: super::super::types::ImageFormat,
      /// <p>The source for the image.</p>
--    pub source: ::std::option::Option<super::types::ImageSource>,
-+    pub source: super::types::ImageSource,
+-    pub source: ::std::option::Option<super::super::types::ImageSource>,
++    pub source: super::super::types::ImageSource,
      /// <p>Error information if the image block could not be processed or contains invalid data.</p>
-     pub error: ::std::option::Option<super::types::ErrorBlock>,
+     pub error: ::std::option::Option<super::super::types::ErrorBlock>,
  }
 @@ -17,8 +17,8 @@
          &self.format
      }
      /// <p>The source for the image.</p>
--    pub fn source(&self) -> ::std::option::Option<&super::types::ImageSource> {
+-    pub fn source(&self) -> ::std::option::Option<&super::super::types::ImageSource> {
 -        self.source.as_ref()
-+    pub fn source(&self) -> &super::types::ImageSource {
++    pub fn source(&self) -> &super::super::types::ImageSource {
 +        &self.source
      }
      /// <p>Error information if the image block could not be processed or contains invalid data.</p>
-     pub fn error(&self) -> ::std::option::Option<&super::types::ErrorBlock> {
+     pub fn error(&self) -> ::std::option::Option<&super::super::types::ErrorBlock> {
 @@ -97,6 +97,7 @@
      /// Consumes the builder and constructs a [`ImageBlock`](crate::types::ImageBlock).
      /// This method will fail if any of the following fields are not set:
      /// - [`format`](crate::types::builders::ImageBlockBuilder::format)
 +    /// - [`source`](crate::types::builders::ImageBlockBuilder::source)
-     pub fn build(self) -> ::std::result::Result<super::types::ImageBlock, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::ImageBlock {
+     pub fn build(self) -> ::std::result::Result<super::super::types::ImageBlock, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::ImageBlock {
              format: self.format.ok_or_else(|| {
 @@ -105,7 +106,12 @@
                      "format was not specified but it is required when building ImageBlock",
@@ -10079,7 +13745,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub enum InvokeModelWithBidirectionalStreamInput {
      /// <p>The audio chunk that is used as input for the invocation step.</p>
-     Chunk(super::types::BidirectionalInputPayloadPart),
+     Chunk(super::super::types::BidirectionalInputPayloadPart),
 @@ -36,11 +36,3 @@
          matches!(self, Self::Unknown)
      }
@@ -10107,19 +13773,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub enum InvokeModelWithBidirectionalStreamOutput {
      /// <p>The speech chunk that was provided as output from the invocation step.</p>
-     Chunk(super::types::BidirectionalOutputPayloadPart),
+     Chunk(super::super::types::BidirectionalOutputPayloadPart),
 +    /// <p>The request encountered an unknown internal error.</p>
-+    InternalServerException(super::types::InternalServerException),
++    InternalServerException(super::super::types::InternalServerException),
 +    /// <p>The request encountered an error with the model stream.</p>
-+    ModelStreamErrorException(super::types::ModelStreamErrorException),
++    ModelStreamErrorException(super::super::types::ModelStreamErrorException),
 +    /// <p>The connection was closed because a request was not received within the timeout period.</p>
-+    ModelTimeoutException(super::types::ModelTimeoutException),
++    ModelTimeoutException(super::super::types::ModelTimeoutException),
 +    /// <p>The request has failed due to a temporary failure of the server.</p>
-+    ServiceUnavailableException(super::types::ServiceUnavailableException),
++    ServiceUnavailableException(super::super::types::ServiceUnavailableException),
 +    /// <p>The request was denied due to request throttling.</p>
-+    ThrottlingException(super::types::ThrottlingException),
++    ThrottlingException(super::super::types::ThrottlingException),
 +    /// <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
-+    ValidationException(super::types::ValidationException),
++    ValidationException(super::super::types::ValidationException),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -10130,14 +13796,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    #[allow(irrefutable_let_patterns)]
      /// Tries to convert the enum instance into [`Chunk`](crate::types::InvokeModelWithBidirectionalStreamOutput::Chunk), extracting the inner [`BidirectionalOutputPayloadPart`](crate::types::BidirectionalOutputPayloadPart).
      /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_chunk(&self) -> ::std::result::Result<&super::types::BidirectionalOutputPayloadPart, &Self> {
+     pub fn as_chunk(&self) -> ::std::result::Result<&super::super::types::BidirectionalOutputPayloadPart, &Self> {
 @@ -31,16 +42,86 @@
      pub fn is_chunk(&self) -> bool {
          self.as_chunk().is_ok()
      }
 +    /// Tries to convert the enum instance into [`InternalServerException`](crate::types::InvokeModelWithBidirectionalStreamOutput::InternalServerException), extracting the inner [`InternalServerException`](crate::types::InternalServerException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::types::InternalServerException, &Self> {
++    pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::super::types::InternalServerException, &Self> {
 +        if let InvokeModelWithBidirectionalStreamOutput::InternalServerException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10150,7 +13816,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ModelStreamErrorException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ModelStreamErrorException), extracting the inner [`ModelStreamErrorException`](crate::types::ModelStreamErrorException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::types::ModelStreamErrorException, &Self> {
++    pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::super::types::ModelStreamErrorException, &Self> {
 +        if let InvokeModelWithBidirectionalStreamOutput::ModelStreamErrorException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10163,7 +13829,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ModelTimeoutException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ModelTimeoutException), extracting the inner [`ModelTimeoutException`](crate::types::ModelTimeoutException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_model_timeout_exception(&self) -> ::std::result::Result<&super::types::ModelTimeoutException, &Self> {
++    pub fn as_model_timeout_exception(&self) -> ::std::result::Result<&super::super::types::ModelTimeoutException, &Self> {
 +        if let InvokeModelWithBidirectionalStreamOutput::ModelTimeoutException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10176,7 +13842,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ServiceUnavailableException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ServiceUnavailableException), extracting the inner [`ServiceUnavailableException`](crate::types::ServiceUnavailableException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::types::ServiceUnavailableException, &Self> {
++    pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::super::types::ServiceUnavailableException, &Self> {
 +        if let InvokeModelWithBidirectionalStreamOutput::ServiceUnavailableException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10189,7 +13855,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ThrottlingException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ThrottlingException), extracting the inner [`ThrottlingException`](crate::types::ThrottlingException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::types::ThrottlingException, &Self> {
++    pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::super::types::ThrottlingException, &Self> {
 +        if let InvokeModelWithBidirectionalStreamOutput::ThrottlingException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10202,7 +13868,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ValidationException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ValidationException), extracting the inner [`ValidationException`](crate::types::ValidationException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_validation_exception(&self) -> ::std::result::Result<&super::types::ValidationException, &Self> {
++    pub fn as_validation_exception(&self) -> ::std::result::Result<&super::super::types::ValidationException, &Self> {
 +        if let InvokeModelWithBidirectionalStreamOutput::ValidationException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10235,7 +13901,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_message_stop_event.rs
 @@ -7,7 +7,7 @@
      /// <p>The reason why the model stopped generating output.</p>
-     pub stop_reason: super::types::StopReason,
+     pub stop_reason: super::super::types::StopReason,
      /// <p>The additional model response fields.</p>
 -    pub additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub additional_model_response_fields: ::std::option::Option<::std::string::String>,
@@ -10254,7 +13920,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -31,7 +31,7 @@
  #[non_exhaustive]
  pub struct MessageStopEventBuilder {
-     pub(crate) stop_reason: ::std::option::Option<super::types::StopReason>,
+     pub(crate) stop_reason: ::std::option::Option<super::super::types::StopReason>,
 -    pub(crate) additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub(crate) additional_model_response_fields: ::std::option::Option<::std::string::String>,
  }
@@ -10290,10 +13956,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_output_format.rs
 @@ -7,7 +7,7 @@
      /// <p>The type of structured output format.</p>
-     pub r#type: super::types::OutputFormatType,
+     pub r#type: super::super::types::OutputFormatType,
      /// <p>The structure that the model's output must adhere to.</p>
--    pub structure: ::std::option::Option<super::types::OutputFormatStructure>,
-+    pub structure: super::types::OutputFormatStructure,
+-    pub structure: ::std::option::Option<super::super::types::OutputFormatStructure>,
++    pub structure: super::super::types::OutputFormatStructure,
  }
  impl OutputFormat {
      /// <p>The type of structured output format.</p>
@@ -10301,9 +13967,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.r#type
      }
      /// <p>The structure that the model's output must adhere to.</p>
--    pub fn structure(&self) -> ::std::option::Option<&super::types::OutputFormatStructure> {
+-    pub fn structure(&self) -> ::std::option::Option<&super::super::types::OutputFormatStructure> {
 -        self.structure.as_ref()
-+    pub fn structure(&self) -> &super::types::OutputFormatStructure {
++    pub fn structure(&self) -> &super::super::types::OutputFormatStructure {
 +        &self.structure
      }
  }
@@ -10320,8 +13986,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This method will fail if any of the following fields are not set:
      /// - [`r#type`](crate::types::builders::OutputFormatBuilder::type)
 +    /// - [`structure`](crate::types::builders::OutputFormatBuilder::structure)
-     pub fn build(self) -> ::std::result::Result<super::types::OutputFormat, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::OutputFormat {
+     pub fn build(self) -> ::std::result::Result<super::super::types::OutputFormat, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::OutputFormat {
              r#type: self.r#type.ok_or_else(|| {
 @@ -83,7 +84,12 @@
                      "r#type was not specified but it is required when building OutputFormat",
@@ -10361,7 +14027,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub enum OutputFormatStructure {
      /// <p>A JSON schema structure that the model's output must adhere to.</p>
-     JsonSchema(super::types::JsonSchemaDefinition),
+     JsonSchema(super::super::types::JsonSchemaDefinition),
 @@ -36,8 +36,3 @@
          matches!(self, Self::Unknown)
      }
@@ -10380,11 +14046,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_performance_configuration.rs
 @@ -44,11 +44,7 @@
      /// Consumes the builder and constructs a [`PerformanceConfiguration`](crate::types::PerformanceConfiguration).
-     pub fn build(self) -> super::types::PerformanceConfiguration {
-         super::types::PerformanceConfiguration {
+     pub fn build(self) -> super::super::types::PerformanceConfiguration {
+         super::super::types::PerformanceConfiguration {
 -            latency: self.latency.unwrap_or(
 -                "standard"
--                    .parse::<super::types::PerformanceConfigLatency>()
+-                    .parse::<super::super::types::PerformanceConfigLatency>()
 -                    .expect("static value validated to member"),
 -            ),
 +            latency: self.latency.unwrap_or_default(),
@@ -10406,7 +14072,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub enum ReasoningContentBlock {
      /// <p>The reasoning that the model used to return the output.</p>
-     ReasoningText(super::types::ReasoningTextBlock),
+     ReasoningText(super::super::types::ReasoningTextBlock),
 @@ -50,8 +50,3 @@
          matches!(self, Self::Unknown)
      }
@@ -10456,19 +14122,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub enum ResponseStream {
      /// <p>Content included in the response.</p>
-     Chunk(super::types::PayloadPart),
+     Chunk(super::super::types::PayloadPart),
 +    /// <p>An internal server error occurred. Retry your request.</p>
-+    InternalServerException(super::types::InternalServerException),
++    InternalServerException(super::super::types::InternalServerException),
 +    /// <p>An error occurred while streaming the response. Retry your request.</p>
-+    ModelStreamErrorException(super::types::ModelStreamErrorException),
++    ModelStreamErrorException(super::super::types::ModelStreamErrorException),
 +    /// <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
-+    ModelTimeoutException(super::types::ModelTimeoutException),
++    ModelTimeoutException(super::super::types::ModelTimeoutException),
 +    /// <p>The service isn't available. Try again later.</p>
-+    ServiceUnavailableException(super::types::ServiceUnavailableException),
++    ServiceUnavailableException(super::super::types::ServiceUnavailableException),
 +    /// <p>Your request was throttled because of service-wide limitations. Resubmit your request later or in a different region. You can also purchase <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> to increase the rate or number of tokens you can process.</p>
-+    ThrottlingException(super::types::ThrottlingException),
++    ThrottlingException(super::super::types::ThrottlingException),
 +    /// <p>Input validation failed. Check your request parameters and retry the request.</p>
-+    ValidationException(super::types::ValidationException),
++    ValidationException(super::super::types::ValidationException),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -10479,14 +14145,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    #[allow(irrefutable_let_patterns)]
      /// Tries to convert the enum instance into [`Chunk`](crate::types::ResponseStream::Chunk), extracting the inner [`PayloadPart`](crate::types::PayloadPart).
      /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_chunk(&self) -> ::std::result::Result<&super::types::PayloadPart, &Self> {
+     pub fn as_chunk(&self) -> ::std::result::Result<&super::super::types::PayloadPart, &Self> {
 @@ -31,16 +42,86 @@
      pub fn is_chunk(&self) -> bool {
          self.as_chunk().is_ok()
      }
 +    /// Tries to convert the enum instance into [`InternalServerException`](crate::types::ResponseStream::InternalServerException), extracting the inner [`InternalServerException`](crate::types::InternalServerException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::types::InternalServerException, &Self> {
++    pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::super::types::InternalServerException, &Self> {
 +        if let ResponseStream::InternalServerException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10499,7 +14165,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ModelStreamErrorException`](crate::types::ResponseStream::ModelStreamErrorException), extracting the inner [`ModelStreamErrorException`](crate::types::ModelStreamErrorException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::types::ModelStreamErrorException, &Self> {
++    pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::super::types::ModelStreamErrorException, &Self> {
 +        if let ResponseStream::ModelStreamErrorException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10512,7 +14178,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ModelTimeoutException`](crate::types::ResponseStream::ModelTimeoutException), extracting the inner [`ModelTimeoutException`](crate::types::ModelTimeoutException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_model_timeout_exception(&self) -> ::std::result::Result<&super::types::ModelTimeoutException, &Self> {
++    pub fn as_model_timeout_exception(&self) -> ::std::result::Result<&super::super::types::ModelTimeoutException, &Self> {
 +        if let ResponseStream::ModelTimeoutException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10525,7 +14191,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ServiceUnavailableException`](crate::types::ResponseStream::ServiceUnavailableException), extracting the inner [`ServiceUnavailableException`](crate::types::ServiceUnavailableException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::types::ServiceUnavailableException, &Self> {
++    pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::super::types::ServiceUnavailableException, &Self> {
 +        if let ResponseStream::ServiceUnavailableException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10538,7 +14204,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ThrottlingException`](crate::types::ResponseStream::ThrottlingException), extracting the inner [`ThrottlingException`](crate::types::ThrottlingException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::types::ThrottlingException, &Self> {
++    pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::super::types::ThrottlingException, &Self> {
 +        if let ResponseStream::ThrottlingException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10551,7 +14217,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    /// Tries to convert the enum instance into [`ValidationException`](crate::types::ResponseStream::ValidationException), extracting the inner [`ValidationException`](crate::types::ValidationException).
 +    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_validation_exception(&self) -> ::std::result::Result<&super::types::ValidationException, &Self> {
++    pub fn as_validation_exception(&self) -> ::std::result::Result<&super::super::types::ValidationException, &Self> {
 +        if let ResponseStream::ValidationException(val) = &self {
 +            ::std::result::Result::Ok(val)
 +        } else {
@@ -10712,12 +14378,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_tool_result_content_block.rs
 @@ -11,7 +11,7 @@
      /// </note>
-     Image(super::types::ImageBlock),
+     Image(super::super::types::ImageBlock),
      /// <p>A tool result that is JSON format data.</p>
 -    Json(::aws_smithy_types::Document),
 +    Json(::std::string::String),
      /// <p>A tool result that is a search result.</p>
-     SearchResult(super::types::SearchResultBlock),
+     SearchResult(super::super::types::SearchResultBlock),
      /// <p>A tool result that is text.</p>
 @@ -55,9 +55,9 @@
      pub fn is_image(&self) -> bool {
@@ -10742,8 +14408,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The description for the tool.</p>
      pub description: ::std::option::Option<::std::string::String>,
      /// <p>The input schema for the tool in JSON format.</p>
--    pub input_schema: ::std::option::Option<super::types::ToolInputSchema>,
-+    pub input_schema: super::types::ToolInputSchema,
+-    pub input_schema: ::std::option::Option<super::super::types::ToolInputSchema>,
++    pub input_schema: super::super::types::ToolInputSchema,
      /// <p>Flag to enable structured output enforcement on a tool usage response.</p>
      pub strict: ::std::option::Option<bool>,
  }
@@ -10751,9 +14417,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.description.as_deref()
      }
      /// <p>The input schema for the tool in JSON format.</p>
--    pub fn input_schema(&self) -> ::std::option::Option<&super::types::ToolInputSchema> {
+-    pub fn input_schema(&self) -> ::std::option::Option<&super::super::types::ToolInputSchema> {
 -        self.input_schema.as_ref()
-+    pub fn input_schema(&self) -> &super::types::ToolInputSchema {
++    pub fn input_schema(&self) -> &super::super::types::ToolInputSchema {
 +        &self.input_schema
      }
      /// <p>Flag to enable structured output enforcement on a tool usage response.</p>
@@ -10769,8 +14435,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This method will fail if any of the following fields are not set:
      /// - [`name`](crate::types::builders::ToolSpecificationBuilder::name)
 +    /// - [`input_schema`](crate::types::builders::ToolSpecificationBuilder::input_schema)
-     pub fn build(self) -> ::std::result::Result<super::types::ToolSpecification, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::ToolSpecification {
+     pub fn build(self) -> ::std::result::Result<super::super::types::ToolSpecification, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::ToolSpecification {
              name: self.name.ok_or_else(|| {
 @@ -119,7 +120,12 @@
                  )
@@ -10800,7 +14466,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub input: ::aws_smithy_types::Document,
 +    pub input: ::std::string::String,
      /// <p>The type for the tool request.</p>
-     pub r#type: ::std::option::Option<super::types::ToolUseType>,
+     pub r#type: ::std::option::Option<super::super::types::ToolUseType>,
  }
 @@ -25,7 +25,7 @@
          self.name.deref()
@@ -10817,7 +14483,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) name: ::std::option::Option<::std::string::String>,
 -    pub(crate) input: ::std::option::Option<::aws_smithy_types::Document>,
 +    pub(crate) input: ::std::option::Option<::std::string::String>,
-     pub(crate) r#type: ::std::option::Option<super::types::ToolUseType>,
+     pub(crate) r#type: ::std::option::Option<super::super::types::ToolUseType>,
  }
  impl ToolUseBlockBuilder {
 @@ -82,17 +82,17 @@
@@ -10850,10 +14516,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_video_block.rs
 @@ -7,7 +7,7 @@
      /// <p>The block's format.</p>
-     pub format: super::types::VideoFormat,
+     pub format: super::super::types::VideoFormat,
      /// <p>The block's source.</p>
--    pub source: ::std::option::Option<super::types::VideoSource>,
-+    pub source: super::types::VideoSource,
+-    pub source: ::std::option::Option<super::super::types::VideoSource>,
++    pub source: super::super::types::VideoSource,
  }
  impl VideoBlock {
      /// <p>The block's format.</p>
@@ -10861,9 +14527,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.format
      }
      /// <p>The block's source.</p>
--    pub fn source(&self) -> ::std::option::Option<&super::types::VideoSource> {
+-    pub fn source(&self) -> ::std::option::Option<&super::super::types::VideoSource> {
 -        self.source.as_ref()
-+    pub fn source(&self) -> &super::types::VideoSource {
++    pub fn source(&self) -> &super::super::types::VideoSource {
 +        &self.source
      }
  }
@@ -10873,8 +14539,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This method will fail if any of the following fields are not set:
      /// - [`format`](crate::types::builders::VideoBlockBuilder::format)
 +    /// - [`source`](crate::types::builders::VideoBlockBuilder::source)
-     pub fn build(self) -> ::std::result::Result<super::types::VideoBlock, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::types::VideoBlock {
+     pub fn build(self) -> ::std::result::Result<super::super::types::VideoBlock, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::types::VideoBlock {
              format: self.format.ok_or_else(|| {
 @@ -75,7 +76,12 @@
                      "format was not specified but it is required when building VideoBlock",
@@ -10899,142 +14565,142 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/builders.rs
 @@ -3,12 +3,6 @@
 
- pub use super::types::_guardrail_coverage::GuardrailCoverageBuilder;
+ pub use super::super::types::_guardrail_coverage::GuardrailCoverageBuilder;
 
--pub use super::types::_guardrail_checks_config::GuardrailChecksConfigBuilder;
+-pub use super::super::types::_guardrail_checks_config::GuardrailChecksConfigBuilder;
 -
--pub use super::types::_guardrail_checks_results::GuardrailChecksResultsBuilder;
+-pub use super::super::types::_guardrail_checks_results::GuardrailChecksResultsBuilder;
 -
--pub use super::types::_guardrail_checks_usage_results::GuardrailChecksUsageResultsBuilder;
+-pub use super::super::types::_guardrail_checks_usage_results::GuardrailChecksUsageResultsBuilder;
 -
- pub use super::types::_inference_configuration::InferenceConfigurationBuilder;
+ pub use super::super::types::_inference_configuration::InferenceConfigurationBuilder;
 
- pub use super::types::_tool_configuration::ToolConfigurationBuilder;
+ pub use super::super::types::_tool_configuration::ToolConfigurationBuilder;
 @@ -29,11 +23,11 @@
 
- pub use super::types::_guardrail_stream_configuration::GuardrailStreamConfigurationBuilder;
+ pub use super::super::types::_guardrail_stream_configuration::GuardrailStreamConfigurationBuilder;
 
--pub use super::types::_async_invoke_s3_output_data_config::AsyncInvokeS3OutputDataConfigBuilder;
-+pub use super::types::_guardrail_checks_config::GuardrailChecksConfigBuilder;
+-pub use super::super::types::_async_invoke_s3_output_data_config::AsyncInvokeS3OutputDataConfigBuilder;
++pub use super::super::types::_guardrail_checks_config::GuardrailChecksConfigBuilder;
 
--pub use super::types::_async_invoke_summary::AsyncInvokeSummaryBuilder;
-+pub use super::types::_guardrail_checks_results::GuardrailChecksResultsBuilder;
+-pub use super::super::types::_async_invoke_summary::AsyncInvokeSummaryBuilder;
++pub use super::super::types::_guardrail_checks_results::GuardrailChecksResultsBuilder;
 
--pub use super::types::_tag::TagBuilder;
-+pub use super::types::_guardrail_checks_usage_results::GuardrailChecksUsageResultsBuilder;
+-pub use super::super::types::_tag::TagBuilder;
++pub use super::super::types::_guardrail_checks_usage_results::GuardrailChecksUsageResultsBuilder;
 
- pub use super::types::_guardrail_output_content::GuardrailOutputContentBuilder;
+ pub use super::super::types::_guardrail_output_content::GuardrailOutputContentBuilder;
 
 @@ -43,6 +37,32 @@
 
- pub use super::types::_guardrail_image_coverage::GuardrailImageCoverageBuilder;
+ pub use super::super::types::_guardrail_image_coverage::GuardrailImageCoverageBuilder;
 
-+pub use super::types::_message::MessageBuilder;
++pub use super::super::types::_message::MessageBuilder;
 +
-+pub use super::types::_output_format::OutputFormatBuilder;
++pub use super::super::types::_output_format::OutputFormatBuilder;
 +
-+pub use super::types::_guardrail_trace_assessment::GuardrailTraceAssessmentBuilder;
++pub use super::super::types::_guardrail_trace_assessment::GuardrailTraceAssessmentBuilder;
 +
-+pub use super::types::_prompt_router_trace::PromptRouterTraceBuilder;
++pub use super::super::types::_prompt_router_trace::PromptRouterTraceBuilder;
 +
-+pub use super::types::_message_start_event::MessageStartEventBuilder;
++pub use super::super::types::_message_start_event::MessageStartEventBuilder;
 +
-+pub use super::types::_content_block_start_event::ContentBlockStartEventBuilder;
++pub use super::super::types::_content_block_start_event::ContentBlockStartEventBuilder;
 +
-+pub use super::types::_content_block_delta_event::ContentBlockDeltaEventBuilder;
++pub use super::super::types::_content_block_delta_event::ContentBlockDeltaEventBuilder;
 +
-+pub use super::types::_content_block_stop_event::ContentBlockStopEventBuilder;
++pub use super::super::types::_content_block_stop_event::ContentBlockStopEventBuilder;
 +
-+pub use super::types::_message_stop_event::MessageStopEventBuilder;
++pub use super::super::types::_message_stop_event::MessageStopEventBuilder;
 +
-+pub use super::types::_converse_stream_metadata_event::ConverseStreamMetadataEventBuilder;
++pub use super::super::types::_converse_stream_metadata_event::ConverseStreamMetadataEventBuilder;
 +
-+pub use super::types::_invoke_model_tokens_request::InvokeModelTokensRequestBuilder;
++pub use super::super::types::_invoke_model_tokens_request::InvokeModelTokensRequestBuilder;
 +
-+pub use super::types::_converse_tokens_request::ConverseTokensRequestBuilder;
++pub use super::super::types::_converse_tokens_request::ConverseTokensRequestBuilder;
 +
-+pub use super::types::_async_invoke_s3_output_data_config::AsyncInvokeS3OutputDataConfigBuilder;
++pub use super::super::types::_async_invoke_s3_output_data_config::AsyncInvokeS3OutputDataConfigBuilder;
 +
- pub use super::types::_guardrail_checks_message::GuardrailChecksMessageBuilder;
+ pub use super::super::types::_guardrail_checks_message::GuardrailChecksMessageBuilder;
 
- pub use super::types::_guardrail_checks_content_filter_config::GuardrailChecksContentFilterConfigBuilder;
+ pub use super::super::types::_guardrail_checks_content_filter_config::GuardrailChecksContentFilterConfigBuilder;
 @@ -63,26 +83,6 @@
 
- pub use super::types::_guardrail_checks_sensitive_information_usage::GuardrailChecksSensitiveInformationUsageBuilder;
+ pub use super::super::types::_guardrail_checks_sensitive_information_usage::GuardrailChecksSensitiveInformationUsageBuilder;
 
--pub use super::types::_message::MessageBuilder;
+-pub use super::super::types::_message::MessageBuilder;
 -
--pub use super::types::_output_format::OutputFormatBuilder;
+-pub use super::super::types::_output_format::OutputFormatBuilder;
 -
--pub use super::types::_guardrail_trace_assessment::GuardrailTraceAssessmentBuilder;
+-pub use super::super::types::_guardrail_trace_assessment::GuardrailTraceAssessmentBuilder;
 -
--pub use super::types::_prompt_router_trace::PromptRouterTraceBuilder;
+-pub use super::super::types::_prompt_router_trace::PromptRouterTraceBuilder;
 -
--pub use super::types::_message_start_event::MessageStartEventBuilder;
+-pub use super::super::types::_message_start_event::MessageStartEventBuilder;
 -
--pub use super::types::_content_block_start_event::ContentBlockStartEventBuilder;
+-pub use super::super::types::_content_block_start_event::ContentBlockStartEventBuilder;
 -
--pub use super::types::_content_block_delta_event::ContentBlockDeltaEventBuilder;
+-pub use super::super::types::_content_block_delta_event::ContentBlockDeltaEventBuilder;
 -
--pub use super::types::_content_block_stop_event::ContentBlockStopEventBuilder;
+-pub use super::super::types::_content_block_stop_event::ContentBlockStopEventBuilder;
 -
--pub use super::types::_message_stop_event::MessageStopEventBuilder;
+-pub use super::super::types::_message_stop_event::MessageStopEventBuilder;
 -
--pub use super::types::_converse_stream_metadata_event::ConverseStreamMetadataEventBuilder;
+-pub use super::super::types::_converse_stream_metadata_event::ConverseStreamMetadataEventBuilder;
 -
- pub use super::types::_bidirectional_input_payload_part::BidirectionalInputPayloadPartBuilder;
+ pub use super::super::types::_bidirectional_input_payload_part::BidirectionalInputPayloadPartBuilder;
 
- pub use super::types::_bidirectional_output_payload_part::BidirectionalOutputPayloadPartBuilder;
+ pub use super::super::types::_bidirectional_output_payload_part::BidirectionalOutputPayloadPartBuilder;
 @@ -89,9 +89,9 @@
 
- pub use super::types::_payload_part::PayloadPartBuilder;
+ pub use super::super::types::_payload_part::PayloadPartBuilder;
 
--pub use super::types::_invoke_model_tokens_request::InvokeModelTokensRequestBuilder;
-+pub use super::types::_async_invoke_summary::AsyncInvokeSummaryBuilder;
+-pub use super::super::types::_invoke_model_tokens_request::InvokeModelTokensRequestBuilder;
++pub use super::super::types::_async_invoke_summary::AsyncInvokeSummaryBuilder;
 
--pub use super::types::_converse_tokens_request::ConverseTokensRequestBuilder;
-+pub use super::types::_tag::TagBuilder;
+-pub use super::super::types::_converse_tokens_request::ConverseTokensRequestBuilder;
++pub use super::super::types::_tag::TagBuilder;
 
- pub use super::types::_guardrail_text_block::GuardrailTextBlockBuilder;
+ pub use super::super::types::_guardrail_text_block::GuardrailTextBlockBuilder;
 
 @@ -127,18 +127,6 @@
 
- pub use super::types::_converse_stream_trace::ConverseStreamTraceBuilder;
+ pub use super::super::types::_converse_stream_trace::ConverseStreamTraceBuilder;
 
--pub use super::types::_guardrail_checks_content_filter_category_config::GuardrailChecksContentFilterCategoryConfigBuilder;
+-pub use super::super::types::_guardrail_checks_content_filter_category_config::GuardrailChecksContentFilterCategoryConfigBuilder;
 -
--pub use super::types::_guardrail_checks_prompt_attack_category_config::GuardrailChecksPromptAttackCategoryConfigBuilder;
+-pub use super::super::types::_guardrail_checks_prompt_attack_category_config::GuardrailChecksPromptAttackCategoryConfigBuilder;
 -
--pub use super::types::_guardrail_checks_sensitive_information_entity_config::GuardrailChecksSensitiveInformationEntityConfigBuilder;
+-pub use super::super::types::_guardrail_checks_sensitive_information_entity_config::GuardrailChecksSensitiveInformationEntityConfigBuilder;
 -
--pub use super::types::_guardrail_checks_content_filter_result_entry::GuardrailChecksContentFilterResultEntryBuilder;
+-pub use super::super::types::_guardrail_checks_content_filter_result_entry::GuardrailChecksContentFilterResultEntryBuilder;
 -
--pub use super::types::_guardrail_checks_prompt_attack_result_entry::GuardrailChecksPromptAttackResultEntryBuilder;
+-pub use super::super::types::_guardrail_checks_prompt_attack_result_entry::GuardrailChecksPromptAttackResultEntryBuilder;
 -
--pub use super::types::_guardrail_checks_sensitive_information_result_entry::GuardrailChecksSensitiveInformationResultEntryBuilder;
+-pub use super::super::types::_guardrail_checks_sensitive_information_result_entry::GuardrailChecksSensitiveInformationResultEntryBuilder;
 -
- pub use super::types::_guardrail_converse_text_block::GuardrailConverseTextBlockBuilder;
+ pub use super::super::types::_guardrail_converse_text_block::GuardrailConverseTextBlockBuilder;
 
- pub use super::types::_guardrail_converse_image_block::GuardrailConverseImageBlockBuilder;
+ pub use super::super::types::_guardrail_converse_image_block::GuardrailConverseImageBlockBuilder;
 @@ -161,6 +149,18 @@
 
- pub use super::types::_image_block_delta::ImageBlockDeltaBuilder;
+ pub use super::super::types::_image_block_delta::ImageBlockDeltaBuilder;
 
-+pub use super::types::_guardrail_checks_content_filter_category_config::GuardrailChecksContentFilterCategoryConfigBuilder;
++pub use super::super::types::_guardrail_checks_content_filter_category_config::GuardrailChecksContentFilterCategoryConfigBuilder;
 +
-+pub use super::types::_guardrail_checks_prompt_attack_category_config::GuardrailChecksPromptAttackCategoryConfigBuilder;
++pub use super::super::types::_guardrail_checks_prompt_attack_category_config::GuardrailChecksPromptAttackCategoryConfigBuilder;
 +
-+pub use super::types::_guardrail_checks_sensitive_information_entity_config::GuardrailChecksSensitiveInformationEntityConfigBuilder;
++pub use super::super::types::_guardrail_checks_sensitive_information_entity_config::GuardrailChecksSensitiveInformationEntityConfigBuilder;
 +
-+pub use super::types::_guardrail_checks_content_filter_result_entry::GuardrailChecksContentFilterResultEntryBuilder;
++pub use super::super::types::_guardrail_checks_content_filter_result_entry::GuardrailChecksContentFilterResultEntryBuilder;
 +
-+pub use super::types::_guardrail_checks_prompt_attack_result_entry::GuardrailChecksPromptAttackResultEntryBuilder;
++pub use super::super::types::_guardrail_checks_prompt_attack_result_entry::GuardrailChecksPromptAttackResultEntryBuilder;
 +
-+pub use super::types::_guardrail_checks_sensitive_information_result_entry::GuardrailChecksSensitiveInformationResultEntryBuilder;
++pub use super::super::types::_guardrail_checks_sensitive_information_result_entry::GuardrailChecksSensitiveInformationResultEntryBuilder;
 +
- pub use super::types::_guardrail_topic::GuardrailTopicBuilder;
+ pub use super::super::types::_guardrail_topic::GuardrailTopicBuilder;
 
- pub use super::types::_guardrail_content_filter::GuardrailContentFilterBuilder;
+ pub use super::super::types::_guardrail_content_filter::GuardrailContentFilterBuilder;
 ```
 
 ### `src/types/error/_model_not_ready_exception.rs`
@@ -11062,34 +14728,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/error/builders.rs
 @@ -3,12 +3,6 @@
 
- pub use super::types::error::_internal_server_exception::InternalServerExceptionBuilder;
+ pub use super::super::super::types::error::_internal_server_exception::InternalServerExceptionBuilder;
 
--pub use super::types::error::_throttling_exception::ThrottlingExceptionBuilder;
+-pub use super::super::super::types::error::_throttling_exception::ThrottlingExceptionBuilder;
 -
--pub use super::types::error::_validation_exception::ValidationExceptionBuilder;
+-pub use super::super::super::types::error::_validation_exception::ValidationExceptionBuilder;
 -
--pub use super::types::error::_conflict_exception::ConflictExceptionBuilder;
+-pub use super::super::super::types::error::_conflict_exception::ConflictExceptionBuilder;
 -
- pub use super::types::error::_resource_not_found_exception::ResourceNotFoundExceptionBuilder;
+ pub use super::super::super::types::error::_resource_not_found_exception::ResourceNotFoundExceptionBuilder;
 
- pub use super::types::error::_service_quota_exceeded_exception::ServiceQuotaExceededExceptionBuilder;
+ pub use super::super::super::types::error::_service_quota_exceeded_exception::ServiceQuotaExceededExceptionBuilder;
 @@ -15,6 +9,10 @@
 
- pub use super::types::error::_service_unavailable_exception::ServiceUnavailableExceptionBuilder;
+ pub use super::super::super::types::error::_service_unavailable_exception::ServiceUnavailableExceptionBuilder;
 
-+pub use super::types::error::_throttling_exception::ThrottlingExceptionBuilder;
++pub use super::super::super::types::error::_throttling_exception::ThrottlingExceptionBuilder;
 +
-+pub use super::types::error::_validation_exception::ValidationExceptionBuilder;
++pub use super::super::super::types::error::_validation_exception::ValidationExceptionBuilder;
 +
- pub use super::types::error::_model_error_exception::ModelErrorExceptionBuilder;
+ pub use super::super::super::types::error::_model_error_exception::ModelErrorExceptionBuilder;
 
- pub use super::types::error::_model_not_ready_exception::ModelNotReadyExceptionBuilder;
+ pub use super::super::super::types::error::_model_not_ready_exception::ModelNotReadyExceptionBuilder;
 @@ -22,3 +20,5 @@
- pub use super::types::error::_model_timeout_exception::ModelTimeoutExceptionBuilder;
+ pub use super::super::super::types::error::_model_timeout_exception::ModelTimeoutExceptionBuilder;
 
- pub use super::types::error::_model_stream_error_exception::ModelStreamErrorExceptionBuilder;
+ pub use super::super::super::types::error::_model_stream_error_exception::ModelStreamErrorExceptionBuilder;
 +
-+pub use super::types::error::_conflict_exception::ConflictExceptionBuilder;
++pub use super::super::super::types::error::_conflict_exception::ConflictExceptionBuilder;
 ```
 
 ### `src/types/error.rs`
@@ -11099,48 +14765,48 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/error.rs
 @@ -3,12 +3,6 @@
 
- pub use super::types::error::_internal_server_exception::InternalServerException;
+ pub use super::super::types::error::_internal_server_exception::InternalServerException;
 
--pub use super::types::error::_throttling_exception::ThrottlingException;
+-pub use super::super::types::error::_throttling_exception::ThrottlingException;
 -
--pub use super::types::error::_validation_exception::ValidationException;
+-pub use super::super::types::error::_validation_exception::ValidationException;
 -
--pub use super::types::error::_conflict_exception::ConflictException;
+-pub use super::super::types::error::_conflict_exception::ConflictException;
 -
- pub use super::types::error::_resource_not_found_exception::ResourceNotFoundException;
+ pub use super::super::types::error::_resource_not_found_exception::ResourceNotFoundException;
 
- pub use super::types::error::_service_quota_exceeded_exception::ServiceQuotaExceededException;
+ pub use super::super::types::error::_service_quota_exceeded_exception::ServiceQuotaExceededException;
 @@ -15,6 +9,10 @@
 
- pub use super::types::error::_service_unavailable_exception::ServiceUnavailableException;
+ pub use super::super::types::error::_service_unavailable_exception::ServiceUnavailableException;
 
-+pub use super::types::error::_throttling_exception::ThrottlingException;
++pub use super::super::types::error::_throttling_exception::ThrottlingException;
 +
-+pub use super::types::error::_validation_exception::ValidationException;
++pub use super::super::types::error::_validation_exception::ValidationException;
 +
- pub use super::types::error::_model_error_exception::ModelErrorException;
+ pub use super::super::types::error::_model_error_exception::ModelErrorException;
 
- pub use super::types::error::_model_not_ready_exception::ModelNotReadyException;
+ pub use super::super::types::error::_model_not_ready_exception::ModelNotReadyException;
 @@ -23,20 +21,12 @@
 
- pub use super::types::error::_model_stream_error_exception::ModelStreamErrorException;
+ pub use super::super::types::error::_model_stream_error_exception::ModelStreamErrorException;
 
-+pub use super::types::error::_conflict_exception::ConflictException;
++pub use super::super::types::error::_conflict_exception::ConflictException;
 +
  /// Error type for the `ConverseStreamOutputError` operation.
  #[non_exhaustive]
  #[derive(::std::fmt::Debug)]
  pub enum ConverseStreamOutputError {
 -    /// <p>An internal server error occurred. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
--    InternalServerException(super::types::error::InternalServerException),
+-    InternalServerException(super::super::types::error::InternalServerException),
 -    /// <p>An error occurred while streaming the response. Retry your request.</p>
--    ModelStreamErrorException(super::types::error::ModelStreamErrorException),
+-    ModelStreamErrorException(super::super::types::error::ModelStreamErrorException),
 -    /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
--    ValidationException(super::types::error::ValidationException),
+-    ValidationException(super::super::types::error::ValidationException),
 -    /// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
--    ThrottlingException(super::types::error::ThrottlingException),
+-    ThrottlingException(super::super::types::error::ThrottlingException),
 -    /// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
--    ServiceUnavailableException(super::types::error::ServiceUnavailableException),
+-    ServiceUnavailableException(super::super::types::error::ServiceUnavailableException),
      /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
      #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
      variable wildcard pattern and check `.code()`:
@@ -11216,24 +14882,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
-+impl super::s3_request_id::RequestIdExt for super::types::error::ConverseStreamOutputError {
++impl super::super::s3_request_id::RequestIdExt for super::super::types::error::ConverseStreamOutputError {
 +    fn extended_request_id(&self) -> Option<&str> {
 +        self.meta().extended_request_id()
 +    }
 +}
- impl ::aws_types::request_id::RequestId for super::types::error::ConverseStreamOutputError {
+ impl ::aws_types::request_id::RequestId for super::super::types::error::ConverseStreamOutputError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
 @@ -253,6 +208,11 @@
          })
      }
  }
-+impl super::s3_request_id::RequestIdExt for super::types::error::InvokeModelWithBidirectionalStreamInputError {
++impl super::super::s3_request_id::RequestIdExt for super::super::types::error::InvokeModelWithBidirectionalStreamInputError {
 +    fn extended_request_id(&self) -> Option<&str> {
 +        self.meta().extended_request_id()
 +    }
 +}
- impl ::aws_types::request_id::RequestId for super::types::error::InvokeModelWithBidirectionalStreamInputError {
+ impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamInputError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
 @@ -263,18 +223,6 @@
@@ -11241,17 +14907,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::fmt::Debug)]
  pub enum InvokeModelWithBidirectionalStreamOutputError {
 -    /// <p>An internal server error occurred. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
--    InternalServerException(super::types::error::InternalServerException),
+-    InternalServerException(super::super::types::error::InternalServerException),
 -    /// <p>An error occurred while streaming the response. Retry your request.</p>
--    ModelStreamErrorException(super::types::error::ModelStreamErrorException),
+-    ModelStreamErrorException(super::super::types::error::ModelStreamErrorException),
 -    /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
--    ValidationException(super::types::error::ValidationException),
+-    ValidationException(super::super::types::error::ValidationException),
 -    /// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
--    ThrottlingException(super::types::error::ThrottlingException),
+-    ThrottlingException(super::super::types::error::ThrottlingException),
 -    /// <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
--    ModelTimeoutException(super::types::error::ModelTimeoutException),
+-    ModelTimeoutException(super::super::types::error::ModelTimeoutException),
 -    /// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
--    ServiceUnavailableException(super::types::error::ServiceUnavailableException),
+-    ServiceUnavailableException(super::super::types::error::ServiceUnavailableException),
      /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
      #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
      variable wildcard pattern and check `.code()`:
@@ -11335,12 +15001,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
-+impl super::s3_request_id::RequestIdExt for super::types::error::InvokeModelWithBidirectionalStreamOutputError {
++impl super::super::s3_request_id::RequestIdExt for super::super::types::error::InvokeModelWithBidirectionalStreamOutputError {
 +    fn extended_request_id(&self) -> Option<&str> {
 +        self.meta().extended_request_id()
 +    }
 +}
- impl ::aws_types::request_id::RequestId for super::types::error::InvokeModelWithBidirectionalStreamOutputError {
+ impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamOutputError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
 @@ -416,18 +321,6 @@
@@ -11348,17 +15014,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::fmt::Debug)]
  pub enum ResponseStreamError {
 -    /// <p>An internal server error occurred. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
--    InternalServerException(super::types::error::InternalServerException),
+-    InternalServerException(super::super::types::error::InternalServerException),
 -    /// <p>An error occurred while streaming the response. Retry your request.</p>
--    ModelStreamErrorException(super::types::error::ModelStreamErrorException),
+-    ModelStreamErrorException(super::super::types::error::ModelStreamErrorException),
 -    /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
--    ValidationException(super::types::error::ValidationException),
+-    ValidationException(super::super::types::error::ValidationException),
 -    /// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
--    ThrottlingException(super::types::error::ThrottlingException),
+-    ThrottlingException(super::super::types::error::ThrottlingException),
 -    /// <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
--    ModelTimeoutException(super::types::error::ModelTimeoutException),
+-    ModelTimeoutException(super::super::types::error::ModelTimeoutException),
 -    /// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
--    ServiceUnavailableException(super::types::error::ServiceUnavailableException),
+-    ServiceUnavailableException(super::super::types::error::ServiceUnavailableException),
      /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
      #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
      variable wildcard pattern and check `.code()`:
@@ -11442,12 +15108,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
-+impl super::s3_request_id::RequestIdExt for super::types::error::ResponseStreamError {
++impl super::super::s3_request_id::RequestIdExt for super::super::types::error::ResponseStreamError {
 +    fn extended_request_id(&self) -> Option<&str> {
 +        self.meta().extended_request_id()
 +    }
 +}
- impl ::aws_types::request_id::RequestId for super::types::error::ResponseStreamError {
+ impl ::aws_types::request_id::RequestId for super::super::types::error::ResponseStreamError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
 ```

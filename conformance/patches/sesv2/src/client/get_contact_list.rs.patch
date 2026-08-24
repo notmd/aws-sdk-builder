@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetContactListError>`](crate::operation::get_contact_list::GetContactListError)
 -    pub fn get_contact_list(&self) -> crate::operation::get_contact_list::builders::GetContactListFluentBuilder {
 -        crate::operation::get_contact_list::builders::GetContactListFluentBuilder::new(self.handle.clone())
-+    pub fn get_contact_list(&self) -> super::operation::get_contact_list::builders::GetContactListFluentBuilder {
-+        super::operation::get_contact_list::builders::GetContactListFluentBuilder::new(self.handle.clone())
++    pub fn get_contact_list(&self) -> super::super::operation::get_contact_list::builders::GetContactListFluentBuilder {
++        super::super::operation::get_contact_list::builders::GetContactListFluentBuilder::new(self.handle.clone())
      }
  }

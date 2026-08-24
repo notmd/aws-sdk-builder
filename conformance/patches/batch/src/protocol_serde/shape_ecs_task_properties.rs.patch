@@ -5,7 +5,7 @@
  pub fn ser_ecs_task_properties(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::EcsTaskProperties,
-+    input: &super::types::EcsTaskProperties,
++    input: &super::super::types::EcsTaskProperties,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.containers {
          let mut array_2 = object.key("containers").start_array();
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_4 = array_2.value().start_object();
 -                crate::protocol_serde::shape_task_container_properties::ser_task_container_properties(&mut object_4, item_3)?;
-+                super::protocol_serde::shape_task_container_properties::ser_task_container_properties(&mut object_4, item_3)?;
++                super::super::protocol_serde::shape_task_container_properties::ser_task_container_properties(&mut object_4, item_3)?;
                  object_4.finish();
              }
          }
@@ -23,7 +23,7 @@
          #[allow(unused_mut)]
          let mut object_6 = object.key("ephemeralStorage").start_object();
 -        crate::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_6, var_5)?;
-+        super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_6, var_5)?;
++        super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_6, var_5)?;
          object_6.finish();
      }
      if let Some(var_7) = &input.execution_role_arn {
@@ -32,14 +32,14 @@
          #[allow(unused_mut)]
          let mut object_13 = object.key("networkConfiguration").start_object();
 -        crate::protocol_serde::shape_network_configuration::ser_network_configuration(&mut object_13, var_12)?;
-+        super::protocol_serde::shape_network_configuration::ser_network_configuration(&mut object_13, var_12)?;
++        super::super::protocol_serde::shape_network_configuration::ser_network_configuration(&mut object_13, var_12)?;
          object_13.finish();
      }
      if let Some(var_14) = &input.runtime_platform {
          #[allow(unused_mut)]
          let mut object_15 = object.key("runtimePlatform").start_object();
 -        crate::protocol_serde::shape_runtime_platform::ser_runtime_platform(&mut object_15, var_14)?;
-+        super::protocol_serde::shape_runtime_platform::ser_runtime_platform(&mut object_15, var_14)?;
++        super::super::protocol_serde::shape_runtime_platform::ser_runtime_platform(&mut object_15, var_14)?;
          object_15.finish();
      }
      if let Some(var_16) = &input.volumes {
@@ -48,7 +48,7 @@
                  #[allow(unused_mut)]
                  let mut object_19 = array_17.value().start_object();
 -                crate::protocol_serde::shape_volume::ser_volume(&mut object_19, item_18)?;
-+                super::protocol_serde::shape_volume::ser_volume(&mut object_19, item_18)?;
++                super::super::protocol_serde::shape_volume::ser_volume(&mut object_19, item_18)?;
                  object_19.finish();
              }
          }
@@ -57,7 +57,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::EcsTaskProperties>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::EcsTaskProperties>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::EcsTaskProperties>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -66,7 +66,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::EcsTaskPropertiesBuilder::default();
-+            let mut builder = super::types::builders::EcsTaskPropertiesBuilder::default();
++            let mut builder = super::super::types::builders::EcsTaskPropertiesBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -75,7 +75,7 @@
                          "containers" => {
                              builder = builder.set_containers(
 -                                crate::protocol_serde::shape_list_task_container_properties::de_list_task_container_properties(
-+                                super::protocol_serde::shape_list_task_container_properties::de_list_task_container_properties(
++                                super::super::protocol_serde::shape_list_task_container_properties::de_list_task_container_properties(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -84,7 +84,7 @@
                          }
                          "ephemeralStorage" => {
 -                            builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
-+                            builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                            builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -93,12 +93,12 @@
                          "networkConfiguration" => {
                              builder = builder.set_network_configuration(
 -                                crate::protocol_serde::shape_network_configuration::de_network_configuration(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_network_configuration::de_network_configuration(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_network_configuration::de_network_configuration(tokens, _value, depth + 1)?,
                              );
                          }
                          "runtimePlatform" => {
 -                            builder = builder.set_runtime_platform(crate::protocol_serde::shape_runtime_platform::de_runtime_platform(
-+                            builder = builder.set_runtime_platform(super::protocol_serde::shape_runtime_platform::de_runtime_platform(
++                            builder = builder.set_runtime_platform(super::super::protocol_serde::shape_runtime_platform::de_runtime_platform(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -107,7 +107,7 @@
                          }
                          "volumes" => {
 -                            builder = builder.set_volumes(crate::protocol_serde::shape_volumes::de_volumes(tokens, _value, depth + 1)?);
-+                            builder = builder.set_volumes(super::protocol_serde::shape_volumes::de_volumes(tokens, _value, depth + 1)?);
++                            builder = builder.set_volumes(super::super::protocol_serde::shape_volumes::de_volumes(tokens, _value, depth + 1)?);
                          }
                          "enableExecuteCommand" => {
                              builder = builder.set_enable_execute_command(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
@@ -116,7 +116,7 @@
                  }
              }
 -            Ok(Some(crate::serde_util::ecs_task_properties_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::ecs_task_properties_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::ecs_task_properties_correct_errors(builder).build()))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",

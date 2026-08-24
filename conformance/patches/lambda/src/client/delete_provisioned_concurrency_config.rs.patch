@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigFluentBuilder {
 -        crate::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigFluentBuilder {
-+        super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigFluentBuilder {
++        super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigFluentBuilder::new(self.handle.clone())
      }
  }

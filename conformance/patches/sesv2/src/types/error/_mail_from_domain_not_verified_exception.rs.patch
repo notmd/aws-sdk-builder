@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for MailFromDomainNotVerifiedException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::MailFromDomainNotVerifiedException {
-+impl ::aws_types::request_id::RequestId for super::types::error::MailFromDomainNotVerifiedException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::MailFromDomainNotVerifiedException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`MailFromDomainNotVerifiedException`](crate::types::error::MailFromDomainNotVerifiedException).
 -    pub fn builder() -> crate::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder {
 -        crate::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder {
-+        super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder {
++        super::super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`MailFromDomainNotVerifiedException`](crate::types::error::MailFromDomainNotVerifiedException).
 -    pub fn build(self) -> crate::types::error::MailFromDomainNotVerifiedException {
 -        crate::types::error::MailFromDomainNotVerifiedException {
-+    pub fn build(self) -> super::types::error::MailFromDomainNotVerifiedException {
-+        super::types::error::MailFromDomainNotVerifiedException {
++    pub fn build(self) -> super::super::super::types::error::MailFromDomainNotVerifiedException {
++        super::super::super::types::error::MailFromDomainNotVerifiedException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

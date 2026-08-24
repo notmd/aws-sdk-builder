@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ResourceFilters`](crate::types::ResourceFilters).
 -    pub fn builder() -> crate::types::builders::ResourceFiltersBuilder {
 -        crate::types::builders::ResourceFiltersBuilder::default()
-+    pub fn builder() -> super::types::builders::ResourceFiltersBuilder {
-+        super::types::builders::ResourceFiltersBuilder::default()
++    pub fn builder() -> super::super::types::builders::ResourceFiltersBuilder {
++        super::super::types::builders::ResourceFiltersBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ResourceFilters`](crate::types::ResourceFilters).
 -    pub fn build(self) -> crate::types::ResourceFilters {
 -        crate::types::ResourceFilters {
-+    pub fn build(self) -> super::types::ResourceFilters {
-+        super::types::ResourceFilters {
++    pub fn build(self) -> super::super::types::ResourceFilters {
++        super::super::types::ResourceFilters {
              account_id: self.account_id,
              resource_id: self.resource_id,
              resource_name: self.resource_name,

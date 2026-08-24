@@ -5,7 +5,7 @@
      pub prefix: ::std::option::Option<::std::string::String>,
      /// <p>The list of tags to use when evaluating an AND predicate.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::types::Tag>>,
  }
  impl AnalyticsAndOperator {
      /// <p>The prefix to use when evaluating an AND predicate: The prefix that an object must have to be included in the metrics results.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
 -    pub fn tags(&self) -> &[crate::types::Tag] {
-+    pub fn tags(&self) -> &[super::types::Tag] {
++    pub fn tags(&self) -> &[super::super::types::Tag] {
          self.tags.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`AnalyticsAndOperator`](crate::types::AnalyticsAndOperator).
 -    pub fn builder() -> crate::types::builders::AnalyticsAndOperatorBuilder {
 -        crate::types::builders::AnalyticsAndOperatorBuilder::default()
-+    pub fn builder() -> super::types::builders::AnalyticsAndOperatorBuilder {
-+        super::types::builders::AnalyticsAndOperatorBuilder::default()
++    pub fn builder() -> super::super::types::builders::AnalyticsAndOperatorBuilder {
++        super::super::types::builders::AnalyticsAndOperatorBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct AnalyticsAndOperatorBuilder {
      pub(crate) prefix: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::super::types::Tag>>,
  }
  impl AnalyticsAndOperatorBuilder {
      /// <p>The prefix to use when evaluating an AND predicate: The prefix that an object must have to be included in the metrics results.</p>
@@ -41,7 +41,7 @@
      ///
      /// <p>The list of tags to use when evaluating an AND predicate.</p>
 -    pub fn tags(mut self, input: crate::types::Tag) -> Self {
-+    pub fn tags(mut self, input: super::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::super::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
          self.tags = ::std::option::Option::Some(v);
@@ -50,20 +50,20 @@
      }
      /// <p>The list of tags to use when evaluating an AND predicate.</p>
 -    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::Tag>>) -> Self {
          self.tags = input;
          self
      }
      /// <p>The list of tags to use when evaluating an AND predicate.</p>
 -    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
-+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::Tag>> {
          &self.tags
      }
      /// Consumes the builder and constructs a [`AnalyticsAndOperator`](crate::types::AnalyticsAndOperator).
 -    pub fn build(self) -> crate::types::AnalyticsAndOperator {
 -        crate::types::AnalyticsAndOperator {
-+    pub fn build(self) -> super::types::AnalyticsAndOperator {
-+        super::types::AnalyticsAndOperator {
++    pub fn build(self) -> super::super::types::AnalyticsAndOperator {
++        super::super::types::AnalyticsAndOperator {
              prefix: self.prefix,
              tags: self.tags,
          }

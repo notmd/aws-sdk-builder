@@ -5,13 +5,13 @@
  pub fn ser_bulk_email_content(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::BulkEmailContent,
-+    input: &super::types::BulkEmailContent,
++    input: &super::super::types::BulkEmailContent,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.template {
          #[allow(unused_mut)]
          let mut object_2 = object.key("Template").start_object();
 -        crate::protocol_serde::shape_template::ser_template(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_template::ser_template(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_template::ser_template(&mut object_2, var_1)?;
          object_2.finish();
      }
      Ok(())

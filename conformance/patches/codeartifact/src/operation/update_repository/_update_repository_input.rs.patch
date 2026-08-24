@@ -5,7 +5,7 @@
      pub description: ::std::option::Option<::std::string::String>,
      /// <p>A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>.</p>
 -    pub upstreams: ::std::option::Option<::std::vec::Vec<crate::types::UpstreamRepository>>,
-+    pub upstreams: ::std::option::Option<::std::vec::Vec<super::types::UpstreamRepository>>,
++    pub upstreams: ::std::option::Option<::std::vec::Vec<super::super::super::types::UpstreamRepository>>,
  }
  impl UpdateRepositoryInput {
      /// <p>The name of the domain associated with the repository to update.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.upstreams.is_none()`.
 -    pub fn upstreams(&self) -> &[crate::types::UpstreamRepository] {
-+    pub fn upstreams(&self) -> &[super::types::UpstreamRepository] {
++    pub fn upstreams(&self) -> &[super::super::super::types::UpstreamRepository] {
          self.upstreams.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateRepositoryInput`](crate::operation::update_repository::UpdateRepositoryInput).
 -    pub fn builder() -> crate::operation::update_repository::builders::UpdateRepositoryInputBuilder {
 -        crate::operation::update_repository::builders::UpdateRepositoryInputBuilder::default()
-+    pub fn builder() -> super::operation::update_repository::builders::UpdateRepositoryInputBuilder {
-+        super::operation::update_repository::builders::UpdateRepositoryInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_repository::builders::UpdateRepositoryInputBuilder {
++        super::super::super::operation::update_repository::builders::UpdateRepositoryInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) repository: ::std::option::Option<::std::string::String>,
      pub(crate) description: ::std::option::Option<::std::string::String>,
 -    pub(crate) upstreams: ::std::option::Option<::std::vec::Vec<crate::types::UpstreamRepository>>,
-+    pub(crate) upstreams: ::std::option::Option<::std::vec::Vec<super::types::UpstreamRepository>>,
++    pub(crate) upstreams: ::std::option::Option<::std::vec::Vec<super::super::super::types::UpstreamRepository>>,
  }
  impl UpdateRepositoryInputBuilder {
      /// <p>The name of the domain associated with the repository to update.</p>
@@ -41,7 +41,7 @@
      ///
      /// <p>A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>.</p>
 -    pub fn upstreams(mut self, input: crate::types::UpstreamRepository) -> Self {
-+    pub fn upstreams(mut self, input: super::types::UpstreamRepository) -> Self {
++    pub fn upstreams(mut self, input: super::super::super::types::UpstreamRepository) -> Self {
          let mut v = self.upstreams.unwrap_or_default();
          v.push(input);
          self.upstreams = ::std::option::Option::Some(v);
@@ -50,13 +50,13 @@
      }
      /// <p>A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>.</p>
 -    pub fn set_upstreams(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::UpstreamRepository>>) -> Self {
-+    pub fn set_upstreams(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::UpstreamRepository>>) -> Self {
++    pub fn set_upstreams(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::UpstreamRepository>>) -> Self {
          self.upstreams = input;
          self
      }
      /// <p>A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>.</p>
 -    pub fn get_upstreams(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UpstreamRepository>> {
-+    pub fn get_upstreams(&self) -> &::std::option::Option<::std::vec::Vec<super::types::UpstreamRepository>> {
++    pub fn get_upstreams(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::UpstreamRepository>> {
          &self.upstreams
      }
      /// Consumes the builder and constructs a [`UpdateRepositoryInput`](crate::operation::update_repository::UpdateRepositoryInput).
@@ -64,8 +64,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::update_repository::UpdateRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::update_repository::UpdateRepositoryInput {
-+    ) -> ::std::result::Result<super::operation::update_repository::UpdateRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::update_repository::UpdateRepositoryInput {
++    ) -> ::std::result::Result<super::super::super::operation::update_repository::UpdateRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::update_repository::UpdateRepositoryInput {
              domain: self.domain,
              domain_owner: self.domain_owner,
              repository: self.repository,

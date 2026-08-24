@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TagPolicyOutput`](crate::operation::tag_policy::TagPolicyOutput).
 -    pub fn builder() -> crate::operation::tag_policy::builders::TagPolicyOutputBuilder {
 -        crate::operation::tag_policy::builders::TagPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::tag_policy::builders::TagPolicyOutputBuilder {
-+        super::operation::tag_policy::builders::TagPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::tag_policy::builders::TagPolicyOutputBuilder {
++        super::super::super::operation::tag_policy::builders::TagPolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`TagPolicyOutput`](crate::operation::tag_policy::TagPolicyOutput).
 -    pub fn build(self) -> crate::operation::tag_policy::TagPolicyOutput {
 -        crate::operation::tag_policy::TagPolicyOutput {
-+    pub fn build(self) -> super::operation::tag_policy::TagPolicyOutput {
-+        super::operation::tag_policy::TagPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::tag_policy::TagPolicyOutput {
++        super::super::super::operation::tag_policy::TagPolicyOutput {
              _request_id: self._request_id,
          }
      }

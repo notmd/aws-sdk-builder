@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TerminateServiceJobInput`](crate::operation::terminate_service_job::TerminateServiceJobInput).
 -    pub fn builder() -> crate::operation::terminate_service_job::builders::TerminateServiceJobInputBuilder {
 -        crate::operation::terminate_service_job::builders::TerminateServiceJobInputBuilder::default()
-+    pub fn builder() -> super::operation::terminate_service_job::builders::TerminateServiceJobInputBuilder {
-+        super::operation::terminate_service_job::builders::TerminateServiceJobInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::terminate_service_job::builders::TerminateServiceJobInputBuilder {
++        super::super::super::operation::terminate_service_job::builders::TerminateServiceJobInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::terminate_service_job::TerminateServiceJobInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::terminate_service_job::TerminateServiceJobInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::terminate_service_job::TerminateServiceJobInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::terminate_service_job::TerminateServiceJobInput {
-+        ::std::result::Result::Ok(super::operation::terminate_service_job::TerminateServiceJobInput {
++        ::std::result::Result::Ok(super::super::super::operation::terminate_service_job::TerminateServiceJobInput {
              job_id: self.job_id,
              reason: self.reason,
          })

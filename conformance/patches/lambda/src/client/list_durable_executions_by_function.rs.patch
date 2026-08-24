@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionFluentBuilder {
 -        crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionFluentBuilder {
-+        super::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionFluentBuilder {
++        super::super::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIDToOpenIDConnectProviderFluentBuilder {
 -        crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIDToOpenIDConnectProviderFluentBuilder::new(
-+    ) -> super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIDToOpenIDConnectProviderFluentBuilder {
-+        super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIDToOpenIDConnectProviderFluentBuilder::new(
++    ) -> super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIDToOpenIDConnectProviderFluentBuilder {
++        super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIDToOpenIDConnectProviderFluentBuilder::new(
              self.handle.clone(),
          )
      }

@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    Option<::std::vec::Vec<crate::types::CloudWatchDimensionConfiguration>>,
-+    Option<::std::vec::Vec<super::types::CloudWatchDimensionConfiguration>>,
++    Option<::std::vec::Vec<super::super::types::CloudWatchDimensionConfiguration>>,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  >
  where
@@ -14,7 +14,7 @@
                      }
                      _ => {
 -                        let value = crate::protocol_serde::shape_cloud_watch_dimension_configuration::de_cloud_watch_dimension_configuration(
-+                        let value = super::protocol_serde::shape_cloud_watch_dimension_configuration::de_cloud_watch_dimension_configuration(
++                        let value = super::super::protocol_serde::shape_cloud_watch_dimension_configuration::de_cloud_watch_dimension_configuration(
                              tokens,
                              _value,
                              depth + 1,

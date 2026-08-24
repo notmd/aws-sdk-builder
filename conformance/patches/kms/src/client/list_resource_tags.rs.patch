@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListResourceTagsError>`](crate::operation::list_resource_tags::ListResourceTagsError)
 -    pub fn list_resource_tags(&self) -> crate::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder {
 -        crate::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder::new(self.handle.clone())
-+    pub fn list_resource_tags(&self) -> super::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder {
-+        super::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder::new(self.handle.clone())
++    pub fn list_resource_tags(&self) -> super::super::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder {
++        super::super::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder::new(self.handle.clone())
      }
  }

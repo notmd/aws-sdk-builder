@@ -5,12 +5,12 @@
  pub struct ConnectorConfiguration {
      /// <p>The configuration for an Azure connector.</p>
 -    pub azure: ::std::option::Option<crate::types::AzureConnectorConfiguration>,
-+    pub azure: ::std::option::Option<super::types::AzureConnectorConfiguration>,
++    pub azure: ::std::option::Option<super::super::types::AzureConnectorConfiguration>,
  }
  impl ConnectorConfiguration {
      /// <p>The configuration for an Azure connector.</p>
 -    pub fn azure(&self) -> ::std::option::Option<&crate::types::AzureConnectorConfiguration> {
-+    pub fn azure(&self) -> ::std::option::Option<&super::types::AzureConnectorConfiguration> {
++    pub fn azure(&self) -> ::std::option::Option<&super::super::types::AzureConnectorConfiguration> {
          self.azure.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`ConnectorConfiguration`](crate::types::ConnectorConfiguration).
 -    pub fn builder() -> crate::types::builders::ConnectorConfigurationBuilder {
 -        crate::types::builders::ConnectorConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::ConnectorConfigurationBuilder {
-+        super::types::builders::ConnectorConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConnectorConfigurationBuilder {
++        super::super::types::builders::ConnectorConfigurationBuilder::default()
      }
  }
 
@@ -28,30 +28,30 @@
  #[non_exhaustive]
  pub struct ConnectorConfigurationBuilder {
 -    pub(crate) azure: ::std::option::Option<crate::types::AzureConnectorConfiguration>,
-+    pub(crate) azure: ::std::option::Option<super::types::AzureConnectorConfiguration>,
++    pub(crate) azure: ::std::option::Option<super::super::types::AzureConnectorConfiguration>,
  }
  impl ConnectorConfigurationBuilder {
      /// <p>The configuration for an Azure connector.</p>
 -    pub fn azure(mut self, input: crate::types::AzureConnectorConfiguration) -> Self {
-+    pub fn azure(mut self, input: super::types::AzureConnectorConfiguration) -> Self {
++    pub fn azure(mut self, input: super::super::types::AzureConnectorConfiguration) -> Self {
          self.azure = ::std::option::Option::Some(input);
          self
      }
      /// <p>The configuration for an Azure connector.</p>
 -    pub fn set_azure(mut self, input: ::std::option::Option<crate::types::AzureConnectorConfiguration>) -> Self {
-+    pub fn set_azure(mut self, input: ::std::option::Option<super::types::AzureConnectorConfiguration>) -> Self {
++    pub fn set_azure(mut self, input: ::std::option::Option<super::super::types::AzureConnectorConfiguration>) -> Self {
          self.azure = input;
          self
      }
      /// <p>The configuration for an Azure connector.</p>
 -    pub fn get_azure(&self) -> &::std::option::Option<crate::types::AzureConnectorConfiguration> {
-+    pub fn get_azure(&self) -> &::std::option::Option<super::types::AzureConnectorConfiguration> {
++    pub fn get_azure(&self) -> &::std::option::Option<super::super::types::AzureConnectorConfiguration> {
          &self.azure
      }
      /// Consumes the builder and constructs a [`ConnectorConfiguration`](crate::types::ConnectorConfiguration).
 -    pub fn build(self) -> crate::types::ConnectorConfiguration {
 -        crate::types::ConnectorConfiguration { azure: self.azure }
-+    pub fn build(self) -> super::types::ConnectorConfiguration {
-+        super::types::ConnectorConfiguration { azure: self.azure }
++    pub fn build(self) -> super::super::types::ConnectorConfiguration {
++        super::super::types::ConnectorConfiguration { azure: self.azure }
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteConfigRuleOutput`](crate::operation::delete_config_rule::DeleteConfigRuleOutput).
 -    pub fn builder() -> crate::operation::delete_config_rule::builders::DeleteConfigRuleOutputBuilder {
 -        crate::operation::delete_config_rule::builders::DeleteConfigRuleOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_config_rule::builders::DeleteConfigRuleOutputBuilder {
-+        super::operation::delete_config_rule::builders::DeleteConfigRuleOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_config_rule::builders::DeleteConfigRuleOutputBuilder {
++        super::super::super::operation::delete_config_rule::builders::DeleteConfigRuleOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteConfigRuleOutput`](crate::operation::delete_config_rule::DeleteConfigRuleOutput).
 -    pub fn build(self) -> crate::operation::delete_config_rule::DeleteConfigRuleOutput {
 -        crate::operation::delete_config_rule::DeleteConfigRuleOutput {
-+    pub fn build(self) -> super::operation::delete_config_rule::DeleteConfigRuleOutput {
-+        super::operation::delete_config_rule::DeleteConfigRuleOutput {
++    pub fn build(self) -> super::super::super::operation::delete_config_rule::DeleteConfigRuleOutput {
++        super::super::super::operation::delete_config_rule::DeleteConfigRuleOutput {
              _request_id: self._request_id,
          }
      }

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyFluentBuilder {
 -        crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyFluentBuilder {
-+        super::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyFluentBuilder {
++        super::super::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder {
 -        crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder {
-+        super::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder {
++        super::super::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DetachGroupPolicyError>`](crate::operation::detach_group_policy::DetachGroupPolicyError)
 -    pub fn detach_group_policy(&self) -> crate::operation::detach_group_policy::builders::DetachGroupPolicyFluentBuilder {
 -        crate::operation::detach_group_policy::builders::DetachGroupPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn detach_group_policy(&self) -> super::operation::detach_group_policy::builders::DetachGroupPolicyFluentBuilder {
-+        super::operation::detach_group_policy::builders::DetachGroupPolicyFluentBuilder::new(self.handle.clone())
++    pub fn detach_group_policy(&self) -> super::super::operation::detach_group_policy::builders::DetachGroupPolicyFluentBuilder {
++        super::super::operation::detach_group_policy::builders::DetachGroupPolicyFluentBuilder::new(self.handle.clone())
      }
  }

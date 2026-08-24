@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UnsubscribeOutput`](crate::operation::unsubscribe::UnsubscribeOutput).
 -    pub fn builder() -> crate::operation::unsubscribe::builders::UnsubscribeOutputBuilder {
 -        crate::operation::unsubscribe::builders::UnsubscribeOutputBuilder::default()
-+    pub fn builder() -> super::operation::unsubscribe::builders::UnsubscribeOutputBuilder {
-+        super::operation::unsubscribe::builders::UnsubscribeOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::unsubscribe::builders::UnsubscribeOutputBuilder {
++        super::super::super::operation::unsubscribe::builders::UnsubscribeOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UnsubscribeOutput`](crate::operation::unsubscribe::UnsubscribeOutput).
 -    pub fn build(self) -> crate::operation::unsubscribe::UnsubscribeOutput {
 -        crate::operation::unsubscribe::UnsubscribeOutput {
-+    pub fn build(self) -> super::operation::unsubscribe::UnsubscribeOutput {
-+        super::operation::unsubscribe::UnsubscribeOutput {
++    pub fn build(self) -> super::super::super::operation::unsubscribe::UnsubscribeOutput {
++        super::super::super::operation::unsubscribe::UnsubscribeOutput {
              _request_id: self._request_id,
          }
      }

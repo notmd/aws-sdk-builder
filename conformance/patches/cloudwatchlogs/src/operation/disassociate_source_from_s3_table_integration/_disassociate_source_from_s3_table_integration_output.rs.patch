@@ -6,8 +6,8 @@
      pub fn builder(
 -    ) -> crate::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder {
 -        crate::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder::default()
-+    ) -> super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder {
-+        super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder::default()
++    ) -> super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder {
++        super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DisassociateSourceFromS3TableIntegrationOutput`](crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput).
 -    pub fn build(self) -> crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput {
 -        crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput {
-+    pub fn build(self) -> super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput {
-+        super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput {
++    pub fn build(self) -> super::super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput {
++        super::super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput {
              identifier: self.identifier,
              _request_id: self._request_id,
          }

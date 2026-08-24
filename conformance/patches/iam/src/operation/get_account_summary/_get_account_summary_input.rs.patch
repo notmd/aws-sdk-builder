@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetAccountSummaryInput`](crate::operation::get_account_summary::GetAccountSummaryInput).
 -    pub fn builder() -> crate::operation::get_account_summary::builders::GetAccountSummaryInputBuilder {
 -        crate::operation::get_account_summary::builders::GetAccountSummaryInputBuilder::default()
-+    pub fn builder() -> super::operation::get_account_summary::builders::GetAccountSummaryInputBuilder {
-+        super::operation::get_account_summary::builders::GetAccountSummaryInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_account_summary::builders::GetAccountSummaryInputBuilder {
++        super::super::super::operation::get_account_summary::builders::GetAccountSummaryInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_account_summary::GetAccountSummaryInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_account_summary::GetAccountSummaryInput {})
-+    ) -> ::std::result::Result<super::operation::get_account_summary::GetAccountSummaryInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_account_summary::GetAccountSummaryInput {})
++    ) -> ::std::result::Result<super::super::super::operation::get_account_summary::GetAccountSummaryInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_account_summary::GetAccountSummaryInput {})
      }
  }

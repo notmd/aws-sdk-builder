@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`LogEvent`](crate::types::LogEvent).
 -    pub fn builder() -> crate::types::builders::LogEventBuilder {
 -        crate::types::builders::LogEventBuilder::default()
-+    pub fn builder() -> super::types::builders::LogEventBuilder {
-+        super::types::builders::LogEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::LogEventBuilder {
++        super::super::types::builders::LogEventBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`LogEvent`](crate::types::LogEvent).
 -    pub fn build(self) -> crate::types::LogEvent {
 -        crate::types::LogEvent {
-+    pub fn build(self) -> super::types::LogEvent {
-+        super::types::LogEvent {
++    pub fn build(self) -> super::super::types::LogEvent {
++        super::super::types::LogEvent {
              timestamp: self.timestamp,
              message: self.message,
          }

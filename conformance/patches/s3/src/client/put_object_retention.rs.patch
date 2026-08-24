@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutObjectRetentionError>`](crate::operation::put_object_retention::PutObjectRetentionError)
 -    pub fn put_object_retention(&self) -> crate::operation::put_object_retention::builders::PutObjectRetentionFluentBuilder {
 -        crate::operation::put_object_retention::builders::PutObjectRetentionFluentBuilder::new(self.handle.clone())
-+    pub fn put_object_retention(&self) -> super::operation::put_object_retention::builders::PutObjectRetentionFluentBuilder {
-+        super::operation::put_object_retention::builders::PutObjectRetentionFluentBuilder::new(self.handle.clone())
++    pub fn put_object_retention(&self) -> super::super::operation::put_object_retention::builders::PutObjectRetentionFluentBuilder {
++        super::super::operation::put_object_retention::builders::PutObjectRetentionFluentBuilder::new(self.handle.clone())
      }
  }

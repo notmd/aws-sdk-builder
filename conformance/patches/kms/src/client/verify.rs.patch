@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<VerifyError>`](crate::operation::verify::VerifyError)
 -    pub fn verify(&self) -> crate::operation::verify::builders::VerifyFluentBuilder {
 -        crate::operation::verify::builders::VerifyFluentBuilder::new(self.handle.clone())
-+    pub fn verify(&self) -> super::operation::verify::builders::VerifyFluentBuilder {
-+        super::operation::verify::builders::VerifyFluentBuilder::new(self.handle.clone())
++    pub fn verify(&self) -> super::super::operation::verify::builders::VerifyFluentBuilder {
++        super::super::operation::verify::builders::VerifyFluentBuilder::new(self.handle.clone())
      }
  }

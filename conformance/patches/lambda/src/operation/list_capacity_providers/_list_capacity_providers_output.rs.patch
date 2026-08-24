@@ -5,7 +5,7 @@
  pub struct ListCapacityProvidersOutput {
      /// <p>A list of capacity providers in your account.</p>
 -    pub capacity_providers: ::std::vec::Vec<crate::types::CapacityProvider>,
-+    pub capacity_providers: ::std::vec::Vec<super::types::CapacityProvider>,
++    pub capacity_providers: ::std::vec::Vec<super::super::super::types::CapacityProvider>,
      /// <p>The pagination token that's included if more results are available.</p>
      pub next_marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
  impl ListCapacityProvidersOutput {
      /// <p>A list of capacity providers in your account.</p>
 -    pub fn capacity_providers(&self) -> &[crate::types::CapacityProvider] {
-+    pub fn capacity_providers(&self) -> &[super::types::CapacityProvider] {
++    pub fn capacity_providers(&self) -> &[super::super::super::types::CapacityProvider] {
          use std::ops::Deref;
          self.capacity_providers.deref()
      }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListCapacityProvidersOutput`](crate::operation::list_capacity_providers::ListCapacityProvidersOutput).
 -    pub fn builder() -> crate::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder {
 -        crate::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder {
-+        super::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder {
++        super::super::super::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListCapacityProvidersOutputBuilder {
 -    pub(crate) capacity_providers: ::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>>,
-+    pub(crate) capacity_providers: ::std::option::Option<::std::vec::Vec<super::types::CapacityProvider>>,
++    pub(crate) capacity_providers: ::std::option::Option<::std::vec::Vec<super::super::super::types::CapacityProvider>>,
      pub(crate) next_marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of capacity providers in your account.</p>
 -    pub fn capacity_providers(mut self, input: crate::types::CapacityProvider) -> Self {
-+    pub fn capacity_providers(mut self, input: super::types::CapacityProvider) -> Self {
++    pub fn capacity_providers(mut self, input: super::super::super::types::CapacityProvider) -> Self {
          let mut v = self.capacity_providers.unwrap_or_default();
          v.push(input);
          self.capacity_providers = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of capacity providers in your account.</p>
 -    pub fn set_capacity_providers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>>) -> Self {
-+    pub fn set_capacity_providers(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::CapacityProvider>>) -> Self {
++    pub fn set_capacity_providers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::CapacityProvider>>) -> Self {
          self.capacity_providers = input;
          self
      }
      /// <p>A list of capacity providers in your account.</p>
 -    pub fn get_capacity_providers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>> {
-+    pub fn get_capacity_providers(&self) -> &::std::option::Option<::std::vec::Vec<super::types::CapacityProvider>> {
++    pub fn get_capacity_providers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::CapacityProvider>> {
          &self.capacity_providers
      }
      /// <p>The pagination token that's included if more results are available.</p>
@@ -67,10 +67,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::list_capacity_providers::ListCapacityProvidersOutput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::list_capacity_providers::ListCapacityProvidersOutput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::list_capacity_providers::ListCapacityProvidersOutput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::list_capacity_providers::ListCapacityProvidersOutput {
-+        ::std::result::Result::Ok(super::operation::list_capacity_providers::ListCapacityProvidersOutput {
++        ::std::result::Result::Ok(super::super::super::operation::list_capacity_providers::ListCapacityProvidersOutput {
              capacity_providers: self.capacity_providers.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "capacity_providers",

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DisassociateKmsKeyInput`](crate::operation::disassociate_kms_key::DisassociateKmsKeyInput).
 -    pub fn builder() -> crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyInputBuilder {
 -        crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyInputBuilder::default()
-+    pub fn builder() -> super::operation::disassociate_kms_key::builders::DisassociateKmsKeyInputBuilder {
-+        super::operation::disassociate_kms_key::builders::DisassociateKmsKeyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::disassociate_kms_key::builders::DisassociateKmsKeyInputBuilder {
++        super::super::super::operation::disassociate_kms_key::builders::DisassociateKmsKeyInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::disassociate_kms_key::DisassociateKmsKeyInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::disassociate_kms_key::DisassociateKmsKeyInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::disassociate_kms_key::DisassociateKmsKeyInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::disassociate_kms_key::DisassociateKmsKeyInput {
-+        ::std::result::Result::Ok(super::operation::disassociate_kms_key::DisassociateKmsKeyInput {
++        ::std::result::Result::Ok(super::super::super::operation::disassociate_kms_key::DisassociateKmsKeyInput {
              log_group_name: self.log_group_name,
              resource_identifier: self.resource_identifier,
          })

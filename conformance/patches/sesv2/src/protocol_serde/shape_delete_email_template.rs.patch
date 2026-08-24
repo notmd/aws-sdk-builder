@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::delete_email_template::DeleteEmailTemplateOutput,
 -    crate::operation::delete_email_template::DeleteEmailTemplateError,
-+    super::operation::delete_email_template::DeleteEmailTemplateOutput,
-+    super::operation::delete_email_template::DeleteEmailTemplateError,
++    super::super::operation::delete_email_template::DeleteEmailTemplateOutput,
++    super::super::operation::delete_email_template::DeleteEmailTemplateError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::delete_email_template::DeleteEmailTemplateError::unhandled(generic)),
-+        None => return Err(super::operation::delete_email_template::DeleteEmailTemplateError::unhandled(generic)),
++        None => return Err(super::super::operation::delete_email_template::DeleteEmailTemplateError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "BadRequestException" => crate::operation::delete_email_template::DeleteEmailTemplateError::BadRequestException({
-+        "BadRequestException" => super::operation::delete_email_template::DeleteEmailTemplateError::BadRequestException({
++        "BadRequestException" => super::super::operation::delete_email_template::DeleteEmailTemplateError::BadRequestException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
-+                let mut output = super::types::error::builders::BadRequestExceptionBuilder::default();
-+                output = super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
++                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "NotFoundException" => crate::operation::delete_email_template::DeleteEmailTemplateError::NotFoundException({
-+        "NotFoundException" => super::operation::delete_email_template::DeleteEmailTemplateError::NotFoundException({
++        "NotFoundException" => super::super::operation::delete_email_template::DeleteEmailTemplateError::NotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
-+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,16 +61,16 @@
              tmp
          }),
 -        "TooManyRequestsException" => crate::operation::delete_email_template::DeleteEmailTemplateError::TooManyRequestsException({
-+        "TooManyRequestsException" => super::operation::delete_email_template::DeleteEmailTemplateError::TooManyRequestsException({
++        "TooManyRequestsException" => super::super::operation::delete_email_template::DeleteEmailTemplateError::TooManyRequestsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
-+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
++                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -79,7 +79,7 @@
              tmp
          }),
 -        _ => crate::operation::delete_email_template::DeleteEmailTemplateError::generic(generic),
-+        _ => super::operation::delete_email_template::DeleteEmailTemplateError::generic(generic),
++        _ => super::super::operation::delete_email_template::DeleteEmailTemplateError::generic(generic),
      })
  }
 
@@ -89,13 +89,13 @@
  ) -> std::result::Result<
 -    crate::operation::delete_email_template::DeleteEmailTemplateOutput,
 -    crate::operation::delete_email_template::DeleteEmailTemplateError,
-+    super::operation::delete_email_template::DeleteEmailTemplateOutput,
-+    super::operation::delete_email_template::DeleteEmailTemplateError,
++    super::super::operation::delete_email_template::DeleteEmailTemplateOutput,
++    super::super::operation::delete_email_template::DeleteEmailTemplateError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder::default();
-+        let mut output = super::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder::default();
++        let mut output = super::super::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })

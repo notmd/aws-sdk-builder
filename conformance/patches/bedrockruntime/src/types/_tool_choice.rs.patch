@@ -5,13 +5,13 @@
  pub enum ToolChoice {
      /// <p>The model must request at least one tool (no text is generated).</p>
 -    Any(crate::types::AnyToolChoice),
-+    Any(super::types::AnyToolChoice),
++    Any(super::super::types::AnyToolChoice),
      /// <p>(Default). The Model automatically decides if a tool should be called or whether to generate text instead.</p>
 -    Auto(crate::types::AutoToolChoice),
-+    Auto(super::types::AutoToolChoice),
++    Auto(super::super::types::AutoToolChoice),
      /// <p>The Model must request the specified tool. Only supported by Anthropic Claude 3 and Amazon Nova models.</p>
 -    Tool(crate::types::SpecificToolChoice),
-+    Tool(super::types::SpecificToolChoice),
++    Tool(super::super::types::SpecificToolChoice),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -20,7 +20,7 @@
      /// Tries to convert the enum instance into [`Any`](crate::types::ToolChoice::Any), extracting the inner [`AnyToolChoice`](crate::types::AnyToolChoice).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_any(&self) -> ::std::result::Result<&crate::types::AnyToolChoice, &Self> {
-+    pub fn as_any(&self) -> ::std::result::Result<&super::types::AnyToolChoice, &Self> {
++    pub fn as_any(&self) -> ::std::result::Result<&super::super::types::AnyToolChoice, &Self> {
          if let ToolChoice::Any(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -29,7 +29,7 @@
      /// Tries to convert the enum instance into [`Auto`](crate::types::ToolChoice::Auto), extracting the inner [`AutoToolChoice`](crate::types::AutoToolChoice).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_auto(&self) -> ::std::result::Result<&crate::types::AutoToolChoice, &Self> {
-+    pub fn as_auto(&self) -> ::std::result::Result<&super::types::AutoToolChoice, &Self> {
++    pub fn as_auto(&self) -> ::std::result::Result<&super::super::types::AutoToolChoice, &Self> {
          if let ToolChoice::Auto(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -38,7 +38,7 @@
      /// Tries to convert the enum instance into [`Tool`](crate::types::ToolChoice::Tool), extracting the inner [`SpecificToolChoice`](crate::types::SpecificToolChoice).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_tool(&self) -> ::std::result::Result<&crate::types::SpecificToolChoice, &Self> {
-+    pub fn as_tool(&self) -> ::std::result::Result<&super::types::SpecificToolChoice, &Self> {
++    pub fn as_tool(&self) -> ::std::result::Result<&super::super::types::SpecificToolChoice, &Self> {
          if let ToolChoice::Tool(val) = &self {
              ::std::result::Result::Ok(val)
          } else {

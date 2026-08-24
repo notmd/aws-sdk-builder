@@ -5,7 +5,7 @@
  pub struct DescribeServiceEnvironmentsOutput {
      /// <p>The list of service environments that match the request.</p>
 -    pub service_environments: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentDetail>>,
-+    pub service_environments: ::std::option::Option<::std::vec::Vec<super::types::ServiceEnvironmentDetail>>,
++    pub service_environments: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentDetail>>,
      /// <p>The <code>nextToken</code> value to include in a future <code>DescribeServiceEnvironments</code> request. When the results of a <code>DescribeServiceEnvironments</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_environments.is_none()`.
 -    pub fn service_environments(&self) -> &[crate::types::ServiceEnvironmentDetail] {
-+    pub fn service_environments(&self) -> &[super::types::ServiceEnvironmentDetail] {
++    pub fn service_environments(&self) -> &[super::super::super::types::ServiceEnvironmentDetail] {
          self.service_environments.as_deref().unwrap_or_default()
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>DescribeServiceEnvironments</code> request. When the results of a <code>DescribeServiceEnvironments</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeServiceEnvironmentsOutput`](crate::operation::describe_service_environments::DescribeServiceEnvironmentsOutput).
 -    pub fn builder() -> crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsOutputBuilder {
 -        crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsOutputBuilder {
-+        super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsOutputBuilder {
++        super::super::super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeServiceEnvironmentsOutputBuilder {
 -    pub(crate) service_environments: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentDetail>>,
-+    pub(crate) service_environments: ::std::option::Option<::std::vec::Vec<super::types::ServiceEnvironmentDetail>>,
++    pub(crate) service_environments: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentDetail>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The list of service environments that match the request.</p>
 -    pub fn service_environments(mut self, input: crate::types::ServiceEnvironmentDetail) -> Self {
-+    pub fn service_environments(mut self, input: super::types::ServiceEnvironmentDetail) -> Self {
++    pub fn service_environments(mut self, input: super::super::super::types::ServiceEnvironmentDetail) -> Self {
          let mut v = self.service_environments.unwrap_or_default();
          v.push(input);
          self.service_environments = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The list of service environments that match the request.</p>
 -    pub fn set_service_environments(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentDetail>>) -> Self {
-+    pub fn set_service_environments(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ServiceEnvironmentDetail>>) -> Self {
++    pub fn set_service_environments(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentDetail>>) -> Self {
          self.service_environments = input;
          self
      }
      /// <p>The list of service environments that match the request.</p>
 -    pub fn get_service_environments(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentDetail>> {
-+    pub fn get_service_environments(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ServiceEnvironmentDetail>> {
++    pub fn get_service_environments(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentDetail>> {
          &self.service_environments
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>DescribeServiceEnvironments</code> request. When the results of a <code>DescribeServiceEnvironments</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeServiceEnvironmentsOutput`](crate::operation::describe_service_environments::DescribeServiceEnvironmentsOutput).
 -    pub fn build(self) -> crate::operation::describe_service_environments::DescribeServiceEnvironmentsOutput {
 -        crate::operation::describe_service_environments::DescribeServiceEnvironmentsOutput {
-+    pub fn build(self) -> super::operation::describe_service_environments::DescribeServiceEnvironmentsOutput {
-+        super::operation::describe_service_environments::DescribeServiceEnvironmentsOutput {
++    pub fn build(self) -> super::super::super::operation::describe_service_environments::DescribeServiceEnvironmentsOutput {
++        super::super::super::operation::describe_service_environments::DescribeServiceEnvironmentsOutput {
              service_environments: self.service_environments,
              next_token: self.next_token,
              _request_id: self._request_id,

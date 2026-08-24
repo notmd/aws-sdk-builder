@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RetireGrantInput`](crate::operation::retire_grant::RetireGrantInput).
 -    pub fn builder() -> crate::operation::retire_grant::builders::RetireGrantInputBuilder {
 -        crate::operation::retire_grant::builders::RetireGrantInputBuilder::default()
-+    pub fn builder() -> super::operation::retire_grant::builders::RetireGrantInputBuilder {
-+        super::operation::retire_grant::builders::RetireGrantInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::retire_grant::builders::RetireGrantInputBuilder {
++        super::super::super::operation::retire_grant::builders::RetireGrantInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`RetireGrantInput`](crate::operation::retire_grant::RetireGrantInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::retire_grant::RetireGrantInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::retire_grant::RetireGrantInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::retire_grant::RetireGrantInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::retire_grant::RetireGrantInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::retire_grant::RetireGrantInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::retire_grant::RetireGrantInput {
              grant_token: self.grant_token,
              key_id: self.key_id,
              grant_id: self.grant_id,

@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::RecordingGroup>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::RecordingGroup>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::RecordingGroup>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::RecordingGroupBuilder::default();
-+            let mut builder = super::types::builders::RecordingGroupBuilder::default();
++            let mut builder = super::super::types::builders::RecordingGroupBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          }
                          "resourceTypes" => {
 -                            builder = builder.set_resource_types(crate::protocol_serde::shape_resource_type_list::de_resource_type_list(
-+                            builder = builder.set_resource_types(super::protocol_serde::shape_resource_type_list::de_resource_type_list(
++                            builder = builder.set_resource_types(super::super::protocol_serde::shape_resource_type_list::de_resource_type_list(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -32,12 +32,12 @@
                          "exclusionByResourceTypes" => {
                              builder = builder.set_exclusion_by_resource_types(
 -                                crate::protocol_serde::shape_exclusion_by_resource_types::de_exclusion_by_resource_types(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_exclusion_by_resource_types::de_exclusion_by_resource_types(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_exclusion_by_resource_types::de_exclusion_by_resource_types(tokens, _value, depth + 1)?,
                              );
                          }
                          "recordingStrategy" => {
 -                            builder = builder.set_recording_strategy(crate::protocol_serde::shape_recording_strategy::de_recording_strategy(
-+                            builder = builder.set_recording_strategy(super::protocol_serde::shape_recording_strategy::de_recording_strategy(
++                            builder = builder.set_recording_strategy(super::super::protocol_serde::shape_recording_strategy::de_recording_strategy(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -46,7 +46,7 @@
  pub fn ser_recording_group(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::RecordingGroup,
-+    input: &super::types::RecordingGroup,
++    input: &super::super::types::RecordingGroup,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if input.all_supported {
          object.key("allSupported").boolean(input.all_supported);
@@ -55,14 +55,14 @@
          #[allow(unused_mut)]
          let mut object_5 = object.key("exclusionByResourceTypes").start_object();
 -        crate::protocol_serde::shape_exclusion_by_resource_types::ser_exclusion_by_resource_types(&mut object_5, var_4)?;
-+        super::protocol_serde::shape_exclusion_by_resource_types::ser_exclusion_by_resource_types(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_exclusion_by_resource_types::ser_exclusion_by_resource_types(&mut object_5, var_4)?;
          object_5.finish();
      }
      if let Some(var_6) = &input.recording_strategy {
          #[allow(unused_mut)]
          let mut object_7 = object.key("recordingStrategy").start_object();
 -        crate::protocol_serde::shape_recording_strategy::ser_recording_strategy(&mut object_7, var_6)?;
-+        super::protocol_serde::shape_recording_strategy::ser_recording_strategy(&mut object_7, var_6)?;
++        super::super::protocol_serde::shape_recording_strategy::ser_recording_strategy(&mut object_7, var_6)?;
          object_7.finish();
      }
      Ok(())

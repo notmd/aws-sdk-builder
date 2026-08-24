@@ -5,7 +5,7 @@
  pub struct ListPackageVersionDependenciesOutput {
      /// <p>A format that specifies the type of the package that contains the returned dependencies.</p>
 -    pub format: ::std::option::Option<crate::types::PackageFormat>,
-+    pub format: ::std::option::Option<super::types::PackageFormat>,
++    pub format: ::std::option::Option<super::super::super::types::PackageFormat>,
      /// <p>The namespace of the package version that contains the returned dependencies. The package component that specifies its namespace depends on its type. For example:</p><note>
      /// <p>The namespace is required when listing dependencies from package versions of the following formats:</p>
      /// <ul>
@@ -14,13 +14,13 @@
      pub next_token: ::std::option::Option<::std::string::String>,
      /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a> objects.</p>
 -    pub dependencies: ::std::option::Option<::std::vec::Vec<crate::types::PackageDependency>>,
-+    pub dependencies: ::std::option::Option<::std::vec::Vec<super::types::PackageDependency>>,
++    pub dependencies: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageDependency>>,
      _request_id: Option<String>,
  }
  impl ListPackageVersionDependenciesOutput {
      /// <p>A format that specifies the type of the package that contains the returned dependencies.</p>
 -    pub fn format(&self) -> ::std::option::Option<&crate::types::PackageFormat> {
-+    pub fn format(&self) -> ::std::option::Option<&super::types::PackageFormat> {
++    pub fn format(&self) -> ::std::option::Option<&super::super::super::types::PackageFormat> {
          self.format.as_ref()
      }
      /// <p>The namespace of the package version that contains the returned dependencies. The package component that specifies its namespace depends on its type. For example:</p><note>
@@ -29,7 +29,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.dependencies.is_none()`.
 -    pub fn dependencies(&self) -> &[crate::types::PackageDependency] {
-+    pub fn dependencies(&self) -> &[super::types::PackageDependency] {
++    pub fn dependencies(&self) -> &[super::super::super::types::PackageDependency] {
          self.dependencies.as_deref().unwrap_or_default()
      }
  }
@@ -39,8 +39,8 @@
      /// Creates a new builder-style object to manufacture [`ListPackageVersionDependenciesOutput`](crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput).
 -    pub fn builder() -> crate::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder {
 -        crate::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder {
-+        super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder {
++        super::super::super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder::default()
      }
  }
 
@@ -49,32 +49,32 @@
  #[non_exhaustive]
  pub struct ListPackageVersionDependenciesOutputBuilder {
 -    pub(crate) format: ::std::option::Option<crate::types::PackageFormat>,
-+    pub(crate) format: ::std::option::Option<super::types::PackageFormat>,
++    pub(crate) format: ::std::option::Option<super::super::super::types::PackageFormat>,
      pub(crate) namespace: ::std::option::Option<::std::string::String>,
      pub(crate) package: ::std::option::Option<::std::string::String>,
      pub(crate) version: ::std::option::Option<::std::string::String>,
      pub(crate) version_revision: ::std::option::Option<::std::string::String>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    pub(crate) dependencies: ::std::option::Option<::std::vec::Vec<crate::types::PackageDependency>>,
-+    pub(crate) dependencies: ::std::option::Option<::std::vec::Vec<super::types::PackageDependency>>,
++    pub(crate) dependencies: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageDependency>>,
      _request_id: Option<String>,
  }
  impl ListPackageVersionDependenciesOutputBuilder {
      /// <p>A format that specifies the type of the package that contains the returned dependencies.</p>
 -    pub fn format(mut self, input: crate::types::PackageFormat) -> Self {
-+    pub fn format(mut self, input: super::types::PackageFormat) -> Self {
++    pub fn format(mut self, input: super::super::super::types::PackageFormat) -> Self {
          self.format = ::std::option::Option::Some(input);
          self
      }
      /// <p>A format that specifies the type of the package that contains the returned dependencies.</p>
 -    pub fn set_format(mut self, input: ::std::option::Option<crate::types::PackageFormat>) -> Self {
-+    pub fn set_format(mut self, input: ::std::option::Option<super::types::PackageFormat>) -> Self {
++    pub fn set_format(mut self, input: ::std::option::Option<super::super::super::types::PackageFormat>) -> Self {
          self.format = input;
          self
      }
      /// <p>A format that specifies the type of the package that contains the returned dependencies.</p>
 -    pub fn get_format(&self) -> &::std::option::Option<crate::types::PackageFormat> {
-+    pub fn get_format(&self) -> &::std::option::Option<super::types::PackageFormat> {
++    pub fn get_format(&self) -> &::std::option::Option<super::super::super::types::PackageFormat> {
          &self.format
      }
      /// <p>The namespace of the package version that contains the returned dependencies. The package component that specifies its namespace depends on its type. For example:</p><note>
@@ -83,7 +83,7 @@
      ///
      /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a> objects.</p>
 -    pub fn dependencies(mut self, input: crate::types::PackageDependency) -> Self {
-+    pub fn dependencies(mut self, input: super::types::PackageDependency) -> Self {
++    pub fn dependencies(mut self, input: super::super::super::types::PackageDependency) -> Self {
          let mut v = self.dependencies.unwrap_or_default();
          v.push(input);
          self.dependencies = ::std::option::Option::Some(v);
@@ -92,13 +92,13 @@
      }
      /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a> objects.</p>
 -    pub fn set_dependencies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PackageDependency>>) -> Self {
-+    pub fn set_dependencies(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PackageDependency>>) -> Self {
++    pub fn set_dependencies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageDependency>>) -> Self {
          self.dependencies = input;
          self
      }
      /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a> objects.</p>
 -    pub fn get_dependencies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageDependency>> {
-+    pub fn get_dependencies(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PackageDependency>> {
++    pub fn get_dependencies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PackageDependency>> {
          &self.dependencies
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -108,8 +108,8 @@
      /// Consumes the builder and constructs a [`ListPackageVersionDependenciesOutput`](crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput).
 -    pub fn build(self) -> crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput {
 -        crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput {
-+    pub fn build(self) -> super::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput {
-+        super::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput {
++    pub fn build(self) -> super::super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput {
++        super::super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput {
              format: self.format,
              namespace: self.namespace,
              package: self.package,

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CancelExportTaskError>`](crate::operation::cancel_export_task::CancelExportTaskError)
 -    pub fn cancel_export_task(&self) -> crate::operation::cancel_export_task::builders::CancelExportTaskFluentBuilder {
 -        crate::operation::cancel_export_task::builders::CancelExportTaskFluentBuilder::new(self.handle.clone())
-+    pub fn cancel_export_task(&self) -> super::operation::cancel_export_task::builders::CancelExportTaskFluentBuilder {
-+        super::operation::cancel_export_task::builders::CancelExportTaskFluentBuilder::new(self.handle.clone())
++    pub fn cancel_export_task(&self) -> super::super::operation::cancel_export_task::builders::CancelExportTaskFluentBuilder {
++        super::super::operation::cancel_export_task::builders::CancelExportTaskFluentBuilder::new(self.handle.clone())
      }
  }

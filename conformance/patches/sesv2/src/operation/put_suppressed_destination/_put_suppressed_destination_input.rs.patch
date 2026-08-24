@@ -5,7 +5,7 @@
      pub email_address: ::std::option::Option<::std::string::String>,
      /// <p>The factors that should cause the email address to be added to the suppression list for your account or for the specified tenant.</p>
 -    pub reason: ::std::option::Option<crate::types::SuppressionListReason>,
-+    pub reason: ::std::option::Option<super::types::SuppressionListReason>,
++    pub reason: ::std::option::Option<super::super::super::types::SuppressionListReason>,
      /// <p>The name of the tenant whose suppression list you want to add the address to. If you omit this parameter, the address is added to the account-level suppression list.</p>
      pub tenant_name: ::std::option::Option<::std::string::String>,
  }
@@ -14,7 +14,7 @@
      }
      /// <p>The factors that should cause the email address to be added to the suppression list for your account or for the specified tenant.</p>
 -    pub fn reason(&self) -> ::std::option::Option<&crate::types::SuppressionListReason> {
-+    pub fn reason(&self) -> ::std::option::Option<&super::types::SuppressionListReason> {
++    pub fn reason(&self) -> ::std::option::Option<&super::super::super::types::SuppressionListReason> {
          self.reason.as_ref()
      }
      /// <p>The name of the tenant whose suppression list you want to add the address to. If you omit this parameter, the address is added to the account-level suppression list.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`PutSuppressedDestinationInput`](crate::operation::put_suppressed_destination::PutSuppressedDestinationInput).
 -    pub fn builder() -> crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder {
 -        crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder::default()
-+    pub fn builder() -> super::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder {
-+        super::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder {
++        super::super::super::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct PutSuppressedDestinationInputBuilder {
      pub(crate) email_address: ::std::option::Option<::std::string::String>,
 -    pub(crate) reason: ::std::option::Option<crate::types::SuppressionListReason>,
-+    pub(crate) reason: ::std::option::Option<super::types::SuppressionListReason>,
++    pub(crate) reason: ::std::option::Option<super::super::super::types::SuppressionListReason>,
      pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
  }
  impl PutSuppressedDestinationInputBuilder {
@@ -43,19 +43,19 @@
      /// <p>The factors that should cause the email address to be added to the suppression list for your account or for the specified tenant.</p>
      /// This field is required.
 -    pub fn reason(mut self, input: crate::types::SuppressionListReason) -> Self {
-+    pub fn reason(mut self, input: super::types::SuppressionListReason) -> Self {
++    pub fn reason(mut self, input: super::super::super::types::SuppressionListReason) -> Self {
          self.reason = ::std::option::Option::Some(input);
          self
      }
      /// <p>The factors that should cause the email address to be added to the suppression list for your account or for the specified tenant.</p>
 -    pub fn set_reason(mut self, input: ::std::option::Option<crate::types::SuppressionListReason>) -> Self {
-+    pub fn set_reason(mut self, input: ::std::option::Option<super::types::SuppressionListReason>) -> Self {
++    pub fn set_reason(mut self, input: ::std::option::Option<super::super::super::types::SuppressionListReason>) -> Self {
          self.reason = input;
          self
      }
      /// <p>The factors that should cause the email address to be added to the suppression list for your account or for the specified tenant.</p>
 -    pub fn get_reason(&self) -> &::std::option::Option<crate::types::SuppressionListReason> {
-+    pub fn get_reason(&self) -> &::std::option::Option<super::types::SuppressionListReason> {
++    pub fn get_reason(&self) -> &::std::option::Option<super::super::super::types::SuppressionListReason> {
          &self.reason
      }
      /// <p>The name of the tenant whose suppression list you want to add the address to. If you omit this parameter, the address is added to the account-level suppression list.</p>
@@ -64,11 +64,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::put_suppressed_destination::PutSuppressedDestinationInput,
-+        super::operation::put_suppressed_destination::PutSuppressedDestinationInput,
++        super::super::super::operation::put_suppressed_destination::PutSuppressedDestinationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::put_suppressed_destination::PutSuppressedDestinationInput {
-+        ::std::result::Result::Ok(super::operation::put_suppressed_destination::PutSuppressedDestinationInput {
++        ::std::result::Result::Ok(super::super::super::operation::put_suppressed_destination::PutSuppressedDestinationInput {
              email_address: self.email_address,
              reason: self.reason,
              tenant_name: self.tenant_name,

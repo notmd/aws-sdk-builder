@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`NumberAttributeConstraintsType`](crate::types::NumberAttributeConstraintsType).
 -    pub fn builder() -> crate::types::builders::NumberAttributeConstraintsTypeBuilder {
 -        crate::types::builders::NumberAttributeConstraintsTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::NumberAttributeConstraintsTypeBuilder {
-+        super::types::builders::NumberAttributeConstraintsTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::NumberAttributeConstraintsTypeBuilder {
++        super::super::types::builders::NumberAttributeConstraintsTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`NumberAttributeConstraintsType`](crate::types::NumberAttributeConstraintsType).
 -    pub fn build(self) -> crate::types::NumberAttributeConstraintsType {
 -        crate::types::NumberAttributeConstraintsType {
-+    pub fn build(self) -> super::types::NumberAttributeConstraintsType {
-+        super::types::NumberAttributeConstraintsType {
++    pub fn build(self) -> super::super::types::NumberAttributeConstraintsType {
++        super::super::types::NumberAttributeConstraintsType {
              min_value: self.min_value,
              max_value: self.max_value,
          }

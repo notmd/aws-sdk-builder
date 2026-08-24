@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetEmailIdentityPoliciesInput`](crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput).
 -    pub fn builder() -> crate::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesInputBuilder {
 -        crate::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesInputBuilder::default()
-+    pub fn builder() -> super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesInputBuilder {
-+        super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesInputBuilder {
++        super::super::super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput,
-+        super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput,
++        super::super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput {
-+        ::std::result::Result::Ok(super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput {
              email_identity: self.email_identity,
          })
      }

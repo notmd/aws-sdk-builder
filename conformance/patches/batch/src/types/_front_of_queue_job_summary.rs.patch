@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`FrontOfQueueJobSummary`](crate::types::FrontOfQueueJobSummary).
 -    pub fn builder() -> crate::types::builders::FrontOfQueueJobSummaryBuilder {
 -        crate::types::builders::FrontOfQueueJobSummaryBuilder::default()
-+    pub fn builder() -> super::types::builders::FrontOfQueueJobSummaryBuilder {
-+        super::types::builders::FrontOfQueueJobSummaryBuilder::default()
++    pub fn builder() -> super::super::types::builders::FrontOfQueueJobSummaryBuilder {
++        super::super::types::builders::FrontOfQueueJobSummaryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`FrontOfQueueJobSummary`](crate::types::FrontOfQueueJobSummary).
 -    pub fn build(self) -> crate::types::FrontOfQueueJobSummary {
 -        crate::types::FrontOfQueueJobSummary {
-+    pub fn build(self) -> super::types::FrontOfQueueJobSummary {
-+        super::types::FrontOfQueueJobSummary {
++    pub fn build(self) -> super::super::types::FrontOfQueueJobSummary {
++        super::super::types::FrontOfQueueJobSummary {
              job_arn: self.job_arn,
              earliest_time_at_position: self.earliest_time_at_position,
          }

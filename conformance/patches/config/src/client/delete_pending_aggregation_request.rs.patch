@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestFluentBuilder {
 -        crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestFluentBuilder {
-+        super::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestFluentBuilder {
++        super::super::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestFluentBuilder::new(self.handle.clone())
      }
  }

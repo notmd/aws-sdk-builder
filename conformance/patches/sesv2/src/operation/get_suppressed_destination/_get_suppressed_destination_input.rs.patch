@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetSuppressedDestinationInput`](crate::operation::get_suppressed_destination::GetSuppressedDestinationInput).
 -    pub fn builder() -> crate::operation::get_suppressed_destination::builders::GetSuppressedDestinationInputBuilder {
 -        crate::operation::get_suppressed_destination::builders::GetSuppressedDestinationInputBuilder::default()
-+    pub fn builder() -> super::operation::get_suppressed_destination::builders::GetSuppressedDestinationInputBuilder {
-+        super::operation::get_suppressed_destination::builders::GetSuppressedDestinationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_suppressed_destination::builders::GetSuppressedDestinationInputBuilder {
++        super::super::super::operation::get_suppressed_destination::builders::GetSuppressedDestinationInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_suppressed_destination::GetSuppressedDestinationInput,
-+        super::operation::get_suppressed_destination::GetSuppressedDestinationInput,
++        super::super::super::operation::get_suppressed_destination::GetSuppressedDestinationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_suppressed_destination::GetSuppressedDestinationInput {
-+        ::std::result::Result::Ok(super::operation::get_suppressed_destination::GetSuppressedDestinationInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_suppressed_destination::GetSuppressedDestinationInput {
              email_address: self.email_address,
              tenant_name: self.tenant_name,
          })

@@ -7,9 +7,9 @@
 -    pub body: crate::event_receiver::EventReceiver<
 -        crate::types::InvokeModelWithBidirectionalStreamOutput,
 -        crate::types::error::InvokeModelWithBidirectionalStreamOutputError,
-+    pub body: super::event_receiver::EventReceiver<
-+        super::types::InvokeModelWithBidirectionalStreamOutput,
-+        super::types::error::InvokeModelWithBidirectionalStreamOutputError,
++    pub body: super::super::super::event_receiver::EventReceiver<
++        super::super::super::types::InvokeModelWithBidirectionalStreamOutput,
++        super::super::super::types::error::InvokeModelWithBidirectionalStreamOutputError,
      >,
      _request_id: Option<String>,
  }
@@ -20,9 +20,9 @@
 -    ) -> &crate::event_receiver::EventReceiver<
 -        crate::types::InvokeModelWithBidirectionalStreamOutput,
 -        crate::types::error::InvokeModelWithBidirectionalStreamOutputError,
-+    ) -> &super::event_receiver::EventReceiver<
-+        super::types::InvokeModelWithBidirectionalStreamOutput,
-+        super::types::error::InvokeModelWithBidirectionalStreamOutputError,
++    ) -> &super::super::super::event_receiver::EventReceiver<
++        super::super::super::types::InvokeModelWithBidirectionalStreamOutput,
++        super::super::super::types::error::InvokeModelWithBidirectionalStreamOutputError,
      > {
          &self.body
      }
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`InvokeModelWithBidirectionalStreamOutput`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput).
 -    pub fn builder() -> crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
 -        crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default()
-+    pub fn builder() -> super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
-+        super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
++        super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default()
      }
  }
 
@@ -44,9 +44,9 @@
 -        crate::event_receiver::EventReceiver<
 -            crate::types::InvokeModelWithBidirectionalStreamOutput,
 -            crate::types::error::InvokeModelWithBidirectionalStreamOutputError,
-+        super::event_receiver::EventReceiver<
-+            super::types::InvokeModelWithBidirectionalStreamOutput,
-+            super::types::error::InvokeModelWithBidirectionalStreamOutputError,
++        super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::InvokeModelWithBidirectionalStreamOutput,
++            super::super::super::types::error::InvokeModelWithBidirectionalStreamOutputError,
          >,
      >,
      _request_id: Option<String>,
@@ -57,9 +57,9 @@
 -        input: crate::event_receiver::EventReceiver<
 -            crate::types::InvokeModelWithBidirectionalStreamOutput,
 -            crate::types::error::InvokeModelWithBidirectionalStreamOutputError,
-+        input: super::event_receiver::EventReceiver<
-+            super::types::InvokeModelWithBidirectionalStreamOutput,
-+            super::types::error::InvokeModelWithBidirectionalStreamOutputError,
++        input: super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::InvokeModelWithBidirectionalStreamOutput,
++            super::super::super::types::error::InvokeModelWithBidirectionalStreamOutputError,
          >,
      ) -> Self {
          self.body = ::std::option::Option::Some(input);
@@ -70,9 +70,9 @@
 -            crate::event_receiver::EventReceiver<
 -                crate::types::InvokeModelWithBidirectionalStreamOutput,
 -                crate::types::error::InvokeModelWithBidirectionalStreamOutputError,
-+            super::event_receiver::EventReceiver<
-+                super::types::InvokeModelWithBidirectionalStreamOutput,
-+                super::types::error::InvokeModelWithBidirectionalStreamOutputError,
++            super::super::super::event_receiver::EventReceiver<
++                super::super::super::types::InvokeModelWithBidirectionalStreamOutput,
++                super::super::super::types::error::InvokeModelWithBidirectionalStreamOutputError,
              >,
          >,
      ) -> Self {
@@ -83,9 +83,9 @@
 -        crate::event_receiver::EventReceiver<
 -            crate::types::InvokeModelWithBidirectionalStreamOutput,
 -            crate::types::error::InvokeModelWithBidirectionalStreamOutputError,
-+        super::event_receiver::EventReceiver<
-+            super::types::InvokeModelWithBidirectionalStreamOutput,
-+            super::types::error::InvokeModelWithBidirectionalStreamOutputError,
++        super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::InvokeModelWithBidirectionalStreamOutput,
++            super::super::super::types::error::InvokeModelWithBidirectionalStreamOutputError,
          >,
      > {
          &self.body
@@ -94,12 +94,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
-+        super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
++        super::super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput {
-+            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput {
++            super::super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput {
                  body: self.body.ok_or_else(|| {
                      ::aws_smithy_types::error::operation::BuildError::missing_field(
                          "body",

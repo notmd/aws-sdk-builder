@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SendMessageError>`](crate::operation::send_message::SendMessageError)
 -    pub fn send_message(&self) -> crate::operation::send_message::builders::SendMessageFluentBuilder {
 -        crate::operation::send_message::builders::SendMessageFluentBuilder::new(self.handle.clone())
-+    pub fn send_message(&self) -> super::operation::send_message::builders::SendMessageFluentBuilder {
-+        super::operation::send_message::builders::SendMessageFluentBuilder::new(self.handle.clone())
++    pub fn send_message(&self) -> super::super::operation::send_message::builders::SendMessageFluentBuilder {
++        super::super::operation::send_message::builders::SendMessageFluentBuilder::new(self.handle.clone())
      }
  }

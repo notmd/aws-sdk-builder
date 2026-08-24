@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ImportTableError>`](crate::operation::import_table::ImportTableError)
 -    pub fn import_table(&self) -> crate::operation::import_table::builders::ImportTableFluentBuilder {
 -        crate::operation::import_table::builders::ImportTableFluentBuilder::new(self.handle.clone())
-+    pub fn import_table(&self) -> super::operation::import_table::builders::ImportTableFluentBuilder {
-+        super::operation::import_table::builders::ImportTableFluentBuilder::new(self.handle.clone())
++    pub fn import_table(&self) -> super::super::operation::import_table::builders::ImportTableFluentBuilder {
++        super::super::operation::import_table::builders::ImportTableFluentBuilder::new(self.handle.clone())
      }
  }

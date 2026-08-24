@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Policy`](crate::types::Policy).
 -    pub fn builder() -> crate::types::builders::PolicyBuilder {
 -        crate::types::builders::PolicyBuilder::default()
-+    pub fn builder() -> super::types::builders::PolicyBuilder {
-+        super::types::builders::PolicyBuilder::default()
++    pub fn builder() -> super::super::types::builders::PolicyBuilder {
++        super::super::types::builders::PolicyBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Policy`](crate::types::Policy).
 -    pub fn build(self) -> crate::types::Policy {
 -        crate::types::Policy {
-+    pub fn build(self) -> super::types::Policy {
-+        super::types::Policy {
++    pub fn build(self) -> super::super::types::Policy {
++        super::super::types::Policy {
              delivery_destination_policy: self.delivery_destination_policy,
          }
      }

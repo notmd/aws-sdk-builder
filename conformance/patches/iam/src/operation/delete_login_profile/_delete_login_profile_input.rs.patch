@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteLoginProfileInput`](crate::operation::delete_login_profile::DeleteLoginProfileInput).
 -    pub fn builder() -> crate::operation::delete_login_profile::builders::DeleteLoginProfileInputBuilder {
 -        crate::operation::delete_login_profile::builders::DeleteLoginProfileInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_login_profile::builders::DeleteLoginProfileInputBuilder {
-+        super::operation::delete_login_profile::builders::DeleteLoginProfileInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_login_profile::builders::DeleteLoginProfileInputBuilder {
++        super::super::super::operation::delete_login_profile::builders::DeleteLoginProfileInputBuilder::default()
      }
  }
 
@@ -16,9 +16,9 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_login_profile::DeleteLoginProfileInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::delete_login_profile::DeleteLoginProfileInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::delete_login_profile::DeleteLoginProfileInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::delete_login_profile::DeleteLoginProfileInput { user_name: self.user_name })
-+        ::std::result::Result::Ok(super::operation::delete_login_profile::DeleteLoginProfileInput { user_name: self.user_name })
++        ::std::result::Result::Ok(super::super::super::operation::delete_login_profile::DeleteLoginProfileInput { user_name: self.user_name })
      }
  }

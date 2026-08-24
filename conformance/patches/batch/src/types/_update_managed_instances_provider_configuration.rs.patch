@@ -5,10 +5,10 @@
      pub infrastructure_role_arn: ::std::option::Option<::std::string::String>,
      /// <p>The updated instance launch configuration for the Amazon ECS Managed Instances capacity provider.</p>
 -    pub instance_launch_template: ::std::option::Option<crate::types::InstanceLaunchTemplateUpdate>,
-+    pub instance_launch_template: ::std::option::Option<super::types::InstanceLaunchTemplateUpdate>,
++    pub instance_launch_template: ::std::option::Option<super::super::types::InstanceLaunchTemplateUpdate>,
      /// <p>The updated infrastructure optimization configuration.</p>
 -    pub infrastructure_optimization: ::std::option::Option<crate::types::InfrastructureOptimization>,
-+    pub infrastructure_optimization: ::std::option::Option<super::types::InfrastructureOptimization>,
++    pub infrastructure_optimization: ::std::option::Option<super::super::types::InfrastructureOptimization>,
  }
  impl UpdateManagedInstancesProviderConfiguration {
      /// <p>Specifies whether tags on the capacity provider are propagated to the Amazon EC2 instances it launches. Valid values:</p>
@@ -17,12 +17,12 @@
      }
      /// <p>The updated instance launch configuration for the Amazon ECS Managed Instances capacity provider.</p>
 -    pub fn instance_launch_template(&self) -> ::std::option::Option<&crate::types::InstanceLaunchTemplateUpdate> {
-+    pub fn instance_launch_template(&self) -> ::std::option::Option<&super::types::InstanceLaunchTemplateUpdate> {
++    pub fn instance_launch_template(&self) -> ::std::option::Option<&super::super::types::InstanceLaunchTemplateUpdate> {
          self.instance_launch_template.as_ref()
      }
      /// <p>The updated infrastructure optimization configuration.</p>
 -    pub fn infrastructure_optimization(&self) -> ::std::option::Option<&crate::types::InfrastructureOptimization> {
-+    pub fn infrastructure_optimization(&self) -> ::std::option::Option<&super::types::InfrastructureOptimization> {
++    pub fn infrastructure_optimization(&self) -> ::std::option::Option<&super::super::types::InfrastructureOptimization> {
          self.infrastructure_optimization.as_ref()
      }
  }
@@ -30,8 +30,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateManagedInstancesProviderConfiguration`](crate::types::UpdateManagedInstancesProviderConfiguration).
 -    pub fn builder() -> crate::types::builders::UpdateManagedInstancesProviderConfigurationBuilder {
 -        crate::types::builders::UpdateManagedInstancesProviderConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::UpdateManagedInstancesProviderConfigurationBuilder {
-+        super::types::builders::UpdateManagedInstancesProviderConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::UpdateManagedInstancesProviderConfigurationBuilder {
++        super::super::types::builders::UpdateManagedInstancesProviderConfigurationBuilder::default()
      }
  }
 
@@ -41,8 +41,8 @@
      pub(crate) infrastructure_role_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) instance_launch_template: ::std::option::Option<crate::types::InstanceLaunchTemplateUpdate>,
 -    pub(crate) infrastructure_optimization: ::std::option::Option<crate::types::InfrastructureOptimization>,
-+    pub(crate) instance_launch_template: ::std::option::Option<super::types::InstanceLaunchTemplateUpdate>,
-+    pub(crate) infrastructure_optimization: ::std::option::Option<super::types::InfrastructureOptimization>,
++    pub(crate) instance_launch_template: ::std::option::Option<super::super::types::InstanceLaunchTemplateUpdate>,
++    pub(crate) infrastructure_optimization: ::std::option::Option<super::super::types::InfrastructureOptimization>,
  }
  impl UpdateManagedInstancesProviderConfigurationBuilder {
      /// <p>Specifies whether tags on the capacity provider are propagated to the Amazon EC2 instances it launches. Valid values:</p>
@@ -51,43 +51,43 @@
      }
      /// <p>The updated instance launch configuration for the Amazon ECS Managed Instances capacity provider.</p>
 -    pub fn instance_launch_template(mut self, input: crate::types::InstanceLaunchTemplateUpdate) -> Self {
-+    pub fn instance_launch_template(mut self, input: super::types::InstanceLaunchTemplateUpdate) -> Self {
++    pub fn instance_launch_template(mut self, input: super::super::types::InstanceLaunchTemplateUpdate) -> Self {
          self.instance_launch_template = ::std::option::Option::Some(input);
          self
      }
      /// <p>The updated instance launch configuration for the Amazon ECS Managed Instances capacity provider.</p>
 -    pub fn set_instance_launch_template(mut self, input: ::std::option::Option<crate::types::InstanceLaunchTemplateUpdate>) -> Self {
-+    pub fn set_instance_launch_template(mut self, input: ::std::option::Option<super::types::InstanceLaunchTemplateUpdate>) -> Self {
++    pub fn set_instance_launch_template(mut self, input: ::std::option::Option<super::super::types::InstanceLaunchTemplateUpdate>) -> Self {
          self.instance_launch_template = input;
          self
      }
      /// <p>The updated instance launch configuration for the Amazon ECS Managed Instances capacity provider.</p>
 -    pub fn get_instance_launch_template(&self) -> &::std::option::Option<crate::types::InstanceLaunchTemplateUpdate> {
-+    pub fn get_instance_launch_template(&self) -> &::std::option::Option<super::types::InstanceLaunchTemplateUpdate> {
++    pub fn get_instance_launch_template(&self) -> &::std::option::Option<super::super::types::InstanceLaunchTemplateUpdate> {
          &self.instance_launch_template
      }
      /// <p>The updated infrastructure optimization configuration.</p>
 -    pub fn infrastructure_optimization(mut self, input: crate::types::InfrastructureOptimization) -> Self {
-+    pub fn infrastructure_optimization(mut self, input: super::types::InfrastructureOptimization) -> Self {
++    pub fn infrastructure_optimization(mut self, input: super::super::types::InfrastructureOptimization) -> Self {
          self.infrastructure_optimization = ::std::option::Option::Some(input);
          self
      }
      /// <p>The updated infrastructure optimization configuration.</p>
 -    pub fn set_infrastructure_optimization(mut self, input: ::std::option::Option<crate::types::InfrastructureOptimization>) -> Self {
-+    pub fn set_infrastructure_optimization(mut self, input: ::std::option::Option<super::types::InfrastructureOptimization>) -> Self {
++    pub fn set_infrastructure_optimization(mut self, input: ::std::option::Option<super::super::types::InfrastructureOptimization>) -> Self {
          self.infrastructure_optimization = input;
          self
      }
      /// <p>The updated infrastructure optimization configuration.</p>
 -    pub fn get_infrastructure_optimization(&self) -> &::std::option::Option<crate::types::InfrastructureOptimization> {
-+    pub fn get_infrastructure_optimization(&self) -> &::std::option::Option<super::types::InfrastructureOptimization> {
++    pub fn get_infrastructure_optimization(&self) -> &::std::option::Option<super::super::types::InfrastructureOptimization> {
          &self.infrastructure_optimization
      }
      /// Consumes the builder and constructs a [`UpdateManagedInstancesProviderConfiguration`](crate::types::UpdateManagedInstancesProviderConfiguration).
 -    pub fn build(self) -> crate::types::UpdateManagedInstancesProviderConfiguration {
 -        crate::types::UpdateManagedInstancesProviderConfiguration {
-+    pub fn build(self) -> super::types::UpdateManagedInstancesProviderConfiguration {
-+        super::types::UpdateManagedInstancesProviderConfiguration {
++    pub fn build(self) -> super::super::types::UpdateManagedInstancesProviderConfiguration {
++        super::super::types::UpdateManagedInstancesProviderConfiguration {
              propagate_tags: self.propagate_tags,
              infrastructure_role_arn: self.infrastructure_role_arn,
              instance_launch_template: self.instance_launch_template,

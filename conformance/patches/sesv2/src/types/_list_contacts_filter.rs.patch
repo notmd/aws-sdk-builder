@@ -5,20 +5,20 @@
  pub struct ListContactsFilter {
      /// <p>The status by which you are filtering: <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
 -    pub filtered_status: ::std::option::Option<crate::types::SubscriptionStatus>,
-+    pub filtered_status: ::std::option::Option<super::types::SubscriptionStatus>,
++    pub filtered_status: ::std::option::Option<super::super::types::SubscriptionStatus>,
      /// <p>Used for filtering by a specific topic preference.</p>
 -    pub topic_filter: ::std::option::Option<crate::types::TopicFilter>,
-+    pub topic_filter: ::std::option::Option<super::types::TopicFilter>,
++    pub topic_filter: ::std::option::Option<super::super::types::TopicFilter>,
  }
  impl ListContactsFilter {
      /// <p>The status by which you are filtering: <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
 -    pub fn filtered_status(&self) -> ::std::option::Option<&crate::types::SubscriptionStatus> {
-+    pub fn filtered_status(&self) -> ::std::option::Option<&super::types::SubscriptionStatus> {
++    pub fn filtered_status(&self) -> ::std::option::Option<&super::super::types::SubscriptionStatus> {
          self.filtered_status.as_ref()
      }
      /// <p>Used for filtering by a specific topic preference.</p>
 -    pub fn topic_filter(&self) -> ::std::option::Option<&crate::types::TopicFilter> {
-+    pub fn topic_filter(&self) -> ::std::option::Option<&super::types::TopicFilter> {
++    pub fn topic_filter(&self) -> ::std::option::Option<&super::super::types::TopicFilter> {
          self.topic_filter.as_ref()
      }
  }
@@ -26,8 +26,8 @@
      /// Creates a new builder-style object to manufacture [`ListContactsFilter`](crate::types::ListContactsFilter).
 -    pub fn builder() -> crate::types::builders::ListContactsFilterBuilder {
 -        crate::types::builders::ListContactsFilterBuilder::default()
-+    pub fn builder() -> super::types::builders::ListContactsFilterBuilder {
-+        super::types::builders::ListContactsFilterBuilder::default()
++    pub fn builder() -> super::super::types::builders::ListContactsFilterBuilder {
++        super::super::types::builders::ListContactsFilterBuilder::default()
      }
  }
 
@@ -37,49 +37,49 @@
  pub struct ListContactsFilterBuilder {
 -    pub(crate) filtered_status: ::std::option::Option<crate::types::SubscriptionStatus>,
 -    pub(crate) topic_filter: ::std::option::Option<crate::types::TopicFilter>,
-+    pub(crate) filtered_status: ::std::option::Option<super::types::SubscriptionStatus>,
-+    pub(crate) topic_filter: ::std::option::Option<super::types::TopicFilter>,
++    pub(crate) filtered_status: ::std::option::Option<super::super::types::SubscriptionStatus>,
++    pub(crate) topic_filter: ::std::option::Option<super::super::types::TopicFilter>,
  }
  impl ListContactsFilterBuilder {
      /// <p>The status by which you are filtering: <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
 -    pub fn filtered_status(mut self, input: crate::types::SubscriptionStatus) -> Self {
-+    pub fn filtered_status(mut self, input: super::types::SubscriptionStatus) -> Self {
++    pub fn filtered_status(mut self, input: super::super::types::SubscriptionStatus) -> Self {
          self.filtered_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status by which you are filtering: <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
 -    pub fn set_filtered_status(mut self, input: ::std::option::Option<crate::types::SubscriptionStatus>) -> Self {
-+    pub fn set_filtered_status(mut self, input: ::std::option::Option<super::types::SubscriptionStatus>) -> Self {
++    pub fn set_filtered_status(mut self, input: ::std::option::Option<super::super::types::SubscriptionStatus>) -> Self {
          self.filtered_status = input;
          self
      }
      /// <p>The status by which you are filtering: <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
 -    pub fn get_filtered_status(&self) -> &::std::option::Option<crate::types::SubscriptionStatus> {
-+    pub fn get_filtered_status(&self) -> &::std::option::Option<super::types::SubscriptionStatus> {
++    pub fn get_filtered_status(&self) -> &::std::option::Option<super::super::types::SubscriptionStatus> {
          &self.filtered_status
      }
      /// <p>Used for filtering by a specific topic preference.</p>
 -    pub fn topic_filter(mut self, input: crate::types::TopicFilter) -> Self {
-+    pub fn topic_filter(mut self, input: super::types::TopicFilter) -> Self {
++    pub fn topic_filter(mut self, input: super::super::types::TopicFilter) -> Self {
          self.topic_filter = ::std::option::Option::Some(input);
          self
      }
      /// <p>Used for filtering by a specific topic preference.</p>
 -    pub fn set_topic_filter(mut self, input: ::std::option::Option<crate::types::TopicFilter>) -> Self {
-+    pub fn set_topic_filter(mut self, input: ::std::option::Option<super::types::TopicFilter>) -> Self {
++    pub fn set_topic_filter(mut self, input: ::std::option::Option<super::super::types::TopicFilter>) -> Self {
          self.topic_filter = input;
          self
      }
      /// <p>Used for filtering by a specific topic preference.</p>
 -    pub fn get_topic_filter(&self) -> &::std::option::Option<crate::types::TopicFilter> {
-+    pub fn get_topic_filter(&self) -> &::std::option::Option<super::types::TopicFilter> {
++    pub fn get_topic_filter(&self) -> &::std::option::Option<super::super::types::TopicFilter> {
          &self.topic_filter
      }
      /// Consumes the builder and constructs a [`ListContactsFilter`](crate::types::ListContactsFilter).
 -    pub fn build(self) -> crate::types::ListContactsFilter {
 -        crate::types::ListContactsFilter {
-+    pub fn build(self) -> super::types::ListContactsFilter {
-+        super::types::ListContactsFilter {
++    pub fn build(self) -> super::super::types::ListContactsFilter {
++        super::super::types::ListContactsFilter {
              filtered_status: self.filtered_status,
              topic_filter: self.topic_filter,
          }

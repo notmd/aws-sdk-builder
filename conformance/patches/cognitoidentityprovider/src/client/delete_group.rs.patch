@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteGroupError>`](crate::operation::delete_group::DeleteGroupError)
 -    pub fn delete_group(&self) -> crate::operation::delete_group::builders::DeleteGroupFluentBuilder {
 -        crate::operation::delete_group::builders::DeleteGroupFluentBuilder::new(self.handle.clone())
-+    pub fn delete_group(&self) -> super::operation::delete_group::builders::DeleteGroupFluentBuilder {
-+        super::operation::delete_group::builders::DeleteGroupFluentBuilder::new(self.handle.clone())
++    pub fn delete_group(&self) -> super::super::operation::delete_group::builders::DeleteGroupFluentBuilder {
++        super::super::operation::delete_group::builders::DeleteGroupFluentBuilder::new(self.handle.clone())
      }
  }

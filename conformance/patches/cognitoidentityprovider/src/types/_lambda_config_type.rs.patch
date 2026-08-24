@@ -5,18 +5,18 @@
      pub user_migration: ::std::option::Option<::std::string::String>,
      /// <p>The detailed configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html">pre token generation Lambda trigger</a> in a user pool. If you also set an ARN in <code>PreTokenGeneration</code>, its value must be identical to <code>PreTokenGenerationConfig</code>.</p>
 -    pub pre_token_generation_config: ::std::option::Option<crate::types::PreTokenGenerationVersionConfigType>,
-+    pub pre_token_generation_config: ::std::option::Option<super::types::PreTokenGenerationVersionConfigType>,
++    pub pre_token_generation_config: ::std::option::Option<super::super::types::PreTokenGenerationVersionConfigType>,
      /// <p>The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>
 -    pub custom_sms_sender: ::std::option::Option<crate::types::CustomSmsLambdaVersionConfigType>,
-+    pub custom_sms_sender: ::std::option::Option<super::types::CustomSmsLambdaVersionConfigType>,
++    pub custom_sms_sender: ::std::option::Option<super::super::types::CustomSmsLambdaVersionConfigType>,
      /// <p>The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>
 -    pub custom_email_sender: ::std::option::Option<crate::types::CustomEmailLambdaVersionConfigType>,
-+    pub custom_email_sender: ::std::option::Option<super::types::CustomEmailLambdaVersionConfigType>,
++    pub custom_email_sender: ::std::option::Option<super::super::types::CustomEmailLambdaVersionConfigType>,
      /// <p>The ARN of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">KMS key</a>. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.</p>
      pub kms_key_id: ::std::option::Option<::std::string::String>,
      /// <p>The configuration of an inbound federation Lambda trigger. This trigger can transform federated user attributes during the authentication with external identity providers.</p>
 -    pub inbound_federation: ::std::option::Option<crate::types::InboundFederationLambdaType>,
-+    pub inbound_federation: ::std::option::Option<super::types::InboundFederationLambdaType>,
++    pub inbound_federation: ::std::option::Option<super::super::types::InboundFederationLambdaType>,
  }
  impl LambdaConfigType {
      /// <p>The configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">pre sign-up Lambda trigger</a> in a user pool. This trigger evaluates new users and can bypass confirmation, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">link a federated user profile</a>, or block sign-up requests.</p>
@@ -25,17 +25,17 @@
      }
      /// <p>The detailed configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html">pre token generation Lambda trigger</a> in a user pool. If you also set an ARN in <code>PreTokenGeneration</code>, its value must be identical to <code>PreTokenGenerationConfig</code>.</p>
 -    pub fn pre_token_generation_config(&self) -> ::std::option::Option<&crate::types::PreTokenGenerationVersionConfigType> {
-+    pub fn pre_token_generation_config(&self) -> ::std::option::Option<&super::types::PreTokenGenerationVersionConfigType> {
++    pub fn pre_token_generation_config(&self) -> ::std::option::Option<&super::super::types::PreTokenGenerationVersionConfigType> {
          self.pre_token_generation_config.as_ref()
      }
      /// <p>The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>
 -    pub fn custom_sms_sender(&self) -> ::std::option::Option<&crate::types::CustomSmsLambdaVersionConfigType> {
-+    pub fn custom_sms_sender(&self) -> ::std::option::Option<&super::types::CustomSmsLambdaVersionConfigType> {
++    pub fn custom_sms_sender(&self) -> ::std::option::Option<&super::super::types::CustomSmsLambdaVersionConfigType> {
          self.custom_sms_sender.as_ref()
      }
      /// <p>The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>
 -    pub fn custom_email_sender(&self) -> ::std::option::Option<&crate::types::CustomEmailLambdaVersionConfigType> {
-+    pub fn custom_email_sender(&self) -> ::std::option::Option<&super::types::CustomEmailLambdaVersionConfigType> {
++    pub fn custom_email_sender(&self) -> ::std::option::Option<&super::super::types::CustomEmailLambdaVersionConfigType> {
          self.custom_email_sender.as_ref()
      }
      /// <p>The ARN of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">KMS key</a>. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.</p>
@@ -44,7 +44,7 @@
      }
      /// <p>The configuration of an inbound federation Lambda trigger. This trigger can transform federated user attributes during the authentication with external identity providers.</p>
 -    pub fn inbound_federation(&self) -> ::std::option::Option<&crate::types::InboundFederationLambdaType> {
-+    pub fn inbound_federation(&self) -> ::std::option::Option<&super::types::InboundFederationLambdaType> {
++    pub fn inbound_federation(&self) -> ::std::option::Option<&super::super::types::InboundFederationLambdaType> {
          self.inbound_federation.as_ref()
      }
  }
@@ -52,8 +52,8 @@
      /// Creates a new builder-style object to manufacture [`LambdaConfigType`](crate::types::LambdaConfigType).
 -    pub fn builder() -> crate::types::builders::LambdaConfigTypeBuilder {
 -        crate::types::builders::LambdaConfigTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::LambdaConfigTypeBuilder {
-+        super::types::builders::LambdaConfigTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::LambdaConfigTypeBuilder {
++        super::super::types::builders::LambdaConfigTypeBuilder::default()
      }
  }
 
@@ -64,12 +64,12 @@
 -    pub(crate) pre_token_generation_config: ::std::option::Option<crate::types::PreTokenGenerationVersionConfigType>,
 -    pub(crate) custom_sms_sender: ::std::option::Option<crate::types::CustomSmsLambdaVersionConfigType>,
 -    pub(crate) custom_email_sender: ::std::option::Option<crate::types::CustomEmailLambdaVersionConfigType>,
-+    pub(crate) pre_token_generation_config: ::std::option::Option<super::types::PreTokenGenerationVersionConfigType>,
-+    pub(crate) custom_sms_sender: ::std::option::Option<super::types::CustomSmsLambdaVersionConfigType>,
-+    pub(crate) custom_email_sender: ::std::option::Option<super::types::CustomEmailLambdaVersionConfigType>,
++    pub(crate) pre_token_generation_config: ::std::option::Option<super::super::types::PreTokenGenerationVersionConfigType>,
++    pub(crate) custom_sms_sender: ::std::option::Option<super::super::types::CustomSmsLambdaVersionConfigType>,
++    pub(crate) custom_email_sender: ::std::option::Option<super::super::types::CustomEmailLambdaVersionConfigType>,
      pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) inbound_federation: ::std::option::Option<crate::types::InboundFederationLambdaType>,
-+    pub(crate) inbound_federation: ::std::option::Option<super::types::InboundFederationLambdaType>,
++    pub(crate) inbound_federation: ::std::option::Option<super::super::types::InboundFederationLambdaType>,
  }
  impl LambdaConfigTypeBuilder {
      /// <p>The configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">pre sign-up Lambda trigger</a> in a user pool. This trigger evaluates new users and can bypass confirmation, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">link a federated user profile</a>, or block sign-up requests.</p>
@@ -78,53 +78,53 @@
      }
      /// <p>The detailed configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html">pre token generation Lambda trigger</a> in a user pool. If you also set an ARN in <code>PreTokenGeneration</code>, its value must be identical to <code>PreTokenGenerationConfig</code>.</p>
 -    pub fn pre_token_generation_config(mut self, input: crate::types::PreTokenGenerationVersionConfigType) -> Self {
-+    pub fn pre_token_generation_config(mut self, input: super::types::PreTokenGenerationVersionConfigType) -> Self {
++    pub fn pre_token_generation_config(mut self, input: super::super::types::PreTokenGenerationVersionConfigType) -> Self {
          self.pre_token_generation_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The detailed configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html">pre token generation Lambda trigger</a> in a user pool. If you also set an ARN in <code>PreTokenGeneration</code>, its value must be identical to <code>PreTokenGenerationConfig</code>.</p>
 -    pub fn set_pre_token_generation_config(mut self, input: ::std::option::Option<crate::types::PreTokenGenerationVersionConfigType>) -> Self {
-+    pub fn set_pre_token_generation_config(mut self, input: ::std::option::Option<super::types::PreTokenGenerationVersionConfigType>) -> Self {
++    pub fn set_pre_token_generation_config(mut self, input: ::std::option::Option<super::super::types::PreTokenGenerationVersionConfigType>) -> Self {
          self.pre_token_generation_config = input;
          self
      }
      /// <p>The detailed configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html">pre token generation Lambda trigger</a> in a user pool. If you also set an ARN in <code>PreTokenGeneration</code>, its value must be identical to <code>PreTokenGenerationConfig</code>.</p>
 -    pub fn get_pre_token_generation_config(&self) -> &::std::option::Option<crate::types::PreTokenGenerationVersionConfigType> {
-+    pub fn get_pre_token_generation_config(&self) -> &::std::option::Option<super::types::PreTokenGenerationVersionConfigType> {
++    pub fn get_pre_token_generation_config(&self) -> &::std::option::Option<super::super::types::PreTokenGenerationVersionConfigType> {
          &self.pre_token_generation_config
      }
      /// <p>The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>
 -    pub fn custom_sms_sender(mut self, input: crate::types::CustomSmsLambdaVersionConfigType) -> Self {
-+    pub fn custom_sms_sender(mut self, input: super::types::CustomSmsLambdaVersionConfigType) -> Self {
++    pub fn custom_sms_sender(mut self, input: super::super::types::CustomSmsLambdaVersionConfigType) -> Self {
          self.custom_sms_sender = ::std::option::Option::Some(input);
          self
      }
      /// <p>The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>
 -    pub fn set_custom_sms_sender(mut self, input: ::std::option::Option<crate::types::CustomSmsLambdaVersionConfigType>) -> Self {
-+    pub fn set_custom_sms_sender(mut self, input: ::std::option::Option<super::types::CustomSmsLambdaVersionConfigType>) -> Self {
++    pub fn set_custom_sms_sender(mut self, input: ::std::option::Option<super::super::types::CustomSmsLambdaVersionConfigType>) -> Self {
          self.custom_sms_sender = input;
          self
      }
      /// <p>The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>
 -    pub fn get_custom_sms_sender(&self) -> &::std::option::Option<crate::types::CustomSmsLambdaVersionConfigType> {
-+    pub fn get_custom_sms_sender(&self) -> &::std::option::Option<super::types::CustomSmsLambdaVersionConfigType> {
++    pub fn get_custom_sms_sender(&self) -> &::std::option::Option<super::super::types::CustomSmsLambdaVersionConfigType> {
          &self.custom_sms_sender
      }
      /// <p>The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>
 -    pub fn custom_email_sender(mut self, input: crate::types::CustomEmailLambdaVersionConfigType) -> Self {
-+    pub fn custom_email_sender(mut self, input: super::types::CustomEmailLambdaVersionConfigType) -> Self {
++    pub fn custom_email_sender(mut self, input: super::super::types::CustomEmailLambdaVersionConfigType) -> Self {
          self.custom_email_sender = ::std::option::Option::Some(input);
          self
      }
      /// <p>The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>
 -    pub fn set_custom_email_sender(mut self, input: ::std::option::Option<crate::types::CustomEmailLambdaVersionConfigType>) -> Self {
-+    pub fn set_custom_email_sender(mut self, input: ::std::option::Option<super::types::CustomEmailLambdaVersionConfigType>) -> Self {
++    pub fn set_custom_email_sender(mut self, input: ::std::option::Option<super::super::types::CustomEmailLambdaVersionConfigType>) -> Self {
          self.custom_email_sender = input;
          self
      }
      /// <p>The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>
 -    pub fn get_custom_email_sender(&self) -> &::std::option::Option<crate::types::CustomEmailLambdaVersionConfigType> {
-+    pub fn get_custom_email_sender(&self) -> &::std::option::Option<super::types::CustomEmailLambdaVersionConfigType> {
++    pub fn get_custom_email_sender(&self) -> &::std::option::Option<super::super::types::CustomEmailLambdaVersionConfigType> {
          &self.custom_email_sender
      }
      /// <p>The ARN of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">KMS key</a>. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.</p>
@@ -133,26 +133,26 @@
      }
      /// <p>The configuration of an inbound federation Lambda trigger. This trigger can transform federated user attributes during the authentication with external identity providers.</p>
 -    pub fn inbound_federation(mut self, input: crate::types::InboundFederationLambdaType) -> Self {
-+    pub fn inbound_federation(mut self, input: super::types::InboundFederationLambdaType) -> Self {
++    pub fn inbound_federation(mut self, input: super::super::types::InboundFederationLambdaType) -> Self {
          self.inbound_federation = ::std::option::Option::Some(input);
          self
      }
      /// <p>The configuration of an inbound federation Lambda trigger. This trigger can transform federated user attributes during the authentication with external identity providers.</p>
 -    pub fn set_inbound_federation(mut self, input: ::std::option::Option<crate::types::InboundFederationLambdaType>) -> Self {
-+    pub fn set_inbound_federation(mut self, input: ::std::option::Option<super::types::InboundFederationLambdaType>) -> Self {
++    pub fn set_inbound_federation(mut self, input: ::std::option::Option<super::super::types::InboundFederationLambdaType>) -> Self {
          self.inbound_federation = input;
          self
      }
      /// <p>The configuration of an inbound federation Lambda trigger. This trigger can transform federated user attributes during the authentication with external identity providers.</p>
 -    pub fn get_inbound_federation(&self) -> &::std::option::Option<crate::types::InboundFederationLambdaType> {
-+    pub fn get_inbound_federation(&self) -> &::std::option::Option<super::types::InboundFederationLambdaType> {
++    pub fn get_inbound_federation(&self) -> &::std::option::Option<super::super::types::InboundFederationLambdaType> {
          &self.inbound_federation
      }
      /// Consumes the builder and constructs a [`LambdaConfigType`](crate::types::LambdaConfigType).
 -    pub fn build(self) -> crate::types::LambdaConfigType {
 -        crate::types::LambdaConfigType {
-+    pub fn build(self) -> super::types::LambdaConfigType {
-+        super::types::LambdaConfigType {
++    pub fn build(self) -> super::super::types::LambdaConfigType {
++        super::super::types::LambdaConfigType {
              pre_sign_up: self.pre_sign_up,
              custom_message: self.custom_message,
              post_confirmation: self.post_confirmation,

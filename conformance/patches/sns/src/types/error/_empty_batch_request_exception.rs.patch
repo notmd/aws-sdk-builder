@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for EmptyBatchRequestException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::EmptyBatchRequestException {
-+impl ::aws_types::request_id::RequestId for super::types::error::EmptyBatchRequestException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::EmptyBatchRequestException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`EmptyBatchRequestException`](crate::types::error::EmptyBatchRequestException).
 -    pub fn builder() -> crate::types::error::builders::EmptyBatchRequestExceptionBuilder {
 -        crate::types::error::builders::EmptyBatchRequestExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::EmptyBatchRequestExceptionBuilder {
-+        super::types::error::builders::EmptyBatchRequestExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::EmptyBatchRequestExceptionBuilder {
++        super::super::super::types::error::builders::EmptyBatchRequestExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`EmptyBatchRequestException`](crate::types::error::EmptyBatchRequestException).
 -    pub fn build(self) -> crate::types::error::EmptyBatchRequestException {
 -        crate::types::error::EmptyBatchRequestException {
-+    pub fn build(self) -> super::types::error::EmptyBatchRequestException {
-+        super::types::error::EmptyBatchRequestException {
++    pub fn build(self) -> super::super::super::types::error::EmptyBatchRequestException {
++        super::super::super::types::error::EmptyBatchRequestException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder {
 -        crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder::new(
-+    ) -> super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder {
-+        super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder::new(
++    ) -> super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder {
++        super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder::new(
              self.handle.clone(),
          )
      }

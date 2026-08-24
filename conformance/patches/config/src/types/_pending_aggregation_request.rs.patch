@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PendingAggregationRequest`](crate::types::PendingAggregationRequest).
 -    pub fn builder() -> crate::types::builders::PendingAggregationRequestBuilder {
 -        crate::types::builders::PendingAggregationRequestBuilder::default()
-+    pub fn builder() -> super::types::builders::PendingAggregationRequestBuilder {
-+        super::types::builders::PendingAggregationRequestBuilder::default()
++    pub fn builder() -> super::super::types::builders::PendingAggregationRequestBuilder {
++        super::super::types::builders::PendingAggregationRequestBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PendingAggregationRequest`](crate::types::PendingAggregationRequest).
 -    pub fn build(self) -> crate::types::PendingAggregationRequest {
 -        crate::types::PendingAggregationRequest {
-+    pub fn build(self) -> super::types::PendingAggregationRequest {
-+        super::types::PendingAggregationRequest {
++    pub fn build(self) -> super::super::types::PendingAggregationRequest {
++        super::super::types::PendingAggregationRequest {
              requester_account_id: self.requester_account_id,
              requester_aws_region: self.requester_aws_region,
          }

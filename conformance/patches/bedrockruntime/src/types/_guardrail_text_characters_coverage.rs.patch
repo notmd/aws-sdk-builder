@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailTextCharactersCoverage`](crate::types::GuardrailTextCharactersCoverage).
 -    pub fn builder() -> crate::types::builders::GuardrailTextCharactersCoverageBuilder {
 -        crate::types::builders::GuardrailTextCharactersCoverageBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailTextCharactersCoverageBuilder {
-+        super::types::builders::GuardrailTextCharactersCoverageBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailTextCharactersCoverageBuilder {
++        super::super::types::builders::GuardrailTextCharactersCoverageBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GuardrailTextCharactersCoverage`](crate::types::GuardrailTextCharactersCoverage).
 -    pub fn build(self) -> crate::types::GuardrailTextCharactersCoverage {
 -        crate::types::GuardrailTextCharactersCoverage {
-+    pub fn build(self) -> super::types::GuardrailTextCharactersCoverage {
-+        super::types::GuardrailTextCharactersCoverage {
++    pub fn build(self) -> super::super::types::GuardrailTextCharactersCoverage {
++        super::super::types::GuardrailTextCharactersCoverage {
              guarded: self.guarded,
              total: self.total,
          }

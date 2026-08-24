@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesFluentBuilder {
 -        crate::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesFluentBuilder {
-+        super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesFluentBuilder {
++        super::super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesFluentBuilder::new(self.handle.clone())
      }
  }

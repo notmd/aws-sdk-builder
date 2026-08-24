@@ -6,7 +6,7 @@
      #[deprecated(note = "Please use the generic tagging API ListTagsForResource")]
 -    pub fn list_tags_log_group(&self) -> crate::operation::list_tags_log_group::builders::ListTagsLogGroupFluentBuilder {
 -        crate::operation::list_tags_log_group::builders::ListTagsLogGroupFluentBuilder::new(self.handle.clone())
-+    pub fn list_tags_log_group(&self) -> super::operation::list_tags_log_group::builders::ListTagsLogGroupFluentBuilder {
-+        super::operation::list_tags_log_group::builders::ListTagsLogGroupFluentBuilder::new(self.handle.clone())
++    pub fn list_tags_log_group(&self) -> super::super::operation::list_tags_log_group::builders::ListTagsLogGroupFluentBuilder {
++        super::super::operation::list_tags_log_group::builders::ListTagsLogGroupFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`VolumeStatistics`](crate::types::VolumeStatistics).
 -    pub fn builder() -> crate::types::builders::VolumeStatisticsBuilder {
 -        crate::types::builders::VolumeStatisticsBuilder::default()
-+    pub fn builder() -> super::types::builders::VolumeStatisticsBuilder {
-+        super::types::builders::VolumeStatisticsBuilder::default()
++    pub fn builder() -> super::super::types::builders::VolumeStatisticsBuilder {
++        super::super::types::builders::VolumeStatisticsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`VolumeStatistics`](crate::types::VolumeStatistics).
 -    pub fn build(self) -> crate::types::VolumeStatistics {
 -        crate::types::VolumeStatistics {
-+    pub fn build(self) -> super::types::VolumeStatistics {
-+        super::types::VolumeStatistics {
++    pub fn build(self) -> super::super::types::VolumeStatistics {
++        super::super::types::VolumeStatistics {
              inbox_raw_count: self.inbox_raw_count,
              spam_raw_count: self.spam_raw_count,
              projected_inbox: self.projected_inbox,

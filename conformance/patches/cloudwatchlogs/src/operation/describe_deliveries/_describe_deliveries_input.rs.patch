@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeDeliveriesInput`](crate::operation::describe_deliveries::DescribeDeliveriesInput).
 -    pub fn builder() -> crate::operation::describe_deliveries::builders::DescribeDeliveriesInputBuilder {
 -        crate::operation::describe_deliveries::builders::DescribeDeliveriesInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_deliveries::builders::DescribeDeliveriesInputBuilder {
-+        super::operation::describe_deliveries::builders::DescribeDeliveriesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_deliveries::builders::DescribeDeliveriesInputBuilder {
++        super::super::super::operation::describe_deliveries::builders::DescribeDeliveriesInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_deliveries::DescribeDeliveriesInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::describe_deliveries::DescribeDeliveriesInput {
-+    ) -> ::std::result::Result<super::operation::describe_deliveries::DescribeDeliveriesInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::describe_deliveries::DescribeDeliveriesInput {
++    ) -> ::std::result::Result<super::super::super::operation::describe_deliveries::DescribeDeliveriesInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::describe_deliveries::DescribeDeliveriesInput {
              next_token: self.next_token,
              limit: self.limit,
          })

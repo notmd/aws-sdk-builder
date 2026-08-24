@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`XksKeyConfigurationType`](crate::types::XksKeyConfigurationType).
 -    pub fn builder() -> crate::types::builders::XksKeyConfigurationTypeBuilder {
 -        crate::types::builders::XksKeyConfigurationTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::XksKeyConfigurationTypeBuilder {
-+        super::types::builders::XksKeyConfigurationTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::XksKeyConfigurationTypeBuilder {
++        super::super::types::builders::XksKeyConfigurationTypeBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`XksKeyConfigurationType`](crate::types::XksKeyConfigurationType).
 -    pub fn build(self) -> crate::types::XksKeyConfigurationType {
 -        crate::types::XksKeyConfigurationType { id: self.id }
-+    pub fn build(self) -> super::types::XksKeyConfigurationType {
-+        super::types::XksKeyConfigurationType { id: self.id }
++    pub fn build(self) -> super::super::types::XksKeyConfigurationType {
++        super::super::types::XksKeyConfigurationType { id: self.id }
      }
  }

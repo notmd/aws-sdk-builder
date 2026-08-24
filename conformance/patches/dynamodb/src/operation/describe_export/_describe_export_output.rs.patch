@@ -5,13 +5,13 @@
  pub struct DescribeExportOutput {
      /// <p>Represents the properties of the export.</p>
 -    pub export_description: ::std::option::Option<crate::types::ExportDescription>,
-+    pub export_description: ::std::option::Option<super::types::ExportDescription>,
++    pub export_description: ::std::option::Option<super::super::super::types::ExportDescription>,
      _request_id: Option<String>,
  }
  impl DescribeExportOutput {
      /// <p>Represents the properties of the export.</p>
 -    pub fn export_description(&self) -> ::std::option::Option<&crate::types::ExportDescription> {
-+    pub fn export_description(&self) -> ::std::option::Option<&super::types::ExportDescription> {
++    pub fn export_description(&self) -> ::std::option::Option<&super::super::super::types::ExportDescription> {
          self.export_description.as_ref()
      }
  }
@@ -21,8 +21,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeExportOutput`](crate::operation::describe_export::DescribeExportOutput).
 -    pub fn builder() -> crate::operation::describe_export::builders::DescribeExportOutputBuilder {
 -        crate::operation::describe_export::builders::DescribeExportOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_export::builders::DescribeExportOutputBuilder {
-+        super::operation::describe_export::builders::DescribeExportOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_export::builders::DescribeExportOutputBuilder {
++        super::super::super::operation::describe_export::builders::DescribeExportOutputBuilder::default()
      }
  }
 
@@ -31,25 +31,25 @@
  #[non_exhaustive]
  pub struct DescribeExportOutputBuilder {
 -    pub(crate) export_description: ::std::option::Option<crate::types::ExportDescription>,
-+    pub(crate) export_description: ::std::option::Option<super::types::ExportDescription>,
++    pub(crate) export_description: ::std::option::Option<super::super::super::types::ExportDescription>,
      _request_id: Option<String>,
  }
  impl DescribeExportOutputBuilder {
      /// <p>Represents the properties of the export.</p>
 -    pub fn export_description(mut self, input: crate::types::ExportDescription) -> Self {
-+    pub fn export_description(mut self, input: super::types::ExportDescription) -> Self {
++    pub fn export_description(mut self, input: super::super::super::types::ExportDescription) -> Self {
          self.export_description = ::std::option::Option::Some(input);
          self
      }
      /// <p>Represents the properties of the export.</p>
 -    pub fn set_export_description(mut self, input: ::std::option::Option<crate::types::ExportDescription>) -> Self {
-+    pub fn set_export_description(mut self, input: ::std::option::Option<super::types::ExportDescription>) -> Self {
++    pub fn set_export_description(mut self, input: ::std::option::Option<super::super::super::types::ExportDescription>) -> Self {
          self.export_description = input;
          self
      }
      /// <p>Represents the properties of the export.</p>
 -    pub fn get_export_description(&self) -> &::std::option::Option<crate::types::ExportDescription> {
-+    pub fn get_export_description(&self) -> &::std::option::Option<super::types::ExportDescription> {
++    pub fn get_export_description(&self) -> &::std::option::Option<super::super::super::types::ExportDescription> {
          &self.export_description
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -59,8 +59,8 @@
      /// Consumes the builder and constructs a [`DescribeExportOutput`](crate::operation::describe_export::DescribeExportOutput).
 -    pub fn build(self) -> crate::operation::describe_export::DescribeExportOutput {
 -        crate::operation::describe_export::DescribeExportOutput {
-+    pub fn build(self) -> super::operation::describe_export::DescribeExportOutput {
-+        super::operation::describe_export::DescribeExportOutput {
++    pub fn build(self) -> super::super::super::operation::describe_export::DescribeExportOutput {
++        super::super::super::operation::describe_export::DescribeExportOutput {
              export_description: self.export_description,
              _request_id: self._request_id,
          }

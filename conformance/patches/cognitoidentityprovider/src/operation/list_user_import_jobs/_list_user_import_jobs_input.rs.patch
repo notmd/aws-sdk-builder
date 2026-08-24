@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListUserImportJobsInput`](crate::operation::list_user_import_jobs::ListUserImportJobsInput).
 -    pub fn builder() -> crate::operation::list_user_import_jobs::builders::ListUserImportJobsInputBuilder {
 -        crate::operation::list_user_import_jobs::builders::ListUserImportJobsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_user_import_jobs::builders::ListUserImportJobsInputBuilder {
-+        super::operation::list_user_import_jobs::builders::ListUserImportJobsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_user_import_jobs::builders::ListUserImportJobsInputBuilder {
++        super::super::super::operation::list_user_import_jobs::builders::ListUserImportJobsInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::list_user_import_jobs::ListUserImportJobsInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::list_user_import_jobs::ListUserImportJobsInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::list_user_import_jobs::ListUserImportJobsInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::list_user_import_jobs::ListUserImportJobsInput {
-+        ::std::result::Result::Ok(super::operation::list_user_import_jobs::ListUserImportJobsInput {
++        ::std::result::Result::Ok(super::super::super::operation::list_user_import_jobs::ListUserImportJobsInput {
              user_pool_id: self.user_pool_id,
              max_results: self.max_results,
              pagination_token: self.pagination_token,

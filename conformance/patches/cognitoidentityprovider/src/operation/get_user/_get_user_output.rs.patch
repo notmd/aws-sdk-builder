@@ -5,10 +5,10 @@
      /// <p>An array of name-value pairs representing user attributes.</p>
      /// <p>Custom attributes are prepended with the <code>custom:</code> prefix.</p>
 -    pub user_attributes: ::std::vec::Vec<crate::types::AttributeType>,
-+    pub user_attributes: ::std::vec::Vec<super::types::AttributeType>,
++    pub user_attributes: ::std::vec::Vec<super::super::super::types::AttributeType>,
      /// <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about time-based one-time password (TOTP) software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
 -    pub mfa_options: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>,
-+    pub mfa_options: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>,
++    pub mfa_options: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaOptionType>>,
      /// <p>The user's preferred MFA. Users can prefer SMS message, email message, or TOTP MFA.</p>
      pub preferred_mfa_setting: ::std::option::Option<::std::string::String>,
      /// <p>The MFA options that are activated for the user. The possible values in this list are <code>SMS_MFA</code>, <code>EMAIL_OTP</code>, and <code>SOFTWARE_TOKEN_MFA</code>.</p>
@@ -17,7 +17,7 @@
      /// <p>An array of name-value pairs representing user attributes.</p>
      /// <p>Custom attributes are prepended with the <code>custom:</code> prefix.</p>
 -    pub fn user_attributes(&self) -> &[crate::types::AttributeType] {
-+    pub fn user_attributes(&self) -> &[super::types::AttributeType] {
++    pub fn user_attributes(&self) -> &[super::super::super::types::AttributeType] {
          use std::ops::Deref;
          self.user_attributes.deref()
      }
@@ -26,7 +26,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.mfa_options.is_none()`.
 -    pub fn mfa_options(&self) -> &[crate::types::MfaOptionType] {
-+    pub fn mfa_options(&self) -> &[super::types::MfaOptionType] {
++    pub fn mfa_options(&self) -> &[super::super::super::types::MfaOptionType] {
          self.mfa_options.as_deref().unwrap_or_default()
      }
      /// <p>The user's preferred MFA. Users can prefer SMS message, email message, or TOTP MFA.</p>
@@ -36,8 +36,8 @@
      /// Creates a new builder-style object to manufacture [`GetUserOutput`](crate::operation::get_user::GetUserOutput).
 -    pub fn builder() -> crate::operation::get_user::builders::GetUserOutputBuilder {
 -        crate::operation::get_user::builders::GetUserOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_user::builders::GetUserOutputBuilder {
-+        super::operation::get_user::builders::GetUserOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_user::builders::GetUserOutputBuilder {
++        super::super::super::operation::get_user::builders::GetUserOutputBuilder::default()
      }
  }
 
@@ -47,8 +47,8 @@
      pub(crate) username: ::std::option::Option<::std::string::String>,
 -    pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
 -    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>,
-+    pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>,
-+    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>,
++    pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeType>>,
++    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaOptionType>>,
      pub(crate) preferred_mfa_setting: ::std::option::Option<::std::string::String>,
      pub(crate) user_mfa_setting_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      _request_id: Option<String>,
@@ -57,7 +57,7 @@
      /// <p>An array of name-value pairs representing user attributes.</p>
      /// <p>Custom attributes are prepended with the <code>custom:</code> prefix.</p>
 -    pub fn user_attributes(mut self, input: crate::types::AttributeType) -> Self {
-+    pub fn user_attributes(mut self, input: super::types::AttributeType) -> Self {
++    pub fn user_attributes(mut self, input: super::super::super::types::AttributeType) -> Self {
          let mut v = self.user_attributes.unwrap_or_default();
          v.push(input);
          self.user_attributes = ::std::option::Option::Some(v);
@@ -66,14 +66,14 @@
      /// <p>An array of name-value pairs representing user attributes.</p>
      /// <p>Custom attributes are prepended with the <code>custom:</code> prefix.</p>
 -    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
-+    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>) -> Self {
++    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeType>>) -> Self {
          self.user_attributes = input;
          self
      }
      /// <p>An array of name-value pairs representing user attributes.</p>
      /// <p>Custom attributes are prepended with the <code>custom:</code> prefix.</p>
 -    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
-+    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AttributeType>> {
++    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeType>> {
          &self.user_attributes
      }
      /// Appends an item to `mfa_options`.
@@ -82,7 +82,7 @@
      ///
      /// <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about time-based one-time password (TOTP) software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
 -    pub fn mfa_options(mut self, input: crate::types::MfaOptionType) -> Self {
-+    pub fn mfa_options(mut self, input: super::types::MfaOptionType) -> Self {
++    pub fn mfa_options(mut self, input: super::super::super::types::MfaOptionType) -> Self {
          let mut v = self.mfa_options.unwrap_or_default();
          v.push(input);
          self.mfa_options = ::std::option::Option::Some(v);
@@ -91,13 +91,13 @@
      }
      /// <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about time-based one-time password (TOTP) software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
 -    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>) -> Self {
-+    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>) -> Self {
++    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaOptionType>>) -> Self {
          self.mfa_options = input;
          self
      }
      /// <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about time-based one-time password (TOTP) software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
 -    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>> {
-+    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>> {
++    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MfaOptionType>> {
          &self.mfa_options
      }
      /// <p>The user's preferred MFA. Users can prefer SMS message, email message, or TOTP MFA.</p>
@@ -107,8 +107,8 @@
      /// - [`user_attributes`](crate::operation::get_user::builders::GetUserOutputBuilder::user_attributes)
 -    pub fn build(self) -> ::std::result::Result<crate::operation::get_user::GetUserOutput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_user::GetUserOutput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::get_user::GetUserOutput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_user::GetUserOutput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_user::GetUserOutput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_user::GetUserOutput {
              username: self.username.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "username",

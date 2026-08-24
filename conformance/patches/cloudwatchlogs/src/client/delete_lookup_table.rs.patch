@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteLookupTableError>`](crate::operation::delete_lookup_table::DeleteLookupTableError)
 -    pub fn delete_lookup_table(&self) -> crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder {
 -        crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder::new(self.handle.clone())
-+    pub fn delete_lookup_table(&self) -> super::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder {
-+        super::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder::new(self.handle.clone())
++    pub fn delete_lookup_table(&self) -> super::super::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder {
++        super::super::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder::new(self.handle.clone())
      }
  }

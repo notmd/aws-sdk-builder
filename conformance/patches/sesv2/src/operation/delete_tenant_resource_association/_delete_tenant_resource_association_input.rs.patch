@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteTenantResourceAssociationInput`](crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationInput).
 -    pub fn builder() -> crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder {
 -        crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder {
-+        super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder {
++        super::super::super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationInput,
-+        super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationInput,
++        super::super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationInput {
-+            super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationInput {
++            super::super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationInput {
                  tenant_name: self.tenant_name,
                  resource_arn: self.resource_arn,
              },

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateEmailTemplateError>`](crate::operation::create_email_template::CreateEmailTemplateError)
 -    pub fn create_email_template(&self) -> crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder {
 -        crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder::new(self.handle.clone())
-+    pub fn create_email_template(&self) -> super::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder {
-+        super::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder::new(self.handle.clone())
++    pub fn create_email_template(&self) -> super::super::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder {
++        super::super::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder::new(self.handle.clone())
      }
  }

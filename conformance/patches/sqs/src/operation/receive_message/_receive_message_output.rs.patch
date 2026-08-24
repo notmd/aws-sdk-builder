@@ -5,7 +5,7 @@
  pub struct ReceiveMessageOutput {
      /// <p>A list of messages.</p>
 -    pub messages: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
-+    pub messages: ::std::option::Option<::std::vec::Vec<super::types::Message>>,
++    pub messages: ::std::option::Option<::std::vec::Vec<super::super::super::types::Message>>,
      _request_id: Option<String>,
  }
  impl ReceiveMessageOutput {
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.messages.is_none()`.
 -    pub fn messages(&self) -> &[crate::types::Message] {
-+    pub fn messages(&self) -> &[super::types::Message] {
++    pub fn messages(&self) -> &[super::super::super::types::Message] {
          self.messages.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ReceiveMessageOutput`](crate::operation::receive_message::ReceiveMessageOutput).
 -    pub fn builder() -> crate::operation::receive_message::builders::ReceiveMessageOutputBuilder {
 -        crate::operation::receive_message::builders::ReceiveMessageOutputBuilder::default()
-+    pub fn builder() -> super::operation::receive_message::builders::ReceiveMessageOutputBuilder {
-+        super::operation::receive_message::builders::ReceiveMessageOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::receive_message::builders::ReceiveMessageOutputBuilder {
++        super::super::super::operation::receive_message::builders::ReceiveMessageOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ReceiveMessageOutputBuilder {
 -    pub(crate) messages: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
-+    pub(crate) messages: ::std::option::Option<::std::vec::Vec<super::types::Message>>,
++    pub(crate) messages: ::std::option::Option<::std::vec::Vec<super::super::super::types::Message>>,
      _request_id: Option<String>,
  }
  impl ReceiveMessageOutputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of messages.</p>
 -    pub fn messages(mut self, input: crate::types::Message) -> Self {
-+    pub fn messages(mut self, input: super::types::Message) -> Self {
++    pub fn messages(mut self, input: super::super::super::types::Message) -> Self {
          let mut v = self.messages.unwrap_or_default();
          v.push(input);
          self.messages = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of messages.</p>
 -    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>) -> Self {
-+    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Message>>) -> Self {
++    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Message>>) -> Self {
          self.messages = input;
          self
      }
      /// <p>A list of messages.</p>
 -    pub fn get_messages(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Message>> {
-+    pub fn get_messages(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Message>> {
++    pub fn get_messages(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Message>> {
          &self.messages
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ReceiveMessageOutput`](crate::operation::receive_message::ReceiveMessageOutput).
 -    pub fn build(self) -> crate::operation::receive_message::ReceiveMessageOutput {
 -        crate::operation::receive_message::ReceiveMessageOutput {
-+    pub fn build(self) -> super::operation::receive_message::ReceiveMessageOutput {
-+        super::operation::receive_message::ReceiveMessageOutput {
++    pub fn build(self) -> super::super::super::operation::receive_message::ReceiveMessageOutput {
++        super::super::super::operation::receive_message::ReceiveMessageOutput {
              messages: self.messages,
              _request_id: self._request_id,
          }

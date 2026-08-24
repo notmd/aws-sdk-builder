@@ -5,7 +5,7 @@
      pub user_pool_id: ::std::option::Option<::std::string::String>,
      /// <p>The user profile that you want to delete a linked identity from.</p>
 -    pub user: ::std::option::Option<crate::types::ProviderUserIdentifierType>,
-+    pub user: ::std::option::Option<super::types::ProviderUserIdentifierType>,
++    pub user: ::std::option::Option<super::super::super::types::ProviderUserIdentifierType>,
  }
  impl AdminDisableProviderForUserInput {
      /// <p>The ID of the user pool where you want to delete the user's linked identities.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The user profile that you want to delete a linked identity from.</p>
 -    pub fn user(&self) -> ::std::option::Option<&crate::types::ProviderUserIdentifierType> {
-+    pub fn user(&self) -> ::std::option::Option<&super::types::ProviderUserIdentifierType> {
++    pub fn user(&self) -> ::std::option::Option<&super::super::super::types::ProviderUserIdentifierType> {
          self.user.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`AdminDisableProviderForUserInput`](crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput).
 -    pub fn builder() -> crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder {
 -        crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder::default()
-+    pub fn builder() -> super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder {
-+        super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder {
++        super::super::super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct AdminDisableProviderForUserInputBuilder {
      pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) user: ::std::option::Option<crate::types::ProviderUserIdentifierType>,
-+    pub(crate) user: ::std::option::Option<super::types::ProviderUserIdentifierType>,
++    pub(crate) user: ::std::option::Option<super::super::super::types::ProviderUserIdentifierType>,
  }
  impl AdminDisableProviderForUserInputBuilder {
      /// <p>The ID of the user pool where you want to delete the user's linked identities.</p>
@@ -41,19 +41,19 @@
      /// <p>The user profile that you want to delete a linked identity from.</p>
      /// This field is required.
 -    pub fn user(mut self, input: crate::types::ProviderUserIdentifierType) -> Self {
-+    pub fn user(mut self, input: super::types::ProviderUserIdentifierType) -> Self {
++    pub fn user(mut self, input: super::super::super::types::ProviderUserIdentifierType) -> Self {
          self.user = ::std::option::Option::Some(input);
          self
      }
      /// <p>The user profile that you want to delete a linked identity from.</p>
 -    pub fn set_user(mut self, input: ::std::option::Option<crate::types::ProviderUserIdentifierType>) -> Self {
-+    pub fn set_user(mut self, input: ::std::option::Option<super::types::ProviderUserIdentifierType>) -> Self {
++    pub fn set_user(mut self, input: ::std::option::Option<super::super::super::types::ProviderUserIdentifierType>) -> Self {
          self.user = input;
          self
      }
      /// <p>The user profile that you want to delete a linked identity from.</p>
 -    pub fn get_user(&self) -> &::std::option::Option<crate::types::ProviderUserIdentifierType> {
-+    pub fn get_user(&self) -> &::std::option::Option<super::types::ProviderUserIdentifierType> {
++    pub fn get_user(&self) -> &::std::option::Option<super::super::super::types::ProviderUserIdentifierType> {
          &self.user
      }
      /// Consumes the builder and constructs a [`AdminDisableProviderForUserInput`](crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput).
@@ -62,11 +62,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput,
-+        super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput,
++        super::super::super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput {
-+        ::std::result::Result::Ok(super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput {
++        ::std::result::Result::Ok(super::super::super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput {
              user_pool_id: self.user_pool_id,
              user: self.user,
          })

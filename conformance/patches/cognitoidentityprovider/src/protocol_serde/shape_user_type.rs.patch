@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::UserType>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::UserType>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::UserType>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::UserTypeBuilder::default();
-+            let mut builder = super::types::builders::UserTypeBuilder::default();
++            let mut builder = super::super::types::builders::UserTypeBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          }
                          "Attributes" => {
 -                            builder = builder.set_attributes(crate::protocol_serde::shape_attribute_list_type::de_attribute_list_type(
-+                            builder = builder.set_attributes(super::protocol_serde::shape_attribute_list_type::de_attribute_list_type(
++                            builder = builder.set_attributes(super::super::protocol_serde::shape_attribute_list_type::de_attribute_list_type(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -32,13 +32,13 @@
                              builder = builder.set_user_status(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::UserStatusType::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::UserStatusType::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::UserStatusType::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
                          "MFAOptions" => {
 -                            builder = builder.set_mfa_options(crate::protocol_serde::shape_mfa_option_list_type::de_mfa_option_list_type(
-+                            builder = builder.set_mfa_options(super::protocol_serde::shape_mfa_option_list_type::de_mfa_option_list_type(
++                            builder = builder.set_mfa_options(super::super::protocol_serde::shape_mfa_option_list_type::de_mfa_option_list_type(
                                  tokens,
                                  _value,
                                  depth + 1,

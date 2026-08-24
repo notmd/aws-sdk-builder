@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`StopConfigurationRecorderInput`](crate::operation::stop_configuration_recorder::StopConfigurationRecorderInput).
 -    pub fn builder() -> crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder {
 -        crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder::default()
-+    pub fn builder() -> super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder {
-+        super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder {
++        super::super::super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::stop_configuration_recorder::StopConfigurationRecorderInput,
-+        super::operation::stop_configuration_recorder::StopConfigurationRecorderInput,
++        super::super::super::operation::stop_configuration_recorder::StopConfigurationRecorderInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::stop_configuration_recorder::StopConfigurationRecorderInput {
-+        ::std::result::Result::Ok(super::operation::stop_configuration_recorder::StopConfigurationRecorderInput {
++        ::std::result::Result::Ok(super::super::super::operation::stop_configuration_recorder::StopConfigurationRecorderInput {
              configuration_recorder_name: self.configuration_recorder_name,
          })
      }

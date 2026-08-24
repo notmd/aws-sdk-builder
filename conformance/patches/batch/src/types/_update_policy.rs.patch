@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpdatePolicy`](crate::types::UpdatePolicy).
 -    pub fn builder() -> crate::types::builders::UpdatePolicyBuilder {
 -        crate::types::builders::UpdatePolicyBuilder::default()
-+    pub fn builder() -> super::types::builders::UpdatePolicyBuilder {
-+        super::types::builders::UpdatePolicyBuilder::default()
++    pub fn builder() -> super::super::types::builders::UpdatePolicyBuilder {
++        super::super::types::builders::UpdatePolicyBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UpdatePolicy`](crate::types::UpdatePolicy).
 -    pub fn build(self) -> crate::types::UpdatePolicy {
 -        crate::types::UpdatePolicy {
-+    pub fn build(self) -> super::types::UpdatePolicy {
-+        super::types::UpdatePolicy {
++    pub fn build(self) -> super::super::types::UpdatePolicy {
++        super::super::types::UpdatePolicy {
              terminate_jobs_on_update: self.terminate_jobs_on_update,
              job_execution_timeout_minutes: self.job_execution_timeout_minutes,
          }

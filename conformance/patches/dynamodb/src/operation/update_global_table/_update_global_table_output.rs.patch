@@ -5,13 +5,13 @@
  pub struct UpdateGlobalTableOutput {
      /// <p>Contains the details of the global table.</p>
 -    pub global_table_description: ::std::option::Option<crate::types::GlobalTableDescription>,
-+    pub global_table_description: ::std::option::Option<super::types::GlobalTableDescription>,
++    pub global_table_description: ::std::option::Option<super::super::super::types::GlobalTableDescription>,
      _request_id: Option<String>,
  }
  impl UpdateGlobalTableOutput {
      /// <p>Contains the details of the global table.</p>
 -    pub fn global_table_description(&self) -> ::std::option::Option<&crate::types::GlobalTableDescription> {
-+    pub fn global_table_description(&self) -> ::std::option::Option<&super::types::GlobalTableDescription> {
++    pub fn global_table_description(&self) -> ::std::option::Option<&super::super::super::types::GlobalTableDescription> {
          self.global_table_description.as_ref()
      }
  }
@@ -21,8 +21,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateGlobalTableOutput`](crate::operation::update_global_table::UpdateGlobalTableOutput).
 -    pub fn builder() -> crate::operation::update_global_table::builders::UpdateGlobalTableOutputBuilder {
 -        crate::operation::update_global_table::builders::UpdateGlobalTableOutputBuilder::default()
-+    pub fn builder() -> super::operation::update_global_table::builders::UpdateGlobalTableOutputBuilder {
-+        super::operation::update_global_table::builders::UpdateGlobalTableOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_global_table::builders::UpdateGlobalTableOutputBuilder {
++        super::super::super::operation::update_global_table::builders::UpdateGlobalTableOutputBuilder::default()
      }
  }
 
@@ -31,25 +31,25 @@
  #[non_exhaustive]
  pub struct UpdateGlobalTableOutputBuilder {
 -    pub(crate) global_table_description: ::std::option::Option<crate::types::GlobalTableDescription>,
-+    pub(crate) global_table_description: ::std::option::Option<super::types::GlobalTableDescription>,
++    pub(crate) global_table_description: ::std::option::Option<super::super::super::types::GlobalTableDescription>,
      _request_id: Option<String>,
  }
  impl UpdateGlobalTableOutputBuilder {
      /// <p>Contains the details of the global table.</p>
 -    pub fn global_table_description(mut self, input: crate::types::GlobalTableDescription) -> Self {
-+    pub fn global_table_description(mut self, input: super::types::GlobalTableDescription) -> Self {
++    pub fn global_table_description(mut self, input: super::super::super::types::GlobalTableDescription) -> Self {
          self.global_table_description = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains the details of the global table.</p>
 -    pub fn set_global_table_description(mut self, input: ::std::option::Option<crate::types::GlobalTableDescription>) -> Self {
-+    pub fn set_global_table_description(mut self, input: ::std::option::Option<super::types::GlobalTableDescription>) -> Self {
++    pub fn set_global_table_description(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableDescription>) -> Self {
          self.global_table_description = input;
          self
      }
      /// <p>Contains the details of the global table.</p>
 -    pub fn get_global_table_description(&self) -> &::std::option::Option<crate::types::GlobalTableDescription> {
-+    pub fn get_global_table_description(&self) -> &::std::option::Option<super::types::GlobalTableDescription> {
++    pub fn get_global_table_description(&self) -> &::std::option::Option<super::super::super::types::GlobalTableDescription> {
          &self.global_table_description
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -59,8 +59,8 @@
      /// Consumes the builder and constructs a [`UpdateGlobalTableOutput`](crate::operation::update_global_table::UpdateGlobalTableOutput).
 -    pub fn build(self) -> crate::operation::update_global_table::UpdateGlobalTableOutput {
 -        crate::operation::update_global_table::UpdateGlobalTableOutput {
-+    pub fn build(self) -> super::operation::update_global_table::UpdateGlobalTableOutput {
-+        super::operation::update_global_table::UpdateGlobalTableOutput {
++    pub fn build(self) -> super::super::super::operation::update_global_table::UpdateGlobalTableOutput {
++        super::super::super::operation::update_global_table::UpdateGlobalTableOutput {
              global_table_description: self.global_table_description,
              _request_id: self._request_id,
          }

@@ -5,7 +5,7 @@
      pub serial_number: ::std::option::Option<::std::string::String>,
      /// <p>The list of tags that you want to attach to the IAM virtual MFA device. Each tag consists of a key name and an associated value.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagMfaDeviceInput {
      /// <p>The unique identifier for the IAM virtual MFA device to which you want to add tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
 -    pub fn tags(&self) -> &[crate::types::Tag] {
-+    pub fn tags(&self) -> &[super::types::Tag] {
++    pub fn tags(&self) -> &[super::super::super::types::Tag] {
          self.tags.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`TagMfaDeviceInput`](crate::operation::tag_mfa_device::TagMfaDeviceInput).
 -    pub fn builder() -> crate::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder {
 -        crate::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder::default()
-+    pub fn builder() -> super::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder {
-+        super::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder {
++        super::super::super::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct TagMfaDeviceInputBuilder {
      pub(crate) serial_number: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagMfaDeviceInputBuilder {
      /// <p>The unique identifier for the IAM virtual MFA device to which you want to add tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
@@ -41,7 +41,7 @@
      ///
      /// <p>The list of tags that you want to attach to the IAM virtual MFA device. Each tag consists of a key name and an associated value.</p>
 -    pub fn tags(mut self, input: crate::types::Tag) -> Self {
-+    pub fn tags(mut self, input: super::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::super::super::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
          self.tags = ::std::option::Option::Some(v);
@@ -50,13 +50,13 @@
      }
      /// <p>The list of tags that you want to attach to the IAM virtual MFA device. Each tag consists of a key name and an associated value.</p>
 -    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self {
          self.tags = input;
          self
      }
      /// <p>The list of tags that you want to attach to the IAM virtual MFA device. Each tag consists of a key name and an associated value.</p>
 -    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
-+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> {
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagMfaDeviceInput`](crate::operation::tag_mfa_device::TagMfaDeviceInput).
@@ -64,8 +64,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::tag_mfa_device::TagMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::tag_mfa_device::TagMfaDeviceInput {
-+    ) -> ::std::result::Result<super::operation::tag_mfa_device::TagMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::tag_mfa_device::TagMfaDeviceInput {
++    ) -> ::std::result::Result<super::super::super::operation::tag_mfa_device::TagMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::tag_mfa_device::TagMfaDeviceInput {
              serial_number: self.serial_number,
              tags: self.tags,
          })

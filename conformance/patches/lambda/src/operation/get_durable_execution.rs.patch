@@ -5,13 +5,13 @@
      pub(crate) async fn orchestrate(
          runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
 -        input: crate::operation::get_durable_execution::GetDurableExecutionInput,
-+        input: super::operation::get_durable_execution::GetDurableExecutionInput,
++        input: super::super::operation::get_durable_execution::GetDurableExecutionInput,
      ) -> ::std::result::Result<
 -        crate::operation::get_durable_execution::GetDurableExecutionOutput,
-+        super::operation::get_durable_execution::GetDurableExecutionOutput,
++        super::super::operation::get_durable_execution::GetDurableExecutionOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
 -            crate::operation::get_durable_execution::GetDurableExecutionError,
-+            super::operation::get_durable_execution::GetDurableExecutionError,
++            super::super::operation::get_durable_execution::GetDurableExecutionError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -20,7 +20,7 @@
          >| {
              err.map_service_error(|err| {
 -                err.downcast::<crate::operation::get_durable_execution::GetDurableExecutionError>()
-+                err.downcast::<super::operation::get_durable_execution::GetDurableExecutionError>()
++                err.downcast::<super::super::operation::get_durable_execution::GetDurableExecutionError>()
                      .expect("correct error type")
              })
          };
@@ -29,7 +29,7 @@
          ::std::result::Result::Ok(
              output
 -                .downcast::<crate::operation::get_durable_execution::GetDurableExecutionOutput>()
-+                .downcast::<super::operation::get_durable_execution::GetDurableExecutionOutput>()
++                .downcast::<super::super::operation::get_durable_execution::GetDurableExecutionOutput>()
                  .expect("correct output type"),
          )
      }
@@ -38,7 +38,7 @@
      pub(crate) async fn orchestrate_with_stop_point(
          runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
 -        input: crate::operation::get_durable_execution::GetDurableExecutionInput,
-+        input: super::operation::get_durable_execution::GetDurableExecutionInput,
++        input: super::super::operation::get_durable_execution::GetDurableExecutionInput,
          stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
      ) -> ::std::result::Result<
          ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -48,8 +48,8 @@
          client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
 -        client_config: &crate::config::Config,
 -        config_override: ::std::option::Option<crate::config::Builder>,
-+        client_config: &super::config::Config,
-+        config_override: ::std::option::Option<super::config::Builder>,
++        client_config: &super::super::config::Config,
++        config_override: ::std::option::Option<super::super::config::Builder>,
      ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
          let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -58,7 +58,7 @@
                  runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
              }
 -            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
++            runtime_plugins = runtime_plugins.with_operation_plugin(super::super::config::ConfigOverrideRuntimePlugin::new(
                  config_override,
                  client_config.config.clone(),
                  &client_config.runtime_components,
@@ -67,7 +67,7 @@
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
 -            crate::config::auth::Params::builder()
-+            super::config::auth::Params::builder()
++            super::super::config::auth::Params::builder()
                  .operation_name("GetDurableExecution")
                  .build()
                  .expect("required fields set"),
@@ -76,15 +76,15 @@
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
 -                crate::operation::get_durable_execution::GetDurableExecutionError,
-+                super::operation::get_durable_execution::GetDurableExecutionError,
++                super::super::operation::get_durable_execution::GetDurableExecutionError,
              >::new())
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
 -                crate::operation::get_durable_execution::GetDurableExecutionError,
-+                super::operation::get_durable_execution::GetDurableExecutionError,
++                super::super::operation::get_durable_execution::GetDurableExecutionError,
              >::new())
              .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
 -                crate::operation::get_durable_execution::GetDurableExecutionError,
-+                super::operation::get_durable_execution::GetDurableExecutionError,
++                super::super::operation::get_durable_execution::GetDurableExecutionError,
              >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -93,13 +93,13 @@
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
          let parse_result = if !success && status != 200 || force_error {
 -            crate::protocol_serde::shape_get_durable_execution::de_get_durable_execution_http_error(status, headers, body)
-+            super::protocol_serde::shape_get_durable_execution::de_get_durable_execution_http_error(status, headers, body)
++            super::super::protocol_serde::shape_get_durable_execution::de_get_durable_execution_http_error(status, headers, body)
          } else {
 -            crate::protocol_serde::shape_get_durable_execution::de_get_durable_execution_http_response(status, headers, body)
-+            super::protocol_serde::shape_get_durable_execution::de_get_durable_execution_http_response(status, headers, body)
++            super::super::protocol_serde::shape_get_durable_execution::de_get_durable_execution_http_response(status, headers, body)
          };
 -        crate::protocol_serde::type_erase_result(parse_result)
-+        super::protocol_serde::type_erase_result(parse_result)
++        super::super::protocol_serde::type_erase_result(parse_result)
      }
  }
  #[derive(Debug)]
@@ -108,18 +108,18 @@
      ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
          let input = input
 -            .downcast::<crate::operation::get_durable_execution::GetDurableExecutionInput>()
-+            .downcast::<super::operation::get_durable_execution::GetDurableExecutionInput>()
++            .downcast::<super::super::operation::get_durable_execution::GetDurableExecutionInput>()
              .expect("correct type");
          let _header_serialization_settings = _cfg
 -            .load::<crate::serialization_settings::HeaderSerializationSettings>()
-+            .load::<super::serialization_settings::HeaderSerializationSettings>()
++            .load::<super::super::serialization_settings::HeaderSerializationSettings>()
              .cloned()
              .unwrap_or_default();
          let mut request_builder = {
              #[allow(clippy::uninlined_format_args)]
              fn uri_base(
 -                _input: &crate::operation::get_durable_execution::GetDurableExecutionInput,
-+                _input: &super::operation::get_durable_execution::GetDurableExecutionInput,
++                _input: &super::super::operation::get_durable_execution::GetDurableExecutionInput,
                  output: &mut ::std::string::String,
              ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                  use ::std::fmt::Write as _;
@@ -128,7 +128,7 @@
              }
              fn uri_query(
 -                _input: &crate::operation::get_durable_execution::GetDurableExecutionInput,
-+                _input: &super::operation::get_durable_execution::GetDurableExecutionInput,
++                _input: &super::super::operation::get_durable_execution::GetDurableExecutionInput,
                  mut output: &mut ::std::string::String,
              ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                  let mut query = ::aws_smithy_http::query::Writer::new(output);
@@ -137,7 +137,7 @@
              #[allow(clippy::unnecessary_wraps)]
              fn update_http_builder(
 -                input: &crate::operation::get_durable_execution::GetDurableExecutionInput,
-+                input: &super::operation::get_durable_execution::GetDurableExecutionInput,
++                input: &super::super::operation::get_durable_execution::GetDurableExecutionInput,
                  builder: ::http_1x::request::Builder,
              ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                  let mut uri = ::std::string::String::new();
@@ -146,7 +146,7 @@
              .ok_or("failed to downcast to GetDurableExecutionInput")?;
 
 -        let params = crate::config::endpoint::Params::builder()
-+        let params = super::config::endpoint::Params::builder()
++        let params = super::super::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
              .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
              .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -155,28 +155,28 @@
  pub enum GetDurableExecutionError {
      /// <p>One of the parameters in the request is not valid.</p>
 -    InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
-+    InvalidParameterValueException(super::types::error::InvalidParameterValueException),
++    InvalidParameterValueException(super::super::types::error::InvalidParameterValueException),
      /// <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
 -    KmsAccessDeniedException(crate::types::error::KmsAccessDeniedException),
-+    KmsAccessDeniedException(super::types::error::KmsAccessDeniedException),
++    KmsAccessDeniedException(super::super::types::error::KmsAccessDeniedException),
      /// <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
 -    KmsDisabledException(crate::types::error::KmsDisabledException),
-+    KmsDisabledException(super::types::error::KmsDisabledException),
++    KmsDisabledException(super::super::types::error::KmsDisabledException),
      /// <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
 -    KmsInvalidStateException(crate::types::error::KmsInvalidStateException),
-+    KmsInvalidStateException(super::types::error::KmsInvalidStateException),
++    KmsInvalidStateException(super::super::types::error::KmsInvalidStateException),
      /// <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
 -    KmsNotFoundException(crate::types::error::KmsNotFoundException),
-+    KmsNotFoundException(super::types::error::KmsNotFoundException),
++    KmsNotFoundException(super::super::types::error::KmsNotFoundException),
      /// <p>The resource specified in the request does not exist.</p>
 -    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
-+    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
++    ResourceNotFoundException(super::super::types::error::ResourceNotFoundException),
      /// <p>The Lambda service encountered an internal error.</p>
 -    ServiceException(crate::types::error::ServiceException),
-+    ServiceException(super::types::error::ServiceException),
++    ServiceException(super::super::types::error::ServiceException),
      /// <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
 -    TooManyRequestsException(crate::types::error::TooManyRequestsException),
-+    TooManyRequestsException(super::types::error::TooManyRequestsException),
++    TooManyRequestsException(super::super::types::error::TooManyRequestsException),
      /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
      #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
      variable wildcard pattern and check `.code()`:
@@ -185,7 +185,7 @@
       \
      See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetDurableExecutionError) for what information is available for the error.")]
 -    Unhandled(crate::error::sealed_unhandled::Unhandled),
-+    Unhandled(super::error::sealed_unhandled::Unhandled),
++    Unhandled(super::super::error::sealed_unhandled::Unhandled),
  }
  impl GetDurableExecutionError {
      /// Creates the `GetDurableExecutionError::Unhandled` variant from any error type.
@@ -194,7 +194,7 @@
          err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
      ) -> Self {
 -        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
-+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::super::error::sealed_unhandled::Unhandled {
              source: err.into(),
              meta: ::std::default::Default::default(),
          })
@@ -203,7 +203,7 @@
      /// Creates the `GetDurableExecutionError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
      pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
 -        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
-+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::super::error::sealed_unhandled::Unhandled {
              source: err.clone().into(),
              meta: err,
          })
@@ -212,24 +212,24 @@
          meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
      ) -> Self {
 -        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
-+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::super::error::sealed_unhandled::Unhandled {
              source,
              meta: meta.unwrap_or_default(),
          })
      }
  }
 -impl ::aws_types::request_id::RequestId for crate::operation::get_durable_execution::GetDurableExecutionError {
-+impl ::aws_types::request_id::RequestId for super::operation::get_durable_execution::GetDurableExecutionError {
++impl ::aws_types::request_id::RequestId for super::super::operation::get_durable_execution::GetDurableExecutionError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
      }
  }
 
 -pub use crate::operation::get_durable_execution::_get_durable_execution_input::GetDurableExecutionInput;
-+pub use super::operation::get_durable_execution::_get_durable_execution_input::GetDurableExecutionInput;
++pub use super::super::operation::get_durable_execution::_get_durable_execution_input::GetDurableExecutionInput;
 
 -pub use crate::operation::get_durable_execution::_get_durable_execution_output::GetDurableExecutionOutput;
-+pub use super::operation::get_durable_execution::_get_durable_execution_output::GetDurableExecutionOutput;
++pub use super::super::operation::get_durable_execution::_get_durable_execution_output::GetDurableExecutionOutput;
 
  mod _get_durable_execution_input;
 

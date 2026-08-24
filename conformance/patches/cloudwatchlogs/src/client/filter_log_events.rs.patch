@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<FilterLogEventsError>`](crate::operation::filter_log_events::FilterLogEventsError)
 -    pub fn filter_log_events(&self) -> crate::operation::filter_log_events::builders::FilterLogEventsFluentBuilder {
 -        crate::operation::filter_log_events::builders::FilterLogEventsFluentBuilder::new(self.handle.clone())
-+    pub fn filter_log_events(&self) -> super::operation::filter_log_events::builders::FilterLogEventsFluentBuilder {
-+        super::operation::filter_log_events::builders::FilterLogEventsFluentBuilder::new(self.handle.clone())
++    pub fn filter_log_events(&self) -> super::super::operation::filter_log_events::builders::FilterLogEventsFluentBuilder {
++        super::super::operation::filter_log_events::builders::FilterLogEventsFluentBuilder::new(self.handle.clone())
      }
  }

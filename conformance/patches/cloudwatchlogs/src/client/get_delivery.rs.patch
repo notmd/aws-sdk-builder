@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetDeliveryError>`](crate::operation::get_delivery::GetDeliveryError)
 -    pub fn get_delivery(&self) -> crate::operation::get_delivery::builders::GetDeliveryFluentBuilder {
 -        crate::operation::get_delivery::builders::GetDeliveryFluentBuilder::new(self.handle.clone())
-+    pub fn get_delivery(&self) -> super::operation::get_delivery::builders::GetDeliveryFluentBuilder {
-+        super::operation::get_delivery::builders::GetDeliveryFluentBuilder::new(self.handle.clone())
++    pub fn get_delivery(&self) -> super::super::operation::get_delivery::builders::GetDeliveryFluentBuilder {
++        super::super::operation::get_delivery::builders::GetDeliveryFluentBuilder::new(self.handle.clone())
      }
  }

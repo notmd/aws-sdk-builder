@@ -5,12 +5,12 @@
  pub struct Tagging {
      /// <p>A collection for a set of tags</p>
 -    pub tag_set: ::std::vec::Vec<crate::types::Tag>,
-+    pub tag_set: ::std::vec::Vec<super::types::Tag>,
++    pub tag_set: ::std::vec::Vec<super::super::types::Tag>,
  }
  impl Tagging {
      /// <p>A collection for a set of tags</p>
 -    pub fn tag_set(&self) -> &[crate::types::Tag] {
-+    pub fn tag_set(&self) -> &[super::types::Tag] {
++    pub fn tag_set(&self) -> &[super::super::types::Tag] {
          use std::ops::Deref;
          self.tag_set.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`Tagging`](crate::types::Tagging).
 -    pub fn builder() -> crate::types::builders::TaggingBuilder {
 -        crate::types::builders::TaggingBuilder::default()
-+    pub fn builder() -> super::types::builders::TaggingBuilder {
-+        super::types::builders::TaggingBuilder::default()
++    pub fn builder() -> super::super::types::builders::TaggingBuilder {
++        super::super::types::builders::TaggingBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct TaggingBuilder {
 -    pub(crate) tag_set: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub(crate) tag_set: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub(crate) tag_set: ::std::option::Option<::std::vec::Vec<super::super::types::Tag>>,
  }
  impl TaggingBuilder {
      /// Appends an item to `tag_set`.
@@ -39,7 +39,7 @@
      ///
      /// <p>A collection for a set of tags</p>
 -    pub fn tag_set(mut self, input: crate::types::Tag) -> Self {
-+    pub fn tag_set(mut self, input: super::types::Tag) -> Self {
++    pub fn tag_set(mut self, input: super::super::types::Tag) -> Self {
          let mut v = self.tag_set.unwrap_or_default();
          v.push(input);
          self.tag_set = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>A collection for a set of tags</p>
 -    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-+    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
++    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::Tag>>) -> Self {
          self.tag_set = input;
          self
      }
      /// <p>A collection for a set of tags</p>
 -    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
-+    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
++    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::Tag>> {
          &self.tag_set
      }
      /// Consumes the builder and constructs a [`Tagging`](crate::types::Tagging).
@@ -62,8 +62,8 @@
      /// - [`tag_set`](crate::types::builders::TaggingBuilder::tag_set)
 -    pub fn build(self) -> ::std::result::Result<crate::types::Tagging, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::Tagging {
-+    pub fn build(self) -> ::std::result::Result<super::types::Tagging, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Tagging {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Tagging, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Tagging {
              tag_set: self.tag_set.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "tag_set",

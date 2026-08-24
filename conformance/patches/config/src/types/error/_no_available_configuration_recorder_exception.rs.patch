@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for NoAvailableConfigurationRecorderException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::NoAvailableConfigurationRecorderException {
-+impl ::aws_types::request_id::RequestId for super::types::error::NoAvailableConfigurationRecorderException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::NoAvailableConfigurationRecorderException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`NoAvailableConfigurationRecorderException`](crate::types::error::NoAvailableConfigurationRecorderException).
 -    pub fn builder() -> crate::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder {
 -        crate::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder {
-+        super::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder {
++        super::super::super::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`NoAvailableConfigurationRecorderException`](crate::types::error::NoAvailableConfigurationRecorderException).
 -    pub fn build(self) -> crate::types::error::NoAvailableConfigurationRecorderException {
 -        crate::types::error::NoAvailableConfigurationRecorderException {
-+    pub fn build(self) -> super::types::error::NoAvailableConfigurationRecorderException {
-+        super::types::error::NoAvailableConfigurationRecorderException {
++    pub fn build(self) -> super::super::super::types::error::NoAvailableConfigurationRecorderException {
++        super::super::super::types::error::NoAvailableConfigurationRecorderException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

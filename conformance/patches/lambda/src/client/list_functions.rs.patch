@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListFunctionsError>`](crate::operation::list_functions::ListFunctionsError)
 -    pub fn list_functions(&self) -> crate::operation::list_functions::builders::ListFunctionsFluentBuilder {
 -        crate::operation::list_functions::builders::ListFunctionsFluentBuilder::new(self.handle.clone())
-+    pub fn list_functions(&self) -> super::operation::list_functions::builders::ListFunctionsFluentBuilder {
-+        super::operation::list_functions::builders::ListFunctionsFluentBuilder::new(self.handle.clone())
++    pub fn list_functions(&self) -> super::super::operation::list_functions::builders::ListFunctionsFluentBuilder {
++        super::super::operation::list_functions::builders::ListFunctionsFluentBuilder::new(self.handle.clone())
      }
  }

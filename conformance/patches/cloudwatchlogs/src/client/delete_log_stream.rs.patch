@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteLogStreamError>`](crate::operation::delete_log_stream::DeleteLogStreamError)
 -    pub fn delete_log_stream(&self) -> crate::operation::delete_log_stream::builders::DeleteLogStreamFluentBuilder {
 -        crate::operation::delete_log_stream::builders::DeleteLogStreamFluentBuilder::new(self.handle.clone())
-+    pub fn delete_log_stream(&self) -> super::operation::delete_log_stream::builders::DeleteLogStreamFluentBuilder {
-+        super::operation::delete_log_stream::builders::DeleteLogStreamFluentBuilder::new(self.handle.clone())
++    pub fn delete_log_stream(&self) -> super::super::operation::delete_log_stream::builders::DeleteLogStreamFluentBuilder {
++        super::super::operation::delete_log_stream::builders::DeleteLogStreamFluentBuilder::new(self.handle.clone())
      }
  }

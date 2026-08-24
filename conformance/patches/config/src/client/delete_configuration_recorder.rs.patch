@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderFluentBuilder {
 -        crate::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderFluentBuilder {
-+        super::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderFluentBuilder {
++        super::super::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderFluentBuilder::new(self.handle.clone())
      }
  }

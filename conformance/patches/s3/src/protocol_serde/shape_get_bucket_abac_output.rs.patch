@@ -5,19 +5,19 @@
  pub(crate) fn de_abac_status_payload(
      body: &[u8],
 -) -> std::result::Result<::std::option::Option<crate::types::AbacStatus>, crate::operation::get_bucket_abac::GetBucketAbacError> {
-+) -> std::result::Result<::std::option::Option<super::types::AbacStatus>, super::operation::get_bucket_abac::GetBucketAbacError> {
++) -> std::result::Result<::std::option::Option<super::super::types::AbacStatus>, super::super::operation::get_bucket_abac::GetBucketAbacError> {
      (!body.is_empty())
          .then(|| {
 -            crate::protocol_serde::shape_get_bucket_abac_output::de_abac_status(body)
 -                .map_err(crate::operation::get_bucket_abac::GetBucketAbacError::unhandled)
-+            super::protocol_serde::shape_get_bucket_abac_output::de_abac_status(body)
-+                .map_err(super::operation::get_bucket_abac::GetBucketAbacError::unhandled)
++            super::super::protocol_serde::shape_get_bucket_abac_output::de_abac_status(body)
++                .map_err(super::super::operation::get_bucket_abac::GetBucketAbacError::unhandled)
          })
          .transpose()
  }
 
 -pub fn de_abac_status(inp: &[u8]) -> std::result::Result<crate::types::AbacStatus, ::aws_smithy_xml::decode::XmlDecodeError> {
-+pub fn de_abac_status(inp: &[u8]) -> std::result::Result<super::types::AbacStatus, ::aws_smithy_xml::decode::XmlDecodeError> {
++pub fn de_abac_status(inp: &[u8]) -> std::result::Result<super::super::types::AbacStatus, ::aws_smithy_xml::decode::XmlDecodeError> {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
      #[allow(unused_mut)]
      let mut decoder = doc.root_element()?;
@@ -26,5 +26,5 @@
      #[allow(unused_variables)]
      let depth = 0u32;
 -    crate::protocol_serde::shape_abac_status::de_abac_status(&mut decoder, depth + 1)
-+    super::protocol_serde::shape_abac_status::de_abac_status(&mut decoder, depth + 1)
++    super::super::protocol_serde::shape_abac_status::de_abac_status(&mut decoder, depth + 1)
  }

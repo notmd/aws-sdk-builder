@@ -5,7 +5,7 @@
  pub fn ser_list_connectors_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::list_connectors::ListConnectorsInput,
-+    input: &super::operation::list_connectors::ListConnectorsInput,
++    input: &super::super::operation::list_connectors::ListConnectorsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.max_results {
          object.key("MaxResults").number(
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_6 = array_4.value().start_object();
 -                crate::protocol_serde::shape_connector_filter::ser_connector_filter(&mut object_6, item_5)?;
-+                super::protocol_serde::shape_connector_filter::ser_connector_filter(&mut object_6, item_5)?;
++                super::super::protocol_serde::shape_connector_filter::ser_connector_filter(&mut object_6, item_5)?;
                  object_6.finish();
              }
          }

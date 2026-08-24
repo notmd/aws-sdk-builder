@@ -5,7 +5,7 @@
      pub compute_environment_name: ::std::option::Option<::std::string::String>,
      /// <p>The type of the compute environment: <code>MANAGED</code> or <code>UNMANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub r#type: ::std::option::Option<crate::types::CeType>,
-+    pub r#type: ::std::option::Option<super::types::CeType>,
++    pub r#type: ::std::option::Option<super::super::super::types::CeType>,
      /// <p>The state of the compute environment. A compute environment must be created in the <code>ENABLED</code> state.</p>
      /// <p>If the state is <code>ENABLED</code>, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.</p>
      /// <p>If the state is <code>ENABLED</code>, then the Batch scheduler can attempt to place jobs from an associated job queue on the compute resources within the environment. If the compute environment is managed, then it can scale its instances out or in automatically, based on the job queue demand.</p>
@@ -14,14 +14,14 @@
      /// </note>
      /// <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value. However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code> instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code> value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code> instance.</p>
 -    pub state: ::std::option::Option<crate::types::CeState>,
-+    pub state: ::std::option::Option<super::types::CeState>,
++    pub state: ::std::option::Option<super::super::super::types::CeState>,
      /// <p>The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</p><note>
      /// <p>This parameter is only supported when the <code>type</code> parameter is set to <code>UNMANAGED</code>.</p>
      /// </note>
      pub unmanagedv_cpus: ::std::option::Option<i32>,
      /// <p>Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub compute_resources: ::std::option::Option<crate::types::ComputeResource>,
-+    pub compute_resources: ::std::option::Option<super::types::ComputeResource>,
++    pub compute_resources: ::std::option::Option<super::super::super::types::ComputeResource>,
      /// <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM role</a> in the <i>Batch User Guide</i>.</p><important>
      /// <p>If your account already created the Batch service-linked role, that role is used by default for your compute environment unless you specify a different role here. If the Batch service-linked role doesn't exist in your account, and no role is specified here, the service attempts to create the Batch service-linked role in your account.</p>
      /// <p>This automatic service-linked role creation only applies to <code>MANAGED</code> compute environments. For <code>UNMANAGED</code> compute environments, you must explicitly specify a <code>serviceRole</code>.</p>
@@ -30,12 +30,12 @@
      /// <p>To create a compute environment that uses EKS resources, the caller must have permissions to call <code>eks:DescribeCluster</code>.</p>
      /// </note>
 -    pub eks_configuration: ::std::option::Option<crate::types::EksConfiguration>,
-+    pub eks_configuration: ::std::option::Option<super::types::EksConfiguration>,
++    pub eks_configuration: ::std::option::Option<super::super::super::types::EksConfiguration>,
      /// <p>Reserved.</p>
      pub context: ::std::option::Option<::std::string::String>,
      /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
 -    pub ecs_settings: ::std::option::Option<crate::types::EcsSettings>,
-+    pub ecs_settings: ::std::option::Option<super::types::EcsSettings>,
++    pub ecs_settings: ::std::option::Option<super::super::super::types::EcsSettings>,
  }
  impl CreateComputeEnvironmentInput {
      /// <p>The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -44,7 +44,7 @@
      }
      /// <p>The type of the compute environment: <code>MANAGED</code> or <code>UNMANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn r#type(&self) -> ::std::option::Option<&crate::types::CeType> {
-+    pub fn r#type(&self) -> ::std::option::Option<&super::types::CeType> {
++    pub fn r#type(&self) -> ::std::option::Option<&super::super::super::types::CeType> {
          self.r#type.as_ref()
      }
      /// <p>The state of the compute environment. A compute environment must be created in the <code>ENABLED</code> state.</p>
@@ -53,7 +53,7 @@
      /// </note>
      /// <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value. However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code> instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code> value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code> instance.</p>
 -    pub fn state(&self) -> ::std::option::Option<&crate::types::CeState> {
-+    pub fn state(&self) -> ::std::option::Option<&super::types::CeState> {
++    pub fn state(&self) -> ::std::option::Option<&super::super::super::types::CeState> {
          self.state.as_ref()
      }
      /// <p>The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</p><note>
@@ -62,7 +62,7 @@
      }
      /// <p>Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn compute_resources(&self) -> ::std::option::Option<&crate::types::ComputeResource> {
-+    pub fn compute_resources(&self) -> ::std::option::Option<&super::types::ComputeResource> {
++    pub fn compute_resources(&self) -> ::std::option::Option<&super::super::super::types::ComputeResource> {
          self.compute_resources.as_ref()
      }
      /// <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM role</a> in the <i>Batch User Guide</i>.</p><important>
@@ -71,7 +71,7 @@
      /// <p>To create a compute environment that uses EKS resources, the caller must have permissions to call <code>eks:DescribeCluster</code>.</p>
      /// </note>
 -    pub fn eks_configuration(&self) -> ::std::option::Option<&crate::types::EksConfiguration> {
-+    pub fn eks_configuration(&self) -> ::std::option::Option<&super::types::EksConfiguration> {
++    pub fn eks_configuration(&self) -> ::std::option::Option<&super::super::super::types::EksConfiguration> {
          self.eks_configuration.as_ref()
      }
      /// <p>Reserved.</p>
@@ -80,7 +80,7 @@
      }
      /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
 -    pub fn ecs_settings(&self) -> ::std::option::Option<&crate::types::EcsSettings> {
-+    pub fn ecs_settings(&self) -> ::std::option::Option<&super::types::EcsSettings> {
++    pub fn ecs_settings(&self) -> ::std::option::Option<&super::super::super::types::EcsSettings> {
          self.ecs_settings.as_ref()
      }
  }
@@ -88,8 +88,8 @@
      /// Creates a new builder-style object to manufacture [`CreateComputeEnvironmentInput`](crate::operation::create_compute_environment::CreateComputeEnvironmentInput).
 -    pub fn builder() -> crate::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder {
 -        crate::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder::default()
-+    pub fn builder() -> super::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder {
-+        super::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder {
++        super::super::super::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder::default()
      }
  }
 
@@ -99,18 +99,18 @@
      pub(crate) compute_environment_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) r#type: ::std::option::Option<crate::types::CeType>,
 -    pub(crate) state: ::std::option::Option<crate::types::CeState>,
-+    pub(crate) r#type: ::std::option::Option<super::types::CeType>,
-+    pub(crate) state: ::std::option::Option<super::types::CeState>,
++    pub(crate) r#type: ::std::option::Option<super::super::super::types::CeType>,
++    pub(crate) state: ::std::option::Option<super::super::super::types::CeState>,
      pub(crate) unmanagedv_cpus: ::std::option::Option<i32>,
 -    pub(crate) compute_resources: ::std::option::Option<crate::types::ComputeResource>,
-+    pub(crate) compute_resources: ::std::option::Option<super::types::ComputeResource>,
++    pub(crate) compute_resources: ::std::option::Option<super::super::super::types::ComputeResource>,
      pub(crate) service_role: ::std::option::Option<::std::string::String>,
      pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) eks_configuration: ::std::option::Option<crate::types::EksConfiguration>,
-+    pub(crate) eks_configuration: ::std::option::Option<super::types::EksConfiguration>,
++    pub(crate) eks_configuration: ::std::option::Option<super::super::super::types::EksConfiguration>,
      pub(crate) context: ::std::option::Option<::std::string::String>,
 -    pub(crate) ecs_settings: ::std::option::Option<crate::types::EcsSettings>,
-+    pub(crate) ecs_settings: ::std::option::Option<super::types::EcsSettings>,
++    pub(crate) ecs_settings: ::std::option::Option<super::super::super::types::EcsSettings>,
  }
  impl CreateComputeEnvironmentInputBuilder {
      /// <p>The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -119,19 +119,19 @@
      /// <p>The type of the compute environment: <code>MANAGED</code> or <code>UNMANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
      /// This field is required.
 -    pub fn r#type(mut self, input: crate::types::CeType) -> Self {
-+    pub fn r#type(mut self, input: super::types::CeType) -> Self {
++    pub fn r#type(mut self, input: super::super::super::types::CeType) -> Self {
          self.r#type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of the compute environment: <code>MANAGED</code> or <code>UNMANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn set_type(mut self, input: ::std::option::Option<crate::types::CeType>) -> Self {
-+    pub fn set_type(mut self, input: ::std::option::Option<super::types::CeType>) -> Self {
++    pub fn set_type(mut self, input: ::std::option::Option<super::super::super::types::CeType>) -> Self {
          self.r#type = input;
          self
      }
      /// <p>The type of the compute environment: <code>MANAGED</code> or <code>UNMANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn get_type(&self) -> &::std::option::Option<crate::types::CeType> {
-+    pub fn get_type(&self) -> &::std::option::Option<super::types::CeType> {
++    pub fn get_type(&self) -> &::std::option::Option<super::super::super::types::CeType> {
          &self.r#type
      }
      /// <p>The state of the compute environment. A compute environment must be created in the <code>ENABLED</code> state.</p>
@@ -140,7 +140,7 @@
      /// </note>
      /// <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value. However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code> instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code> value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code> instance.</p>
 -    pub fn state(mut self, input: crate::types::CeState) -> Self {
-+    pub fn state(mut self, input: super::types::CeState) -> Self {
++    pub fn state(mut self, input: super::super::super::types::CeState) -> Self {
          self.state = ::std::option::Option::Some(input);
          self
      }
@@ -149,7 +149,7 @@
      /// </note>
      /// <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value. However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code> instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code> value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code> instance.</p>
 -    pub fn set_state(mut self, input: ::std::option::Option<crate::types::CeState>) -> Self {
-+    pub fn set_state(mut self, input: ::std::option::Option<super::types::CeState>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::super::super::types::CeState>) -> Self {
          self.state = input;
          self
      }
@@ -158,7 +158,7 @@
      /// </note>
      /// <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value. However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code> instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code> value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code> instance.</p>
 -    pub fn get_state(&self) -> &::std::option::Option<crate::types::CeState> {
-+    pub fn get_state(&self) -> &::std::option::Option<super::types::CeState> {
++    pub fn get_state(&self) -> &::std::option::Option<super::super::super::types::CeState> {
          &self.state
      }
      /// <p>The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</p><note>
@@ -167,19 +167,19 @@
      }
      /// <p>Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn compute_resources(mut self, input: crate::types::ComputeResource) -> Self {
-+    pub fn compute_resources(mut self, input: super::types::ComputeResource) -> Self {
++    pub fn compute_resources(mut self, input: super::super::super::types::ComputeResource) -> Self {
          self.compute_resources = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn set_compute_resources(mut self, input: ::std::option::Option<crate::types::ComputeResource>) -> Self {
-+    pub fn set_compute_resources(mut self, input: ::std::option::Option<super::types::ComputeResource>) -> Self {
++    pub fn set_compute_resources(mut self, input: ::std::option::Option<super::super::super::types::ComputeResource>) -> Self {
          self.compute_resources = input;
          self
      }
      /// <p>Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn get_compute_resources(&self) -> &::std::option::Option<crate::types::ComputeResource> {
-+    pub fn get_compute_resources(&self) -> &::std::option::Option<super::types::ComputeResource> {
++    pub fn get_compute_resources(&self) -> &::std::option::Option<super::super::super::types::ComputeResource> {
          &self.compute_resources
      }
      /// <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM role</a> in the <i>Batch User Guide</i>.</p><important>
@@ -188,7 +188,7 @@
      /// <p>To create a compute environment that uses EKS resources, the caller must have permissions to call <code>eks:DescribeCluster</code>.</p>
      /// </note>
 -    pub fn eks_configuration(mut self, input: crate::types::EksConfiguration) -> Self {
-+    pub fn eks_configuration(mut self, input: super::types::EksConfiguration) -> Self {
++    pub fn eks_configuration(mut self, input: super::super::super::types::EksConfiguration) -> Self {
          self.eks_configuration = ::std::option::Option::Some(input);
          self
      }
@@ -197,7 +197,7 @@
      /// <p>To create a compute environment that uses EKS resources, the caller must have permissions to call <code>eks:DescribeCluster</code>.</p>
      /// </note>
 -    pub fn set_eks_configuration(mut self, input: ::std::option::Option<crate::types::EksConfiguration>) -> Self {
-+    pub fn set_eks_configuration(mut self, input: ::std::option::Option<super::types::EksConfiguration>) -> Self {
++    pub fn set_eks_configuration(mut self, input: ::std::option::Option<super::super::super::types::EksConfiguration>) -> Self {
          self.eks_configuration = input;
          self
      }
@@ -206,7 +206,7 @@
      /// <p>To create a compute environment that uses EKS resources, the caller must have permissions to call <code>eks:DescribeCluster</code>.</p>
      /// </note>
 -    pub fn get_eks_configuration(&self) -> &::std::option::Option<crate::types::EksConfiguration> {
-+    pub fn get_eks_configuration(&self) -> &::std::option::Option<super::types::EksConfiguration> {
++    pub fn get_eks_configuration(&self) -> &::std::option::Option<super::super::super::types::EksConfiguration> {
          &self.eks_configuration
      }
      /// <p>Reserved.</p>
@@ -215,19 +215,19 @@
      }
      /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
 -    pub fn ecs_settings(mut self, input: crate::types::EcsSettings) -> Self {
-+    pub fn ecs_settings(mut self, input: super::types::EcsSettings) -> Self {
++    pub fn ecs_settings(mut self, input: super::super::super::types::EcsSettings) -> Self {
          self.ecs_settings = ::std::option::Option::Some(input);
          self
      }
      /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
 -    pub fn set_ecs_settings(mut self, input: ::std::option::Option<crate::types::EcsSettings>) -> Self {
-+    pub fn set_ecs_settings(mut self, input: ::std::option::Option<super::types::EcsSettings>) -> Self {
++    pub fn set_ecs_settings(mut self, input: ::std::option::Option<super::super::super::types::EcsSettings>) -> Self {
          self.ecs_settings = input;
          self
      }
      /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
 -    pub fn get_ecs_settings(&self) -> &::std::option::Option<crate::types::EcsSettings> {
-+    pub fn get_ecs_settings(&self) -> &::std::option::Option<super::types::EcsSettings> {
++    pub fn get_ecs_settings(&self) -> &::std::option::Option<super::super::super::types::EcsSettings> {
          &self.ecs_settings
      }
      /// Consumes the builder and constructs a [`CreateComputeEnvironmentInput`](crate::operation::create_compute_environment::CreateComputeEnvironmentInput).
@@ -236,11 +236,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::create_compute_environment::CreateComputeEnvironmentInput,
-+        super::operation::create_compute_environment::CreateComputeEnvironmentInput,
++        super::super::super::operation::create_compute_environment::CreateComputeEnvironmentInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::create_compute_environment::CreateComputeEnvironmentInput {
-+        ::std::result::Result::Ok(super::operation::create_compute_environment::CreateComputeEnvironmentInput {
++        ::std::result::Result::Ok(super::super::super::operation::create_compute_environment::CreateComputeEnvironmentInput {
              compute_environment_name: self.compute_environment_name,
              r#type: self.r#type,
              state: self.state,

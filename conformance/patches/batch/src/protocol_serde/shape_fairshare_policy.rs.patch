@@ -5,7 +5,7 @@
  pub fn ser_fairshare_policy(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::FairsharePolicy,
-+    input: &super::types::FairsharePolicy,
++    input: &super::super::types::FairsharePolicy,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.share_decay_seconds {
          object.key("shareDecaySeconds").number(
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_6 = array_4.value().start_object();
 -                crate::protocol_serde::shape_share_attributes::ser_share_attributes(&mut object_6, item_5)?;
-+                super::protocol_serde::shape_share_attributes::ser_share_attributes(&mut object_6, item_5)?;
++                super::super::protocol_serde::shape_share_attributes::ser_share_attributes(&mut object_6, item_5)?;
                  object_6.finish();
              }
          }
@@ -23,7 +23,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::FairsharePolicy>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::FairsharePolicy>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::FairsharePolicy>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -32,7 +32,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::FairsharePolicyBuilder::default();
-+            let mut builder = super::types::builders::FairsharePolicyBuilder::default();
++            let mut builder = super::super::types::builders::FairsharePolicyBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -41,7 +41,7 @@
                              "shareDistribution" => {
                                  builder = builder.set_share_distribution(
 -                                    crate::protocol_serde::shape_share_attributes_list::de_share_attributes_list(tokens, _value, depth + 1)?,
-+                                    super::protocol_serde::shape_share_attributes_list::de_share_attributes_list(tokens, _value, depth + 1)?,
++                                    super::super::protocol_serde::shape_share_attributes_list::de_share_attributes_list(tokens, _value, depth + 1)?,
                                  );
                              }
                              _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

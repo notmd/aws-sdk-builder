@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ForgetDeviceInput`](crate::operation::forget_device::ForgetDeviceInput).
 -    pub fn builder() -> crate::operation::forget_device::builders::ForgetDeviceInputBuilder {
 -        crate::operation::forget_device::builders::ForgetDeviceInputBuilder::default()
-+    pub fn builder() -> super::operation::forget_device::builders::ForgetDeviceInputBuilder {
-+        super::operation::forget_device::builders::ForgetDeviceInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::forget_device::builders::ForgetDeviceInputBuilder {
++        super::super::super::operation::forget_device::builders::ForgetDeviceInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::forget_device::ForgetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::forget_device::ForgetDeviceInput {
-+    ) -> ::std::result::Result<super::operation::forget_device::ForgetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::forget_device::ForgetDeviceInput {
++    ) -> ::std::result::Result<super::super::super::operation::forget_device::ForgetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::forget_device::ForgetDeviceInput {
              access_token: self.access_token,
              device_key: self.device_key,
          })

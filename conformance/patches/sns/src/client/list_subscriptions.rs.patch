@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListSubscriptionsError>`](crate::operation::list_subscriptions::ListSubscriptionsError)
 -    pub fn list_subscriptions(&self) -> crate::operation::list_subscriptions::builders::ListSubscriptionsFluentBuilder {
 -        crate::operation::list_subscriptions::builders::ListSubscriptionsFluentBuilder::new(self.handle.clone())
-+    pub fn list_subscriptions(&self) -> super::operation::list_subscriptions::builders::ListSubscriptionsFluentBuilder {
-+        super::operation::list_subscriptions::builders::ListSubscriptionsFluentBuilder::new(self.handle.clone())
++    pub fn list_subscriptions(&self) -> super::super::operation::list_subscriptions::builders::ListSubscriptionsFluentBuilder {
++        super::super::operation::list_subscriptions::builders::ListSubscriptionsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListConfigurationRecordersError>`](crate::operation::list_configuration_recorders::ListConfigurationRecordersError)
 -    pub fn list_configuration_recorders(&self) -> crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersFluentBuilder {
 -        crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersFluentBuilder::new(self.handle.clone())
-+    pub fn list_configuration_recorders(&self) -> super::operation::list_configuration_recorders::builders::ListConfigurationRecordersFluentBuilder {
-+        super::operation::list_configuration_recorders::builders::ListConfigurationRecordersFluentBuilder::new(self.handle.clone())
++    pub fn list_configuration_recorders(&self) -> super::super::operation::list_configuration_recorders::builders::ListConfigurationRecordersFluentBuilder {
++        super::super::operation::list_configuration_recorders::builders::ListConfigurationRecordersFluentBuilder::new(self.handle.clone())
      }
  }

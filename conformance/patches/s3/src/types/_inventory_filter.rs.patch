@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`InventoryFilter`](crate::types::InventoryFilter).
 -    pub fn builder() -> crate::types::builders::InventoryFilterBuilder {
 -        crate::types::builders::InventoryFilterBuilder::default()
-+    pub fn builder() -> super::types::builders::InventoryFilterBuilder {
-+        super::types::builders::InventoryFilterBuilder::default()
++    pub fn builder() -> super::super::types::builders::InventoryFilterBuilder {
++        super::super::types::builders::InventoryFilterBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`prefix`](crate::types::builders::InventoryFilterBuilder::prefix)
 -    pub fn build(self) -> ::std::result::Result<crate::types::InventoryFilter, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::InventoryFilter {
-+    pub fn build(self) -> ::std::result::Result<super::types::InventoryFilter, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::InventoryFilter {
++    pub fn build(self) -> ::std::result::Result<super::super::types::InventoryFilter, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::InventoryFilter {
              prefix: self.prefix.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "prefix",

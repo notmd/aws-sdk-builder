@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetTokensFromRefreshTokenError>`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError)
 -    pub fn get_tokens_from_refresh_token(&self) -> crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenFluentBuilder {
 -        crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenFluentBuilder::new(self.handle.clone())
-+    pub fn get_tokens_from_refresh_token(&self) -> super::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenFluentBuilder {
-+        super::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenFluentBuilder::new(self.handle.clone())
++    pub fn get_tokens_from_refresh_token(&self) -> super::super::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenFluentBuilder {
++        super::super::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,7 +5,7 @@
      pub email_address: ::std::string::String,
      /// <p>The reason that the address was added to the suppression list for your account or for a specific tenant.</p>
 -    pub reason: crate::types::SuppressionListReason,
-+    pub reason: super::types::SuppressionListReason,
++    pub reason: super::super::types::SuppressionListReason,
      /// <p>The date and time when the suppressed destination was last updated, shown in Unix time format.</p>
      pub last_update_time: ::aws_smithy_types::DateTime,
  }
@@ -14,7 +14,7 @@
      }
      /// <p>The reason that the address was added to the suppression list for your account or for a specific tenant.</p>
 -    pub fn reason(&self) -> &crate::types::SuppressionListReason {
-+    pub fn reason(&self) -> &super::types::SuppressionListReason {
++    pub fn reason(&self) -> &super::super::types::SuppressionListReason {
          &self.reason
      }
      /// <p>The date and time when the suppressed destination was last updated, shown in Unix time format.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`SuppressedDestinationSummary`](crate::types::SuppressedDestinationSummary).
 -    pub fn builder() -> crate::types::builders::SuppressedDestinationSummaryBuilder {
 -        crate::types::builders::SuppressedDestinationSummaryBuilder::default()
-+    pub fn builder() -> super::types::builders::SuppressedDestinationSummaryBuilder {
-+        super::types::builders::SuppressedDestinationSummaryBuilder::default()
++    pub fn builder() -> super::super::types::builders::SuppressedDestinationSummaryBuilder {
++        super::super::types::builders::SuppressedDestinationSummaryBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct SuppressedDestinationSummaryBuilder {
      pub(crate) email_address: ::std::option::Option<::std::string::String>,
 -    pub(crate) reason: ::std::option::Option<crate::types::SuppressionListReason>,
-+    pub(crate) reason: ::std::option::Option<super::types::SuppressionListReason>,
++    pub(crate) reason: ::std::option::Option<super::super::types::SuppressionListReason>,
      pub(crate) last_update_time: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
  impl SuppressedDestinationSummaryBuilder {
@@ -43,19 +43,19 @@
      /// <p>The reason that the address was added to the suppression list for your account or for a specific tenant.</p>
      /// This field is required.
 -    pub fn reason(mut self, input: crate::types::SuppressionListReason) -> Self {
-+    pub fn reason(mut self, input: super::types::SuppressionListReason) -> Self {
++    pub fn reason(mut self, input: super::super::types::SuppressionListReason) -> Self {
          self.reason = ::std::option::Option::Some(input);
          self
      }
      /// <p>The reason that the address was added to the suppression list for your account or for a specific tenant.</p>
 -    pub fn set_reason(mut self, input: ::std::option::Option<crate::types::SuppressionListReason>) -> Self {
-+    pub fn set_reason(mut self, input: ::std::option::Option<super::types::SuppressionListReason>) -> Self {
++    pub fn set_reason(mut self, input: ::std::option::Option<super::super::types::SuppressionListReason>) -> Self {
          self.reason = input;
          self
      }
      /// <p>The reason that the address was added to the suppression list for your account or for a specific tenant.</p>
 -    pub fn get_reason(&self) -> &::std::option::Option<crate::types::SuppressionListReason> {
-+    pub fn get_reason(&self) -> &::std::option::Option<super::types::SuppressionListReason> {
++    pub fn get_reason(&self) -> &::std::option::Option<super::super::types::SuppressionListReason> {
          &self.reason
      }
      /// <p>The date and time when the suppressed destination was last updated, shown in Unix time format.</p>
@@ -65,8 +65,8 @@
      /// - [`last_update_time`](crate::types::builders::SuppressedDestinationSummaryBuilder::last_update_time)
 -    pub fn build(self) -> ::std::result::Result<crate::types::SuppressedDestinationSummary, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::SuppressedDestinationSummary {
-+    pub fn build(self) -> ::std::result::Result<super::types::SuppressedDestinationSummary, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::SuppressedDestinationSummary {
++    pub fn build(self) -> ::std::result::Result<super::super::types::SuppressedDestinationSummary, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::SuppressedDestinationSummary {
              email_address: self.email_address.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "email_address",

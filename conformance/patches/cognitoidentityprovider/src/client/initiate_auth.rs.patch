@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<InitiateAuthError>`](crate::operation::initiate_auth::InitiateAuthError)
 -    pub fn initiate_auth(&self) -> crate::operation::initiate_auth::builders::InitiateAuthFluentBuilder {
 -        crate::operation::initiate_auth::builders::InitiateAuthFluentBuilder::new(self.handle.clone())
-+    pub fn initiate_auth(&self) -> super::operation::initiate_auth::builders::InitiateAuthFluentBuilder {
-+        super::operation::initiate_auth::builders::InitiateAuthFluentBuilder::new(self.handle.clone())
++    pub fn initiate_auth(&self) -> super::super::operation::initiate_auth::builders::InitiateAuthFluentBuilder {
++        super::super::operation::initiate_auth::builders::InitiateAuthFluentBuilder::new(self.handle.clone())
      }
  }

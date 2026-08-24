@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`StopQueryOutput`](crate::operation::stop_query::StopQueryOutput).
 -    pub fn builder() -> crate::operation::stop_query::builders::StopQueryOutputBuilder {
 -        crate::operation::stop_query::builders::StopQueryOutputBuilder::default()
-+    pub fn builder() -> super::operation::stop_query::builders::StopQueryOutputBuilder {
-+        super::operation::stop_query::builders::StopQueryOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::stop_query::builders::StopQueryOutputBuilder {
++        super::super::super::operation::stop_query::builders::StopQueryOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`StopQueryOutput`](crate::operation::stop_query::StopQueryOutput).
 -    pub fn build(self) -> crate::operation::stop_query::StopQueryOutput {
 -        crate::operation::stop_query::StopQueryOutput {
-+    pub fn build(self) -> super::operation::stop_query::StopQueryOutput {
-+        super::operation::stop_query::StopQueryOutput {
++    pub fn build(self) -> super::super::super::operation::stop_query::StopQueryOutput {
++        super::super::super::operation::stop_query::StopQueryOutput {
              success: self.success.unwrap_or_default(),
              _request_id: self._request_id,
          }

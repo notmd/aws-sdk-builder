@@ -5,13 +5,13 @@
  pub struct UpdateCapacityProviderOutput {
      /// <p>Information about the updated capacity provider.</p>
 -    pub capacity_provider: ::std::option::Option<crate::types::CapacityProvider>,
-+    pub capacity_provider: ::std::option::Option<super::types::CapacityProvider>,
++    pub capacity_provider: ::std::option::Option<super::super::super::types::CapacityProvider>,
      _request_id: Option<String>,
  }
  impl UpdateCapacityProviderOutput {
      /// <p>Information about the updated capacity provider.</p>
 -    pub fn capacity_provider(&self) -> ::std::option::Option<&crate::types::CapacityProvider> {
-+    pub fn capacity_provider(&self) -> ::std::option::Option<&super::types::CapacityProvider> {
++    pub fn capacity_provider(&self) -> ::std::option::Option<&super::super::super::types::CapacityProvider> {
          self.capacity_provider.as_ref()
      }
  }
@@ -21,8 +21,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateCapacityProviderOutput`](crate::operation::update_capacity_provider::UpdateCapacityProviderOutput).
 -    pub fn builder() -> crate::operation::update_capacity_provider::builders::UpdateCapacityProviderOutputBuilder {
 -        crate::operation::update_capacity_provider::builders::UpdateCapacityProviderOutputBuilder::default()
-+    pub fn builder() -> super::operation::update_capacity_provider::builders::UpdateCapacityProviderOutputBuilder {
-+        super::operation::update_capacity_provider::builders::UpdateCapacityProviderOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_capacity_provider::builders::UpdateCapacityProviderOutputBuilder {
++        super::super::super::operation::update_capacity_provider::builders::UpdateCapacityProviderOutputBuilder::default()
      }
  }
 
@@ -31,26 +31,26 @@
  #[non_exhaustive]
  pub struct UpdateCapacityProviderOutputBuilder {
 -    pub(crate) capacity_provider: ::std::option::Option<crate::types::CapacityProvider>,
-+    pub(crate) capacity_provider: ::std::option::Option<super::types::CapacityProvider>,
++    pub(crate) capacity_provider: ::std::option::Option<super::super::super::types::CapacityProvider>,
      _request_id: Option<String>,
  }
  impl UpdateCapacityProviderOutputBuilder {
      /// <p>Information about the updated capacity provider.</p>
      /// This field is required.
 -    pub fn capacity_provider(mut self, input: crate::types::CapacityProvider) -> Self {
-+    pub fn capacity_provider(mut self, input: super::types::CapacityProvider) -> Self {
++    pub fn capacity_provider(mut self, input: super::super::super::types::CapacityProvider) -> Self {
          self.capacity_provider = ::std::option::Option::Some(input);
          self
      }
      /// <p>Information about the updated capacity provider.</p>
 -    pub fn set_capacity_provider(mut self, input: ::std::option::Option<crate::types::CapacityProvider>) -> Self {
-+    pub fn set_capacity_provider(mut self, input: ::std::option::Option<super::types::CapacityProvider>) -> Self {
++    pub fn set_capacity_provider(mut self, input: ::std::option::Option<super::super::super::types::CapacityProvider>) -> Self {
          self.capacity_provider = input;
          self
      }
      /// <p>Information about the updated capacity provider.</p>
 -    pub fn get_capacity_provider(&self) -> &::std::option::Option<crate::types::CapacityProvider> {
-+    pub fn get_capacity_provider(&self) -> &::std::option::Option<super::types::CapacityProvider> {
++    pub fn get_capacity_provider(&self) -> &::std::option::Option<super::super::super::types::CapacityProvider> {
          &self.capacity_provider
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -60,8 +60,8 @@
      /// Consumes the builder and constructs a [`UpdateCapacityProviderOutput`](crate::operation::update_capacity_provider::UpdateCapacityProviderOutput).
 -    pub fn build(self) -> crate::operation::update_capacity_provider::UpdateCapacityProviderOutput {
 -        crate::operation::update_capacity_provider::UpdateCapacityProviderOutput {
-+    pub fn build(self) -> super::operation::update_capacity_provider::UpdateCapacityProviderOutput {
-+        super::operation::update_capacity_provider::UpdateCapacityProviderOutput {
++    pub fn build(self) -> super::super::super::operation::update_capacity_provider::UpdateCapacityProviderOutput {
++        super::super::super::operation::update_capacity_provider::UpdateCapacityProviderOutput {
              capacity_provider: self.capacity_provider,
              _request_id: self._request_id,
          }

@@ -5,15 +5,15 @@
      pub checksum_xxhash128: ::std::option::Option<::std::string::String>,
      /// <p>The type of checksum used.</p>
 -    pub checksum_type: ::std::option::Option<crate::types::ChecksumType>,
-+    pub checksum_type: ::std::option::Option<super::types::ChecksumType>,
++    pub checksum_type: ::std::option::Option<super::super::super::types::ChecksumType>,
      /// <p>The server-side encryption algorithm used to encrypt the annotation.</p>
 -    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
-+    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
++    pub server_side_encryption: ::std::option::Option<super::super::super::types::ServerSideEncryption>,
      /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
-+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
++    pub request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
@@ -22,24 +22,24 @@
      }
      /// <p>The type of checksum used.</p>
 -    pub fn checksum_type(&self) -> ::std::option::Option<&crate::types::ChecksumType> {
-+    pub fn checksum_type(&self) -> ::std::option::Option<&super::types::ChecksumType> {
++    pub fn checksum_type(&self) -> ::std::option::Option<&super::super::super::types::ChecksumType> {
          self.checksum_type.as_ref()
      }
      /// <p>The server-side encryption algorithm used to encrypt the annotation.</p>
 -    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
-+    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
++    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::super::super::types::ServerSideEncryption> {
          self.server_side_encryption.as_ref()
      }
      /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
-+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
++    pub fn request_charged(&self) -> ::std::option::Option<&super::super::super::types::RequestCharged> {
          self.request_charged.as_ref()
      }
  }
 -impl crate::s3_request_id::RequestIdExt for PutObjectAnnotationOutput {
-+impl super::s3_request_id::RequestIdExt for PutObjectAnnotationOutput {
++impl super::super::super::s3_request_id::RequestIdExt for PutObjectAnnotationOutput {
      fn extended_request_id(&self) -> Option<&str> {
          self._extended_request_id.as_deref()
      }
@@ -49,8 +49,8 @@
      /// Creates a new builder-style object to manufacture [`PutObjectAnnotationOutput`](crate::operation::put_object_annotation::PutObjectAnnotationOutput).
 -    pub fn builder() -> crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder {
 -        crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder {
-+        super::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder {
++        super::super::super::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder::default()
      }
  }
 
@@ -61,9 +61,9 @@
 -    pub(crate) checksum_type: ::std::option::Option<crate::types::ChecksumType>,
 -    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
 -    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
-+    pub(crate) checksum_type: ::std::option::Option<super::types::ChecksumType>,
-+    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
-+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
++    pub(crate) checksum_type: ::std::option::Option<super::super::super::types::ChecksumType>,
++    pub(crate) server_side_encryption: ::std::option::Option<super::super::super::types::ServerSideEncryption>,
++    pub(crate) request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
@@ -72,43 +72,43 @@
      }
      /// <p>The type of checksum used.</p>
 -    pub fn checksum_type(mut self, input: crate::types::ChecksumType) -> Self {
-+    pub fn checksum_type(mut self, input: super::types::ChecksumType) -> Self {
++    pub fn checksum_type(mut self, input: super::super::super::types::ChecksumType) -> Self {
          self.checksum_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of checksum used.</p>
 -    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
-+    pub fn set_checksum_type(mut self, input: ::std::option::Option<super::types::ChecksumType>) -> Self {
++    pub fn set_checksum_type(mut self, input: ::std::option::Option<super::super::super::types::ChecksumType>) -> Self {
          self.checksum_type = input;
          self
      }
      /// <p>The type of checksum used.</p>
 -    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> {
-+    pub fn get_checksum_type(&self) -> &::std::option::Option<super::types::ChecksumType> {
++    pub fn get_checksum_type(&self) -> &::std::option::Option<super::super::super::types::ChecksumType> {
          &self.checksum_type
      }
      /// <p>The server-side encryption algorithm used to encrypt the annotation.</p>
 -    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
-+    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
++    pub fn server_side_encryption(mut self, input: super::super::super::types::ServerSideEncryption) -> Self {
          self.server_side_encryption = ::std::option::Option::Some(input);
          self
      }
      /// <p>The server-side encryption algorithm used to encrypt the annotation.</p>
 -    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
-+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
++    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::super::super::types::ServerSideEncryption>) -> Self {
          self.server_side_encryption = input;
          self
      }
      /// <p>The server-side encryption algorithm used to encrypt the annotation.</p>
 -    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
-+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
++    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::super::super::types::ServerSideEncryption> {
          &self.server_side_encryption
      }
      /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
-+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
++    pub fn request_charged(mut self, input: super::super::super::types::RequestCharged) -> Self {
          self.request_charged = ::std::option::Option::Some(input);
          self
      }
@@ -117,7 +117,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
-+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
++    pub fn set_request_charged(mut self, input: ::std::option::Option<super::super::super::types::RequestCharged>) -> Self {
          self.request_charged = input;
          self
      }
@@ -126,7 +126,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
-+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
++    pub fn get_request_charged(&self) -> &::std::option::Option<super::super::super::types::RequestCharged> {
          &self.request_charged
      }
      pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -136,8 +136,8 @@
      /// Consumes the builder and constructs a [`PutObjectAnnotationOutput`](crate::operation::put_object_annotation::PutObjectAnnotationOutput).
 -    pub fn build(self) -> crate::operation::put_object_annotation::PutObjectAnnotationOutput {
 -        crate::operation::put_object_annotation::PutObjectAnnotationOutput {
-+    pub fn build(self) -> super::operation::put_object_annotation::PutObjectAnnotationOutput {
-+        super::operation::put_object_annotation::PutObjectAnnotationOutput {
++    pub fn build(self) -> super::super::super::operation::put_object_annotation::PutObjectAnnotationOutput {
++        super::super::super::operation::put_object_annotation::PutObjectAnnotationOutput {
              key: self.key,
              annotation_name: self.annotation_name,
              object_version_id: self.object_version_id,

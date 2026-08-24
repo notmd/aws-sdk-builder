@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AddCustomAttributesOutput`](crate::operation::add_custom_attributes::AddCustomAttributesOutput).
 -    pub fn builder() -> crate::operation::add_custom_attributes::builders::AddCustomAttributesOutputBuilder {
 -        crate::operation::add_custom_attributes::builders::AddCustomAttributesOutputBuilder::default()
-+    pub fn builder() -> super::operation::add_custom_attributes::builders::AddCustomAttributesOutputBuilder {
-+        super::operation::add_custom_attributes::builders::AddCustomAttributesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::add_custom_attributes::builders::AddCustomAttributesOutputBuilder {
++        super::super::super::operation::add_custom_attributes::builders::AddCustomAttributesOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AddCustomAttributesOutput`](crate::operation::add_custom_attributes::AddCustomAttributesOutput).
 -    pub fn build(self) -> crate::operation::add_custom_attributes::AddCustomAttributesOutput {
 -        crate::operation::add_custom_attributes::AddCustomAttributesOutput {
-+    pub fn build(self) -> super::operation::add_custom_attributes::AddCustomAttributesOutput {
-+        super::operation::add_custom_attributes::AddCustomAttributesOutput {
++    pub fn build(self) -> super::super::super::operation::add_custom_attributes::AddCustomAttributesOutput {
++        super::super::super::operation::add_custom_attributes::AddCustomAttributesOutput {
              _request_id: self._request_id,
          }
      }

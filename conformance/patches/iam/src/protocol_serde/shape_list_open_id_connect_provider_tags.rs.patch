@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
 -    crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-+    super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
-+    super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
++    super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
++    super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled(generic)),
-+        None => return Err(super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled(generic)),
++        None => return Err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InvalidInput" => crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::InvalidInputException({
-+        "InvalidInput" => super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::InvalidInputException({
++        "InvalidInput" => super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::InvalidInputException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "NoSuchEntity" => crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::NoSuchEntityException({
-+        "NoSuchEntity" => super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::NoSuchEntityException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
-+                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
-+                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
++                let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,16 +61,16 @@
              tmp
          }),
 -        "ServiceFailure" => crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::ServiceFailureException({
-+        "ServiceFailure" => super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::ServiceFailureException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
-+                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
-+                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
++                let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -79,7 +79,7 @@
              tmp
          }),
 -        _ => crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::generic(generic),
-+        _ => super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::generic(generic),
++        _ => super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::generic(generic),
      })
  }
 
@@ -89,23 +89,23 @@
  ) -> std::result::Result<
 -    crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
 -    crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-+    super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
-+    super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
++    super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
++    super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder::default();
 -        output = crate::protocol_serde::shape_list_open_id_connect_provider_tags::de_list_open_id_connect_provider_tags(_response_body, output)
 -            .map_err(crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
-+        let mut output = super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder::default();
-+        output = super::protocol_serde::shape_list_open_id_connect_provider_tags::de_list_open_id_connect_provider_tags(_response_body, output)
-+            .map_err(super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
++        let mut output = super::super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder::default();
++        output = super::super::protocol_serde::shape_list_open_id_connect_provider_tags::de_list_open_id_connect_provider_tags(_response_body, output)
++            .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        crate::serde_util::list_open_id_connect_provider_tags_output_output_correct_errors(output)
-+        super::serde_util::list_open_id_connect_provider_tags_output_output_correct_errors(output)
++        super::super::serde_util::list_open_id_connect_provider_tags_output_output_correct_errors(output)
              .build()
 -            .map_err(crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?
-+            .map_err(super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?
++            .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?
      })
  }
 
@@ -114,10 +114,10 @@
  pub fn de_list_open_id_connect_provider_tags(
      inp: &[u8],
 -    mut builder: crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder,
-+    mut builder: super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder,
++    mut builder: super::super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder,
-+    super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder,
++    super::super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -126,7 +126,7 @@
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;

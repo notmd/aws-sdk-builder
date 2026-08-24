@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::DestinationResult, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::DestinationResult, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::DestinationResult, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::DestinationResult::builder();
-+    let mut builder = super::types::DestinationResult::builder();
++    let mut builder = super::super::types::DestinationResult::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("TableBucketType") /* TableBucketType com.amazonaws.s3#DestinationResult$TableBucketType */ =>  {
@@ -19,8 +19,8 @@
                      Some(
 -                        Result::<crate::types::S3TablesBucketType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::S3TablesBucketType::from(
-+                        Result::<super::types::S3TablesBucketType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::S3TablesBucketType::from(
++                        Result::<super::super::types::S3TablesBucketType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::S3TablesBucketType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )

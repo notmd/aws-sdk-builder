@@ -6,7 +6,7 @@
      #[deprecated]
 -    pub fn invoke_async(&self) -> crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder {
 -        crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::new(self.handle.clone())
-+    pub fn invoke_async(&self) -> super::operation::invoke_async::builders::InvokeAsyncFluentBuilder {
-+        super::operation::invoke_async::builders::InvokeAsyncFluentBuilder::new(self.handle.clone())
++    pub fn invoke_async(&self) -> super::super::operation::invoke_async::builders::InvokeAsyncFluentBuilder {
++        super::super::operation::invoke_async::builders::InvokeAsyncFluentBuilder::new(self.handle.clone())
      }
  }

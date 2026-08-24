@@ -5,7 +5,7 @@
  pub enum ObjectEncryption {
      /// <p>Specifies to update the object encryption type to server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
 -    Ssekms(crate::types::SsekmsEncryption),
-+    Ssekms(super::types::SsekmsEncryption),
++    Ssekms(super::super::types::SsekmsEncryption),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -14,7 +14,7 @@
      /// Tries to convert the enum instance into [`Ssekms`](crate::types::ObjectEncryption::Ssekms), extracting the inner [`SsekmsEncryption`](crate::types::SsekmsEncryption).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_ssekms(&self) -> ::std::result::Result<&crate::types::SsekmsEncryption, &Self> {
-+    pub fn as_ssekms(&self) -> ::std::result::Result<&super::types::SsekmsEncryption, &Self> {
++    pub fn as_ssekms(&self) -> ::std::result::Result<&super::super::types::SsekmsEncryption, &Self> {
          if let ObjectEncryption::Ssekms(val) = &self {
              ::std::result::Result::Ok(val)
          } else {

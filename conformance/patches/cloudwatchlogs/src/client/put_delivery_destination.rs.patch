@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutDeliveryDestinationError>`](crate::operation::put_delivery_destination::PutDeliveryDestinationError)
 -    pub fn put_delivery_destination(&self) -> crate::operation::put_delivery_destination::builders::PutDeliveryDestinationFluentBuilder {
 -        crate::operation::put_delivery_destination::builders::PutDeliveryDestinationFluentBuilder::new(self.handle.clone())
-+    pub fn put_delivery_destination(&self) -> super::operation::put_delivery_destination::builders::PutDeliveryDestinationFluentBuilder {
-+        super::operation::put_delivery_destination::builders::PutDeliveryDestinationFluentBuilder::new(self.handle.clone())
++    pub fn put_delivery_destination(&self) -> super::super::operation::put_delivery_destination::builders::PutDeliveryDestinationFluentBuilder {
++        super::super::operation::put_delivery_destination::builders::PutDeliveryDestinationFluentBuilder::new(self.handle.clone())
      }
  }

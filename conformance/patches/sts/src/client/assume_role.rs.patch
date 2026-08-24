@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AssumeRoleError>`](crate::operation::assume_role::AssumeRoleError)
 -    pub fn assume_role(&self) -> crate::operation::assume_role::builders::AssumeRoleFluentBuilder {
 -        crate::operation::assume_role::builders::AssumeRoleFluentBuilder::new(self.handle.clone())
-+    pub fn assume_role(&self) -> super::operation::assume_role::builders::AssumeRoleFluentBuilder {
-+        super::operation::assume_role::builders::AssumeRoleFluentBuilder::new(self.handle.clone())
++    pub fn assume_role(&self) -> super::super::operation::assume_role::builders::AssumeRoleFluentBuilder {
++        super::super::operation::assume_role::builders::AssumeRoleFluentBuilder::new(self.handle.clone())
      }
  }

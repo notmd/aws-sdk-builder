@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ContinuousBackupsDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ContinuousBackupsDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ContinuousBackupsDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::ContinuousBackupsDescriptionBuilder::default();
-+            let mut builder = super::types::builders::ContinuousBackupsDescriptionBuilder::default();
++            let mut builder = super::super::types::builders::ContinuousBackupsDescriptionBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,14 +23,14 @@
                              builder = builder.set_continuous_backups_status(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::ContinuousBackupsStatus::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::ContinuousBackupsStatus::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::ContinuousBackupsStatus::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
                          "PointInTimeRecoveryDescription" => {
                              builder = builder.set_point_in_time_recovery_description(
 -                                crate::protocol_serde::shape_point_in_time_recovery_description::de_point_in_time_recovery_description(
-+                                super::protocol_serde::shape_point_in_time_recovery_description::de_point_in_time_recovery_description(
++                                super::super::protocol_serde::shape_point_in_time_recovery_description::de_point_in_time_recovery_description(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -39,7 +39,7 @@
              }
              Ok(Some(
 -                crate::serde_util::continuous_backups_description_correct_errors(builder)
-+                super::serde_util::continuous_backups_description_correct_errors(builder)
++                super::super::serde_util::continuous_backups_description_correct_errors(builder)
                      .build()
                      .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))

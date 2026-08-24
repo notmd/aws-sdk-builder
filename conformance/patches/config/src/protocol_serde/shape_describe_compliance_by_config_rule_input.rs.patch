@@ -5,7 +5,7 @@
  pub fn ser_describe_compliance_by_config_rule_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleInput,
-+    input: &super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleInput,
++    input: &super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.config_rule_names {
          let mut array_2 = object.key("ConfigRuleNames").start_array();

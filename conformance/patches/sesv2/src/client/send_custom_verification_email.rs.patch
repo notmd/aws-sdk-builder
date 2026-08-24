@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailFluentBuilder {
 -        crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::send_custom_verification_email::builders::SendCustomVerificationEmailFluentBuilder {
-+        super::operation::send_custom_verification_email::builders::SendCustomVerificationEmailFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::send_custom_verification_email::builders::SendCustomVerificationEmailFluentBuilder {
++        super::super::operation::send_custom_verification_email::builders::SendCustomVerificationEmailFluentBuilder::new(self.handle.clone())
      }
  }

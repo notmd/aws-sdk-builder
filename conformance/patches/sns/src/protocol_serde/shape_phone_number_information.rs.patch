@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::PhoneNumberInformation, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::PhoneNumberInformation, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::PhoneNumberInformation, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::PhoneNumberInformation::builder();
-+    let mut builder = super::types::PhoneNumberInformation::builder();
++    let mut builder = super::super::types::PhoneNumberInformation::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("CreatedAt") /* CreatedAt com.amazonaws.sns#PhoneNumberInformation$CreatedAt */ =>  {
@@ -21,8 +21,8 @@
                      Some(
 -                        Result::<crate::types::RouteType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::RouteType::from(
-+                        Result::<super::types::RouteType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::RouteType::from(
++                        Result::<super::super::types::RouteType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::RouteType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -31,7 +31,7 @@
                  let var_6 =
                      Some(
 -                        crate::protocol_serde::shape_number_capability_list::de_number_capability_list(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_number_capability_list::de_number_capability_list(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_number_capability_list::de_number_capability_list(&mut tag, depth + 1)
                          ?
                      )
                  ;

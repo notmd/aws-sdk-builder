@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteFunctionConcurrencyOutput`](crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyOutput).
 -    pub fn builder() -> crate::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder {
 -        crate::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder {
-+        super::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder {
++        super::super::super::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteFunctionConcurrencyOutput`](crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyOutput).
 -    pub fn build(self) -> crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyOutput {
 -        crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyOutput {
-+    pub fn build(self) -> super::operation::delete_function_concurrency::DeleteFunctionConcurrencyOutput {
-+        super::operation::delete_function_concurrency::DeleteFunctionConcurrencyOutput {
++    pub fn build(self) -> super::super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyOutput {
++        super::super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyOutput {
              _request_id: self._request_id,
          }
      }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListUserTagsError>`](crate::operation::list_user_tags::ListUserTagsError)
 -    pub fn list_user_tags(&self) -> crate::operation::list_user_tags::builders::ListUserTagsFluentBuilder {
 -        crate::operation::list_user_tags::builders::ListUserTagsFluentBuilder::new(self.handle.clone())
-+    pub fn list_user_tags(&self) -> super::operation::list_user_tags::builders::ListUserTagsFluentBuilder {
-+        super::operation::list_user_tags::builders::ListUserTagsFluentBuilder::new(self.handle.clone())
++    pub fn list_user_tags(&self) -> super::super::operation::list_user_tags::builders::ListUserTagsFluentBuilder {
++        super::super::operation::list_user_tags::builders::ListUserTagsFluentBuilder::new(self.handle.clone())
      }
  }

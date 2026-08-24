@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<TagPolicyError>`](crate::operation::tag_policy::TagPolicyError)
 -    pub fn tag_policy(&self) -> crate::operation::tag_policy::builders::TagPolicyFluentBuilder {
 -        crate::operation::tag_policy::builders::TagPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn tag_policy(&self) -> super::operation::tag_policy::builders::TagPolicyFluentBuilder {
-+        super::operation::tag_policy::builders::TagPolicyFluentBuilder::new(self.handle.clone())
++    pub fn tag_policy(&self) -> super::super::operation::tag_policy::builders::TagPolicyFluentBuilder {
++        super::super::operation::tag_policy::builders::TagPolicyFluentBuilder::new(self.handle.clone())
      }
  }

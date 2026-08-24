@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteLookupTableInput`](crate::operation::delete_lookup_table::DeleteLookupTableInput).
 -    pub fn builder() -> crate::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder {
 -        crate::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder {
-+        super::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder {
++        super::super::super::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_lookup_table::DeleteLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::delete_lookup_table::DeleteLookupTableInput {
-+    ) -> ::std::result::Result<super::operation::delete_lookup_table::DeleteLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::delete_lookup_table::DeleteLookupTableInput {
++    ) -> ::std::result::Result<super::super::super::operation::delete_lookup_table::DeleteLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::delete_lookup_table::DeleteLookupTableInput {
              lookup_table_arn: self.lookup_table_arn,
          })
      }

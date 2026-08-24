@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for UserNotConfirmedException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::UserNotConfirmedException {
-+impl ::aws_types::request_id::RequestId for super::types::error::UserNotConfirmedException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::UserNotConfirmedException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`UserNotConfirmedException`](crate::types::error::UserNotConfirmedException).
 -    pub fn builder() -> crate::types::error::builders::UserNotConfirmedExceptionBuilder {
 -        crate::types::error::builders::UserNotConfirmedExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::UserNotConfirmedExceptionBuilder {
-+        super::types::error::builders::UserNotConfirmedExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::UserNotConfirmedExceptionBuilder {
++        super::super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`UserNotConfirmedException`](crate::types::error::UserNotConfirmedException).
 -    pub fn build(self) -> crate::types::error::UserNotConfirmedException {
 -        crate::types::error::UserNotConfirmedException {
-+    pub fn build(self) -> super::types::error::UserNotConfirmedException {
-+        super::types::error::UserNotConfirmedException {
++    pub fn build(self) -> super::super::super::types::error::UserNotConfirmedException {
++        super::super::super::types::error::UserNotConfirmedException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

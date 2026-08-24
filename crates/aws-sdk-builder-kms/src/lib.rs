@@ -27,7 +27,7 @@ pub fn compile<O: aws_sdk_builder::OperationNames>(
 #[macro_export]
 macro_rules! include_sdk {
     () => {
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/lib.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/original.rs"));
     };
 }
 

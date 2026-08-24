@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIDFromOpenIDConnectProviderFluentBuilder {
 -        crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIDFromOpenIDConnectProviderFluentBuilder::new(
-+    ) -> super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIDFromOpenIDConnectProviderFluentBuilder {
-+        super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIDFromOpenIDConnectProviderFluentBuilder::new(
++    ) -> super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIDFromOpenIDConnectProviderFluentBuilder {
++        super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIDFromOpenIDConnectProviderFluentBuilder::new(
              self.handle.clone(),
          )
      }

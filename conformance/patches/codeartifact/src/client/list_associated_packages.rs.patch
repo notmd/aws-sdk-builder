@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListAssociatedPackagesError>`](crate::operation::list_associated_packages::ListAssociatedPackagesError)
 -    pub fn list_associated_packages(&self) -> crate::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder {
 -        crate::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder::new(self.handle.clone())
-+    pub fn list_associated_packages(&self) -> super::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder {
-+        super::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder::new(self.handle.clone())
++    pub fn list_associated_packages(&self) -> super::super::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder {
++        super::super::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder::new(self.handle.clone())
      }
  }

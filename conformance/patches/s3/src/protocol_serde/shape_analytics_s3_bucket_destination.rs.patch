@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::AnalyticsS3BucketDestination, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::AnalyticsS3BucketDestination, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::AnalyticsS3BucketDestination, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::AnalyticsS3BucketDestination::builder();
-+    let mut builder = super::types::AnalyticsS3BucketDestination::builder();
++    let mut builder = super::super::types::AnalyticsS3BucketDestination::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("Format") /* Format com.amazonaws.s3#AnalyticsS3BucketDestination$Format */ =>  {
@@ -19,8 +19,8 @@
                      Some(
 -                        Result::<crate::types::AnalyticsS3ExportFileFormat, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::AnalyticsS3ExportFileFormat::from(
-+                        Result::<super::types::AnalyticsS3ExportFileFormat, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::AnalyticsS3ExportFileFormat::from(
++                        Result::<super::super::types::AnalyticsS3ExportFileFormat, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::AnalyticsS3ExportFileFormat::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -29,14 +29,14 @@
          }
      }
 -    Ok(crate::serde_util::analytics_s3_bucket_destination_correct_errors(builder)
-+    Ok(super::serde_util::analytics_s3_bucket_destination_correct_errors(builder)
++    Ok(super::super::serde_util::analytics_s3_bucket_destination_correct_errors(builder)
          .build()
          .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
  }
 
  pub fn ser_analytics_s3_bucket_destination(
 -    input: &crate::types::AnalyticsS3BucketDestination,
-+    input: &super::types::AnalyticsS3BucketDestination,
++    input: &super::super::types::AnalyticsS3BucketDestination,
      writer: ::aws_smithy_xml::encode::ElWriter,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      #[allow(unused_mut)]

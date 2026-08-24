@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EksContainerResourceRequirements`](crate::types::EksContainerResourceRequirements).
 -    pub fn builder() -> crate::types::builders::EksContainerResourceRequirementsBuilder {
 -        crate::types::builders::EksContainerResourceRequirementsBuilder::default()
-+    pub fn builder() -> super::types::builders::EksContainerResourceRequirementsBuilder {
-+        super::types::builders::EksContainerResourceRequirementsBuilder::default()
++    pub fn builder() -> super::super::types::builders::EksContainerResourceRequirementsBuilder {
++        super::super::types::builders::EksContainerResourceRequirementsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EksContainerResourceRequirements`](crate::types::EksContainerResourceRequirements).
 -    pub fn build(self) -> crate::types::EksContainerResourceRequirements {
 -        crate::types::EksContainerResourceRequirements {
-+    pub fn build(self) -> super::types::EksContainerResourceRequirements {
-+        super::types::EksContainerResourceRequirements {
++    pub fn build(self) -> super::super::types::EksContainerResourceRequirements {
++        super::super::types::EksContainerResourceRequirements {
              limits: self.limits,
              requests: self.requests,
          }

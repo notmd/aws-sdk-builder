@@ -5,7 +5,7 @@
      }
  }
 -impl crate::s3_request_id::RequestIdExt for CreateBucketOutput {
-+impl super::s3_request_id::RequestIdExt for CreateBucketOutput {
++impl super::super::super::s3_request_id::RequestIdExt for CreateBucketOutput {
      fn extended_request_id(&self) -> Option<&str> {
          self._extended_request_id.as_deref()
      }
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`CreateBucketOutput`](crate::operation::create_bucket::CreateBucketOutput).
 -    pub fn builder() -> crate::operation::create_bucket::builders::CreateBucketOutputBuilder {
 -        crate::operation::create_bucket::builders::CreateBucketOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_bucket::builders::CreateBucketOutputBuilder {
-+        super::operation::create_bucket::builders::CreateBucketOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_bucket::builders::CreateBucketOutputBuilder {
++        super::super::super::operation::create_bucket::builders::CreateBucketOutputBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`CreateBucketOutput`](crate::operation::create_bucket::CreateBucketOutput).
 -    pub fn build(self) -> crate::operation::create_bucket::CreateBucketOutput {
 -        crate::operation::create_bucket::CreateBucketOutput {
-+    pub fn build(self) -> super::operation::create_bucket::CreateBucketOutput {
-+        super::operation::create_bucket::CreateBucketOutput {
++    pub fn build(self) -> super::super::super::operation::create_bucket::CreateBucketOutput {
++        super::super::super::operation::create_bucket::CreateBucketOutput {
              location: self.location,
              bucket_arn: self.bucket_arn,
              _extended_request_id: self._extended_request_id,

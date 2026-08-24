@@ -9,6 +9,7 @@ use std::{
 };
 
 use crate::{
+    canonical,
     config::ServiceSelection,
     error::BuildError,
     model::{ProtocolKind, SelectedModel},
@@ -17,12 +18,11 @@ use crate::{
 
 pub(crate) struct Generated {
     pub(crate) operations: Vec<String>,
+    pub(crate) files: BTreeMap<String, BTreeMap<String, String>>,
 }
 
 pub(crate) fn generate(
     stage: &Path,
-    consumer_namespace: bool,
-    relative_snapshot_paths: bool,
     selections: &[ServiceSelection],
 ) -> Result<Generated, BuildError> {
     let generated = stage.join("generated");
@@ -31,6 +31,7 @@ pub(crate) fn generate(
         source,
     })?;
     let mut all_operations = Vec::new();
+    let mut generated_files = BTreeMap::new();
     for selection in selections {
         let entry = selection.source.metadata;
         let model = crate::model::Model::load(selection.source)?;
@@ -39,58 +40,37 @@ pub(crate) fn generate(
         let request_id_plan = request_id_plan(&selected);
         let service_dir = generated.join(entry.key);
         let mut service_files = vec![
-            (
-                "src/lib.rs".to_owned(),
-                render_service_lib(entry.key, &selected, consumer_namespace),
-            ),
-            (
-                "src/primitives.rs".to_owned(),
-                render_primitives(&selected, consumer_namespace),
-            ),
-            (
-                "src/config.rs".to_owned(),
-                render_config_file(&selected, consumer_namespace),
-            ),
-            (
-                "src/config/auth.rs".to_owned(),
-                render_auth_file(&selected, consumer_namespace),
-            ),
+            ("src/lib.rs".to_owned(), render_service_lib(&selected)),
+            ("src/primitives.rs".to_owned(), render_primitives(&selected)),
+            ("src/config.rs".to_owned(), render_config_file(&selected)),
+            ("src/config/auth.rs".to_owned(), render_auth_file(&selected)),
             (
                 "src/error.rs".to_owned(),
-                render_error_file(consumer_namespace, model_has_enum(&selected)),
+                render_error_file(model_has_enum(&selected)),
             ),
-            (
-                "src/meta.rs".to_owned(),
-                render_meta(entry.key, consumer_namespace),
-            ),
+            ("src/meta.rs".to_owned(), render_meta(entry.key)),
             (
                 "src/observability_feature.rs".to_owned(),
                 render_observability_feature(),
             ),
-            (
-                "src/types.rs".to_owned(),
-                render_types_file(entry.key, &selected, consumer_namespace),
-            ),
+            ("src/types.rs".to_owned(), render_types_file(&selected)),
             (
                 "src/types/builders.rs".to_owned(),
-                render_types_builders_file(&selected, consumer_namespace),
+                render_types_builders_file(&selected),
             ),
             (
                 "src/types/error.rs".to_owned(),
-                render_error_types_file(entry.key, &selected, consumer_namespace),
+                render_error_types_file(&selected),
             ),
             (
                 "src/types/error/builders.rs".to_owned(),
-                render_error_builders_file(&selected, consumer_namespace),
+                render_error_builders_file(&selected),
             ),
             (
                 "src/operation.rs".to_owned(),
-                render_operations_file(entry.key, entry.module_name, &selected, consumer_namespace),
+                render_operations_file(&selected),
             ),
-            (
-                "src/client.rs".to_owned(),
-                render_client_file(entry.key, &selected, consumer_namespace),
-            ),
+            ("src/client.rs".to_owned(), render_client_file(&selected)),
             (
                 "src/client/customize.rs".to_owned(),
                 render_client_customize_file(&selected),
@@ -134,7 +114,7 @@ pub(crate) fn generate(
                 include_str!("../assets/client_idempotency_token.rs").to_owned(),
             ));
         }
-        if !consumer_namespace {
+        {
             if model_has_event_stream(&selected) {
                 service_files.push((
                     "src/event_receiver.rs".to_owned(),
@@ -221,7 +201,7 @@ pub(crate) fn generate(
                 }
             }
         }
-        if !consumer_namespace {
+        {
             service_files.push((
                 "src/primitives/event_stream.rs".to_owned(),
                 render_event_stream_primitives(model_has_streaming(&selected)),
@@ -243,7 +223,7 @@ pub(crate) fn generate(
                 render_presigning_interceptors_file(),
             ));
         }
-        if !consumer_namespace {
+        {
             service_files.push((
                 "src/serialization_settings.rs".to_owned(),
                 render_serialization_settings_file(),
@@ -276,24 +256,18 @@ pub(crate) fn generate(
             service_files.extend(protocol_shape_files);
         }
         if has_paginated_operations(&selected) {
-            service_files.push((
-                "src/lens.rs".to_owned(),
-                render_lens_file(&selected, consumer_namespace),
-            ));
+            service_files.push(("src/lens.rs".to_owned(), render_lens_file(&selected)));
         }
         if has_waiters(&selected) {
-            service_files.push((
-                "src/waiters.rs".to_owned(),
-                render_waiters_file(&selected, consumer_namespace),
-            ));
+            service_files.push(("src/waiters.rs".to_owned(), render_waiters_file(&selected)));
             service_files.push((
                 "src/waiters/matchers.rs".to_owned(),
-                render_waiter_matchers_file(&selected, consumer_namespace),
+                render_waiter_matchers_file(&selected),
             ));
             for (_, waiter_name, waiter) in waiter_specs(&selected) {
                 service_files.push((
                     format!("src/waiters/{waiter_name}.rs"),
-                    render_waiter_file(&selected, &waiter_name, &waiter, consumer_namespace),
+                    render_waiter_file(&selected, &waiter_name, &waiter),
                 ));
             }
         }
@@ -303,34 +277,34 @@ pub(crate) fn generate(
             let module = names::snake_case(&operation_name);
             service_files.push((
                 format!("src/operation/{module}.rs"),
-                render_operation_file(entry.key, &selected, &operation_name, consumer_namespace),
+                render_operation_file(&selected, &operation_name),
             ));
             service_files.push((
                 format!("src/operation/{module}/_{module}_input.rs"),
-                render_operation_shape_file(&selected, &operation_name, true, consumer_namespace),
+                render_operation_shape_file(&selected, &operation_name, true),
             ));
             service_files.push((
                 format!("src/operation/{module}/_{module}_output.rs"),
-                render_operation_shape_file(&selected, &operation_name, false, consumer_namespace),
+                render_operation_shape_file(&selected, &operation_name, false),
             ));
             service_files.push((
                 format!("src/operation/{module}/builders.rs"),
-                render_operation_builder_file(&selected, &operation_name, consumer_namespace),
+                render_operation_builder_file(&selected, &operation_name),
             ));
             if operation_pagination_info(&selected, &operation_name).is_some() {
                 service_files.push((
                     format!("src/operation/{module}/paginator.rs"),
-                    render_paginator_file(&selected, &operation_name, consumer_namespace),
+                    render_paginator_file(&selected, &operation_name),
                 ));
             }
             service_files.push((
                 format!("src/client/{module}.rs"),
-                render_client_operation_file(&selected, &operation_name, consumer_namespace),
+                render_client_operation_file(&selected, &operation_name),
             ));
             if protocol == crate::model::ProtocolKind::RestXml {
                 service_files.push((
                     format!("src/protocol_serde/shape_{module}.rs"),
-                    render_protocol_operation_file(&selected, &operation_name, consumer_namespace),
+                    render_protocol_operation_file(&selected, &operation_name),
                 ));
                 if let Some(payload_source) = render_protocol_input_file(&selected, &operation_name)
                 {
@@ -339,8 +313,7 @@ pub(crate) fn generate(
                         payload_source,
                     ));
                 }
-                if let Some(output_source) =
-                    render_protocol_output_file(&selected, &operation_name, consumer_namespace)
+                if let Some(output_source) = render_protocol_output_file(&selected, &operation_name)
                 {
                     service_files.push((
                         format!("src/protocol_serde/shape_{module}_output.rs"),
@@ -373,39 +346,36 @@ pub(crate) fn generate(
                     &selected,
                     &shape_id,
                     if is_error_shape(shape) {
-                        Context::Error { consumer_namespace }
+                        Context::Error {}
                     } else {
-                        Context::Types { consumer_namespace }
+                        Context::Types {}
                     },
-                    consumer_namespace,
                 ),
             ));
         }
+        let mut canonical_files = BTreeMap::new();
         for (relative_path, source) in service_files {
-            let source_path = service_dir.join(&relative_path);
-            if let Some(parent) = source_path.parent() {
-                fs::create_dir_all(parent).map_err(|source| BuildError::OutputWrite {
-                    path: parent.to_owned(),
-                    source,
-                })?;
-            }
-            let rendered_source = normalize_generated_source(
-                &source,
-                entry.module_name,
-                Path::new(&relative_path),
-                consumer_namespace,
-                relative_snapshot_paths,
-            )?;
-            fs::write(&source_path, rendered_source).map_err(|source| BuildError::OutputWrite {
-                path: source_path.clone(),
-                source,
-            })?;
+            let rendered_source = normalize_generated_source(&source, Path::new(&relative_path))?;
+
+            canonical_files.insert(relative_path, rendered_source);
         }
+        let original = canonical::compose(&canonical_files)?;
+        fs::create_dir_all(&service_dir).map_err(|source| BuildError::OutputWrite {
+            path: service_dir.clone(),
+            source,
+        })?;
+        let original_path = service_dir.join(canonical::ORIGINAL_FILE);
+        fs::write(&original_path, original).map_err(|source| BuildError::OutputWrite {
+            path: original_path.clone(),
+            source,
+        })?;
+        generated_files.insert(entry.key.to_owned(), canonical_files);
         all_operations.extend(selected.operations.iter().cloned());
     }
     all_operations.sort();
     Ok(Generated {
         operations: all_operations,
+        files: generated_files,
     })
 }
 
@@ -425,13 +395,7 @@ fn normalize_source(source: &str) -> String {
     format!("{}\n", source.trim_end_matches('\n'))
 }
 
-fn normalize_generated_source(
-    source: &str,
-    module_name: &str,
-    relative_path: &Path,
-    consumer_namespace: bool,
-    relative_snapshot_paths: bool,
-) -> Result<String, BuildError> {
+fn normalize_generated_source(source: &str, relative_path: &Path) -> Result<String, BuildError> {
     let source = if relative_path
         .extension()
         .and_then(|extension| extension.to_str())
@@ -441,55 +405,7 @@ fn normalize_generated_source(
     } else {
         source.to_owned()
     };
-    Ok(if consumer_namespace {
-        normalize_consumer_source(&source, module_name, relative_path)
-    } else if relative_snapshot_paths {
-        normalize_snapshot_paths(&source, relative_path)?
-    } else {
-        normalize_source(&source)
-    })
-}
-
-/// Conformance snapshots are compared as source modules nested below a service
-/// wrapper, so their internal paths use `super::`. Standalone SDK output keeps
-/// the normal `crate::` paths; only `generate_all` opts into this snapshot form.
-fn normalize_snapshot_paths(source: &str, relative_path: &Path) -> Result<String, BuildError> {
-    let file = syn::parse_file(source).map_err(|error| BuildError::GeneratedSourceParse {
-        path: relative_path.to_owned(),
-        message: error.to_string(),
-    })?;
-    let mut visitor = CratePathVisitor::default();
-    syn::visit::visit_file(&mut visitor, &file);
-    if visitor.spans.is_empty() {
-        return Ok(normalize_source(source));
-    }
-
-    let mut normalized = normalize_source(source);
-    let mut ranges = visitor
-        .spans
-        .into_iter()
-        .map(|span| {
-            let start = source_offset(source, span.start(), relative_path)?;
-            let end = source_offset(source, span.end(), relative_path)?;
-            Ok((start, end))
-        })
-        .collect::<Result<Vec<_>, BuildError>>()?;
-    ranges.sort_by_key(|(start, _)| std::cmp::Reverse(*start));
-    ranges.dedup();
-    for (start, _end) in ranges {
-        if source.get(start..start + "crate".len()) != Some("crate") {
-            return Err(BuildError::GeneratedSourceParse {
-                path: relative_path.to_owned(),
-                message: "parsed crate path has no crate token".to_owned(),
-            });
-        }
-        normalized.replace_range(start..start + "crate".len(), "super");
-    }
-    syn::parse_file(&normalized).map_err(|error| BuildError::GeneratedSourceParse {
-        path: relative_path.to_owned(),
-        message: format!("normalized source no longer parses: {error}"),
-    })?;
-    Ok(normalized)
+    Ok(normalize_source(&source))
 }
 
 /// Remove test-only modules from generated source. The bundled Smithy-RS
@@ -553,45 +469,6 @@ struct InlineUnitTestVisitor {
     spans: Vec<proc_macro2::Span>,
 }
 
-#[derive(Default)]
-struct CratePathVisitor {
-    spans: Vec<proc_macro2::Span>,
-}
-
-impl<'ast> syn::visit::Visit<'ast> for CratePathVisitor {
-    fn visit_item_use(&mut self, item: &'ast syn::ItemUse) {
-        if use_tree_starts_at_crate(&item.tree) {
-            use syn::spanned::Spanned;
-            self.spans.push(item.tree.span());
-        }
-    }
-
-    fn visit_path(&mut self, path: &'ast syn::Path) {
-        if path_starts_at_crate(path) {
-            use syn::spanned::Spanned;
-            self.spans.push(path.span());
-        }
-        syn::visit::visit_path(self, path);
-    }
-}
-
-fn use_tree_starts_at_crate(tree: &syn::UseTree) -> bool {
-    match tree {
-        syn::UseTree::Path(path) => path.ident == "crate",
-        syn::UseTree::Name(name) => name.ident == "crate",
-        syn::UseTree::Rename(rename) => rename.ident == "crate",
-        syn::UseTree::Glob(_) | syn::UseTree::Group(_) => false,
-    }
-}
-
-fn path_starts_at_crate(path: &syn::Path) -> bool {
-    path.segments.len() > 1
-        && path
-            .segments
-            .first()
-            .is_some_and(|segment| segment.ident == "crate")
-}
-
 impl<'ast> syn::visit::Visit<'ast> for InlineUnitTestVisitor {
     fn visit_item_mod(&mut self, item: &'ast syn::ItemMod) {
         if item.attrs.iter().any(is_cfg_test) {
@@ -648,7 +525,14 @@ fn source_offset(
         .take(line)
         .map(str::len)
         .sum::<usize>();
-    let offset = line_start + location.column;
+    let line_end = source[line_start..]
+        .find('\n')
+        .map_or(source.len(), |offset| line_start + offset);
+    let column = source[line_start..line_end]
+        .char_indices()
+        .nth(location.column)
+        .map_or(line_end - line_start, |(offset, _)| offset);
+    let offset = line_start + column;
     if offset > source.len() || !source.is_char_boundary(offset) {
         Err(BuildError::GeneratedSourceParse {
             path: relative_path.to_owned(),
@@ -656,58 +540,6 @@ fn source_offset(
         })
     } else {
         Ok(offset)
-    }
-}
-
-fn normalize_consumer_source(source: &str, module_name: &str, relative_path: &Path) -> String {
-    let root_prefix = embedded_root_prefix(relative_path);
-    let local_prefix = format!("crate::{module_name}::");
-    normalize_source(source)
-        .replace(&local_prefix, "__AWS_SDK_BUILDER_LOCAL__")
-        .replace("crate::", "__AWS_SDK_BUILDER_ROOT__")
-        .replace("__AWS_SDK_BUILDER_LOCAL__", "__AWS_SDK_BUILDER_ROOT__")
-        .replace("__AWS_SDK_BUILDER_ROOT__", &root_prefix)
-}
-
-/// The consumer generator includes source files into a user-owned module. A
-/// generated `crate::` path therefore has to point at that module's root using
-/// a relative path; the wrapper's name must never be part of generated code.
-fn embedded_root_prefix(relative_path: &Path) -> String {
-    let components = relative_path
-        .components()
-        .filter_map(|component| component.as_os_str().to_str())
-        .collect::<Vec<_>>();
-    let depth = match components.as_slice() {
-        ["src", "types", "builders.rs"] | ["src", "types", "error", "builders.rs"] => 2,
-        ["src", "types.rs"]
-        | ["src", "types", _]
-        | ["src", "types", "error", _]
-        | ["src", "config", "auth.rs"]
-        | ["src", "waiters", _]
-        | ["src", "waiters.rs"]
-        | ["src", "s3_request_id.rs"]
-        | ["src", "serde_util.rs"]
-        | ["src", "lens.rs"] => 1,
-        ["src", "operation", _] | ["src", "client", _] => 1,
-        ["src", "operation", _, _] => 2,
-        ["src", "lib.rs"]
-        | ["src", "primitives.rs"]
-        | ["src", "config.rs"]
-        | ["src", "error.rs"]
-        | ["src", "meta.rs"]
-        | ["src", "operation.rs"]
-        | ["src", "client.rs"] => 0,
-        _ => 0,
-    };
-    if depth == 0 {
-        "self::".to_owned()
-    } else {
-        format!(
-            "{}::",
-            std::iter::repeat_n("super", depth)
-                .collect::<Vec<_>>()
-                .join("::")
-        )
     }
 }
 
@@ -746,93 +578,8 @@ fn output_request_id_plan(selected: &SelectedModel, context: &Context) -> Reques
     }
 }
 
-fn render_service_lib(
-    service_key: &str,
-    selected: &SelectedModel,
-    consumer_namespace: bool,
-) -> String {
-    if !consumer_namespace {
-        return render_standalone_service_lib(selected);
-    }
-    let mut output = String::new();
-    header(&mut output);
-    if !consumer_namespace {
-        output.push_str("pub use error_meta::Error;\n\n");
-    }
-    for file in [
-        "primitives.rs",
-        "config.rs",
-        "error.rs",
-        "s3_request_id.rs",
-        "meta.rs",
-        "types.rs",
-        "operation.rs",
-        "client.rs",
-    ] {
-        if file == "s3_request_id.rs" && !request_id_plan(selected).extended {
-            continue;
-        }
-        if file == "s3_request_id.rs" {
-            writeln!(
-                output,
-                "pub mod s3_request_id {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/{file}\"));\n}}"
-            )
-            .unwrap();
-            continue;
-        }
-        if file == "types.rs" {
-            writeln!(
-                output,
-                "pub mod types {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/{file}\"));\n}}"
-            )
-            .unwrap();
-            continue;
-        }
-        writeln!(
-            output,
-            "include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/{file}\"));"
-        )
-        .unwrap();
-    }
-    if !consumer_namespace {
-        output.push_str("\nmod error_meta;\n");
-    }
-    writeln!(
-        output,
-        "mod serde_util {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/serde_util.rs\"));\n}}"
-    )
-    .unwrap();
-    if has_paginated_operations(selected) {
-        if consumer_namespace {
-            writeln!(
-                output,
-                "#[allow(clippy::question_mark)]\nmod lens {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/lens.rs\"));\n}}"
-            )
-            .unwrap();
-        } else {
-            writeln!(
-                output,
-                "mod lens {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/lens.rs\"));\n}}"
-            )
-            .unwrap();
-        }
-    }
-    if has_waiters(selected) {
-        if consumer_namespace {
-            writeln!(
-                output,
-                "pub mod waiters {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/waiters.rs\"));\n}}"
-            )
-            .unwrap();
-        } else {
-            output.push_str("pub mod waiters;\n");
-        }
-        if consumer_namespace {
-            output.push('\n');
-            render_consumer_waiters_trait(&mut output, selected);
-        }
-    }
-    output
+fn render_service_lib(selected: &SelectedModel) -> String {
+    render_standalone_service_lib(selected)
 }
 
 fn render_standalone_service_lib(selected: &SelectedModel) -> String {
@@ -1622,31 +1369,6 @@ fn has_trait_value(value: &Value, trait_id: &str, field: &str) -> bool {
         .is_some_and(|fields| fields.contains_key(field))
 }
 
-fn render_consumer_waiters_trait(output: &mut String, selected: &SelectedModel) {
-    output.push_str(
-        "///\n/// Waiter functions for the client.\n///\n/// Import this trait to get `wait_until` methods on the client.\n///\n",
-    );
-    output.push_str("pub trait Waiters {\n");
-    for (_, waiter_name, _) in waiter_specs_by_name(selected) {
-        let waiter_type = rust_type_name(&waiter_name);
-        writeln!(
-            output,
-            "    /// Wait for `{waiter_name}`\n    fn wait_until_{waiter_name}(&self) -> waiters::{waiter_name}::{waiter_type}FluentBuilder;"
-        )
-        .unwrap();
-    }
-    output.push_str("}\nimpl Waiters for Client {\n");
-    for (_, waiter_name, _) in waiter_specs_by_name(selected) {
-        let waiter_type = rust_type_name(&waiter_name);
-        writeln!(
-            output,
-            "    fn wait_until_{waiter_name}(&self) -> waiters::{waiter_name}::{waiter_type}FluentBuilder {{\n        waiters::{waiter_name}::{waiter_type}FluentBuilder::new(self.clone())\n    }}"
-        )
-        .unwrap();
-    }
-    output.push_str("}\n");
-}
-
 fn render_serde_util_file(selected: &SelectedModel) -> String {
     let mut output = String::new();
     client_operation_header(&mut output);
@@ -1975,77 +1697,33 @@ pub(crate) fn apply_extended_request_id(builder: ErrorMetadataBuilder, headers: 
     )
 }
 
-fn render_primitives(selected: &SelectedModel, consumer_namespace: bool) -> String {
-    if !consumer_namespace {
-        let mut output = String::new();
-        client_operation_header(&mut output);
-        if model_has_streaming(selected) {
-            output.push_str(
-                "pub use ::aws_smithy_types::body::SdkBody;\n\
-                 pub use ::aws_smithy_types::byte_stream::error::Error as ByteStreamError;\n\
-                 pub use ::aws_smithy_types::byte_stream::AggregatedBytes;\n\
-                 pub use ::aws_smithy_types::byte_stream::ByteStream;\n\
-                 #[cfg(feature = \"rt-tokio\")]\n\
-                 pub use ::aws_smithy_types::byte_stream::FsBuilder;\n\
-                 #[cfg(feature = \"rt-tokio\")]\n\
-                 pub use ::aws_smithy_types::byte_stream::Length;\n\
-                 ",
-            );
-        }
-        output.push_str(
-            "pub use ::aws_smithy_types::date_time::Format as DateTimeFormat;\n\
-             pub use ::aws_smithy_types::Blob;\n\
-             pub use ::aws_smithy_types::DateTime;\n\
-             \n\
-             /// Event stream related primitives such as `Message` or `Header`.\n\
-             pub mod event_stream;\n",
-        );
-        if model_has_enum(selected) {
-            output.push_str("\npub(crate) mod sealed_enum_unknown;\n");
-        }
-        return output;
-    }
+fn render_primitives(selected: &SelectedModel) -> String {
     let mut output = String::new();
-    header(&mut output);
+    client_operation_header(&mut output);
+    if model_has_streaming(selected) {
+        output.push_str(
+            "pub use ::aws_smithy_types::body::SdkBody;\n\
+             pub use ::aws_smithy_types::byte_stream::error::Error as ByteStreamError;\n\
+             pub use ::aws_smithy_types::byte_stream::AggregatedBytes;\n\
+             pub use ::aws_smithy_types::byte_stream::ByteStream;\n\
+             #[cfg(feature = \"rt-tokio\")]\n\
+             pub use ::aws_smithy_types::byte_stream::FsBuilder;\n\
+             #[cfg(feature = \"rt-tokio\")]\n\
+             pub use ::aws_smithy_types::byte_stream::Length;\n\
+             ",
+        );
+    }
     output.push_str(
-        "#[allow(dead_code, unused_imports, unused_variables)]\n\
-         pub mod primitives {\n\
-             pub type Blob = ::std::vec::Vec<u8>;\n\
-             #[derive(Clone, Debug, Default, PartialEq, Eq)]\n\
-             pub struct ByteStream(pub(crate) ::std::vec::Vec<u8>);\n\
-             impl ByteStream {\n\
-                 pub fn from_static(value: &'static [u8]) -> Self { Self(value.to_vec()) }\n\
-                 pub fn from(value: impl Into<::std::vec::Vec<u8>>) -> Self { Self(value.into()) }\n\
-                 pub async fn collect(&self) -> ::std::result::Result<AggregatedBytes, ::std::string::String> {\n\
-                     Ok(AggregatedBytes(self.0.clone()))\n\
-                 }\n\
-                 pub fn into_inner(self) -> ::std::vec::Vec<u8> { self.0 }\n\
-             }\n\
-             impl From<::std::vec::Vec<u8>> for ByteStream {\n\
-                 fn from(value: ::std::vec::Vec<u8>) -> Self { Self(value) }\n\
-             }\n\
-             impl From<&'static [u8]> for ByteStream {\n\
-                 fn from(value: &'static [u8]) -> Self { Self::from_static(value) }\n\
-             }\n\
-             #[derive(Clone, Debug, Default, PartialEq, Eq)]\n\
-             pub struct AggregatedBytes(pub(crate) ::std::vec::Vec<u8>);\n\
-             impl AggregatedBytes {\n\
-                 pub fn into_bytes(self) -> ::std::vec::Vec<u8> { self.0 }\n\
-             }\n\
-             pub type Document = ::std::string::String;\n\
-             pub type DateTime = ::std::time::SystemTime;\n\
-             pub(crate) mod sealed_enum_unknown {\n\
-                 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd, Hash)]\n\
-                 pub struct UnknownVariantValue(pub(crate) ::std::string::String);\n\
-                 impl UnknownVariantValue {\n\
-                     pub fn as_str(&self) -> &str { &self.0 }\n\
-                 }\n\
-                 impl ::std::fmt::Display for UnknownVariantValue {\n\
-                     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { f.write_str(&self.0) }\n\
-                 }\n\
-             }\n\
-         }\n\n",
+        "pub use ::aws_smithy_types::date_time::Format as DateTimeFormat;\n\
+         pub use ::aws_smithy_types::Blob;\n\
+         pub use ::aws_smithy_types::DateTime;\n\
+         \n\
+         /// Event stream related primitives such as `Message` or `Header`.\n\
+         pub mod event_stream;\n",
     );
+    if model_has_enum(selected) {
+        output.push_str("\npub(crate) mod sealed_enum_unknown;\n");
+    }
     output
 }
 
@@ -2280,14 +1958,8 @@ fn render_sealed_enum_unknown() -> String {
     output
 }
 
-fn render_config_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
-    if !consumer_namespace {
-        return render_standalone_config_file(selected);
-    }
-
-    let mut output = String::new();
-    render_consumer_config(&mut output, selected.model.entry.key, true);
-    output
+fn render_config_file(selected: &SelectedModel) -> String {
+    render_standalone_config_file(selected)
 }
 
 fn render_standalone_config_file(selected: &SelectedModel) -> String {
@@ -3031,91 +2703,25 @@ impl ::aws_smithy_types::config_bag::Storable for DisableS3ExpressSessionAuth {
     }
 }
 
-fn render_consumer_config(output: &mut String, service_key: &str, consumer_namespace: bool) {
-    header(output);
-    output.push_str(
-        "#[derive(Clone, Debug)]\n\
-             pub struct Config {\n\
-                 pub(crate) endpoint_url: ::std::string::String,\n\
-             }\n\n\
-             impl ::std::default::Default for Config {\n\
-                 fn default() -> Self {\n\
-                     Self {\n\
-                         endpoint_url: ::std::env::var(\"AWS_ENDPOINT_URL\")\n\
-                             .unwrap_or_else(|_| \"http://localhost:4566\".to_owned()),\n\
-                     }\n\
-                 }\n\
-             }\n\n\
-             pub mod config {\n\
-                 #[derive(Clone, Debug, Default)]\n\
-                 pub struct Builder {\n\
-                     endpoint_url: ::std::option::Option<::std::string::String>,\n\
-                 }\n\
-                 impl Builder {\n\
-                     pub fn endpoint_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {\n\
-                         self.endpoint_url = Some(value.into());\n\
-                         self\n\
-                     }\n\
-                     pub fn build(self) -> super::Config {\n\
-                         super::Config {\n\
-                             endpoint_url: self.endpoint_url.unwrap_or_else(|| super::Config::default().endpoint_url),\n\
-                         }\n\
-                     }\n\
-                 }\n\
-                 impl From<&super::Config> for Builder {\n\
-                     fn from(config: &super::Config) -> Self {\n\
-                         Self { endpoint_url: Some(config.endpoint_url.clone()) }\n\
-                     }\n\
-                 }\n\
-                 __INNER_AUTH_MODULE__\n\
-             }\n\n\
-             __OUTER_AUTH_MODULE__\n\
-             impl Config {\n\
-                 pub fn builder() -> config::Builder { config::Builder::default() }\n\
-             }\n\n",
-    );
-    let inner_auth_module = if consumer_namespace {
-        format!(
-            "pub mod auth {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/config/auth.rs\"));\n}}"
-        )
-    } else {
-        String::new()
-    };
-    let outer_auth_module = if consumer_namespace {
-        String::new()
-    } else {
-        "pub mod auth;".to_owned()
-    };
-    *output = output
-        .replace("__INNER_AUTH_MODULE__", &inner_auth_module)
-        .replace("__OUTER_AUTH_MODULE__", &outer_auth_module);
-}
-
-fn render_error_file(consumer_namespace: bool, has_enum: bool) -> String {
+fn render_error_file(has_enum: bool) -> String {
     let mut output = String::new();
-    if consumer_namespace {
-        render_legacy_error(&mut output);
-    } else {
+    {
         render_standalone_error(&mut output, has_enum);
     }
     output
 }
 
-fn render_auth_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+fn render_auth_file(selected: &SelectedModel) -> String {
     let service = selected
         .model
         .shapes
         .get(selected.model.service_shape_id.as_str())
         .expect("selected service shape exists");
     let title = service_title(selected);
-    let service_options = auth_options_for_service(selected, service, consumer_namespace);
-    let operation_overrides = auth_operation_overrides(selected, consumer_namespace);
-    let resolve_allow = if consumer_namespace {
-        "             #[allow(clippy::let_and_return)]\n"
-    } else {
-        ""
-    };
-    let endpoint_auth = if service_supports_s3_express(selected) && !consumer_namespace {
+    let service_options = auth_options_for_service(selected, service);
+    let operation_overrides = auth_operation_overrides(selected);
+    let resolve_allow = { "" };
+    let endpoint_auth = if service_supports_s3_express(selected) {
         "        let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::new(async move {\n            crate::endpoint_auth::resolve_endpoint_based_auth_scheme_options(modeled_auth_options, _cfg, _runtime_components).await\n        });\n\n"
     } else {
         ""
@@ -3254,20 +2860,11 @@ fn render_auth_file(selected: &SelectedModel, consumer_namespace: bool) -> Strin
          impl std::error::Error for BuildError {{}}\n"
     )
     .unwrap();
-    if consumer_namespace {
-        output = output.replace("crate::config::auth::", "self::").replace(
-            "::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID",
-            "::aws_smithy_runtime_api::client::auth::AuthSchemeId::new(\"noAuth\")",
-        );
-    }
+
     output
 }
 
-fn auth_options_for_service(
-    selected: &SelectedModel,
-    service: &Value,
-    consumer_namespace: bool,
-) -> String {
+fn auth_options_for_service(selected: &SelectedModel, service: &Value) -> String {
     let mut ids = service
         .get("traits")
         .and_then(Value::as_object)
@@ -3293,10 +2890,10 @@ fn auth_options_for_service(
     if service_supports_s3_express(selected) {
         ids.push("smithy.api#noAuth".to_owned());
     }
-    render_auth_option_vec(&ids, None, None, true, consumer_namespace)
+    render_auth_option_vec(&ids, None, None, true)
 }
 
-fn auth_operation_overrides(selected: &SelectedModel, consumer_namespace: bool) -> String {
+fn auth_operation_overrides(selected: &SelectedModel) -> String {
     let mut overrides = Vec::new();
     for operation_name in &selected.operations {
         let Some(operation) = operation_shape(selected, operation_name) else {
@@ -3322,18 +2919,12 @@ fn auth_operation_overrides(selected: &SelectedModel, consumer_namespace: bool) 
         if ids.is_empty() {
             overrides.push(format!(
                 "({operation_name:?}, vec![{}])",
-                render_no_auth_option(consumer_namespace)
+                render_no_auth_option()
             ));
         } else {
             overrides.push(format!(
                 "({operation_name:?}, {})",
-                render_auth_option_vec(
-                    &ids,
-                    Some(operation_name),
-                    Some(operation),
-                    false,
-                    consumer_namespace,
-                )
+                render_auth_option_vec(&ids, Some(operation_name), Some(operation), false,)
             ));
         }
     }
@@ -3349,19 +2940,10 @@ fn render_auth_option_vec(
     operation_name: Option<&str>,
     operation: Option<&Value>,
     service_defaults: bool,
-    consumer_namespace: bool,
 ) -> String {
     let options = ids
         .iter()
-        .map(|id| {
-            render_auth_option(
-                id,
-                operation_name,
-                operation,
-                service_defaults,
-                consumer_namespace,
-            )
-        })
+        .map(|id| render_auth_option(id, operation_name, operation, service_defaults))
         .filter(|option| !option.is_empty())
         .collect::<Vec<_>>();
     format!("vec![{}]", options.join(", "))
@@ -3372,10 +2954,9 @@ fn render_auth_option(
     operation_name: Option<&str>,
     operation: Option<&Value>,
     service_defaults: bool,
-    consumer_namespace: bool,
 ) -> String {
     if id == "smithy.api#noAuth" {
-        return render_no_auth_option(consumer_namespace);
+        return render_no_auth_option();
     }
     let (module, cfg) = match id {
         "aws.auth#sigv4" => ("sigv4", false),
@@ -3385,9 +2966,7 @@ fn render_auth_option(
                 .to_owned();
         }
     };
-    if cfg && consumer_namespace && service_defaults {
-        return String::new();
-    }
+
     let properties = operation
         .filter(|operation| has_trait(operation, "aws.auth#unsignedPayload"))
         .map(|_| {
@@ -3407,12 +2986,8 @@ fn render_auth_option(
     }
 }
 
-fn render_no_auth_option(consumer_namespace: bool) -> String {
-    let scheme_id = if consumer_namespace {
-        "::aws_smithy_runtime_api::client::auth::AuthSchemeId::new(\"noAuth\")"
-    } else {
-        "::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID"
-    };
+fn render_no_auth_option() -> String {
+    let scheme_id = { "::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID" };
     format!("::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from({scheme_id})")
 }
 
@@ -3434,61 +3009,6 @@ fn render_standalone_error(output: &mut String, has_enum: bool) {
         );
     }
     output.push_str("\npub(crate) mod sealed_unhandled;\n");
-}
-
-fn render_legacy_error(output: &mut String) {
-    header(output);
-    output.push_str(
-        "#[derive(Clone, Debug)]\n\
-         pub struct Error { message: ::std::string::String }\n\
-         impl Error {\n\
-             pub fn unhandled(message: impl ::std::convert::Into<::std::string::String>) -> Self {\n\
-                 Self { message: message.into() }\n\
-             }\n\
-             pub fn meta(&self) -> ErrorMetadata { ErrorMetadata::default() }\n\
-         }\n\
-         impl ::std::fmt::Display for Error {\n\
-             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {\n\
-                 f.write_str(&self.message)\n\
-             }\n\
-         }\n\
-         impl ::std::error::Error for Error {}\n\
-         #[derive(Clone, Debug, Default)]\n\
-         pub struct ErrorMetadata {\n\
-             request_id: ::std::option::Option<::std::string::String>,\n\
-             extended_request_id: ::std::option::Option<::std::string::String>,\n\
-         }\n\
-         impl ErrorMetadata {\n\
-             pub(crate) fn from_request_ids(request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self {\n\
-                 Self { request_id, extended_request_id }\n\
-             }\n\
-             pub fn request_id(&self) -> ::std::option::Option<&str> { self.request_id.as_deref() }\n\
-             pub fn extended_request_id(&self) -> ::std::option::Option<&str> { self.extended_request_id.as_deref() }\n\
-         }\n\
-         #[derive(Clone, Debug)]\n\
-         pub struct UnknownVariantError { value: ::std::string::String }\n\
-         impl UnknownVariantError {\n\
-             pub(crate) fn new(value: impl ::std::convert::Into<::std::string::String>) -> Self { Self { value: value.into() } }\n\
-         }\n\
-         impl ::std::fmt::Display for UnknownVariantError {\n\
-             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { write!(f, \"unknown enum variant: '{}'\", self.value) }\n\
-         }\n\
-         impl ::std::error::Error for UnknownVariantError {}\n\
-         pub mod error { pub use super::{BuildError, Error, ErrorMetadata, UnknownVariantError}; }\n\n",
-    );
-    output.push_str(
-        "#[derive(Clone, Debug)]\n\
-         pub struct BuildError { field: ::std::string::String, message: ::std::string::String }\n\
-         impl BuildError {\n\
-             pub fn missing_field(field: impl ::std::convert::Into<::std::string::String>, message: impl ::std::convert::Into<::std::string::String>) -> Self {\n\
-                 Self { field: field.into(), message: message.into() }\n\
-             }\n\
-         }\n\
-         impl ::std::fmt::Display for BuildError {\n\
-             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { write!(f, \"{}: {}\", self.field, self.message) }\n\
-         }\n\
-         impl ::std::error::Error for BuildError {}\n\n",
-    );
 }
 
 fn render_service_error_metadata(selected: &SelectedModel) -> String {
@@ -3680,16 +3200,12 @@ fn streaming_error_union_ids(selected: &SelectedModel) -> Vec<String> {
     ids
 }
 
-fn render_meta(service_key: &str, consumer_namespace: bool) -> String {
+fn render_meta(service_key: &str) -> String {
     let mut output = String::new();
     output.push_str(
         "// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.\n",
     );
-    let version_path = if consumer_namespace {
-        "self::PKG_VERSION"
-    } else {
-        "crate::meta::PKG_VERSION"
-    };
+    let version_path = { "crate::meta::PKG_VERSION" };
     if matches!(service_key, "dynamodb" | "lambda") {
         writeln!(
             output,
@@ -3704,175 +3220,6 @@ fn render_meta(service_key: &str, consumer_namespace: bool) -> String {
         .unwrap();
     }
     output.push_str("\n/// Crate version number.\npub static PKG_VERSION: &str = env!(\"CARGO_PKG_VERSION\");\n");
-    output
-}
-
-fn render_aws_runtime() -> String {
-    let mut output = String::new();
-    header(&mut output);
-    output.push_str(
-        "#[allow(dead_code)]\n\
-         pub(crate) mod transport {\n\
-             use ::std::fmt;\n\
-             use ::std::io::{Read, Write};\n\
-             use ::std::net::TcpStream;\n\
-             use ::std::collections::BTreeMap;\n\
-\n\
-             #[derive(Clone, Copy, Debug)]\n\
-             pub(crate) enum Method { Get, Put, Post, Delete, Head, Patch }\n\
-\n\
-             impl Method {\n\
-                 fn as_str(self) -> &'static str {\n\
-                     match self {\n\
-                         Self::Get => \"GET\",\n\
-                         Self::Put => \"PUT\",\n\
-                         Self::Post => \"POST\",\n\
-                         Self::Delete => \"DELETE\",\n\
-                         Self::Head => \"HEAD\",\n\
-                         Self::Patch => \"PATCH\",\n\
-                     }\n\
-                 }\n\
-             }\n\
-\n\
-             #[derive(Clone, Copy, Debug, PartialEq, Eq)]\n\
-             pub(crate) struct StatusCode(u16);\n\
-\n\
-             impl StatusCode {\n\
-                 pub(crate) const CONFLICT: Self = Self(409);\n\
-                 pub(crate) fn is_success(self) -> bool { (200..300).contains(&self.0) }\n\
-             }\n\
-\n\
-             impl fmt::Display for StatusCode {\n\
-                 fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {\n\
-                     self.0.fmt(formatter)\n\
-                 }\n\
-             }\n\
-\n\
-             #[derive(Clone, Debug)]\n\
-             pub(crate) struct Response {\n\
-                 status: StatusCode,\n\
-                 headers: BTreeMap<String, String>,\n\
-                 body: Vec<u8>,\n\
-             }\n\
-\n\
-             impl Response {\n\
-                 pub(crate) fn status(&self) -> StatusCode { self.status }\n\
-                 pub(crate) fn header(&self, name: &str) -> Option<&str> {\n\
-                     self.headers.get(&name.to_ascii_lowercase()).map(String::as_str)\n\
-                 }\n\
-                 pub(crate) fn body(&self) -> &[u8] { &self.body }\n\
-             pub(crate) async fn text(&self) -> Result<String, String> {\n\
-                 String::from_utf8(self.body.clone()).map_err(|error| error.to_string())\n\
-                 }\n\
-             }\n\
-\n\
-             #[derive(Clone, Debug, Default)]\n\
-             pub(crate) struct HttpClient;\n\
-\n\
-             impl HttpClient {\n\
-                 pub(crate) fn new() -> Self { Self }\n\
-                 pub(crate) async fn request(\n\
-                     &self,\n\
-                     method: Method,\n\
-                     url: &str,\n\
-                     headers: &[(&str, &str)],\n\
-                     body: &[u8],\n\
-                 ) -> Result<Response, String> {\n\
-                     let (host, port, path) = parse_http_url(url)?;\n\
-                     let mut stream = TcpStream::connect((host.as_str(), port))\n\
-                         .map_err(|error| format!(\"failed to connect to {host}:{port}: {error}\"))?;\n\
-                     let mut request = format!(\"{} {} HTTP/1.1\\r\\nHost: {}\\r\\nConnection: close\\r\\nContent-Length: {}\\r\\n\", method.as_str(), path, host, body.len());\n\
-                     for (name, value) in headers {\n\
-                         request.push_str(name);\n\
-                         request.push_str(\": \" );\n\
-                         request.push_str(value);\n\
-                         request.push_str(\"\\r\\n\");\n\
-                     }\n\
-                     request.push_str(\"\\r\\n\");\n\
-                     let mut request_bytes = request.into_bytes();\n\
-                     request_bytes.extend_from_slice(body);\n\
-                     stream.write_all(&request_bytes).map_err(|error| format!(\"failed to write HTTP request: {error}\"))?;\n\
-                     let mut bytes = Vec::new();\n\
-                     stream.read_to_end(&mut bytes).map_err(|error| format!(\"failed to read HTTP response: {error}\"))?;\n\
-                     parse_response(&bytes)\n\
-                 }\n\
-             }\n\
-\n\
-             fn parse_http_url(url: &str) -> Result<(String, u16, String), String> {\n\
-                 let authority_and_path = url.strip_prefix(\"http://\").ok_or_else(|| format!(\"only http:// endpoints are supported: {url}\"))?;\n\
-                 let (authority, path) = authority_and_path.split_once('/').map_or((authority_and_path, \"/\"), |(authority, _path)| (authority, &authority_and_path[authority.len()..]));\n\
-                 if authority.is_empty() { return Err(format!(\"endpoint has no host: {url}\")); }\n\
-                 let (host, port) = if let Some((host, port)) = authority.rsplit_once(':') {\n\
-                     let port = port.parse::<u16>().map_err(|error| format!(\"invalid endpoint port in {url}: {error}\"))?;\n\
-                     (host.to_owned(), port)\n\
-                 } else {\n\
-                     (authority.to_owned(), 80)\n\
-                 };\n\
-                 Ok((host, port, path.to_owned()))\n\
-             }\n\
-\n\
-             fn parse_response(bytes: &[u8]) -> Result<Response, String> {\n\
-                 let header_end = bytes.windows(4).position(|window| window == b\"\\r\\n\\r\\n\").ok_or_else(|| \"HTTP response did not contain a header terminator\".to_owned())?;\n\
-                 let header = ::std::str::from_utf8(&bytes[..header_end]).map_err(|error| format!(\"HTTP response headers were not UTF-8: {error}\"))?;\n\
-                 let status = header.lines().next().and_then(|line| line.split_whitespace().nth(1)).ok_or_else(|| \"HTTP response did not contain a status code\".to_owned())?.parse::<u16>().map_err(|error| format!(\"HTTP response status was invalid: {error}\"))?;\n\
-                 let mut headers = BTreeMap::new();\n\
-                 for line in header.lines().skip(1) {\n\
-                     if let Some((name, value)) = line.split_once(':') {\n\
-                         headers.insert(name.trim().to_ascii_lowercase(), value.trim().to_owned());\n\
-                     }\n\
-                 }\n\
-                 Ok(Response { status: StatusCode(status), headers, body: bytes[header_end + 4..].to_vec() })\n\
-             }\n\
-\n\
-             pub(crate) fn encode_path(value: &str) -> String {\n\
-                 value.bytes().fold(String::new(), |mut result, byte| {\n\
-                     if byte.is_ascii_alphanumeric() || matches!(byte, b'-' | b'_' | b'.' | b'~' | b'/') {\n\
-                         result.push(byte as char);\n\
-                     } else {\n\
-                         result.push('%');\n\
-                         result.push(hex(byte >> 4));\n\
-                         result.push(hex(byte & 0x0f));\n\
-                     }\n\
-                     result\n\
-                 })\n\
-             }\n\
-             fn hex(value: u8) -> char {\n\
-                 match value { 0..=9 => (b'0' + value) as char, _ => (b'A' + value - 10) as char }\n\
-             }\n\
-             pub(crate) fn xml_escape(value: &str) -> String {\n\
-                 value\n\
-                     .replace('&', \"&amp;\")\n\
-                     .replace('<', \"&lt;\")\n\
-                     .replace('>', \"&gt;\")\n\
-                     .replace('\\\"', \"&quot;\")\n\
-                     .replace('\\'', \"&apos;\")\n\
-             }\n\
-             pub(crate) fn xml_unescape(value: &str) -> String {\n\
-                 value\n\
-                     .replace(\"&lt;\", \"<\")\n\
-                     .replace(\"&gt;\", \">\")\n\
-                     .replace(\"&apos;\", \"'\")\n\
-                     .replace(\"&amp;\", \"&\")\n\
-             }\n\
-             pub(crate) fn xml_first(xml: &str, tag: &str) -> Option<String> {\n\
-                 xml_tags(xml, tag).into_iter().next().map(|value| xml_unescape(&value))\n\
-             }\n\
-             pub(crate) fn xml_tags(xml: &str, tag: &str) -> Vec<String> {\n\
-                 let open = format!(\"<{tag}>\");\n\
-                 let close = format!(\"</{tag}>\");\n\
-                 let mut values = Vec::new();\n\
-                 let mut remaining = xml;\n\
-                 while let Some(start) = remaining.find(&open) {\n\
-                     let value_start = start + open.len();\n\
-                     let Some(end) = remaining[value_start..].find(&close) else { break };\n\
-                     values.push(remaining[value_start..value_start + end].to_owned());\n\
-                     remaining = &remaining[value_start + end + close.len()..];\n\
-                 }\n\
-                 values\n\
-             }\n\
-         }\n\
-\n",
-    );
     output
 }
 
@@ -3919,48 +3266,9 @@ impl Intercept for ObservabilityFeatureTrackerInterceptor {
     )
 }
 
-fn render_types_file(
-    service_key: &str,
-    selected: &SelectedModel,
-    consumer_namespace: bool,
-) -> String {
+fn render_types_file(selected: &SelectedModel) -> String {
     let mut output = String::new();
     client_operation_header(&mut output);
-
-    if consumer_namespace {
-        let mut module_ids = selected
-            .model
-            .shapes
-            .iter()
-            .filter_map(|(id, shape)| {
-                (id != selected.model.service_shape_id.as_str()
-                    && is_file_renderable_type(Some(shape))
-                    && !is_error_shape(shape)
-                    && !is_synthetic_operation_shape(shape))
-                .then_some(id.clone())
-            })
-            .collect::<Vec<_>>();
-        module_ids.sort_by_key(|id| type_file_name(id));
-        for id in module_ids {
-            writeln!(
-                output,
-                "include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/{}\"));",
-                type_file_name(&id)
-            )
-            .unwrap();
-        }
-        writeln!(
-            output,
-            "pub mod builders {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/builders.rs\"));\n}}"
-        )
-        .unwrap();
-        writeln!(
-            output,
-            "pub mod error {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/error.rs\"));\n}}"
-        )
-        .unwrap();
-        return output;
-    }
 
     for id in type_shape_order(selected) {
         let filename = type_file_name(&id);
@@ -4001,7 +3309,7 @@ fn render_types_file(
     output
 }
 
-fn render_types_builders_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+fn render_types_builders_file(selected: &SelectedModel) -> String {
     let mut output = String::new();
     client_operation_header(&mut output);
     for id in type_shape_order(selected) {
@@ -4013,65 +3321,20 @@ fn render_types_builders_file(selected: &SelectedModel, consumer_namespace: bool
         }
         let name = rust_type_name(terminal(&id));
         let module = type_file_name(&id).trim_end_matches(".rs").to_owned();
-        let path = if consumer_namespace {
-            format!("super::{name}Builder")
-        } else {
-            format!("crate::types::{module}::{name}Builder")
-        };
+        let path = { format!("crate::types::{module}::{name}Builder") };
         writeln!(output, "pub use {path};\n").unwrap();
     }
     output
 }
 
-fn render_error_types_file(
-    service_key: &str,
-    selected: &SelectedModel,
-    consumer_namespace: bool,
-) -> String {
+fn render_error_types_file(selected: &SelectedModel) -> String {
     let mut output = String::new();
     client_operation_header(&mut output);
-
-    if consumer_namespace {
-        let mut module_ids = error_shape_ids(selected);
-        module_ids.sort_by_key(|id| type_file_name(id));
-        for id in module_ids {
-            writeln!(
-                output,
-                "include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/error/{}\"));",
-                type_file_name(&id)
-            )
-            .unwrap();
-        }
-        let mut event_stream_ids = selected
-            .model
-            .shapes
-            .iter()
-            .filter_map(|(id, shape)| {
-                (shape.get("type").and_then(Value::as_str) == Some("union")
-                    && has_trait(shape, "smithy.api#streaming"))
-                .then_some(id.clone())
-            })
-            .collect::<Vec<_>>();
-        event_stream_ids.sort();
-        for id in event_stream_ids {
-            render_event_stream_error(&mut output, selected, &id, consumer_namespace);
-        }
-        writeln!(
-            output,
-            "pub mod builders {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/error/builders.rs\"));\n}}"
-        )
-        .unwrap();
-        return output;
-    }
 
     for id in error_shape_ids(selected) {
         let name = rust_type_name(terminal(&id));
         let module = type_file_name(&id).trim_end_matches(".rs").to_owned();
-        let path = if consumer_namespace {
-            format!("super::{module}::{name}")
-        } else {
-            format!("crate::types::error::{module}::{name}")
-        };
+        let path = { format!("crate::types::error::{module}::{name}") };
         writeln!(output, "pub use {path};\n").unwrap();
     }
 
@@ -4087,7 +3350,7 @@ fn render_error_types_file(
         .collect::<Vec<_>>();
     event_stream_ids.sort();
     for id in event_stream_ids {
-        render_event_stream_error(&mut output, selected, &id, consumer_namespace);
+        render_event_stream_error(&mut output, &id);
     }
 
     let mut module_ids = error_shape_ids(selected);
@@ -4104,24 +3367,10 @@ fn render_error_types_file(
     output
 }
 
-fn render_event_stream_error(
-    output: &mut String,
-    selected: &SelectedModel,
-    union_id: &str,
-    consumer_namespace: bool,
-) {
+fn render_event_stream_error(output: &mut String, union_id: &str) {
     let error_name = format!("{}Error", rust_type_name(terminal(union_id)));
-    let module = selected.model.entry.module_name;
-    let error_type_path = if consumer_namespace {
-        format!("crate::{module}::types::error::{error_name}")
-    } else {
-        format!("crate::types::error::{error_name}")
-    };
-    let request_id_path = if consumer_namespace {
-        format!("crate::{module}::s3_request_id")
-    } else {
-        "crate::s3_request_id".to_owned()
-    };
+    let error_type_path = { format!("crate::types::error::{error_name}") };
+    let request_id_path = { "crate::s3_request_id".to_owned() };
     let template = r###"/// Error type for the `__ERROR_NAME__` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -4326,17 +3575,13 @@ fn ordered_shape_targets(shape: &Value) -> Vec<&str> {
     }
 }
 
-fn render_error_builders_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+fn render_error_builders_file(selected: &SelectedModel) -> String {
     let mut output = String::new();
     client_operation_header(&mut output);
     for id in error_shape_ids(selected) {
         let name = rust_type_name(terminal(&id));
         let module = type_file_name(&id).trim_end_matches(".rs").to_owned();
-        let path = if consumer_namespace {
-            format!("super::{name}Builder")
-        } else {
-            format!("crate::types::error::{module}::{name}Builder")
-        };
+        let path = { format!("crate::types::error::{module}::{name}Builder") };
         writeln!(output, "pub use {path};\n").unwrap();
     }
     output
@@ -4447,20 +3692,9 @@ fn is_error_context(context: &Context) -> bool {
     matches!(context, Context::Error { .. })
 }
 
-fn render_type_file(
-    selected: &SelectedModel,
-    shape_id: &str,
-    context: Context,
-    consumer_namespace: bool,
-) -> String {
+fn render_type_file(selected: &SelectedModel, shape_id: &str, context: Context) -> String {
     let mut rendered = String::new();
-    render_types_with_context(
-        &mut rendered,
-        selected,
-        context,
-        Some(shape_id),
-        consumer_namespace,
-    );
+    render_types_with_context(&mut rendered, selected, context, Some(shape_id));
     let marker = "pub mod types {\n";
     let start = rendered.find(marker).expect("type module must be rendered") + marker.len();
     let end = rendered
@@ -4499,7 +3733,6 @@ fn render_types_with_context(
     selected: &SelectedModel,
     context: Context,
     only_shape: Option<&str>,
-    consumer_namespace: bool,
 ) {
     header(output);
     output.push_str("pub mod types {\n");
@@ -4519,7 +3752,7 @@ fn render_types_with_context(
                 render_structure(output, selected, shape, terminal(&id), context.clone())
             }
             Some("union") => render_union(output, selected, shape, terminal(&id), &context),
-            Some("enum") => render_enum(output, shape, terminal(&id), &context, consumer_namespace),
+            Some("enum") => render_enum(output, shape, terminal(&id)),
             Some("list") => {
                 let member = shape
                     .get("member")
@@ -4579,45 +3812,8 @@ fn render_types_with_context(
     output.push_str("}\n\n");
 }
 
-fn render_operations_file(
-    service_key: &str,
-    service_module: &str,
-    selected: &SelectedModel,
-    consumer_namespace: bool,
-) -> String {
-    if !consumer_namespace {
-        return render_standalone_operations_file(selected);
-    }
-    let mut output = String::new();
-    header(&mut output);
-    let request_id_plan = request_id_plan(selected);
-    if request_id_plan.standard {
-        output.push_str("pub use ::aws_types::request_id::RequestId;\n");
-    }
-    if request_id_plan.extended {
-        let request_id_path = if consumer_namespace {
-            format!("crate::{service_module}::s3_request_id::RequestIdExt")
-        } else {
-            "crate::s3_request_id::RequestIdExt".to_owned()
-        };
-        writeln!(output, "pub use {request_id_path};").unwrap();
-    }
-    output.push('\n');
-    output.push_str("pub mod operation {\n");
-    let mut operations = selected.operations.clone();
-    operations.sort();
-    for operation_name in operations {
-        let module = names::snake_case(&operation_name);
-        writeln!(output, "    pub mod {module} {{").unwrap();
-        writeln!(
-            output,
-            "        include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/operation/{module}.rs\"));"
-        )
-        .unwrap();
-        output.push_str("    }\n");
-    }
-    output.push_str("}\n\n");
-    output
+fn render_operations_file(selected: &SelectedModel) -> String {
+    render_standalone_operations_file(selected)
 }
 
 fn render_standalone_operations_file(selected: &SelectedModel) -> String {
@@ -4642,61 +3838,8 @@ fn render_standalone_operations_file(selected: &SelectedModel) -> String {
     output
 }
 
-fn render_operation_file(
-    service_key: &str,
-    selected: &SelectedModel,
-    operation_name: &str,
-    consumer_namespace: bool,
-) -> String {
-    if !consumer_namespace {
-        return render_standalone_operation_file(selected, operation_name);
-    }
-    let module = names::snake_case(operation_name);
-    let operation = operation_shape(selected, operation_name).expect("selected operation exists");
-    let rust_operation = rust_type_name(operation_name);
-    let operation_symbol = operation_name;
-    let mut output = String::new();
-    header(&mut output);
-    writeln!(
-        output,
-        "#[derive(Clone, Debug, Default)]\npub struct {operation_symbol};\nimpl {operation_symbol} {{ pub fn new() -> Self {{ Self }} }}"
-    )
-    .unwrap();
-    render_operation_error(&mut output, selected, operation, consumer_namespace);
-    writeln!(
-        output,
-        "pub mod _{module}_input {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/operation/{module}/_{module}_input.rs\"));\n}}\npub use _{module}_input::{rust_operation}Input;\npub type Input = {rust_operation}Input;"
-    )
-    .unwrap();
-    writeln!(
-        output,
-        "pub mod _{module}_output {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/operation/{module}/_{module}_output.rs\"));\n}}\npub use _{module}_output::{rust_operation}Output;\npub type Output = {rust_operation}Output;"
-    )
-    .unwrap();
-    output.push_str("\n/// Builders\npub mod builders {\n");
-    writeln!(
-        output,
-        "    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/operation/{module}/builders.rs\"));"
-    )
-    .unwrap();
-    output.push_str("}\n");
-    if operation_pagination_info(selected, operation_name).is_some() {
-        if consumer_namespace {
-            writeln!(
-                output,
-                "\n/// Paginator for this operation\npub mod paginator {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/operation/{module}/paginator.rs\"));\n}}\n"
-            )
-            .unwrap();
-        } else {
-            output.push_str("\n/// Paginator for this operation\npub mod paginator;\n");
-        }
-    }
-    writeln!(
-        output,
-        "pub type {operation_symbol}Error = Error;\npub type {operation_symbol}FluentBuilder = builders::Builder;"
-    )
-    .unwrap();
-    output
+fn render_operation_file(selected: &SelectedModel, operation_name: &str) -> String {
+    render_standalone_operation_file(selected, operation_name)
 }
 
 /// Render the operation root used by an all-operation SDK snapshot.
@@ -6653,43 +5796,23 @@ fn waiter_output_path(
     Some((steps, shape_id))
 }
 
-fn waiter_matcher_type(
-    selected: &SelectedModel,
-    target: &str,
-    operation_module: &str,
-    consumer_namespace: bool,
-) -> String {
+fn waiter_matcher_type(selected: &SelectedModel, target: &str, operation_module: &str) -> String {
     if selected
         .model
         .shapes
         .get(target)
         .is_some_and(|shape| has_trait(shape, "smithy.api#enum"))
     {
-        if consumer_namespace {
-            format!("super::super::types::{}", rust_type_name(terminal(target)))
-        } else {
-            format!("crate::types::{}", rust_type_name(terminal(target)))
-        }
+        format!("crate::types::{}", rust_type_name(terminal(target)))
     } else {
-        let rendered = type_expr(
+        type_expr(
             selected,
             target,
             Context::Operation {
                 module: operation_module.to_owned(),
                 input: false,
-                consumer_namespace,
             },
-        );
-        if consumer_namespace {
-            rendered
-                .replace("super::super::super::types", "super::super::types")
-                .replace(
-                    "super::super::super::primitives",
-                    "super::super::primitives",
-                )
-        } else {
-            rendered
-        }
+        )
     }
 }
 
@@ -6702,7 +5825,6 @@ fn render_waiter_output_matcher(
     operation_prefix: &str,
     operation_module: &str,
     operation_type: &str,
-    consumer_namespace: bool,
 ) -> bool {
     let Some(output_matcher) = matcher.get("output").and_then(Value::as_object) else {
         return false;
@@ -6726,7 +5848,7 @@ fn render_waiter_output_matcher(
         return false;
     };
     let output_path = format!("{operation_prefix}::{operation_module}::{operation_type}Output");
-    let target_type = waiter_matcher_type(selected, &target, operation_module, consumer_namespace);
+    let target_type = waiter_matcher_type(selected, &target, operation_module);
     if comparator == "stringEquals" && steps.iter().all(|(_, _, is_array)| !is_array) {
         writeln!(
             output,
@@ -6800,12 +5922,7 @@ fn render_waiter_output_matcher(
         if filter_values.len() != 2 || member_target(filter_member).is_none() {
             return false;
         }
-        let element_type = waiter_matcher_type(
-            selected,
-            element_target,
-            operation_module,
-            consumer_namespace,
-        );
+        let element_type = waiter_matcher_type(selected, element_target, operation_module);
         writeln!(
             output,
             "    fn path_traversal<'a>(\n        _output: &'a {output_path},\n    ) -> ::std::option::Option<bool> {{\n        let _fld_2 = _output.{list_field}.as_ref()?;\n        let _ret_1 = _fld_2.len() as i64;\n        const _LIT_3: &f64 = &0.0;\n        let _tmp_19 = *_LIT_3;\n        let _tmp_20 = _tmp_19 as i64;\n        let _cmp_4 = _ret_1 > _tmp_20;\n        let _fld_6 = _output.{list_field}.as_ref()?;\n        let _fprj_14 = _fld_6\n            .iter()\n            .filter({{\n                fn filter(_v: &{element_type}) -> ::std::option::Option<bool> {{\n                    let _fld_7 = _v.{filter_field}.as_ref()?;\n                    let _tmp_21 = _fld_7.as_str();\n                    const _LIT_8: &str = {first:?};\n                    let _cmp_9 = _tmp_21 == _LIT_8;\n                    let _fld_10 = _v.{filter_field}.as_ref()?;\n                    let _tmp_22 = _fld_10.as_str();\n                    const _LIT_11: &str = {second:?};\n                    let _cmp_12 = _tmp_22 == _LIT_11;\n                    let _bo_13 = _cmp_9 || _cmp_12;\n                    ::std::option::Option::Some(_bo_13)\n                }}\n                |v| filter(v).unwrap_or_default()\n            }})\n            .collect::<::std::vec::Vec<_>>();\n        let _ret_5 = _fprj_14.len() as i64;\n        let _fld_16 = _output.{list_field}.as_ref()?;\n        let _ret_15 = _fld_16.len() as i64;\n        let _cmp_17 = _ret_5 == _ret_15;\n        let _bo_18 = _cmp_4 && _cmp_17;\n        ::std::option::Option::Some(_bo_18)\n    }}",
@@ -6871,12 +5988,7 @@ fn render_waiter_output_matcher(
         let Some(element_target) = list_shape.get("member").and_then(member_target) else {
             return false;
         };
-        let element_type = waiter_matcher_type(
-            selected,
-            element_target,
-            operation_module,
-            consumer_namespace,
-        );
+        let element_type = waiter_matcher_type(selected, element_target, operation_module);
         let (final_member, _, _) = &steps[array_index + 1];
         writeln!(
             output,
@@ -6917,7 +6029,7 @@ fn render_waiter_output_matcher(
     false
 }
 
-fn render_waiters_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+fn render_waiters_file(selected: &SelectedModel) -> String {
     let mut output = String::new();
     header(&mut output);
     for (_, waiter_name, _) in waiter_specs_by_name(selected) {
@@ -6926,39 +6038,21 @@ fn render_waiters_file(selected: &SelectedModel, consumer_namespace: bool) -> St
             "/// Supporting types for the `{waiter_name}` waiter."
         )
         .unwrap();
-        if consumer_namespace {
-            writeln!(
-                output,
-                "pub mod {waiter_name} {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{}/src/waiters/{waiter_name}.rs\"));\n}}\n",
-                selected.model.entry.key
-            )
-            .unwrap();
-        } else {
+        {
             writeln!(output, "pub mod {waiter_name};\n").unwrap();
         }
     }
     output.push_str("#[allow(clippy::needless_lifetimes)]\n#[allow(clippy::let_and_return)]\n");
-    if consumer_namespace {
-        writeln!(
-            output,
-            "pub(crate) mod matchers {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{}/src/waiters/matchers.rs\"));\n}}",
-            selected.model.entry.key
-        )
-        .unwrap();
-    } else {
+    {
         output.push_str("pub(crate) mod matchers;\n");
     }
     output
 }
 
-fn render_waiter_matchers_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+fn render_waiter_matchers_file(selected: &SelectedModel) -> String {
     let mut output = String::new();
     header(&mut output);
-    let operation_prefix = if consumer_namespace {
-        "super::super::operation"
-    } else {
-        "crate::operation"
-    };
+    let operation_prefix = { "crate::operation" };
     let mut seen = BTreeSet::new();
     for (operation_name, _, waiter) in waiter_specs_by_name(selected) {
         let operation_module = names::snake_case(&operation_name);
@@ -6983,14 +6077,7 @@ fn render_waiter_matchers_file(selected: &SelectedModel, consumer_namespace: boo
                 )
                 .unwrap();
             } else if let Some(error_type) = matcher.get("errorType").and_then(Value::as_str) {
-                if consumer_namespace {
-                    render_consumer_error_matcher(
-                        &mut output,
-                        selected,
-                        &operation_name,
-                        error_type,
-                    );
-                } else {
+                {
                     writeln!(
                         output,
                         "    if let ::std::result::Result::Err(err) = _result {{\n        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {{\n            return code == {error_type:?};\n        }}\n    }}\n    false"
@@ -7005,7 +6092,6 @@ fn render_waiter_matchers_file(selected: &SelectedModel, consumer_namespace: boo
                 operation_prefix,
                 &operation_module,
                 &operation_type,
-                consumer_namespace,
             ) {
             } else {
                 output.push_str("    false\n");
@@ -7016,15 +6102,7 @@ fn render_waiter_matchers_file(selected: &SelectedModel, consumer_namespace: boo
     output
 }
 
-fn render_waiter_file(
-    selected: &SelectedModel,
-    waiter_name: &str,
-    waiter: &Value,
-    consumer_namespace: bool,
-) -> String {
-    if consumer_namespace {
-        return render_consumer_waiter_file(selected, waiter_name, waiter);
-    }
+fn render_waiter_file(selected: &SelectedModel, waiter_name: &str, waiter: &Value) -> String {
     let (operation_name, _, _) = waiter_specs(selected)
         .into_iter()
         .find(|(_, name, _)| name == waiter_name)
@@ -7032,21 +6110,9 @@ fn render_waiter_file(
     let operation_module = names::snake_case(&operation_name);
     let operation_type = rust_type_name(&operation_name);
     let waiter_type = rust_type_name(waiter_name);
-    let operation_prefix = if consumer_namespace {
-        "super::super::operation"
-    } else {
-        "crate::operation"
-    };
-    let client_path = if consumer_namespace {
-        "super::super::client"
-    } else {
-        "crate::client"
-    };
-    let matcher_prefix = if consumer_namespace {
-        "super::matchers"
-    } else {
-        "crate::waiters::matchers"
-    };
+    let operation_prefix = { "crate::operation" };
+    let client_path = { "crate::client" };
+    let matcher_prefix = { "crate::waiters::matchers" };
     let input_builder_path =
         format!("{operation_prefix}::{operation_module}::builders::{operation_type}InputBuilder");
     let mut output = String::new();
@@ -7070,11 +6136,7 @@ fn render_waiter_file(
         .get("maxDelay")
         .and_then(Value::as_u64)
         .unwrap_or(120);
-    let waiter_module_path = if consumer_namespace {
-        format!("super::{waiter_name}")
-    } else {
-        format!("crate::waiters::{waiter_name}")
-    };
+    let waiter_module_path = { format!("crate::waiters::{waiter_name}") };
     let waiter_documentation = waiter
         .get("documentation")
         .and_then(Value::as_str)
@@ -7092,7 +6154,6 @@ fn render_waiter_file(
         &operation_name,
         &operation_module,
         operation_prefix,
-        consumer_namespace,
     );
     writeln!(
         output,
@@ -7114,181 +6175,11 @@ fn render_waiter_file(
     output.replace("\n\n    ///", "\n    ///")
 }
 
-fn render_consumer_error_matcher(
-    output: &mut String,
-    selected: &SelectedModel,
-    operation_name: &str,
-    error_type: &str,
-) {
-    let error_name = terminal(error_type);
-    let modeled = operation_shape(selected, operation_name)
-        .and_then(|operation| operation.get("errors"))
-        .and_then(Value::as_array)
-        .into_iter()
-        .flatten()
-        .filter_map(target_value)
-        .any(|target| terminal(target) == error_name);
-    if modeled {
-        let predicate = names::snake_case(error_name);
-        writeln!(
-            output,
-            "    if let ::std::result::Result::Err(err) = _result {{\n        return err.is_{predicate}();\n    }}\n    false"
-        )
-        .unwrap();
-    } else {
-        output.push_str("    false\n");
-    }
-}
-
-fn render_consumer_waiter_file(
-    selected: &SelectedModel,
-    waiter_name: &str,
-    waiter: &Value,
-) -> String {
-    let (operation_name, _, _) = waiter_specs(selected)
-        .into_iter()
-        .find(|(_, name, _)| name == waiter_name)
-        .expect("waiter belongs to selected model");
-    let operation_module = names::snake_case(&operation_name);
-    let operation_type = rust_type_name(&operation_name);
-    let waiter_type = rust_type_name(waiter_name);
-    let operation_prefix = "super::super::operation";
-    let matcher_prefix = "super::matchers";
-    let input_builder_path = format!("{operation_prefix}::{operation_module}::builders::Builder");
-    let min_delay = waiter.get("minDelay").and_then(Value::as_u64).unwrap_or(5);
-    let max_delay = waiter
-        .get("maxDelay")
-        .and_then(Value::as_u64)
-        .unwrap_or(120);
-    let waiter_module_path = format!("super::{waiter_name}");
-    let waiter_documentation = waiter
-        .get("documentation")
-        .and_then(Value::as_str)
-        .map(normalize_model_documentation)
-        .map(|documentation| {
-            documentation
-                .lines()
-                .map(|line| format!("    /// {line}"))
-                .collect::<Vec<_>>()
-                .join("\n")
-        })
-        .unwrap_or_else(|| format!("    /// Wait for `{waiter_name}`"));
-    let input_methods =
-        render_consumer_waiter_input_methods(selected, &operation_name, &operation_module);
-    let acceptors =
-        render_consumer_waiter_acceptors(selected, &operation_name, waiter, matcher_prefix);
-    let mut output = String::new();
-    header(&mut output);
-    writeln!(
-        output,
-        "///\n/// Fluent builder for the `{waiter_name}` waiter.\n///\n/// This builder uses the lightweight consumer operation runtime.\n///\n#[derive(::std::clone::Clone, ::std::fmt::Debug)]\npub struct {waiter_type}FluentBuilder {{\n    inner: {input_builder_path},\n}}\nimpl {waiter_type}FluentBuilder {{\n    /// Creates a new `{waiter_type}FluentBuilder`.\n    pub(crate) fn new(handle: super::super::Client) -> Self {{\n        let inner = handle.{operation_module}();\n        Self {{ inner }}\n    }}\n    /// Access the {operation_type} as a reference.\n    pub fn as_input(&self) -> &{input_builder_path} {{\n        &self.inner\n    }}"
-    )
-    .unwrap();
-    writeln!(
-        output,
-        "{waiter_documentation}\n    pub async fn wait(\n        self,\n        max_wait: ::std::time::Duration,\n    ) -> ::std::result::Result<{waiter_module_path}::{waiter_type}FinalPoll, {waiter_module_path}::WaitUntil{waiter_type}Error> {{\n        let deadline = ::std::time::Instant::now().checked_add(max_wait);\n        let mut delay = ::std::time::Duration::from_secs({min_delay});\n        loop {{\n            let result = self.inner.clone().send().await;\n            let state = match &result {{\n                ::std::result::Result::Ok(output) => {{\n{acceptors_ok}                }}\n                ::std::result::Result::Err(error) => {{\n{acceptors_err}                }}\n            }};\n            match (state, result) {{\n                (ConsumerWaiterAcceptorState::Success, ::std::result::Result::Ok(output)) => return Ok(output),\n                (ConsumerWaiterAcceptorState::Failure, ::std::result::Result::Err(error)) => return Err(error),\n                (ConsumerWaiterAcceptorState::Retry, result) => {{\n                    if deadline.is_some_and(|deadline| ::std::time::Instant::now() >= deadline) {{\n                        return result;\n                    }}\n                    ::std::thread::sleep(delay);\n                    delay = delay.saturating_mul(2).min(::std::time::Duration::from_secs({max_delay}));\n                }}\n                (_, result) => return result,\n            }}\n        }}\n    }}\n\n{input_methods}}}\n\n/// Successful return type for the `{waiter_name}` waiter.\npub type {waiter_type}FinalPoll = {operation_prefix}::{operation_module}::{operation_type}Output;\n\n/// Error type for the `{waiter_name}` waiter.\npub type WaitUntil{waiter_type}Error = {operation_prefix}::{operation_module}::{operation_type}Error;",
-        acceptors_ok = acceptors.replace(
-            "{RESULT}",
-            "::std::result::Result::Ok(output)",
-        ),
-        acceptors_err = acceptors.replace(
-            "{RESULT}",
-            "::std::result::Result::Err(error)",
-        ),
-    )
-    .unwrap();
-    output.push_str(
-        "\n#[derive(Clone, Copy, Debug, PartialEq, Eq)]\nenum ConsumerWaiterAcceptorState {\n    Success,\n    Failure,\n    Retry,\n    NoAcceptorsMatched,\n}\n",
-    );
-    output.replace("\n\n    ///", "\n    ///")
-}
-
-fn render_consumer_waiter_acceptors(
-    _selected: &SelectedModel,
-    operation_name: &str,
-    waiter: &Value,
-    matcher_prefix: &str,
-) -> String {
-    let mut output =
-        "                    ConsumerWaiterAcceptorState::NoAcceptorsMatched".to_owned();
-    for (state, matcher) in waiter_acceptors(waiter).into_iter().rev() {
-        let matcher_name = waiter_matcher_name(operation_name, &matcher);
-        output = format!(
-            "                    if {matcher_prefix}::{matcher_name}({{RESULT}}) {{\n                        ConsumerWaiterAcceptorState::{}\n                    }} else {{\n{output}\n                    }}",
-            waiter_state_name(&state)
-        );
-    }
-    output
-}
-
-fn render_consumer_waiter_input_methods(
-    selected: &SelectedModel,
-    operation_name: &str,
-    operation_module: &str,
-) -> String {
-    let mut output = String::new();
-    let input_id = operation_shape(selected, operation_name)
-        .and_then(|operation| operation.get("input"))
-        .and_then(target_value);
-    let Some(input_shape) = input_id.and_then(|id| selected.model.shapes.get(id)) else {
-        return output;
-    };
-    for (member_name, member) in members(input_shape) {
-        let field = names::rust_identifier(&member_name);
-        let field_method = field.strip_prefix("r#").unwrap_or(&field);
-        let target_id = member_target(member).unwrap_or("smithy.api#String");
-        let target = consumer_waiter_type_expr(selected, target_id, operation_module);
-        let argument = builder_argument_type(selected, target_id, &target);
-        let documentation = modeled_member_documentation(selected, member).unwrap_or_default();
-        writeln!(output, "    {}", documentation_lines(documentation.clone())).unwrap();
-        writeln!(
-            output,
-            "    pub fn {field_method}(mut self, input: {argument}) -> Self {{\n        self.inner = self.inner.{field_method}(input);\n        self\n    }}"
-        )
-        .unwrap();
-        writeln!(output, "    {}", documentation_lines(documentation.clone())).unwrap();
-        writeln!(
-            output,
-            "    pub fn set_{field_method}(mut self, input: ::std::option::Option<{target}>) -> Self {{\n        self.inner = self.inner.set_{field_method}(input);\n        self\n    }}"
-        )
-        .unwrap();
-        writeln!(output, "    {}", documentation_lines(documentation)).unwrap();
-        writeln!(
-            output,
-            "    pub fn get_{field_method}(&self) -> &::std::option::Option<{target}> {{\n        self.inner.get_{field_method}()\n    }}"
-        )
-        .unwrap();
-    }
-    output
-}
-
-fn consumer_waiter_type_expr(
-    selected: &SelectedModel,
-    target: &str,
-    operation_module: &str,
-) -> String {
-    type_expr(
-        selected,
-        target,
-        Context::Builder {
-            module: operation_module.to_owned(),
-            input: true,
-            consumer_namespace: true,
-        },
-    )
-    .replace("super::super::super::types", "super::super::types")
-    .replace(
-        "super::super::super::primitives",
-        "super::super::primitives",
-    )
-}
-
 fn render_waiter_input_methods(
     selected: &SelectedModel,
     operation_name: &str,
     operation_module: &str,
     operation_prefix: &str,
-    consumer_namespace: bool,
 ) -> String {
     let mut output = String::new();
     let input_id = operation_shape(selected, operation_name)
@@ -7307,7 +6198,6 @@ fn render_waiter_input_methods(
             Context::Builder {
                 module: operation_module.to_owned(),
                 input: true,
-                consumer_namespace,
             },
         );
         let argument = builder_argument_type(selected, target_id, &target);
@@ -7387,19 +6277,11 @@ fn find_member_path<'a>(
     found
 }
 
-fn render_lens_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+fn render_lens_file(selected: &SelectedModel) -> String {
     let mut output = String::new();
     client_operation_header(&mut output);
-    let operation_prefix = if consumer_namespace {
-        "super::operation"
-    } else {
-        "crate::operation"
-    };
-    let types_prefix = if consumer_namespace {
-        "super::types"
-    } else {
-        "crate::types"
-    };
+    let operation_prefix = { "crate::operation" };
+    let types_prefix = { "crate::types" };
 
     let mut paginated = selected
         .operations
@@ -7422,7 +6304,7 @@ fn render_lens_file(selected: &SelectedModel, consumer_namespace: bool) -> Strin
             .expect("paginated operation output exists");
         let (token_target, _) = find_member_path(selected, output_id, &info.output_token)
             .expect("paginated output token exists");
-        let token_type = lens_type_expr(selected, &token_target, consumer_namespace);
+        let token_type = lens_type_expr(selected, &token_target);
         let function_suffix = info
             .output_token
             .iter()
@@ -7471,15 +6353,7 @@ fn render_lens_file(selected: &SelectedModel, consumer_namespace: bool) -> Strin
     output
 }
 
-fn render_paginator_file(
-    selected: &SelectedModel,
-    operation_name: &str,
-    consumer_namespace: bool,
-) -> String {
-    if consumer_namespace {
-        return render_consumer_paginator_file(selected, operation_name);
-    }
-
+fn render_paginator_file(selected: &SelectedModel, operation_name: &str) -> String {
     let info = operation_pagination_info(selected, operation_name)
         .expect("paginator file only exists for paginated operations");
     let operation_module = names::snake_case(operation_name);
@@ -7526,7 +6400,6 @@ fn render_paginator_file(
             Context::Operation {
                 module: operation_module.clone(),
                 input: true,
-                consumer_namespace: false,
             },
         );
         writeln!(
@@ -7574,7 +6447,7 @@ fn render_paginator_file(
             .expect("paginated operation output exists");
         let (items_target, _) =
             find_member_path(selected, output_id, items_path).expect("paginated items exists");
-        let item_type = paginator_item_type(selected, &items_target, false);
+        let item_type = paginator_item_type(selected, &items_target);
         let items_suffix = items_path
             .iter()
             .map(|name| names::snake_case(name))
@@ -7603,101 +6476,11 @@ fn render_paginator_file(
     output
 }
 
-fn render_consumer_paginator_file(selected: &SelectedModel, operation_name: &str) -> String {
-    let info = operation_pagination_info(selected, operation_name)
-        .expect("paginator file only exists for paginated operations");
-    let operation_module = names::snake_case(operation_name);
-    let operation_type = rust_type_name(operation_name);
-    let paginator_name = format!("{operation_type}Paginator");
-    let mut output = String::new();
-    client_operation_header(&mut output);
-    writeln!(
-        output,
-        "/// Paginator for [`{operation_name}`](super::{operation_type})\npub struct {paginator_name} {{\n    builder: super::builders::Builder,\n    stop_on_duplicate_token: bool,\n}}\n\nimpl {paginator_name} {{\n    pub(crate) fn new(builder: super::builders::Builder) -> Self {{\n        Self {{ builder, stop_on_duplicate_token: true }}\n    }}\n"
-    )
-    .unwrap();
-    if let Some(page_size_path) = info.page_size.as_ref() {
-        let page_size_member = names::rust_identifier(
-            page_size_path
-                .last()
-                .expect("pagination page size path is not empty"),
-        );
-        let input_id = operation_shape(selected, operation_name)
-            .and_then(|operation| operation.get("input"))
-            .and_then(target_value)
-            .expect("paginated operation input exists");
-        let (page_size_target, _) = find_member_path(selected, input_id, page_size_path)
-            .expect("paginated page size exists");
-        let page_size_type = type_expr(
-            selected,
-            &page_size_target,
-            Context::Builder {
-                module: operation_module.clone(),
-                input: true,
-                consumer_namespace: true,
-            },
-        );
-        writeln!(
-            output,
-            "    pub fn page_size(mut self, limit: {page_size_type}) -> Self {{\n        self.builder = self.builder.{page_size_member}(limit);\n        self\n    }}\n"
-        )
-        .unwrap();
-    }
-    if info.items.is_some() {
-        let item_paginator_name = format!("{paginator_name}Items");
-        writeln!(
-            output,
-            "    pub fn items(self) -> super::{item_paginator_name} {{\n        super::{item_paginator_name}(self)\n    }}\n"
-        )
-        .unwrap();
-    }
-    output.push_str(
-        "    pub fn stop_on_duplicate_token(mut self, stop_on_duplicate_token: bool) -> Self {\n        self.stop_on_duplicate_token = stop_on_duplicate_token;\n        self\n    }\n\n",
-    );
-    writeln!(
-        output,
-        "    pub fn send(self) -> impl ::std::future::Future<Output = ::std::result::Result<super::{operation_type}Output, super::{operation_type}Error>> {{\n        self.builder.send()\n    }}\n}}\n"
-    )
-    .unwrap();
-
-    if let Some(items_path) = info.items.as_ref() {
-        let output_id = operation_shape(selected, operation_name)
-            .and_then(|operation| operation.get("output"))
-            .and_then(target_value)
-            .expect("paginated operation output exists");
-        let (items_target, _) =
-            find_member_path(selected, output_id, items_path).expect("paginated items exists");
-        let item_type = paginator_item_type(selected, &items_target, true);
-        let items_suffix = items_path
-            .iter()
-            .map(|name| names::snake_case(name))
-            .collect::<Vec<_>>()
-            .join("_");
-        let item_lens = format!(
-            "super::super::super::lens::lens_{operation_module}_output_output_{items_suffix}"
-        );
-        let item_paginator_name = format!("{paginator_name}Items");
-        writeln!(
-            output,
-            "pub struct {item_paginator_name}({paginator_name});\n\nimpl {item_paginator_name} {{\n    pub fn send(self) -> impl ::std::future::Future<Output = ::std::result::Result<::std::vec::Vec<{item_type}>, super::{operation_type}Error>> {{\n        async move {{\n            self.0.send().await.map(|page| {item_lens}(page).unwrap_or_default())\n        }}\n    }}\n}}\n"
-        )
-        .unwrap();
-    }
-    output
-}
-
-fn paginator_item_type(selected: &SelectedModel, target: &str, consumer_namespace: bool) -> String {
+fn paginator_item_type(selected: &SelectedModel, target: &str) -> String {
     let Some(shape) = selected.model.shapes.get(target) else {
-        return lens_type_expr(selected, target, consumer_namespace);
+        return lens_type_expr(selected, target);
     };
-    let type_expr = |target: &str| {
-        let type_name = lens_type_expr(selected, target, consumer_namespace);
-        if consumer_namespace {
-            type_name.replace("super::types", "super::super::super::types")
-        } else {
-            type_name
-        }
-    };
+    let type_expr = |target: &str| lens_type_expr(selected, target);
     match shape.get("type").and_then(Value::as_str) {
         Some("list") => shape
             .get("member")
@@ -7721,9 +6504,9 @@ fn paginator_item_type(selected: &SelectedModel, target: &str, consumer_namespac
     }
 }
 
-fn lens_type_expr(selected: &SelectedModel, target: &str, consumer_namespace: bool) -> String {
+fn lens_type_expr(selected: &SelectedModel, target: &str) -> String {
     if target.starts_with("smithy.api#") {
-        return primitive_type_for_namespace(terminal(target), false);
+        return primitive_type_for_namespace(terminal(target));
     }
     let Some(shape) = selected.model.shapes.get(target) else {
         return "::std::string::String".to_owned();
@@ -7737,38 +6520,28 @@ fn lens_type_expr(selected: &SelectedModel, target: &str, consumer_namespace: bo
                 .get("type")
                 .and_then(Value::as_str)
                 .unwrap_or("string"),
-            false,
         ),
         Some("list") => shape
             .get("member")
             .and_then(member_target)
-            .map(|member| {
-                format!(
-                    "::std::vec::Vec<{}>",
-                    lens_type_expr(selected, member, consumer_namespace)
-                )
-            })
+            .map(|member| format!("::std::vec::Vec<{}>", lens_type_expr(selected, member)))
             .unwrap_or_else(|| "::std::vec::Vec<::std::string::String>".to_owned()),
         Some("map") => {
             let key = shape
                 .get("key")
                 .and_then(member_target)
-                .map(|member| lens_type_expr(selected, member, consumer_namespace))
+                .map(|member| lens_type_expr(selected, member))
                 .unwrap_or_else(|| "::std::string::String".to_owned());
             let value = shape
                 .get("value")
                 .and_then(member_target)
-                .map(|member| lens_type_expr(selected, member, consumer_namespace))
+                .map(|member| lens_type_expr(selected, member))
                 .unwrap_or_else(|| "::std::string::String".to_owned());
             format!("::std::collections::HashMap<{key}, {value}>")
         }
         _ => format!(
             "{}::{}",
-            if consumer_namespace {
-                "super::types"
-            } else {
-                "crate::types"
-            },
+            { "crate::types" },
             rust_type_name(terminal(target))
         ),
     }
@@ -7851,23 +6624,18 @@ fn pagination_item_type(selected: &SelectedModel, target: &str, types_prefix: &s
         Some("list") => shape
             .get("member")
             .and_then(member_target)
-            .map(|member| {
-                format!(
-                    "::std::vec::Vec<{}>",
-                    lens_type_expr(selected, member, types_prefix == "super::types")
-                )
-            })
+            .map(|member| format!("::std::vec::Vec<{}>", lens_type_expr(selected, member)))
             .unwrap_or_else(|| "::std::vec::Vec<::std::string::String>".to_owned()),
         Some("map") => {
             let key = shape
                 .get("key")
                 .and_then(member_target)
-                .map(|member| lens_type_expr(selected, member, types_prefix == "super::types"))
+                .map(|member| lens_type_expr(selected, member))
                 .unwrap_or_else(|| "::std::string::String".to_owned());
             let value = shape
                 .get("value")
                 .and_then(member_target)
-                .map(|member| lens_type_expr(selected, member, types_prefix == "super::types"))
+                .map(|member| lens_type_expr(selected, member))
                 .unwrap_or_else(|| "::std::string::String".to_owned());
             format!("::std::collections::HashMap<{key}, {value}>")
         }
@@ -7890,7 +6658,6 @@ fn render_operation_shape_file(
     selected: &SelectedModel,
     operation_name: &str,
     input: bool,
-    consumer_namespace: bool,
 ) -> String {
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
     let module = names::snake_case(operation_name);
@@ -7915,7 +6682,6 @@ fn render_operation_shape_file(
             Context::Operation {
                 module: module.clone(),
                 input,
-                consumer_namespace,
             },
             0,
         );
@@ -7927,7 +6693,6 @@ fn render_operation_shape_file(
             Context::Operation {
                 module: module.clone(),
                 input,
-                consumer_namespace,
             },
             0,
         );
@@ -7939,7 +6704,6 @@ fn render_operation_shape_file(
             Context::Builder {
                 module: module.clone(),
                 input,
-                consumer_namespace,
             },
             0,
         );
@@ -7953,7 +6717,6 @@ fn render_operation_shape_file(
         let context = Context::Operation {
             module: module.clone(),
             input: false,
-            consumer_namespace,
         };
         if output.ends_with("\n\n") {
             output.pop();
@@ -7982,7 +6745,6 @@ fn render_operation_shape_file(
             Context::Builder {
                 module,
                 input: false,
-                consumer_namespace,
             },
             0,
         );
@@ -7990,106 +6752,8 @@ fn render_operation_shape_file(
     output
 }
 
-fn render_operation_builder_file(
-    selected: &SelectedModel,
-    operation_name: &str,
-    consumer_namespace: bool,
-) -> String {
-    if !consumer_namespace {
-        return render_standalone_fluent_operation_builder_file(selected, operation_name);
-    }
-    let operation = operation_shape(selected, operation_name).expect("selected operation exists");
-    let protocol = selected
-        .model
-        .protocol()
-        .expect("selected model protocol was validated before rendering");
-    let module = names::snake_case(operation_name);
-    let rust_operation = rust_type_name(operation_name);
-    let operation_symbol = operation_name;
-    let mut output = String::new();
-    header(&mut output);
-    let input_has_streaming_member = operation
-        .get("input")
-        .and_then(target_value)
-        .and_then(|input_id| selected.model.shapes.get(input_id))
-        .is_some_and(|shape| structure_has_streaming_member(selected, shape));
-    let builder_derives = if input_has_streaming_member {
-        "Debug, Default"
-    } else {
-        "Clone, Debug, Default"
-    };
-    let input_builder_path = format!("super::_{module}_input::{rust_operation}InputBuilder");
-    writeln!(
-        output,
-        "#[derive({builder_derives})]\npub struct Builder {{\n    input: {input_builder_path},\n    client: super::super::super::Client,\n}}\nimpl Builder {{\n    pub fn new() -> Self {{ Self::default() }}\n    pub fn with_client(client: super::super::super::Client) -> Self {{\n        Self {{ input: ::std::default::Default::default(), client }}\n    }}"
-    )
-    .unwrap();
-    if let Some(input_id) = operation.get("input").and_then(target_value)
-        && let Some(shape) = selected.model.shapes.get(input_id)
-    {
-        for (name, member) in members(shape) {
-            let field = names::rust_identifier(&name);
-            let target = member_target(member)
-                .map(|target| {
-                    type_expr(
-                        selected,
-                        target,
-                        Context::Builder {
-                            module: module.clone(),
-                            input: true,
-                            consumer_namespace,
-                        },
-                    )
-                })
-                .unwrap_or_else(|| "::std::string::String".to_owned());
-            let assignment = format!("self.input = self.input.set_{field}(Some(value.into()))");
-            writeln!(
-                output,
-                "    pub fn {field}(mut self, value: impl ::std::convert::Into<{target}>) -> Self {{ {assignment}; self }}"
-            )
-            .unwrap();
-            if consumer_namespace {
-                writeln!(
-                    output,
-                    "    pub fn set_{field}(mut self, value: ::std::option::Option<{target}>) -> Self {{ self.input.{field} = value; self }}\n    pub fn get_{field}(&self) -> &::std::option::Option<{target}> {{ &self.input.{field} }}"
-                )
-                .unwrap();
-            }
-        }
-    }
-    if operation_pagination_info(selected, operation_name).is_some() {
-        if consumer_namespace {
-            writeln!(
-                output,
-                "    pub fn into_paginator(self) -> super::paginator::{rust_operation}Paginator {{\n        super::paginator::{rust_operation}Paginator::new(self)\n    }}\n"
-            )
-            .unwrap();
-        } else {
-            writeln!(
-                output,
-                "    /// Create a paginator for this request\n    ///\n    /// Paginators are used by calling [`send().await`](crate::operation::{module}::paginator::{rust_operation}Paginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).\n    pub fn into_paginator(self) -> crate::operation::{module}::paginator::{rust_operation}Paginator {{\n        crate::operation::{module}::paginator::{rust_operation}Paginator::new(self.handle, self.inner)\n    }}\n"
-            )
-            .unwrap();
-        }
-    }
-    output.push_str(
-        "    pub fn build(self) -> super::Input { self.input.build().expect(\"operation input builder cannot fail\") }\n",
-    );
-    render_operation_send(
-        &mut output,
-        operation_name,
-        selected,
-        operation,
-        protocol,
-        consumer_namespace,
-    );
-    output.push_str("}\n");
-    writeln!(
-        output,
-        "pub use Builder as {operation_symbol}FluentBuilder;"
-    )
-    .unwrap();
-    output
+fn render_operation_builder_file(selected: &SelectedModel, operation_name: &str) -> String {
+    render_standalone_fluent_operation_builder_file(selected, operation_name)
 }
 
 fn render_standalone_fluent_operation_builder_file(
@@ -8293,7 +6957,6 @@ fn render_standalone_fluent_member_helpers(
     let context = Context::Builder {
         module: module.to_owned(),
         input: true,
-        consumer_namespace: false,
     };
     let target = type_expr(selected, target_id, context.clone());
     let target_shape = selected.model.shapes.get(target_id);
@@ -8377,340 +7040,6 @@ fn render_fluent_member_docs(output: &mut String, selected: &SelectedModel, memb
     }
 }
 
-fn render_operation_error(
-    output: &mut String,
-    selected: &SelectedModel,
-    operation: &Value,
-    consumer_namespace: bool,
-) {
-    let request_id_plan = request_id_plan(selected);
-    output.push_str("#[derive(Clone, Debug)]\npub enum Error {\n");
-    if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
-        for error in errors.iter().filter_map(target_value) {
-            let error_name = rust_type_name(terminal(error));
-            writeln!(
-                output,
-                "    {error_name}(super::super::types::error::{error_name}),"
-            )
-            .unwrap();
-        }
-    }
-    output.push_str(
-        "    Unhandled(::std::string::String),\n    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },\n}\nimpl Error {\n",
-    );
-    if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
-        for error in errors.iter().filter_map(target_value) {
-            let error_name = rust_type_name(terminal(error));
-            let predicate = names::snake_case(terminal(error));
-            writeln!(output, "    pub fn is_{predicate}(&self) -> bool {{ matches!(self, Self::{error_name}(_)) }}").unwrap();
-        }
-    }
-    output.push_str("}\nimpl ::std::fmt::Display for Error {\n    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {\n        match self {\n            Self::Unhandled(message) => f.write_str(message),\n            Self::UnhandledWithRequestIds { message, .. } => f.write_str(message),\n");
-    if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
-        for error in errors.iter().filter_map(target_value) {
-            let error_name = rust_type_name(terminal(error));
-            writeln!(
-                output,
-                "            Self::{error_name}(value) => value.fmt(f),"
-            )
-            .unwrap();
-        }
-    }
-    output.push_str("        }\n    }\n}\nimpl ::std::error::Error for Error {}\n");
-    if request_id_plan.standard {
-        let operation_path = "Error";
-        let error_path = if consumer_namespace {
-            "super::super::error::ErrorMetadata".to_owned()
-        } else {
-            "crate::error::ErrorMetadata".to_owned()
-        };
-        writeln!(
-            output,
-            "impl Error {{\n    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self {{ Self::UnhandledWithRequestIds {{ message: message.into(), request_id, extended_request_id }} }}\n    pub fn meta(&self) -> {error_path} {{ match self {{ Self::UnhandledWithRequestIds {{ request_id, extended_request_id, .. }} => {error_path}::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => {error_path}::default() }} }}\n}}\nimpl ::aws_types::request_id::RequestId for {operation_path} {{\n    fn request_id(&self) -> Option<&str> {{ match self {{ Self::UnhandledWithRequestIds {{ request_id, .. }} => request_id.as_deref(), _ => None }} }}\n}}",
-        )
-        .unwrap();
-        if request_id_plan.extended {
-            let trait_path = if consumer_namespace {
-                "super::super::s3_request_id::RequestIdExt"
-            } else {
-                "crate::s3_request_id::RequestIdExt"
-            };
-            writeln!(
-                output,
-                "impl {trait_path} for {operation_path} {{\n    fn extended_request_id(&self) -> Option<&str> {{ match self {{ Self::UnhandledWithRequestIds {{ extended_request_id, .. }} => extended_request_id.as_deref(), _ => None }} }}\n}}"
-            )
-            .unwrap();
-        }
-    }
-}
-
-fn render_operation_send(
-    output: &mut String,
-    operation_name: &str,
-    selected: &SelectedModel,
-    operation: &Value,
-    protocol: crate::model::ProtocolKind,
-    consumer_namespace: bool,
-) {
-    let rust_operation = rust_type_name(operation_name);
-    let operation_symbol = operation_name;
-    let request_id_plan = request_id_plan(selected);
-    let method = operation
-        .get("traits")
-        .and_then(|traits| traits.get("smithy.api#http"))
-        .and_then(|http| http.get("method"))
-        .and_then(Value::as_str)
-        .unwrap_or("POST");
-    let http_method = match method {
-        "GET" => "Get",
-        "PUT" => "Put",
-        "DELETE" => "Delete",
-        "HEAD" => "Head",
-        "PATCH" => "Patch",
-        _ => "Post",
-    };
-    let uri = operation
-        .get("traits")
-        .and_then(|traits| traits.get("smithy.api#http"))
-        .and_then(|http| http.get("uri"))
-        .and_then(Value::as_str)
-        .unwrap_or("/");
-    let input_id = operation.get("input").and_then(target_value);
-    let input_shape = input_id.and_then(|id| selected.model.shapes.get(id));
-    let output_id = operation.get("output").and_then(target_value);
-    let output_shape = output_id.and_then(|id| selected.model.shapes.get(id));
-    let extended_request_id = if request_id_plan.extended {
-        "response.header(\"x-amz-id-2\").map(str::to_owned)"
-    } else {
-        "::std::option::Option::None"
-    };
-    let path_expression = render_request_path(uri, input_shape, selected);
-    let body_expression = render_request_body(selected, input_shape, protocol);
-    let headers_expression = render_request_headers(input_shape, protocol);
-    let send_allow = if consumer_namespace {
-        "#[allow(clippy::possible_missing_else, clippy::field_reassign_with_default, clippy::result_large_err)]"
-    } else {
-        "#[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]"
-    };
-
-    writeln!(
-        output,
-        "                     {send_allow}\n                     pub async fn send(self) -> ::std::result::Result<super::{rust_operation}Output, super::{operation_symbol}Error> {{"
-    )
-    .unwrap();
-    writeln!(
-        output,
-        "                         let input = self.input.build().map_err(|error| super::{operation_symbol}Error::Unhandled(error.to_string()))?;"
-    )
-    .unwrap();
-    if let Some(shape) = input_shape {
-        for (name, member) in members(shape) {
-            let field = names::rust_identifier(&name);
-            let required = member
-                .get("traits")
-                .and_then(|traits| traits.get("smithy.api#required"))
-                .is_some();
-            if required && uri.contains(&format!("{{{name}")) {
-                writeln!(
-                    output,
-                    "                         let {field} = input.{field}.as_deref().ok_or_else(|| super::{operation_symbol}Error::Unhandled(\"{operation_symbol} requires {field}\".to_owned()))?;"
-                )
-                .unwrap();
-            }
-        }
-    }
-    writeln!(
-        output,
-        "                         let path = {path_expression};\n                         let body = {body_expression};\n                         let headers = {headers_expression};\n                         let response = self.client.request(super::super::super::transport::Method::{http_method}, &path, &headers, &body).await.map_err(super::{operation_symbol}Error::Unhandled)?;"
-    )
-    .unwrap();
-    output.push_str("                         let status = response.status();\n                         if !status.is_success() {\n");
-    writeln!(
-        output,
-        "                             return Err(super::{operation_symbol}Error::unhandled_with_request_ids(format!(\"{operation_symbol} returned HTTP {{}}\", status), response.header(\"x-amzn-requestid\").map(str::to_owned), {extended_request_id}));"
-    )
-    .unwrap();
-    output.push_str("                         }\n");
-    render_response_decode(
-        output,
-        operation_name,
-        selected,
-        output_shape,
-        protocol,
-        consumer_namespace,
-    );
-    output.push_str("                     }\n");
-}
-
-fn render_request_body(
-    selected: &SelectedModel,
-    input_shape: Option<&Value>,
-    protocol: crate::model::ProtocolKind,
-) -> String {
-    let Some(shape) = input_shape else {
-        return "::std::vec::Vec::new()".to_owned();
-    };
-    let Some((name, member)) = members(shape).into_iter().find(|(_, member)| {
-        member
-            .get("traits")
-            .and_then(|traits| traits.get("smithy.api#httpPayload"))
-            .is_some()
-    }) else {
-        return "::std::vec::Vec::new()".to_owned();
-    };
-    let field = names::rust_identifier(&name);
-    let target = member_target(member).unwrap_or_default();
-    if terminal(target) == "StreamingBlob" {
-        return format!("input.{field}.clone().into_inner()");
-    }
-    if protocol != crate::model::ProtocolKind::RestXml {
-        return "::std::vec::Vec::new()".to_owned();
-    }
-
-    let Some(target_shape) = selected.model.shapes.get(target) else {
-        return "::std::vec::Vec::new()".to_owned();
-    };
-    let root = xml_name(member).unwrap_or_else(|| terminal(target).to_owned());
-    let mut expression =
-        String::from("{ let mut body = ::std::string::String::new(); if let Some(value) = input.");
-    expression.push_str(&field);
-    expression.push_str(".as_ref() {");
-    render_xml_value(
-        &mut expression,
-        selected,
-        target_shape,
-        "value",
-        &root,
-        false,
-        true,
-    );
-    expression.push_str(" } body.into_bytes() }");
-    expression
-}
-
-fn render_xml_value(
-    output: &mut String,
-    selected: &SelectedModel,
-    shape: &Value,
-    value_expression: &str,
-    tag: &str,
-    flattened: bool,
-    operation_input: bool,
-) {
-    let kind = shape
-        .get("type")
-        .and_then(Value::as_str)
-        .unwrap_or_default();
-    match kind {
-        "structure" => {
-            output.push_str(&format!(
-                " body.push_str({open:?});",
-                open = format!("<{tag}>")
-            ));
-            for (member_name, member) in members(shape) {
-                let traits = member.get("traits").and_then(Value::as_object);
-                if traits.is_some_and(|traits| {
-                    [
-                        "smithy.api#httpHeader",
-                        "smithy.api#httpLabel",
-                        "smithy.api#httpQuery",
-                    ]
-                    .iter()
-                    .any(|trait_id| traits.contains_key(*trait_id))
-                }) {
-                    continue;
-                }
-                let Some(member_target) = member_target(member) else {
-                    continue;
-                };
-                let Some(member_shape) = selected.model.shapes.get(member_target) else {
-                    continue;
-                };
-                let member_tag = xml_name(member)
-                    .or_else(|| xml_name(member_shape))
-                    .unwrap_or_else(|| member_name.clone());
-                let field = names::rust_identifier(&member_name);
-                let field_expression = format!("{value_expression}.{field}");
-                let member_is_optional = operation_input
-                    || (!member_is_required(member) && !is_streaming_target(member_target));
-                if member_is_optional {
-                    output.push_str(&format!(
-                        " if let Some(value) = {field_expression}.as_ref() {{"
-                    ));
-                }
-                render_xml_value(
-                    output,
-                    selected,
-                    member_shape,
-                    if member_is_optional {
-                        "value"
-                    } else {
-                        &field_expression
-                    },
-                    &member_tag,
-                    traits.is_some_and(|traits| traits.contains_key("smithy.api#xmlFlattened")),
-                    false,
-                );
-                if member_is_optional {
-                    output.push_str(" }");
-                }
-            }
-            output.push_str(&format!(
-                " body.push_str({close:?});",
-                close = format!("</{tag}>")
-            ));
-        }
-        "list" => {
-            let element_target = shape
-                .get("member")
-                .and_then(member_target)
-                .unwrap_or("smithy.api#String");
-            let Some(element_shape) = selected.model.shapes.get(element_target) else {
-                return;
-            };
-            let flattened = shape
-                .get("traits")
-                .and_then(Value::as_object)
-                .is_some_and(|traits| traits.contains_key("smithy.api#xmlFlattened"))
-                || flattened;
-            if !flattened {
-                output.push_str(&format!(
-                    " body.push_str({open:?});",
-                    open = format!("<{tag}>")
-                ));
-            }
-            output.push_str(&format!(" for item in {value_expression} {{"));
-            let element_tag = shape
-                .get("member")
-                .and_then(xml_name)
-                .unwrap_or_else(|| tag.to_owned());
-            render_xml_value(
-                output,
-                selected,
-                element_shape,
-                "item",
-                &element_tag,
-                false,
-                false,
-            );
-            output.push_str(" }");
-            if !flattened {
-                output.push_str(&format!(
-                    " body.push_str({close:?});",
-                    close = format!("</{tag}>")
-                ));
-            }
-        }
-        _ => {
-            output.push_str(&format!(
-                " body.push_str({open:?}); body.push_str(&super::super::super::transport::xml_escape(&{value_expression}.to_string())); body.push_str({close:?});",
-                open = format!("<{tag}>"),
-                close = format!("</{tag}>")
-            ));
-        }
-    }
-}
-
 fn xml_name(value: &Value) -> Option<String> {
     value
         .get("traits")
@@ -8772,146 +7101,7 @@ fn is_xml_body_member(member: &Value) -> bool {
     true
 }
 
-fn render_request_path(uri: &str, input_shape: Option<&Value>, selected: &SelectedModel) -> String {
-    let has_query = input_shape
-        .map(|shape| {
-            members(shape).iter().any(|(_, member)| {
-                member
-                    .get("traits")
-                    .and_then(|traits| traits.get("smithy.api#httpQuery"))
-                    .is_some()
-            })
-        })
-        .unwrap_or(false);
-    if !uri.contains('{') && !has_query {
-        return format!("{uri:?}");
-    }
-    let mut expression = format!("{{ let mut path = ::std::string::String::from({uri:?});");
-    let mut replacements = BTreeMap::new();
-    if let Some(shape) = input_shape {
-        for (name, member) in members(shape) {
-            if uri.contains(&format!("{{{name}")) {
-                let field = names::rust_identifier(&name);
-                replacements.insert(name.clone(), field);
-            }
-            if let Some(query) = member
-                .get("traits")
-                .and_then(|traits| traits.get("smithy.api#httpQuery"))
-                .and_then(Value::as_str)
-            {
-                let field = names::rust_identifier(&name);
-                let target = member_target(member).unwrap_or_default();
-                let target_shape = selected.model.shapes.get(target);
-                if is_string_type(target, target_shape) {
-                    expression.push_str(&format!(
-                        " if let Some(value) = input.{field}.as_deref() {{ path.push_str(if path.contains('?') {{ \"&\" }} else {{ \"?\" }}); path.push_str({query:?}); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); }}"
-                    ));
-                } else if !matches!(
-                    target_shape
-                        .and_then(|shape| shape.get("type"))
-                        .and_then(Value::as_str),
-                    Some(
-                        "list" | "map" | "structure" | "union" | "blob" | "timestamp" | "document"
-                    )
-                ) {
-                    expression.push_str(&format!(
-                        " if let Some(value) = input.{field}.as_ref() {{ path.push_str(if path.contains('?') {{ \"&\" }} else {{ \"?\" }}); path.push_str({query:?}); path.push('='); path.push_str(&super::super::super::transport::encode_path(&value.to_string())); }}"
-                    ));
-                }
-            }
-        }
-    }
-    for (name, field) in replacements {
-        let placeholder = if uri.contains(&format!("{{{name}+}}")) {
-            format!("{{{name}+}}")
-        } else {
-            format!("{{{name}}}")
-        };
-        expression.push_str(&format!(
-            " path = path.replace({placeholder:?}, &super::super::super::transport::encode_path({field}));"
-        ));
-    }
-    expression.push_str(" path }");
-    expression
-}
-
-fn render_request_headers(
-    input_shape: Option<&Value>,
-    protocol: crate::model::ProtocolKind,
-) -> String {
-    let mut header_pushes = Vec::new();
-    if let Some(shape) = input_shape {
-        for (name, member) in members(shape) {
-            let Some(header) = member
-                .get("traits")
-                .and_then(|traits| traits.get("smithy.api#httpHeader"))
-                .and_then(Value::as_str)
-            else {
-                continue;
-            };
-            let target = member_target(member).unwrap_or_default();
-            let target_name = terminal(target);
-            let is_string = target.starts_with("smithy.api#String")
-                || matches!(
-                    target_name,
-                    "String"
-                        | "BucketName"
-                        | "ObjectKey"
-                        | "AccountId"
-                        | "Token"
-                        | "ETag"
-                        | "Location"
-                );
-            if !is_string {
-                continue;
-            }
-            let field = names::rust_identifier(&name);
-            header_pushes.push(format!(
-                " if let Some(value) = input.{field}.as_deref() {{ headers.push(({header:?}, value)); }}"
-            ));
-        }
-    }
-    let has_headers = !header_pushes.is_empty();
-    let has_xml_payload = protocol == crate::model::ProtocolKind::RestXml
-        && input_shape.is_some_and(|shape| {
-            members(shape).iter().any(|(_, member)| {
-                member
-                    .get("traits")
-                    .and_then(|traits| traits.get("smithy.api#httpPayload"))
-                    .is_some_and(|_| {
-                        terminal(member_target(member).unwrap_or_default()) != "StreamingBlob"
-                    })
-            })
-        });
-    match (has_headers, has_xml_payload) {
-        (false, false) => "::std::vec::Vec::new()".to_owned(),
-        (false, true) => "::std::vec![(\"content-type\", \"application/xml\")]".to_owned(),
-        (true, has_xml_payload) => {
-            let mut output = String::from(
-                "{ let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();",
-            );
-            for header_push in header_pushes {
-                output.push_str(&header_push);
-            }
-            if has_xml_payload {
-                output.push_str(" headers.push((\"content-type\", \"application/xml\"));");
-            }
-            output.push_str(" headers }");
-            output
-        }
-    }
-}
-
-/// Render the Smithy protocol glue for one operation.
-///
-/// The operation-level file is deliberately driven by HTTP binding traits. It
-/// does not know which AWS service owns the operation; service-specific request
-/// ID behavior comes from the selected service metadata via `RequestIdPlan`.
-fn render_protocol_operation_file(
-    selected: &SelectedModel,
-    operation_name: &str,
-    consumer_namespace: bool,
-) -> String {
+fn render_protocol_operation_file(selected: &SelectedModel, operation_name: &str) -> String {
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
     let output_shape = operation
         .get("output")
@@ -8937,43 +7127,13 @@ fn render_protocol_operation_file(
         })
     });
     if streaming_output {
-        render_protocol_http_response(
-            &mut output,
-            selected,
-            operation_name,
-            output_shape,
-            consumer_namespace,
-        );
-        render_protocol_http_error(
-            &mut output,
-            selected,
-            operation_name,
-            operation,
-            consumer_namespace,
-        );
+        render_protocol_http_response(&mut output, selected, operation_name, output_shape);
+        render_protocol_http_error(&mut output, selected, operation_name, operation);
     } else {
-        render_protocol_http_error(
-            &mut output,
-            selected,
-            operation_name,
-            operation,
-            consumer_namespace,
-        );
-        render_protocol_http_response(
-            &mut output,
-            selected,
-            operation_name,
-            output_shape,
-            consumer_namespace,
-        );
+        render_protocol_http_error(&mut output, selected, operation_name, operation);
+        render_protocol_http_response(&mut output, selected, operation_name, output_shape);
     }
-    render_protocol_request_headers(
-        &mut output,
-        selected,
-        operation_name,
-        input_shape,
-        consumer_namespace,
-    );
+    render_protocol_request_headers(&mut output, selected, operation_name, input_shape);
     if let Some(serializer) = render_protocol_operation_input_serializer(selected, operation_name) {
         output.push_str(&serializer);
     }
@@ -11467,13 +9627,7 @@ fn protocol_shape_kind<'a>(selected: &'a SelectedModel, target: &'a str) -> &'a 
 }
 
 fn protocol_shape_type(selected: &SelectedModel, target: &str) -> String {
-    type_expr(
-        selected,
-        target,
-        Context::Types {
-            consumer_namespace: false,
-        },
-    )
+    type_expr(selected, target, Context::Types {})
 }
 
 fn protocol_member_xml_name(selected: &SelectedModel, member_name: &str, member: &Value) -> String {
@@ -12415,14 +10569,11 @@ fn render_protocol_http_error(
     selected: &SelectedModel,
     operation_name: &str,
     operation: &Value,
-    consumer_namespace: bool,
 ) {
     let module = names::snake_case(operation_name);
     let rust_operation = rust_type_name(operation_name);
-    let output_path =
-        protocol_operation_type_path(&module, &rust_operation, "Output", consumer_namespace);
-    let error_path =
-        protocol_operation_type_path(&module, &rust_operation, "Error", consumer_namespace);
+    let output_path = protocol_operation_type_path(&module, &rust_operation, "Output");
+    let error_path = protocol_operation_type_path(&module, &rust_operation, "Error");
     writeln!(
         output,
         "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_error(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{"
@@ -12501,17 +10652,8 @@ fn render_protocol_error_arm(output: &mut String, error_path: &str, error: &str)
     output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n            tmp\n        }),\n");
 }
 
-fn protocol_operation_type_path(
-    module: &str,
-    operation: &str,
-    suffix: &str,
-    consumer_namespace: bool,
-) -> String {
-    if consumer_namespace {
-        format!("super::super::super::{module}::{operation}{suffix}")
-    } else {
-        format!("crate::operation::{module}::{operation}{suffix}")
-    }
+fn protocol_operation_type_path(module: &str, operation: &str, suffix: &str) -> String {
+    format!("crate::operation::{module}::{operation}{suffix}")
 }
 
 fn render_protocol_http_response(
@@ -12519,14 +10661,11 @@ fn render_protocol_http_response(
     selected: &SelectedModel,
     operation_name: &str,
     output_shape: Option<&Value>,
-    consumer_namespace: bool,
 ) {
     let module = names::snake_case(operation_name);
     let rust_operation = rust_type_name(operation_name);
-    let output_path =
-        protocol_operation_type_path(&module, &rust_operation, "Output", consumer_namespace);
-    let error_path =
-        protocol_operation_type_path(&module, &rust_operation, "Error", consumer_namespace);
+    let output_path = protocol_operation_type_path(&module, &rust_operation, "Output");
+    let error_path = protocol_operation_type_path(&module, &rust_operation, "Error");
     let streaming_payload = output_shape.and_then(|shape| {
         members(shape).into_iter().find(|(_, member)| {
             has_trait(member, "smithy.api#httpPayload")
@@ -12553,11 +10692,8 @@ fn render_protocol_http_response(
         .unwrap();
     }
     output.push_str("    Ok({\n        #[allow(unused_mut)]\n");
-    let builder_path = if consumer_namespace {
-        format!("super::super::super::{module}::builders::{rust_operation}OutputBuilder")
-    } else {
-        format!("crate::operation::{module}::builders::{rust_operation}OutputBuilder")
-    };
+    let builder_path =
+        { format!("crate::operation::{module}::builders::{rust_operation}OutputBuilder") };
     writeln!(
         output,
         "        let mut output = {builder_path}::default();"
@@ -12566,11 +10702,7 @@ fn render_protocol_http_response(
     if streaming_payload.is_none()
         && protocol_operation_has_document_output(selected, operation_name)
     {
-        let helper_path = if consumer_namespace {
-            format!("super::super::super::protocol_serde::shape_{module}")
-        } else {
-            format!("crate::protocol_serde::shape_{module}")
-        };
+        let helper_path = format!("crate::protocol_serde::shape_{module}");
         writeln!(
             output,
             "        output = {helper_path}::de_{module}(_response_body, output)\n            .map_err({error_path}::unhandled)?;"
@@ -12582,11 +10714,7 @@ fn render_protocol_http_response(
             if has_trait(member, "smithy.api#httpPayload") {
                 let field = names::rust_identifier(&name);
                 let helper_module = format!("shape_{module}_output");
-                let helper_path = if consumer_namespace {
-                    format!("super::super::super::protocol_serde::{helper_module}")
-                } else {
-                    format!("crate::protocol_serde::{helper_module}")
-                };
+                let helper_path = format!("crate::protocol_serde::{helper_module}");
                 let target_kind = member_target(member)
                     .map(|target| protocol_shape_kind(selected, target))
                     .unwrap_or_default();
@@ -12618,17 +10746,8 @@ fn render_protocol_http_response(
             {
                 let field = names::rust_identifier(&name);
                 let helper_module = format!("shape_{module}_output");
-                let helper_path = if consumer_namespace {
-                    format!("super::super::super::protocol_serde::{helper_module}")
-                } else {
-                    format!("crate::protocol_serde::{helper_module}")
-                };
-                let error_path = protocol_operation_type_path(
-                    &module,
-                    &rust_operation,
-                    "Error",
-                    consumer_namespace,
-                );
+                let helper_path = format!("crate::protocol_serde::{helper_module}");
+                let error_path = protocol_operation_type_path(&module, &rust_operation, "Error");
                 writeln!(
                     output,
                     "        output = output.set_{field}(\n            {helper_path}::de_{field}_prefix_header(_response_headers).map_err(|_| {{\n                {error_path}::unhandled(\"Failed to parse {name} from prefix header `{prefix}\")\n            }})?,\n        );"
@@ -12645,13 +10764,8 @@ fn render_protocol_http_response(
             };
             let field = names::rust_identifier(&name);
             let helper_module = format!("shape_{module}_output");
-            let helper_path = if consumer_namespace {
-                format!("super::super::super::protocol_serde::{helper_module}")
-            } else {
-                format!("crate::protocol_serde::{helper_module}")
-            };
-            let error_path =
-                protocol_operation_type_path(&module, &rust_operation, "Error", consumer_namespace);
+            let helper_path = format!("crate::protocol_serde::{helper_module}");
+            let error_path = protocol_operation_type_path(&module, &rust_operation, "Error");
             writeln!(
                 output,
                 "        output = output.set_{field}(\n            {helper_path}::de_{field}_header(_response_headers).map_err(|_| {{\n                {error_path}::unhandled(\"Failed to parse {name} from header `{header}\")\n            }})?,\n        );"
@@ -12705,7 +10819,6 @@ fn render_protocol_request_headers(
     selected: &SelectedModel,
     operation_name: &str,
     input_shape: Option<&Value>,
-    consumer_namespace: bool,
 ) {
     let has_headers = input_shape.is_some_and(|shape| {
         members(shape).iter().any(|(_, member)| {
@@ -12718,8 +10831,7 @@ fn render_protocol_request_headers(
     }
     let module = names::snake_case(operation_name);
     let rust_operation = rust_type_name(operation_name);
-    let input_path =
-        protocol_operation_type_path(&module, &rust_operation, "Input", consumer_namespace);
+    let input_path = protocol_operation_type_path(&module, &rust_operation, "Input");
     output.push_str(&format!(
         "pub fn ser_{module}_headers(\n    input: &{input_path},\n    mut builder: ::http_1x::request::Builder,\n) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {{\n"
     ));
@@ -12975,17 +11087,13 @@ fn protocol_output_has_headers(selected: &SelectedModel, operation_name: &str) -
         })
 }
 
-fn render_protocol_output_file(
-    selected: &SelectedModel,
-    operation_name: &str,
-    consumer_namespace: bool,
-) -> Option<String> {
+fn render_protocol_output_file(selected: &SelectedModel, operation_name: &str) -> Option<String> {
     let has_headers = protocol_output_has_headers(selected, operation_name);
     let payload = render_protocol_output_payload_file(selected, operation_name);
     if !has_headers {
         return payload;
     }
-    let mut output = render_protocol_output_headers(selected, operation_name, consumer_namespace);
+    let mut output = render_protocol_output_headers(selected, operation_name);
     let Some(payload) = payload else {
         return Some(output);
     };
@@ -13054,11 +11162,7 @@ fn render_protocol_output_file(
     Some(output)
 }
 
-fn render_protocol_output_headers(
-    selected: &SelectedModel,
-    operation_name: &str,
-    _consumer_namespace: bool,
-) -> String {
+fn render_protocol_output_headers(selected: &SelectedModel, operation_name: &str) -> String {
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
     let output_shape = operation
         .get("output")
@@ -13216,13 +11320,7 @@ fn render_protocol_response_header(
         .and_then(Value::as_str)
         .or_else(|| target.strip_prefix("smithy.api#"))
         .unwrap_or("string");
-    let return_type = type_expr(
-        selected,
-        target,
-        Context::Types {
-            consumer_namespace: false,
-        },
-    );
+    let return_type = type_expr(selected, target, Context::Types {});
     writeln!(
         output,
         "pub(crate) fn de_{field}_header(\n    header_map: &::aws_smithy_runtime_api::http::Headers,\n) -> ::std::result::Result<::std::option::Option<{return_type}>, ::aws_smithy_http::header::ParseError> {{\n    let headers = header_map.get_all({header_name:?});"
@@ -13264,13 +11362,7 @@ fn render_protocol_response_prefix_header(
     let Some(value_target) = map_shape.get("value").and_then(member_target) else {
         return;
     };
-    let value_type = type_expr(
-        selected,
-        value_target,
-        Context::Types {
-            consumer_namespace: false,
-        },
-    );
+    let value_type = type_expr(selected, value_target, Context::Types {});
     writeln!(
         output,
         "pub(crate) fn de_{field}_prefix_header(\n    header_map: &::aws_smithy_runtime_api::http::Headers,\n) -> std::result::Result<::std::option::Option<::std::collections::HashMap<::std::string::String, {value_type}>>, ::aws_smithy_http::header::ParseError> {{\n    let headers = ::aws_smithy_http::header::headers_for_prefix(header_map.iter().map(|(k, _)| k), {prefix:?});\n    let out: std::result::Result<_, _> = headers.map(|(key, header_name)| {{\n                            let values = header_map.get_all(header_name);\n                            crate::protocol_serde::shape_{operation_module}_output::de_{field}_inner(values).map(|v| (key.to_string(), v.expect(\n                                \"we have checked there is at least one value for this header name; please file a bug report under https://github.com/smithy-lang/smithy-rs/issues\"\n                            )))\n                        }}).collect();\n    out.map(Some)\n}}\n\n"
@@ -13291,462 +11383,12 @@ fn render_protocol_response_prefix_inner(
     let Some(value_target) = map_shape.get("value").and_then(member_target) else {
         return;
     };
-    let value_type = type_expr(
-        selected,
-        value_target,
-        Context::Types {
-            consumer_namespace: false,
-        },
-    );
+    let value_type = type_expr(selected, value_target, Context::Types {});
     writeln!(
         output,
         "pub fn de_{field}_inner<'a>(\n    headers: impl ::std::iter::Iterator<Item = &'a str>,\n) -> std::result::Result<Option<{value_type}>, ::aws_smithy_http::header::ParseError> {{\n    ::aws_smithy_http::header::one_or_none(headers)\n}}\n"
     )
     .unwrap();
-}
-
-fn render_response_decode(
-    output: &mut String,
-    operation_name: &str,
-    selected: &SelectedModel,
-    shape: Option<&Value>,
-    protocol: crate::model::ProtocolKind,
-    consumer_namespace: bool,
-) {
-    let rust_operation = rust_type_name(operation_name);
-    let operation_symbol = operation_name;
-    let request_id_plan = request_id_plan(selected);
-    let byte_stream_type = if consumer_namespace {
-        "super::super::super::primitives::ByteStream"
-    } else {
-        "::aws_smithy_types::byte_stream::ByteStream"
-    };
-    let output_builder = format!(
-        "super::_{}_output::{}OutputBuilder",
-        names::snake_case(operation_name),
-        rust_operation
-    );
-    let output_requires_validation = shape.is_some_and(|shape| {
-        members(shape).iter().any(|(_, member)| {
-            let target = member_target(member).unwrap_or("smithy.api#String");
-            is_event_stream_target(selected, target)
-                || (member_is_required(member) && !has_trait(member, "smithy.api#default"))
-        })
-    });
-    let has_decoded_values = shape
-        .map(|shape| {
-            members(shape).iter().any(|(_, member)| {
-                let target = member_target(member).unwrap_or_default();
-                let target_kind = selected
-                    .model
-                    .shapes
-                    .get(target)
-                    .and_then(|shape| shape.get("type"))
-                    .and_then(Value::as_str)
-                    .unwrap_or_default();
-                let traits = member.get("traits").and_then(Value::as_object);
-                (traits
-                    .and_then(|traits| traits.get("smithy.api#httpPayload"))
-                    .is_some()
-                    && terminal(target) == "StreamingBlob")
-                    || traits
-                        .and_then(|traits| traits.get("smithy.api#httpHeader"))
-                        .is_some()
-                        && matches!(
-                            target_kind,
-                            "string"
-                                | "boolean"
-                                | "integer"
-                                | "long"
-                                | "short"
-                                | "byte"
-                                | "float"
-                                | "double"
-                        )
-                    || is_xml_flattened_list(member, selected)
-                    || (protocol == crate::model::ProtocolKind::RestXml
-                        && is_xml_body_member(member))
-            })
-        })
-        .unwrap_or(false);
-    if !has_decoded_values {
-        let output_is_unit = shape.map(|shape| members(shape).is_empty()).unwrap_or(true);
-        if output_is_unit && !request_id_plan.standard && !request_id_plan.extended {
-            writeln!(
-                output,
-                "                         Ok(super::{rust_operation}Output{{}})"
-            )
-            .unwrap();
-        } else {
-            output.push_str(&format!(
-                "                         let mut output = {output_builder}::default();\n"
-            ));
-            render_response_request_ids(output, request_id_plan);
-            if output_requires_validation {
-                writeln!(
-                    output,
-                    "                         output.build().map_err(|error| super::{operation_symbol}Error::Unhandled(error.to_string()))"
-                )
-                .unwrap();
-            } else {
-                output.push_str("                         Ok(output.build())\n");
-            }
-        }
-        return;
-    }
-    output.push_str(&format!(
-        "                         let mut output = {output_builder}::default();\n"
-    ));
-    let xml_flattened_lists = shape
-        .map(|shape| {
-            members(shape)
-                .into_iter()
-                .filter(|(_, member)| is_xml_flattened_list(member, selected))
-                .collect::<Vec<_>>()
-        })
-        .unwrap_or_default();
-    let has_xml_body = protocol == crate::model::ProtocolKind::RestXml
-        && shape.is_some_and(|shape| {
-            members(shape)
-                .iter()
-                .any(|(_, member)| is_xml_body_member(member))
-        });
-    if has_xml_body || !xml_flattened_lists.is_empty() {
-        output.push_str(&format!(
-            "                         let body = response.text().await.map_err(super::{operation_symbol}Error::Unhandled)?;\n"
-        ));
-    }
-    if let Some(shape) = shape {
-        for (name, member) in members(shape) {
-            let field = names::rust_identifier(&name);
-            let target = member_target(member).unwrap_or_default();
-            let target_name = terminal(target);
-            let target_kind = selected
-                .model
-                .shapes
-                .get(target)
-                .and_then(|shape| shape.get("type"))
-                .and_then(Value::as_str)
-                .unwrap_or_default();
-            let traits = member.get("traits").and_then(Value::as_object);
-            if traits
-                .and_then(|traits| traits.get("smithy.api#httpPayload"))
-                .is_some()
-            {
-                if target_name == "StreamingBlob" {
-                    output.push_str(&format!(
-                        "                         output.{field} = Some({byte_stream_type}::from(response.body().to_vec()));\n"
-                    ));
-                } else if protocol == crate::model::ProtocolKind::RestXml {
-                    render_xml_member_decode(
-                        output,
-                        selected,
-                        &field,
-                        &name,
-                        member,
-                        consumer_namespace,
-                    );
-                }
-                continue;
-            }
-            if is_xml_flattened_list(member, selected) {
-                render_xml_flattened_list_decode(
-                    output,
-                    selected,
-                    &name,
-                    member,
-                    consumer_namespace,
-                );
-                continue;
-            }
-            if let Some(header) = traits
-                .and_then(|traits| traits.get("smithy.api#httpHeader"))
-                .and_then(Value::as_str)
-            {
-                if matches!(
-                    target_kind,
-                    "integer" | "long" | "short" | "byte" | "float" | "double" | "boolean"
-                ) {
-                    output.push_str(&format!(
-                        "                         output.{field} = response.header({header:?}).and_then(|value| value.parse().ok());\n"
-                    ));
-                } else if target_kind == "string" {
-                    output.push_str(&format!(
-                        "                         output.{field} = response.header({header:?}).map(str::to_owned);\n"
-                    ));
-                }
-            } else if protocol == crate::model::ProtocolKind::RestXml {
-                render_xml_member_decode(
-                    output,
-                    selected,
-                    &field,
-                    &name,
-                    member,
-                    consumer_namespace,
-                );
-            }
-        }
-    }
-    render_response_request_ids(output, request_id_plan);
-    if output_requires_validation {
-        writeln!(
-            output,
-        "                         output.build().map_err(|error| super::{operation_symbol}Error::Unhandled(error.to_string()))"
-        )
-        .unwrap();
-    } else {
-        output.push_str("                         Ok(output.build())\n");
-    }
-}
-
-fn render_response_request_ids(output: &mut String, request_id_plan: RequestIdPlan) {
-    if request_id_plan.extended {
-        output.push_str(
-            "                         output._set_extended_request_id(response.header(\"x-amz-id-2\").map(str::to_owned));\n",
-        );
-    }
-    if request_id_plan.standard {
-        output.push_str(
-            "                         output._set_request_id(response.header(\"x-amzn-requestid\").map(str::to_owned));\n",
-        );
-    }
-}
-
-fn render_xml_flattened_list_decode(
-    output: &mut String,
-    selected: &SelectedModel,
-    member_name: &str,
-    member: &Value,
-    consumer_namespace: bool,
-) {
-    let Some(list_id) = member_target(member) else {
-        return;
-    };
-    let Some(list_shape) = selected.model.shapes.get(list_id) else {
-        return;
-    };
-    let Some(element_id) = list_shape.get("member").and_then(member_target) else {
-        return;
-    };
-    let Some(element_shape) = selected.model.shapes.get(element_id) else {
-        return;
-    };
-    let output_field = names::rust_identifier(member_name);
-    let tag = xml_name(member).unwrap_or_else(|| member_name.to_owned());
-    if element_shape.get("type").and_then(Value::as_str) != Some("structure") {
-        writeln!(
-            output,
-            "                         let values = super::super::super::transport::xml_tags(&body, {tag:?}).into_iter().filter_map(|value| value.parse().ok()).collect();\n                         output.{output_field} = Some(values);"
-        )
-        .unwrap();
-        return;
-    }
-    let item_builder_type = type_builder_path_for_shape(element_id, consumer_namespace);
-    let item_has_required_members = structure_has_required_members(element_shape);
-    let iterator = if item_has_required_members {
-        "filter_map"
-    } else {
-        "map"
-    };
-    output.push_str(&format!(
-        "                         let values = super::super::super::transport::xml_tags(&body, {tag:?}).into_iter().{iterator}(|value| {{ let mut item: {item_builder_type} = ::std::default::Default::default();"
-    ));
-    render_xml_structure_decode(
-        output,
-        selected,
-        element_shape,
-        "item",
-        "value",
-        consumer_namespace,
-    );
-    let build = if item_has_required_members {
-        " item.build().ok() })"
-    } else {
-        " item.build() })"
-    };
-    writeln!(
-        output,
-        "{build}.collect();\n                         output.{output_field} = Some(values);"
-    )
-    .unwrap();
-}
-
-fn structure_has_required_members(shape: &Value) -> bool {
-    members(shape)
-        .iter()
-        .any(|(_, member)| member_is_required(member))
-}
-
-fn type_builder_path_for_shape(shape_id: &str, consumer_namespace: bool) -> String {
-    let name = rust_type_name(terminal(shape_id));
-    if consumer_namespace {
-        format!("super::super::super::types::{name}Builder")
-    } else {
-        format!("crate::types::{name}Builder")
-    }
-}
-
-fn render_xml_member_decode(
-    output: &mut String,
-    selected: &SelectedModel,
-    field: &str,
-    member_name: &str,
-    member: &Value,
-    consumer_namespace: bool,
-) {
-    let Some(target) = member_target(member) else {
-        return;
-    };
-    let Some(shape) = selected.model.shapes.get(target) else {
-        return;
-    };
-    let tag = xml_name(member)
-        .or_else(|| xml_name(shape))
-        .unwrap_or_else(|| member_name.to_owned());
-    match shape.get("type").and_then(Value::as_str) {
-        Some("list") => {
-            let element_tag = shape
-                .get("member")
-                .and_then(xml_name)
-                .unwrap_or_else(|| tag.clone());
-            let element_target = shape.get("member").and_then(member_target);
-            let element_shape = element_target.and_then(|target| selected.model.shapes.get(target));
-            let element_kind = element_shape
-                .and_then(|shape| shape.get("type"))
-                .and_then(Value::as_str);
-            if !matches!(
-                element_kind,
-                Some(
-                    "string"
-                        | "integer"
-                        | "long"
-                        | "short"
-                        | "byte"
-                        | "float"
-                        | "double"
-                        | "boolean"
-                        | "enum"
-                )
-            ) {
-                writeln!(
-                    output,
-                    "                         output.{field} = Some(::std::vec::Vec::new());"
-                )
-                .unwrap();
-                return;
-            }
-            let element_type = element_target
-                .map(|target| {
-                    type_expr(
-                        selected,
-                        target,
-                        Context::Builder {
-                            module: names::snake_case(member_name),
-                            input: false,
-                            consumer_namespace,
-                        },
-                    )
-                })
-                .unwrap_or_else(|| "::std::string::String".to_owned());
-            writeln!(
-                output,
-                "                         output.{field} = Some(super::super::super::transport::xml_tags(&body, {tag:?}).into_iter().flat_map(|value| super::super::super::transport::xml_tags(&value, {element_tag:?})).filter_map(|value| value.parse::<{element_type}>().ok()).collect());"
-            )
-            .unwrap();
-        }
-        Some("structure") => {
-            let element_builder_type = type_builder_path_for_shape(target, consumer_namespace);
-            let item_has_required_members = structure_has_required_members(shape);
-            output.push_str(&format!(
-                "                         if let Some(value) = super::super::super::transport::xml_first(&body, {tag:?}) {{ let mut item: {element_builder_type} = ::std::default::Default::default();"
-            ));
-            render_xml_structure_decode(
-                output,
-                selected,
-                shape,
-                "item",
-                "value",
-                consumer_namespace,
-            );
-            if item_has_required_members {
-                writeln!(
-                    output,
-                    " if let Ok(item) = item.build() {{ output.{field} = Some(item); }} }}"
-                )
-                .unwrap();
-            } else {
-                writeln!(
-                    output,
-                    " let item = item.build(); output.{field} = Some(item); }}"
-                )
-                .unwrap();
-            }
-        }
-        Some(
-            "string" | "integer" | "long" | "short" | "byte" | "float" | "double" | "boolean"
-            | "enum",
-        ) => {
-            writeln!(
-                output,
-                "                         output.{field} = super::super::super::transport::xml_first(&body, {tag:?}).and_then(|value| value.parse().ok());"
-            )
-            .unwrap();
-        }
-        _ => {}
-    }
-}
-
-fn render_xml_structure_decode(
-    output: &mut String,
-    selected: &SelectedModel,
-    shape: &Value,
-    item_expression: &str,
-    xml_expression: &str,
-    _consumer_namespace: bool,
-) {
-    for (member_name, member) in members(shape) {
-        let Some(target) = member_target(member) else {
-            continue;
-        };
-        let Some(member_shape) = selected.model.shapes.get(target) else {
-            continue;
-        };
-        let kind = member_shape.get("type").and_then(Value::as_str);
-        if !matches!(
-            kind,
-            Some("string" | "integer" | "long" | "short" | "byte" | "float" | "double" | "boolean")
-        ) {
-            continue;
-        }
-        let tag = xml_name(member)
-            .or_else(|| xml_name(member_shape))
-            .unwrap_or_else(|| member_name.clone());
-        let field = names::rust_identifier(&member_name);
-        writeln!(
-            output,
-            " {item_expression}.{field} = super::super::super::transport::xml_first(&{xml_expression}, {tag:?}).and_then(|value| value.parse().ok());"
-        )
-        .unwrap();
-    }
-}
-
-fn is_xml_flattened_list(member: &Value, selected: &SelectedModel) -> bool {
-    let Some(traits) = member.get("traits").and_then(Value::as_object) else {
-        return false;
-    };
-    if !traits.contains_key("smithy.api#xmlFlattened") {
-        return false;
-    }
-    let Some(target) = member_target(member) else {
-        return false;
-    };
-    selected
-        .model
-        .shapes
-        .get(target)
-        .and_then(|shape| shape.get("type"))
-        .and_then(Value::as_str)
-        == Some("list")
 }
 
 fn is_string_type(target: &str, shape: Option<&Value>) -> bool {
@@ -14079,12 +11721,6 @@ fn builder_argument_value(argument_type: &str, value: &str) -> String {
 }
 
 fn builder_type_path(context: &Context, name: &str) -> String {
-    if context.consumer_namespace() {
-        if matches!(context, Context::Error { .. }) {
-            return format!("builders::{name}Builder");
-        }
-        return format!("{name}Builder");
-    }
     match context {
         Context::Types { .. } => {
             format!("crate::types::builders::{name}Builder")
@@ -14097,9 +11733,6 @@ fn builder_type_path(context: &Context, name: &str) -> String {
 }
 
 fn value_type_path(context: &Context, name: &str) -> String {
-    if context.consumer_namespace() {
-        return name.to_owned();
-    }
     match context {
         Context::Types { .. } => format!("crate::types::{name}"),
         Context::Error { .. } => format!("crate::types::error::{name}"),
@@ -14110,17 +11743,8 @@ fn value_type_path(context: &Context, name: &str) -> String {
 }
 
 fn build_error_type(context: &Context) -> String {
-    if context.consumer_namespace() {
-        match context {
-            Context::Types { .. } => "super::error::BuildError".to_owned(),
-            Context::Error { .. } => "super::super::error::BuildError".to_owned(),
-            Context::Operation { .. } | Context::Builder { .. } => {
-                "super::super::super::error::BuildError".to_owned()
-            }
-        }
-    } else {
-        "::aws_smithy_types::error::operation::BuildError".to_owned()
-    }
+    let _ = context;
+    "::aws_smithy_types::error::operation::BuildError".to_owned()
 }
 
 fn render_structure(
@@ -14133,7 +11757,7 @@ fn render_structure(
     render_structure_at_indent(output, selected, shape, name, context.clone(), 4);
     render_structure_accessors(output, selected, shape, name, context.clone(), 4);
     if is_error_context(&context) {
-        render_error_impls(output, selected, shape, name, &context);
+        render_error_impls(output, selected, shape, name);
     }
     render_type_builder(output, selected, shape, name, context, 4);
 }
@@ -14360,11 +11984,7 @@ fn render_structure_accessors(
         render_sensitive_debug_impl(output, selected, shape, name, &context, indent);
     }
     if request_id_plan.extended && !is_error {
-        let trait_path = if context.consumer_namespace() {
-            "super::super::super::s3_request_id::RequestIdExt"
-        } else {
-            "crate::s3_request_id::RequestIdExt"
-        };
+        let trait_path = "crate::s3_request_id::RequestIdExt";
         writeln!(
             output,
             "{padding}impl {trait_path} for {} {{\n{padding}    fn extended_request_id(&self) -> Option<&str> {{\n{padding}        self._extended_request_id.as_deref()\n{padding}    }}\n{padding}}}",
@@ -14444,21 +12064,10 @@ fn render_sensitive_debug_impl(
     writeln!(output, "{padding}}}").unwrap();
 }
 
-fn render_error_impls(
-    output: &mut String,
-    selected: &SelectedModel,
-    shape: &Value,
-    name: &str,
-    context: &Context,
-) {
+fn render_error_impls(output: &mut String, selected: &SelectedModel, shape: &Value, name: &str) {
     let rust_name = rust_type_name(name);
-    let consumer_namespace = context.consumer_namespace();
     let request_id_plan = request_id_plan(selected);
-    let error_type_path = if consumer_namespace {
-        rust_name.clone()
-    } else {
-        format!("crate::types::error::{rust_name}")
-    };
+    let error_type_path = { format!("crate::types::error::{rust_name}") };
     let message_name = error_message_member(shape)
         .map(|(name, _)| names::rust_identifier(&name))
         .unwrap_or_else(|| "message".to_owned());
@@ -14494,11 +12103,7 @@ fn render_error_impls(
     writeln!(output, "impl ::std::error::Error for {rust_name} {{}}").unwrap();
 
     if request_id_plan.extended {
-        let trait_path = if consumer_namespace {
-            "super::super::s3_request_id::RequestIdExt"
-        } else {
-            "crate::s3_request_id::RequestIdExt"
-        };
+        let trait_path = "crate::s3_request_id::RequestIdExt";
         writeln!(
             output,
             "impl {trait_path} for {error_type_path} {{\n    fn extended_request_id(&self) -> Option<&str> {{\n        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;\n        self.meta().extended_request_id()\n    }}\n}}"
@@ -14789,11 +12394,7 @@ fn render_type_builder(
             for member_name in &required_members {
                 let field_method = names::rust_identifier(member_name);
                 let doc_field_method = names::rustdoc_identifier(&field_method);
-                let field_link = if context.consumer_namespace() {
-                    format!("Self::{doc_field_method}")
-                } else {
-                    format!("{builder_path}::{doc_field_method}")
-                };
+                let field_link = format!("{builder_path}::{doc_field_method}");
                 writeln!(output, "{inner}/// - [`{field_method}`]({field_link})").unwrap();
             }
         }
@@ -14974,11 +12575,7 @@ fn render_union(
         "        /// The __BT__Unknown__BT__ variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.\n        /// An unknown enum variant\n        ///\n        /// _Note: If you encounter this error, consider upgrading your SDK to the latest version._\n        /// The __BT__Unknown__BT__ variant represents cases where the server sent a value that wasn't recognized\n        /// by the client. This can happen when the server adds new functionality, but the client has not been updated.\n        /// To investigate this, consider turning on debug logging to print the raw HTTP response.\n        #[non_exhaustive]\n        Unknown,\n    }\n",
     );
     writeln!(output, "impl {rust_name} {{").unwrap();
-    let union_path = if context.consumer_namespace() {
-        format!("self::{rust_name}")
-    } else {
-        format!("crate::types::{rust_name}")
-    };
+    let union_path = format!("crate::types::{rust_name}");
     for (member_name, member) in &ordered_members {
         let variant = rust_type_name(member_name);
         let function = names::rust_identifier(&names::snake_case(member_name));
@@ -15008,24 +12605,10 @@ fn render_union(
     *output = output.replace("__BT__", "\x60");
 }
 
-fn render_enum(
-    output: &mut String,
-    shape: &Value,
-    name: &str,
-    context: &Context,
-    consumer_namespace: bool,
-) {
+fn render_enum(output: &mut String, shape: &Value, name: &str) {
     let rust_name = rust_type_name(name);
     let ordered_members = sorted_members(shape);
-    let support_prefix = if consumer_namespace {
-        match context {
-            Context::Types { .. } => "super::",
-            Context::Error { .. } => "super::super::",
-            Context::Operation { .. } | Context::Builder { .. } => "super::super::super::",
-        }
-    } else {
-        "crate::"
-    };
+    let support_prefix = { "crate::" };
     let unknown_value_type =
         format!("{support_prefix}primitives::sealed_enum_unknown::UnknownVariantValue");
     let unknown_error_type = format!("{support_prefix}error::UnknownVariantError");
@@ -15253,18 +12836,8 @@ fn enum_value(member: &Value, fallback: &str) -> String {
         .to_owned()
 }
 
-fn render_client_file(
-    service_key: &str,
-    selected: &SelectedModel,
-    consumer_namespace: bool,
-) -> String {
-    if !consumer_namespace {
-        return render_standalone_client_file(selected);
-    }
-    let mut output = String::new();
-    output.push_str(&render_aws_runtime());
-    render_client(&mut output, service_key, selected);
-    output
+fn render_client_file(selected: &SelectedModel) -> String {
+    render_standalone_client_file(selected)
 }
 
 fn has_presignable_operations(selected: &SelectedModel) -> bool {
@@ -15354,43 +12927,6 @@ fn render_serialization_settings_file() -> String {
     client_operation_header(&mut output);
     output.push_str(include_str!("../assets/serialization_settings.rs"));
     output
-}
-
-fn render_client(output: &mut String, service_key: &str, selected: &SelectedModel) {
-    header(output);
-    output.push_str(
-        "#[derive(Clone, Debug, Default)]\n\
-             pub struct Client {\n\
-                 config: Config,\n\
-                 http: transport::HttpClient,\n\
-             }\n\
-             impl Client {\n\
-                 pub fn new(config: &Config) -> Self {\n\
-                     Self { config: config.clone(), http: transport::HttpClient::new() }\n\
-                 }\n\
-                 pub fn config(&self) -> &Config { &self.config }\n\
-                 pub(crate) async fn request(\n\
-                     &self,\n\
-                     method: transport::Method,\n\
-                     path: &str,\n\
-                     headers: &[(&str, &str)],\n\
-                     body: &[u8],\n\
-                 ) -> ::std::result::Result<transport::Response, ::std::string::String> {\n\
-                     let url = format!(\"{}{}\", self.config.endpoint_url.trim_end_matches('/'), path);\n\
-                     self.http.request(method, &url, headers, body).await\n\
-                 }\n\
-             }\n\n",
-    );
-    let mut operations = selected.operations.clone();
-    operations.sort();
-    for operation in operations {
-        let module = names::snake_case(&operation);
-        writeln!(
-            output,
-            "include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/client/{module}.rs\"));"
-        )
-        .unwrap();
-    }
 }
 
 fn render_standalone_client_file(selected: &SelectedModel) -> String {
@@ -15559,17 +13095,13 @@ fn client_usage_example(selected: &SelectedModel) -> Option<(String, String)> {
     })
 }
 
-fn render_client_operation_file(
-    selected: &SelectedModel,
-    operation: &str,
-    consumer_namespace: bool,
-) -> String {
+fn render_client_operation_file(selected: &SelectedModel, operation: &str) -> String {
     let module = names::snake_case(operation);
     let rust_operation = rust_type_name(operation);
     let operation_symbol = operation;
     let mut output = String::new();
     client_operation_header(&mut output);
-    if !consumer_namespace {
+    {
         let operation_shape =
             operation_shape(selected, operation).expect("selected operation exists");
         let input_shape = operation_shape
@@ -15685,12 +13217,6 @@ fn render_client_operation_file(
         output.push_str("    }\n}\n");
         return output;
     }
-    writeln!(
-        output,
-        "impl Client {{\n    pub fn {module}(&self) -> operation::{module}::{operation_symbol}FluentBuilder {{ operation::{module}::{operation_symbol}FluentBuilder::with_client(self.clone()) }}\n}}\n"
-    )
-    .unwrap();
-    output
 }
 
 fn compact_documentation(value: &Value) -> String {
@@ -16588,108 +14114,41 @@ fn escape_documentation_text(text: &str) -> String {
 
 #[derive(Clone)]
 enum Context {
-    Types {
-        consumer_namespace: bool,
-    },
-    Error {
-        consumer_namespace: bool,
-    },
-    Operation {
-        module: String,
-        input: bool,
-        consumer_namespace: bool,
-    },
-    Builder {
-        module: String,
-        input: bool,
-        consumer_namespace: bool,
-    },
-}
-
-impl Context {
-    fn consumer_namespace(&self) -> bool {
-        match self {
-            Self::Types { consumer_namespace }
-            | Self::Error { consumer_namespace }
-            | Self::Operation {
-                consumer_namespace, ..
-            }
-            | Self::Builder {
-                consumer_namespace, ..
-            } => *consumer_namespace,
-        }
-    }
+    Types {},
+    Error {},
+    Operation { module: String, input: bool },
+    Builder { module: String, input: bool },
 }
 
 fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String {
     if !operation_input(&context) && is_event_stream_target(selected, target) {
         let name = rust_type_name(terminal(target));
         let (value_path, error_path) = match &context {
-            Context::Types {
-                consumer_namespace: true,
-            } => (
+            Context::Types {} => (
                 format!("self::{name}"),
                 format!("super::error::{name}Error"),
             ),
-            Context::Error {
-                consumer_namespace: true,
-            } => (
+            Context::Error {} => (
                 format!("super::super::types::{name}"),
                 format!("super::{name}Error"),
             ),
-            Context::Operation {
-                consumer_namespace: true,
-                ..
-            }
-            | Context::Builder {
-                consumer_namespace: true,
-                ..
-            } => (
+            Context::Operation { .. } | Context::Builder { .. } => (
                 format!("super::super::super::types::{name}"),
                 format!("super::super::super::types::error::{name}Error"),
-            ),
-            _ => (
-                format!("crate::types::{name}"),
-                format!("crate::types::error::{name}Error"),
             ),
         };
         return format!("crate::event_receiver::EventReceiver<{value_path}, {error_path}>");
     }
     if is_streaming_shape_target(selected, target) {
         return match context {
-            Context::Types { consumer_namespace } => {
-                if consumer_namespace {
-                    "super::primitives::ByteStream".to_owned()
-                } else {
-                    "::aws_smithy_types::byte_stream::ByteStream".to_owned()
-                }
-            }
-            Context::Error { consumer_namespace } => {
-                if consumer_namespace {
-                    "super::super::primitives::ByteStream".to_owned()
-                } else {
-                    "::aws_smithy_types::byte_stream::ByteStream".to_owned()
-                }
-            }
-            Context::Operation {
-                consumer_namespace, ..
-            }
-            | Context::Builder {
-                consumer_namespace, ..
-            } => {
-                if consumer_namespace {
-                    "super::super::super::primitives::ByteStream".to_owned()
-                } else {
-                    "::aws_smithy_types::byte_stream::ByteStream".to_owned()
-                }
-            }
+            Context::Types {}
+            | Context::Error {}
+            | Context::Operation { .. }
+            | Context::Builder { .. } => "::aws_smithy_types::byte_stream::ByteStream".to_owned(),
         };
     }
     if target.starts_with("smithy.api#") {
-        return primitive_type_for_namespace(
-            target.rsplit('#').next().unwrap_or("string"),
-            context.consumer_namespace(),
-        );
+        return primitive_type_for_namespace(target.rsplit('#').next().unwrap_or("string"));
     }
     if let Some(shape) = selected.model.shapes.get(target) {
         match shape.get("type").and_then(Value::as_str) {
@@ -16702,7 +14161,6 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
                         .get("type")
                         .and_then(Value::as_str)
                         .unwrap_or("string"),
-                    context.consumer_namespace(),
                 );
             }
             Some("list") => {
@@ -16724,92 +14182,43 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
                     .and_then(member_target)
                     .map(|target| type_expr(selected, target, context.clone()))
                     .unwrap_or_else(|| "::std::string::String".to_owned());
-                return if context.consumer_namespace() {
-                    format!("::std::collections::BTreeMap<{key}, {value}>")
-                } else {
-                    format!("::std::collections::HashMap<{key}, {value}>")
-                };
+                return format!("::std::collections::HashMap<{key}, {value}>");
             }
             _ => {}
         }
     }
     let name = terminal(target);
     let known = rust_type_name(name);
-    let consumer_namespace = context.consumer_namespace();
     match context {
         Context::Types { .. } if name == "StreamingBlob" => {
-            if consumer_namespace {
-                "super::primitives::ByteStream".to_owned()
-            } else {
-                "::aws_smithy_types::byte_stream::ByteStream".to_owned()
-            }
+            "::aws_smithy_types::byte_stream::ByteStream".to_owned()
         }
         Context::Types { .. } => {
-            if consumer_namespace {
-                format!("self::{known}")
-            } else {
-                format!("crate::types::{known}")
-            }
+            format!("crate::types::{known}")
         }
         Context::Error { .. } => {
-            if consumer_namespace {
-                format!("super::super::types::{known}")
-            } else {
-                format!("crate::types::{known}")
-            }
+            format!("crate::types::{known}")
         }
         Context::Operation { module, .. } => {
             if name == "StreamingBlob" {
-                if consumer_namespace {
-                    "super::super::super::primitives::ByteStream".to_owned()
-                } else {
-                    "::aws_smithy_types::byte_stream::ByteStream".to_owned()
-                }
+                "::aws_smithy_types::byte_stream::ByteStream".to_owned()
             } else if name.ends_with("Input") {
-                if consumer_namespace {
-                    format!("super::super::{module}::Input")
-                } else {
-                    format!("crate::operation::{module}::Input")
-                }
+                format!("crate::operation::{module}::Input")
             } else if name.ends_with("Output") {
-                if consumer_namespace {
-                    format!("super::super::{module}::Output")
-                } else {
-                    format!("crate::operation::{module}::Output")
-                }
+                format!("crate::operation::{module}::Output")
             } else {
-                if consumer_namespace {
-                    format!("super::super::super::types::{known}")
-                } else {
-                    format!("crate::types::{known}")
-                }
+                format!("crate::types::{known}")
             }
         }
         Context::Builder { module, .. } => {
             if name == "StreamingBlob" {
-                if consumer_namespace {
-                    "super::super::super::primitives::ByteStream".to_owned()
-                } else {
-                    "::aws_smithy_types::byte_stream::ByteStream".to_owned()
-                }
+                "::aws_smithy_types::byte_stream::ByteStream".to_owned()
             } else if name.ends_with("Input") {
-                if consumer_namespace {
-                    format!("super::{module}::Input")
-                } else {
-                    format!("crate::operation::{module}::Input")
-                }
+                format!("crate::operation::{module}::Input")
             } else if name.ends_with("Output") {
-                if consumer_namespace {
-                    format!("super::{module}::Output")
-                } else {
-                    format!("crate::operation::{module}::Output")
-                }
+                format!("crate::operation::{module}::Output")
             } else {
-                if consumer_namespace {
-                    format!("super::super::super::types::{known}")
-                } else {
-                    format!("crate::types::{known}")
-                }
+                format!("crate::types::{known}")
             }
         }
     }
@@ -16832,15 +14241,13 @@ fn primitive_type(name: &str) -> String {
     .to_owned()
 }
 
-fn primitive_type_for_namespace(name: &str, consumer_namespace: bool) -> String {
-    if !consumer_namespace {
+fn primitive_type_for_namespace(name: &str) -> String {
+    {
         match name {
             "Timestamp" | "timestamp" => return "::aws_smithy_types::DateTime".to_owned(),
             "Blob" | "blob" => return "::aws_smithy_types::Blob".to_owned(),
             _ => {}
         }
-    } else {
-        return primitive_type(name);
     }
     primitive_type(name)
 }

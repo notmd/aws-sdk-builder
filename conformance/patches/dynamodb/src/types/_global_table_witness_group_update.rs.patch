@@ -5,20 +5,20 @@
  pub struct GlobalTableWitnessGroupUpdate {
      /// <p>Specifies a witness Region to be added to a new MRSC global table. The witness must be added when creating the MRSC global table.</p>
 -    pub create: ::std::option::Option<crate::types::CreateGlobalTableWitnessGroupMemberAction>,
-+    pub create: ::std::option::Option<super::types::CreateGlobalTableWitnessGroupMemberAction>,
++    pub create: ::std::option::Option<super::super::types::CreateGlobalTableWitnessGroupMemberAction>,
      /// <p>Specifies a witness Region to be removed from an existing global table. Must be done in conjunction with removing a replica. The deletion of both a witness and replica converts the remaining replica to a single-Region DynamoDB table.</p>
 -    pub delete: ::std::option::Option<crate::types::DeleteGlobalTableWitnessGroupMemberAction>,
-+    pub delete: ::std::option::Option<super::types::DeleteGlobalTableWitnessGroupMemberAction>,
++    pub delete: ::std::option::Option<super::super::types::DeleteGlobalTableWitnessGroupMemberAction>,
  }
  impl GlobalTableWitnessGroupUpdate {
      /// <p>Specifies a witness Region to be added to a new MRSC global table. The witness must be added when creating the MRSC global table.</p>
 -    pub fn create(&self) -> ::std::option::Option<&crate::types::CreateGlobalTableWitnessGroupMemberAction> {
-+    pub fn create(&self) -> ::std::option::Option<&super::types::CreateGlobalTableWitnessGroupMemberAction> {
++    pub fn create(&self) -> ::std::option::Option<&super::super::types::CreateGlobalTableWitnessGroupMemberAction> {
          self.create.as_ref()
      }
      /// <p>Specifies a witness Region to be removed from an existing global table. Must be done in conjunction with removing a replica. The deletion of both a witness and replica converts the remaining replica to a single-Region DynamoDB table.</p>
 -    pub fn delete(&self) -> ::std::option::Option<&crate::types::DeleteGlobalTableWitnessGroupMemberAction> {
-+    pub fn delete(&self) -> ::std::option::Option<&super::types::DeleteGlobalTableWitnessGroupMemberAction> {
++    pub fn delete(&self) -> ::std::option::Option<&super::super::types::DeleteGlobalTableWitnessGroupMemberAction> {
          self.delete.as_ref()
      }
  }
@@ -26,8 +26,8 @@
      /// Creates a new builder-style object to manufacture [`GlobalTableWitnessGroupUpdate`](crate::types::GlobalTableWitnessGroupUpdate).
 -    pub fn builder() -> crate::types::builders::GlobalTableWitnessGroupUpdateBuilder {
 -        crate::types::builders::GlobalTableWitnessGroupUpdateBuilder::default()
-+    pub fn builder() -> super::types::builders::GlobalTableWitnessGroupUpdateBuilder {
-+        super::types::builders::GlobalTableWitnessGroupUpdateBuilder::default()
++    pub fn builder() -> super::super::types::builders::GlobalTableWitnessGroupUpdateBuilder {
++        super::super::types::builders::GlobalTableWitnessGroupUpdateBuilder::default()
      }
  }
 
@@ -37,49 +37,49 @@
  pub struct GlobalTableWitnessGroupUpdateBuilder {
 -    pub(crate) create: ::std::option::Option<crate::types::CreateGlobalTableWitnessGroupMemberAction>,
 -    pub(crate) delete: ::std::option::Option<crate::types::DeleteGlobalTableWitnessGroupMemberAction>,
-+    pub(crate) create: ::std::option::Option<super::types::CreateGlobalTableWitnessGroupMemberAction>,
-+    pub(crate) delete: ::std::option::Option<super::types::DeleteGlobalTableWitnessGroupMemberAction>,
++    pub(crate) create: ::std::option::Option<super::super::types::CreateGlobalTableWitnessGroupMemberAction>,
++    pub(crate) delete: ::std::option::Option<super::super::types::DeleteGlobalTableWitnessGroupMemberAction>,
  }
  impl GlobalTableWitnessGroupUpdateBuilder {
      /// <p>Specifies a witness Region to be added to a new MRSC global table. The witness must be added when creating the MRSC global table.</p>
 -    pub fn create(mut self, input: crate::types::CreateGlobalTableWitnessGroupMemberAction) -> Self {
-+    pub fn create(mut self, input: super::types::CreateGlobalTableWitnessGroupMemberAction) -> Self {
++    pub fn create(mut self, input: super::super::types::CreateGlobalTableWitnessGroupMemberAction) -> Self {
          self.create = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies a witness Region to be added to a new MRSC global table. The witness must be added when creating the MRSC global table.</p>
 -    pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateGlobalTableWitnessGroupMemberAction>) -> Self {
-+    pub fn set_create(mut self, input: ::std::option::Option<super::types::CreateGlobalTableWitnessGroupMemberAction>) -> Self {
++    pub fn set_create(mut self, input: ::std::option::Option<super::super::types::CreateGlobalTableWitnessGroupMemberAction>) -> Self {
          self.create = input;
          self
      }
      /// <p>Specifies a witness Region to be added to a new MRSC global table. The witness must be added when creating the MRSC global table.</p>
 -    pub fn get_create(&self) -> &::std::option::Option<crate::types::CreateGlobalTableWitnessGroupMemberAction> {
-+    pub fn get_create(&self) -> &::std::option::Option<super::types::CreateGlobalTableWitnessGroupMemberAction> {
++    pub fn get_create(&self) -> &::std::option::Option<super::super::types::CreateGlobalTableWitnessGroupMemberAction> {
          &self.create
      }
      /// <p>Specifies a witness Region to be removed from an existing global table. Must be done in conjunction with removing a replica. The deletion of both a witness and replica converts the remaining replica to a single-Region DynamoDB table.</p>
 -    pub fn delete(mut self, input: crate::types::DeleteGlobalTableWitnessGroupMemberAction) -> Self {
-+    pub fn delete(mut self, input: super::types::DeleteGlobalTableWitnessGroupMemberAction) -> Self {
++    pub fn delete(mut self, input: super::super::types::DeleteGlobalTableWitnessGroupMemberAction) -> Self {
          self.delete = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies a witness Region to be removed from an existing global table. Must be done in conjunction with removing a replica. The deletion of both a witness and replica converts the remaining replica to a single-Region DynamoDB table.</p>
 -    pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteGlobalTableWitnessGroupMemberAction>) -> Self {
-+    pub fn set_delete(mut self, input: ::std::option::Option<super::types::DeleteGlobalTableWitnessGroupMemberAction>) -> Self {
++    pub fn set_delete(mut self, input: ::std::option::Option<super::super::types::DeleteGlobalTableWitnessGroupMemberAction>) -> Self {
          self.delete = input;
          self
      }
      /// <p>Specifies a witness Region to be removed from an existing global table. Must be done in conjunction with removing a replica. The deletion of both a witness and replica converts the remaining replica to a single-Region DynamoDB table.</p>
 -    pub fn get_delete(&self) -> &::std::option::Option<crate::types::DeleteGlobalTableWitnessGroupMemberAction> {
-+    pub fn get_delete(&self) -> &::std::option::Option<super::types::DeleteGlobalTableWitnessGroupMemberAction> {
++    pub fn get_delete(&self) -> &::std::option::Option<super::super::types::DeleteGlobalTableWitnessGroupMemberAction> {
          &self.delete
      }
      /// Consumes the builder and constructs a [`GlobalTableWitnessGroupUpdate`](crate::types::GlobalTableWitnessGroupUpdate).
 -    pub fn build(self) -> crate::types::GlobalTableWitnessGroupUpdate {
 -        crate::types::GlobalTableWitnessGroupUpdate {
-+    pub fn build(self) -> super::types::GlobalTableWitnessGroupUpdate {
-+        super::types::GlobalTableWitnessGroupUpdate {
++    pub fn build(self) -> super::super::types::GlobalTableWitnessGroupUpdate {
++        super::super::types::GlobalTableWitnessGroupUpdate {
              create: self.create,
              delete: self.delete,
          }

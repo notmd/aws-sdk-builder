@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Environment`](crate::types::Environment).
 -    pub fn builder() -> crate::types::builders::EnvironmentBuilder {
 -        crate::types::builders::EnvironmentBuilder::default()
-+    pub fn builder() -> super::types::builders::EnvironmentBuilder {
-+        super::types::builders::EnvironmentBuilder::default()
++    pub fn builder() -> super::super::types::builders::EnvironmentBuilder {
++        super::super::types::builders::EnvironmentBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Environment`](crate::types::Environment).
 -    pub fn build(self) -> crate::types::Environment {
 -        crate::types::Environment { variables: self.variables }
-+    pub fn build(self) -> super::types::Environment {
-+        super::types::Environment { variables: self.variables }
++    pub fn build(self) -> super::super::types::Environment {
++        super::super::types::Environment { variables: self.variables }
      }
  }
  impl ::std::fmt::Debug for EnvironmentBuilder {

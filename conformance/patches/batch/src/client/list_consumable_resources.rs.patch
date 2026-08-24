@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListConsumableResourcesError>`](crate::operation::list_consumable_resources::ListConsumableResourcesError)
 -    pub fn list_consumable_resources(&self) -> crate::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder {
 -        crate::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder::new(self.handle.clone())
-+    pub fn list_consumable_resources(&self) -> super::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder {
-+        super::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder::new(self.handle.clone())
++    pub fn list_consumable_resources(&self) -> super::super::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder {
++        super::super::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder::new(self.handle.clone())
      }
  }

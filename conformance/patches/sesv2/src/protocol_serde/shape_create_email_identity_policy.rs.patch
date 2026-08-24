@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyOutput,
 -    crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError,
-+    super::operation::create_email_identity_policy::CreateEmailIdentityPolicyOutput,
-+    super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError,
++    super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyOutput,
++    super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled(
-+            return Err(super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled(
++            return Err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled(
                  generic,
              ))
          }
@@ -29,16 +29,16 @@
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "AlreadyExistsException" => crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::AlreadyExistsException({
-+        "AlreadyExistsException" => super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::AlreadyExistsException({
++        "AlreadyExistsException" => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::AlreadyExistsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::AlreadyExistsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::AlreadyExistsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::AlreadyExistsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -47,16 +47,16 @@
              tmp
          }),
 -        "BadRequestException" => crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::BadRequestException({
-+        "BadRequestException" => super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::BadRequestException({
++        "BadRequestException" => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::BadRequestException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::BadRequestExceptionBuilder::default();
-+                output = super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -65,16 +65,16 @@
              tmp
          }),
 -        "LimitExceededException" => crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::LimitExceededException({
-+        "LimitExceededException" => super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::LimitExceededException({
++        "LimitExceededException" => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::LimitExceededException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -83,16 +83,16 @@
              tmp
          }),
 -        "NotFoundException" => crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::NotFoundException({
-+        "NotFoundException" => super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::NotFoundException({
++        "NotFoundException" => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::NotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -101,16 +101,16 @@
              tmp
          }),
 -        "TooManyRequestsException" => crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::TooManyRequestsException({
-+        "TooManyRequestsException" => super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::TooManyRequestsException({
++        "TooManyRequestsException" => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::TooManyRequestsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -119,7 +119,7 @@
              tmp
          }),
 -        _ => crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::generic(generic),
-+        _ => super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::generic(generic),
++        _ => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::generic(generic),
      })
  }
 
@@ -129,13 +129,13 @@
  ) -> std::result::Result<
 -    crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyOutput,
 -    crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError,
-+    super::operation::create_email_identity_policy::CreateEmailIdentityPolicyOutput,
-+    super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError,
++    super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyOutput,
++    super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyOutputBuilder::default();
-+        let mut output = super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyOutputBuilder::default();
++        let mut output = super::super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -144,12 +144,12 @@
 
  pub fn ser_create_email_identity_policy_input(
 -    input: &crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput,
-+    input: &super::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput,
++    input: &super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_create_email_identity_policy_input::ser_create_email_identity_policy_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_create_email_identity_policy_input::ser_create_email_identity_policy_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_create_email_identity_policy_input::ser_create_email_identity_policy_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }

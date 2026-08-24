@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListOpenIdConnectProvidersInput`](crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput).
 -    pub fn builder() -> crate::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder {
 -        crate::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder::default()
-+    pub fn builder() -> super::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder {
-+        super::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder {
++        super::super::super::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput,
-+        super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput,
++        super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput {})
-+        ::std::result::Result::Ok(super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput {})
++        ::std::result::Result::Ok(super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput {})
      }
  }

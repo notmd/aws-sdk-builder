@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationFluentBuilder {
 -        crate::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationFluentBuilder {
-+        super::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationFluentBuilder {
++        super::super::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

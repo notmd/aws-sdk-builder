@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for UsernameExistsException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::UsernameExistsException {
-+impl ::aws_types::request_id::RequestId for super::types::error::UsernameExistsException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::UsernameExistsException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`UsernameExistsException`](crate::types::error::UsernameExistsException).
 -    pub fn builder() -> crate::types::error::builders::UsernameExistsExceptionBuilder {
 -        crate::types::error::builders::UsernameExistsExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::UsernameExistsExceptionBuilder {
-+        super::types::error::builders::UsernameExistsExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::UsernameExistsExceptionBuilder {
++        super::super::super::types::error::builders::UsernameExistsExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`UsernameExistsException`](crate::types::error::UsernameExistsException).
 -    pub fn build(self) -> crate::types::error::UsernameExistsException {
 -        crate::types::error::UsernameExistsException {
-+    pub fn build(self) -> super::types::error::UsernameExistsException {
-+        super::types::error::UsernameExistsException {
++    pub fn build(self) -> super::super::super::types::error::UsernameExistsException {
++        super::super::super::types::error::UsernameExistsException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutLogGroupDeletionProtectionOutput`](crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput).
 -    pub fn builder() -> crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder {
 -        crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder {
-+        super::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder {
++        super::super::super::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutLogGroupDeletionProtectionOutput`](crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput).
 -    pub fn build(self) -> crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput {
 -        crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput {
-+    pub fn build(self) -> super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput {
-+        super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput {
++    pub fn build(self) -> super::super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput {
++        super::super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput {
              _request_id: self._request_id,
          }
      }

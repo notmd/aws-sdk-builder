@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TestRenderEmailTemplateInput`](crate::operation::test_render_email_template::TestRenderEmailTemplateInput).
 -    pub fn builder() -> crate::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder {
 -        crate::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder::default()
-+    pub fn builder() -> super::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder {
-+        super::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder {
++        super::super::super::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::test_render_email_template::TestRenderEmailTemplateInput,
-+        super::operation::test_render_email_template::TestRenderEmailTemplateInput,
++        super::super::super::operation::test_render_email_template::TestRenderEmailTemplateInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::test_render_email_template::TestRenderEmailTemplateInput {
-+        ::std::result::Result::Ok(super::operation::test_render_email_template::TestRenderEmailTemplateInput {
++        ::std::result::Result::Ok(super::super::super::operation::test_render_email_template::TestRenderEmailTemplateInput {
              template_name: self.template_name,
              template_data: self.template_data,
          })

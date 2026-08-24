@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RejectDelegationRequestOutput`](crate::operation::reject_delegation_request::RejectDelegationRequestOutput).
 -    pub fn builder() -> crate::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder {
 -        crate::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder::default()
-+    pub fn builder() -> super::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder {
-+        super::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder {
++        super::super::super::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`RejectDelegationRequestOutput`](crate::operation::reject_delegation_request::RejectDelegationRequestOutput).
 -    pub fn build(self) -> crate::operation::reject_delegation_request::RejectDelegationRequestOutput {
 -        crate::operation::reject_delegation_request::RejectDelegationRequestOutput {
-+    pub fn build(self) -> super::operation::reject_delegation_request::RejectDelegationRequestOutput {
-+        super::operation::reject_delegation_request::RejectDelegationRequestOutput {
++    pub fn build(self) -> super::super::super::operation::reject_delegation_request::RejectDelegationRequestOutput {
++        super::super::super::operation::reject_delegation_request::RejectDelegationRequestOutput {
              _request_id: self._request_id,
          }
      }

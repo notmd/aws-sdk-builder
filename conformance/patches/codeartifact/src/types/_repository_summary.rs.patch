@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RepositorySummary`](crate::types::RepositorySummary).
 -    pub fn builder() -> crate::types::builders::RepositorySummaryBuilder {
 -        crate::types::builders::RepositorySummaryBuilder::default()
-+    pub fn builder() -> super::types::builders::RepositorySummaryBuilder {
-+        super::types::builders::RepositorySummaryBuilder::default()
++    pub fn builder() -> super::super::types::builders::RepositorySummaryBuilder {
++        super::super::types::builders::RepositorySummaryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`RepositorySummary`](crate::types::RepositorySummary).
 -    pub fn build(self) -> crate::types::RepositorySummary {
 -        crate::types::RepositorySummary {
-+    pub fn build(self) -> super::types::RepositorySummary {
-+        super::types::RepositorySummary {
++    pub fn build(self) -> super::super::types::RepositorySummary {
++        super::super::types::RepositorySummary {
              name: self.name,
              administrator_account: self.administrator_account,
              domain_name: self.domain_name,

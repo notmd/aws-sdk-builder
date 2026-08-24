@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for ClientException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::ClientException {
-+impl ::aws_types::request_id::RequestId for super::types::error::ClientException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::ClientException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`ClientException`](crate::types::error::ClientException).
 -    pub fn builder() -> crate::types::error::builders::ClientExceptionBuilder {
 -        crate::types::error::builders::ClientExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::ClientExceptionBuilder {
-+        super::types::error::builders::ClientExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::ClientExceptionBuilder {
++        super::super::super::types::error::builders::ClientExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`ClientException`](crate::types::error::ClientException).
 -    pub fn build(self) -> crate::types::error::ClientException {
 -        crate::types::error::ClientException {
-+    pub fn build(self) -> super::types::error::ClientException {
-+        super::types::error::ClientException {
++    pub fn build(self) -> super::super::super::types::error::ClientException {
++        super::super::super::types::error::ClientException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

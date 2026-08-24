@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`BlacklistEntry`](crate::types::BlacklistEntry).
 -    pub fn builder() -> crate::types::builders::BlacklistEntryBuilder {
 -        crate::types::builders::BlacklistEntryBuilder::default()
-+    pub fn builder() -> super::types::builders::BlacklistEntryBuilder {
-+        super::types::builders::BlacklistEntryBuilder::default()
++    pub fn builder() -> super::super::types::builders::BlacklistEntryBuilder {
++        super::super::types::builders::BlacklistEntryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`BlacklistEntry`](crate::types::BlacklistEntry).
 -    pub fn build(self) -> crate::types::BlacklistEntry {
 -        crate::types::BlacklistEntry {
-+    pub fn build(self) -> super::types::BlacklistEntry {
-+        super::types::BlacklistEntry {
++    pub fn build(self) -> super::super::types::BlacklistEntry {
++        super::super::types::BlacklistEntry {
              rbl_name: self.rbl_name,
              listing_time: self.listing_time,
              description: self.description,

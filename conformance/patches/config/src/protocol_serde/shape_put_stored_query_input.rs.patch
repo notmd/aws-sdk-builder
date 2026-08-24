@@ -5,13 +5,13 @@
  pub fn ser_put_stored_query_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::put_stored_query::PutStoredQueryInput,
-+    input: &super::operation::put_stored_query::PutStoredQueryInput,
++    input: &super::super::operation::put_stored_query::PutStoredQueryInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.stored_query {
          #[allow(unused_mut)]
          let mut object_2 = object.key("StoredQuery").start_object();
 -        crate::protocol_serde::shape_stored_query::ser_stored_query(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_stored_query::ser_stored_query(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_stored_query::ser_stored_query(&mut object_2, var_1)?;
          object_2.finish();
      }
      if let Some(var_3) = &input.tags {
@@ -20,7 +20,7 @@
                  #[allow(unused_mut)]
                  let mut object_6 = array_4.value().start_object();
 -                crate::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
-+                super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
++                super::super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
                  object_6.finish();
              }
          }

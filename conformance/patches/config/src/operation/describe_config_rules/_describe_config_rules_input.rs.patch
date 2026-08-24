@@ -5,7 +5,7 @@
      pub config_rule_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      /// <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html"> <b>Evaluation Mode</b> </a> in the <i>Config Developer Guide</i>.</p>
 -    pub filters: ::std::option::Option<crate::types::DescribeConfigRulesFilters>,
-+    pub filters: ::std::option::Option<super::types::DescribeConfigRulesFilters>,
++    pub filters: ::std::option::Option<super::super::super::types::DescribeConfigRulesFilters>,
      /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
  }
@@ -14,7 +14,7 @@
      }
      /// <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html"> <b>Evaluation Mode</b> </a> in the <i>Config Developer Guide</i>.</p>
 -    pub fn filters(&self) -> ::std::option::Option<&crate::types::DescribeConfigRulesFilters> {
-+    pub fn filters(&self) -> ::std::option::Option<&super::types::DescribeConfigRulesFilters> {
++    pub fn filters(&self) -> ::std::option::Option<&super::super::super::types::DescribeConfigRulesFilters> {
          self.filters.as_ref()
      }
      /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeConfigRulesInput`](crate::operation::describe_config_rules::DescribeConfigRulesInput).
 -    pub fn builder() -> crate::operation::describe_config_rules::builders::DescribeConfigRulesInputBuilder {
 -        crate::operation::describe_config_rules::builders::DescribeConfigRulesInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_config_rules::builders::DescribeConfigRulesInputBuilder {
-+        super::operation::describe_config_rules::builders::DescribeConfigRulesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_config_rules::builders::DescribeConfigRulesInputBuilder {
++        super::super::super::operation::describe_config_rules::builders::DescribeConfigRulesInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct DescribeConfigRulesInputBuilder {
      pub(crate) config_rule_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) filters: ::std::option::Option<crate::types::DescribeConfigRulesFilters>,
-+    pub(crate) filters: ::std::option::Option<super::types::DescribeConfigRulesFilters>,
++    pub(crate) filters: ::std::option::Option<super::super::super::types::DescribeConfigRulesFilters>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
  }
  impl DescribeConfigRulesInputBuilder {
@@ -43,19 +43,19 @@
      }
      /// <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html"> <b>Evaluation Mode</b> </a> in the <i>Config Developer Guide</i>.</p>
 -    pub fn filters(mut self, input: crate::types::DescribeConfigRulesFilters) -> Self {
-+    pub fn filters(mut self, input: super::types::DescribeConfigRulesFilters) -> Self {
++    pub fn filters(mut self, input: super::super::super::types::DescribeConfigRulesFilters) -> Self {
          self.filters = ::std::option::Option::Some(input);
          self
      }
      /// <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html"> <b>Evaluation Mode</b> </a> in the <i>Config Developer Guide</i>.</p>
 -    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::DescribeConfigRulesFilters>) -> Self {
-+    pub fn set_filters(mut self, input: ::std::option::Option<super::types::DescribeConfigRulesFilters>) -> Self {
++    pub fn set_filters(mut self, input: ::std::option::Option<super::super::super::types::DescribeConfigRulesFilters>) -> Self {
          self.filters = input;
          self
      }
      /// <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html"> <b>Evaluation Mode</b> </a> in the <i>Config Developer Guide</i>.</p>
 -    pub fn get_filters(&self) -> &::std::option::Option<crate::types::DescribeConfigRulesFilters> {
-+    pub fn get_filters(&self) -> &::std::option::Option<super::types::DescribeConfigRulesFilters> {
++    pub fn get_filters(&self) -> &::std::option::Option<super::super::super::types::DescribeConfigRulesFilters> {
          &self.filters
      }
      /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -64,10 +64,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_config_rules::DescribeConfigRulesInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::describe_config_rules::DescribeConfigRulesInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::describe_config_rules::DescribeConfigRulesInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::describe_config_rules::DescribeConfigRulesInput {
-+        ::std::result::Result::Ok(super::operation::describe_config_rules::DescribeConfigRulesInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_config_rules::DescribeConfigRulesInput {
              config_rule_names: self.config_rule_names,
              filters: self.filters,
              next_token: self.next_token,

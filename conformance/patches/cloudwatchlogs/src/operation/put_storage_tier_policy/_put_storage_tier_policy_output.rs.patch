@@ -5,7 +5,7 @@
  pub struct PutStorageTierPolicyOutput {
      /// <p>The storage tier for the account.</p>
 -    pub storage_tier: ::std::option::Option<crate::types::StorageTier>,
-+    pub storage_tier: ::std::option::Option<super::types::StorageTier>,
++    pub storage_tier: ::std::option::Option<super::super::super::types::StorageTier>,
      /// <p>The time when the storage tier policy was last updated, expressed as the number of milliseconds after <code>January 1, 1970 00:00:00 UTC</code>.</p>
      pub last_updated_time: ::std::option::Option<i64>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
  impl PutStorageTierPolicyOutput {
      /// <p>The storage tier for the account.</p>
 -    pub fn storage_tier(&self) -> ::std::option::Option<&crate::types::StorageTier> {
-+    pub fn storage_tier(&self) -> ::std::option::Option<&super::types::StorageTier> {
++    pub fn storage_tier(&self) -> ::std::option::Option<&super::super::super::types::StorageTier> {
          self.storage_tier.as_ref()
      }
      /// <p>The time when the storage tier policy was last updated, expressed as the number of milliseconds after <code>January 1, 1970 00:00:00 UTC</code>.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`PutStorageTierPolicyOutput`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyOutput).
 -    pub fn builder() -> crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder {
 -        crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder {
-+        super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder {
++        super::super::super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder::default()
      }
  }
 
@@ -34,26 +34,26 @@
  #[non_exhaustive]
  pub struct PutStorageTierPolicyOutputBuilder {
 -    pub(crate) storage_tier: ::std::option::Option<crate::types::StorageTier>,
-+    pub(crate) storage_tier: ::std::option::Option<super::types::StorageTier>,
++    pub(crate) storage_tier: ::std::option::Option<super::super::super::types::StorageTier>,
      pub(crate) last_updated_time: ::std::option::Option<i64>,
      _request_id: Option<String>,
  }
  impl PutStorageTierPolicyOutputBuilder {
      /// <p>The storage tier for the account.</p>
 -    pub fn storage_tier(mut self, input: crate::types::StorageTier) -> Self {
-+    pub fn storage_tier(mut self, input: super::types::StorageTier) -> Self {
++    pub fn storage_tier(mut self, input: super::super::super::types::StorageTier) -> Self {
          self.storage_tier = ::std::option::Option::Some(input);
          self
      }
      /// <p>The storage tier for the account.</p>
 -    pub fn set_storage_tier(mut self, input: ::std::option::Option<crate::types::StorageTier>) -> Self {
-+    pub fn set_storage_tier(mut self, input: ::std::option::Option<super::types::StorageTier>) -> Self {
++    pub fn set_storage_tier(mut self, input: ::std::option::Option<super::super::super::types::StorageTier>) -> Self {
          self.storage_tier = input;
          self
      }
      /// <p>The storage tier for the account.</p>
 -    pub fn get_storage_tier(&self) -> &::std::option::Option<crate::types::StorageTier> {
-+    pub fn get_storage_tier(&self) -> &::std::option::Option<super::types::StorageTier> {
++    pub fn get_storage_tier(&self) -> &::std::option::Option<super::super::super::types::StorageTier> {
          &self.storage_tier
      }
      /// <p>The time when the storage tier policy was last updated, expressed as the number of milliseconds after <code>January 1, 1970 00:00:00 UTC</code>.</p>
@@ -63,8 +63,8 @@
      /// Consumes the builder and constructs a [`PutStorageTierPolicyOutput`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyOutput).
 -    pub fn build(self) -> crate::operation::put_storage_tier_policy::PutStorageTierPolicyOutput {
 -        crate::operation::put_storage_tier_policy::PutStorageTierPolicyOutput {
-+    pub fn build(self) -> super::operation::put_storage_tier_policy::PutStorageTierPolicyOutput {
-+        super::operation::put_storage_tier_policy::PutStorageTierPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::put_storage_tier_policy::PutStorageTierPolicyOutput {
++        super::super::super::operation::put_storage_tier_policy::PutStorageTierPolicyOutput {
              storage_tier: self.storage_tier,
              last_updated_time: self.last_updated_time,
              _request_id: self._request_id,

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminUserGlobalSignOutOutput`](crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutOutput).
 -    pub fn builder() -> crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutOutputBuilder {
 -        crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutOutputBuilder::default()
-+    pub fn builder() -> super::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutOutputBuilder {
-+        super::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutOutputBuilder {
++        super::super::super::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AdminUserGlobalSignOutOutput`](crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutOutput).
 -    pub fn build(self) -> crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutOutput {
 -        crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutOutput {
-+    pub fn build(self) -> super::operation::admin_user_global_sign_out::AdminUserGlobalSignOutOutput {
-+        super::operation::admin_user_global_sign_out::AdminUserGlobalSignOutOutput {
++    pub fn build(self) -> super::super::super::operation::admin_user_global_sign_out::AdminUserGlobalSignOutOutput {
++        super::super::super::operation::admin_user_global_sign_out::AdminUserGlobalSignOutOutput {
              _request_id: self._request_id,
          }
      }

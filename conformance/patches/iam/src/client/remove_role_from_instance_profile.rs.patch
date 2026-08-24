@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileFluentBuilder {
 -        crate::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileFluentBuilder {
-+        super::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileFluentBuilder {
++        super::super::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileFluentBuilder::new(self.handle.clone())
      }
  }

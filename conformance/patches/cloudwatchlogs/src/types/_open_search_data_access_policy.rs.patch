@@ -5,7 +5,7 @@
      pub policy_name: ::std::option::Option<::std::string::String>,
      /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
 -    pub status: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
-+    pub status: ::std::option::Option<super::types::OpenSearchResourceStatus>,
++    pub status: ::std::option::Option<super::super::types::OpenSearchResourceStatus>,
  }
  impl OpenSearchDataAccessPolicy {
      /// <p>The name of the data access policy.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::OpenSearchResourceStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::OpenSearchResourceStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::OpenSearchResourceStatus> {
          self.status.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`OpenSearchDataAccessPolicy`](crate::types::OpenSearchDataAccessPolicy).
 -    pub fn builder() -> crate::types::builders::OpenSearchDataAccessPolicyBuilder {
 -        crate::types::builders::OpenSearchDataAccessPolicyBuilder::default()
-+    pub fn builder() -> super::types::builders::OpenSearchDataAccessPolicyBuilder {
-+        super::types::builders::OpenSearchDataAccessPolicyBuilder::default()
++    pub fn builder() -> super::super::types::builders::OpenSearchDataAccessPolicyBuilder {
++        super::super::types::builders::OpenSearchDataAccessPolicyBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct OpenSearchDataAccessPolicyBuilder {
      pub(crate) policy_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::OpenSearchResourceStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::OpenSearchResourceStatus>,
  }
  impl OpenSearchDataAccessPolicyBuilder {
      /// <p>The name of the data access policy.</p>
@@ -41,26 +41,26 @@
      }
      /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
 -    pub fn status(mut self, input: crate::types::OpenSearchResourceStatus) -> Self {
-+    pub fn status(mut self, input: super::types::OpenSearchResourceStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::OpenSearchResourceStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OpenSearchResourceStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::OpenSearchResourceStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::OpenSearchResourceStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::OpenSearchResourceStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::OpenSearchResourceStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::OpenSearchResourceStatus> {
          &self.status
      }
      /// Consumes the builder and constructs a [`OpenSearchDataAccessPolicy`](crate::types::OpenSearchDataAccessPolicy).
 -    pub fn build(self) -> crate::types::OpenSearchDataAccessPolicy {
 -        crate::types::OpenSearchDataAccessPolicy {
-+    pub fn build(self) -> super::types::OpenSearchDataAccessPolicy {
-+        super::types::OpenSearchDataAccessPolicy {
++    pub fn build(self) -> super::super::types::OpenSearchDataAccessPolicy {
++        super::super::types::OpenSearchDataAccessPolicy {
              policy_name: self.policy_name,
              status: self.status,
          }

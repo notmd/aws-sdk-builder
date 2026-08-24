@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateConsumableResourceInput`](crate::operation::update_consumable_resource::UpdateConsumableResourceInput).
 -    pub fn builder() -> crate::operation::update_consumable_resource::builders::UpdateConsumableResourceInputBuilder {
 -        crate::operation::update_consumable_resource::builders::UpdateConsumableResourceInputBuilder::default()
-+    pub fn builder() -> super::operation::update_consumable_resource::builders::UpdateConsumableResourceInputBuilder {
-+        super::operation::update_consumable_resource::builders::UpdateConsumableResourceInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_consumable_resource::builders::UpdateConsumableResourceInputBuilder {
++        super::super::super::operation::update_consumable_resource::builders::UpdateConsumableResourceInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::update_consumable_resource::UpdateConsumableResourceInput,
-+        super::operation::update_consumable_resource::UpdateConsumableResourceInput,
++        super::super::super::operation::update_consumable_resource::UpdateConsumableResourceInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::update_consumable_resource::UpdateConsumableResourceInput {
-+        ::std::result::Result::Ok(super::operation::update_consumable_resource::UpdateConsumableResourceInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_consumable_resource::UpdateConsumableResourceInput {
              consumable_resource: self.consumable_resource,
              operation: self.operation,
              quantity: self.quantity,

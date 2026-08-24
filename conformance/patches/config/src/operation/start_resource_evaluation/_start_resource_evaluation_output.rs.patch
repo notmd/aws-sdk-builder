@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`StartResourceEvaluationOutput`](crate::operation::start_resource_evaluation::StartResourceEvaluationOutput).
 -    pub fn builder() -> crate::operation::start_resource_evaluation::builders::StartResourceEvaluationOutputBuilder {
 -        crate::operation::start_resource_evaluation::builders::StartResourceEvaluationOutputBuilder::default()
-+    pub fn builder() -> super::operation::start_resource_evaluation::builders::StartResourceEvaluationOutputBuilder {
-+        super::operation::start_resource_evaluation::builders::StartResourceEvaluationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::start_resource_evaluation::builders::StartResourceEvaluationOutputBuilder {
++        super::super::super::operation::start_resource_evaluation::builders::StartResourceEvaluationOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`StartResourceEvaluationOutput`](crate::operation::start_resource_evaluation::StartResourceEvaluationOutput).
 -    pub fn build(self) -> crate::operation::start_resource_evaluation::StartResourceEvaluationOutput {
 -        crate::operation::start_resource_evaluation::StartResourceEvaluationOutput {
-+    pub fn build(self) -> super::operation::start_resource_evaluation::StartResourceEvaluationOutput {
-+        super::operation::start_resource_evaluation::StartResourceEvaluationOutput {
++    pub fn build(self) -> super::super::super::operation::start_resource_evaluation::StartResourceEvaluationOutput {
++        super::super::super::operation::start_resource_evaluation::StartResourceEvaluationOutput {
              resource_evaluation_id: self.resource_evaluation_id,
              _request_id: self._request_id,
          }

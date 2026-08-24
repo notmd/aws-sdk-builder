@@ -5,7 +5,7 @@
  pub fn ser_context_data_type(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ContextDataType,
-+    input: &super::types::ContextDataType,
++    input: &super::super::types::ContextDataType,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("IpAddress").string(input.ip_address.as_str());
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_3 = array_1.value().start_object();
 -                crate::protocol_serde::shape_http_header::ser_http_header(&mut object_3, item_2)?;
-+                super::protocol_serde::shape_http_header::ser_http_header(&mut object_3, item_2)?;
++                super::super::protocol_serde::shape_http_header::ser_http_header(&mut object_3, item_2)?;
                  object_3.finish();
              }
          }

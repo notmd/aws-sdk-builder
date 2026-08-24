@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for NoSuchRetentionConfigurationException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::NoSuchRetentionConfigurationException {
-+impl ::aws_types::request_id::RequestId for super::types::error::NoSuchRetentionConfigurationException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::NoSuchRetentionConfigurationException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`NoSuchRetentionConfigurationException`](crate::types::error::NoSuchRetentionConfigurationException).
 -    pub fn builder() -> crate::types::error::builders::NoSuchRetentionConfigurationExceptionBuilder {
 -        crate::types::error::builders::NoSuchRetentionConfigurationExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::NoSuchRetentionConfigurationExceptionBuilder {
-+        super::types::error::builders::NoSuchRetentionConfigurationExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::NoSuchRetentionConfigurationExceptionBuilder {
++        super::super::super::types::error::builders::NoSuchRetentionConfigurationExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`NoSuchRetentionConfigurationException`](crate::types::error::NoSuchRetentionConfigurationException).
 -    pub fn build(self) -> crate::types::error::NoSuchRetentionConfigurationException {
 -        crate::types::error::NoSuchRetentionConfigurationException {
-+    pub fn build(self) -> super::types::error::NoSuchRetentionConfigurationException {
-+        super::types::error::NoSuchRetentionConfigurationException {
++    pub fn build(self) -> super::super::super::types::error::NoSuchRetentionConfigurationException {
++        super::super::super::types::error::NoSuchRetentionConfigurationException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

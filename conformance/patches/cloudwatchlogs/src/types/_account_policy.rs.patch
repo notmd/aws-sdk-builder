@@ -5,10 +5,10 @@
      pub last_updated_time: ::std::option::Option<i64>,
      /// <p>The type of policy for this account policy.</p>
 -    pub policy_type: ::std::option::Option<crate::types::PolicyType>,
-+    pub policy_type: ::std::option::Option<super::types::PolicyType>,
++    pub policy_type: ::std::option::Option<super::super::types::PolicyType>,
      /// <p>The scope of the account policy.</p>
 -    pub scope: ::std::option::Option<crate::types::Scope>,
-+    pub scope: ::std::option::Option<super::types::Scope>,
++    pub scope: ::std::option::Option<super::super::types::Scope>,
      /// <p>The log group selection criteria that is used for this policy.</p>
      pub selection_criteria: ::std::option::Option<::std::string::String>,
      /// <p>The Amazon Web Services account ID that the policy applies to.</p>
@@ -17,12 +17,12 @@
      }
      /// <p>The type of policy for this account policy.</p>
 -    pub fn policy_type(&self) -> ::std::option::Option<&crate::types::PolicyType> {
-+    pub fn policy_type(&self) -> ::std::option::Option<&super::types::PolicyType> {
++    pub fn policy_type(&self) -> ::std::option::Option<&super::super::types::PolicyType> {
          self.policy_type.as_ref()
      }
      /// <p>The scope of the account policy.</p>
 -    pub fn scope(&self) -> ::std::option::Option<&crate::types::Scope> {
-+    pub fn scope(&self) -> ::std::option::Option<&super::types::Scope> {
++    pub fn scope(&self) -> ::std::option::Option<&super::super::types::Scope> {
          self.scope.as_ref()
      }
      /// <p>The log group selection criteria that is used for this policy.</p>
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`AccountPolicy`](crate::types::AccountPolicy).
 -    pub fn builder() -> crate::types::builders::AccountPolicyBuilder {
 -        crate::types::builders::AccountPolicyBuilder::default()
-+    pub fn builder() -> super::types::builders::AccountPolicyBuilder {
-+        super::types::builders::AccountPolicyBuilder::default()
++    pub fn builder() -> super::super::types::builders::AccountPolicyBuilder {
++        super::super::types::builders::AccountPolicyBuilder::default()
      }
  }
 
@@ -43,8 +43,8 @@
      pub(crate) last_updated_time: ::std::option::Option<i64>,
 -    pub(crate) policy_type: ::std::option::Option<crate::types::PolicyType>,
 -    pub(crate) scope: ::std::option::Option<crate::types::Scope>,
-+    pub(crate) policy_type: ::std::option::Option<super::types::PolicyType>,
-+    pub(crate) scope: ::std::option::Option<super::types::Scope>,
++    pub(crate) policy_type: ::std::option::Option<super::super::types::PolicyType>,
++    pub(crate) scope: ::std::option::Option<super::super::types::Scope>,
      pub(crate) selection_criteria: ::std::option::Option<::std::string::String>,
      pub(crate) account_id: ::std::option::Option<::std::string::String>,
  }
@@ -53,36 +53,36 @@
      }
      /// <p>The type of policy for this account policy.</p>
 -    pub fn policy_type(mut self, input: crate::types::PolicyType) -> Self {
-+    pub fn policy_type(mut self, input: super::types::PolicyType) -> Self {
++    pub fn policy_type(mut self, input: super::super::types::PolicyType) -> Self {
          self.policy_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of policy for this account policy.</p>
 -    pub fn set_policy_type(mut self, input: ::std::option::Option<crate::types::PolicyType>) -> Self {
-+    pub fn set_policy_type(mut self, input: ::std::option::Option<super::types::PolicyType>) -> Self {
++    pub fn set_policy_type(mut self, input: ::std::option::Option<super::super::types::PolicyType>) -> Self {
          self.policy_type = input;
          self
      }
      /// <p>The type of policy for this account policy.</p>
 -    pub fn get_policy_type(&self) -> &::std::option::Option<crate::types::PolicyType> {
-+    pub fn get_policy_type(&self) -> &::std::option::Option<super::types::PolicyType> {
++    pub fn get_policy_type(&self) -> &::std::option::Option<super::super::types::PolicyType> {
          &self.policy_type
      }
      /// <p>The scope of the account policy.</p>
 -    pub fn scope(mut self, input: crate::types::Scope) -> Self {
-+    pub fn scope(mut self, input: super::types::Scope) -> Self {
++    pub fn scope(mut self, input: super::super::types::Scope) -> Self {
          self.scope = ::std::option::Option::Some(input);
          self
      }
      /// <p>The scope of the account policy.</p>
 -    pub fn set_scope(mut self, input: ::std::option::Option<crate::types::Scope>) -> Self {
-+    pub fn set_scope(mut self, input: ::std::option::Option<super::types::Scope>) -> Self {
++    pub fn set_scope(mut self, input: ::std::option::Option<super::super::types::Scope>) -> Self {
          self.scope = input;
          self
      }
      /// <p>The scope of the account policy.</p>
 -    pub fn get_scope(&self) -> &::std::option::Option<crate::types::Scope> {
-+    pub fn get_scope(&self) -> &::std::option::Option<super::types::Scope> {
++    pub fn get_scope(&self) -> &::std::option::Option<super::super::types::Scope> {
          &self.scope
      }
      /// <p>The log group selection criteria that is used for this policy.</p>
@@ -92,8 +92,8 @@
      /// Consumes the builder and constructs a [`AccountPolicy`](crate::types::AccountPolicy).
 -    pub fn build(self) -> crate::types::AccountPolicy {
 -        crate::types::AccountPolicy {
-+    pub fn build(self) -> super::types::AccountPolicy {
-+        super::types::AccountPolicy {
++    pub fn build(self) -> super::super::types::AccountPolicy {
++        super::super::types::AccountPolicy {
              policy_name: self.policy_name,
              policy_document: self.policy_document,
              last_updated_time: self.last_updated_time,

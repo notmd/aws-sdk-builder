@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SendMessageBatchError>`](crate::operation::send_message_batch::SendMessageBatchError)
 -    pub fn send_message_batch(&self) -> crate::operation::send_message_batch::builders::SendMessageBatchFluentBuilder {
 -        crate::operation::send_message_batch::builders::SendMessageBatchFluentBuilder::new(self.handle.clone())
-+    pub fn send_message_batch(&self) -> super::operation::send_message_batch::builders::SendMessageBatchFluentBuilder {
-+        super::operation::send_message_batch::builders::SendMessageBatchFluentBuilder::new(self.handle.clone())
++    pub fn send_message_batch(&self) -> super::super::operation::send_message_batch::builders::SendMessageBatchFluentBuilder {
++        super::super::operation::send_message_batch::builders::SendMessageBatchFluentBuilder::new(self.handle.clone())
      }
  }

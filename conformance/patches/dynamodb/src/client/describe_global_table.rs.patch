@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeGlobalTableError>`](crate::operation::describe_global_table::DescribeGlobalTableError)
 -    pub fn describe_global_table(&self) -> crate::operation::describe_global_table::builders::DescribeGlobalTableFluentBuilder {
 -        crate::operation::describe_global_table::builders::DescribeGlobalTableFluentBuilder::new(self.handle.clone())
-+    pub fn describe_global_table(&self) -> super::operation::describe_global_table::builders::DescribeGlobalTableFluentBuilder {
-+        super::operation::describe_global_table::builders::DescribeGlobalTableFluentBuilder::new(self.handle.clone())
++    pub fn describe_global_table(&self) -> super::super::operation::describe_global_table::builders::DescribeGlobalTableFluentBuilder {
++        super::super::operation::describe_global_table::builders::DescribeGlobalTableFluentBuilder::new(self.handle.clone())
      }
  }

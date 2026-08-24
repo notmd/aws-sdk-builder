@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutServiceLinkedConfigurationRecorderOutput`](crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput).
 -    pub fn builder() -> crate::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder {
 -        crate::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder {
-+        super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder {
++        super::super::super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutServiceLinkedConfigurationRecorderOutput`](crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput).
 -    pub fn build(self) -> crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput {
 -        crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput {
-+    pub fn build(self) -> super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput {
-+        super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput {
++    pub fn build(self) -> super::super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput {
++        super::super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput {
              arn: self.arn,
              name: self.name,
              _request_id: self._request_id,

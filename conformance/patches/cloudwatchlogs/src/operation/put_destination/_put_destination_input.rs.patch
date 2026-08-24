@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutDestinationInput`](crate::operation::put_destination::PutDestinationInput).
 -    pub fn builder() -> crate::operation::put_destination::builders::PutDestinationInputBuilder {
 -        crate::operation::put_destination::builders::PutDestinationInputBuilder::default()
-+    pub fn builder() -> super::operation::put_destination::builders::PutDestinationInputBuilder {
-+        super::operation::put_destination::builders::PutDestinationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_destination::builders::PutDestinationInputBuilder {
++        super::super::super::operation::put_destination::builders::PutDestinationInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::put_destination::PutDestinationInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::put_destination::PutDestinationInput {
-+    ) -> ::std::result::Result<super::operation::put_destination::PutDestinationInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::put_destination::PutDestinationInput {
++    ) -> ::std::result::Result<super::super::super::operation::put_destination::PutDestinationInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::put_destination::PutDestinationInput {
              destination_name: self.destination_name,
              target_arn: self.target_arn,
              role_arn: self.role_arn,

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetLogRecordError>`](crate::operation::get_log_record::GetLogRecordError)
 -    pub fn get_log_record(&self) -> crate::operation::get_log_record::builders::GetLogRecordFluentBuilder {
 -        crate::operation::get_log_record::builders::GetLogRecordFluentBuilder::new(self.handle.clone())
-+    pub fn get_log_record(&self) -> super::operation::get_log_record::builders::GetLogRecordFluentBuilder {
-+        super::operation::get_log_record::builders::GetLogRecordFluentBuilder::new(self.handle.clone())
++    pub fn get_log_record(&self) -> super::super::operation::get_log_record::builders::GetLogRecordFluentBuilder {
++        super::super::operation::get_log_record::builders::GetLogRecordFluentBuilder::new(self.handle.clone())
      }
  }

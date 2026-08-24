@@ -5,7 +5,7 @@
      pub endpoint_id: ::std::option::Option<::std::string::String>,
      /// <p>Contains routes information for the multi-region endpoint (global-endpoint).</p>
 -    pub routes: ::std::option::Option<::std::vec::Vec<crate::types::Route>>,
-+    pub routes: ::std::option::Option<::std::vec::Vec<super::types::Route>>,
++    pub routes: ::std::option::Option<::std::vec::Vec<super::super::super::types::Route>>,
      /// <p>The status of the multi-region endpoint (global-endpoint).</p>
      /// <ul>
      /// <li>
@@ -14,7 +14,7 @@
      /// <p><code>DELETING</code> – The resource is being deleted as requested.</p></li>
      /// </ul>
 -    pub status: ::std::option::Option<crate::types::Status>,
-+    pub status: ::std::option::Option<super::types::Status>,
++    pub status: ::std::option::Option<super::super::super::types::Status>,
      /// <p>The time stamp of when the multi-region endpoint (global-endpoint) was created.</p>
      pub created_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The time stamp of when the multi-region endpoint (global-endpoint) was last updated.</p>
@@ -23,7 +23,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.routes.is_none()`.
 -    pub fn routes(&self) -> &[crate::types::Route] {
-+    pub fn routes(&self) -> &[super::types::Route] {
++    pub fn routes(&self) -> &[super::super::super::types::Route] {
          self.routes.as_deref().unwrap_or_default()
      }
      /// <p>The status of the multi-region endpoint (global-endpoint).</p>
@@ -32,7 +32,7 @@
      /// <p><code>DELETING</code> – The resource is being deleted as requested.</p></li>
      /// </ul>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::Status> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::Status> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::super::types::Status> {
          self.status.as_ref()
      }
      /// <p>The time stamp of when the multi-region endpoint (global-endpoint) was created.</p>
@@ -42,8 +42,8 @@
      /// Creates a new builder-style object to manufacture [`GetMultiRegionEndpointOutput`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput).
 -    pub fn builder() -> crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointOutputBuilder {
 -        crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointOutputBuilder {
-+        super::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointOutputBuilder {
++        super::super::super::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointOutputBuilder::default()
      }
  }
 
@@ -53,8 +53,8 @@
      pub(crate) endpoint_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) routes: ::std::option::Option<::std::vec::Vec<crate::types::Route>>,
 -    pub(crate) status: ::std::option::Option<crate::types::Status>,
-+    pub(crate) routes: ::std::option::Option<::std::vec::Vec<super::types::Route>>,
-+    pub(crate) status: ::std::option::Option<super::types::Status>,
++    pub(crate) routes: ::std::option::Option<::std::vec::Vec<super::super::super::types::Route>>,
++    pub(crate) status: ::std::option::Option<super::super::super::types::Status>,
      pub(crate) created_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) last_updated_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      _request_id: Option<String>,
@@ -63,7 +63,7 @@
      ///
      /// <p>Contains routes information for the multi-region endpoint (global-endpoint).</p>
 -    pub fn routes(mut self, input: crate::types::Route) -> Self {
-+    pub fn routes(mut self, input: super::types::Route) -> Self {
++    pub fn routes(mut self, input: super::super::super::types::Route) -> Self {
          let mut v = self.routes.unwrap_or_default();
          v.push(input);
          self.routes = ::std::option::Option::Some(v);
@@ -72,13 +72,13 @@
      }
      /// <p>Contains routes information for the multi-region endpoint (global-endpoint).</p>
 -    pub fn set_routes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Route>>) -> Self {
-+    pub fn set_routes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Route>>) -> Self {
++    pub fn set_routes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Route>>) -> Self {
          self.routes = input;
          self
      }
      /// <p>Contains routes information for the multi-region endpoint (global-endpoint).</p>
 -    pub fn get_routes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Route>> {
-+    pub fn get_routes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Route>> {
++    pub fn get_routes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Route>> {
          &self.routes
      }
      /// <p>The status of the multi-region endpoint (global-endpoint).</p>
@@ -87,7 +87,7 @@
      /// <p><code>DELETING</code> – The resource is being deleted as requested.</p></li>
      /// </ul>
 -    pub fn status(mut self, input: crate::types::Status) -> Self {
-+    pub fn status(mut self, input: super::types::Status) -> Self {
++    pub fn status(mut self, input: super::super::super::types::Status) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
@@ -96,7 +96,7 @@
      /// <p><code>DELETING</code> – The resource is being deleted as requested.</p></li>
      /// </ul>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::Status>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::Status>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::super::types::Status>) -> Self {
          self.status = input;
          self
      }
@@ -105,7 +105,7 @@
      /// <p><code>DELETING</code> – The resource is being deleted as requested.</p></li>
      /// </ul>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::Status> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::Status> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::super::types::Status> {
          &self.status
      }
      /// <p>The time stamp of when the multi-region endpoint (global-endpoint) was created.</p>
@@ -115,8 +115,8 @@
      /// Consumes the builder and constructs a [`GetMultiRegionEndpointOutput`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput).
 -    pub fn build(self) -> crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput {
 -        crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput {
-+    pub fn build(self) -> super::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput {
-+        super::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput {
++    pub fn build(self) -> super::super::super::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput {
++        super::super::super::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput {
              endpoint_name: self.endpoint_name,
              endpoint_id: self.endpoint_id,
              routes: self.routes,

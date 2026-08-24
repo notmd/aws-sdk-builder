@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateDelegationRequestInput`](crate::operation::update_delegation_request::UpdateDelegationRequestInput).
 -    pub fn builder() -> crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder {
 -        crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder::default()
-+    pub fn builder() -> super::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder {
-+        super::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder {
++        super::super::super::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::update_delegation_request::UpdateDelegationRequestInput,
-+        super::operation::update_delegation_request::UpdateDelegationRequestInput,
++        super::super::super::operation::update_delegation_request::UpdateDelegationRequestInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::update_delegation_request::UpdateDelegationRequestInput {
-+        ::std::result::Result::Ok(super::operation::update_delegation_request::UpdateDelegationRequestInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_delegation_request::UpdateDelegationRequestInput {
              delegation_request_id: self.delegation_request_id,
              notes: self.notes,
          })

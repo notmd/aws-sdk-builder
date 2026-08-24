@@ -5,7 +5,7 @@
  pub struct ListContactListsOutput {
      /// <p>The available contact lists.</p>
 -    pub contact_lists: ::std::option::Option<::std::vec::Vec<crate::types::ContactList>>,
-+    pub contact_lists: ::std::option::Option<::std::vec::Vec<super::types::ContactList>>,
++    pub contact_lists: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContactList>>,
      /// <p>A string token indicating that there might be additional contact lists available to be listed. Copy this token to a subsequent call to <code>ListContactLists</code> with the same parameters to retrieve the next page of contact lists.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.contact_lists.is_none()`.
 -    pub fn contact_lists(&self) -> &[crate::types::ContactList] {
-+    pub fn contact_lists(&self) -> &[super::types::ContactList] {
++    pub fn contact_lists(&self) -> &[super::super::super::types::ContactList] {
          self.contact_lists.as_deref().unwrap_or_default()
      }
      /// <p>A string token indicating that there might be additional contact lists available to be listed. Copy this token to a subsequent call to <code>ListContactLists</code> with the same parameters to retrieve the next page of contact lists.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListContactListsOutput`](crate::operation::list_contact_lists::ListContactListsOutput).
 -    pub fn builder() -> crate::operation::list_contact_lists::builders::ListContactListsOutputBuilder {
 -        crate::operation::list_contact_lists::builders::ListContactListsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_contact_lists::builders::ListContactListsOutputBuilder {
-+        super::operation::list_contact_lists::builders::ListContactListsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_contact_lists::builders::ListContactListsOutputBuilder {
++        super::super::super::operation::list_contact_lists::builders::ListContactListsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListContactListsOutputBuilder {
 -    pub(crate) contact_lists: ::std::option::Option<::std::vec::Vec<crate::types::ContactList>>,
-+    pub(crate) contact_lists: ::std::option::Option<::std::vec::Vec<super::types::ContactList>>,
++    pub(crate) contact_lists: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContactList>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The available contact lists.</p>
 -    pub fn contact_lists(mut self, input: crate::types::ContactList) -> Self {
-+    pub fn contact_lists(mut self, input: super::types::ContactList) -> Self {
++    pub fn contact_lists(mut self, input: super::super::super::types::ContactList) -> Self {
          let mut v = self.contact_lists.unwrap_or_default();
          v.push(input);
          self.contact_lists = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The available contact lists.</p>
 -    pub fn set_contact_lists(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ContactList>>) -> Self {
-+    pub fn set_contact_lists(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ContactList>>) -> Self {
++    pub fn set_contact_lists(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContactList>>) -> Self {
          self.contact_lists = input;
          self
      }
      /// <p>The available contact lists.</p>
 -    pub fn get_contact_lists(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ContactList>> {
-+    pub fn get_contact_lists(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ContactList>> {
++    pub fn get_contact_lists(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContactList>> {
          &self.contact_lists
      }
      /// <p>A string token indicating that there might be additional contact lists available to be listed. Copy this token to a subsequent call to <code>ListContactLists</code> with the same parameters to retrieve the next page of contact lists.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListContactListsOutput`](crate::operation::list_contact_lists::ListContactListsOutput).
 -    pub fn build(self) -> crate::operation::list_contact_lists::ListContactListsOutput {
 -        crate::operation::list_contact_lists::ListContactListsOutput {
-+    pub fn build(self) -> super::operation::list_contact_lists::ListContactListsOutput {
-+        super::operation::list_contact_lists::ListContactListsOutput {
++    pub fn build(self) -> super::super::super::operation::list_contact_lists::ListContactListsOutput {
++        super::super::super::operation::list_contact_lists::ListContactListsOutput {
              contact_lists: self.contact_lists,
              next_token: self.next_token,
              _request_id: self._request_id,

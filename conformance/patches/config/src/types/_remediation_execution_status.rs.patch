@@ -5,13 +5,13 @@
  pub struct RemediationExecutionStatus {
      /// <p>The details that identify a resource within Config, including the resource type and resource ID.</p>
 -    pub resource_key: ::std::option::Option<crate::types::ResourceKey>,
-+    pub resource_key: ::std::option::Option<super::types::ResourceKey>,
++    pub resource_key: ::std::option::Option<super::super::types::ResourceKey>,
      /// <p>ENUM of the values.</p>
 -    pub state: ::std::option::Option<crate::types::RemediationExecutionState>,
-+    pub state: ::std::option::Option<super::types::RemediationExecutionState>,
++    pub state: ::std::option::Option<super::super::types::RemediationExecutionState>,
      /// <p>Details of every step.</p>
 -    pub step_details: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExecutionStep>>,
-+    pub step_details: ::std::option::Option<::std::vec::Vec<super::types::RemediationExecutionStep>>,
++    pub step_details: ::std::option::Option<::std::vec::Vec<super::super::types::RemediationExecutionStep>>,
      /// <p>Start time when the remediation was executed.</p>
      pub invocation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The time when the remediation execution was last updated.</p>
@@ -20,19 +20,19 @@
  impl RemediationExecutionStatus {
      /// <p>The details that identify a resource within Config, including the resource type and resource ID.</p>
 -    pub fn resource_key(&self) -> ::std::option::Option<&crate::types::ResourceKey> {
-+    pub fn resource_key(&self) -> ::std::option::Option<&super::types::ResourceKey> {
++    pub fn resource_key(&self) -> ::std::option::Option<&super::super::types::ResourceKey> {
          self.resource_key.as_ref()
      }
      /// <p>ENUM of the values.</p>
 -    pub fn state(&self) -> ::std::option::Option<&crate::types::RemediationExecutionState> {
-+    pub fn state(&self) -> ::std::option::Option<&super::types::RemediationExecutionState> {
++    pub fn state(&self) -> ::std::option::Option<&super::super::types::RemediationExecutionState> {
          self.state.as_ref()
      }
      /// <p>Details of every step.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.step_details.is_none()`.
 -    pub fn step_details(&self) -> &[crate::types::RemediationExecutionStep] {
-+    pub fn step_details(&self) -> &[super::types::RemediationExecutionStep] {
++    pub fn step_details(&self) -> &[super::super::types::RemediationExecutionStep] {
          self.step_details.as_deref().unwrap_or_default()
      }
      /// <p>Start time when the remediation was executed.</p>
@@ -42,8 +42,8 @@
      /// Creates a new builder-style object to manufacture [`RemediationExecutionStatus`](crate::types::RemediationExecutionStatus).
 -    pub fn builder() -> crate::types::builders::RemediationExecutionStatusBuilder {
 -        crate::types::builders::RemediationExecutionStatusBuilder::default()
-+    pub fn builder() -> super::types::builders::RemediationExecutionStatusBuilder {
-+        super::types::builders::RemediationExecutionStatusBuilder::default()
++    pub fn builder() -> super::super::types::builders::RemediationExecutionStatusBuilder {
++        super::super::types::builders::RemediationExecutionStatusBuilder::default()
      }
  }
 
@@ -54,45 +54,45 @@
 -    pub(crate) resource_key: ::std::option::Option<crate::types::ResourceKey>,
 -    pub(crate) state: ::std::option::Option<crate::types::RemediationExecutionState>,
 -    pub(crate) step_details: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExecutionStep>>,
-+    pub(crate) resource_key: ::std::option::Option<super::types::ResourceKey>,
-+    pub(crate) state: ::std::option::Option<super::types::RemediationExecutionState>,
-+    pub(crate) step_details: ::std::option::Option<::std::vec::Vec<super::types::RemediationExecutionStep>>,
++    pub(crate) resource_key: ::std::option::Option<super::super::types::ResourceKey>,
++    pub(crate) state: ::std::option::Option<super::super::types::RemediationExecutionState>,
++    pub(crate) step_details: ::std::option::Option<::std::vec::Vec<super::super::types::RemediationExecutionStep>>,
      pub(crate) invocation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) last_updated_time: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
  impl RemediationExecutionStatusBuilder {
      /// <p>The details that identify a resource within Config, including the resource type and resource ID.</p>
 -    pub fn resource_key(mut self, input: crate::types::ResourceKey) -> Self {
-+    pub fn resource_key(mut self, input: super::types::ResourceKey) -> Self {
++    pub fn resource_key(mut self, input: super::super::types::ResourceKey) -> Self {
          self.resource_key = ::std::option::Option::Some(input);
          self
      }
      /// <p>The details that identify a resource within Config, including the resource type and resource ID.</p>
 -    pub fn set_resource_key(mut self, input: ::std::option::Option<crate::types::ResourceKey>) -> Self {
-+    pub fn set_resource_key(mut self, input: ::std::option::Option<super::types::ResourceKey>) -> Self {
++    pub fn set_resource_key(mut self, input: ::std::option::Option<super::super::types::ResourceKey>) -> Self {
          self.resource_key = input;
          self
      }
      /// <p>The details that identify a resource within Config, including the resource type and resource ID.</p>
 -    pub fn get_resource_key(&self) -> &::std::option::Option<crate::types::ResourceKey> {
-+    pub fn get_resource_key(&self) -> &::std::option::Option<super::types::ResourceKey> {
++    pub fn get_resource_key(&self) -> &::std::option::Option<super::super::types::ResourceKey> {
          &self.resource_key
      }
      /// <p>ENUM of the values.</p>
 -    pub fn state(mut self, input: crate::types::RemediationExecutionState) -> Self {
-+    pub fn state(mut self, input: super::types::RemediationExecutionState) -> Self {
++    pub fn state(mut self, input: super::super::types::RemediationExecutionState) -> Self {
          self.state = ::std::option::Option::Some(input);
          self
      }
      /// <p>ENUM of the values.</p>
 -    pub fn set_state(mut self, input: ::std::option::Option<crate::types::RemediationExecutionState>) -> Self {
-+    pub fn set_state(mut self, input: ::std::option::Option<super::types::RemediationExecutionState>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::super::types::RemediationExecutionState>) -> Self {
          self.state = input;
          self
      }
      /// <p>ENUM of the values.</p>
 -    pub fn get_state(&self) -> &::std::option::Option<crate::types::RemediationExecutionState> {
-+    pub fn get_state(&self) -> &::std::option::Option<super::types::RemediationExecutionState> {
++    pub fn get_state(&self) -> &::std::option::Option<super::super::types::RemediationExecutionState> {
          &self.state
      }
      /// Appends an item to `step_details`.
@@ -101,7 +101,7 @@
      ///
      /// <p>Details of every step.</p>
 -    pub fn step_details(mut self, input: crate::types::RemediationExecutionStep) -> Self {
-+    pub fn step_details(mut self, input: super::types::RemediationExecutionStep) -> Self {
++    pub fn step_details(mut self, input: super::super::types::RemediationExecutionStep) -> Self {
          let mut v = self.step_details.unwrap_or_default();
          v.push(input);
          self.step_details = ::std::option::Option::Some(v);
@@ -110,13 +110,13 @@
      }
      /// <p>Details of every step.</p>
 -    pub fn set_step_details(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExecutionStep>>) -> Self {
-+    pub fn set_step_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::RemediationExecutionStep>>) -> Self {
++    pub fn set_step_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::RemediationExecutionStep>>) -> Self {
          self.step_details = input;
          self
      }
      /// <p>Details of every step.</p>
 -    pub fn get_step_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExecutionStep>> {
-+    pub fn get_step_details(&self) -> &::std::option::Option<::std::vec::Vec<super::types::RemediationExecutionStep>> {
++    pub fn get_step_details(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::RemediationExecutionStep>> {
          &self.step_details
      }
      /// <p>Start time when the remediation was executed.</p>
@@ -126,8 +126,8 @@
      /// Consumes the builder and constructs a [`RemediationExecutionStatus`](crate::types::RemediationExecutionStatus).
 -    pub fn build(self) -> crate::types::RemediationExecutionStatus {
 -        crate::types::RemediationExecutionStatus {
-+    pub fn build(self) -> super::types::RemediationExecutionStatus {
-+        super::types::RemediationExecutionStatus {
++    pub fn build(self) -> super::super::types::RemediationExecutionStatus {
++        super::super::types::RemediationExecutionStatus {
              resource_key: self.resource_key,
              state: self.state,
              step_details: self.step_details,

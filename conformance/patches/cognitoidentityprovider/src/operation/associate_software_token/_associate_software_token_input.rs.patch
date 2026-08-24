@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AssociateSoftwareTokenInput`](crate::operation::associate_software_token::AssociateSoftwareTokenInput).
 -    pub fn builder() -> crate::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder {
 -        crate::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder::default()
-+    pub fn builder() -> super::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder {
-+        super::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder {
++        super::super::super::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::associate_software_token::AssociateSoftwareTokenInput,
-+        super::operation::associate_software_token::AssociateSoftwareTokenInput,
++        super::super::super::operation::associate_software_token::AssociateSoftwareTokenInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::associate_software_token::AssociateSoftwareTokenInput {
-+        ::std::result::Result::Ok(super::operation::associate_software_token::AssociateSoftwareTokenInput {
++        ::std::result::Result::Ok(super::super::super::operation::associate_software_token::AssociateSoftwareTokenInput {
              access_token: self.access_token,
              session: self.session,
          })

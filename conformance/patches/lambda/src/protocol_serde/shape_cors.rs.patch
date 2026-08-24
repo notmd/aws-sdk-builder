@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::Cors>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::Cors>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::Cors>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::CorsBuilder::default();
-+            let mut builder = super::types::builders::CorsBuilder::default();
++            let mut builder = super::super::types::builders::CorsBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,11 +23,11 @@
                          "AllowHeaders" => {
                              builder =
 -                                builder.set_allow_headers(crate::protocol_serde::shape_headers_list::de_headers_list(tokens, _value, depth + 1)?);
-+                                builder.set_allow_headers(super::protocol_serde::shape_headers_list::de_headers_list(tokens, _value, depth + 1)?);
++                                builder.set_allow_headers(super::super::protocol_serde::shape_headers_list::de_headers_list(tokens, _value, depth + 1)?);
                          }
                          "AllowMethods" => {
 -                            builder = builder.set_allow_methods(crate::protocol_serde::shape_allow_methods_list::de_allow_methods_list(
-+                            builder = builder.set_allow_methods(super::protocol_serde::shape_allow_methods_list::de_allow_methods_list(
++                            builder = builder.set_allow_methods(super::super::protocol_serde::shape_allow_methods_list::de_allow_methods_list(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -36,7 +36,7 @@
                          }
                          "AllowOrigins" => {
 -                            builder = builder.set_allow_origins(crate::protocol_serde::shape_allow_origins_list::de_allow_origins_list(
-+                            builder = builder.set_allow_origins(super::protocol_serde::shape_allow_origins_list::de_allow_origins_list(
++                            builder = builder.set_allow_origins(super::super::protocol_serde::shape_allow_origins_list::de_allow_origins_list(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -45,7 +45,7 @@
                          "ExposeHeaders" => {
                              builder =
 -                                builder.set_expose_headers(crate::protocol_serde::shape_headers_list::de_headers_list(tokens, _value, depth + 1)?);
-+                                builder.set_expose_headers(super::protocol_serde::shape_headers_list::de_headers_list(tokens, _value, depth + 1)?);
++                                builder.set_expose_headers(super::super::protocol_serde::shape_headers_list::de_headers_list(tokens, _value, depth + 1)?);
                          }
                          "MaxAge" => {
                              builder = builder.set_max_age(
@@ -54,7 +54,7 @@
  pub fn ser_cors(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::Cors,
-+    input: &super::types::Cors,
++    input: &super::super::types::Cors,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.allow_credentials {
          object.key("AllowCredentials").boolean(*var_1);

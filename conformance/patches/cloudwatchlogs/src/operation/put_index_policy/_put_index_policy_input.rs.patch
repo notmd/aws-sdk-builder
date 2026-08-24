@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutIndexPolicyInput`](crate::operation::put_index_policy::PutIndexPolicyInput).
 -    pub fn builder() -> crate::operation::put_index_policy::builders::PutIndexPolicyInputBuilder {
 -        crate::operation::put_index_policy::builders::PutIndexPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::put_index_policy::builders::PutIndexPolicyInputBuilder {
-+        super::operation::put_index_policy::builders::PutIndexPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_index_policy::builders::PutIndexPolicyInputBuilder {
++        super::super::super::operation::put_index_policy::builders::PutIndexPolicyInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::put_index_policy::PutIndexPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::put_index_policy::PutIndexPolicyInput {
-+    ) -> ::std::result::Result<super::operation::put_index_policy::PutIndexPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::put_index_policy::PutIndexPolicyInput {
++    ) -> ::std::result::Result<super::super::super::operation::put_index_policy::PutIndexPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::put_index_policy::PutIndexPolicyInput {
              log_group_identifier: self.log_group_identifier,
              policy_document: self.policy_document,
          })

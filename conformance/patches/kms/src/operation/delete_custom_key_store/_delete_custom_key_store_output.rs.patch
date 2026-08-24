@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteCustomKeyStoreOutput`](crate::operation::delete_custom_key_store::DeleteCustomKeyStoreOutput).
 -    pub fn builder() -> crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder {
 -        crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder {
-+        super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder {
++        super::super::super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteCustomKeyStoreOutput`](crate::operation::delete_custom_key_store::DeleteCustomKeyStoreOutput).
 -    pub fn build(self) -> crate::operation::delete_custom_key_store::DeleteCustomKeyStoreOutput {
 -        crate::operation::delete_custom_key_store::DeleteCustomKeyStoreOutput {
-+    pub fn build(self) -> super::operation::delete_custom_key_store::DeleteCustomKeyStoreOutput {
-+        super::operation::delete_custom_key_store::DeleteCustomKeyStoreOutput {
++    pub fn build(self) -> super::super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreOutput {
++        super::super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreOutput {
              _request_id: self._request_id,
          }
      }

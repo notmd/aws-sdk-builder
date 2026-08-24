@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetObjectLegalHoldError>`](crate::operation::get_object_legal_hold::GetObjectLegalHoldError)
 -    pub fn get_object_legal_hold(&self) -> crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldFluentBuilder {
 -        crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldFluentBuilder::new(self.handle.clone())
-+    pub fn get_object_legal_hold(&self) -> super::operation::get_object_legal_hold::builders::GetObjectLegalHoldFluentBuilder {
-+        super::operation::get_object_legal_hold::builders::GetObjectLegalHoldFluentBuilder::new(self.handle.clone())
++    pub fn get_object_legal_hold(&self) -> super::super::operation::get_object_legal_hold::builders::GetObjectLegalHoldFluentBuilder {
++        super::super::operation::get_object_legal_hold::builders::GetObjectLegalHoldFluentBuilder::new(self.handle.clone())
      }
  }

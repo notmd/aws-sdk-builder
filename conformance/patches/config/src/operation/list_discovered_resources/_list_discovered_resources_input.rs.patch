@@ -5,7 +5,7 @@
  pub struct ListDiscoveredResourcesInput {
      /// <p>The type of resources that you want Config to list in the response.</p>
 -    pub resource_type: ::std::option::Option<crate::types::ResourceType>,
-+    pub resource_type: ::std::option::Option<super::types::ResourceType>,
++    pub resource_type: ::std::option::Option<super::super::super::types::ResourceType>,
      /// <p>The IDs of only those resources that you want Config to list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</p>
      pub resource_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      /// <p>The custom name of only those resources that you want Config to list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has discovered.</p>
@@ -14,7 +14,7 @@
  impl ListDiscoveredResourcesInput {
      /// <p>The type of resources that you want Config to list in the response.</p>
 -    pub fn resource_type(&self) -> ::std::option::Option<&crate::types::ResourceType> {
-+    pub fn resource_type(&self) -> ::std::option::Option<&super::types::ResourceType> {
++    pub fn resource_type(&self) -> ::std::option::Option<&super::super::super::types::ResourceType> {
          self.resource_type.as_ref()
      }
      /// <p>The IDs of only those resources that you want Config to list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListDiscoveredResourcesInput`](crate::operation::list_discovered_resources::ListDiscoveredResourcesInput).
 -    pub fn builder() -> crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesInputBuilder {
 -        crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesInputBuilder::default()
-+    pub fn builder() -> super::operation::list_discovered_resources::builders::ListDiscoveredResourcesInputBuilder {
-+        super::operation::list_discovered_resources::builders::ListDiscoveredResourcesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_discovered_resources::builders::ListDiscoveredResourcesInputBuilder {
++        super::super::super::operation::list_discovered_resources::builders::ListDiscoveredResourcesInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListDiscoveredResourcesInputBuilder {
 -    pub(crate) resource_type: ::std::option::Option<crate::types::ResourceType>,
-+    pub(crate) resource_type: ::std::option::Option<super::types::ResourceType>,
++    pub(crate) resource_type: ::std::option::Option<super::super::super::types::ResourceType>,
      pub(crate) resource_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) resource_name: ::std::option::Option<::std::string::String>,
      pub(crate) limit: ::std::option::Option<i32>,
@@ -43,19 +43,19 @@
      /// <p>The type of resources that you want Config to list in the response.</p>
      /// This field is required.
 -    pub fn resource_type(mut self, input: crate::types::ResourceType) -> Self {
-+    pub fn resource_type(mut self, input: super::types::ResourceType) -> Self {
++    pub fn resource_type(mut self, input: super::super::super::types::ResourceType) -> Self {
          self.resource_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of resources that you want Config to list in the response.</p>
 -    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
-+    pub fn set_resource_type(mut self, input: ::std::option::Option<super::types::ResourceType>) -> Self {
++    pub fn set_resource_type(mut self, input: ::std::option::Option<super::super::super::types::ResourceType>) -> Self {
          self.resource_type = input;
          self
      }
      /// <p>The type of resources that you want Config to list in the response.</p>
 -    pub fn get_resource_type(&self) -> &::std::option::Option<crate::types::ResourceType> {
-+    pub fn get_resource_type(&self) -> &::std::option::Option<super::types::ResourceType> {
++    pub fn get_resource_type(&self) -> &::std::option::Option<super::super::super::types::ResourceType> {
          &self.resource_type
      }
      /// Appends an item to `resource_ids`.
@@ -64,11 +64,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::list_discovered_resources::ListDiscoveredResourcesInput,
-+        super::operation::list_discovered_resources::ListDiscoveredResourcesInput,
++        super::super::super::operation::list_discovered_resources::ListDiscoveredResourcesInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::list_discovered_resources::ListDiscoveredResourcesInput {
-+        ::std::result::Result::Ok(super::operation::list_discovered_resources::ListDiscoveredResourcesInput {
++        ::std::result::Result::Ok(super::super::super::operation::list_discovered_resources::ListDiscoveredResourcesInput {
              resource_type: self.resource_type,
              resource_ids: self.resource_ids,
              resource_name: self.resource_name,

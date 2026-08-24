@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutConfigurationSetDeliveryOptionsOutput`](crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput).
 -    pub fn builder() -> crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder {
 -        crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder {
-+        super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder {
++        super::super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutConfigurationSetDeliveryOptionsOutput`](crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput).
 -    pub fn build(self) -> crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput {
 -        crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput {
-+    pub fn build(self) -> super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput {
-+        super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput {
++    pub fn build(self) -> super::super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput {
++        super::super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput {
              _request_id: self._request_id,
          }
      }

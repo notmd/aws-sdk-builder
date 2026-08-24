@@ -5,7 +5,7 @@
      pub resource_id: ::std::string::String,
      /// <p>The type of the Amazon Web Services resource.</p>
 -    pub resource_type: crate::types::ResourceType,
-+    pub resource_type: super::types::ResourceType,
++    pub resource_type: super::super::types::ResourceType,
      /// <p>The name of the Amazon Web Services resource.</p>
      pub resource_name: ::std::option::Option<::std::string::String>,
  }
@@ -14,7 +14,7 @@
      }
      /// <p>The type of the Amazon Web Services resource.</p>
 -    pub fn resource_type(&self) -> &crate::types::ResourceType {
-+    pub fn resource_type(&self) -> &super::types::ResourceType {
++    pub fn resource_type(&self) -> &super::super::types::ResourceType {
          &self.resource_type
      }
      /// <p>The name of the Amazon Web Services resource.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`AggregateResourceIdentifier`](crate::types::AggregateResourceIdentifier).
 -    pub fn builder() -> crate::types::builders::AggregateResourceIdentifierBuilder {
 -        crate::types::builders::AggregateResourceIdentifierBuilder::default()
-+    pub fn builder() -> super::types::builders::AggregateResourceIdentifierBuilder {
-+        super::types::builders::AggregateResourceIdentifierBuilder::default()
++    pub fn builder() -> super::super::types::builders::AggregateResourceIdentifierBuilder {
++        super::super::types::builders::AggregateResourceIdentifierBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) source_region: ::std::option::Option<::std::string::String>,
      pub(crate) resource_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) resource_type: ::std::option::Option<crate::types::ResourceType>,
-+    pub(crate) resource_type: ::std::option::Option<super::types::ResourceType>,
++    pub(crate) resource_type: ::std::option::Option<super::super::types::ResourceType>,
      pub(crate) resource_name: ::std::option::Option<::std::string::String>,
  }
  impl AggregateResourceIdentifierBuilder {
@@ -43,19 +43,19 @@
      /// <p>The type of the Amazon Web Services resource.</p>
      /// This field is required.
 -    pub fn resource_type(mut self, input: crate::types::ResourceType) -> Self {
-+    pub fn resource_type(mut self, input: super::types::ResourceType) -> Self {
++    pub fn resource_type(mut self, input: super::super::types::ResourceType) -> Self {
          self.resource_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of the Amazon Web Services resource.</p>
 -    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
-+    pub fn set_resource_type(mut self, input: ::std::option::Option<super::types::ResourceType>) -> Self {
++    pub fn set_resource_type(mut self, input: ::std::option::Option<super::super::types::ResourceType>) -> Self {
          self.resource_type = input;
          self
      }
      /// <p>The type of the Amazon Web Services resource.</p>
 -    pub fn get_resource_type(&self) -> &::std::option::Option<crate::types::ResourceType> {
-+    pub fn get_resource_type(&self) -> &::std::option::Option<super::types::ResourceType> {
++    pub fn get_resource_type(&self) -> &::std::option::Option<super::super::types::ResourceType> {
          &self.resource_type
      }
      /// <p>The name of the Amazon Web Services resource.</p>
@@ -65,8 +65,8 @@
      /// - [`resource_type`](crate::types::builders::AggregateResourceIdentifierBuilder::resource_type)
 -    pub fn build(self) -> ::std::result::Result<crate::types::AggregateResourceIdentifier, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::AggregateResourceIdentifier {
-+    pub fn build(self) -> ::std::result::Result<super::types::AggregateResourceIdentifier, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::AggregateResourceIdentifier {
++    pub fn build(self) -> ::std::result::Result<super::super::types::AggregateResourceIdentifier, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::AggregateResourceIdentifier {
              source_account_id: self.source_account_id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "source_account_id",

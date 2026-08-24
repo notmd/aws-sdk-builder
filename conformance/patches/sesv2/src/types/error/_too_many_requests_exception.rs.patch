@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for TooManyRequestsException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::TooManyRequestsException {
-+impl ::aws_types::request_id::RequestId for super::types::error::TooManyRequestsException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::TooManyRequestsException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`TooManyRequestsException`](crate::types::error::TooManyRequestsException).
 -    pub fn builder() -> crate::types::error::builders::TooManyRequestsExceptionBuilder {
 -        crate::types::error::builders::TooManyRequestsExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::TooManyRequestsExceptionBuilder {
-+        super::types::error::builders::TooManyRequestsExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::TooManyRequestsExceptionBuilder {
++        super::super::super::types::error::builders::TooManyRequestsExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`TooManyRequestsException`](crate::types::error::TooManyRequestsException).
 -    pub fn build(self) -> crate::types::error::TooManyRequestsException {
 -        crate::types::error::TooManyRequestsException {
-+    pub fn build(self) -> super::types::error::TooManyRequestsException {
-+        super::types::error::TooManyRequestsException {
++    pub fn build(self) -> super::super::super::types::error::TooManyRequestsException {
++        super::super::super::types::error::TooManyRequestsException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

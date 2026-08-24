@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TraceHeader`](crate::types::TraceHeader).
 -    pub fn builder() -> crate::types::builders::TraceHeaderBuilder {
 -        crate::types::builders::TraceHeaderBuilder::default()
-+    pub fn builder() -> super::types::builders::TraceHeaderBuilder {
-+        super::types::builders::TraceHeaderBuilder::default()
++    pub fn builder() -> super::super::types::builders::TraceHeaderBuilder {
++        super::super::types::builders::TraceHeaderBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`TraceHeader`](crate::types::TraceHeader).
 -    pub fn build(self) -> crate::types::TraceHeader {
 -        crate::types::TraceHeader {
-+    pub fn build(self) -> super::types::TraceHeader {
-+        super::types::TraceHeader {
++    pub fn build(self) -> super::super::types::TraceHeader {
++        super::super::types::TraceHeader {
              x_amzn_trace_id: self.x_amzn_trace_id,
          }
      }

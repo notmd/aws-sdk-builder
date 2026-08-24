@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutSyslogConfigurationError>`](crate::operation::put_syslog_configuration::PutSyslogConfigurationError)
 -    pub fn put_syslog_configuration(&self) -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder {
 -        crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder::new(self.handle.clone())
-+    pub fn put_syslog_configuration(&self) -> super::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder {
-+        super::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder::new(self.handle.clone())
++    pub fn put_syslog_configuration(&self) -> super::super::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder {
++        super::super::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

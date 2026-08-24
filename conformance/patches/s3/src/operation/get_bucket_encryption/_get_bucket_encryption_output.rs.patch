@@ -5,19 +5,19 @@
  pub struct GetBucketEncryptionOutput {
      /// <p>Specifies the default server-side-encryption configuration.</p>
 -    pub server_side_encryption_configuration: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
-+    pub server_side_encryption_configuration: ::std::option::Option<super::types::ServerSideEncryptionConfiguration>,
++    pub server_side_encryption_configuration: ::std::option::Option<super::super::super::types::ServerSideEncryptionConfiguration>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
  impl GetBucketEncryptionOutput {
      /// <p>Specifies the default server-side-encryption configuration.</p>
 -    pub fn server_side_encryption_configuration(&self) -> ::std::option::Option<&crate::types::ServerSideEncryptionConfiguration> {
-+    pub fn server_side_encryption_configuration(&self) -> ::std::option::Option<&super::types::ServerSideEncryptionConfiguration> {
++    pub fn server_side_encryption_configuration(&self) -> ::std::option::Option<&super::super::super::types::ServerSideEncryptionConfiguration> {
          self.server_side_encryption_configuration.as_ref()
      }
  }
 -impl crate::s3_request_id::RequestIdExt for GetBucketEncryptionOutput {
-+impl super::s3_request_id::RequestIdExt for GetBucketEncryptionOutput {
++impl super::super::super::s3_request_id::RequestIdExt for GetBucketEncryptionOutput {
      fn extended_request_id(&self) -> Option<&str> {
          self._extended_request_id.as_deref()
      }
@@ -27,8 +27,8 @@
      /// Creates a new builder-style object to manufacture [`GetBucketEncryptionOutput`](crate::operation::get_bucket_encryption::GetBucketEncryptionOutput).
 -    pub fn builder() -> crate::operation::get_bucket_encryption::builders::GetBucketEncryptionOutputBuilder {
 -        crate::operation::get_bucket_encryption::builders::GetBucketEncryptionOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_bucket_encryption::builders::GetBucketEncryptionOutputBuilder {
-+        super::operation::get_bucket_encryption::builders::GetBucketEncryptionOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_bucket_encryption::builders::GetBucketEncryptionOutputBuilder {
++        super::super::super::operation::get_bucket_encryption::builders::GetBucketEncryptionOutputBuilder::default()
      }
  }
 
@@ -37,26 +37,26 @@
  #[non_exhaustive]
  pub struct GetBucketEncryptionOutputBuilder {
 -    pub(crate) server_side_encryption_configuration: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
-+    pub(crate) server_side_encryption_configuration: ::std::option::Option<super::types::ServerSideEncryptionConfiguration>,
++    pub(crate) server_side_encryption_configuration: ::std::option::Option<super::super::super::types::ServerSideEncryptionConfiguration>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
  impl GetBucketEncryptionOutputBuilder {
      /// <p>Specifies the default server-side-encryption configuration.</p>
 -    pub fn server_side_encryption_configuration(mut self, input: crate::types::ServerSideEncryptionConfiguration) -> Self {
-+    pub fn server_side_encryption_configuration(mut self, input: super::types::ServerSideEncryptionConfiguration) -> Self {
++    pub fn server_side_encryption_configuration(mut self, input: super::super::super::types::ServerSideEncryptionConfiguration) -> Self {
          self.server_side_encryption_configuration = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies the default server-side-encryption configuration.</p>
 -    pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>) -> Self {
-+    pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<super::types::ServerSideEncryptionConfiguration>) -> Self {
++    pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<super::super::super::types::ServerSideEncryptionConfiguration>) -> Self {
          self.server_side_encryption_configuration = input;
          self
      }
      /// <p>Specifies the default server-side-encryption configuration.</p>
 -    pub fn get_server_side_encryption_configuration(&self) -> &::std::option::Option<crate::types::ServerSideEncryptionConfiguration> {
-+    pub fn get_server_side_encryption_configuration(&self) -> &::std::option::Option<super::types::ServerSideEncryptionConfiguration> {
++    pub fn get_server_side_encryption_configuration(&self) -> &::std::option::Option<super::super::super::types::ServerSideEncryptionConfiguration> {
          &self.server_side_encryption_configuration
      }
      pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -66,8 +66,8 @@
      /// Consumes the builder and constructs a [`GetBucketEncryptionOutput`](crate::operation::get_bucket_encryption::GetBucketEncryptionOutput).
 -    pub fn build(self) -> crate::operation::get_bucket_encryption::GetBucketEncryptionOutput {
 -        crate::operation::get_bucket_encryption::GetBucketEncryptionOutput {
-+    pub fn build(self) -> super::operation::get_bucket_encryption::GetBucketEncryptionOutput {
-+        super::operation::get_bucket_encryption::GetBucketEncryptionOutput {
++    pub fn build(self) -> super::super::super::operation::get_bucket_encryption::GetBucketEncryptionOutput {
++        super::super::super::operation::get_bucket_encryption::GetBucketEncryptionOutput {
              server_side_encryption_configuration: self.server_side_encryption_configuration,
              _extended_request_id: self._extended_request_id,
              _request_id: self._request_id,

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListOrganizationsFeaturesError>`](crate::operation::list_organizations_features::ListOrganizationsFeaturesError)
 -    pub fn list_organizations_features(&self) -> crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder {
 -        crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder::new(self.handle.clone())
-+    pub fn list_organizations_features(&self) -> super::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder {
-+        super::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder::new(self.handle.clone())
++    pub fn list_organizations_features(&self) -> super::super::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder {
++        super::super::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder::new(self.handle.clone())
      }
  }

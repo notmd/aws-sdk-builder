@@ -5,7 +5,7 @@
  pub struct ListDelegationRequestsOutput {
      /// <p>A list of delegation requests that match the specified criteria.</p>
 -    pub delegation_requests: ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>,
-+    pub delegation_requests: ::std::option::Option<::std::vec::Vec<super::types::DelegationRequest>>,
++    pub delegation_requests: ::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>>,
      /// <p>When <code>isTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.delegation_requests.is_none()`.
 -    pub fn delegation_requests(&self) -> &[crate::types::DelegationRequest] {
-+    pub fn delegation_requests(&self) -> &[super::types::DelegationRequest] {
++    pub fn delegation_requests(&self) -> &[super::super::super::types::DelegationRequest] {
          self.delegation_requests.as_deref().unwrap_or_default()
      }
      /// <p>When <code>isTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListDelegationRequestsOutput`](crate::operation::list_delegation_requests::ListDelegationRequestsOutput).
 -    pub fn builder() -> crate::operation::list_delegation_requests::builders::ListDelegationRequestsOutputBuilder {
 -        crate::operation::list_delegation_requests::builders::ListDelegationRequestsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_delegation_requests::builders::ListDelegationRequestsOutputBuilder {
-+        super::operation::list_delegation_requests::builders::ListDelegationRequestsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_delegation_requests::builders::ListDelegationRequestsOutputBuilder {
++        super::super::super::operation::list_delegation_requests::builders::ListDelegationRequestsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListDelegationRequestsOutputBuilder {
 -    pub(crate) delegation_requests: ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>,
-+    pub(crate) delegation_requests: ::std::option::Option<::std::vec::Vec<super::types::DelegationRequest>>,
++    pub(crate) delegation_requests: ::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>>,
      pub(crate) marker: ::std::option::Option<::std::string::String>,
      pub(crate) is_truncated: ::std::option::Option<bool>,
      _request_id: Option<String>,
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of delegation requests that match the specified criteria.</p>
 -    pub fn delegation_requests(mut self, input: crate::types::DelegationRequest) -> Self {
-+    pub fn delegation_requests(mut self, input: super::types::DelegationRequest) -> Self {
++    pub fn delegation_requests(mut self, input: super::super::super::types::DelegationRequest) -> Self {
          let mut v = self.delegation_requests.unwrap_or_default();
          v.push(input);
          self.delegation_requests = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of delegation requests that match the specified criteria.</p>
 -    pub fn set_delegation_requests(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>) -> Self {
-+    pub fn set_delegation_requests(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::DelegationRequest>>) -> Self {
++    pub fn set_delegation_requests(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>>) -> Self {
          self.delegation_requests = input;
          self
      }
      /// <p>A list of delegation requests that match the specified criteria.</p>
 -    pub fn get_delegation_requests(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>> {
-+    pub fn get_delegation_requests(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DelegationRequest>> {
++    pub fn get_delegation_requests(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>> {
          &self.delegation_requests
      }
      /// <p>When <code>isTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListDelegationRequestsOutput`](crate::operation::list_delegation_requests::ListDelegationRequestsOutput).
 -    pub fn build(self) -> crate::operation::list_delegation_requests::ListDelegationRequestsOutput {
 -        crate::operation::list_delegation_requests::ListDelegationRequestsOutput {
-+    pub fn build(self) -> super::operation::list_delegation_requests::ListDelegationRequestsOutput {
-+        super::operation::list_delegation_requests::ListDelegationRequestsOutput {
++    pub fn build(self) -> super::super::super::operation::list_delegation_requests::ListDelegationRequestsOutput {
++        super::super::super::operation::list_delegation_requests::ListDelegationRequestsOutput {
              delegation_requests: self.delegation_requests,
              marker: self.marker,
              is_truncated: self.is_truncated.unwrap_or_default(),

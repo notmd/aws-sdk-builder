@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for NotAuthorizedException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::NotAuthorizedException {
-+impl ::aws_types::request_id::RequestId for super::types::error::NotAuthorizedException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::NotAuthorizedException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`NotAuthorizedException`](crate::types::error::NotAuthorizedException).
 -    pub fn builder() -> crate::types::error::builders::NotAuthorizedExceptionBuilder {
 -        crate::types::error::builders::NotAuthorizedExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::NotAuthorizedExceptionBuilder {
-+        super::types::error::builders::NotAuthorizedExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::NotAuthorizedExceptionBuilder {
++        super::super::super::types::error::builders::NotAuthorizedExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`NotAuthorizedException`](crate::types::error::NotAuthorizedException).
 -    pub fn build(self) -> crate::types::error::NotAuthorizedException {
 -        crate::types::error::NotAuthorizedException {
-+    pub fn build(self) -> super::types::error::NotAuthorizedException {
-+        super::types::error::NotAuthorizedException {
++    pub fn build(self) -> super::super::super::types::error::NotAuthorizedException {
++        super::super::super::types::error::NotAuthorizedException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

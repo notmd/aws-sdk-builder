@@ -5,14 +5,14 @@
  pub struct ContentBlockStartEvent {
      /// <p>Start information about a content block start event.</p>
 -    pub start: ::std::option::Option<crate::types::ContentBlockStart>,
-+    pub start: ::std::option::Option<super::types::ContentBlockStart>,
++    pub start: ::std::option::Option<super::super::types::ContentBlockStart>,
      /// <p>The index for a content block start event.</p>
      pub content_block_index: i32,
  }
  impl ContentBlockStartEvent {
      /// <p>Start information about a content block start event.</p>
 -    pub fn start(&self) -> ::std::option::Option<&crate::types::ContentBlockStart> {
-+    pub fn start(&self) -> ::std::option::Option<&super::types::ContentBlockStart> {
++    pub fn start(&self) -> ::std::option::Option<&super::super::types::ContentBlockStart> {
          self.start.as_ref()
      }
      /// <p>The index for a content block start event.</p>
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ContentBlockStartEvent`](crate::types::ContentBlockStartEvent).
 -    pub fn builder() -> crate::types::builders::ContentBlockStartEventBuilder {
 -        crate::types::builders::ContentBlockStartEventBuilder::default()
-+    pub fn builder() -> super::types::builders::ContentBlockStartEventBuilder {
-+        super::types::builders::ContentBlockStartEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::ContentBlockStartEventBuilder {
++        super::super::types::builders::ContentBlockStartEventBuilder::default()
      }
  }
 
@@ -32,26 +32,26 @@
  #[non_exhaustive]
  pub struct ContentBlockStartEventBuilder {
 -    pub(crate) start: ::std::option::Option<crate::types::ContentBlockStart>,
-+    pub(crate) start: ::std::option::Option<super::types::ContentBlockStart>,
++    pub(crate) start: ::std::option::Option<super::super::types::ContentBlockStart>,
      pub(crate) content_block_index: ::std::option::Option<i32>,
  }
  impl ContentBlockStartEventBuilder {
      /// <p>Start information about a content block start event.</p>
      /// This field is required.
 -    pub fn start(mut self, input: crate::types::ContentBlockStart) -> Self {
-+    pub fn start(mut self, input: super::types::ContentBlockStart) -> Self {
++    pub fn start(mut self, input: super::super::types::ContentBlockStart) -> Self {
          self.start = ::std::option::Option::Some(input);
          self
      }
      /// <p>Start information about a content block start event.</p>
 -    pub fn set_start(mut self, input: ::std::option::Option<crate::types::ContentBlockStart>) -> Self {
-+    pub fn set_start(mut self, input: ::std::option::Option<super::types::ContentBlockStart>) -> Self {
++    pub fn set_start(mut self, input: ::std::option::Option<super::super::types::ContentBlockStart>) -> Self {
          self.start = input;
          self
      }
      /// <p>Start information about a content block start event.</p>
 -    pub fn get_start(&self) -> &::std::option::Option<crate::types::ContentBlockStart> {
-+    pub fn get_start(&self) -> &::std::option::Option<super::types::ContentBlockStart> {
++    pub fn get_start(&self) -> &::std::option::Option<super::super::types::ContentBlockStart> {
          &self.start
      }
      /// <p>The index for a content block start event.</p>
@@ -61,8 +61,8 @@
      /// - [`content_block_index`](crate::types::builders::ContentBlockStartEventBuilder::content_block_index)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ContentBlockStartEvent, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ContentBlockStartEvent {
-+    pub fn build(self) -> ::std::result::Result<super::types::ContentBlockStartEvent, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ContentBlockStartEvent {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ContentBlockStartEvent, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ContentBlockStartEvent {
              start: self.start,
              content_block_index: self.content_block_index.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(

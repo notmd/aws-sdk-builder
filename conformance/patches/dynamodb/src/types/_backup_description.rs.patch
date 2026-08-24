@@ -5,28 +5,28 @@
  pub struct BackupDescription {
      /// <p>Contains the details of the backup created for the table.</p>
 -    pub backup_details: ::std::option::Option<crate::types::BackupDetails>,
-+    pub backup_details: ::std::option::Option<super::types::BackupDetails>,
++    pub backup_details: ::std::option::Option<super::super::types::BackupDetails>,
      /// <p>Contains the details of the table when the backup was created.</p>
 -    pub source_table_details: ::std::option::Option<crate::types::SourceTableDetails>,
-+    pub source_table_details: ::std::option::Option<super::types::SourceTableDetails>,
++    pub source_table_details: ::std::option::Option<super::super::types::SourceTableDetails>,
      /// <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.</p>
 -    pub source_table_feature_details: ::std::option::Option<crate::types::SourceTableFeatureDetails>,
-+    pub source_table_feature_details: ::std::option::Option<super::types::SourceTableFeatureDetails>,
++    pub source_table_feature_details: ::std::option::Option<super::super::types::SourceTableFeatureDetails>,
  }
  impl BackupDescription {
      /// <p>Contains the details of the backup created for the table.</p>
 -    pub fn backup_details(&self) -> ::std::option::Option<&crate::types::BackupDetails> {
-+    pub fn backup_details(&self) -> ::std::option::Option<&super::types::BackupDetails> {
++    pub fn backup_details(&self) -> ::std::option::Option<&super::super::types::BackupDetails> {
          self.backup_details.as_ref()
      }
      /// <p>Contains the details of the table when the backup was created.</p>
 -    pub fn source_table_details(&self) -> ::std::option::Option<&crate::types::SourceTableDetails> {
-+    pub fn source_table_details(&self) -> ::std::option::Option<&super::types::SourceTableDetails> {
++    pub fn source_table_details(&self) -> ::std::option::Option<&super::super::types::SourceTableDetails> {
          self.source_table_details.as_ref()
      }
      /// <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.</p>
 -    pub fn source_table_feature_details(&self) -> ::std::option::Option<&crate::types::SourceTableFeatureDetails> {
-+    pub fn source_table_feature_details(&self) -> ::std::option::Option<&super::types::SourceTableFeatureDetails> {
++    pub fn source_table_feature_details(&self) -> ::std::option::Option<&super::super::types::SourceTableFeatureDetails> {
          self.source_table_feature_details.as_ref()
      }
  }
@@ -34,8 +34,8 @@
      /// Creates a new builder-style object to manufacture [`BackupDescription`](crate::types::BackupDescription).
 -    pub fn builder() -> crate::types::builders::BackupDescriptionBuilder {
 -        crate::types::builders::BackupDescriptionBuilder::default()
-+    pub fn builder() -> super::types::builders::BackupDescriptionBuilder {
-+        super::types::builders::BackupDescriptionBuilder::default()
++    pub fn builder() -> super::super::types::builders::BackupDescriptionBuilder {
++        super::super::types::builders::BackupDescriptionBuilder::default()
      }
  }
 
@@ -46,67 +46,67 @@
 -    pub(crate) backup_details: ::std::option::Option<crate::types::BackupDetails>,
 -    pub(crate) source_table_details: ::std::option::Option<crate::types::SourceTableDetails>,
 -    pub(crate) source_table_feature_details: ::std::option::Option<crate::types::SourceTableFeatureDetails>,
-+    pub(crate) backup_details: ::std::option::Option<super::types::BackupDetails>,
-+    pub(crate) source_table_details: ::std::option::Option<super::types::SourceTableDetails>,
-+    pub(crate) source_table_feature_details: ::std::option::Option<super::types::SourceTableFeatureDetails>,
++    pub(crate) backup_details: ::std::option::Option<super::super::types::BackupDetails>,
++    pub(crate) source_table_details: ::std::option::Option<super::super::types::SourceTableDetails>,
++    pub(crate) source_table_feature_details: ::std::option::Option<super::super::types::SourceTableFeatureDetails>,
  }
  impl BackupDescriptionBuilder {
      /// <p>Contains the details of the backup created for the table.</p>
 -    pub fn backup_details(mut self, input: crate::types::BackupDetails) -> Self {
-+    pub fn backup_details(mut self, input: super::types::BackupDetails) -> Self {
++    pub fn backup_details(mut self, input: super::super::types::BackupDetails) -> Self {
          self.backup_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains the details of the backup created for the table.</p>
 -    pub fn set_backup_details(mut self, input: ::std::option::Option<crate::types::BackupDetails>) -> Self {
-+    pub fn set_backup_details(mut self, input: ::std::option::Option<super::types::BackupDetails>) -> Self {
++    pub fn set_backup_details(mut self, input: ::std::option::Option<super::super::types::BackupDetails>) -> Self {
          self.backup_details = input;
          self
      }
      /// <p>Contains the details of the backup created for the table.</p>
 -    pub fn get_backup_details(&self) -> &::std::option::Option<crate::types::BackupDetails> {
-+    pub fn get_backup_details(&self) -> &::std::option::Option<super::types::BackupDetails> {
++    pub fn get_backup_details(&self) -> &::std::option::Option<super::super::types::BackupDetails> {
          &self.backup_details
      }
      /// <p>Contains the details of the table when the backup was created.</p>
 -    pub fn source_table_details(mut self, input: crate::types::SourceTableDetails) -> Self {
-+    pub fn source_table_details(mut self, input: super::types::SourceTableDetails) -> Self {
++    pub fn source_table_details(mut self, input: super::super::types::SourceTableDetails) -> Self {
          self.source_table_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains the details of the table when the backup was created.</p>
 -    pub fn set_source_table_details(mut self, input: ::std::option::Option<crate::types::SourceTableDetails>) -> Self {
-+    pub fn set_source_table_details(mut self, input: ::std::option::Option<super::types::SourceTableDetails>) -> Self {
++    pub fn set_source_table_details(mut self, input: ::std::option::Option<super::super::types::SourceTableDetails>) -> Self {
          self.source_table_details = input;
          self
      }
      /// <p>Contains the details of the table when the backup was created.</p>
 -    pub fn get_source_table_details(&self) -> &::std::option::Option<crate::types::SourceTableDetails> {
-+    pub fn get_source_table_details(&self) -> &::std::option::Option<super::types::SourceTableDetails> {
++    pub fn get_source_table_details(&self) -> &::std::option::Option<super::super::types::SourceTableDetails> {
          &self.source_table_details
      }
      /// <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.</p>
 -    pub fn source_table_feature_details(mut self, input: crate::types::SourceTableFeatureDetails) -> Self {
-+    pub fn source_table_feature_details(mut self, input: super::types::SourceTableFeatureDetails) -> Self {
++    pub fn source_table_feature_details(mut self, input: super::super::types::SourceTableFeatureDetails) -> Self {
          self.source_table_feature_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.</p>
 -    pub fn set_source_table_feature_details(mut self, input: ::std::option::Option<crate::types::SourceTableFeatureDetails>) -> Self {
-+    pub fn set_source_table_feature_details(mut self, input: ::std::option::Option<super::types::SourceTableFeatureDetails>) -> Self {
++    pub fn set_source_table_feature_details(mut self, input: ::std::option::Option<super::super::types::SourceTableFeatureDetails>) -> Self {
          self.source_table_feature_details = input;
          self
      }
      /// <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.</p>
 -    pub fn get_source_table_feature_details(&self) -> &::std::option::Option<crate::types::SourceTableFeatureDetails> {
-+    pub fn get_source_table_feature_details(&self) -> &::std::option::Option<super::types::SourceTableFeatureDetails> {
++    pub fn get_source_table_feature_details(&self) -> &::std::option::Option<super::super::types::SourceTableFeatureDetails> {
          &self.source_table_feature_details
      }
      /// Consumes the builder and constructs a [`BackupDescription`](crate::types::BackupDescription).
 -    pub fn build(self) -> crate::types::BackupDescription {
 -        crate::types::BackupDescription {
-+    pub fn build(self) -> super::types::BackupDescription {
-+        super::types::BackupDescription {
++    pub fn build(self) -> super::super::types::BackupDescription {
++        super::super::types::BackupDescription {
              backup_details: self.backup_details,
              source_table_details: self.source_table_details,
              source_table_feature_details: self.source_table_feature_details,

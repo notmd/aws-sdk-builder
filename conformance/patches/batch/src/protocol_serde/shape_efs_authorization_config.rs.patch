@@ -5,7 +5,7 @@
  pub fn ser_efs_authorization_config(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::EfsAuthorizationConfig,
-+    input: &super::types::EfsAuthorizationConfig,
++    input: &super::super::types::EfsAuthorizationConfig,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.access_point_id {
          object.key("accessPointId").string(var_1.as_str());
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::EfsAuthorizationConfig>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::EfsAuthorizationConfig>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::EfsAuthorizationConfig>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,7 +23,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::EfsAuthorizationConfigBuilder::default();
-+            let mut builder = super::types::builders::EfsAuthorizationConfigBuilder::default();
++            let mut builder = super::super::types::builders::EfsAuthorizationConfigBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -32,7 +32,7 @@
                              builder = builder.set_iam(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::EfsAuthorizationConfigIam::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::EfsAuthorizationConfigIam::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::EfsAuthorizationConfigIam::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }

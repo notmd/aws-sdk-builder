@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeExportInput`](crate::operation::describe_export::DescribeExportInput).
 -    pub fn builder() -> crate::operation::describe_export::builders::DescribeExportInputBuilder {
 -        crate::operation::describe_export::builders::DescribeExportInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_export::builders::DescribeExportInputBuilder {
-+        super::operation::describe_export::builders::DescribeExportInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_export::builders::DescribeExportInputBuilder {
++        super::super::super::operation::describe_export::builders::DescribeExportInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_export::DescribeExportInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::describe_export::DescribeExportInput { export_arn: self.export_arn })
-+    ) -> ::std::result::Result<super::operation::describe_export::DescribeExportInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::describe_export::DescribeExportInput { export_arn: self.export_arn })
++    ) -> ::std::result::Result<super::super::super::operation::describe_export::DescribeExportInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::describe_export::DescribeExportInput { export_arn: self.export_arn })
      }
  }

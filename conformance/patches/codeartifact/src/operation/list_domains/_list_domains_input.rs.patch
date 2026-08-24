@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListDomainsInput`](crate::operation::list_domains::ListDomainsInput).
 -    pub fn builder() -> crate::operation::list_domains::builders::ListDomainsInputBuilder {
 -        crate::operation::list_domains::builders::ListDomainsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_domains::builders::ListDomainsInputBuilder {
-+        super::operation::list_domains::builders::ListDomainsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_domains::builders::ListDomainsInputBuilder {
++        super::super::super::operation::list_domains::builders::ListDomainsInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ListDomainsInput`](crate::operation::list_domains::ListDomainsInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::list_domains::ListDomainsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_domains::ListDomainsInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::list_domains::ListDomainsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_domains::ListDomainsInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_domains::ListDomainsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_domains::ListDomainsInput {
              max_results: self.max_results,
              next_token: self.next_token,
          })

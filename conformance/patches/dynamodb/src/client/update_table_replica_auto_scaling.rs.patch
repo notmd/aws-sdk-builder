@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingFluentBuilder {
 -        crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingFluentBuilder {
-+        super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingFluentBuilder {
++        super::super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingFluentBuilder::new(self.handle.clone())
      }
  }

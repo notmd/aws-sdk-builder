@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ConverseStreamError>`](crate::operation::converse_stream::ConverseStreamError)
 -    pub fn converse_stream(&self) -> crate::operation::converse_stream::builders::ConverseStreamFluentBuilder {
 -        crate::operation::converse_stream::builders::ConverseStreamFluentBuilder::new(self.handle.clone())
-+    pub fn converse_stream(&self) -> super::operation::converse_stream::builders::ConverseStreamFluentBuilder {
-+        super::operation::converse_stream::builders::ConverseStreamFluentBuilder::new(self.handle.clone())
++    pub fn converse_stream(&self) -> super::super::operation::converse_stream::builders::ConverseStreamFluentBuilder {
++        super::super::operation::converse_stream::builders::ConverseStreamFluentBuilder::new(self.handle.clone())
      }
  }

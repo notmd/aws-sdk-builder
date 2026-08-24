@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetDeliveryDestinationInput`](crate::operation::get_delivery_destination::GetDeliveryDestinationInput).
 -    pub fn builder() -> crate::operation::get_delivery_destination::builders::GetDeliveryDestinationInputBuilder {
 -        crate::operation::get_delivery_destination::builders::GetDeliveryDestinationInputBuilder::default()
-+    pub fn builder() -> super::operation::get_delivery_destination::builders::GetDeliveryDestinationInputBuilder {
-+        super::operation::get_delivery_destination::builders::GetDeliveryDestinationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_delivery_destination::builders::GetDeliveryDestinationInputBuilder {
++        super::super::super::operation::get_delivery_destination::builders::GetDeliveryDestinationInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_delivery_destination::GetDeliveryDestinationInput,
-+        super::operation::get_delivery_destination::GetDeliveryDestinationInput,
++        super::super::super::operation::get_delivery_destination::GetDeliveryDestinationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_delivery_destination::GetDeliveryDestinationInput { name: self.name })
-+        ::std::result::Result::Ok(super::operation::get_delivery_destination::GetDeliveryDestinationInput { name: self.name })
++        ::std::result::Result::Ok(super::super::super::operation::get_delivery_destination::GetDeliveryDestinationInput { name: self.name })
      }
  }

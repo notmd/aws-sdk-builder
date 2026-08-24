@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ComplianceSummary>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ComplianceSummary>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ComplianceSummary>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::ComplianceSummaryBuilder::default();
-+            let mut builder = super::types::builders::ComplianceSummaryBuilder::default();
++            let mut builder = super::super::types::builders::ComplianceSummaryBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          "CompliantResourceCount" => {
                              builder = builder.set_compliant_resource_count(
 -                                crate::protocol_serde::shape_compliance_contributor_count::de_compliance_contributor_count(
-+                                super::protocol_serde::shape_compliance_contributor_count::de_compliance_contributor_count(
++                                super::super::protocol_serde::shape_compliance_contributor_count::de_compliance_contributor_count(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -32,7 +32,7 @@
                          "NonCompliantResourceCount" => {
                              builder = builder.set_non_compliant_resource_count(
 -                                crate::protocol_serde::shape_compliance_contributor_count::de_compliance_contributor_count(
-+                                super::protocol_serde::shape_compliance_contributor_count::de_compliance_contributor_count(
++                                super::super::protocol_serde::shape_compliance_contributor_count::de_compliance_contributor_count(
                                      tokens,
                                      _value,
                                      depth + 1,

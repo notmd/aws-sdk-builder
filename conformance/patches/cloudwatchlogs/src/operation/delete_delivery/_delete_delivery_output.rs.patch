@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteDeliveryOutput`](crate::operation::delete_delivery::DeleteDeliveryOutput).
 -    pub fn builder() -> crate::operation::delete_delivery::builders::DeleteDeliveryOutputBuilder {
 -        crate::operation::delete_delivery::builders::DeleteDeliveryOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_delivery::builders::DeleteDeliveryOutputBuilder {
-+        super::operation::delete_delivery::builders::DeleteDeliveryOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_delivery::builders::DeleteDeliveryOutputBuilder {
++        super::super::super::operation::delete_delivery::builders::DeleteDeliveryOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteDeliveryOutput`](crate::operation::delete_delivery::DeleteDeliveryOutput).
 -    pub fn build(self) -> crate::operation::delete_delivery::DeleteDeliveryOutput {
 -        crate::operation::delete_delivery::DeleteDeliveryOutput {
-+    pub fn build(self) -> super::operation::delete_delivery::DeleteDeliveryOutput {
-+        super::operation::delete_delivery::DeleteDeliveryOutput {
++    pub fn build(self) -> super::super::super::operation::delete_delivery::DeleteDeliveryOutput {
++        super::super::super::operation::delete_delivery::DeleteDeliveryOutput {
              _request_id: self._request_id,
          }
      }

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder {
 -        crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder {
-+        super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder {
++        super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`LicenseInfo`](crate::types::LicenseInfo).
 -    pub fn builder() -> crate::types::builders::LicenseInfoBuilder {
 -        crate::types::builders::LicenseInfoBuilder::default()
-+    pub fn builder() -> super::types::builders::LicenseInfoBuilder {
-+        super::types::builders::LicenseInfoBuilder::default()
++    pub fn builder() -> super::super::types::builders::LicenseInfoBuilder {
++        super::super::types::builders::LicenseInfoBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`LicenseInfo`](crate::types::LicenseInfo).
 -    pub fn build(self) -> crate::types::LicenseInfo {
 -        crate::types::LicenseInfo {
-+    pub fn build(self) -> super::types::LicenseInfo {
-+        super::types::LicenseInfo {
++    pub fn build(self) -> super::super::types::LicenseInfo {
++        super::super::types::LicenseInfo {
              name: self.name,
              url: self.url,
          }

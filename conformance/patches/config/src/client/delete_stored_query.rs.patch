@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteStoredQueryError>`](crate::operation::delete_stored_query::DeleteStoredQueryError)
 -    pub fn delete_stored_query(&self) -> crate::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder {
 -        crate::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder::new(self.handle.clone())
-+    pub fn delete_stored_query(&self) -> super::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder {
-+        super::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder::new(self.handle.clone())
++    pub fn delete_stored_query(&self) -> super::super::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder {
++        super::super::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder::new(self.handle.clone())
      }
  }

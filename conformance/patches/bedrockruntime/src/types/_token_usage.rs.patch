@@ -5,7 +5,7 @@
      pub cache_write_input_tokens: ::std::option::Option<i32>,
      /// <p>Detailed breakdown of cache writes by TTL. Empty if no cache creation occurred. Sorted by TTL duration (1h before 5m).</p>
 -    pub cache_details: ::std::option::Option<::std::vec::Vec<crate::types::CacheDetail>>,
-+    pub cache_details: ::std::option::Option<::std::vec::Vec<super::types::CacheDetail>>,
++    pub cache_details: ::std::option::Option<::std::vec::Vec<super::super::types::CacheDetail>>,
  }
  impl TokenUsage {
      /// <p>The number of tokens sent in the request to the model.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.cache_details.is_none()`.
 -    pub fn cache_details(&self) -> &[crate::types::CacheDetail] {
-+    pub fn cache_details(&self) -> &[super::types::CacheDetail] {
++    pub fn cache_details(&self) -> &[super::super::types::CacheDetail] {
          self.cache_details.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`TokenUsage`](crate::types::TokenUsage).
 -    pub fn builder() -> crate::types::builders::TokenUsageBuilder {
 -        crate::types::builders::TokenUsageBuilder::default()
-+    pub fn builder() -> super::types::builders::TokenUsageBuilder {
-+        super::types::builders::TokenUsageBuilder::default()
++    pub fn builder() -> super::super::types::builders::TokenUsageBuilder {
++        super::super::types::builders::TokenUsageBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) cache_read_input_tokens: ::std::option::Option<i32>,
      pub(crate) cache_write_input_tokens: ::std::option::Option<i32>,
 -    pub(crate) cache_details: ::std::option::Option<::std::vec::Vec<crate::types::CacheDetail>>,
-+    pub(crate) cache_details: ::std::option::Option<::std::vec::Vec<super::types::CacheDetail>>,
++    pub(crate) cache_details: ::std::option::Option<::std::vec::Vec<super::super::types::CacheDetail>>,
  }
  impl TokenUsageBuilder {
      /// <p>The number of tokens sent in the request to the model.</p>
@@ -41,7 +41,7 @@
      ///
      /// <p>Detailed breakdown of cache writes by TTL. Empty if no cache creation occurred. Sorted by TTL duration (1h before 5m).</p>
 -    pub fn cache_details(mut self, input: crate::types::CacheDetail) -> Self {
-+    pub fn cache_details(mut self, input: super::types::CacheDetail) -> Self {
++    pub fn cache_details(mut self, input: super::super::types::CacheDetail) -> Self {
          let mut v = self.cache_details.unwrap_or_default();
          v.push(input);
          self.cache_details = ::std::option::Option::Some(v);
@@ -50,13 +50,13 @@
      }
      /// <p>Detailed breakdown of cache writes by TTL. Empty if no cache creation occurred. Sorted by TTL duration (1h before 5m).</p>
 -    pub fn set_cache_details(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CacheDetail>>) -> Self {
-+    pub fn set_cache_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::CacheDetail>>) -> Self {
++    pub fn set_cache_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::CacheDetail>>) -> Self {
          self.cache_details = input;
          self
      }
      /// <p>Detailed breakdown of cache writes by TTL. Empty if no cache creation occurred. Sorted by TTL duration (1h before 5m).</p>
 -    pub fn get_cache_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CacheDetail>> {
-+    pub fn get_cache_details(&self) -> &::std::option::Option<::std::vec::Vec<super::types::CacheDetail>> {
++    pub fn get_cache_details(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::CacheDetail>> {
          &self.cache_details
      }
      /// Consumes the builder and constructs a [`TokenUsage`](crate::types::TokenUsage).
@@ -66,8 +66,8 @@
      /// - [`total_tokens`](crate::types::builders::TokenUsageBuilder::total_tokens)
 -    pub fn build(self) -> ::std::result::Result<crate::types::TokenUsage, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::TokenUsage {
-+    pub fn build(self) -> ::std::result::Result<super::types::TokenUsage, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::TokenUsage {
++    pub fn build(self) -> ::std::result::Result<super::super::types::TokenUsage, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::TokenUsage {
              input_tokens: self.input_tokens.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "input_tokens",

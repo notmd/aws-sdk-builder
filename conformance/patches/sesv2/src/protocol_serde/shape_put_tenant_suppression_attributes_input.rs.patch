@@ -5,7 +5,7 @@
  pub fn ser_put_tenant_suppression_attributes_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput,
-+    input: &super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput,
++    input: &super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.suppressed_reasons {
          let mut array_2 = object.key("SuppressedReasons").start_array();

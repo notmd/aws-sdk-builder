@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeKeyError>`](crate::operation::describe_key::DescribeKeyError)
 -    pub fn describe_key(&self) -> crate::operation::describe_key::builders::DescribeKeyFluentBuilder {
 -        crate::operation::describe_key::builders::DescribeKeyFluentBuilder::new(self.handle.clone())
-+    pub fn describe_key(&self) -> super::operation::describe_key::builders::DescribeKeyFluentBuilder {
-+        super::operation::describe_key::builders::DescribeKeyFluentBuilder::new(self.handle.clone())
++    pub fn describe_key(&self) -> super::super::operation::describe_key::builders::DescribeKeyFluentBuilder {
++        super::super::operation::describe_key::builders::DescribeKeyFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,7 +5,7 @@
      pub message_structure: ::std::option::Option<::std::string::String>,
      /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in the Amazon SNS Developer Guide.</p>
 -    pub message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
-+    pub message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::MessageAttributeValue>>,
++    pub message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>>,
      /// <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
      /// <ul>
      /// <li>
@@ -14,7 +14,7 @@
      pub fn message_attributes(
          &self,
 -    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> {
-+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::MessageAttributeValue>> {
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>> {
          self.message_attributes.as_ref()
      }
      /// <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`PublishBatchRequestEntry`](crate::types::PublishBatchRequestEntry).
 -    pub fn builder() -> crate::types::builders::PublishBatchRequestEntryBuilder {
 -        crate::types::builders::PublishBatchRequestEntryBuilder::default()
-+    pub fn builder() -> super::types::builders::PublishBatchRequestEntryBuilder {
-+        super::types::builders::PublishBatchRequestEntryBuilder::default()
++    pub fn builder() -> super::super::types::builders::PublishBatchRequestEntryBuilder {
++        super::super::types::builders::PublishBatchRequestEntryBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) subject: ::std::option::Option<::std::string::String>,
      pub(crate) message_structure: ::std::option::Option<::std::string::String>,
 -    pub(crate) message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
-+    pub(crate) message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::MessageAttributeValue>>,
++    pub(crate) message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>>,
      pub(crate) message_deduplication_id: ::std::option::Option<::std::string::String>,
      pub(crate) message_group_id: ::std::option::Option<::std::string::String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in the Amazon SNS Developer Guide.</p>
 -    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::MessageAttributeValue) -> Self {
-+    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::MessageAttributeValue) -> Self {
++    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::types::MessageAttributeValue) -> Self {
          let mut hash_map = self.message_attributes.unwrap_or_default();
          hash_map.insert(k.into(), v);
          self.message_attributes = ::std::option::Option::Some(hash_map);
@@ -52,7 +52,7 @@
      pub fn set_message_attributes(
          mut self,
 -        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
-+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::MessageAttributeValue>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>>,
      ) -> Self {
          self.message_attributes = input;
          self
@@ -61,7 +61,7 @@
      pub fn get_message_attributes(
          &self,
 -    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> {
-+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::MessageAttributeValue>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>> {
          &self.message_attributes
      }
      /// <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
@@ -71,8 +71,8 @@
      /// - [`message`](crate::types::builders::PublishBatchRequestEntryBuilder::message)
 -    pub fn build(self) -> ::std::result::Result<crate::types::PublishBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::PublishBatchRequestEntry {
-+    pub fn build(self) -> ::std::result::Result<super::types::PublishBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::PublishBatchRequestEntry {
++    pub fn build(self) -> ::std::result::Result<super::super::types::PublishBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::PublishBatchRequestEntry {
              id: self.id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "id",

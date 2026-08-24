@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteConfigRuleError>`](crate::operation::delete_config_rule::DeleteConfigRuleError)
 -    pub fn delete_config_rule(&self) -> crate::operation::delete_config_rule::builders::DeleteConfigRuleFluentBuilder {
 -        crate::operation::delete_config_rule::builders::DeleteConfigRuleFluentBuilder::new(self.handle.clone())
-+    pub fn delete_config_rule(&self) -> super::operation::delete_config_rule::builders::DeleteConfigRuleFluentBuilder {
-+        super::operation::delete_config_rule::builders::DeleteConfigRuleFluentBuilder::new(self.handle.clone())
++    pub fn delete_config_rule(&self) -> super::super::operation::delete_config_rule::builders::DeleteConfigRuleFluentBuilder {
++        super::super::operation::delete_config_rule::builders::DeleteConfigRuleFluentBuilder::new(self.handle.clone())
      }
  }

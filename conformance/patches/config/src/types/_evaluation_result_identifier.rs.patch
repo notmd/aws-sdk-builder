@@ -5,7 +5,7 @@
  pub struct EvaluationResultIdentifier {
      /// <p>Identifies an Config rule used to evaluate an Amazon Web Services resource, and provides the type and ID of the evaluated resource.</p>
 -    pub evaluation_result_qualifier: ::std::option::Option<crate::types::EvaluationResultQualifier>,
-+    pub evaluation_result_qualifier: ::std::option::Option<super::types::EvaluationResultQualifier>,
++    pub evaluation_result_qualifier: ::std::option::Option<super::super::types::EvaluationResultQualifier>,
      /// <p>The time of the event that triggered the evaluation of your Amazon Web Services resources. The time can indicate when Config delivered a configuration item change notification, or it can indicate when Config delivered the configuration snapshot, depending on which event triggered the evaluation.</p>
      pub ordering_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>A Unique ID for an evaluation result.</p>
@@ -14,7 +14,7 @@
  impl EvaluationResultIdentifier {
      /// <p>Identifies an Config rule used to evaluate an Amazon Web Services resource, and provides the type and ID of the evaluated resource.</p>
 -    pub fn evaluation_result_qualifier(&self) -> ::std::option::Option<&crate::types::EvaluationResultQualifier> {
-+    pub fn evaluation_result_qualifier(&self) -> ::std::option::Option<&super::types::EvaluationResultQualifier> {
++    pub fn evaluation_result_qualifier(&self) -> ::std::option::Option<&super::super::types::EvaluationResultQualifier> {
          self.evaluation_result_qualifier.as_ref()
      }
      /// <p>The time of the event that triggered the evaluation of your Amazon Web Services resources. The time can indicate when Config delivered a configuration item change notification, or it can indicate when Config delivered the configuration snapshot, depending on which event triggered the evaluation.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`EvaluationResultIdentifier`](crate::types::EvaluationResultIdentifier).
 -    pub fn builder() -> crate::types::builders::EvaluationResultIdentifierBuilder {
 -        crate::types::builders::EvaluationResultIdentifierBuilder::default()
-+    pub fn builder() -> super::types::builders::EvaluationResultIdentifierBuilder {
-+        super::types::builders::EvaluationResultIdentifierBuilder::default()
++    pub fn builder() -> super::super::types::builders::EvaluationResultIdentifierBuilder {
++        super::super::types::builders::EvaluationResultIdentifierBuilder::default()
      }
  }
 
@@ -34,26 +34,26 @@
  #[non_exhaustive]
  pub struct EvaluationResultIdentifierBuilder {
 -    pub(crate) evaluation_result_qualifier: ::std::option::Option<crate::types::EvaluationResultQualifier>,
-+    pub(crate) evaluation_result_qualifier: ::std::option::Option<super::types::EvaluationResultQualifier>,
++    pub(crate) evaluation_result_qualifier: ::std::option::Option<super::super::types::EvaluationResultQualifier>,
      pub(crate) ordering_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) resource_evaluation_id: ::std::option::Option<::std::string::String>,
  }
  impl EvaluationResultIdentifierBuilder {
      /// <p>Identifies an Config rule used to evaluate an Amazon Web Services resource, and provides the type and ID of the evaluated resource.</p>
 -    pub fn evaluation_result_qualifier(mut self, input: crate::types::EvaluationResultQualifier) -> Self {
-+    pub fn evaluation_result_qualifier(mut self, input: super::types::EvaluationResultQualifier) -> Self {
++    pub fn evaluation_result_qualifier(mut self, input: super::super::types::EvaluationResultQualifier) -> Self {
          self.evaluation_result_qualifier = ::std::option::Option::Some(input);
          self
      }
      /// <p>Identifies an Config rule used to evaluate an Amazon Web Services resource, and provides the type and ID of the evaluated resource.</p>
 -    pub fn set_evaluation_result_qualifier(mut self, input: ::std::option::Option<crate::types::EvaluationResultQualifier>) -> Self {
-+    pub fn set_evaluation_result_qualifier(mut self, input: ::std::option::Option<super::types::EvaluationResultQualifier>) -> Self {
++    pub fn set_evaluation_result_qualifier(mut self, input: ::std::option::Option<super::super::types::EvaluationResultQualifier>) -> Self {
          self.evaluation_result_qualifier = input;
          self
      }
      /// <p>Identifies an Config rule used to evaluate an Amazon Web Services resource, and provides the type and ID of the evaluated resource.</p>
 -    pub fn get_evaluation_result_qualifier(&self) -> &::std::option::Option<crate::types::EvaluationResultQualifier> {
-+    pub fn get_evaluation_result_qualifier(&self) -> &::std::option::Option<super::types::EvaluationResultQualifier> {
++    pub fn get_evaluation_result_qualifier(&self) -> &::std::option::Option<super::super::types::EvaluationResultQualifier> {
          &self.evaluation_result_qualifier
      }
      /// <p>The time of the event that triggered the evaluation of your Amazon Web Services resources. The time can indicate when Config delivered a configuration item change notification, or it can indicate when Config delivered the configuration snapshot, depending on which event triggered the evaluation.</p>
@@ -63,8 +63,8 @@
      /// Consumes the builder and constructs a [`EvaluationResultIdentifier`](crate::types::EvaluationResultIdentifier).
 -    pub fn build(self) -> crate::types::EvaluationResultIdentifier {
 -        crate::types::EvaluationResultIdentifier {
-+    pub fn build(self) -> super::types::EvaluationResultIdentifier {
-+        super::types::EvaluationResultIdentifier {
++    pub fn build(self) -> super::super::types::EvaluationResultIdentifier {
++        super::super::types::EvaluationResultIdentifier {
              evaluation_result_qualifier: self.evaluation_result_qualifier,
              ordering_timestamp: self.ordering_timestamp,
              resource_evaluation_id: self.resource_evaluation_id,

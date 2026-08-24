@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for EfsMountFailureException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::EfsMountFailureException {
-+impl ::aws_types::request_id::RequestId for super::types::error::EfsMountFailureException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::EfsMountFailureException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`EfsMountFailureException`](crate::types::error::EfsMountFailureException).
 -    pub fn builder() -> crate::types::error::builders::EfsMountFailureExceptionBuilder {
 -        crate::types::error::builders::EfsMountFailureExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::EfsMountFailureExceptionBuilder {
-+        super::types::error::builders::EfsMountFailureExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::EfsMountFailureExceptionBuilder {
++        super::super::super::types::error::builders::EfsMountFailureExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`EfsMountFailureException`](crate::types::error::EfsMountFailureException).
 -    pub fn build(self) -> crate::types::error::EfsMountFailureException {
 -        crate::types::error::EfsMountFailureException {
-+    pub fn build(self) -> super::types::error::EfsMountFailureException {
-+        super::types::error::EfsMountFailureException {
++    pub fn build(self) -> super::super::super::types::error::EfsMountFailureException {
++        super::super::super::types::error::EfsMountFailureException {
              r#type: self.r#type,
              message: self.message,
              meta: self.meta.unwrap_or_default(),

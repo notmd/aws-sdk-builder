@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteContactListOutput`](crate::operation::delete_contact_list::DeleteContactListOutput).
 -    pub fn builder() -> crate::operation::delete_contact_list::builders::DeleteContactListOutputBuilder {
 -        crate::operation::delete_contact_list::builders::DeleteContactListOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_contact_list::builders::DeleteContactListOutputBuilder {
-+        super::operation::delete_contact_list::builders::DeleteContactListOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_contact_list::builders::DeleteContactListOutputBuilder {
++        super::super::super::operation::delete_contact_list::builders::DeleteContactListOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteContactListOutput`](crate::operation::delete_contact_list::DeleteContactListOutput).
 -    pub fn build(self) -> crate::operation::delete_contact_list::DeleteContactListOutput {
 -        crate::operation::delete_contact_list::DeleteContactListOutput {
-+    pub fn build(self) -> super::operation::delete_contact_list::DeleteContactListOutput {
-+        super::operation::delete_contact_list::DeleteContactListOutput {
++    pub fn build(self) -> super::super::super::operation::delete_contact_list::DeleteContactListOutput {
++        super::super::super::operation::delete_contact_list::DeleteContactListOutput {
              _request_id: self._request_id,
          }
      }

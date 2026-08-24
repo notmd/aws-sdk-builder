@@ -5,7 +5,7 @@
  pub fn ser_config_snapshot_delivery_properties(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ConfigSnapshotDeliveryProperties,
-+    input: &super::types::ConfigSnapshotDeliveryProperties,
++    input: &super::super::types::ConfigSnapshotDeliveryProperties,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.delivery_frequency {
          object.key("deliveryFrequency").string(var_1.as_str());
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ConfigSnapshotDeliveryProperties>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ConfigSnapshotDeliveryProperties>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ConfigSnapshotDeliveryProperties>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,7 +23,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::ConfigSnapshotDeliveryPropertiesBuilder::default();
-+            let mut builder = super::types::builders::ConfigSnapshotDeliveryPropertiesBuilder::default();
++            let mut builder = super::super::types::builders::ConfigSnapshotDeliveryPropertiesBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -32,7 +32,7 @@
                              builder = builder.set_delivery_frequency(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::MaximumExecutionFrequency::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::MaximumExecutionFrequency::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::MaximumExecutionFrequency::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }

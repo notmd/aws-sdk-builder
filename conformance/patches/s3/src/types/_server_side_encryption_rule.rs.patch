@@ -5,7 +5,7 @@
  pub struct ServerSideEncryptionRule {
      /// <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
 -    pub apply_server_side_encryption_by_default: ::std::option::Option<crate::types::ServerSideEncryptionByDefault>,
-+    pub apply_server_side_encryption_by_default: ::std::option::Option<super::types::ServerSideEncryptionByDefault>,
++    pub apply_server_side_encryption_by_default: ::std::option::Option<super::super::types::ServerSideEncryptionByDefault>,
      /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the <code>BucketKeyEnabled</code> element to <code>true</code> causes Amazon S3 to use an S3 Bucket Key.</p><note>
      /// <ul>
      /// <li>
@@ -14,12 +14,12 @@
      /// <p>Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
      /// </note>
 -    pub blocked_encryption_types: ::std::option::Option<crate::types::BlockedEncryptionTypes>,
-+    pub blocked_encryption_types: ::std::option::Option<super::types::BlockedEncryptionTypes>,
++    pub blocked_encryption_types: ::std::option::Option<super::super::types::BlockedEncryptionTypes>,
  }
  impl ServerSideEncryptionRule {
      /// <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
 -    pub fn apply_server_side_encryption_by_default(&self) -> ::std::option::Option<&crate::types::ServerSideEncryptionByDefault> {
-+    pub fn apply_server_side_encryption_by_default(&self) -> ::std::option::Option<&super::types::ServerSideEncryptionByDefault> {
++    pub fn apply_server_side_encryption_by_default(&self) -> ::std::option::Option<&super::super::types::ServerSideEncryptionByDefault> {
          self.apply_server_side_encryption_by_default.as_ref()
      }
      /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the <code>BucketKeyEnabled</code> element to <code>true</code> causes Amazon S3 to use an S3 Bucket Key.</p><note>
@@ -28,7 +28,7 @@
      /// <p>Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
      /// </note>
 -    pub fn blocked_encryption_types(&self) -> ::std::option::Option<&crate::types::BlockedEncryptionTypes> {
-+    pub fn blocked_encryption_types(&self) -> ::std::option::Option<&super::types::BlockedEncryptionTypes> {
++    pub fn blocked_encryption_types(&self) -> ::std::option::Option<&super::super::types::BlockedEncryptionTypes> {
          self.blocked_encryption_types.as_ref()
      }
  }
@@ -36,8 +36,8 @@
      /// Creates a new builder-style object to manufacture [`ServerSideEncryptionRule`](crate::types::ServerSideEncryptionRule).
 -    pub fn builder() -> crate::types::builders::ServerSideEncryptionRuleBuilder {
 -        crate::types::builders::ServerSideEncryptionRuleBuilder::default()
-+    pub fn builder() -> super::types::builders::ServerSideEncryptionRuleBuilder {
-+        super::types::builders::ServerSideEncryptionRuleBuilder::default()
++    pub fn builder() -> super::super::types::builders::ServerSideEncryptionRuleBuilder {
++        super::super::types::builders::ServerSideEncryptionRuleBuilder::default()
      }
  }
 
@@ -46,27 +46,27 @@
  #[non_exhaustive]
  pub struct ServerSideEncryptionRuleBuilder {
 -    pub(crate) apply_server_side_encryption_by_default: ::std::option::Option<crate::types::ServerSideEncryptionByDefault>,
-+    pub(crate) apply_server_side_encryption_by_default: ::std::option::Option<super::types::ServerSideEncryptionByDefault>,
++    pub(crate) apply_server_side_encryption_by_default: ::std::option::Option<super::super::types::ServerSideEncryptionByDefault>,
      pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
 -    pub(crate) blocked_encryption_types: ::std::option::Option<crate::types::BlockedEncryptionTypes>,
-+    pub(crate) blocked_encryption_types: ::std::option::Option<super::types::BlockedEncryptionTypes>,
++    pub(crate) blocked_encryption_types: ::std::option::Option<super::super::types::BlockedEncryptionTypes>,
  }
  impl ServerSideEncryptionRuleBuilder {
      /// <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
 -    pub fn apply_server_side_encryption_by_default(mut self, input: crate::types::ServerSideEncryptionByDefault) -> Self {
-+    pub fn apply_server_side_encryption_by_default(mut self, input: super::types::ServerSideEncryptionByDefault) -> Self {
++    pub fn apply_server_side_encryption_by_default(mut self, input: super::super::types::ServerSideEncryptionByDefault) -> Self {
          self.apply_server_side_encryption_by_default = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
 -    pub fn set_apply_server_side_encryption_by_default(mut self, input: ::std::option::Option<crate::types::ServerSideEncryptionByDefault>) -> Self {
-+    pub fn set_apply_server_side_encryption_by_default(mut self, input: ::std::option::Option<super::types::ServerSideEncryptionByDefault>) -> Self {
++    pub fn set_apply_server_side_encryption_by_default(mut self, input: ::std::option::Option<super::super::types::ServerSideEncryptionByDefault>) -> Self {
          self.apply_server_side_encryption_by_default = input;
          self
      }
      /// <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
 -    pub fn get_apply_server_side_encryption_by_default(&self) -> &::std::option::Option<crate::types::ServerSideEncryptionByDefault> {
-+    pub fn get_apply_server_side_encryption_by_default(&self) -> &::std::option::Option<super::types::ServerSideEncryptionByDefault> {
++    pub fn get_apply_server_side_encryption_by_default(&self) -> &::std::option::Option<super::super::types::ServerSideEncryptionByDefault> {
          &self.apply_server_side_encryption_by_default
      }
      /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the <code>BucketKeyEnabled</code> element to <code>true</code> causes Amazon S3 to use an S3 Bucket Key.</p><note>
@@ -75,7 +75,7 @@
      /// <p>Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
      /// </note>
 -    pub fn blocked_encryption_types(mut self, input: crate::types::BlockedEncryptionTypes) -> Self {
-+    pub fn blocked_encryption_types(mut self, input: super::types::BlockedEncryptionTypes) -> Self {
++    pub fn blocked_encryption_types(mut self, input: super::super::types::BlockedEncryptionTypes) -> Self {
          self.blocked_encryption_types = ::std::option::Option::Some(input);
          self
      }
@@ -84,7 +84,7 @@
      /// <p>Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
      /// </note>
 -    pub fn set_blocked_encryption_types(mut self, input: ::std::option::Option<crate::types::BlockedEncryptionTypes>) -> Self {
-+    pub fn set_blocked_encryption_types(mut self, input: ::std::option::Option<super::types::BlockedEncryptionTypes>) -> Self {
++    pub fn set_blocked_encryption_types(mut self, input: ::std::option::Option<super::super::types::BlockedEncryptionTypes>) -> Self {
          self.blocked_encryption_types = input;
          self
      }
@@ -93,14 +93,14 @@
      /// <p>Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
      /// </note>
 -    pub fn get_blocked_encryption_types(&self) -> &::std::option::Option<crate::types::BlockedEncryptionTypes> {
-+    pub fn get_blocked_encryption_types(&self) -> &::std::option::Option<super::types::BlockedEncryptionTypes> {
++    pub fn get_blocked_encryption_types(&self) -> &::std::option::Option<super::super::types::BlockedEncryptionTypes> {
          &self.blocked_encryption_types
      }
      /// Consumes the builder and constructs a [`ServerSideEncryptionRule`](crate::types::ServerSideEncryptionRule).
 -    pub fn build(self) -> crate::types::ServerSideEncryptionRule {
 -        crate::types::ServerSideEncryptionRule {
-+    pub fn build(self) -> super::types::ServerSideEncryptionRule {
-+        super::types::ServerSideEncryptionRule {
++    pub fn build(self) -> super::super::types::ServerSideEncryptionRule {
++        super::super::types::ServerSideEncryptionRule {
              apply_server_side_encryption_by_default: self.apply_server_side_encryption_by_default,
              bucket_key_enabled: self.bucket_key_enabled,
              blocked_encryption_types: self.blocked_encryption_types,

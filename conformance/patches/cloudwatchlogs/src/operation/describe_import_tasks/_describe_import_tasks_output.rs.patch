@@ -5,7 +5,7 @@
  pub struct DescribeImportTasksOutput {
      /// <p>The list of import tasks that match the request filters.</p>
 -    pub imports: ::std::option::Option<::std::vec::Vec<crate::types::Import>>,
-+    pub imports: ::std::option::Option<::std::vec::Vec<super::types::Import>>,
++    pub imports: ::std::option::Option<::std::vec::Vec<super::super::super::types::Import>>,
      /// <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.imports.is_none()`.
 -    pub fn imports(&self) -> &[crate::types::Import] {
-+    pub fn imports(&self) -> &[super::types::Import] {
++    pub fn imports(&self) -> &[super::super::super::types::Import] {
          self.imports.as_deref().unwrap_or_default()
      }
      /// <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeImportTasksOutput`](crate::operation::describe_import_tasks::DescribeImportTasksOutput).
 -    pub fn builder() -> crate::operation::describe_import_tasks::builders::DescribeImportTasksOutputBuilder {
 -        crate::operation::describe_import_tasks::builders::DescribeImportTasksOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_import_tasks::builders::DescribeImportTasksOutputBuilder {
-+        super::operation::describe_import_tasks::builders::DescribeImportTasksOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_import_tasks::builders::DescribeImportTasksOutputBuilder {
++        super::super::super::operation::describe_import_tasks::builders::DescribeImportTasksOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeImportTasksOutputBuilder {
 -    pub(crate) imports: ::std::option::Option<::std::vec::Vec<crate::types::Import>>,
-+    pub(crate) imports: ::std::option::Option<::std::vec::Vec<super::types::Import>>,
++    pub(crate) imports: ::std::option::Option<::std::vec::Vec<super::super::super::types::Import>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The list of import tasks that match the request filters.</p>
 -    pub fn imports(mut self, input: crate::types::Import) -> Self {
-+    pub fn imports(mut self, input: super::types::Import) -> Self {
++    pub fn imports(mut self, input: super::super::super::types::Import) -> Self {
          let mut v = self.imports.unwrap_or_default();
          v.push(input);
          self.imports = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The list of import tasks that match the request filters.</p>
 -    pub fn set_imports(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Import>>) -> Self {
-+    pub fn set_imports(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Import>>) -> Self {
++    pub fn set_imports(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Import>>) -> Self {
          self.imports = input;
          self
      }
      /// <p>The list of import tasks that match the request filters.</p>
 -    pub fn get_imports(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Import>> {
-+    pub fn get_imports(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Import>> {
++    pub fn get_imports(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Import>> {
          &self.imports
      }
      /// <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeImportTasksOutput`](crate::operation::describe_import_tasks::DescribeImportTasksOutput).
 -    pub fn build(self) -> crate::operation::describe_import_tasks::DescribeImportTasksOutput {
 -        crate::operation::describe_import_tasks::DescribeImportTasksOutput {
-+    pub fn build(self) -> super::operation::describe_import_tasks::DescribeImportTasksOutput {
-+        super::operation::describe_import_tasks::DescribeImportTasksOutput {
++    pub fn build(self) -> super::super::super::operation::describe_import_tasks::DescribeImportTasksOutput {
++        super::super::super::operation::describe_import_tasks::DescribeImportTasksOutput {
              imports: self.imports,
              next_token: self.next_token,
              _request_id: self._request_id,

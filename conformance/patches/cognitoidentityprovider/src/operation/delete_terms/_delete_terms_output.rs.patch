@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteTermsOutput`](crate::operation::delete_terms::DeleteTermsOutput).
 -    pub fn builder() -> crate::operation::delete_terms::builders::DeleteTermsOutputBuilder {
 -        crate::operation::delete_terms::builders::DeleteTermsOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_terms::builders::DeleteTermsOutputBuilder {
-+        super::operation::delete_terms::builders::DeleteTermsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_terms::builders::DeleteTermsOutputBuilder {
++        super::super::super::operation::delete_terms::builders::DeleteTermsOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteTermsOutput`](crate::operation::delete_terms::DeleteTermsOutput).
 -    pub fn build(self) -> crate::operation::delete_terms::DeleteTermsOutput {
 -        crate::operation::delete_terms::DeleteTermsOutput {
-+    pub fn build(self) -> super::operation::delete_terms::DeleteTermsOutput {
-+        super::operation::delete_terms::DeleteTermsOutput {
++    pub fn build(self) -> super::super::super::operation::delete_terms::DeleteTermsOutput {
++        super::super::super::operation::delete_terms::DeleteTermsOutput {
              _request_id: self._request_id,
          }
      }

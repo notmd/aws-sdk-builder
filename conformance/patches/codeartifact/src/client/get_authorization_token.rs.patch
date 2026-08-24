@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetAuthorizationTokenError>`](crate::operation::get_authorization_token::GetAuthorizationTokenError)
 -    pub fn get_authorization_token(&self) -> crate::operation::get_authorization_token::builders::GetAuthorizationTokenFluentBuilder {
 -        crate::operation::get_authorization_token::builders::GetAuthorizationTokenFluentBuilder::new(self.handle.clone())
-+    pub fn get_authorization_token(&self) -> super::operation::get_authorization_token::builders::GetAuthorizationTokenFluentBuilder {
-+        super::operation::get_authorization_token::builders::GetAuthorizationTokenFluentBuilder::new(self.handle.clone())
++    pub fn get_authorization_token(&self) -> super::super::operation::get_authorization_token::builders::GetAuthorizationTokenFluentBuilder {
++        super::super::operation::get_authorization_token::builders::GetAuthorizationTokenFluentBuilder::new(self.handle.clone())
      }
  }

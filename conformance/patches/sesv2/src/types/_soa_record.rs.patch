@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SoaRecord`](crate::types::SoaRecord).
 -    pub fn builder() -> crate::types::builders::SoaRecordBuilder {
 -        crate::types::builders::SoaRecordBuilder::default()
-+    pub fn builder() -> super::types::builders::SoaRecordBuilder {
-+        super::types::builders::SoaRecordBuilder::default()
++    pub fn builder() -> super::super::types::builders::SoaRecordBuilder {
++        super::super::types::builders::SoaRecordBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`SoaRecord`](crate::types::SoaRecord).
 -    pub fn build(self) -> crate::types::SoaRecord {
 -        crate::types::SoaRecord {
-+    pub fn build(self) -> super::types::SoaRecord {
-+        super::types::SoaRecord {
++    pub fn build(self) -> super::super::types::SoaRecord {
++        super::super::types::SoaRecord {
              primary_name_server: self.primary_name_server,
              admin_email: self.admin_email,
              serial_number: self.serial_number.unwrap_or_default(),

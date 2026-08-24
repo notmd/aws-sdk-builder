@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Stats`](crate::types::Stats).
 -    pub fn builder() -> crate::types::builders::StatsBuilder {
 -        crate::types::builders::StatsBuilder::default()
-+    pub fn builder() -> super::types::builders::StatsBuilder {
-+        super::types::builders::StatsBuilder::default()
++    pub fn builder() -> super::super::types::builders::StatsBuilder {
++        super::super::types::builders::StatsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Stats`](crate::types::Stats).
 -    pub fn build(self) -> crate::types::Stats {
 -        crate::types::Stats {
-+    pub fn build(self) -> super::types::Stats {
-+        super::types::Stats {
++    pub fn build(self) -> super::super::types::Stats {
++        super::super::types::Stats {
              bytes_scanned: self.bytes_scanned,
              bytes_processed: self.bytes_processed,
              bytes_returned: self.bytes_returned,

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder {
 -        crate::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder {
-+        super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder {
++        super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
      }
  }

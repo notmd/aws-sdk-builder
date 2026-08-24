@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ArrayPropertiesDetail`](crate::types::ArrayPropertiesDetail).
 -    pub fn builder() -> crate::types::builders::ArrayPropertiesDetailBuilder {
 -        crate::types::builders::ArrayPropertiesDetailBuilder::default()
-+    pub fn builder() -> super::types::builders::ArrayPropertiesDetailBuilder {
-+        super::types::builders::ArrayPropertiesDetailBuilder::default()
++    pub fn builder() -> super::super::types::builders::ArrayPropertiesDetailBuilder {
++        super::super::types::builders::ArrayPropertiesDetailBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ArrayPropertiesDetail`](crate::types::ArrayPropertiesDetail).
 -    pub fn build(self) -> crate::types::ArrayPropertiesDetail {
 -        crate::types::ArrayPropertiesDetail {
-+    pub fn build(self) -> super::types::ArrayPropertiesDetail {
-+        super::types::ArrayPropertiesDetail {
++    pub fn build(self) -> super::super::types::ArrayPropertiesDetail {
++        super::super::types::ArrayPropertiesDetail {
              status_summary: self.status_summary,
              status_summary_last_updated_at: self.status_summary_last_updated_at,
              size: self.size,

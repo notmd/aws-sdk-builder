@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CustomVerificationEmailTemplateMetadata`](crate::types::CustomVerificationEmailTemplateMetadata).
 -    pub fn builder() -> crate::types::builders::CustomVerificationEmailTemplateMetadataBuilder {
 -        crate::types::builders::CustomVerificationEmailTemplateMetadataBuilder::default()
-+    pub fn builder() -> super::types::builders::CustomVerificationEmailTemplateMetadataBuilder {
-+        super::types::builders::CustomVerificationEmailTemplateMetadataBuilder::default()
++    pub fn builder() -> super::super::types::builders::CustomVerificationEmailTemplateMetadataBuilder {
++        super::super::types::builders::CustomVerificationEmailTemplateMetadataBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CustomVerificationEmailTemplateMetadata`](crate::types::CustomVerificationEmailTemplateMetadata).
 -    pub fn build(self) -> crate::types::CustomVerificationEmailTemplateMetadata {
 -        crate::types::CustomVerificationEmailTemplateMetadata {
-+    pub fn build(self) -> super::types::CustomVerificationEmailTemplateMetadata {
-+        super::types::CustomVerificationEmailTemplateMetadata {
++    pub fn build(self) -> super::super::types::CustomVerificationEmailTemplateMetadata {
++        super::super::types::CustomVerificationEmailTemplateMetadata {
              template_name: self.template_name,
              from_email_address: self.from_email_address,
              template_subject: self.template_subject,

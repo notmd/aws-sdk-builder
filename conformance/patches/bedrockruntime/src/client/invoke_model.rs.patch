@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<InvokeModelError>`](crate::operation::invoke_model::InvokeModelError)
 -    pub fn invoke_model(&self) -> crate::operation::invoke_model::builders::InvokeModelFluentBuilder {
 -        crate::operation::invoke_model::builders::InvokeModelFluentBuilder::new(self.handle.clone())
-+    pub fn invoke_model(&self) -> super::operation::invoke_model::builders::InvokeModelFluentBuilder {
-+        super::operation::invoke_model::builders::InvokeModelFluentBuilder::new(self.handle.clone())
++    pub fn invoke_model(&self) -> super::super::operation::invoke_model::builders::InvokeModelFluentBuilder {
++        super::super::operation::invoke_model::builders::InvokeModelFluentBuilder::new(self.handle.clone())
      }
  }

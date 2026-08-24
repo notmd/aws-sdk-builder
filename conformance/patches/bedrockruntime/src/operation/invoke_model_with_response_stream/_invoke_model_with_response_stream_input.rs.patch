@@ -5,7 +5,7 @@
      pub model_id: ::std::option::Option<::std::string::String>,
      /// <p>Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.</p>
 -    pub trace: ::std::option::Option<crate::types::Trace>,
-+    pub trace: ::std::option::Option<super::types::Trace>,
++    pub trace: ::std::option::Option<super::super::super::types::Trace>,
      /// <p>The unique identifier of the guardrail that you want to use. If you don't provide a value, no guardrail is applied to the invocation.</p>
      /// <p>An error is thrown in the following situations.</p>
      /// <ul>
@@ -14,10 +14,10 @@
      pub guardrail_version: ::std::option::Option<::std::string::String>,
      /// <p>Model performance settings for the request.</p>
 -    pub performance_config_latency: ::std::option::Option<crate::types::PerformanceConfigLatency>,
-+    pub performance_config_latency: ::std::option::Option<super::types::PerformanceConfigLatency>,
++    pub performance_config_latency: ::std::option::Option<super::super::super::types::PerformanceConfigLatency>,
      /// <p>Specifies the processing tier type used for serving the request.</p>
 -    pub service_tier: ::std::option::Option<crate::types::ServiceTierType>,
-+    pub service_tier: ::std::option::Option<super::types::ServiceTierType>,
++    pub service_tier: ::std::option::Option<super::super::super::types::ServiceTierType>,
      /// <p>Key-value pairs that you can use to filter invocation logs.</p>
      pub request_metadata: ::std::option::Option<::std::string::String>,
  }
@@ -26,7 +26,7 @@
      }
      /// <p>Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.</p>
 -    pub fn trace(&self) -> ::std::option::Option<&crate::types::Trace> {
-+    pub fn trace(&self) -> ::std::option::Option<&super::types::Trace> {
++    pub fn trace(&self) -> ::std::option::Option<&super::super::super::types::Trace> {
          self.trace.as_ref()
      }
      /// <p>The unique identifier of the guardrail that you want to use. If you don't provide a value, no guardrail is applied to the invocation.</p>
@@ -35,12 +35,12 @@
      }
      /// <p>Model performance settings for the request.</p>
 -    pub fn performance_config_latency(&self) -> ::std::option::Option<&crate::types::PerformanceConfigLatency> {
-+    pub fn performance_config_latency(&self) -> ::std::option::Option<&super::types::PerformanceConfigLatency> {
++    pub fn performance_config_latency(&self) -> ::std::option::Option<&super::super::super::types::PerformanceConfigLatency> {
          self.performance_config_latency.as_ref()
      }
      /// <p>Specifies the processing tier type used for serving the request.</p>
 -    pub fn service_tier(&self) -> ::std::option::Option<&crate::types::ServiceTierType> {
-+    pub fn service_tier(&self) -> ::std::option::Option<&super::types::ServiceTierType> {
++    pub fn service_tier(&self) -> ::std::option::Option<&super::super::super::types::ServiceTierType> {
          self.service_tier.as_ref()
      }
      /// <p>Key-value pairs that you can use to filter invocation logs.</p>
@@ -50,8 +50,8 @@
      /// Creates a new builder-style object to manufacture [`InvokeModelWithResponseStreamInput`](crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput).
 -    pub fn builder() -> crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamInputBuilder {
 -        crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamInputBuilder::default()
-+    pub fn builder() -> super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamInputBuilder {
-+        super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamInputBuilder {
++        super::super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamInputBuilder::default()
      }
  }
 
@@ -60,13 +60,13 @@
      pub(crate) accept: ::std::option::Option<::std::string::String>,
      pub(crate) model_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) trace: ::std::option::Option<crate::types::Trace>,
-+    pub(crate) trace: ::std::option::Option<super::types::Trace>,
++    pub(crate) trace: ::std::option::Option<super::super::super::types::Trace>,
      pub(crate) guardrail_identifier: ::std::option::Option<::std::string::String>,
      pub(crate) guardrail_version: ::std::option::Option<::std::string::String>,
 -    pub(crate) performance_config_latency: ::std::option::Option<crate::types::PerformanceConfigLatency>,
 -    pub(crate) service_tier: ::std::option::Option<crate::types::ServiceTierType>,
-+    pub(crate) performance_config_latency: ::std::option::Option<super::types::PerformanceConfigLatency>,
-+    pub(crate) service_tier: ::std::option::Option<super::types::ServiceTierType>,
++    pub(crate) performance_config_latency: ::std::option::Option<super::super::super::types::PerformanceConfigLatency>,
++    pub(crate) service_tier: ::std::option::Option<super::super::super::types::ServiceTierType>,
      pub(crate) request_metadata: ::std::option::Option<::std::string::String>,
  }
  impl InvokeModelWithResponseStreamInputBuilder {
@@ -75,19 +75,19 @@
      }
      /// <p>Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.</p>
 -    pub fn trace(mut self, input: crate::types::Trace) -> Self {
-+    pub fn trace(mut self, input: super::types::Trace) -> Self {
++    pub fn trace(mut self, input: super::super::super::types::Trace) -> Self {
          self.trace = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.</p>
 -    pub fn set_trace(mut self, input: ::std::option::Option<crate::types::Trace>) -> Self {
-+    pub fn set_trace(mut self, input: ::std::option::Option<super::types::Trace>) -> Self {
++    pub fn set_trace(mut self, input: ::std::option::Option<super::super::super::types::Trace>) -> Self {
          self.trace = input;
          self
      }
      /// <p>Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.</p>
 -    pub fn get_trace(&self) -> &::std::option::Option<crate::types::Trace> {
-+    pub fn get_trace(&self) -> &::std::option::Option<super::types::Trace> {
++    pub fn get_trace(&self) -> &::std::option::Option<super::super::super::types::Trace> {
          &self.trace
      }
      /// <p>The unique identifier of the guardrail that you want to use. If you don't provide a value, no guardrail is applied to the invocation.</p>
@@ -96,36 +96,36 @@
      }
      /// <p>Model performance settings for the request.</p>
 -    pub fn performance_config_latency(mut self, input: crate::types::PerformanceConfigLatency) -> Self {
-+    pub fn performance_config_latency(mut self, input: super::types::PerformanceConfigLatency) -> Self {
++    pub fn performance_config_latency(mut self, input: super::super::super::types::PerformanceConfigLatency) -> Self {
          self.performance_config_latency = ::std::option::Option::Some(input);
          self
      }
      /// <p>Model performance settings for the request.</p>
 -    pub fn set_performance_config_latency(mut self, input: ::std::option::Option<crate::types::PerformanceConfigLatency>) -> Self {
-+    pub fn set_performance_config_latency(mut self, input: ::std::option::Option<super::types::PerformanceConfigLatency>) -> Self {
++    pub fn set_performance_config_latency(mut self, input: ::std::option::Option<super::super::super::types::PerformanceConfigLatency>) -> Self {
          self.performance_config_latency = input;
          self
      }
      /// <p>Model performance settings for the request.</p>
 -    pub fn get_performance_config_latency(&self) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
-+    pub fn get_performance_config_latency(&self) -> &::std::option::Option<super::types::PerformanceConfigLatency> {
++    pub fn get_performance_config_latency(&self) -> &::std::option::Option<super::super::super::types::PerformanceConfigLatency> {
          &self.performance_config_latency
      }
      /// <p>Specifies the processing tier type used for serving the request.</p>
 -    pub fn service_tier(mut self, input: crate::types::ServiceTierType) -> Self {
-+    pub fn service_tier(mut self, input: super::types::ServiceTierType) -> Self {
++    pub fn service_tier(mut self, input: super::super::super::types::ServiceTierType) -> Self {
          self.service_tier = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies the processing tier type used for serving the request.</p>
 -    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTierType>) -> Self {
-+    pub fn set_service_tier(mut self, input: ::std::option::Option<super::types::ServiceTierType>) -> Self {
++    pub fn set_service_tier(mut self, input: ::std::option::Option<super::super::super::types::ServiceTierType>) -> Self {
          self.service_tier = input;
          self
      }
      /// <p>Specifies the processing tier type used for serving the request.</p>
 -    pub fn get_service_tier(&self) -> &::std::option::Option<crate::types::ServiceTierType> {
-+    pub fn get_service_tier(&self) -> &::std::option::Option<super::types::ServiceTierType> {
++    pub fn get_service_tier(&self) -> &::std::option::Option<super::super::super::types::ServiceTierType> {
          &self.service_tier
      }
      /// <p>Key-value pairs that you can use to filter invocation logs.</p>
@@ -134,11 +134,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
-+        super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
++        super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput {
-+        ::std::result::Result::Ok(super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput {
++        ::std::result::Result::Ok(super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput {
              body: self.body,
              content_type: self.content_type,
              accept: self.accept,

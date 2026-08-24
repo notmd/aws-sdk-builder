@@ -5,20 +5,20 @@
  pub fn ser_vdm_options(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::VdmOptions,
-+    input: &super::types::VdmOptions,
++    input: &super::super::types::VdmOptions,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.dashboard_options {
          #[allow(unused_mut)]
          let mut object_2 = object.key("DashboardOptions").start_object();
 -        crate::protocol_serde::shape_dashboard_options::ser_dashboard_options(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_dashboard_options::ser_dashboard_options(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_dashboard_options::ser_dashboard_options(&mut object_2, var_1)?;
          object_2.finish();
      }
      if let Some(var_3) = &input.guardian_options {
          #[allow(unused_mut)]
          let mut object_4 = object.key("GuardianOptions").start_object();
 -        crate::protocol_serde::shape_guardian_options::ser_guardian_options(&mut object_4, var_3)?;
-+        super::protocol_serde::shape_guardian_options::ser_guardian_options(&mut object_4, var_3)?;
++        super::super::protocol_serde::shape_guardian_options::ser_guardian_options(&mut object_4, var_3)?;
          object_4.finish();
      }
      Ok(())
@@ -27,7 +27,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::VdmOptions>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::VdmOptions>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::VdmOptions>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -36,14 +36,14 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::VdmOptionsBuilder::default();
-+            let mut builder = super::types::builders::VdmOptionsBuilder::default();
++            let mut builder = super::super::types::builders::VdmOptionsBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "DashboardOptions" => {
 -                            builder = builder.set_dashboard_options(crate::protocol_serde::shape_dashboard_options::de_dashboard_options(
-+                            builder = builder.set_dashboard_options(super::protocol_serde::shape_dashboard_options::de_dashboard_options(
++                            builder = builder.set_dashboard_options(super::super::protocol_serde::shape_dashboard_options::de_dashboard_options(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -52,7 +52,7 @@
                          }
                          "GuardianOptions" => {
 -                            builder = builder.set_guardian_options(crate::protocol_serde::shape_guardian_options::de_guardian_options(
-+                            builder = builder.set_guardian_options(super::protocol_serde::shape_guardian_options::de_guardian_options(
++                            builder = builder.set_guardian_options(super::super::protocol_serde::shape_guardian_options::de_guardian_options(
                                  tokens,
                                  _value,
                                  depth + 1,

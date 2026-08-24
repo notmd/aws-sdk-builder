@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetBucketLifecycleConfigurationInput`](crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput).
 -    pub fn builder() -> crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationInputBuilder {
 -        crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationInputBuilder::default()
-+    pub fn builder() -> super::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationInputBuilder {
-+        super::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationInputBuilder {
++        super::super::super::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput,
-+        super::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput,
++        super::super::super::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput {
-+            super::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput {
++            super::super::super::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput {
                  bucket: self.bucket,
                  expected_bucket_owner: self.expected_bucket_owner,
              },

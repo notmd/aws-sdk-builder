@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningRule`](crate::types::GuardrailAutomatedReasoningRule).
 -    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningRuleBuilder {
 -        crate::types::builders::GuardrailAutomatedReasoningRuleBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailAutomatedReasoningRuleBuilder {
-+        super::types::builders::GuardrailAutomatedReasoningRuleBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailAutomatedReasoningRuleBuilder {
++        super::super::types::builders::GuardrailAutomatedReasoningRuleBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningRule`](crate::types::GuardrailAutomatedReasoningRule).
 -    pub fn build(self) -> crate::types::GuardrailAutomatedReasoningRule {
 -        crate::types::GuardrailAutomatedReasoningRule {
-+    pub fn build(self) -> super::types::GuardrailAutomatedReasoningRule {
-+        super::types::GuardrailAutomatedReasoningRule {
++    pub fn build(self) -> super::super::types::GuardrailAutomatedReasoningRule {
++        super::super::types::GuardrailAutomatedReasoningRule {
              identifier: self.identifier,
              policy_version_arn: self.policy_version_arn,
          }

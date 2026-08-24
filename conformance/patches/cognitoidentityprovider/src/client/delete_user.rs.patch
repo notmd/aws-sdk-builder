@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteUserError>`](crate::operation::delete_user::DeleteUserError)
 -    pub fn delete_user(&self) -> crate::operation::delete_user::builders::DeleteUserFluentBuilder {
 -        crate::operation::delete_user::builders::DeleteUserFluentBuilder::new(self.handle.clone())
-+    pub fn delete_user(&self) -> super::operation::delete_user::builders::DeleteUserFluentBuilder {
-+        super::operation::delete_user::builders::DeleteUserFluentBuilder::new(self.handle.clone())
++    pub fn delete_user(&self) -> super::super::operation::delete_user::builders::DeleteUserFluentBuilder {
++        super::super::operation::delete_user::builders::DeleteUserFluentBuilder::new(self.handle.clone())
      }
  }

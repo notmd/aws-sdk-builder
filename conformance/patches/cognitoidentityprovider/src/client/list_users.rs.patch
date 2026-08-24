@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListUsersError>`](crate::operation::list_users::ListUsersError)
 -    pub fn list_users(&self) -> crate::operation::list_users::builders::ListUsersFluentBuilder {
 -        crate::operation::list_users::builders::ListUsersFluentBuilder::new(self.handle.clone())
-+    pub fn list_users(&self) -> super::operation::list_users::builders::ListUsersFluentBuilder {
-+        super::operation::list_users::builders::ListUsersFluentBuilder::new(self.handle.clone())
++    pub fn list_users(&self) -> super::super::operation::list_users::builders::ListUsersFluentBuilder {
++        super::super::operation::list_users::builders::ListUsersFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for FunctionVersionsPerCapacityProviderLimitExceededException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
-+impl ::aws_types::request_id::RequestId for super::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`FunctionVersionsPerCapacityProviderLimitExceededException`](crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException).
 -    pub fn builder() -> crate::types::error::builders::FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder {
 -        crate::types::error::builders::FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder {
-+        super::types::error::builders::FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder {
++        super::super::super::types::error::builders::FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`FunctionVersionsPerCapacityProviderLimitExceededException`](crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException).
 -    pub fn build(self) -> crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
 -        crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
-+    pub fn build(self) -> super::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
-+        super::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
++    pub fn build(self) -> super::super::super::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
++        super::super::super::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
              r#type: self.r#type,
              message: self.message,
              meta: self.meta.unwrap_or_default(),

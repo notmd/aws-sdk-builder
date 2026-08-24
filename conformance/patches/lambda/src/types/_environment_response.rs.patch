@@ -5,7 +5,7 @@
      pub variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      /// <p>Error messages for environment variables that couldn't be applied.</p>
 -    pub error: ::std::option::Option<crate::types::EnvironmentError>,
-+    pub error: ::std::option::Option<super::types::EnvironmentError>,
++    pub error: ::std::option::Option<super::super::types::EnvironmentError>,
  }
  impl EnvironmentResponse {
      /// <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>Error messages for environment variables that couldn't be applied.</p>
 -    pub fn error(&self) -> ::std::option::Option<&crate::types::EnvironmentError> {
-+    pub fn error(&self) -> ::std::option::Option<&super::types::EnvironmentError> {
++    pub fn error(&self) -> ::std::option::Option<&super::super::types::EnvironmentError> {
          self.error.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`EnvironmentResponse`](crate::types::EnvironmentResponse).
 -    pub fn builder() -> crate::types::builders::EnvironmentResponseBuilder {
 -        crate::types::builders::EnvironmentResponseBuilder::default()
-+    pub fn builder() -> super::types::builders::EnvironmentResponseBuilder {
-+        super::types::builders::EnvironmentResponseBuilder::default()
++    pub fn builder() -> super::super::types::builders::EnvironmentResponseBuilder {
++        super::super::types::builders::EnvironmentResponseBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct EnvironmentResponseBuilder {
      pub(crate) variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) error: ::std::option::Option<crate::types::EnvironmentError>,
-+    pub(crate) error: ::std::option::Option<super::types::EnvironmentError>,
++    pub(crate) error: ::std::option::Option<super::super::types::EnvironmentError>,
  }
  impl EnvironmentResponseBuilder {
      /// Adds a key-value pair to `variables`.
@@ -43,26 +43,26 @@
      }
      /// <p>Error messages for environment variables that couldn't be applied.</p>
 -    pub fn error(mut self, input: crate::types::EnvironmentError) -> Self {
-+    pub fn error(mut self, input: super::types::EnvironmentError) -> Self {
++    pub fn error(mut self, input: super::super::types::EnvironmentError) -> Self {
          self.error = ::std::option::Option::Some(input);
          self
      }
      /// <p>Error messages for environment variables that couldn't be applied.</p>
 -    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EnvironmentError>) -> Self {
-+    pub fn set_error(mut self, input: ::std::option::Option<super::types::EnvironmentError>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::super::types::EnvironmentError>) -> Self {
          self.error = input;
          self
      }
      /// <p>Error messages for environment variables that couldn't be applied.</p>
 -    pub fn get_error(&self) -> &::std::option::Option<crate::types::EnvironmentError> {
-+    pub fn get_error(&self) -> &::std::option::Option<super::types::EnvironmentError> {
++    pub fn get_error(&self) -> &::std::option::Option<super::super::types::EnvironmentError> {
          &self.error
      }
      /// Consumes the builder and constructs a [`EnvironmentResponse`](crate::types::EnvironmentResponse).
 -    pub fn build(self) -> crate::types::EnvironmentResponse {
 -        crate::types::EnvironmentResponse {
-+    pub fn build(self) -> super::types::EnvironmentResponse {
-+        super::types::EnvironmentResponse {
++    pub fn build(self) -> super::super::types::EnvironmentResponse {
++        super::super::types::EnvironmentResponse {
              variables: self.variables,
              error: self.error,
          }

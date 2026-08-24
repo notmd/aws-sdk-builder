@@ -5,17 +5,17 @@
  pub struct OverallVolume {
      /// <p>An object that contains information about the numbers of messages that arrived in recipients' inboxes and junk mail folders.</p>
 -    pub volume_statistics: ::std::option::Option<crate::types::VolumeStatistics>,
-+    pub volume_statistics: ::std::option::Option<super::types::VolumeStatistics>,
++    pub volume_statistics: ::std::option::Option<super::super::types::VolumeStatistics>,
      /// <p>The percentage of emails that were sent from the domain that were read by their recipients.</p>
      pub read_rate_percent: ::std::option::Option<f64>,
      /// <p>An object that contains inbox and junk mail placement metrics for individual email providers.</p>
 -    pub domain_isp_placements: ::std::option::Option<::std::vec::Vec<crate::types::DomainIspPlacement>>,
-+    pub domain_isp_placements: ::std::option::Option<::std::vec::Vec<super::types::DomainIspPlacement>>,
++    pub domain_isp_placements: ::std::option::Option<::std::vec::Vec<super::super::types::DomainIspPlacement>>,
  }
  impl OverallVolume {
      /// <p>An object that contains information about the numbers of messages that arrived in recipients' inboxes and junk mail folders.</p>
 -    pub fn volume_statistics(&self) -> ::std::option::Option<&crate::types::VolumeStatistics> {
-+    pub fn volume_statistics(&self) -> ::std::option::Option<&super::types::VolumeStatistics> {
++    pub fn volume_statistics(&self) -> ::std::option::Option<&super::super::types::VolumeStatistics> {
          self.volume_statistics.as_ref()
      }
      /// <p>The percentage of emails that were sent from the domain that were read by their recipients.</p>
@@ -24,7 +24,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.domain_isp_placements.is_none()`.
 -    pub fn domain_isp_placements(&self) -> &[crate::types::DomainIspPlacement] {
-+    pub fn domain_isp_placements(&self) -> &[super::types::DomainIspPlacement] {
++    pub fn domain_isp_placements(&self) -> &[super::super::types::DomainIspPlacement] {
          self.domain_isp_placements.as_deref().unwrap_or_default()
      }
  }
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`OverallVolume`](crate::types::OverallVolume).
 -    pub fn builder() -> crate::types::builders::OverallVolumeBuilder {
 -        crate::types::builders::OverallVolumeBuilder::default()
-+    pub fn builder() -> super::types::builders::OverallVolumeBuilder {
-+        super::types::builders::OverallVolumeBuilder::default()
++    pub fn builder() -> super::super::types::builders::OverallVolumeBuilder {
++        super::super::types::builders::OverallVolumeBuilder::default()
      }
  }
 
@@ -42,27 +42,27 @@
  #[non_exhaustive]
  pub struct OverallVolumeBuilder {
 -    pub(crate) volume_statistics: ::std::option::Option<crate::types::VolumeStatistics>,
-+    pub(crate) volume_statistics: ::std::option::Option<super::types::VolumeStatistics>,
++    pub(crate) volume_statistics: ::std::option::Option<super::super::types::VolumeStatistics>,
      pub(crate) read_rate_percent: ::std::option::Option<f64>,
 -    pub(crate) domain_isp_placements: ::std::option::Option<::std::vec::Vec<crate::types::DomainIspPlacement>>,
-+    pub(crate) domain_isp_placements: ::std::option::Option<::std::vec::Vec<super::types::DomainIspPlacement>>,
++    pub(crate) domain_isp_placements: ::std::option::Option<::std::vec::Vec<super::super::types::DomainIspPlacement>>,
  }
  impl OverallVolumeBuilder {
      /// <p>An object that contains information about the numbers of messages that arrived in recipients' inboxes and junk mail folders.</p>
 -    pub fn volume_statistics(mut self, input: crate::types::VolumeStatistics) -> Self {
-+    pub fn volume_statistics(mut self, input: super::types::VolumeStatistics) -> Self {
++    pub fn volume_statistics(mut self, input: super::super::types::VolumeStatistics) -> Self {
          self.volume_statistics = ::std::option::Option::Some(input);
          self
      }
      /// <p>An object that contains information about the numbers of messages that arrived in recipients' inboxes and junk mail folders.</p>
 -    pub fn set_volume_statistics(mut self, input: ::std::option::Option<crate::types::VolumeStatistics>) -> Self {
-+    pub fn set_volume_statistics(mut self, input: ::std::option::Option<super::types::VolumeStatistics>) -> Self {
++    pub fn set_volume_statistics(mut self, input: ::std::option::Option<super::super::types::VolumeStatistics>) -> Self {
          self.volume_statistics = input;
          self
      }
      /// <p>An object that contains information about the numbers of messages that arrived in recipients' inboxes and junk mail folders.</p>
 -    pub fn get_volume_statistics(&self) -> &::std::option::Option<crate::types::VolumeStatistics> {
-+    pub fn get_volume_statistics(&self) -> &::std::option::Option<super::types::VolumeStatistics> {
++    pub fn get_volume_statistics(&self) -> &::std::option::Option<super::super::types::VolumeStatistics> {
          &self.volume_statistics
      }
      /// <p>The percentage of emails that were sent from the domain that were read by their recipients.</p>
@@ -71,7 +71,7 @@
      ///
      /// <p>An object that contains inbox and junk mail placement metrics for individual email providers.</p>
 -    pub fn domain_isp_placements(mut self, input: crate::types::DomainIspPlacement) -> Self {
-+    pub fn domain_isp_placements(mut self, input: super::types::DomainIspPlacement) -> Self {
++    pub fn domain_isp_placements(mut self, input: super::super::types::DomainIspPlacement) -> Self {
          let mut v = self.domain_isp_placements.unwrap_or_default();
          v.push(input);
          self.domain_isp_placements = ::std::option::Option::Some(v);
@@ -80,20 +80,20 @@
      }
      /// <p>An object that contains inbox and junk mail placement metrics for individual email providers.</p>
 -    pub fn set_domain_isp_placements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DomainIspPlacement>>) -> Self {
-+    pub fn set_domain_isp_placements(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::DomainIspPlacement>>) -> Self {
++    pub fn set_domain_isp_placements(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::DomainIspPlacement>>) -> Self {
          self.domain_isp_placements = input;
          self
      }
      /// <p>An object that contains inbox and junk mail placement metrics for individual email providers.</p>
 -    pub fn get_domain_isp_placements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DomainIspPlacement>> {
-+    pub fn get_domain_isp_placements(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DomainIspPlacement>> {
++    pub fn get_domain_isp_placements(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::DomainIspPlacement>> {
          &self.domain_isp_placements
      }
      /// Consumes the builder and constructs a [`OverallVolume`](crate::types::OverallVolume).
 -    pub fn build(self) -> crate::types::OverallVolume {
 -        crate::types::OverallVolume {
-+    pub fn build(self) -> super::types::OverallVolume {
-+        super::types::OverallVolume {
++    pub fn build(self) -> super::super::types::OverallVolume {
++        super::super::types::OverallVolume {
              volume_statistics: self.volume_statistics,
              read_rate_percent: self.read_rate_percent,
              domain_isp_placements: self.domain_isp_placements,

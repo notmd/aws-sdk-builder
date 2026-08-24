@@ -5,14 +5,14 @@
  pub struct ResourceKey {
      /// <p>The resource type.</p>
 -    pub resource_type: crate::types::ResourceType,
-+    pub resource_type: super::types::ResourceType,
++    pub resource_type: super::super::types::ResourceType,
      /// <p>The ID of the resource (for example., sg-xxxxxx).</p>
      pub resource_id: ::std::string::String,
  }
  impl ResourceKey {
      /// <p>The resource type.</p>
 -    pub fn resource_type(&self) -> &crate::types::ResourceType {
-+    pub fn resource_type(&self) -> &super::types::ResourceType {
++    pub fn resource_type(&self) -> &super::super::types::ResourceType {
          &self.resource_type
      }
      /// <p>The ID of the resource (for example., sg-xxxxxx).</p>
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ResourceKey`](crate::types::ResourceKey).
 -    pub fn builder() -> crate::types::builders::ResourceKeyBuilder {
 -        crate::types::builders::ResourceKeyBuilder::default()
-+    pub fn builder() -> super::types::builders::ResourceKeyBuilder {
-+        super::types::builders::ResourceKeyBuilder::default()
++    pub fn builder() -> super::super::types::builders::ResourceKeyBuilder {
++        super::super::types::builders::ResourceKeyBuilder::default()
      }
  }
 
@@ -32,26 +32,26 @@
  #[non_exhaustive]
  pub struct ResourceKeyBuilder {
 -    pub(crate) resource_type: ::std::option::Option<crate::types::ResourceType>,
-+    pub(crate) resource_type: ::std::option::Option<super::types::ResourceType>,
++    pub(crate) resource_type: ::std::option::Option<super::super::types::ResourceType>,
      pub(crate) resource_id: ::std::option::Option<::std::string::String>,
  }
  impl ResourceKeyBuilder {
      /// <p>The resource type.</p>
      /// This field is required.
 -    pub fn resource_type(mut self, input: crate::types::ResourceType) -> Self {
-+    pub fn resource_type(mut self, input: super::types::ResourceType) -> Self {
++    pub fn resource_type(mut self, input: super::super::types::ResourceType) -> Self {
          self.resource_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The resource type.</p>
 -    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
-+    pub fn set_resource_type(mut self, input: ::std::option::Option<super::types::ResourceType>) -> Self {
++    pub fn set_resource_type(mut self, input: ::std::option::Option<super::super::types::ResourceType>) -> Self {
          self.resource_type = input;
          self
      }
      /// <p>The resource type.</p>
 -    pub fn get_resource_type(&self) -> &::std::option::Option<crate::types::ResourceType> {
-+    pub fn get_resource_type(&self) -> &::std::option::Option<super::types::ResourceType> {
++    pub fn get_resource_type(&self) -> &::std::option::Option<super::super::types::ResourceType> {
          &self.resource_type
      }
      /// <p>The ID of the resource (for example., sg-xxxxxx).</p>
@@ -61,8 +61,8 @@
      /// - [`resource_id`](crate::types::builders::ResourceKeyBuilder::resource_id)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ResourceKey, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ResourceKey {
-+    pub fn build(self) -> ::std::result::Result<super::types::ResourceKey, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ResourceKey {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ResourceKey, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ResourceKey {
              resource_type: self.resource_type.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "resource_type",

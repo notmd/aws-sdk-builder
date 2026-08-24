@@ -6,36 +6,36 @@
  ) -> std::result::Result<
 -    crate::operation::create_login_profile::CreateLoginProfileOutput,
 -    crate::operation::create_login_profile::CreateLoginProfileError,
-+    super::operation::create_login_profile::CreateLoginProfileOutput,
-+    super::operation::create_login_profile::CreateLoginProfileError,
++    super::super::operation::create_login_profile::CreateLoginProfileOutput,
++    super::super::operation::create_login_profile::CreateLoginProfileError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::create_login_profile::CreateLoginProfileError::unhandled(generic)),
-+        None => return Err(super::operation::create_login_profile::CreateLoginProfileError::unhandled(generic)),
++        None => return Err(super::super::operation::create_login_profile::CreateLoginProfileError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "EntityAlreadyExists" => crate::operation::create_login_profile::CreateLoginProfileError::EntityAlreadyExistsException({
-+        "EntityAlreadyExists" => super::operation::create_login_profile::CreateLoginProfileError::EntityAlreadyExistsException({
++        "EntityAlreadyExists" => super::super::operation::create_login_profile::CreateLoginProfileError::EntityAlreadyExistsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
-+                let mut output = super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
 -                        .map_err(crate::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
-+                    super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
-+                        .map_err(super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
++                    super::super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
++                        .map_err(super::super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -44,16 +44,16 @@
              tmp
          }),
 -        "LimitExceeded" => crate::operation::create_login_profile::CreateLoginProfileError::LimitExceededException({
-+        "LimitExceeded" => super::operation::create_login_profile::CreateLoginProfileError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::create_login_profile::CreateLoginProfileError::LimitExceededException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
-+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
++                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -62,16 +62,16 @@
              tmp
          }),
 -        "NoSuchEntity" => crate::operation::create_login_profile::CreateLoginProfileError::NoSuchEntityException({
-+        "NoSuchEntity" => super::operation::create_login_profile::CreateLoginProfileError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::create_login_profile::CreateLoginProfileError::NoSuchEntityException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
-+                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
-+                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
++                let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -80,19 +80,19 @@
              tmp
          }),
 -        "PasswordPolicyViolation" => crate::operation::create_login_profile::CreateLoginProfileError::PasswordPolicyViolationException({
-+        "PasswordPolicyViolation" => super::operation::create_login_profile::CreateLoginProfileError::PasswordPolicyViolationException({
++        "PasswordPolicyViolation" => super::super::operation::create_login_profile::CreateLoginProfileError::PasswordPolicyViolationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::PasswordPolicyViolationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_password_policy_violation_exception::de_password_policy_violation_exception_xml_err(
-+                let mut output = super::types::error::builders::PasswordPolicyViolationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_password_policy_violation_exception::de_password_policy_violation_exception_xml_err(
++                let mut output = super::super::types::error::builders::PasswordPolicyViolationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_password_policy_violation_exception::de_password_policy_violation_exception_xml_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
-+                .map_err(super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
++                .map_err(super::super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -101,16 +101,16 @@
              tmp
          }),
 -        "ServiceFailure" => crate::operation::create_login_profile::CreateLoginProfileError::ServiceFailureException({
-+        "ServiceFailure" => super::operation::create_login_profile::CreateLoginProfileError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::create_login_profile::CreateLoginProfileError::ServiceFailureException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
-+                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
-+                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
++                let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -119,7 +119,7 @@
              tmp
          }),
 -        _ => crate::operation::create_login_profile::CreateLoginProfileError::generic(generic),
-+        _ => super::operation::create_login_profile::CreateLoginProfileError::generic(generic),
++        _ => super::super::operation::create_login_profile::CreateLoginProfileError::generic(generic),
      })
  }
 
@@ -129,20 +129,20 @@
  ) -> std::result::Result<
 -    crate::operation::create_login_profile::CreateLoginProfileOutput,
 -    crate::operation::create_login_profile::CreateLoginProfileError,
-+    super::operation::create_login_profile::CreateLoginProfileOutput,
-+    super::operation::create_login_profile::CreateLoginProfileError,
++    super::super::operation::create_login_profile::CreateLoginProfileOutput,
++    super::super::operation::create_login_profile::CreateLoginProfileError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::create_login_profile::builders::CreateLoginProfileOutputBuilder::default();
 -        output = crate::protocol_serde::shape_create_login_profile::de_create_login_profile(_response_body, output)
 -            .map_err(crate::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
-+        let mut output = super::operation::create_login_profile::builders::CreateLoginProfileOutputBuilder::default();
-+        output = super::protocol_serde::shape_create_login_profile::de_create_login_profile(_response_body, output)
-+            .map_err(super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
++        let mut output = super::super::operation::create_login_profile::builders::CreateLoginProfileOutputBuilder::default();
++        output = super::super::protocol_serde::shape_create_login_profile::de_create_login_profile(_response_body, output)
++            .map_err(super::super::operation::create_login_profile::CreateLoginProfileError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        crate::serde_util::create_login_profile_output_output_correct_errors(output).build()
-+        super::serde_util::create_login_profile_output_output_correct_errors(output).build()
++        super::super::serde_util::create_login_profile_output_output_correct_errors(output).build()
      })
  }
 
@@ -152,8 +152,8 @@
      inp: &[u8],
 -    mut builder: crate::operation::create_login_profile::builders::CreateLoginProfileOutputBuilder,
 -) -> std::result::Result<crate::operation::create_login_profile::builders::CreateLoginProfileOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
-+    mut builder: super::operation::create_login_profile::builders::CreateLoginProfileOutputBuilder,
-+) -> std::result::Result<super::operation::create_login_profile::builders::CreateLoginProfileOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
++    mut builder: super::super::operation::create_login_profile::builders::CreateLoginProfileOutputBuilder,
++) -> std::result::Result<super::super::operation::create_login_profile::builders::CreateLoginProfileOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
  {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
@@ -162,7 +162,7 @@
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_login_profile::de_login_profile(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_login_profile::de_login_profile(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_login_profile::de_login_profile(&mut tag, depth + 1)
                          ?
                      )
                  ;

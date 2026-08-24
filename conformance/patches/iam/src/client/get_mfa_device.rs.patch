@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetMFADeviceError>`](crate::operation::get_mfa_device::GetMFADeviceError)
 -    pub fn get_mfa_device(&self) -> crate::operation::get_mfa_device::builders::GetMFADeviceFluentBuilder {
 -        crate::operation::get_mfa_device::builders::GetMFADeviceFluentBuilder::new(self.handle.clone())
-+    pub fn get_mfa_device(&self) -> super::operation::get_mfa_device::builders::GetMFADeviceFluentBuilder {
-+        super::operation::get_mfa_device::builders::GetMFADeviceFluentBuilder::new(self.handle.clone())
++    pub fn get_mfa_device(&self) -> super::super::operation::get_mfa_device::builders::GetMFADeviceFluentBuilder {
++        super::super::operation::get_mfa_device::builders::GetMFADeviceFluentBuilder::new(self.handle.clone())
      }
  }

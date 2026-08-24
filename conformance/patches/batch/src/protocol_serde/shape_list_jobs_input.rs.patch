@@ -5,7 +5,7 @@
  pub fn ser_list_jobs_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::list_jobs::ListJobsInput,
-+    input: &super::operation::list_jobs::ListJobsInput,
++    input: &super::super::operation::list_jobs::ListJobsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.array_job_id {
          object.key("arrayJobId").string(var_1.as_str());
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_5 = array_3.value().start_object();
 -                crate::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_5, item_4)?;
-+                super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_5, item_4)?;
++                super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_5, item_4)?;
                  object_5.finish();
              }
          }

@@ -5,10 +5,10 @@
      /// <p><code>REPLICATION_PRIMARY_INVALID_REGION</code> – The verification failed due to an invalid primary region specified. Ensure you provide a valid Amazon Web Services region where Amazon SES is available and different from the replica region.</p></li>
      /// </ul>
 -    pub error_type: ::std::option::Option<crate::types::VerificationError>,
-+    pub error_type: ::std::option::Option<super::types::VerificationError>,
++    pub error_type: ::std::option::Option<super::super::types::VerificationError>,
      /// <p>An object that contains information about the start of authority (SOA) record associated with the identity.</p>
 -    pub soa_record: ::std::option::Option<crate::types::SoaRecord>,
-+    pub soa_record: ::std::option::Option<super::types::SoaRecord>,
++    pub soa_record: ::std::option::Option<super::super::types::SoaRecord>,
  }
  impl VerificationInfo {
      /// <p>The last time a verification attempt was made for this identity.</p>
@@ -17,12 +17,12 @@
      /// <p><code>REPLICATION_PRIMARY_INVALID_REGION</code> – The verification failed due to an invalid primary region specified. Ensure you provide a valid Amazon Web Services region where Amazon SES is available and different from the replica region.</p></li>
      /// </ul>
 -    pub fn error_type(&self) -> ::std::option::Option<&crate::types::VerificationError> {
-+    pub fn error_type(&self) -> ::std::option::Option<&super::types::VerificationError> {
++    pub fn error_type(&self) -> ::std::option::Option<&super::super::types::VerificationError> {
          self.error_type.as_ref()
      }
      /// <p>An object that contains information about the start of authority (SOA) record associated with the identity.</p>
 -    pub fn soa_record(&self) -> ::std::option::Option<&crate::types::SoaRecord> {
-+    pub fn soa_record(&self) -> ::std::option::Option<&super::types::SoaRecord> {
++    pub fn soa_record(&self) -> ::std::option::Option<&super::super::types::SoaRecord> {
          self.soa_record.as_ref()
      }
  }
@@ -30,8 +30,8 @@
      /// Creates a new builder-style object to manufacture [`VerificationInfo`](crate::types::VerificationInfo).
 -    pub fn builder() -> crate::types::builders::VerificationInfoBuilder {
 -        crate::types::builders::VerificationInfoBuilder::default()
-+    pub fn builder() -> super::types::builders::VerificationInfoBuilder {
-+        super::types::builders::VerificationInfoBuilder::default()
++    pub fn builder() -> super::super::types::builders::VerificationInfoBuilder {
++        super::super::types::builders::VerificationInfoBuilder::default()
      }
  }
 
@@ -41,8 +41,8 @@
      pub(crate) last_success_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) error_type: ::std::option::Option<crate::types::VerificationError>,
 -    pub(crate) soa_record: ::std::option::Option<crate::types::SoaRecord>,
-+    pub(crate) error_type: ::std::option::Option<super::types::VerificationError>,
-+    pub(crate) soa_record: ::std::option::Option<super::types::SoaRecord>,
++    pub(crate) error_type: ::std::option::Option<super::super::types::VerificationError>,
++    pub(crate) soa_record: ::std::option::Option<super::super::types::SoaRecord>,
  }
  impl VerificationInfoBuilder {
      /// <p>The last time a verification attempt was made for this identity.</p>
@@ -51,7 +51,7 @@
      /// <p><code>REPLICATION_PRIMARY_INVALID_REGION</code> – The verification failed due to an invalid primary region specified. Ensure you provide a valid Amazon Web Services region where Amazon SES is available and different from the replica region.</p></li>
      /// </ul>
 -    pub fn error_type(mut self, input: crate::types::VerificationError) -> Self {
-+    pub fn error_type(mut self, input: super::types::VerificationError) -> Self {
++    pub fn error_type(mut self, input: super::super::types::VerificationError) -> Self {
          self.error_type = ::std::option::Option::Some(input);
          self
      }
@@ -60,7 +60,7 @@
      /// <p><code>REPLICATION_PRIMARY_INVALID_REGION</code> – The verification failed due to an invalid primary region specified. Ensure you provide a valid Amazon Web Services region where Amazon SES is available and different from the replica region.</p></li>
      /// </ul>
 -    pub fn set_error_type(mut self, input: ::std::option::Option<crate::types::VerificationError>) -> Self {
-+    pub fn set_error_type(mut self, input: ::std::option::Option<super::types::VerificationError>) -> Self {
++    pub fn set_error_type(mut self, input: ::std::option::Option<super::super::types::VerificationError>) -> Self {
          self.error_type = input;
          self
      }
@@ -69,31 +69,31 @@
      /// <p><code>REPLICATION_PRIMARY_INVALID_REGION</code> – The verification failed due to an invalid primary region specified. Ensure you provide a valid Amazon Web Services region where Amazon SES is available and different from the replica region.</p></li>
      /// </ul>
 -    pub fn get_error_type(&self) -> &::std::option::Option<crate::types::VerificationError> {
-+    pub fn get_error_type(&self) -> &::std::option::Option<super::types::VerificationError> {
++    pub fn get_error_type(&self) -> &::std::option::Option<super::super::types::VerificationError> {
          &self.error_type
      }
      /// <p>An object that contains information about the start of authority (SOA) record associated with the identity.</p>
 -    pub fn soa_record(mut self, input: crate::types::SoaRecord) -> Self {
-+    pub fn soa_record(mut self, input: super::types::SoaRecord) -> Self {
++    pub fn soa_record(mut self, input: super::super::types::SoaRecord) -> Self {
          self.soa_record = ::std::option::Option::Some(input);
          self
      }
      /// <p>An object that contains information about the start of authority (SOA) record associated with the identity.</p>
 -    pub fn set_soa_record(mut self, input: ::std::option::Option<crate::types::SoaRecord>) -> Self {
-+    pub fn set_soa_record(mut self, input: ::std::option::Option<super::types::SoaRecord>) -> Self {
++    pub fn set_soa_record(mut self, input: ::std::option::Option<super::super::types::SoaRecord>) -> Self {
          self.soa_record = input;
          self
      }
      /// <p>An object that contains information about the start of authority (SOA) record associated with the identity.</p>
 -    pub fn get_soa_record(&self) -> &::std::option::Option<crate::types::SoaRecord> {
-+    pub fn get_soa_record(&self) -> &::std::option::Option<super::types::SoaRecord> {
++    pub fn get_soa_record(&self) -> &::std::option::Option<super::super::types::SoaRecord> {
          &self.soa_record
      }
      /// Consumes the builder and constructs a [`VerificationInfo`](crate::types::VerificationInfo).
 -    pub fn build(self) -> crate::types::VerificationInfo {
 -        crate::types::VerificationInfo {
-+    pub fn build(self) -> super::types::VerificationInfo {
-+        super::types::VerificationInfo {
++    pub fn build(self) -> super::super::types::VerificationInfo {
++        super::super::types::VerificationInfo {
              last_checked_timestamp: self.last_checked_timestamp,
              last_success_timestamp: self.last_success_timestamp,
              error_type: self.error_type,

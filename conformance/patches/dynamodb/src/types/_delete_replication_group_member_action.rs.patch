@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteReplicationGroupMemberAction`](crate::types::DeleteReplicationGroupMemberAction).
 -    pub fn builder() -> crate::types::builders::DeleteReplicationGroupMemberActionBuilder {
 -        crate::types::builders::DeleteReplicationGroupMemberActionBuilder::default()
-+    pub fn builder() -> super::types::builders::DeleteReplicationGroupMemberActionBuilder {
-+        super::types::builders::DeleteReplicationGroupMemberActionBuilder::default()
++    pub fn builder() -> super::super::types::builders::DeleteReplicationGroupMemberActionBuilder {
++        super::super::types::builders::DeleteReplicationGroupMemberActionBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`region_name`](crate::types::builders::DeleteReplicationGroupMemberActionBuilder::region_name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::DeleteReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::DeleteReplicationGroupMemberAction {
-+    pub fn build(self) -> ::std::result::Result<super::types::DeleteReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::DeleteReplicationGroupMemberAction {
++    pub fn build(self) -> ::std::result::Result<super::super::types::DeleteReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::DeleteReplicationGroupMemberAction {
              region_name: self.region_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "region_name",

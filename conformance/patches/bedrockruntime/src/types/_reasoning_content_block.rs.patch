@@ -5,7 +5,7 @@
  pub enum ReasoningContentBlock {
      /// <p>The reasoning that the model used to return the output.</p>
 -    ReasoningText(crate::types::ReasoningTextBlock),
-+    ReasoningText(super::types::ReasoningTextBlock),
++    ReasoningText(super::super::types::ReasoningTextBlock),
      /// <p>The content in the reasoning that was encrypted by the model provider for safety reasons. The encryption doesn't affect the quality of responses.</p>
      RedactedContent(::aws_smithy_types::Blob),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
@@ -14,7 +14,7 @@
      /// Tries to convert the enum instance into [`ReasoningText`](crate::types::ReasoningContentBlock::ReasoningText), extracting the inner [`ReasoningTextBlock`](crate::types::ReasoningTextBlock).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_reasoning_text(&self) -> ::std::result::Result<&crate::types::ReasoningTextBlock, &Self> {
-+    pub fn as_reasoning_text(&self) -> ::std::result::Result<&super::types::ReasoningTextBlock, &Self> {
++    pub fn as_reasoning_text(&self) -> ::std::result::Result<&super::super::types::ReasoningTextBlock, &Self> {
          if let ReasoningContentBlock::ReasoningText(val) = &self {
              ::std::result::Result::Ok(val)
          } else {

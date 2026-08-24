@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::SubscriptionFilter>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::SubscriptionFilter>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::SubscriptionFilter>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::SubscriptionFilterBuilder::default();
-+            let mut builder = super::types::builders::SubscriptionFilterBuilder::default();
++            let mut builder = super::super::types::builders::SubscriptionFilterBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                              builder = builder.set_distribution(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::Distribution::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::Distribution::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::Distribution::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -32,7 +32,7 @@
                          }
                          "emitSystemFields" => {
 -                            builder = builder.set_emit_system_fields(crate::protocol_serde::shape_emit_system_fields::de_emit_system_fields(
-+                            builder = builder.set_emit_system_fields(super::protocol_serde::shape_emit_system_fields::de_emit_system_fields(
++                            builder = builder.set_emit_system_fields(super::super::protocol_serde::shape_emit_system_fields::de_emit_system_fields(
                                  tokens,
                                  _value,
                                  depth + 1,

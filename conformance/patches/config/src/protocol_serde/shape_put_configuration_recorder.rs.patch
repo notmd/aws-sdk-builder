@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::put_configuration_recorder::PutConfigurationRecorderOutput,
 -    crate::operation::put_configuration_recorder::PutConfigurationRecorderError,
-+    super::operation::put_configuration_recorder::PutConfigurationRecorderOutput,
-+    super::operation::put_configuration_recorder::PutConfigurationRecorderError,
++    super::super::operation::put_configuration_recorder::PutConfigurationRecorderOutput,
++    super::super::operation::put_configuration_recorder::PutConfigurationRecorderError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled(
-+            return Err(super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled(
++            return Err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled(
                  generic,
              ))
          }
@@ -29,14 +29,14 @@
      Err(match error_code {
          "InvalidConfigurationRecorderNameException" => {
 -            crate::operation::put_configuration_recorder::PutConfigurationRecorderError::InvalidConfigurationRecorderNameException({
-+            super::operation::put_configuration_recorder::PutConfigurationRecorderError::InvalidConfigurationRecorderNameException({
++            super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::InvalidConfigurationRecorderNameException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidConfigurationRecorderNameExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_configuration_recorder_name_exception::de_invalid_configuration_recorder_name_exception_json_err(_response_body, output).map_err(crate::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidConfigurationRecorderNameExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_configuration_recorder_name_exception::de_invalid_configuration_recorder_name_exception_json_err(_response_body, output).map_err(super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidConfigurationRecorderNameExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_configuration_recorder_name_exception::de_invalid_configuration_recorder_name_exception_json_err(_response_body, output).map_err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -45,19 +45,19 @@
          }
          "InvalidRecordingGroupException" => {
 -            crate::operation::put_configuration_recorder::PutConfigurationRecorderError::InvalidRecordingGroupException({
-+            super::operation::put_configuration_recorder::PutConfigurationRecorderError::InvalidRecordingGroupException({
++            super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::InvalidRecordingGroupException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidRecordingGroupExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_recording_group_exception::de_invalid_recording_group_exception_json_err(
-+                    let mut output = super::types::error::builders::InvalidRecordingGroupExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_recording_group_exception::de_invalid_recording_group_exception_json_err(
++                    let mut output = super::super::types::error::builders::InvalidRecordingGroupExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_recording_group_exception::de_invalid_recording_group_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
-+                    .map_err(super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
++                    .map_err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -66,16 +66,16 @@
              })
          }
 -        "InvalidRoleException" => crate::operation::put_configuration_recorder::PutConfigurationRecorderError::InvalidRoleException({
-+        "InvalidRoleException" => super::operation::put_configuration_recorder::PutConfigurationRecorderError::InvalidRoleException({
++        "InvalidRoleException" => super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::InvalidRoleException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidRoleExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_role_exception::de_invalid_role_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidRoleExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_role_exception::de_invalid_role_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidRoleExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_role_exception::de_invalid_role_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -84,14 +84,14 @@
          }),
          "MaxNumberOfConfigurationRecordersExceededException" => {
 -            crate::operation::put_configuration_recorder::PutConfigurationRecorderError::MaxNumberOfConfigurationRecordersExceededException({
-+            super::operation::put_configuration_recorder::PutConfigurationRecorderError::MaxNumberOfConfigurationRecordersExceededException({
++            super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::MaxNumberOfConfigurationRecordersExceededException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::MaxNumberOfConfigurationRecordersExceededExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_max_number_of_configuration_recorders_exceeded_exception::de_max_number_of_configuration_recorders_exceeded_exception_json_err(_response_body, output).map_err(crate::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
-+                    let mut output = super::types::error::builders::MaxNumberOfConfigurationRecordersExceededExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_max_number_of_configuration_recorders_exceeded_exception::de_max_number_of_configuration_recorders_exceeded_exception_json_err(_response_body, output).map_err(super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
++                    let mut output = super::super::types::error::builders::MaxNumberOfConfigurationRecordersExceededExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_max_number_of_configuration_recorders_exceeded_exception::de_max_number_of_configuration_recorders_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -100,17 +100,17 @@
              })
          }
 -        "UnmodifiableEntityException" => crate::operation::put_configuration_recorder::PutConfigurationRecorderError::UnmodifiableEntityException({
-+        "UnmodifiableEntityException" => super::operation::put_configuration_recorder::PutConfigurationRecorderError::UnmodifiableEntityException({
++        "UnmodifiableEntityException" => super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::UnmodifiableEntityException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
-+                let mut output = super::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
-+                    super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
++                    super::super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -119,16 +119,16 @@
              tmp
          }),
 -        "ValidationException" => crate::operation::put_configuration_recorder::PutConfigurationRecorderError::ValidationException({
-+        "ValidationException" => super::operation::put_configuration_recorder::PutConfigurationRecorderError::ValidationException({
++        "ValidationException" => super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::ValidationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
-+                let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
++                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -137,7 +137,7 @@
              tmp
          }),
 -        _ => crate::operation::put_configuration_recorder::PutConfigurationRecorderError::generic(generic),
-+        _ => super::operation::put_configuration_recorder::PutConfigurationRecorderError::generic(generic),
++        _ => super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::generic(generic),
      })
  }
 
@@ -147,13 +147,13 @@
  ) -> std::result::Result<
 -    crate::operation::put_configuration_recorder::PutConfigurationRecorderOutput,
 -    crate::operation::put_configuration_recorder::PutConfigurationRecorderError,
-+    super::operation::put_configuration_recorder::PutConfigurationRecorderOutput,
-+    super::operation::put_configuration_recorder::PutConfigurationRecorderError,
++    super::super::operation::put_configuration_recorder::PutConfigurationRecorderOutput,
++    super::super::operation::put_configuration_recorder::PutConfigurationRecorderError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderOutputBuilder::default();
-+        let mut output = super::operation::put_configuration_recorder::builders::PutConfigurationRecorderOutputBuilder::default();
++        let mut output = super::super::operation::put_configuration_recorder::builders::PutConfigurationRecorderOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -162,12 +162,12 @@
 
  pub fn ser_put_configuration_recorder_input(
 -    input: &crate::operation::put_configuration_recorder::PutConfigurationRecorderInput,
-+    input: &super::operation::put_configuration_recorder::PutConfigurationRecorderInput,
++    input: &super::super::operation::put_configuration_recorder::PutConfigurationRecorderInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_put_configuration_recorder_input::ser_put_configuration_recorder_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_put_configuration_recorder_input::ser_put_configuration_recorder_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_put_configuration_recorder_input::ser_put_configuration_recorder_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }

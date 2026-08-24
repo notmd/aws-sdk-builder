@@ -5,7 +5,7 @@
      /// <p>The array of results.</p>
      pub payload:
 -        crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>,
-+        super::event_receiver::EventReceiver<super::types::SelectObjectContentEventStream, super::types::error::SelectObjectContentEventStreamError>,
++        super::super::super::event_receiver::EventReceiver<super::super::super::types::SelectObjectContentEventStream, super::super::super::types::error::SelectObjectContentEventStreamError>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
@@ -14,13 +14,13 @@
      pub fn payload(
          &self,
 -    ) -> &crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>
-+    ) -> &super::event_receiver::EventReceiver<super::types::SelectObjectContentEventStream, super::types::error::SelectObjectContentEventStreamError>
++    ) -> &super::super::super::event_receiver::EventReceiver<super::super::super::types::SelectObjectContentEventStream, super::super::super::types::error::SelectObjectContentEventStreamError>
      {
          &self.payload
      }
  }
 -impl crate::s3_request_id::RequestIdExt for SelectObjectContentOutput {
-+impl super::s3_request_id::RequestIdExt for SelectObjectContentOutput {
++impl super::super::super::s3_request_id::RequestIdExt for SelectObjectContentOutput {
      fn extended_request_id(&self) -> Option<&str> {
          self._extended_request_id.as_deref()
      }
@@ -30,8 +30,8 @@
      /// Creates a new builder-style object to manufacture [`SelectObjectContentOutput`](crate::operation::select_object_content::SelectObjectContentOutput).
 -    pub fn builder() -> crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder {
 -        crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default()
-+    pub fn builder() -> super::operation::select_object_content::builders::SelectObjectContentOutputBuilder {
-+        super::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::select_object_content::builders::SelectObjectContentOutputBuilder {
++        super::super::super::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default()
      }
  }
 
@@ -40,7 +40,7 @@
  pub struct SelectObjectContentOutputBuilder {
      pub(crate) payload: ::std::option::Option<
 -        crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>,
-+        super::event_receiver::EventReceiver<super::types::SelectObjectContentEventStream, super::types::error::SelectObjectContentEventStreamError>,
++        super::super::super::event_receiver::EventReceiver<super::super::super::types::SelectObjectContentEventStream, super::super::super::types::error::SelectObjectContentEventStreamError>,
      >,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
@@ -51,9 +51,9 @@
 -        input: crate::event_receiver::EventReceiver<
 -            crate::types::SelectObjectContentEventStream,
 -            crate::types::error::SelectObjectContentEventStreamError,
-+        input: super::event_receiver::EventReceiver<
-+            super::types::SelectObjectContentEventStream,
-+            super::types::error::SelectObjectContentEventStreamError,
++        input: super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::SelectObjectContentEventStream,
++            super::super::super::types::error::SelectObjectContentEventStreamError,
          >,
      ) -> Self {
          self.payload = ::std::option::Option::Some(input);
@@ -64,9 +64,9 @@
 -            crate::event_receiver::EventReceiver<
 -                crate::types::SelectObjectContentEventStream,
 -                crate::types::error::SelectObjectContentEventStreamError,
-+            super::event_receiver::EventReceiver<
-+                super::types::SelectObjectContentEventStream,
-+                super::types::error::SelectObjectContentEventStreamError,
++            super::super::super::event_receiver::EventReceiver<
++                super::super::super::types::SelectObjectContentEventStream,
++                super::super::super::types::error::SelectObjectContentEventStreamError,
              >,
          >,
      ) -> Self {
@@ -75,7 +75,7 @@
          &self,
      ) -> &::std::option::Option<
 -        crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>,
-+        super::event_receiver::EventReceiver<super::types::SelectObjectContentEventStream, super::types::error::SelectObjectContentEventStreamError>,
++        super::super::super::event_receiver::EventReceiver<super::super::super::types::SelectObjectContentEventStream, super::super::super::types::error::SelectObjectContentEventStreamError>,
      > {
          &self.payload
      }
@@ -84,10 +84,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::select_object_content::SelectObjectContentOutput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::select_object_content::SelectObjectContentOutput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::select_object_content::SelectObjectContentOutput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::select_object_content::SelectObjectContentOutput {
-+        ::std::result::Result::Ok(super::operation::select_object_content::SelectObjectContentOutput {
++        ::std::result::Result::Ok(super::super::super::operation::select_object_content::SelectObjectContentOutput {
              payload: self.payload.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "payload",

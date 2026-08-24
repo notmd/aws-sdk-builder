@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateExportTaskOutput`](crate::operation::create_export_task::CreateExportTaskOutput).
 -    pub fn builder() -> crate::operation::create_export_task::builders::CreateExportTaskOutputBuilder {
 -        crate::operation::create_export_task::builders::CreateExportTaskOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_export_task::builders::CreateExportTaskOutputBuilder {
-+        super::operation::create_export_task::builders::CreateExportTaskOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_export_task::builders::CreateExportTaskOutputBuilder {
++        super::super::super::operation::create_export_task::builders::CreateExportTaskOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateExportTaskOutput`](crate::operation::create_export_task::CreateExportTaskOutput).
 -    pub fn build(self) -> crate::operation::create_export_task::CreateExportTaskOutput {
 -        crate::operation::create_export_task::CreateExportTaskOutput {
-+    pub fn build(self) -> super::operation::create_export_task::CreateExportTaskOutput {
-+        super::operation::create_export_task::CreateExportTaskOutput {
++    pub fn build(self) -> super::super::super::operation::create_export_task::CreateExportTaskOutput {
++        super::super::super::operation::create_export_task::CreateExportTaskOutput {
              task_id: self.task_id,
              _request_id: self._request_id,
          }

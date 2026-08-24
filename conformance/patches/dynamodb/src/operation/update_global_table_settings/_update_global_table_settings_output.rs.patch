@@ -5,7 +5,7 @@
      pub global_table_name: ::std::option::Option<::std::string::String>,
      /// <p>The Region-specific settings for the global table.</p>
 -    pub replica_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
-+    pub replica_settings: ::std::option::Option<::std::vec::Vec<super::types::ReplicaSettingsDescription>>,
++    pub replica_settings: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>,
      _request_id: Option<String>,
  }
  impl UpdateGlobalTableSettingsOutput {
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replica_settings.is_none()`.
 -    pub fn replica_settings(&self) -> &[crate::types::ReplicaSettingsDescription] {
-+    pub fn replica_settings(&self) -> &[super::types::ReplicaSettingsDescription] {
++    pub fn replica_settings(&self) -> &[super::super::super::types::ReplicaSettingsDescription] {
          self.replica_settings.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateGlobalTableSettingsOutput`](crate::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput).
 -    pub fn builder() -> crate::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsOutputBuilder {
 -        crate::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsOutputBuilder::default()
-+    pub fn builder() -> super::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsOutputBuilder {
-+        super::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsOutputBuilder {
++        super::super::super::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct UpdateGlobalTableSettingsOutputBuilder {
      pub(crate) global_table_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) replica_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
-+    pub(crate) replica_settings: ::std::option::Option<::std::vec::Vec<super::types::ReplicaSettingsDescription>>,
++    pub(crate) replica_settings: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>,
      _request_id: Option<String>,
  }
  impl UpdateGlobalTableSettingsOutputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>The Region-specific settings for the global table.</p>
 -    pub fn replica_settings(mut self, input: crate::types::ReplicaSettingsDescription) -> Self {
-+    pub fn replica_settings(mut self, input: super::types::ReplicaSettingsDescription) -> Self {
++    pub fn replica_settings(mut self, input: super::super::super::types::ReplicaSettingsDescription) -> Self {
          let mut v = self.replica_settings.unwrap_or_default();
          v.push(input);
          self.replica_settings = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The Region-specific settings for the global table.</p>
 -    pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>) -> Self {
-+    pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ReplicaSettingsDescription>>) -> Self {
++    pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>) -> Self {
          self.replica_settings = input;
          self
      }
      /// <p>The Region-specific settings for the global table.</p>
 -    pub fn get_replica_settings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>> {
-+    pub fn get_replica_settings(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ReplicaSettingsDescription>> {
++    pub fn get_replica_settings(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>> {
          &self.replica_settings
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`UpdateGlobalTableSettingsOutput`](crate::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput).
 -    pub fn build(self) -> crate::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput {
 -        crate::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput {
-+    pub fn build(self) -> super::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput {
-+        super::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput {
++    pub fn build(self) -> super::super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput {
++        super::super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput {
              global_table_name: self.global_table_name,
              replica_settings: self.replica_settings,
              _request_id: self._request_id,

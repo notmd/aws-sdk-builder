@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CopyPackageVersionsError>`](crate::operation::copy_package_versions::CopyPackageVersionsError)
 -    pub fn copy_package_versions(&self) -> crate::operation::copy_package_versions::builders::CopyPackageVersionsFluentBuilder {
 -        crate::operation::copy_package_versions::builders::CopyPackageVersionsFluentBuilder::new(self.handle.clone())
-+    pub fn copy_package_versions(&self) -> super::operation::copy_package_versions::builders::CopyPackageVersionsFluentBuilder {
-+        super::operation::copy_package_versions::builders::CopyPackageVersionsFluentBuilder::new(self.handle.clone())
++    pub fn copy_package_versions(&self) -> super::super::operation::copy_package_versions::builders::CopyPackageVersionsFluentBuilder {
++        super::super::operation::copy_package_versions::builders::CopyPackageVersionsFluentBuilder::new(self.handle.clone())
      }
  }

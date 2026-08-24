@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeviceConfigurationType`](crate::types::DeviceConfigurationType).
 -    pub fn builder() -> crate::types::builders::DeviceConfigurationTypeBuilder {
 -        crate::types::builders::DeviceConfigurationTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::DeviceConfigurationTypeBuilder {
-+        super::types::builders::DeviceConfigurationTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::DeviceConfigurationTypeBuilder {
++        super::super::types::builders::DeviceConfigurationTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeviceConfigurationType`](crate::types::DeviceConfigurationType).
 -    pub fn build(self) -> crate::types::DeviceConfigurationType {
 -        crate::types::DeviceConfigurationType {
-+    pub fn build(self) -> super::types::DeviceConfigurationType {
-+        super::types::DeviceConfigurationType {
++    pub fn build(self) -> super::super::types::DeviceConfigurationType {
++        super::super::types::DeviceConfigurationType {
              challenge_required_on_new_device: self.challenge_required_on_new_device.unwrap_or_default(),
              device_only_remembered_on_user_prompt: self.device_only_remembered_on_user_prompt.unwrap_or_default(),
          }

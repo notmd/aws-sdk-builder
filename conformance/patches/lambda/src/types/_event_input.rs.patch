@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EventInput`](crate::types::EventInput).
 -    pub fn builder() -> crate::types::builders::EventInputBuilder {
 -        crate::types::builders::EventInputBuilder::default()
-+    pub fn builder() -> super::types::builders::EventInputBuilder {
-+        super::types::builders::EventInputBuilder::default()
++    pub fn builder() -> super::super::types::builders::EventInputBuilder {
++        super::super::types::builders::EventInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EventInput`](crate::types::EventInput).
 -    pub fn build(self) -> crate::types::EventInput {
 -        crate::types::EventInput {
-+    pub fn build(self) -> super::types::EventInput {
-+        super::types::EventInput {
++    pub fn build(self) -> super::super::types::EventInput {
++        super::super::types::EventInput {
              payload: self.payload,
              truncated: self.truncated,
          }

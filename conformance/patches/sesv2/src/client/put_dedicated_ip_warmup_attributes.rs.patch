@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesFluentBuilder {
 -        crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesFluentBuilder {
-+        super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesFluentBuilder {
++        super::super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`InvokeOutput`](crate::operation::invoke::InvokeOutput).
 -    pub fn builder() -> crate::operation::invoke::builders::InvokeOutputBuilder {
 -        crate::operation::invoke::builders::InvokeOutputBuilder::default()
-+    pub fn builder() -> super::operation::invoke::builders::InvokeOutputBuilder {
-+        super::operation::invoke::builders::InvokeOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::invoke::builders::InvokeOutputBuilder {
++        super::super::super::operation::invoke::builders::InvokeOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`InvokeOutput`](crate::operation::invoke::InvokeOutput).
 -    pub fn build(self) -> crate::operation::invoke::InvokeOutput {
 -        crate::operation::invoke::InvokeOutput {
-+    pub fn build(self) -> super::operation::invoke::InvokeOutput {
-+        super::operation::invoke::InvokeOutput {
++    pub fn build(self) -> super::super::super::operation::invoke::InvokeOutput {
++        super::super::super::operation::invoke::InvokeOutput {
              status_code: self.status_code.unwrap_or_default(),
              function_error: self.function_error,
              log_result: self.log_result,

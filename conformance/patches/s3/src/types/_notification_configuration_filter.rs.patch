@@ -5,12 +5,12 @@
  pub struct NotificationConfigurationFilter {
      /// <p>A container for object key name prefix and suffix filtering rules.</p>
 -    pub key: ::std::option::Option<crate::types::S3KeyFilter>,
-+    pub key: ::std::option::Option<super::types::S3KeyFilter>,
++    pub key: ::std::option::Option<super::super::types::S3KeyFilter>,
  }
  impl NotificationConfigurationFilter {
      /// <p>A container for object key name prefix and suffix filtering rules.</p>
 -    pub fn key(&self) -> ::std::option::Option<&crate::types::S3KeyFilter> {
-+    pub fn key(&self) -> ::std::option::Option<&super::types::S3KeyFilter> {
++    pub fn key(&self) -> ::std::option::Option<&super::super::types::S3KeyFilter> {
          self.key.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`NotificationConfigurationFilter`](crate::types::NotificationConfigurationFilter).
 -    pub fn builder() -> crate::types::builders::NotificationConfigurationFilterBuilder {
 -        crate::types::builders::NotificationConfigurationFilterBuilder::default()
-+    pub fn builder() -> super::types::builders::NotificationConfigurationFilterBuilder {
-+        super::types::builders::NotificationConfigurationFilterBuilder::default()
++    pub fn builder() -> super::super::types::builders::NotificationConfigurationFilterBuilder {
++        super::super::types::builders::NotificationConfigurationFilterBuilder::default()
      }
  }
 
@@ -28,30 +28,30 @@
  #[non_exhaustive]
  pub struct NotificationConfigurationFilterBuilder {
 -    pub(crate) key: ::std::option::Option<crate::types::S3KeyFilter>,
-+    pub(crate) key: ::std::option::Option<super::types::S3KeyFilter>,
++    pub(crate) key: ::std::option::Option<super::super::types::S3KeyFilter>,
  }
  impl NotificationConfigurationFilterBuilder {
      /// <p>A container for object key name prefix and suffix filtering rules.</p>
 -    pub fn key(mut self, input: crate::types::S3KeyFilter) -> Self {
-+    pub fn key(mut self, input: super::types::S3KeyFilter) -> Self {
++    pub fn key(mut self, input: super::super::types::S3KeyFilter) -> Self {
          self.key = ::std::option::Option::Some(input);
          self
      }
      /// <p>A container for object key name prefix and suffix filtering rules.</p>
 -    pub fn set_key(mut self, input: ::std::option::Option<crate::types::S3KeyFilter>) -> Self {
-+    pub fn set_key(mut self, input: ::std::option::Option<super::types::S3KeyFilter>) -> Self {
++    pub fn set_key(mut self, input: ::std::option::Option<super::super::types::S3KeyFilter>) -> Self {
          self.key = input;
          self
      }
      /// <p>A container for object key name prefix and suffix filtering rules.</p>
 -    pub fn get_key(&self) -> &::std::option::Option<crate::types::S3KeyFilter> {
-+    pub fn get_key(&self) -> &::std::option::Option<super::types::S3KeyFilter> {
++    pub fn get_key(&self) -> &::std::option::Option<super::super::types::S3KeyFilter> {
          &self.key
      }
      /// Consumes the builder and constructs a [`NotificationConfigurationFilter`](crate::types::NotificationConfigurationFilter).
 -    pub fn build(self) -> crate::types::NotificationConfigurationFilter {
 -        crate::types::NotificationConfigurationFilter { key: self.key }
-+    pub fn build(self) -> super::types::NotificationConfigurationFilter {
-+        super::types::NotificationConfigurationFilter { key: self.key }
++    pub fn build(self) -> super::super::types::NotificationConfigurationFilter {
++        super::super::types::NotificationConfigurationFilter { key: self.key }
      }
  }

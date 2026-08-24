@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateVirtualMFADeviceError>`](crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError)
 -    pub fn create_virtual_mfa_device(&self) -> crate::operation::create_virtual_mfa_device::builders::CreateVirtualMFADeviceFluentBuilder {
 -        crate::operation::create_virtual_mfa_device::builders::CreateVirtualMFADeviceFluentBuilder::new(self.handle.clone())
-+    pub fn create_virtual_mfa_device(&self) -> super::operation::create_virtual_mfa_device::builders::CreateVirtualMFADeviceFluentBuilder {
-+        super::operation::create_virtual_mfa_device::builders::CreateVirtualMFADeviceFluentBuilder::new(self.handle.clone())
++    pub fn create_virtual_mfa_device(&self) -> super::super::operation::create_virtual_mfa_device::builders::CreateVirtualMFADeviceFluentBuilder {
++        super::super::operation::create_virtual_mfa_device::builders::CreateVirtualMFADeviceFluentBuilder::new(self.handle.clone())
      }
  }

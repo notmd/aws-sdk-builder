@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateGlobalTableError>`](crate::operation::update_global_table::UpdateGlobalTableError)
 -    pub fn update_global_table(&self) -> crate::operation::update_global_table::builders::UpdateGlobalTableFluentBuilder {
 -        crate::operation::update_global_table::builders::UpdateGlobalTableFluentBuilder::new(self.handle.clone())
-+    pub fn update_global_table(&self) -> super::operation::update_global_table::builders::UpdateGlobalTableFluentBuilder {
-+        super::operation::update_global_table::builders::UpdateGlobalTableFluentBuilder::new(self.handle.clone())
++    pub fn update_global_table(&self) -> super::super::operation::update_global_table::builders::UpdateGlobalTableFluentBuilder {
++        super::super::operation::update_global_table::builders::UpdateGlobalTableFluentBuilder::new(self.handle.clone())
      }
  }

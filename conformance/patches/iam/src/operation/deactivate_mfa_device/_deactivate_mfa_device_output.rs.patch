@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeactivateMfaDeviceOutput`](crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput).
 -    pub fn builder() -> crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceOutputBuilder {
 -        crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceOutputBuilder::default()
-+    pub fn builder() -> super::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceOutputBuilder {
-+        super::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceOutputBuilder {
++        super::super::super::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeactivateMfaDeviceOutput`](crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput).
 -    pub fn build(self) -> crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput {
 -        crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput {
-+    pub fn build(self) -> super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput {
-+        super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput {
++    pub fn build(self) -> super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput {
++        super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput {
              _request_id: self._request_id,
          }
      }

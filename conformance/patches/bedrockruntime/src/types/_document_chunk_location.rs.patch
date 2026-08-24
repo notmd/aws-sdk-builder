@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DocumentChunkLocation`](crate::types::DocumentChunkLocation).
 -    pub fn builder() -> crate::types::builders::DocumentChunkLocationBuilder {
 -        crate::types::builders::DocumentChunkLocationBuilder::default()
-+    pub fn builder() -> super::types::builders::DocumentChunkLocationBuilder {
-+        super::types::builders::DocumentChunkLocationBuilder::default()
++    pub fn builder() -> super::super::types::builders::DocumentChunkLocationBuilder {
++        super::super::types::builders::DocumentChunkLocationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DocumentChunkLocation`](crate::types::DocumentChunkLocation).
 -    pub fn build(self) -> crate::types::DocumentChunkLocation {
 -        crate::types::DocumentChunkLocation {
-+    pub fn build(self) -> super::types::DocumentChunkLocation {
-+        super::types::DocumentChunkLocation {
++    pub fn build(self) -> super::super::types::DocumentChunkLocation {
++        super::super::types::DocumentChunkLocation {
              document_index: self.document_index,
              start: self.start,
              end: self.end,

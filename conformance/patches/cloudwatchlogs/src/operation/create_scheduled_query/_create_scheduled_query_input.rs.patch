@@ -5,7 +5,7 @@
      pub description: ::std::option::Option<::std::string::String>,
      /// <p>The query language to use for the scheduled query. Valid values are <code>CWLI</code>, <code>PPL</code>, and <code>SQL</code>.</p>
 -    pub query_language: ::std::option::Option<crate::types::QueryLanguage>,
-+    pub query_language: ::std::option::Option<super::types::QueryLanguage>,
++    pub query_language: ::std::option::Option<super::super::super::types::QueryLanguage>,
      /// <p>The query string to execute. This is the same query syntax used in CloudWatch Logs Insights. Maximum length is 10,000 characters.</p>
      pub query_string: ::std::option::Option<::std::string::String>,
      /// <p>An array of log group names or ARNs to query. You can specify between 1 and 50 log groups. Log groups can be identified by name or full ARN.</p>
@@ -14,7 +14,7 @@
      pub end_time_offset: ::std::option::Option<i64>,
      /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
 -    pub destination_configuration: ::std::option::Option<crate::types::DestinationConfiguration>,
-+    pub destination_configuration: ::std::option::Option<super::types::DestinationConfiguration>,
++    pub destination_configuration: ::std::option::Option<super::super::super::types::DestinationConfiguration>,
      /// <p>The start time for the scheduled query in Unix epoch format. The query will not execute before this time.</p>
      pub schedule_start_time: ::std::option::Option<i64>,
      /// <p>The end time for the scheduled query in Unix epoch format. The query will stop executing after this time.</p>
@@ -23,7 +23,7 @@
      pub execution_role_arn: ::std::option::Option<::std::string::String>,
      /// <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
 -    pub state: ::std::option::Option<crate::types::ScheduledQueryState>,
-+    pub state: ::std::option::Option<super::types::ScheduledQueryState>,
++    pub state: ::std::option::Option<super::super::super::types::ScheduledQueryState>,
      /// <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
      pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
  }
@@ -32,7 +32,7 @@
      }
      /// <p>The query language to use for the scheduled query. Valid values are <code>CWLI</code>, <code>PPL</code>, and <code>SQL</code>.</p>
 -    pub fn query_language(&self) -> ::std::option::Option<&crate::types::QueryLanguage> {
-+    pub fn query_language(&self) -> ::std::option::Option<&super::types::QueryLanguage> {
++    pub fn query_language(&self) -> ::std::option::Option<&super::super::super::types::QueryLanguage> {
          self.query_language.as_ref()
      }
      /// <p>The query string to execute. This is the same query syntax used in CloudWatch Logs Insights. Maximum length is 10,000 characters.</p>
@@ -41,7 +41,7 @@
      }
      /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
 -    pub fn destination_configuration(&self) -> ::std::option::Option<&crate::types::DestinationConfiguration> {
-+    pub fn destination_configuration(&self) -> ::std::option::Option<&super::types::DestinationConfiguration> {
++    pub fn destination_configuration(&self) -> ::std::option::Option<&super::super::super::types::DestinationConfiguration> {
          self.destination_configuration.as_ref()
      }
      /// <p>The start time for the scheduled query in Unix epoch format. The query will not execute before this time.</p>
@@ -50,7 +50,7 @@
      }
      /// <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
 -    pub fn state(&self) -> ::std::option::Option<&crate::types::ScheduledQueryState> {
-+    pub fn state(&self) -> ::std::option::Option<&super::types::ScheduledQueryState> {
++    pub fn state(&self) -> ::std::option::Option<&super::super::super::types::ScheduledQueryState> {
          self.state.as_ref()
      }
      /// <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
@@ -60,8 +60,8 @@
      /// Creates a new builder-style object to manufacture [`CreateScheduledQueryInput`](crate::operation::create_scheduled_query::CreateScheduledQueryInput).
 -    pub fn builder() -> crate::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder {
 -        crate::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder::default()
-+    pub fn builder() -> super::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder {
-+        super::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder {
++        super::super::super::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder::default()
      }
  }
 
@@ -70,7 +70,7 @@
      pub(crate) name: ::std::option::Option<::std::string::String>,
      pub(crate) description: ::std::option::Option<::std::string::String>,
 -    pub(crate) query_language: ::std::option::Option<crate::types::QueryLanguage>,
-+    pub(crate) query_language: ::std::option::Option<super::types::QueryLanguage>,
++    pub(crate) query_language: ::std::option::Option<super::super::super::types::QueryLanguage>,
      pub(crate) query_string: ::std::option::Option<::std::string::String>,
      pub(crate) log_group_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) schedule_expression: ::std::option::Option<::std::string::String>,
@@ -79,12 +79,12 @@
      pub(crate) start_time_offset: ::std::option::Option<i64>,
      pub(crate) end_time_offset: ::std::option::Option<i64>,
 -    pub(crate) destination_configuration: ::std::option::Option<crate::types::DestinationConfiguration>,
-+    pub(crate) destination_configuration: ::std::option::Option<super::types::DestinationConfiguration>,
++    pub(crate) destination_configuration: ::std::option::Option<super::super::super::types::DestinationConfiguration>,
      pub(crate) schedule_start_time: ::std::option::Option<i64>,
      pub(crate) schedule_end_time: ::std::option::Option<i64>,
      pub(crate) execution_role_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) state: ::std::option::Option<crate::types::ScheduledQueryState>,
-+    pub(crate) state: ::std::option::Option<super::types::ScheduledQueryState>,
++    pub(crate) state: ::std::option::Option<super::super::super::types::ScheduledQueryState>,
      pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
  }
  impl CreateScheduledQueryInputBuilder {
@@ -93,19 +93,19 @@
      /// <p>The query language to use for the scheduled query. Valid values are <code>CWLI</code>, <code>PPL</code>, and <code>SQL</code>.</p>
      /// This field is required.
 -    pub fn query_language(mut self, input: crate::types::QueryLanguage) -> Self {
-+    pub fn query_language(mut self, input: super::types::QueryLanguage) -> Self {
++    pub fn query_language(mut self, input: super::super::super::types::QueryLanguage) -> Self {
          self.query_language = ::std::option::Option::Some(input);
          self
      }
      /// <p>The query language to use for the scheduled query. Valid values are <code>CWLI</code>, <code>PPL</code>, and <code>SQL</code>.</p>
 -    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
-+    pub fn set_query_language(mut self, input: ::std::option::Option<super::types::QueryLanguage>) -> Self {
++    pub fn set_query_language(mut self, input: ::std::option::Option<super::super::super::types::QueryLanguage>) -> Self {
          self.query_language = input;
          self
      }
      /// <p>The query language to use for the scheduled query. Valid values are <code>CWLI</code>, <code>PPL</code>, and <code>SQL</code>.</p>
 -    pub fn get_query_language(&self) -> &::std::option::Option<crate::types::QueryLanguage> {
-+    pub fn get_query_language(&self) -> &::std::option::Option<super::types::QueryLanguage> {
++    pub fn get_query_language(&self) -> &::std::option::Option<super::super::super::types::QueryLanguage> {
          &self.query_language
      }
      /// <p>The query string to execute. This is the same query syntax used in CloudWatch Logs Insights. Maximum length is 10,000 characters.</p>
@@ -114,19 +114,19 @@
      }
      /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
 -    pub fn destination_configuration(mut self, input: crate::types::DestinationConfiguration) -> Self {
-+    pub fn destination_configuration(mut self, input: super::types::DestinationConfiguration) -> Self {
++    pub fn destination_configuration(mut self, input: super::super::super::types::DestinationConfiguration) -> Self {
          self.destination_configuration = ::std::option::Option::Some(input);
          self
      }
      /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
 -    pub fn set_destination_configuration(mut self, input: ::std::option::Option<crate::types::DestinationConfiguration>) -> Self {
-+    pub fn set_destination_configuration(mut self, input: ::std::option::Option<super::types::DestinationConfiguration>) -> Self {
++    pub fn set_destination_configuration(mut self, input: ::std::option::Option<super::super::super::types::DestinationConfiguration>) -> Self {
          self.destination_configuration = input;
          self
      }
      /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
 -    pub fn get_destination_configuration(&self) -> &::std::option::Option<crate::types::DestinationConfiguration> {
-+    pub fn get_destination_configuration(&self) -> &::std::option::Option<super::types::DestinationConfiguration> {
++    pub fn get_destination_configuration(&self) -> &::std::option::Option<super::super::super::types::DestinationConfiguration> {
          &self.destination_configuration
      }
      /// <p>The start time for the scheduled query in Unix epoch format. The query will not execute before this time.</p>
@@ -135,19 +135,19 @@
      }
      /// <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
 -    pub fn state(mut self, input: crate::types::ScheduledQueryState) -> Self {
-+    pub fn state(mut self, input: super::types::ScheduledQueryState) -> Self {
++    pub fn state(mut self, input: super::super::super::types::ScheduledQueryState) -> Self {
          self.state = ::std::option::Option::Some(input);
          self
      }
      /// <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
 -    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
-+    pub fn set_state(mut self, input: ::std::option::Option<super::types::ScheduledQueryState>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::super::super::types::ScheduledQueryState>) -> Self {
          self.state = input;
          self
      }
      /// <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
 -    pub fn get_state(&self) -> &::std::option::Option<crate::types::ScheduledQueryState> {
-+    pub fn get_state(&self) -> &::std::option::Option<super::types::ScheduledQueryState> {
++    pub fn get_state(&self) -> &::std::option::Option<super::super::super::types::ScheduledQueryState> {
          &self.state
      }
      /// Adds a key-value pair to `tags`.
@@ -156,10 +156,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::create_scheduled_query::CreateScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::create_scheduled_query::CreateScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::create_scheduled_query::CreateScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::create_scheduled_query::CreateScheduledQueryInput {
-+        ::std::result::Result::Ok(super::operation::create_scheduled_query::CreateScheduledQueryInput {
++        ::std::result::Result::Ok(super::super::super::operation::create_scheduled_query::CreateScheduledQueryInput {
              name: self.name,
              description: self.description,
              query_language: self.query_language,

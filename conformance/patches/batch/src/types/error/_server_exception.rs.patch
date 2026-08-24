@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for ServerException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::ServerException {
-+impl ::aws_types::request_id::RequestId for super::types::error::ServerException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::ServerException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`ServerException`](crate::types::error::ServerException).
 -    pub fn builder() -> crate::types::error::builders::ServerExceptionBuilder {
 -        crate::types::error::builders::ServerExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::ServerExceptionBuilder {
-+        super::types::error::builders::ServerExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::ServerExceptionBuilder {
++        super::super::super::types::error::builders::ServerExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`ServerException`](crate::types::error::ServerException).
 -    pub fn build(self) -> crate::types::error::ServerException {
 -        crate::types::error::ServerException {
-+    pub fn build(self) -> super::types::error::ServerException {
-+        super::types::error::ServerException {
++    pub fn build(self) -> super::super::super::types::error::ServerException {
++        super::super::super::types::error::ServerException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

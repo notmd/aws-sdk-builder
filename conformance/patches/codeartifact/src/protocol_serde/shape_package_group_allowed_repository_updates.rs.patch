@@ -6,8 +6,8 @@
          ::std::collections::HashMap<
 -            crate::types::PackageGroupOriginRestrictionType,
 -            ::std::collections::HashMap<crate::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
-+            super::types::PackageGroupOriginRestrictionType,
-+            ::std::collections::HashMap<super::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
++            super::super::types::PackageGroupOriginRestrictionType,
++            ::std::collections::HashMap<super::super::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
          >,
      >,
      ::aws_smithy_json::deserialize::error::DeserializeError,
@@ -17,8 +17,8 @@
                              .to_unescaped()
 -                            .map(|u| crate::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
 -                        let value = crate::protocol_serde::shape_package_group_allowed_repository_update::de_package_group_allowed_repository_update(
-+                            .map(|u| super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
-+                        let value = super::protocol_serde::shape_package_group_allowed_repository_update::de_package_group_allowed_repository_update(
++                            .map(|u| super::super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
++                        let value = super::super::protocol_serde::shape_package_group_allowed_repository_update::de_package_group_allowed_repository_update(
                              tokens,
                              _value,
                              depth + 1,

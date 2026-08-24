@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UntagServerCertificateError>`](crate::operation::untag_server_certificate::UntagServerCertificateError)
 -    pub fn untag_server_certificate(&self) -> crate::operation::untag_server_certificate::builders::UntagServerCertificateFluentBuilder {
 -        crate::operation::untag_server_certificate::builders::UntagServerCertificateFluentBuilder::new(self.handle.clone())
-+    pub fn untag_server_certificate(&self) -> super::operation::untag_server_certificate::builders::UntagServerCertificateFluentBuilder {
-+        super::operation::untag_server_certificate::builders::UntagServerCertificateFluentBuilder::new(self.handle.clone())
++    pub fn untag_server_certificate(&self) -> super::super::operation::untag_server_certificate::builders::UntagServerCertificateFluentBuilder {
++        super::super::operation::untag_server_certificate::builders::UntagServerCertificateFluentBuilder::new(self.handle.clone())
      }
  }

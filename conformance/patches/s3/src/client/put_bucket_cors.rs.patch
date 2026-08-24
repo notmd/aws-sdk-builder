@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutBucketCorsError>`](crate::operation::put_bucket_cors::PutBucketCorsError)
 -    pub fn put_bucket_cors(&self) -> crate::operation::put_bucket_cors::builders::PutBucketCorsFluentBuilder {
 -        crate::operation::put_bucket_cors::builders::PutBucketCorsFluentBuilder::new(self.handle.clone())
-+    pub fn put_bucket_cors(&self) -> super::operation::put_bucket_cors::builders::PutBucketCorsFluentBuilder {
-+        super::operation::put_bucket_cors::builders::PutBucketCorsFluentBuilder::new(self.handle.clone())
++    pub fn put_bucket_cors(&self) -> super::super::operation::put_bucket_cors::builders::PutBucketCorsFluentBuilder {
++        super::super::operation::put_bucket_cors::builders::PutBucketCorsFluentBuilder::new(self.handle.clone())
      }
  }

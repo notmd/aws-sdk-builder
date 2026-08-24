@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetMessageInsightsError>`](crate::operation::get_message_insights::GetMessageInsightsError)
 -    pub fn get_message_insights(&self) -> crate::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder {
 -        crate::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder::new(self.handle.clone())
-+    pub fn get_message_insights(&self) -> super::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder {
-+        super::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder::new(self.handle.clone())
++    pub fn get_message_insights(&self) -> super::super::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder {
++        super::super::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder::new(self.handle.clone())
      }
  }

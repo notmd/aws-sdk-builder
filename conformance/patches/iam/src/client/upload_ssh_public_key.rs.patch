@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UploadSSHPublicKeyError>`](crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError)
 -    pub fn upload_ssh_public_key(&self) -> crate::operation::upload_ssh_public_key::builders::UploadSSHPublicKeyFluentBuilder {
 -        crate::operation::upload_ssh_public_key::builders::UploadSSHPublicKeyFluentBuilder::new(self.handle.clone())
-+    pub fn upload_ssh_public_key(&self) -> super::operation::upload_ssh_public_key::builders::UploadSSHPublicKeyFluentBuilder {
-+        super::operation::upload_ssh_public_key::builders::UploadSSHPublicKeyFluentBuilder::new(self.handle.clone())
++    pub fn upload_ssh_public_key(&self) -> super::super::operation::upload_ssh_public_key::builders::UploadSSHPublicKeyFluentBuilder {
++        super::super::operation::upload_ssh_public_key::builders::UploadSSHPublicKeyFluentBuilder::new(self.handle.clone())
      }
  }

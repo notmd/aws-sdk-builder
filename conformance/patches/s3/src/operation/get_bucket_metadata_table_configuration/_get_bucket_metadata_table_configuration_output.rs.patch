@@ -5,19 +5,19 @@
  pub struct GetBucketMetadataTableConfigurationOutput {
      /// <p>The metadata table configuration for the general purpose bucket.</p>
 -    pub get_bucket_metadata_table_configuration_result: ::std::option::Option<crate::types::GetBucketMetadataTableConfigurationResult>,
-+    pub get_bucket_metadata_table_configuration_result: ::std::option::Option<super::types::GetBucketMetadataTableConfigurationResult>,
++    pub get_bucket_metadata_table_configuration_result: ::std::option::Option<super::super::super::types::GetBucketMetadataTableConfigurationResult>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
  impl GetBucketMetadataTableConfigurationOutput {
      /// <p>The metadata table configuration for the general purpose bucket.</p>
 -    pub fn get_bucket_metadata_table_configuration_result(&self) -> ::std::option::Option<&crate::types::GetBucketMetadataTableConfigurationResult> {
-+    pub fn get_bucket_metadata_table_configuration_result(&self) -> ::std::option::Option<&super::types::GetBucketMetadataTableConfigurationResult> {
++    pub fn get_bucket_metadata_table_configuration_result(&self) -> ::std::option::Option<&super::super::super::types::GetBucketMetadataTableConfigurationResult> {
          self.get_bucket_metadata_table_configuration_result.as_ref()
      }
  }
 -impl crate::s3_request_id::RequestIdExt for GetBucketMetadataTableConfigurationOutput {
-+impl super::s3_request_id::RequestIdExt for GetBucketMetadataTableConfigurationOutput {
++impl super::super::super::s3_request_id::RequestIdExt for GetBucketMetadataTableConfigurationOutput {
      fn extended_request_id(&self) -> Option<&str> {
          self._extended_request_id.as_deref()
      }
@@ -27,8 +27,8 @@
      /// Creates a new builder-style object to manufacture [`GetBucketMetadataTableConfigurationOutput`](crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationOutput).
 -    pub fn builder() -> crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationOutputBuilder {
 -        crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationOutputBuilder {
-+        super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationOutputBuilder {
++        super::super::super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationOutputBuilder::default()
      }
  }
 
@@ -37,14 +37,14 @@
  #[non_exhaustive]
  pub struct GetBucketMetadataTableConfigurationOutputBuilder {
 -    pub(crate) get_bucket_metadata_table_configuration_result: ::std::option::Option<crate::types::GetBucketMetadataTableConfigurationResult>,
-+    pub(crate) get_bucket_metadata_table_configuration_result: ::std::option::Option<super::types::GetBucketMetadataTableConfigurationResult>,
++    pub(crate) get_bucket_metadata_table_configuration_result: ::std::option::Option<super::super::super::types::GetBucketMetadataTableConfigurationResult>,
      _extended_request_id: Option<String>,
      _request_id: Option<String>,
  }
  impl GetBucketMetadataTableConfigurationOutputBuilder {
      /// <p>The metadata table configuration for the general purpose bucket.</p>
 -    pub fn get_bucket_metadata_table_configuration_result(mut self, input: crate::types::GetBucketMetadataTableConfigurationResult) -> Self {
-+    pub fn get_bucket_metadata_table_configuration_result(mut self, input: super::types::GetBucketMetadataTableConfigurationResult) -> Self {
++    pub fn get_bucket_metadata_table_configuration_result(mut self, input: super::super::super::types::GetBucketMetadataTableConfigurationResult) -> Self {
          self.get_bucket_metadata_table_configuration_result = ::std::option::Option::Some(input);
          self
      }
@@ -53,7 +53,7 @@
      pub fn set_get_bucket_metadata_table_configuration_result(
          mut self,
 -        input: ::std::option::Option<crate::types::GetBucketMetadataTableConfigurationResult>,
-+        input: ::std::option::Option<super::types::GetBucketMetadataTableConfigurationResult>,
++        input: ::std::option::Option<super::super::super::types::GetBucketMetadataTableConfigurationResult>,
      ) -> Self {
          self.get_bucket_metadata_table_configuration_result = input;
          self
@@ -62,7 +62,7 @@
      pub fn get_get_bucket_metadata_table_configuration_result(
          &self,
 -    ) -> &::std::option::Option<crate::types::GetBucketMetadataTableConfigurationResult> {
-+    ) -> &::std::option::Option<super::types::GetBucketMetadataTableConfigurationResult> {
++    ) -> &::std::option::Option<super::super::super::types::GetBucketMetadataTableConfigurationResult> {
          &self.get_bucket_metadata_table_configuration_result
      }
      pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -72,8 +72,8 @@
      /// Consumes the builder and constructs a [`GetBucketMetadataTableConfigurationOutput`](crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationOutput).
 -    pub fn build(self) -> crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationOutput {
 -        crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationOutput {
-+    pub fn build(self) -> super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationOutput {
-+        super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationOutput {
++    pub fn build(self) -> super::super::super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationOutput {
++        super::super::super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationOutput {
              get_bucket_metadata_table_configuration_result: self.get_bucket_metadata_table_configuration_result,
              _extended_request_id: self._extended_request_id,
              _request_id: self._request_id,

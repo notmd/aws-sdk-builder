@@ -5,7 +5,7 @@
      pub settings: ::std::option::Option<::aws_smithy_types::Document>,
      /// <p>An array of image files that you want to apply to functions like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
 -    pub assets: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>,
-+    pub assets: ::std::option::Option<::std::vec::Vec<super::types::AssetType>>,
++    pub assets: ::std::option::Option<::std::vec::Vec<super::super::super::types::AssetType>>,
  }
  impl CreateManagedLoginBrandingInput {
      /// <p>The ID of the user pool where you want to create a new branding style.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.assets.is_none()`.
 -    pub fn assets(&self) -> &[crate::types::AssetType] {
-+    pub fn assets(&self) -> &[super::types::AssetType] {
++    pub fn assets(&self) -> &[super::super::super::types::AssetType] {
          self.assets.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`CreateManagedLoginBrandingInput`](crate::operation::create_managed_login_branding::CreateManagedLoginBrandingInput).
 -    pub fn builder() -> crate::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder {
 -        crate::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder::default()
-+    pub fn builder() -> super::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder {
-+        super::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder {
++        super::super::super::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) use_cognito_provided_values: ::std::option::Option<bool>,
      pub(crate) settings: ::std::option::Option<::aws_smithy_types::Document>,
 -    pub(crate) assets: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>,
-+    pub(crate) assets: ::std::option::Option<::std::vec::Vec<super::types::AssetType>>,
++    pub(crate) assets: ::std::option::Option<::std::vec::Vec<super::super::super::types::AssetType>>,
  }
  impl CreateManagedLoginBrandingInputBuilder {
      /// <p>The ID of the user pool where you want to create a new branding style.</p>
@@ -43,7 +43,7 @@
      ///
      /// <p>An array of image files that you want to apply to functions like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
 -    pub fn assets(mut self, input: crate::types::AssetType) -> Self {
-+    pub fn assets(mut self, input: super::types::AssetType) -> Self {
++    pub fn assets(mut self, input: super::super::super::types::AssetType) -> Self {
          let mut v = self.assets.unwrap_or_default();
          v.push(input);
          self.assets = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>An array of image files that you want to apply to functions like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
 -    pub fn set_assets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>) -> Self {
-+    pub fn set_assets(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AssetType>>) -> Self {
++    pub fn set_assets(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AssetType>>) -> Self {
          self.assets = input;
          self
      }
      /// <p>An array of image files that you want to apply to functions like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
 -    pub fn get_assets(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssetType>> {
-+    pub fn get_assets(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AssetType>> {
++    pub fn get_assets(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AssetType>> {
          &self.assets
      }
      /// Consumes the builder and constructs a [`CreateManagedLoginBrandingInput`](crate::operation::create_managed_login_branding::CreateManagedLoginBrandingInput).
@@ -67,11 +67,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::create_managed_login_branding::CreateManagedLoginBrandingInput,
-+        super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput,
++        super::super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
-+        ::std::result::Result::Ok(super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
++        ::std::result::Result::Ok(super::super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
              user_pool_id: self.user_pool_id,
              client_id: self.client_id,
              use_cognito_provided_values: self.use_cognito_provided_values,

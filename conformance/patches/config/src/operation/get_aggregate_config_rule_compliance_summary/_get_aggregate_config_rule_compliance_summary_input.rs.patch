@@ -5,10 +5,10 @@
      pub configuration_aggregator_name: ::std::option::Option<::std::string::String>,
      /// <p>Filters the results based on the ConfigRuleComplianceSummaryFilters object.</p>
 -    pub filters: ::std::option::Option<crate::types::ConfigRuleComplianceSummaryFilters>,
-+    pub filters: ::std::option::Option<super::types::ConfigRuleComplianceSummaryFilters>,
++    pub filters: ::std::option::Option<super::super::super::types::ConfigRuleComplianceSummaryFilters>,
      /// <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
 -    pub group_by_key: ::std::option::Option<crate::types::ConfigRuleComplianceSummaryGroupKey>,
-+    pub group_by_key: ::std::option::Option<super::types::ConfigRuleComplianceSummaryGroupKey>,
++    pub group_by_key: ::std::option::Option<super::super::super::types::ConfigRuleComplianceSummaryGroupKey>,
      /// <p>The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.</p>
      pub limit: ::std::option::Option<i32>,
      /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -17,12 +17,12 @@
      }
      /// <p>Filters the results based on the ConfigRuleComplianceSummaryFilters object.</p>
 -    pub fn filters(&self) -> ::std::option::Option<&crate::types::ConfigRuleComplianceSummaryFilters> {
-+    pub fn filters(&self) -> ::std::option::Option<&super::types::ConfigRuleComplianceSummaryFilters> {
++    pub fn filters(&self) -> ::std::option::Option<&super::super::super::types::ConfigRuleComplianceSummaryFilters> {
          self.filters.as_ref()
      }
      /// <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
 -    pub fn group_by_key(&self) -> ::std::option::Option<&crate::types::ConfigRuleComplianceSummaryGroupKey> {
-+    pub fn group_by_key(&self) -> ::std::option::Option<&super::types::ConfigRuleComplianceSummaryGroupKey> {
++    pub fn group_by_key(&self) -> ::std::option::Option<&super::super::super::types::ConfigRuleComplianceSummaryGroupKey> {
          self.group_by_key.as_ref()
      }
      /// <p>The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.</p>
@@ -31,10 +31,10 @@
  impl GetAggregateConfigRuleComplianceSummaryInput {
      /// Creates a new builder-style object to manufacture [`GetAggregateConfigRuleComplianceSummaryInput`](crate::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryInput).
 -    pub fn builder() -> crate::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder
-+    pub fn builder() -> super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder
++    pub fn builder() -> super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder
      {
 -        crate::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder::default()
-+        super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder::default()
++        super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder::default()
      }
  }
 
@@ -44,8 +44,8 @@
      pub(crate) configuration_aggregator_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) filters: ::std::option::Option<crate::types::ConfigRuleComplianceSummaryFilters>,
 -    pub(crate) group_by_key: ::std::option::Option<crate::types::ConfigRuleComplianceSummaryGroupKey>,
-+    pub(crate) filters: ::std::option::Option<super::types::ConfigRuleComplianceSummaryFilters>,
-+    pub(crate) group_by_key: ::std::option::Option<super::types::ConfigRuleComplianceSummaryGroupKey>,
++    pub(crate) filters: ::std::option::Option<super::super::super::types::ConfigRuleComplianceSummaryFilters>,
++    pub(crate) group_by_key: ::std::option::Option<super::super::super::types::ConfigRuleComplianceSummaryGroupKey>,
      pub(crate) limit: ::std::option::Option<i32>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
  }
@@ -54,36 +54,36 @@
      }
      /// <p>Filters the results based on the ConfigRuleComplianceSummaryFilters object.</p>
 -    pub fn filters(mut self, input: crate::types::ConfigRuleComplianceSummaryFilters) -> Self {
-+    pub fn filters(mut self, input: super::types::ConfigRuleComplianceSummaryFilters) -> Self {
++    pub fn filters(mut self, input: super::super::super::types::ConfigRuleComplianceSummaryFilters) -> Self {
          self.filters = ::std::option::Option::Some(input);
          self
      }
      /// <p>Filters the results based on the ConfigRuleComplianceSummaryFilters object.</p>
 -    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ConfigRuleComplianceSummaryFilters>) -> Self {
-+    pub fn set_filters(mut self, input: ::std::option::Option<super::types::ConfigRuleComplianceSummaryFilters>) -> Self {
++    pub fn set_filters(mut self, input: ::std::option::Option<super::super::super::types::ConfigRuleComplianceSummaryFilters>) -> Self {
          self.filters = input;
          self
      }
      /// <p>Filters the results based on the ConfigRuleComplianceSummaryFilters object.</p>
 -    pub fn get_filters(&self) -> &::std::option::Option<crate::types::ConfigRuleComplianceSummaryFilters> {
-+    pub fn get_filters(&self) -> &::std::option::Option<super::types::ConfigRuleComplianceSummaryFilters> {
++    pub fn get_filters(&self) -> &::std::option::Option<super::super::super::types::ConfigRuleComplianceSummaryFilters> {
          &self.filters
      }
      /// <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
 -    pub fn group_by_key(mut self, input: crate::types::ConfigRuleComplianceSummaryGroupKey) -> Self {
-+    pub fn group_by_key(mut self, input: super::types::ConfigRuleComplianceSummaryGroupKey) -> Self {
++    pub fn group_by_key(mut self, input: super::super::super::types::ConfigRuleComplianceSummaryGroupKey) -> Self {
          self.group_by_key = ::std::option::Option::Some(input);
          self
      }
      /// <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
 -    pub fn set_group_by_key(mut self, input: ::std::option::Option<crate::types::ConfigRuleComplianceSummaryGroupKey>) -> Self {
-+    pub fn set_group_by_key(mut self, input: ::std::option::Option<super::types::ConfigRuleComplianceSummaryGroupKey>) -> Self {
++    pub fn set_group_by_key(mut self, input: ::std::option::Option<super::super::super::types::ConfigRuleComplianceSummaryGroupKey>) -> Self {
          self.group_by_key = input;
          self
      }
      /// <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
 -    pub fn get_group_by_key(&self) -> &::std::option::Option<crate::types::ConfigRuleComplianceSummaryGroupKey> {
-+    pub fn get_group_by_key(&self) -> &::std::option::Option<super::types::ConfigRuleComplianceSummaryGroupKey> {
++    pub fn get_group_by_key(&self) -> &::std::option::Option<super::super::super::types::ConfigRuleComplianceSummaryGroupKey> {
          &self.group_by_key
      }
      /// <p>The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.</p>
@@ -92,12 +92,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryInput,
-+        super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryInput,
++        super::super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryInput {
-+            super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryInput {
++            super::super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryInput {
                  configuration_aggregator_name: self.configuration_aggregator_name,
                  filters: self.filters,
                  group_by_key: self.group_by_key,

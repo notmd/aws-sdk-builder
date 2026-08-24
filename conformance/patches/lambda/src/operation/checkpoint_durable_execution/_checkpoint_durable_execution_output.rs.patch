@@ -5,7 +5,7 @@
      pub checkpoint_token: ::std::option::Option<::std::string::String>,
      /// <p>Updated execution state information that includes any changes that occurred since the last checkpoint, such as completed callbacks or expired timers. This allows the SDK to update its internal state during replay.</p>
 -    pub new_execution_state: ::std::option::Option<crate::types::CheckpointUpdatedExecutionState>,
-+    pub new_execution_state: ::std::option::Option<super::types::CheckpointUpdatedExecutionState>,
++    pub new_execution_state: ::std::option::Option<super::super::super::types::CheckpointUpdatedExecutionState>,
      _request_id: Option<String>,
  }
  impl CheckpointDurableExecutionOutput {
@@ -14,7 +14,7 @@
      }
      /// <p>Updated execution state information that includes any changes that occurred since the last checkpoint, such as completed callbacks or expired timers. This allows the SDK to update its internal state during replay.</p>
 -    pub fn new_execution_state(&self) -> ::std::option::Option<&crate::types::CheckpointUpdatedExecutionState> {
-+    pub fn new_execution_state(&self) -> ::std::option::Option<&super::types::CheckpointUpdatedExecutionState> {
++    pub fn new_execution_state(&self) -> ::std::option::Option<&super::super::super::types::CheckpointUpdatedExecutionState> {
          self.new_execution_state.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`CheckpointDurableExecutionOutput`](crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionOutput).
 -    pub fn builder() -> crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder {
 -        crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder::default()
-+    pub fn builder() -> super::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder {
-+        super::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder {
++        super::super::super::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct CheckpointDurableExecutionOutputBuilder {
      pub(crate) checkpoint_token: ::std::option::Option<::std::string::String>,
 -    pub(crate) new_execution_state: ::std::option::Option<crate::types::CheckpointUpdatedExecutionState>,
-+    pub(crate) new_execution_state: ::std::option::Option<super::types::CheckpointUpdatedExecutionState>,
++    pub(crate) new_execution_state: ::std::option::Option<super::super::super::types::CheckpointUpdatedExecutionState>,
      _request_id: Option<String>,
  }
  impl CheckpointDurableExecutionOutputBuilder {
@@ -43,19 +43,19 @@
      /// <p>Updated execution state information that includes any changes that occurred since the last checkpoint, such as completed callbacks or expired timers. This allows the SDK to update its internal state during replay.</p>
      /// This field is required.
 -    pub fn new_execution_state(mut self, input: crate::types::CheckpointUpdatedExecutionState) -> Self {
-+    pub fn new_execution_state(mut self, input: super::types::CheckpointUpdatedExecutionState) -> Self {
++    pub fn new_execution_state(mut self, input: super::super::super::types::CheckpointUpdatedExecutionState) -> Self {
          self.new_execution_state = ::std::option::Option::Some(input);
          self
      }
      /// <p>Updated execution state information that includes any changes that occurred since the last checkpoint, such as completed callbacks or expired timers. This allows the SDK to update its internal state during replay.</p>
 -    pub fn set_new_execution_state(mut self, input: ::std::option::Option<crate::types::CheckpointUpdatedExecutionState>) -> Self {
-+    pub fn set_new_execution_state(mut self, input: ::std::option::Option<super::types::CheckpointUpdatedExecutionState>) -> Self {
++    pub fn set_new_execution_state(mut self, input: ::std::option::Option<super::super::super::types::CheckpointUpdatedExecutionState>) -> Self {
          self.new_execution_state = input;
          self
      }
      /// <p>Updated execution state information that includes any changes that occurred since the last checkpoint, such as completed callbacks or expired timers. This allows the SDK to update its internal state during replay.</p>
 -    pub fn get_new_execution_state(&self) -> &::std::option::Option<crate::types::CheckpointUpdatedExecutionState> {
-+    pub fn get_new_execution_state(&self) -> &::std::option::Option<super::types::CheckpointUpdatedExecutionState> {
++    pub fn get_new_execution_state(&self) -> &::std::option::Option<super::super::super::types::CheckpointUpdatedExecutionState> {
          &self.new_execution_state
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`CheckpointDurableExecutionOutput`](crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionOutput).
 -    pub fn build(self) -> crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionOutput {
 -        crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionOutput {
-+    pub fn build(self) -> super::operation::checkpoint_durable_execution::CheckpointDurableExecutionOutput {
-+        super::operation::checkpoint_durable_execution::CheckpointDurableExecutionOutput {
++    pub fn build(self) -> super::super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionOutput {
++        super::super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionOutput {
              checkpoint_token: self.checkpoint_token,
              new_execution_state: self.new_execution_state,
              _request_id: self._request_id,

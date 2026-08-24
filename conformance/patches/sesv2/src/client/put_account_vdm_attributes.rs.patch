@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutAccountVdmAttributesError>`](crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesError)
 -    pub fn put_account_vdm_attributes(&self) -> crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesFluentBuilder {
 -        crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesFluentBuilder::new(self.handle.clone())
-+    pub fn put_account_vdm_attributes(&self) -> super::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesFluentBuilder {
-+        super::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesFluentBuilder::new(self.handle.clone())
++    pub fn put_account_vdm_attributes(&self) -> super::super::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesFluentBuilder {
++        super::super::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesFluentBuilder::new(self.handle.clone())
      }
  }

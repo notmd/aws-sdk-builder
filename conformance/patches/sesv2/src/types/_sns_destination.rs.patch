@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SnsDestination`](crate::types::SnsDestination).
 -    pub fn builder() -> crate::types::builders::SnsDestinationBuilder {
 -        crate::types::builders::SnsDestinationBuilder::default()
-+    pub fn builder() -> super::types::builders::SnsDestinationBuilder {
-+        super::types::builders::SnsDestinationBuilder::default()
++    pub fn builder() -> super::super::types::builders::SnsDestinationBuilder {
++        super::super::types::builders::SnsDestinationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`topic_arn`](crate::types::builders::SnsDestinationBuilder::topic_arn)
 -    pub fn build(self) -> ::std::result::Result<crate::types::SnsDestination, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::SnsDestination {
-+    pub fn build(self) -> ::std::result::Result<super::types::SnsDestination, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::SnsDestination {
++    pub fn build(self) -> ::std::result::Result<super::super::types::SnsDestination, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::SnsDestination {
              topic_arn: self.topic_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "topic_arn",

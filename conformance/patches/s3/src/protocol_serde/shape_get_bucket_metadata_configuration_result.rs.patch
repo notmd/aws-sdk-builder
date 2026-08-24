@@ -5,20 +5,20 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::GetBucketMetadataConfigurationResult, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::GetBucketMetadataConfigurationResult, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::GetBucketMetadataConfigurationResult, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::GetBucketMetadataConfigurationResult::builder();
-+    let mut builder = super::types::GetBucketMetadataConfigurationResult::builder();
++    let mut builder = super::super::types::GetBucketMetadataConfigurationResult::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("MetadataConfigurationResult") /* MetadataConfigurationResult com.amazonaws.s3#GetBucketMetadataConfigurationResult$MetadataConfigurationResult */ =>  {
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_metadata_configuration_result::de_metadata_configuration_result(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_metadata_configuration_result::de_metadata_configuration_result(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_metadata_configuration_result::de_metadata_configuration_result(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -27,5 +27,5 @@
          }
      }
 -    Ok(crate::serde_util::get_bucket_metadata_configuration_result_correct_errors(builder).build())
-+    Ok(super::serde_util::get_bucket_metadata_configuration_result_correct_errors(builder).build())
++    Ok(super::super::serde_util::get_bucket_metadata_configuration_result_correct_errors(builder).build())
  }

@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::TrackedActionLastAccessed, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::TrackedActionLastAccessed, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::TrackedActionLastAccessed, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::TrackedActionLastAccessed::builder();
-+    let mut builder = super::types::TrackedActionLastAccessed::builder();
++    let mut builder = super::super::types::TrackedActionLastAccessed::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("ActionName") /* ActionName com.amazonaws.iam#TrackedActionLastAccessed$ActionName */ =>  {

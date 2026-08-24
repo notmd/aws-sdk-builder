@@ -5,7 +5,7 @@
  pub struct ScanOutput {
      /// <p>An array of item attributes that match the scan criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
 -    pub items: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>,
-+    pub items: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>>,
++    pub items: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>>,
      /// <p>The number of items in the response.</p>
      /// <p>If you set <code>ScanFilter</code> in the request, then <code>Count</code> is the number of items returned after the filter was applied, and <code>ScannedCount</code> is the number of matching items before the filter was applied.</p>
      /// <p>If you did not use a filter in the request, then <code>Count</code> is the same as <code>ScannedCount</code>.</p>
@@ -14,10 +14,10 @@
      /// <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p>
      /// <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
 -    pub last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-+    pub last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
++    pub last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
      /// <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
 -    pub consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
-+    pub consumed_capacity: ::std::option::Option<super::types::ConsumedCapacity>,
++    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
      _request_id: Option<String>,
  }
  impl ScanOutput {
@@ -26,7 +26,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.items.is_none()`.
 -    pub fn items(&self) -> &[::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>] {
-+    pub fn items(&self) -> &[::std::collections::HashMap<::std::string::String, super::types::AttributeValue>] {
++    pub fn items(&self) -> &[::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>] {
          self.items.as_deref().unwrap_or_default()
      }
      /// <p>The number of items in the response.</p>
@@ -35,12 +35,12 @@
      /// <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p>
      /// <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
 -    pub fn last_evaluated_key(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
-+    pub fn last_evaluated_key(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::AttributeValue>> {
++    pub fn last_evaluated_key(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>> {
          self.last_evaluated_key.as_ref()
      }
      /// <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
 -    pub fn consumed_capacity(&self) -> ::std::option::Option<&crate::types::ConsumedCapacity> {
-+    pub fn consumed_capacity(&self) -> ::std::option::Option<&super::types::ConsumedCapacity> {
++    pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> {
          self.consumed_capacity.as_ref()
      }
  }
@@ -50,8 +50,8 @@
      /// Creates a new builder-style object to manufacture [`ScanOutput`](crate::operation::scan::ScanOutput).
 -    pub fn builder() -> crate::operation::scan::builders::ScanOutputBuilder {
 -        crate::operation::scan::builders::ScanOutputBuilder::default()
-+    pub fn builder() -> super::operation::scan::builders::ScanOutputBuilder {
-+        super::operation::scan::builders::ScanOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::scan::builders::ScanOutputBuilder {
++        super::super::super::operation::scan::builders::ScanOutputBuilder::default()
      }
  }
 
@@ -60,13 +60,13 @@
  #[non_exhaustive]
  pub struct ScanOutputBuilder {
 -    pub(crate) items: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>,
-+    pub(crate) items: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>>,
++    pub(crate) items: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>>,
      pub(crate) count: ::std::option::Option<i32>,
      pub(crate) scanned_count: ::std::option::Option<i32>,
 -    pub(crate) last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 -    pub(crate) consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
-+    pub(crate) last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
-+    pub(crate) consumed_capacity: ::std::option::Option<super::types::ConsumedCapacity>,
++    pub(crate) last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
++    pub(crate) consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
      _request_id: Option<String>,
  }
  impl ScanOutputBuilder {
@@ -75,7 +75,7 @@
      ///
      /// <p>An array of item attributes that match the scan criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
 -    pub fn items(mut self, input: ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>) -> Self {
-+    pub fn items(mut self, input: ::std::collections::HashMap<::std::string::String, super::types::AttributeValue>) -> Self {
++    pub fn items(mut self, input: ::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>) -> Self {
          let mut v = self.items.unwrap_or_default();
          v.push(input);
          self.items = ::std::option::Option::Some(v);
@@ -84,7 +84,7 @@
      pub fn set_items(
          mut self,
 -        input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>,
-+        input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>>,
++        input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>>,
      ) -> Self {
          self.items = input;
          self
@@ -93,7 +93,7 @@
      pub fn get_items(
          &self,
 -    ) -> &::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>> {
-+    ) -> &::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>> {
++    ) -> &::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>> {
          &self.items
      }
      /// <p>The number of items in the response.</p>
@@ -102,7 +102,7 @@
      /// <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p>
      /// <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
 -    pub fn last_evaluated_key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
-+    pub fn last_evaluated_key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::AttributeValue) -> Self {
++    pub fn last_evaluated_key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::AttributeValue) -> Self {
          let mut hash_map = self.last_evaluated_key.unwrap_or_default();
          hash_map.insert(k.into(), v);
          self.last_evaluated_key = ::std::option::Option::Some(hash_map);
@@ -111,7 +111,7 @@
      pub fn set_last_evaluated_key(
          mut self,
 -        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
      ) -> Self {
          self.last_evaluated_key = input;
          self
@@ -120,24 +120,24 @@
      /// <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p>
      /// <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
 -    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
-+    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>> {
++    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>> {
          &self.last_evaluated_key
      }
      /// <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
 -    pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
-+    pub fn consumed_capacity(mut self, input: super::types::ConsumedCapacity) -> Self {
++    pub fn consumed_capacity(mut self, input: super::super::super::types::ConsumedCapacity) -> Self {
          self.consumed_capacity = ::std::option::Option::Some(input);
          self
      }
      /// <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
 -    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self {
-+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::types::ConsumedCapacity>) -> Self {
++    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacity>) -> Self {
          self.consumed_capacity = input;
          self
      }
      /// <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
 -    pub fn get_consumed_capacity(&self) -> &::std::option::Option<crate::types::ConsumedCapacity> {
-+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::types::ConsumedCapacity> {
++    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacity> {
          &self.consumed_capacity
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -147,8 +147,8 @@
      /// Consumes the builder and constructs a [`ScanOutput`](crate::operation::scan::ScanOutput).
 -    pub fn build(self) -> crate::operation::scan::ScanOutput {
 -        crate::operation::scan::ScanOutput {
-+    pub fn build(self) -> super::operation::scan::ScanOutput {
-+        super::operation::scan::ScanOutput {
++    pub fn build(self) -> super::super::super::operation::scan::ScanOutput {
++        super::super::super::operation::scan::ScanOutput {
              items: self.items,
              count: self.count.unwrap_or_default(),
              scanned_count: self.scanned_count.unwrap_or_default(),

@@ -5,7 +5,7 @@
  pub fn ser_create_email_template_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::create_email_template::CreateEmailTemplateInput,
-+    input: &super::operation::create_email_template::CreateEmailTemplateInput,
++    input: &super::super::operation::create_email_template::CreateEmailTemplateInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.tags {
          let mut array_2 = object.key("Tags").start_array();
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_4 = array_2.value().start_object();
 -                crate::protocol_serde::shape_tag::ser_tag(&mut object_4, item_3)?;
-+                super::protocol_serde::shape_tag::ser_tag(&mut object_4, item_3)?;
++                super::super::protocol_serde::shape_tag::ser_tag(&mut object_4, item_3)?;
                  object_4.finish();
              }
          }
@@ -23,7 +23,7 @@
          #[allow(unused_mut)]
          let mut object_6 = object.key("TemplateContent").start_object();
 -        crate::protocol_serde::shape_email_template_content::ser_email_template_content(&mut object_6, var_5)?;
-+        super::protocol_serde::shape_email_template_content::ser_email_template_content(&mut object_6, var_5)?;
++        super::super::protocol_serde::shape_email_template_content::ser_email_template_content(&mut object_6, var_5)?;
          object_6.finish();
      }
      if let Some(var_7) = &input.template_name {

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ToolUseBlockDelta`](crate::types::ToolUseBlockDelta).
 -    pub fn builder() -> crate::types::builders::ToolUseBlockDeltaBuilder {
 -        crate::types::builders::ToolUseBlockDeltaBuilder::default()
-+    pub fn builder() -> super::types::builders::ToolUseBlockDeltaBuilder {
-+        super::types::builders::ToolUseBlockDeltaBuilder::default()
++    pub fn builder() -> super::super::types::builders::ToolUseBlockDeltaBuilder {
++        super::super::types::builders::ToolUseBlockDeltaBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`input`](crate::types::builders::ToolUseBlockDeltaBuilder::input)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ToolUseBlockDelta, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ToolUseBlockDelta {
-+    pub fn build(self) -> ::std::result::Result<super::types::ToolUseBlockDelta, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ToolUseBlockDelta {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ToolUseBlockDelta, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ToolUseBlockDelta {
              input: self.input.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "input",

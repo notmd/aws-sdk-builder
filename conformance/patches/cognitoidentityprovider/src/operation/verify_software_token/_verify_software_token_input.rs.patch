@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`VerifySoftwareTokenInput`](crate::operation::verify_software_token::VerifySoftwareTokenInput).
 -    pub fn builder() -> crate::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder {
 -        crate::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder::default()
-+    pub fn builder() -> super::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder {
-+        super::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder {
++        super::super::super::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::verify_software_token::VerifySoftwareTokenInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::verify_software_token::VerifySoftwareTokenInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::verify_software_token::VerifySoftwareTokenInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::verify_software_token::VerifySoftwareTokenInput {
-+        ::std::result::Result::Ok(super::operation::verify_software_token::VerifySoftwareTokenInput {
++        ::std::result::Result::Ok(super::super::super::operation::verify_software_token::VerifySoftwareTokenInput {
              access_token: self.access_token,
              session: self.session,
              user_code: self.user_code,

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListDiscoveredResourcesError>`](crate::operation::list_discovered_resources::ListDiscoveredResourcesError)
 -    pub fn list_discovered_resources(&self) -> crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesFluentBuilder {
 -        crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesFluentBuilder::new(self.handle.clone())
-+    pub fn list_discovered_resources(&self) -> super::operation::list_discovered_resources::builders::ListDiscoveredResourcesFluentBuilder {
-+        super::operation::list_discovered_resources::builders::ListDiscoveredResourcesFluentBuilder::new(self.handle.clone())
++    pub fn list_discovered_resources(&self) -> super::super::operation::list_discovered_resources::builders::ListDiscoveredResourcesFluentBuilder {
++        super::super::operation::list_discovered_resources::builders::ListDiscoveredResourcesFluentBuilder::new(self.handle.clone())
      }
  }

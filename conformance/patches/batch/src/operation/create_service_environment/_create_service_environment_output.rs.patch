@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateServiceEnvironmentOutput`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput).
 -    pub fn builder() -> crate::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder {
 -        crate::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder {
-+        super::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder {
++        super::super::super::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateServiceEnvironmentOutput`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput).
 -    pub fn build(self) -> crate::operation::create_service_environment::CreateServiceEnvironmentOutput {
 -        crate::operation::create_service_environment::CreateServiceEnvironmentOutput {
-+    pub fn build(self) -> super::operation::create_service_environment::CreateServiceEnvironmentOutput {
-+        super::operation::create_service_environment::CreateServiceEnvironmentOutput {
++    pub fn build(self) -> super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput {
++        super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput {
              service_environment_name: self.service_environment_name,
              service_environment_arn: self.service_environment_arn,
              _request_id: self._request_id,

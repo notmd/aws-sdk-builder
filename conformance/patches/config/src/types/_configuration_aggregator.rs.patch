@@ -5,10 +5,10 @@
      pub configuration_aggregator_arn: ::std::option::Option<::std::string::String>,
      /// <p>Provides a list of source accounts and regions to be aggregated.</p>
 -    pub account_aggregation_sources: ::std::option::Option<::std::vec::Vec<crate::types::AccountAggregationSource>>,
-+    pub account_aggregation_sources: ::std::option::Option<::std::vec::Vec<super::types::AccountAggregationSource>>,
++    pub account_aggregation_sources: ::std::option::Option<::std::vec::Vec<super::super::types::AccountAggregationSource>>,
      /// <p>Provides an organization and list of regions to be aggregated.</p>
 -    pub organization_aggregation_source: ::std::option::Option<crate::types::OrganizationAggregationSource>,
-+    pub organization_aggregation_source: ::std::option::Option<super::types::OrganizationAggregationSource>,
++    pub organization_aggregation_source: ::std::option::Option<super::super::types::OrganizationAggregationSource>,
      /// <p>The time stamp when the configuration aggregator was created.</p>
      pub creation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The time of the last update.</p>
@@ -17,7 +17,7 @@
      pub created_by: ::std::option::Option<::std::string::String>,
      /// <p>An object to filter the data you specify for an aggregator.</p>
 -    pub aggregator_filters: ::std::option::Option<crate::types::AggregatorFilters>,
-+    pub aggregator_filters: ::std::option::Option<super::types::AggregatorFilters>,
++    pub aggregator_filters: ::std::option::Option<super::super::types::AggregatorFilters>,
  }
  impl ConfigurationAggregator {
      /// <p>The name of the aggregator.</p>
@@ -26,12 +26,12 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.account_aggregation_sources.is_none()`.
 -    pub fn account_aggregation_sources(&self) -> &[crate::types::AccountAggregationSource] {
-+    pub fn account_aggregation_sources(&self) -> &[super::types::AccountAggregationSource] {
++    pub fn account_aggregation_sources(&self) -> &[super::super::types::AccountAggregationSource] {
          self.account_aggregation_sources.as_deref().unwrap_or_default()
      }
      /// <p>Provides an organization and list of regions to be aggregated.</p>
 -    pub fn organization_aggregation_source(&self) -> ::std::option::Option<&crate::types::OrganizationAggregationSource> {
-+    pub fn organization_aggregation_source(&self) -> ::std::option::Option<&super::types::OrganizationAggregationSource> {
++    pub fn organization_aggregation_source(&self) -> ::std::option::Option<&super::super::types::OrganizationAggregationSource> {
          self.organization_aggregation_source.as_ref()
      }
      /// <p>The time stamp when the configuration aggregator was created.</p>
@@ -40,7 +40,7 @@
      }
      /// <p>An object to filter the data you specify for an aggregator.</p>
 -    pub fn aggregator_filters(&self) -> ::std::option::Option<&crate::types::AggregatorFilters> {
-+    pub fn aggregator_filters(&self) -> ::std::option::Option<&super::types::AggregatorFilters> {
++    pub fn aggregator_filters(&self) -> ::std::option::Option<&super::super::types::AggregatorFilters> {
          self.aggregator_filters.as_ref()
      }
  }
@@ -48,8 +48,8 @@
      /// Creates a new builder-style object to manufacture [`ConfigurationAggregator`](crate::types::ConfigurationAggregator).
 -    pub fn builder() -> crate::types::builders::ConfigurationAggregatorBuilder {
 -        crate::types::builders::ConfigurationAggregatorBuilder::default()
-+    pub fn builder() -> super::types::builders::ConfigurationAggregatorBuilder {
-+        super::types::builders::ConfigurationAggregatorBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConfigurationAggregatorBuilder {
++        super::super::types::builders::ConfigurationAggregatorBuilder::default()
      }
  }
 
@@ -59,13 +59,13 @@
      pub(crate) configuration_aggregator_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) account_aggregation_sources: ::std::option::Option<::std::vec::Vec<crate::types::AccountAggregationSource>>,
 -    pub(crate) organization_aggregation_source: ::std::option::Option<crate::types::OrganizationAggregationSource>,
-+    pub(crate) account_aggregation_sources: ::std::option::Option<::std::vec::Vec<super::types::AccountAggregationSource>>,
-+    pub(crate) organization_aggregation_source: ::std::option::Option<super::types::OrganizationAggregationSource>,
++    pub(crate) account_aggregation_sources: ::std::option::Option<::std::vec::Vec<super::super::types::AccountAggregationSource>>,
++    pub(crate) organization_aggregation_source: ::std::option::Option<super::super::types::OrganizationAggregationSource>,
      pub(crate) creation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) last_updated_time: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) created_by: ::std::option::Option<::std::string::String>,
 -    pub(crate) aggregator_filters: ::std::option::Option<crate::types::AggregatorFilters>,
-+    pub(crate) aggregator_filters: ::std::option::Option<super::types::AggregatorFilters>,
++    pub(crate) aggregator_filters: ::std::option::Option<super::super::types::AggregatorFilters>,
  }
  impl ConfigurationAggregatorBuilder {
      /// <p>The name of the aggregator.</p>
@@ -74,7 +74,7 @@
      ///
      /// <p>Provides a list of source accounts and regions to be aggregated.</p>
 -    pub fn account_aggregation_sources(mut self, input: crate::types::AccountAggregationSource) -> Self {
-+    pub fn account_aggregation_sources(mut self, input: super::types::AccountAggregationSource) -> Self {
++    pub fn account_aggregation_sources(mut self, input: super::super::types::AccountAggregationSource) -> Self {
          let mut v = self.account_aggregation_sources.unwrap_or_default();
          v.push(input);
          self.account_aggregation_sources = ::std::option::Option::Some(v);
@@ -83,30 +83,30 @@
      }
      /// <p>Provides a list of source accounts and regions to be aggregated.</p>
 -    pub fn set_account_aggregation_sources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AccountAggregationSource>>) -> Self {
-+    pub fn set_account_aggregation_sources(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AccountAggregationSource>>) -> Self {
++    pub fn set_account_aggregation_sources(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::AccountAggregationSource>>) -> Self {
          self.account_aggregation_sources = input;
          self
      }
      /// <p>Provides a list of source accounts and regions to be aggregated.</p>
 -    pub fn get_account_aggregation_sources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AccountAggregationSource>> {
-+    pub fn get_account_aggregation_sources(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AccountAggregationSource>> {
++    pub fn get_account_aggregation_sources(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::AccountAggregationSource>> {
          &self.account_aggregation_sources
      }
      /// <p>Provides an organization and list of regions to be aggregated.</p>
 -    pub fn organization_aggregation_source(mut self, input: crate::types::OrganizationAggregationSource) -> Self {
-+    pub fn organization_aggregation_source(mut self, input: super::types::OrganizationAggregationSource) -> Self {
++    pub fn organization_aggregation_source(mut self, input: super::super::types::OrganizationAggregationSource) -> Self {
          self.organization_aggregation_source = ::std::option::Option::Some(input);
          self
      }
      /// <p>Provides an organization and list of regions to be aggregated.</p>
 -    pub fn set_organization_aggregation_source(mut self, input: ::std::option::Option<crate::types::OrganizationAggregationSource>) -> Self {
-+    pub fn set_organization_aggregation_source(mut self, input: ::std::option::Option<super::types::OrganizationAggregationSource>) -> Self {
++    pub fn set_organization_aggregation_source(mut self, input: ::std::option::Option<super::super::types::OrganizationAggregationSource>) -> Self {
          self.organization_aggregation_source = input;
          self
      }
      /// <p>Provides an organization and list of regions to be aggregated.</p>
 -    pub fn get_organization_aggregation_source(&self) -> &::std::option::Option<crate::types::OrganizationAggregationSource> {
-+    pub fn get_organization_aggregation_source(&self) -> &::std::option::Option<super::types::OrganizationAggregationSource> {
++    pub fn get_organization_aggregation_source(&self) -> &::std::option::Option<super::super::types::OrganizationAggregationSource> {
          &self.organization_aggregation_source
      }
      /// <p>The time stamp when the configuration aggregator was created.</p>
@@ -115,26 +115,26 @@
      }
      /// <p>An object to filter the data you specify for an aggregator.</p>
 -    pub fn aggregator_filters(mut self, input: crate::types::AggregatorFilters) -> Self {
-+    pub fn aggregator_filters(mut self, input: super::types::AggregatorFilters) -> Self {
++    pub fn aggregator_filters(mut self, input: super::super::types::AggregatorFilters) -> Self {
          self.aggregator_filters = ::std::option::Option::Some(input);
          self
      }
      /// <p>An object to filter the data you specify for an aggregator.</p>
 -    pub fn set_aggregator_filters(mut self, input: ::std::option::Option<crate::types::AggregatorFilters>) -> Self {
-+    pub fn set_aggregator_filters(mut self, input: ::std::option::Option<super::types::AggregatorFilters>) -> Self {
++    pub fn set_aggregator_filters(mut self, input: ::std::option::Option<super::super::types::AggregatorFilters>) -> Self {
          self.aggregator_filters = input;
          self
      }
      /// <p>An object to filter the data you specify for an aggregator.</p>
 -    pub fn get_aggregator_filters(&self) -> &::std::option::Option<crate::types::AggregatorFilters> {
-+    pub fn get_aggregator_filters(&self) -> &::std::option::Option<super::types::AggregatorFilters> {
++    pub fn get_aggregator_filters(&self) -> &::std::option::Option<super::super::types::AggregatorFilters> {
          &self.aggregator_filters
      }
      /// Consumes the builder and constructs a [`ConfigurationAggregator`](crate::types::ConfigurationAggregator).
 -    pub fn build(self) -> crate::types::ConfigurationAggregator {
 -        crate::types::ConfigurationAggregator {
-+    pub fn build(self) -> super::types::ConfigurationAggregator {
-+        super::types::ConfigurationAggregator {
++    pub fn build(self) -> super::super::types::ConfigurationAggregator {
++        super::super::types::ConfigurationAggregator {
              configuration_aggregator_name: self.configuration_aggregator_name,
              configuration_aggregator_arn: self.configuration_aggregator_arn,
              account_aggregation_sources: self.account_aggregation_sources,

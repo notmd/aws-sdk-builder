@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SoftwareTokenMfaConfigType`](crate::types::SoftwareTokenMfaConfigType).
 -    pub fn builder() -> crate::types::builders::SoftwareTokenMfaConfigTypeBuilder {
 -        crate::types::builders::SoftwareTokenMfaConfigTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::SoftwareTokenMfaConfigTypeBuilder {
-+        super::types::builders::SoftwareTokenMfaConfigTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::SoftwareTokenMfaConfigTypeBuilder {
++        super::super::types::builders::SoftwareTokenMfaConfigTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`SoftwareTokenMfaConfigType`](crate::types::SoftwareTokenMfaConfigType).
 -    pub fn build(self) -> crate::types::SoftwareTokenMfaConfigType {
 -        crate::types::SoftwareTokenMfaConfigType {
-+    pub fn build(self) -> super::types::SoftwareTokenMfaConfigType {
-+        super::types::SoftwareTokenMfaConfigType {
++    pub fn build(self) -> super::super::types::SoftwareTokenMfaConfigType {
++        super::super::types::SoftwareTokenMfaConfigType {
              enabled: self.enabled.unwrap_or_default(),
          }
      }

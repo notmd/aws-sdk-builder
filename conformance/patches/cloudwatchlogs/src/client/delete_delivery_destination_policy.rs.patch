@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyFluentBuilder {
 -        crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyFluentBuilder {
-+        super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyFluentBuilder {
++        super::super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyFluentBuilder::new(self.handle.clone())
      }
  }

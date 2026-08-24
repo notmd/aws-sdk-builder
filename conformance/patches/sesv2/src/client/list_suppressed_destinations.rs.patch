@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListSuppressedDestinationsError>`](crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError)
 -    pub fn list_suppressed_destinations(&self) -> crate::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsFluentBuilder {
 -        crate::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsFluentBuilder::new(self.handle.clone())
-+    pub fn list_suppressed_destinations(&self) -> super::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsFluentBuilder {
-+        super::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsFluentBuilder::new(self.handle.clone())
++    pub fn list_suppressed_destinations(&self) -> super::super::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsFluentBuilder {
++        super::super::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsFluentBuilder::new(self.handle.clone())
      }
  }

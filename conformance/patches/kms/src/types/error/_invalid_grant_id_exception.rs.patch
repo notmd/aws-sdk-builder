@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for InvalidGrantIdException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::InvalidGrantIdException {
-+impl ::aws_types::request_id::RequestId for super::types::error::InvalidGrantIdException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::InvalidGrantIdException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`InvalidGrantIdException`](crate::types::error::InvalidGrantIdException).
 -    pub fn builder() -> crate::types::error::builders::InvalidGrantIdExceptionBuilder {
 -        crate::types::error::builders::InvalidGrantIdExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::InvalidGrantIdExceptionBuilder {
-+        super::types::error::builders::InvalidGrantIdExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::InvalidGrantIdExceptionBuilder {
++        super::super::super::types::error::builders::InvalidGrantIdExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`InvalidGrantIdException`](crate::types::error::InvalidGrantIdException).
 -    pub fn build(self) -> crate::types::error::InvalidGrantIdException {
 -        crate::types::error::InvalidGrantIdException {
-+    pub fn build(self) -> super::types::error::InvalidGrantIdException {
-+        super::types::error::InvalidGrantIdException {
++    pub fn build(self) -> super::super::super::types::error::InvalidGrantIdException {
++        super::super::super::types::error::InvalidGrantIdException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

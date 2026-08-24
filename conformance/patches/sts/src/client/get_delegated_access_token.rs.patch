@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetDelegatedAccessTokenError>`](crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError)
 -    pub fn get_delegated_access_token(&self) -> crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder {
 -        crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder::new(self.handle.clone())
-+    pub fn get_delegated_access_token(&self) -> super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder {
-+        super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder::new(self.handle.clone())
++    pub fn get_delegated_access_token(&self) -> super::super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder {
++        super::super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder::new(self.handle.clone())
      }
  }

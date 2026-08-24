@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for UserNotFoundException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::UserNotFoundException {
-+impl ::aws_types::request_id::RequestId for super::types::error::UserNotFoundException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::UserNotFoundException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`UserNotFoundException`](crate::types::error::UserNotFoundException).
 -    pub fn builder() -> crate::types::error::builders::UserNotFoundExceptionBuilder {
 -        crate::types::error::builders::UserNotFoundExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::UserNotFoundExceptionBuilder {
-+        super::types::error::builders::UserNotFoundExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::UserNotFoundExceptionBuilder {
++        super::super::super::types::error::builders::UserNotFoundExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`UserNotFoundException`](crate::types::error::UserNotFoundException).
 -    pub fn build(self) -> crate::types::error::UserNotFoundException {
 -        crate::types::error::UserNotFoundException {
-+    pub fn build(self) -> super::types::error::UserNotFoundException {
-+        super::types::error::UserNotFoundException {
++    pub fn build(self) -> super::super::super::types::error::UserNotFoundException {
++        super::super::super::types::error::UserNotFoundException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UntagSAMLProviderError>`](crate::operation::untag_saml_provider::UntagSAMLProviderError)
 -    pub fn untag_saml_provider(&self) -> crate::operation::untag_saml_provider::builders::UntagSAMLProviderFluentBuilder {
 -        crate::operation::untag_saml_provider::builders::UntagSAMLProviderFluentBuilder::new(self.handle.clone())
-+    pub fn untag_saml_provider(&self) -> super::operation::untag_saml_provider::builders::UntagSAMLProviderFluentBuilder {
-+        super::operation::untag_saml_provider::builders::UntagSAMLProviderFluentBuilder::new(self.handle.clone())
++    pub fn untag_saml_provider(&self) -> super::super::operation::untag_saml_provider::builders::UntagSAMLProviderFluentBuilder {
++        super::super::operation::untag_saml_provider::builders::UntagSAMLProviderFluentBuilder::new(self.handle.clone())
      }
  }

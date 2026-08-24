@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeConformancePackStatusInput`](crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusInput).
 -    pub fn builder() -> crate::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusInputBuilder {
 -        crate::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusInputBuilder {
-+        super::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusInputBuilder {
++        super::super::super::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusInput,
-+        super::operation::describe_conformance_pack_status::DescribeConformancePackStatusInput,
++        super::super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusInput {
-+        ::std::result::Result::Ok(super::operation::describe_conformance_pack_status::DescribeConformancePackStatusInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusInput {
              conformance_pack_names: self.conformance_pack_names,
              limit: self.limit,
              next_token: self.next_token,

@@ -5,7 +5,7 @@
  pub enum GetLogObjectResponseStream {
      /// <p>A structure containing the extracted fields from a log event. These fields are extracted based on the log format and can be used for structured querying and analysis.</p>
 -    Fields(crate::types::FieldsData),
-+    Fields(super::types::FieldsData),
++    Fields(super::super::types::FieldsData),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -14,7 +14,7 @@
      /// Tries to convert the enum instance into [`Fields`](crate::types::GetLogObjectResponseStream::Fields), extracting the inner [`FieldsData`](crate::types::FieldsData).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_fields(&self) -> ::std::result::Result<&crate::types::FieldsData, &Self> {
-+    pub fn as_fields(&self) -> ::std::result::Result<&super::types::FieldsData, &Self> {
++    pub fn as_fields(&self) -> ::std::result::Result<&super::super::types::FieldsData, &Self> {
          if let GetLogObjectResponseStream::Fields(val) = &self {
              ::std::result::Result::Ok(val)
          } else {

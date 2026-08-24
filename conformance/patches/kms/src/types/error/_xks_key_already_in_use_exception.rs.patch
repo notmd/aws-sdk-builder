@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for XksKeyAlreadyInUseException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::XksKeyAlreadyInUseException {
-+impl ::aws_types::request_id::RequestId for super::types::error::XksKeyAlreadyInUseException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::XksKeyAlreadyInUseException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`XksKeyAlreadyInUseException`](crate::types::error::XksKeyAlreadyInUseException).
 -    pub fn builder() -> crate::types::error::builders::XksKeyAlreadyInUseExceptionBuilder {
 -        crate::types::error::builders::XksKeyAlreadyInUseExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::XksKeyAlreadyInUseExceptionBuilder {
-+        super::types::error::builders::XksKeyAlreadyInUseExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::XksKeyAlreadyInUseExceptionBuilder {
++        super::super::super::types::error::builders::XksKeyAlreadyInUseExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`XksKeyAlreadyInUseException`](crate::types::error::XksKeyAlreadyInUseException).
 -    pub fn build(self) -> crate::types::error::XksKeyAlreadyInUseException {
 -        crate::types::error::XksKeyAlreadyInUseException {
-+    pub fn build(self) -> super::types::error::XksKeyAlreadyInUseException {
-+        super::types::error::XksKeyAlreadyInUseException {
++    pub fn build(self) -> super::super::super::types::error::XksKeyAlreadyInUseException {
++        super::super::super::types::error::XksKeyAlreadyInUseException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

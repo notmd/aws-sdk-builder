@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListLayerVersionsError>`](crate::operation::list_layer_versions::ListLayerVersionsError)
 -    pub fn list_layer_versions(&self) -> crate::operation::list_layer_versions::builders::ListLayerVersionsFluentBuilder {
 -        crate::operation::list_layer_versions::builders::ListLayerVersionsFluentBuilder::new(self.handle.clone())
-+    pub fn list_layer_versions(&self) -> super::operation::list_layer_versions::builders::ListLayerVersionsFluentBuilder {
-+        super::operation::list_layer_versions::builders::ListLayerVersionsFluentBuilder::new(self.handle.clone())
++    pub fn list_layer_versions(&self) -> super::super::operation::list_layer_versions::builders::ListLayerVersionsFluentBuilder {
++        super::super::operation::list_layer_versions::builders::ListLayerVersionsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,7 +5,7 @@
  pub fn ser_instance_requirements(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::InstanceRequirements,
-+    input: &super::types::InstanceRequirements,
++    input: &super::super::types::InstanceRequirements,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.architectures {
          let mut array_2 = object.key("Architectures").start_array();
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::InstanceRequirements>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::InstanceRequirements>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::InstanceRequirements>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,14 +23,14 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::InstanceRequirementsBuilder::default();
-+            let mut builder = super::types::builders::InstanceRequirementsBuilder::default();
++            let mut builder = super::super::types::builders::InstanceRequirementsBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "Architectures" => {
 -                            builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
-+                            builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
++                            builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -39,7 +39,7 @@
                          }
                          "AllowedInstanceTypes" => {
 -                            builder = builder.set_allowed_instance_types(crate::protocol_serde::shape_instance_type_set::de_instance_type_set(
-+                            builder = builder.set_allowed_instance_types(super::protocol_serde::shape_instance_type_set::de_instance_type_set(
++                            builder = builder.set_allowed_instance_types(super::super::protocol_serde::shape_instance_type_set::de_instance_type_set(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -48,7 +48,7 @@
                          }
                          "ExcludedInstanceTypes" => {
 -                            builder = builder.set_excluded_instance_types(crate::protocol_serde::shape_instance_type_set::de_instance_type_set(
-+                            builder = builder.set_excluded_instance_types(super::protocol_serde::shape_instance_type_set::de_instance_type_set(
++                            builder = builder.set_excluded_instance_types(super::super::protocol_serde::shape_instance_type_set::de_instance_type_set(
                                  tokens,
                                  _value,
                                  depth + 1,

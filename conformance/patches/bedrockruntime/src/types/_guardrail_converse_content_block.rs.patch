@@ -5,10 +5,10 @@
  pub enum GuardrailConverseContentBlock {
      /// <p>Image within converse content block to be evaluated by the guardrail.</p>
 -    Image(crate::types::GuardrailConverseImageBlock),
-+    Image(super::types::GuardrailConverseImageBlock),
++    Image(super::super::types::GuardrailConverseImageBlock),
      /// <p>The text to guard.</p>
 -    Text(crate::types::GuardrailConverseTextBlock),
-+    Text(super::types::GuardrailConverseTextBlock),
++    Text(super::super::types::GuardrailConverseTextBlock),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -17,7 +17,7 @@
      /// Tries to convert the enum instance into [`Image`](crate::types::GuardrailConverseContentBlock::Image), extracting the inner [`GuardrailConverseImageBlock`](crate::types::GuardrailConverseImageBlock).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_image(&self) -> ::std::result::Result<&crate::types::GuardrailConverseImageBlock, &Self> {
-+    pub fn as_image(&self) -> ::std::result::Result<&super::types::GuardrailConverseImageBlock, &Self> {
++    pub fn as_image(&self) -> ::std::result::Result<&super::super::types::GuardrailConverseImageBlock, &Self> {
          if let GuardrailConverseContentBlock::Image(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -26,7 +26,7 @@
      /// Tries to convert the enum instance into [`Text`](crate::types::GuardrailConverseContentBlock::Text), extracting the inner [`GuardrailConverseTextBlock`](crate::types::GuardrailConverseTextBlock).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_text(&self) -> ::std::result::Result<&crate::types::GuardrailConverseTextBlock, &Self> {
-+    pub fn as_text(&self) -> ::std::result::Result<&super::types::GuardrailConverseTextBlock, &Self> {
++    pub fn as_text(&self) -> ::std::result::Result<&super::super::types::GuardrailConverseTextBlock, &Self> {
          if let GuardrailConverseContentBlock::Text(val) = &self {
              ::std::result::Result::Ok(val)
          } else {

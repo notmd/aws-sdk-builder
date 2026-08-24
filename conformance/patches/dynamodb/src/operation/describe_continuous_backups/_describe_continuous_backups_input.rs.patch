@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeContinuousBackupsInput`](crate::operation::describe_continuous_backups::DescribeContinuousBackupsInput).
 -    pub fn builder() -> crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder {
 -        crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder {
-+        super::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder {
++        super::super::super::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_continuous_backups::DescribeContinuousBackupsInput,
-+        super::operation::describe_continuous_backups::DescribeContinuousBackupsInput,
++        super::super::super::operation::describe_continuous_backups::DescribeContinuousBackupsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::describe_continuous_backups::DescribeContinuousBackupsInput { table_name: self.table_name })
-+        ::std::result::Result::Ok(super::operation::describe_continuous_backups::DescribeContinuousBackupsInput { table_name: self.table_name })
++        ::std::result::Result::Ok(super::super::super::operation::describe_continuous_backups::DescribeContinuousBackupsInput { table_name: self.table_name })
      }
  }

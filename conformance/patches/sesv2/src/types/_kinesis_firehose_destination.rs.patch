@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`KinesisFirehoseDestination`](crate::types::KinesisFirehoseDestination).
 -    pub fn builder() -> crate::types::builders::KinesisFirehoseDestinationBuilder {
 -        crate::types::builders::KinesisFirehoseDestinationBuilder::default()
-+    pub fn builder() -> super::types::builders::KinesisFirehoseDestinationBuilder {
-+        super::types::builders::KinesisFirehoseDestinationBuilder::default()
++    pub fn builder() -> super::super::types::builders::KinesisFirehoseDestinationBuilder {
++        super::super::types::builders::KinesisFirehoseDestinationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`delivery_stream_arn`](crate::types::builders::KinesisFirehoseDestinationBuilder::delivery_stream_arn)
 -    pub fn build(self) -> ::std::result::Result<crate::types::KinesisFirehoseDestination, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::KinesisFirehoseDestination {
-+    pub fn build(self) -> ::std::result::Result<super::types::KinesisFirehoseDestination, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::KinesisFirehoseDestination {
++    pub fn build(self) -> ::std::result::Result<super::super::types::KinesisFirehoseDestination, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::KinesisFirehoseDestination {
              iam_role_arn: self.iam_role_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "iam_role_arn",

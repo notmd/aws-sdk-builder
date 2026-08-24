@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EksConfiguration`](crate::types::EksConfiguration).
 -    pub fn builder() -> crate::types::builders::EksConfigurationBuilder {
 -        crate::types::builders::EksConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::EksConfigurationBuilder {
-+        super::types::builders::EksConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::EksConfigurationBuilder {
++        super::super::types::builders::EksConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EksConfiguration`](crate::types::EksConfiguration).
 -    pub fn build(self) -> crate::types::EksConfiguration {
 -        crate::types::EksConfiguration {
-+    pub fn build(self) -> super::types::EksConfiguration {
-+        super::types::EksConfiguration {
++    pub fn build(self) -> super::super::types::EksConfiguration {
++        super::super::types::EksConfiguration {
              eks_cluster_arn: self.eks_cluster_arn,
              kubernetes_namespace: self.kubernetes_namespace,
          }

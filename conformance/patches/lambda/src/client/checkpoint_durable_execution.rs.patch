@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CheckpointDurableExecutionError>`](crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError)
 -    pub fn checkpoint_durable_execution(&self) -> crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionFluentBuilder {
 -        crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionFluentBuilder::new(self.handle.clone())
-+    pub fn checkpoint_durable_execution(&self) -> super::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionFluentBuilder {
-+        super::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionFluentBuilder::new(self.handle.clone())
++    pub fn checkpoint_durable_execution(&self) -> super::super::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionFluentBuilder {
++        super::super::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionFluentBuilder::new(self.handle.clone())
      }
  }

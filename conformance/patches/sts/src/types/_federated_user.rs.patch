@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`FederatedUser`](crate::types::FederatedUser).
 -    pub fn builder() -> crate::types::builders::FederatedUserBuilder {
 -        crate::types::builders::FederatedUserBuilder::default()
-+    pub fn builder() -> super::types::builders::FederatedUserBuilder {
-+        super::types::builders::FederatedUserBuilder::default()
++    pub fn builder() -> super::super::types::builders::FederatedUserBuilder {
++        super::super::types::builders::FederatedUserBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`arn`](crate::types::builders::FederatedUserBuilder::arn)
 -    pub fn build(self) -> ::std::result::Result<crate::types::FederatedUser, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::FederatedUser {
-+    pub fn build(self) -> ::std::result::Result<super::types::FederatedUser, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::FederatedUser {
++    pub fn build(self) -> ::std::result::Result<super::super::types::FederatedUser, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::FederatedUser {
              federated_user_id: self.federated_user_id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "federated_user_id",

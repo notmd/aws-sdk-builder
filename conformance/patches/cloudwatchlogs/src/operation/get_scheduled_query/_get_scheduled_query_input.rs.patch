@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetScheduledQueryInput`](crate::operation::get_scheduled_query::GetScheduledQueryInput).
 -    pub fn builder() -> crate::operation::get_scheduled_query::builders::GetScheduledQueryInputBuilder {
 -        crate::operation::get_scheduled_query::builders::GetScheduledQueryInputBuilder::default()
-+    pub fn builder() -> super::operation::get_scheduled_query::builders::GetScheduledQueryInputBuilder {
-+        super::operation::get_scheduled_query::builders::GetScheduledQueryInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_scheduled_query::builders::GetScheduledQueryInputBuilder {
++        super::super::super::operation::get_scheduled_query::builders::GetScheduledQueryInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_scheduled_query::GetScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_scheduled_query::GetScheduledQueryInput { identifier: self.identifier })
-+    ) -> ::std::result::Result<super::operation::get_scheduled_query::GetScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_scheduled_query::GetScheduledQueryInput { identifier: self.identifier })
++    ) -> ::std::result::Result<super::super::super::operation::get_scheduled_query::GetScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_scheduled_query::GetScheduledQueryInput { identifier: self.identifier })
      }
  }

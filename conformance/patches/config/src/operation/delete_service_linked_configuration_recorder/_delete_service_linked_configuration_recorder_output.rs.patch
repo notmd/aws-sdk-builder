@@ -5,10 +5,10 @@
  impl DeleteServiceLinkedConfigurationRecorderOutput {
      /// Creates a new builder-style object to manufacture [`DeleteServiceLinkedConfigurationRecorderOutput`](crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput).
 -    pub fn builder() -> crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder
-+    pub fn builder() -> super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder
++    pub fn builder() -> super::super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder
      {
 -        crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder::default()
-+        super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder::default()
++        super::super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder::default()
      }
  }
 
@@ -17,12 +17,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
-+        super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
++        super::super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput {
-+            super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput {
++            super::super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput {
                  arn: self.arn.ok_or_else(|| {
                      ::aws_smithy_types::error::operation::BuildError::missing_field(
                          "arn",

@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for AliasLimitExceededException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::AliasLimitExceededException {
-+impl ::aws_types::request_id::RequestId for super::types::error::AliasLimitExceededException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::AliasLimitExceededException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`AliasLimitExceededException`](crate::types::error::AliasLimitExceededException).
 -    pub fn builder() -> crate::types::error::builders::AliasLimitExceededExceptionBuilder {
 -        crate::types::error::builders::AliasLimitExceededExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::AliasLimitExceededExceptionBuilder {
-+        super::types::error::builders::AliasLimitExceededExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::AliasLimitExceededExceptionBuilder {
++        super::super::super::types::error::builders::AliasLimitExceededExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`AliasLimitExceededException`](crate::types::error::AliasLimitExceededException).
 -    pub fn build(self) -> crate::types::error::AliasLimitExceededException {
 -        crate::types::error::AliasLimitExceededException {
-+    pub fn build(self) -> super::types::error::AliasLimitExceededException {
-+        super::types::error::AliasLimitExceededException {
++    pub fn build(self) -> super::super::super::types::error::AliasLimitExceededException {
++        super::super::super::types::error::AliasLimitExceededException {
              r#type: self.r#type,
              message: self.message,
              meta: self.meta.unwrap_or_default(),

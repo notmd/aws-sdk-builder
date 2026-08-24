@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TerminateServiceJobOutput`](crate::operation::terminate_service_job::TerminateServiceJobOutput).
 -    pub fn builder() -> crate::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder {
 -        crate::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder::default()
-+    pub fn builder() -> super::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder {
-+        super::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder {
++        super::super::super::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`TerminateServiceJobOutput`](crate::operation::terminate_service_job::TerminateServiceJobOutput).
 -    pub fn build(self) -> crate::operation::terminate_service_job::TerminateServiceJobOutput {
 -        crate::operation::terminate_service_job::TerminateServiceJobOutput {
-+    pub fn build(self) -> super::operation::terminate_service_job::TerminateServiceJobOutput {
-+        super::operation::terminate_service_job::TerminateServiceJobOutput {
++    pub fn build(self) -> super::super::super::operation::terminate_service_job::TerminateServiceJobOutput {
++        super::super::super::operation::terminate_service_job::TerminateServiceJobOutput {
              _request_id: self._request_id,
          }
      }

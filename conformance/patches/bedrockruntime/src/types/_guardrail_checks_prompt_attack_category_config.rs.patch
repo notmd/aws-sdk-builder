@@ -5,12 +5,12 @@
  pub struct GuardrailChecksPromptAttackCategoryConfig {
      /// <p>The prompt attack category to evaluate.</p>
 -    pub category: crate::types::GuardrailChecksPromptAttackCategory,
-+    pub category: super::types::GuardrailChecksPromptAttackCategory,
++    pub category: super::super::types::GuardrailChecksPromptAttackCategory,
  }
  impl GuardrailChecksPromptAttackCategoryConfig {
      /// <p>The prompt attack category to evaluate.</p>
 -    pub fn category(&self) -> &crate::types::GuardrailChecksPromptAttackCategory {
-+    pub fn category(&self) -> &super::types::GuardrailChecksPromptAttackCategory {
++    pub fn category(&self) -> &super::super::types::GuardrailChecksPromptAttackCategory {
          &self.category
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailChecksPromptAttackCategoryConfig`](crate::types::GuardrailChecksPromptAttackCategoryConfig).
 -    pub fn builder() -> crate::types::builders::GuardrailChecksPromptAttackCategoryConfigBuilder {
 -        crate::types::builders::GuardrailChecksPromptAttackCategoryConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailChecksPromptAttackCategoryConfigBuilder {
-+        super::types::builders::GuardrailChecksPromptAttackCategoryConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailChecksPromptAttackCategoryConfigBuilder {
++        super::super::types::builders::GuardrailChecksPromptAttackCategoryConfigBuilder::default()
      }
  }
 
@@ -28,25 +28,25 @@
  #[non_exhaustive]
  pub struct GuardrailChecksPromptAttackCategoryConfigBuilder {
 -    pub(crate) category: ::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory>,
-+    pub(crate) category: ::std::option::Option<super::types::GuardrailChecksPromptAttackCategory>,
++    pub(crate) category: ::std::option::Option<super::super::types::GuardrailChecksPromptAttackCategory>,
  }
  impl GuardrailChecksPromptAttackCategoryConfigBuilder {
      /// <p>The prompt attack category to evaluate.</p>
      /// This field is required.
 -    pub fn category(mut self, input: crate::types::GuardrailChecksPromptAttackCategory) -> Self {
-+    pub fn category(mut self, input: super::types::GuardrailChecksPromptAttackCategory) -> Self {
++    pub fn category(mut self, input: super::super::types::GuardrailChecksPromptAttackCategory) -> Self {
          self.category = ::std::option::Option::Some(input);
          self
      }
      /// <p>The prompt attack category to evaluate.</p>
 -    pub fn set_category(mut self, input: ::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory>) -> Self {
-+    pub fn set_category(mut self, input: ::std::option::Option<super::types::GuardrailChecksPromptAttackCategory>) -> Self {
++    pub fn set_category(mut self, input: ::std::option::Option<super::super::types::GuardrailChecksPromptAttackCategory>) -> Self {
          self.category = input;
          self
      }
      /// <p>The prompt attack category to evaluate.</p>
 -    pub fn get_category(&self) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory> {
-+    pub fn get_category(&self) -> &::std::option::Option<super::types::GuardrailChecksPromptAttackCategory> {
++    pub fn get_category(&self) -> &::std::option::Option<super::super::types::GuardrailChecksPromptAttackCategory> {
          &self.category
      }
      /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackCategoryConfig`](crate::types::GuardrailChecksPromptAttackCategoryConfig).
@@ -56,8 +56,8 @@
          self,
 -    ) -> ::std::result::Result<crate::types::GuardrailChecksPromptAttackCategoryConfig, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailChecksPromptAttackCategoryConfig {
-+    ) -> ::std::result::Result<super::types::GuardrailChecksPromptAttackCategoryConfig, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailChecksPromptAttackCategoryConfig {
++    ) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackCategoryConfig, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailChecksPromptAttackCategoryConfig {
              category: self.category.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "category",

@@ -5,7 +5,7 @@
      /// <p><code>Expired</code> - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job can't be started.</p></li>
      /// </ul>
 -    pub status: ::std::option::Option<crate::types::UserImportJobStatusType>,
-+    pub status: ::std::option::Option<super::types::UserImportJobStatusType>,
++    pub status: ::std::option::Option<super::super::types::UserImportJobStatusType>,
      /// <p>The role Amazon Resource Name (ARN) for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.</p>
      pub cloud_watch_logs_role_arn: ::std::option::Option<::std::string::String>,
      /// <p>The number of users that were successfully imported.</p>
@@ -14,7 +14,7 @@
      /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
      /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
 -    pub password_hashing_algorithm: ::std::option::Option<crate::types::PasswordHashingAlgorithmType>,
-+    pub password_hashing_algorithm: ::std::option::Option<super::types::PasswordHashingAlgorithmType>,
++    pub password_hashing_algorithm: ::std::option::Option<super::super::types::PasswordHashingAlgorithmType>,
  }
  impl UserImportJobType {
      /// <p>The friendly name of the user import job.</p>
@@ -23,7 +23,7 @@
      /// <p><code>Expired</code> - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job can't be started.</p></li>
      /// </ul>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::UserImportJobStatusType> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::UserImportJobStatusType> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::UserImportJobStatusType> {
          self.status.as_ref()
      }
      /// <p>The role Amazon Resource Name (ARN) for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.</p>
@@ -32,7 +32,7 @@
      /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
      /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
 -    pub fn password_hashing_algorithm(&self) -> ::std::option::Option<&crate::types::PasswordHashingAlgorithmType> {
-+    pub fn password_hashing_algorithm(&self) -> ::std::option::Option<&super::types::PasswordHashingAlgorithmType> {
++    pub fn password_hashing_algorithm(&self) -> ::std::option::Option<&super::super::types::PasswordHashingAlgorithmType> {
          self.password_hashing_algorithm.as_ref()
      }
  }
@@ -40,8 +40,8 @@
      /// Creates a new builder-style object to manufacture [`UserImportJobType`](crate::types::UserImportJobType).
 -    pub fn builder() -> crate::types::builders::UserImportJobTypeBuilder {
 -        crate::types::builders::UserImportJobTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::UserImportJobTypeBuilder {
-+        super::types::builders::UserImportJobTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::UserImportJobTypeBuilder {
++        super::super::types::builders::UserImportJobTypeBuilder::default()
      }
  }
 
@@ -50,14 +50,14 @@
      pub(crate) start_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) completion_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) status: ::std::option::Option<crate::types::UserImportJobStatusType>,
-+    pub(crate) status: ::std::option::Option<super::types::UserImportJobStatusType>,
++    pub(crate) status: ::std::option::Option<super::super::types::UserImportJobStatusType>,
      pub(crate) cloud_watch_logs_role_arn: ::std::option::Option<::std::string::String>,
      pub(crate) imported_users: ::std::option::Option<i64>,
      pub(crate) skipped_users: ::std::option::Option<i64>,
      pub(crate) failed_users: ::std::option::Option<i64>,
      pub(crate) completion_message: ::std::option::Option<::std::string::String>,
 -    pub(crate) password_hashing_algorithm: ::std::option::Option<crate::types::PasswordHashingAlgorithmType>,
-+    pub(crate) password_hashing_algorithm: ::std::option::Option<super::types::PasswordHashingAlgorithmType>,
++    pub(crate) password_hashing_algorithm: ::std::option::Option<super::super::types::PasswordHashingAlgorithmType>,
  }
  impl UserImportJobTypeBuilder {
      /// <p>The friendly name of the user import job.</p>
@@ -66,7 +66,7 @@
      /// <p><code>Expired</code> - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job can't be started.</p></li>
      /// </ul>
 -    pub fn status(mut self, input: crate::types::UserImportJobStatusType) -> Self {
-+    pub fn status(mut self, input: super::types::UserImportJobStatusType) -> Self {
++    pub fn status(mut self, input: super::super::types::UserImportJobStatusType) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
@@ -75,7 +75,7 @@
      /// <p><code>Expired</code> - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job can't be started.</p></li>
      /// </ul>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::UserImportJobStatusType>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::UserImportJobStatusType>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::UserImportJobStatusType>) -> Self {
          self.status = input;
          self
      }
@@ -84,7 +84,7 @@
      /// <p><code>Expired</code> - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job can't be started.</p></li>
      /// </ul>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::UserImportJobStatusType> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::UserImportJobStatusType> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::UserImportJobStatusType> {
          &self.status
      }
      /// <p>The role Amazon Resource Name (ARN) for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.</p>
@@ -93,28 +93,28 @@
      /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
      /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
 -    pub fn password_hashing_algorithm(mut self, input: crate::types::PasswordHashingAlgorithmType) -> Self {
-+    pub fn password_hashing_algorithm(mut self, input: super::types::PasswordHashingAlgorithmType) -> Self {
++    pub fn password_hashing_algorithm(mut self, input: super::super::types::PasswordHashingAlgorithmType) -> Self {
          self.password_hashing_algorithm = ::std::option::Option::Some(input);
          self
      }
      /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
      /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
 -    pub fn set_password_hashing_algorithm(mut self, input: ::std::option::Option<crate::types::PasswordHashingAlgorithmType>) -> Self {
-+    pub fn set_password_hashing_algorithm(mut self, input: ::std::option::Option<super::types::PasswordHashingAlgorithmType>) -> Self {
++    pub fn set_password_hashing_algorithm(mut self, input: ::std::option::Option<super::super::types::PasswordHashingAlgorithmType>) -> Self {
          self.password_hashing_algorithm = input;
          self
      }
      /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
      /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
 -    pub fn get_password_hashing_algorithm(&self) -> &::std::option::Option<crate::types::PasswordHashingAlgorithmType> {
-+    pub fn get_password_hashing_algorithm(&self) -> &::std::option::Option<super::types::PasswordHashingAlgorithmType> {
++    pub fn get_password_hashing_algorithm(&self) -> &::std::option::Option<super::super::types::PasswordHashingAlgorithmType> {
          &self.password_hashing_algorithm
      }
      /// Consumes the builder and constructs a [`UserImportJobType`](crate::types::UserImportJobType).
 -    pub fn build(self) -> crate::types::UserImportJobType {
 -        crate::types::UserImportJobType {
-+    pub fn build(self) -> super::types::UserImportJobType {
-+        super::types::UserImportJobType {
++    pub fn build(self) -> super::super::types::UserImportJobType {
++        super::super::types::UserImportJobType {
              job_name: self.job_name,
              job_id: self.job_id,
              user_pool_id: self.user_pool_id,

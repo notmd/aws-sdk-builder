@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`S3BucketSource`](crate::types::S3BucketSource).
 -    pub fn builder() -> crate::types::builders::S3BucketSourceBuilder {
 -        crate::types::builders::S3BucketSourceBuilder::default()
-+    pub fn builder() -> super::types::builders::S3BucketSourceBuilder {
-+        super::types::builders::S3BucketSourceBuilder::default()
++    pub fn builder() -> super::super::types::builders::S3BucketSourceBuilder {
++        super::super::types::builders::S3BucketSourceBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`s3_bucket`](crate::types::builders::S3BucketSourceBuilder::s3_bucket)
 -    pub fn build(self) -> ::std::result::Result<crate::types::S3BucketSource, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::S3BucketSource {
-+    pub fn build(self) -> ::std::result::Result<super::types::S3BucketSource, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::S3BucketSource {
++    pub fn build(self) -> ::std::result::Result<super::super::types::S3BucketSource, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::S3BucketSource {
              s3_bucket_owner: self.s3_bucket_owner,
              s3_bucket: self.s3_bucket.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(

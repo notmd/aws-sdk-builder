@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Content`](crate::types::Content).
 -    pub fn builder() -> crate::types::builders::ContentBuilder {
 -        crate::types::builders::ContentBuilder::default()
-+    pub fn builder() -> super::types::builders::ContentBuilder {
-+        super::types::builders::ContentBuilder::default()
++    pub fn builder() -> super::super::types::builders::ContentBuilder {
++        super::super::types::builders::ContentBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`data`](crate::types::builders::ContentBuilder::data)
 -    pub fn build(self) -> ::std::result::Result<crate::types::Content, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::Content {
-+    pub fn build(self) -> ::std::result::Result<super::types::Content, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Content {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Content, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Content {
              data: self.data.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "data",

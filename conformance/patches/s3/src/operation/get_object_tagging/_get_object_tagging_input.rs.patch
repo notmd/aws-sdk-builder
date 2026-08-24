@@ -5,7 +5,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
  }
  impl GetObjectTaggingInput {
      /// <p>The bucket name containing the object for which to get the tagging information.</p>
@@ -14,7 +14,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
-+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
++    pub fn request_payer(&self) -> ::std::option::Option<&super::super::super::types::RequestPayer> {
          self.request_payer.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`GetObjectTaggingInput`](crate::operation::get_object_tagging::GetObjectTaggingInput).
 -    pub fn builder() -> crate::operation::get_object_tagging::builders::GetObjectTaggingInputBuilder {
 -        crate::operation::get_object_tagging::builders::GetObjectTaggingInputBuilder::default()
-+    pub fn builder() -> super::operation::get_object_tagging::builders::GetObjectTaggingInputBuilder {
-+        super::operation::get_object_tagging::builders::GetObjectTaggingInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_object_tagging::builders::GetObjectTaggingInputBuilder {
++        super::super::super::operation::get_object_tagging::builders::GetObjectTaggingInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) version_id: ::std::option::Option<::std::string::String>,
      pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
 -    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub(crate) request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
  }
  impl GetObjectTaggingInputBuilder {
      /// <p>The bucket name containing the object for which to get the tagging information.</p>
@@ -41,7 +41,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
-+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::super::super::types::RequestPayer) -> Self {
          self.request_payer = ::std::option::Option::Some(input);
          self
      }
@@ -50,7 +50,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
-+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::super::super::types::RequestPayer>) -> Self {
          self.request_payer = input;
          self
      }
@@ -59,7 +59,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
-+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::super::super::types::RequestPayer> {
          &self.request_payer
      }
      /// Consumes the builder and constructs a [`GetObjectTaggingInput`](crate::operation::get_object_tagging::GetObjectTaggingInput).
@@ -67,8 +67,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_object_tagging::GetObjectTaggingInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_object_tagging::GetObjectTaggingInput {
-+    ) -> ::std::result::Result<super::operation::get_object_tagging::GetObjectTaggingInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_object_tagging::GetObjectTaggingInput {
++    ) -> ::std::result::Result<super::super::super::operation::get_object_tagging::GetObjectTaggingInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_object_tagging::GetObjectTaggingInput {
              bucket: self.bucket,
              key: self.key,
              version_id: self.version_id,

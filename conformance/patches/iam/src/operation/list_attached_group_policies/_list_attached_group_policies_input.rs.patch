@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListAttachedGroupPoliciesInput`](crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput).
 -    pub fn builder() -> crate::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder {
 -        crate::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder::default()
-+    pub fn builder() -> super::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder {
-+        super::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder {
++        super::super::super::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput,
-+        super::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput,
++        super::super::super::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput {
-+        ::std::result::Result::Ok(super::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput {
++        ::std::result::Result::Ok(super::super::super::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput {
              group_name: self.group_name,
              path_prefix: self.path_prefix,
              marker: self.marker,

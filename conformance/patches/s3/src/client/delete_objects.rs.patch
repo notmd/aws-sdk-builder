@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteObjectsError>`](crate::operation::delete_objects::DeleteObjectsError)
 -    pub fn delete_objects(&self) -> crate::operation::delete_objects::builders::DeleteObjectsFluentBuilder {
 -        crate::operation::delete_objects::builders::DeleteObjectsFluentBuilder::new(self.handle.clone())
-+    pub fn delete_objects(&self) -> super::operation::delete_objects::builders::DeleteObjectsFluentBuilder {
-+        super::operation::delete_objects::builders::DeleteObjectsFluentBuilder::new(self.handle.clone())
++    pub fn delete_objects(&self) -> super::super::operation::delete_objects::builders::DeleteObjectsFluentBuilder {
++        super::super::operation::delete_objects::builders::DeleteObjectsFluentBuilder::new(self.handle.clone())
      }
  }

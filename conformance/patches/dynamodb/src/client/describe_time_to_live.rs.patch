@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeTimeToLiveError>`](crate::operation::describe_time_to_live::DescribeTimeToLiveError)
 -    pub fn describe_time_to_live(&self) -> crate::operation::describe_time_to_live::builders::DescribeTimeToLiveFluentBuilder {
 -        crate::operation::describe_time_to_live::builders::DescribeTimeToLiveFluentBuilder::new(self.handle.clone())
-+    pub fn describe_time_to_live(&self) -> super::operation::describe_time_to_live::builders::DescribeTimeToLiveFluentBuilder {
-+        super::operation::describe_time_to_live::builders::DescribeTimeToLiveFluentBuilder::new(self.handle.clone())
++    pub fn describe_time_to_live(&self) -> super::super::operation::describe_time_to_live::builders::DescribeTimeToLiveFluentBuilder {
++        super::super::operation::describe_time_to_live::builders::DescribeTimeToLiveFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::list_sms_sandbox_phone_numbers::builders::ListSMSSandboxPhoneNumbersFluentBuilder {
 -        crate::operation::list_sms_sandbox_phone_numbers::builders::ListSMSSandboxPhoneNumbersFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::list_sms_sandbox_phone_numbers::builders::ListSMSSandboxPhoneNumbersFluentBuilder {
-+        super::operation::list_sms_sandbox_phone_numbers::builders::ListSMSSandboxPhoneNumbersFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::list_sms_sandbox_phone_numbers::builders::ListSMSSandboxPhoneNumbersFluentBuilder {
++        super::super::operation::list_sms_sandbox_phone_numbers::builders::ListSMSSandboxPhoneNumbersFluentBuilder::new(self.handle.clone())
      }
  }

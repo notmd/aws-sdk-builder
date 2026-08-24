@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::AggregateComplianceCount>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::AggregateComplianceCount>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::AggregateComplianceCount>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::AggregateComplianceCountBuilder::default();
-+            let mut builder = super::types::builders::AggregateComplianceCountBuilder::default();
++            let mut builder = super::super::types::builders::AggregateComplianceCountBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          }
                          "ComplianceSummary" => {
 -                            builder = builder.set_compliance_summary(crate::protocol_serde::shape_compliance_summary::de_compliance_summary(
-+                            builder = builder.set_compliance_summary(super::protocol_serde::shape_compliance_summary::de_compliance_summary(
++                            builder = builder.set_compliance_summary(super::super::protocol_serde::shape_compliance_summary::de_compliance_summary(
                                  tokens,
                                  _value,
                                  depth + 1,

@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for TooManyEntriesInBatchRequest {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::TooManyEntriesInBatchRequest {
-+impl ::aws_types::request_id::RequestId for super::types::error::TooManyEntriesInBatchRequest {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::TooManyEntriesInBatchRequest {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`TooManyEntriesInBatchRequest`](crate::types::error::TooManyEntriesInBatchRequest).
 -    pub fn builder() -> crate::types::error::builders::TooManyEntriesInBatchRequestBuilder {
 -        crate::types::error::builders::TooManyEntriesInBatchRequestBuilder::default()
-+    pub fn builder() -> super::types::error::builders::TooManyEntriesInBatchRequestBuilder {
-+        super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::TooManyEntriesInBatchRequestBuilder {
++        super::super::super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`TooManyEntriesInBatchRequest`](crate::types::error::TooManyEntriesInBatchRequest).
 -    pub fn build(self) -> crate::types::error::TooManyEntriesInBatchRequest {
 -        crate::types::error::TooManyEntriesInBatchRequest {
-+    pub fn build(self) -> super::types::error::TooManyEntriesInBatchRequest {
-+        super::types::error::TooManyEntriesInBatchRequest {
++    pub fn build(self) -> super::super::super::types::error::TooManyEntriesInBatchRequest {
++        super::super::super::types::error::TooManyEntriesInBatchRequest {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

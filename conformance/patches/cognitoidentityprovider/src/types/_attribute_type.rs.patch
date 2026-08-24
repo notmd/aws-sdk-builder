@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AttributeType`](crate::types::AttributeType).
 -    pub fn builder() -> crate::types::builders::AttributeTypeBuilder {
 -        crate::types::builders::AttributeTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::AttributeTypeBuilder {
-+        super::types::builders::AttributeTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::AttributeTypeBuilder {
++        super::super::types::builders::AttributeTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`name`](crate::types::builders::AttributeTypeBuilder::name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::AttributeType, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::AttributeType {
-+    pub fn build(self) -> ::std::result::Result<super::types::AttributeType, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::AttributeType {
++    pub fn build(self) -> ::std::result::Result<super::super::types::AttributeType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::AttributeType {
              name: self.name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "name",

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder {
 -        crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder {
-+        super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder {
++        super::super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder::new(self.handle.clone())
      }
  }

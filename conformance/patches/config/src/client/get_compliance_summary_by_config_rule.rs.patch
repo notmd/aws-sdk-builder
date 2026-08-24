@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder {
 -        crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder {
-+        super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder {
++        super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder::new(self.handle.clone())
      }
  }

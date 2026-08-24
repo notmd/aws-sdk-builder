@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AdminGetDeviceError>`](crate::operation::admin_get_device::AdminGetDeviceError)
 -    pub fn admin_get_device(&self) -> crate::operation::admin_get_device::builders::AdminGetDeviceFluentBuilder {
 -        crate::operation::admin_get_device::builders::AdminGetDeviceFluentBuilder::new(self.handle.clone())
-+    pub fn admin_get_device(&self) -> super::operation::admin_get_device::builders::AdminGetDeviceFluentBuilder {
-+        super::operation::admin_get_device::builders::AdminGetDeviceFluentBuilder::new(self.handle.clone())
++    pub fn admin_get_device(&self) -> super::super::operation::admin_get_device::builders::AdminGetDeviceFluentBuilder {
++        super::super::operation::admin_get_device::builders::AdminGetDeviceFluentBuilder::new(self.handle.clone())
      }
  }

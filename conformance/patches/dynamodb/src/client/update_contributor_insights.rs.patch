@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateContributorInsightsError>`](crate::operation::update_contributor_insights::UpdateContributorInsightsError)
 -    pub fn update_contributor_insights(&self) -> crate::operation::update_contributor_insights::builders::UpdateContributorInsightsFluentBuilder {
 -        crate::operation::update_contributor_insights::builders::UpdateContributorInsightsFluentBuilder::new(self.handle.clone())
-+    pub fn update_contributor_insights(&self) -> super::operation::update_contributor_insights::builders::UpdateContributorInsightsFluentBuilder {
-+        super::operation::update_contributor_insights::builders::UpdateContributorInsightsFluentBuilder::new(self.handle.clone())
++    pub fn update_contributor_insights(&self) -> super::super::operation::update_contributor_insights::builders::UpdateContributorInsightsFluentBuilder {
++        super::super::operation::update_contributor_insights::builders::UpdateContributorInsightsFluentBuilder::new(self.handle.clone())
      }
  }

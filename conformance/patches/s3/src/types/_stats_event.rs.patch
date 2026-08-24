@@ -5,12 +5,12 @@
  pub struct StatsEvent {
      /// <p>The Stats event details.</p>
 -    pub details: ::std::option::Option<crate::types::Stats>,
-+    pub details: ::std::option::Option<super::types::Stats>,
++    pub details: ::std::option::Option<super::super::types::Stats>,
  }
  impl StatsEvent {
      /// <p>The Stats event details.</p>
 -    pub fn details(&self) -> ::std::option::Option<&crate::types::Stats> {
-+    pub fn details(&self) -> ::std::option::Option<&super::types::Stats> {
++    pub fn details(&self) -> ::std::option::Option<&super::super::types::Stats> {
          self.details.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`StatsEvent`](crate::types::StatsEvent).
 -    pub fn builder() -> crate::types::builders::StatsEventBuilder {
 -        crate::types::builders::StatsEventBuilder::default()
-+    pub fn builder() -> super::types::builders::StatsEventBuilder {
-+        super::types::builders::StatsEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::StatsEventBuilder {
++        super::super::types::builders::StatsEventBuilder::default()
      }
  }
 
@@ -28,30 +28,30 @@
  #[non_exhaustive]
  pub struct StatsEventBuilder {
 -    pub(crate) details: ::std::option::Option<crate::types::Stats>,
-+    pub(crate) details: ::std::option::Option<super::types::Stats>,
++    pub(crate) details: ::std::option::Option<super::super::types::Stats>,
  }
  impl StatsEventBuilder {
      /// <p>The Stats event details.</p>
 -    pub fn details(mut self, input: crate::types::Stats) -> Self {
-+    pub fn details(mut self, input: super::types::Stats) -> Self {
++    pub fn details(mut self, input: super::super::types::Stats) -> Self {
          self.details = ::std::option::Option::Some(input);
          self
      }
      /// <p>The Stats event details.</p>
 -    pub fn set_details(mut self, input: ::std::option::Option<crate::types::Stats>) -> Self {
-+    pub fn set_details(mut self, input: ::std::option::Option<super::types::Stats>) -> Self {
++    pub fn set_details(mut self, input: ::std::option::Option<super::super::types::Stats>) -> Self {
          self.details = input;
          self
      }
      /// <p>The Stats event details.</p>
 -    pub fn get_details(&self) -> &::std::option::Option<crate::types::Stats> {
-+    pub fn get_details(&self) -> &::std::option::Option<super::types::Stats> {
++    pub fn get_details(&self) -> &::std::option::Option<super::super::types::Stats> {
          &self.details
      }
      /// Consumes the builder and constructs a [`StatsEvent`](crate::types::StatsEvent).
 -    pub fn build(self) -> crate::types::StatsEvent {
 -        crate::types::StatsEvent { details: self.details }
-+    pub fn build(self) -> super::types::StatsEvent {
-+        super::types::StatsEvent { details: self.details }
++    pub fn build(self) -> super::super::types::StatsEvent {
++        super::super::types::StatsEvent { details: self.details }
      }
  }

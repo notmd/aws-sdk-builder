@@ -5,10 +5,10 @@
      pub key_id: ::std::option::Option<::std::string::String>,
      /// <p>The encryption algorithm that was used to decrypt the ciphertext before it was reencrypted.</p>
 -    pub source_encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
-+    pub source_encryption_algorithm: ::std::option::Option<super::types::EncryptionAlgorithmSpec>,
++    pub source_encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
      /// <p>The encryption algorithm that was used to reencrypt the data.</p>
 -    pub destination_encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
-+    pub destination_encryption_algorithm: ::std::option::Option<super::types::EncryptionAlgorithmSpec>,
++    pub destination_encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
      /// <p>The identifier of the key material used to originally encrypt the data. This field is present only when the original encryption used a symmetric encryption KMS key.</p>
      pub source_key_material_id: ::std::option::Option<::std::string::String>,
      /// <p>The identifier of the key material used to reencrypt the data. This field is present only when data is reencrypted using a symmetric encryption KMS key.</p>
@@ -17,12 +17,12 @@
      }
      /// <p>The encryption algorithm that was used to decrypt the ciphertext before it was reencrypted.</p>
 -    pub fn source_encryption_algorithm(&self) -> ::std::option::Option<&crate::types::EncryptionAlgorithmSpec> {
-+    pub fn source_encryption_algorithm(&self) -> ::std::option::Option<&super::types::EncryptionAlgorithmSpec> {
++    pub fn source_encryption_algorithm(&self) -> ::std::option::Option<&super::super::super::types::EncryptionAlgorithmSpec> {
          self.source_encryption_algorithm.as_ref()
      }
      /// <p>The encryption algorithm that was used to reencrypt the data.</p>
 -    pub fn destination_encryption_algorithm(&self) -> ::std::option::Option<&crate::types::EncryptionAlgorithmSpec> {
-+    pub fn destination_encryption_algorithm(&self) -> ::std::option::Option<&super::types::EncryptionAlgorithmSpec> {
++    pub fn destination_encryption_algorithm(&self) -> ::std::option::Option<&super::super::super::types::EncryptionAlgorithmSpec> {
          self.destination_encryption_algorithm.as_ref()
      }
      /// <p>The identifier of the key material used to originally encrypt the data. This field is present only when the original encryption used a symmetric encryption KMS key.</p>
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`ReEncryptOutput`](crate::operation::re_encrypt::ReEncryptOutput).
 -    pub fn builder() -> crate::operation::re_encrypt::builders::ReEncryptOutputBuilder {
 -        crate::operation::re_encrypt::builders::ReEncryptOutputBuilder::default()
-+    pub fn builder() -> super::operation::re_encrypt::builders::ReEncryptOutputBuilder {
-+        super::operation::re_encrypt::builders::ReEncryptOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::re_encrypt::builders::ReEncryptOutputBuilder {
++        super::super::super::operation::re_encrypt::builders::ReEncryptOutputBuilder::default()
      }
  }
 
@@ -43,8 +43,8 @@
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) source_encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
 -    pub(crate) destination_encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
-+    pub(crate) source_encryption_algorithm: ::std::option::Option<super::types::EncryptionAlgorithmSpec>,
-+    pub(crate) destination_encryption_algorithm: ::std::option::Option<super::types::EncryptionAlgorithmSpec>,
++    pub(crate) source_encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
++    pub(crate) destination_encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
      pub(crate) source_key_material_id: ::std::option::Option<::std::string::String>,
      pub(crate) destination_key_material_id: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -53,36 +53,36 @@
      }
      /// <p>The encryption algorithm that was used to decrypt the ciphertext before it was reencrypted.</p>
 -    pub fn source_encryption_algorithm(mut self, input: crate::types::EncryptionAlgorithmSpec) -> Self {
-+    pub fn source_encryption_algorithm(mut self, input: super::types::EncryptionAlgorithmSpec) -> Self {
++    pub fn source_encryption_algorithm(mut self, input: super::super::super::types::EncryptionAlgorithmSpec) -> Self {
          self.source_encryption_algorithm = ::std::option::Option::Some(input);
          self
      }
      /// <p>The encryption algorithm that was used to decrypt the ciphertext before it was reencrypted.</p>
 -    pub fn set_source_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
-+    pub fn set_source_encryption_algorithm(mut self, input: ::std::option::Option<super::types::EncryptionAlgorithmSpec>) -> Self {
++    pub fn set_source_encryption_algorithm(mut self, input: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>) -> Self {
          self.source_encryption_algorithm = input;
          self
      }
      /// <p>The encryption algorithm that was used to decrypt the ciphertext before it was reencrypted.</p>
 -    pub fn get_source_encryption_algorithm(&self) -> &::std::option::Option<crate::types::EncryptionAlgorithmSpec> {
-+    pub fn get_source_encryption_algorithm(&self) -> &::std::option::Option<super::types::EncryptionAlgorithmSpec> {
++    pub fn get_source_encryption_algorithm(&self) -> &::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec> {
          &self.source_encryption_algorithm
      }
      /// <p>The encryption algorithm that was used to reencrypt the data.</p>
 -    pub fn destination_encryption_algorithm(mut self, input: crate::types::EncryptionAlgorithmSpec) -> Self {
-+    pub fn destination_encryption_algorithm(mut self, input: super::types::EncryptionAlgorithmSpec) -> Self {
++    pub fn destination_encryption_algorithm(mut self, input: super::super::super::types::EncryptionAlgorithmSpec) -> Self {
          self.destination_encryption_algorithm = ::std::option::Option::Some(input);
          self
      }
      /// <p>The encryption algorithm that was used to reencrypt the data.</p>
 -    pub fn set_destination_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
-+    pub fn set_destination_encryption_algorithm(mut self, input: ::std::option::Option<super::types::EncryptionAlgorithmSpec>) -> Self {
++    pub fn set_destination_encryption_algorithm(mut self, input: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>) -> Self {
          self.destination_encryption_algorithm = input;
          self
      }
      /// <p>The encryption algorithm that was used to reencrypt the data.</p>
 -    pub fn get_destination_encryption_algorithm(&self) -> &::std::option::Option<crate::types::EncryptionAlgorithmSpec> {
-+    pub fn get_destination_encryption_algorithm(&self) -> &::std::option::Option<super::types::EncryptionAlgorithmSpec> {
++    pub fn get_destination_encryption_algorithm(&self) -> &::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec> {
          &self.destination_encryption_algorithm
      }
      /// <p>The identifier of the key material used to originally encrypt the data. This field is present only when the original encryption used a symmetric encryption KMS key.</p>
@@ -92,8 +92,8 @@
      /// Consumes the builder and constructs a [`ReEncryptOutput`](crate::operation::re_encrypt::ReEncryptOutput).
 -    pub fn build(self) -> crate::operation::re_encrypt::ReEncryptOutput {
 -        crate::operation::re_encrypt::ReEncryptOutput {
-+    pub fn build(self) -> super::operation::re_encrypt::ReEncryptOutput {
-+        super::operation::re_encrypt::ReEncryptOutput {
++    pub fn build(self) -> super::super::super::operation::re_encrypt::ReEncryptOutput {
++        super::super::super::operation::re_encrypt::ReEncryptOutput {
              ciphertext_blob: self.ciphertext_blob,
              source_key_id: self.source_key_id,
              key_id: self.key_id,

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListPackageVersionAssetsError>`](crate::operation::list_package_version_assets::ListPackageVersionAssetsError)
 -    pub fn list_package_version_assets(&self) -> crate::operation::list_package_version_assets::builders::ListPackageVersionAssetsFluentBuilder {
 -        crate::operation::list_package_version_assets::builders::ListPackageVersionAssetsFluentBuilder::new(self.handle.clone())
-+    pub fn list_package_version_assets(&self) -> super::operation::list_package_version_assets::builders::ListPackageVersionAssetsFluentBuilder {
-+        super::operation::list_package_version_assets::builders::ListPackageVersionAssetsFluentBuilder::new(self.handle.clone())
++    pub fn list_package_version_assets(&self) -> super::super::operation::list_package_version_assets::builders::ListPackageVersionAssetsFluentBuilder {
++        super::super::operation::list_package_version_assets::builders::ListPackageVersionAssetsFluentBuilder::new(self.handle.clone())
      }
  }

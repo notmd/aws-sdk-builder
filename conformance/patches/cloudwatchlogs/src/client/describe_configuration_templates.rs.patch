@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder {
 -        crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder {
-+        super::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder {
++        super::super::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,7 +5,7 @@
      pub access_token: ::std::option::Option<::std::string::String>,
      /// <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
 -    pub mfa_options: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>,
-+    pub mfa_options: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>,
++    pub mfa_options: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaOptionType>>,
  }
  impl SetUserSettingsInput {
      /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.mfa_options.is_none()`.
 -    pub fn mfa_options(&self) -> &[crate::types::MfaOptionType] {
-+    pub fn mfa_options(&self) -> &[super::types::MfaOptionType] {
++    pub fn mfa_options(&self) -> &[super::super::super::types::MfaOptionType] {
          self.mfa_options.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`SetUserSettingsInput`](crate::operation::set_user_settings::SetUserSettingsInput).
 -    pub fn builder() -> crate::operation::set_user_settings::builders::SetUserSettingsInputBuilder {
 -        crate::operation::set_user_settings::builders::SetUserSettingsInputBuilder::default()
-+    pub fn builder() -> super::operation::set_user_settings::builders::SetUserSettingsInputBuilder {
-+        super::operation::set_user_settings::builders::SetUserSettingsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::set_user_settings::builders::SetUserSettingsInputBuilder {
++        super::super::super::operation::set_user_settings::builders::SetUserSettingsInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct SetUserSettingsInputBuilder {
      pub(crate) access_token: ::std::option::Option<::std::string::String>,
 -    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>,
-+    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>,
++    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaOptionType>>,
  }
  impl SetUserSettingsInputBuilder {
      /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
@@ -43,7 +43,7 @@
      ///
      /// <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
 -    pub fn mfa_options(mut self, input: crate::types::MfaOptionType) -> Self {
-+    pub fn mfa_options(mut self, input: super::types::MfaOptionType) -> Self {
++    pub fn mfa_options(mut self, input: super::super::super::types::MfaOptionType) -> Self {
          let mut v = self.mfa_options.unwrap_or_default();
          v.push(input);
          self.mfa_options = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
 -    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>) -> Self {
-+    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>) -> Self {
++    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaOptionType>>) -> Self {
          self.mfa_options = input;
          self
      }
      /// <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
 -    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>> {
-+    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>> {
++    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MfaOptionType>> {
          &self.mfa_options
      }
      /// Consumes the builder and constructs a [`SetUserSettingsInput`](crate::operation::set_user_settings::SetUserSettingsInput).
@@ -66,8 +66,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::set_user_settings::SetUserSettingsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::set_user_settings::SetUserSettingsInput {
-+    ) -> ::std::result::Result<super::operation::set_user_settings::SetUserSettingsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::set_user_settings::SetUserSettingsInput {
++    ) -> ::std::result::Result<super::super::super::operation::set_user_settings::SetUserSettingsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::set_user_settings::SetUserSettingsInput {
              access_token: self.access_token,
              mfa_options: self.mfa_options,
          })

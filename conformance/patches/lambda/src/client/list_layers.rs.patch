@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListLayersError>`](crate::operation::list_layers::ListLayersError)
 -    pub fn list_layers(&self) -> crate::operation::list_layers::builders::ListLayersFluentBuilder {
 -        crate::operation::list_layers::builders::ListLayersFluentBuilder::new(self.handle.clone())
-+    pub fn list_layers(&self) -> super::operation::list_layers::builders::ListLayersFluentBuilder {
-+        super::operation::list_layers::builders::ListLayersFluentBuilder::new(self.handle.clone())
++    pub fn list_layers(&self) -> super::super::operation::list_layers::builders::ListLayersFluentBuilder {
++        super::super::operation::list_layers::builders::ListLayersFluentBuilder::new(self.handle.clone())
      }
  }

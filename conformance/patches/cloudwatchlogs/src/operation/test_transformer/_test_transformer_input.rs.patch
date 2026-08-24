@@ -5,7 +5,7 @@
  pub struct TestTransformerInput {
      /// <p>This structure contains the configuration of this log transformer that you want to test. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.</p>
 -    pub transformer_config: ::std::option::Option<::std::vec::Vec<crate::types::Processor>>,
-+    pub transformer_config: ::std::option::Option<::std::vec::Vec<super::types::Processor>>,
++    pub transformer_config: ::std::option::Option<::std::vec::Vec<super::super::super::types::Processor>>,
      /// <p>An array of the raw log events that you want to use to test this transformer.</p>
      pub log_event_messages: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
  }
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.transformer_config.is_none()`.
 -    pub fn transformer_config(&self) -> &[crate::types::Processor] {
-+    pub fn transformer_config(&self) -> &[super::types::Processor] {
++    pub fn transformer_config(&self) -> &[super::super::super::types::Processor] {
          self.transformer_config.as_deref().unwrap_or_default()
      }
      /// <p>An array of the raw log events that you want to use to test this transformer.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`TestTransformerInput`](crate::operation::test_transformer::TestTransformerInput).
 -    pub fn builder() -> crate::operation::test_transformer::builders::TestTransformerInputBuilder {
 -        crate::operation::test_transformer::builders::TestTransformerInputBuilder::default()
-+    pub fn builder() -> super::operation::test_transformer::builders::TestTransformerInputBuilder {
-+        super::operation::test_transformer::builders::TestTransformerInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::test_transformer::builders::TestTransformerInputBuilder {
++        super::super::super::operation::test_transformer::builders::TestTransformerInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct TestTransformerInputBuilder {
 -    pub(crate) transformer_config: ::std::option::Option<::std::vec::Vec<crate::types::Processor>>,
-+    pub(crate) transformer_config: ::std::option::Option<::std::vec::Vec<super::types::Processor>>,
++    pub(crate) transformer_config: ::std::option::Option<::std::vec::Vec<super::super::super::types::Processor>>,
      pub(crate) log_event_messages: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
  }
  impl TestTransformerInputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>This structure contains the configuration of this log transformer that you want to test. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.</p>
 -    pub fn transformer_config(mut self, input: crate::types::Processor) -> Self {
-+    pub fn transformer_config(mut self, input: super::types::Processor) -> Self {
++    pub fn transformer_config(mut self, input: super::super::super::types::Processor) -> Self {
          let mut v = self.transformer_config.unwrap_or_default();
          v.push(input);
          self.transformer_config = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>This structure contains the configuration of this log transformer that you want to test. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.</p>
 -    pub fn set_transformer_config(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Processor>>) -> Self {
-+    pub fn set_transformer_config(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Processor>>) -> Self {
++    pub fn set_transformer_config(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Processor>>) -> Self {
          self.transformer_config = input;
          self
      }
      /// <p>This structure contains the configuration of this log transformer that you want to test. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.</p>
 -    pub fn get_transformer_config(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Processor>> {
-+    pub fn get_transformer_config(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Processor>> {
++    pub fn get_transformer_config(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Processor>> {
          &self.transformer_config
      }
      /// Appends an item to `log_event_messages`.
@@ -68,8 +68,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::test_transformer::TestTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::test_transformer::TestTransformerInput {
-+    ) -> ::std::result::Result<super::operation::test_transformer::TestTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::test_transformer::TestTransformerInput {
++    ) -> ::std::result::Result<super::super::super::operation::test_transformer::TestTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::test_transformer::TestTransformerInput {
              transformer_config: self.transformer_config,
              log_event_messages: self.log_event_messages,
          })

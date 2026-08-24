@@ -5,13 +5,13 @@
  pub struct GetLoginProfileOutput {
      /// <p>A structure containing the user name and the profile creation date for the user.</p>
 -    pub login_profile: ::std::option::Option<crate::types::LoginProfile>,
-+    pub login_profile: ::std::option::Option<super::types::LoginProfile>,
++    pub login_profile: ::std::option::Option<super::super::super::types::LoginProfile>,
      _request_id: Option<String>,
  }
  impl GetLoginProfileOutput {
      /// <p>A structure containing the user name and the profile creation date for the user.</p>
 -    pub fn login_profile(&self) -> ::std::option::Option<&crate::types::LoginProfile> {
-+    pub fn login_profile(&self) -> ::std::option::Option<&super::types::LoginProfile> {
++    pub fn login_profile(&self) -> ::std::option::Option<&super::super::super::types::LoginProfile> {
          self.login_profile.as_ref()
      }
  }
@@ -21,8 +21,8 @@
      /// Creates a new builder-style object to manufacture [`GetLoginProfileOutput`](crate::operation::get_login_profile::GetLoginProfileOutput).
 -    pub fn builder() -> crate::operation::get_login_profile::builders::GetLoginProfileOutputBuilder {
 -        crate::operation::get_login_profile::builders::GetLoginProfileOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_login_profile::builders::GetLoginProfileOutputBuilder {
-+        super::operation::get_login_profile::builders::GetLoginProfileOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_login_profile::builders::GetLoginProfileOutputBuilder {
++        super::super::super::operation::get_login_profile::builders::GetLoginProfileOutputBuilder::default()
      }
  }
 
@@ -31,26 +31,26 @@
  #[non_exhaustive]
  pub struct GetLoginProfileOutputBuilder {
 -    pub(crate) login_profile: ::std::option::Option<crate::types::LoginProfile>,
-+    pub(crate) login_profile: ::std::option::Option<super::types::LoginProfile>,
++    pub(crate) login_profile: ::std::option::Option<super::super::super::types::LoginProfile>,
      _request_id: Option<String>,
  }
  impl GetLoginProfileOutputBuilder {
      /// <p>A structure containing the user name and the profile creation date for the user.</p>
      /// This field is required.
 -    pub fn login_profile(mut self, input: crate::types::LoginProfile) -> Self {
-+    pub fn login_profile(mut self, input: super::types::LoginProfile) -> Self {
++    pub fn login_profile(mut self, input: super::super::super::types::LoginProfile) -> Self {
          self.login_profile = ::std::option::Option::Some(input);
          self
      }
      /// <p>A structure containing the user name and the profile creation date for the user.</p>
 -    pub fn set_login_profile(mut self, input: ::std::option::Option<crate::types::LoginProfile>) -> Self {
-+    pub fn set_login_profile(mut self, input: ::std::option::Option<super::types::LoginProfile>) -> Self {
++    pub fn set_login_profile(mut self, input: ::std::option::Option<super::super::super::types::LoginProfile>) -> Self {
          self.login_profile = input;
          self
      }
      /// <p>A structure containing the user name and the profile creation date for the user.</p>
 -    pub fn get_login_profile(&self) -> &::std::option::Option<crate::types::LoginProfile> {
-+    pub fn get_login_profile(&self) -> &::std::option::Option<super::types::LoginProfile> {
++    pub fn get_login_profile(&self) -> &::std::option::Option<super::super::super::types::LoginProfile> {
          &self.login_profile
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -60,8 +60,8 @@
      /// Consumes the builder and constructs a [`GetLoginProfileOutput`](crate::operation::get_login_profile::GetLoginProfileOutput).
 -    pub fn build(self) -> crate::operation::get_login_profile::GetLoginProfileOutput {
 -        crate::operation::get_login_profile::GetLoginProfileOutput {
-+    pub fn build(self) -> super::operation::get_login_profile::GetLoginProfileOutput {
-+        super::operation::get_login_profile::GetLoginProfileOutput {
++    pub fn build(self) -> super::super::super::operation::get_login_profile::GetLoginProfileOutput {
++        super::super::super::operation::get_login_profile::GetLoginProfileOutput {
              login_profile: self.login_profile,
              _request_id: self._request_id,
          }

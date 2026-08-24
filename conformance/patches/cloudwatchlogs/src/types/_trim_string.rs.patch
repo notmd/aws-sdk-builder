@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TrimString`](crate::types::TrimString).
 -    pub fn builder() -> crate::types::builders::TrimStringBuilder {
 -        crate::types::builders::TrimStringBuilder::default()
-+    pub fn builder() -> super::types::builders::TrimStringBuilder {
-+        super::types::builders::TrimStringBuilder::default()
++    pub fn builder() -> super::super::types::builders::TrimStringBuilder {
++        super::super::types::builders::TrimStringBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`with_keys`](crate::types::builders::TrimStringBuilder::with_keys)
 -    pub fn build(self) -> ::std::result::Result<crate::types::TrimString, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::TrimString {
-+    pub fn build(self) -> ::std::result::Result<super::types::TrimString, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::TrimString {
++    pub fn build(self) -> ::std::result::Result<super::super::types::TrimString, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::TrimString {
              with_keys: self.with_keys.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "with_keys",

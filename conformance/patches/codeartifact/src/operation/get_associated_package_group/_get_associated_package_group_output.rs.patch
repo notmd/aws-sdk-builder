@@ -5,21 +5,21 @@
  pub struct GetAssociatedPackageGroupOutput {
      /// <p>The package group that is associated with the requested package.</p>
 -    pub package_group: ::std::option::Option<crate::types::PackageGroupDescription>,
-+    pub package_group: ::std::option::Option<super::types::PackageGroupDescription>,
++    pub package_group: ::std::option::Option<super::super::super::types::PackageGroupDescription>,
      /// <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
 -    pub association_type: ::std::option::Option<crate::types::PackageGroupAssociationType>,
-+    pub association_type: ::std::option::Option<super::types::PackageGroupAssociationType>,
++    pub association_type: ::std::option::Option<super::super::super::types::PackageGroupAssociationType>,
      _request_id: Option<String>,
  }
  impl GetAssociatedPackageGroupOutput {
      /// <p>The package group that is associated with the requested package.</p>
 -    pub fn package_group(&self) -> ::std::option::Option<&crate::types::PackageGroupDescription> {
-+    pub fn package_group(&self) -> ::std::option::Option<&super::types::PackageGroupDescription> {
++    pub fn package_group(&self) -> ::std::option::Option<&super::super::super::types::PackageGroupDescription> {
          self.package_group.as_ref()
      }
      /// <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
 -    pub fn association_type(&self) -> ::std::option::Option<&crate::types::PackageGroupAssociationType> {
-+    pub fn association_type(&self) -> ::std::option::Option<&super::types::PackageGroupAssociationType> {
++    pub fn association_type(&self) -> ::std::option::Option<&super::super::super::types::PackageGroupAssociationType> {
          self.association_type.as_ref()
      }
  }
@@ -29,8 +29,8 @@
      /// Creates a new builder-style object to manufacture [`GetAssociatedPackageGroupOutput`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput).
 -    pub fn builder() -> crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder {
 -        crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder {
-+        super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder {
++        super::super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder::default()
      }
  }
 
@@ -40,43 +40,43 @@
  pub struct GetAssociatedPackageGroupOutputBuilder {
 -    pub(crate) package_group: ::std::option::Option<crate::types::PackageGroupDescription>,
 -    pub(crate) association_type: ::std::option::Option<crate::types::PackageGroupAssociationType>,
-+    pub(crate) package_group: ::std::option::Option<super::types::PackageGroupDescription>,
-+    pub(crate) association_type: ::std::option::Option<super::types::PackageGroupAssociationType>,
++    pub(crate) package_group: ::std::option::Option<super::super::super::types::PackageGroupDescription>,
++    pub(crate) association_type: ::std::option::Option<super::super::super::types::PackageGroupAssociationType>,
      _request_id: Option<String>,
  }
  impl GetAssociatedPackageGroupOutputBuilder {
      /// <p>The package group that is associated with the requested package.</p>
 -    pub fn package_group(mut self, input: crate::types::PackageGroupDescription) -> Self {
-+    pub fn package_group(mut self, input: super::types::PackageGroupDescription) -> Self {
++    pub fn package_group(mut self, input: super::super::super::types::PackageGroupDescription) -> Self {
          self.package_group = ::std::option::Option::Some(input);
          self
      }
      /// <p>The package group that is associated with the requested package.</p>
 -    pub fn set_package_group(mut self, input: ::std::option::Option<crate::types::PackageGroupDescription>) -> Self {
-+    pub fn set_package_group(mut self, input: ::std::option::Option<super::types::PackageGroupDescription>) -> Self {
++    pub fn set_package_group(mut self, input: ::std::option::Option<super::super::super::types::PackageGroupDescription>) -> Self {
          self.package_group = input;
          self
      }
      /// <p>The package group that is associated with the requested package.</p>
 -    pub fn get_package_group(&self) -> &::std::option::Option<crate::types::PackageGroupDescription> {
-+    pub fn get_package_group(&self) -> &::std::option::Option<super::types::PackageGroupDescription> {
++    pub fn get_package_group(&self) -> &::std::option::Option<super::super::super::types::PackageGroupDescription> {
          &self.package_group
      }
      /// <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
 -    pub fn association_type(mut self, input: crate::types::PackageGroupAssociationType) -> Self {
-+    pub fn association_type(mut self, input: super::types::PackageGroupAssociationType) -> Self {
++    pub fn association_type(mut self, input: super::super::super::types::PackageGroupAssociationType) -> Self {
          self.association_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
 -    pub fn set_association_type(mut self, input: ::std::option::Option<crate::types::PackageGroupAssociationType>) -> Self {
-+    pub fn set_association_type(mut self, input: ::std::option::Option<super::types::PackageGroupAssociationType>) -> Self {
++    pub fn set_association_type(mut self, input: ::std::option::Option<super::super::super::types::PackageGroupAssociationType>) -> Self {
          self.association_type = input;
          self
      }
      /// <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
 -    pub fn get_association_type(&self) -> &::std::option::Option<crate::types::PackageGroupAssociationType> {
-+    pub fn get_association_type(&self) -> &::std::option::Option<super::types::PackageGroupAssociationType> {
++    pub fn get_association_type(&self) -> &::std::option::Option<super::super::super::types::PackageGroupAssociationType> {
          &self.association_type
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,8 +86,8 @@
      /// Consumes the builder and constructs a [`GetAssociatedPackageGroupOutput`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput).
 -    pub fn build(self) -> crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput {
 -        crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput {
-+    pub fn build(self) -> super::operation::get_associated_package_group::GetAssociatedPackageGroupOutput {
-+        super::operation::get_associated_package_group::GetAssociatedPackageGroupOutput {
++    pub fn build(self) -> super::super::super::operation::get_associated_package_group::GetAssociatedPackageGroupOutput {
++        super::super::super::operation::get_associated_package_group::GetAssociatedPackageGroupOutput {
              package_group: self.package_group,
              association_type: self.association_type,
              _request_id: self._request_id,

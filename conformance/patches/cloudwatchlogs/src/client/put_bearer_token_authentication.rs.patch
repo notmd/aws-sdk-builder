@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationFluentBuilder {
 -        crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationFluentBuilder {
-+        super::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationFluentBuilder {
++        super::super::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationFluentBuilder::new(self.handle.clone())
      }
  }

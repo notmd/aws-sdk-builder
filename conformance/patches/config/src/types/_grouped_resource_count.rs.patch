@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GroupedResourceCount`](crate::types::GroupedResourceCount).
 -    pub fn builder() -> crate::types::builders::GroupedResourceCountBuilder {
 -        crate::types::builders::GroupedResourceCountBuilder::default()
-+    pub fn builder() -> super::types::builders::GroupedResourceCountBuilder {
-+        super::types::builders::GroupedResourceCountBuilder::default()
++    pub fn builder() -> super::super::types::builders::GroupedResourceCountBuilder {
++        super::super::types::builders::GroupedResourceCountBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`group_name`](crate::types::builders::GroupedResourceCountBuilder::group_name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::GroupedResourceCount, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GroupedResourceCount {
-+    pub fn build(self) -> ::std::result::Result<super::types::GroupedResourceCount, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GroupedResourceCount {
++    pub fn build(self) -> ::std::result::Result<super::super::types::GroupedResourceCount, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GroupedResourceCount {
              group_name: self.group_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "group_name",

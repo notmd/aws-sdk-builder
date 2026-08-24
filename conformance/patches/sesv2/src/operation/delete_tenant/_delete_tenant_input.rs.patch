@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteTenantInput`](crate::operation::delete_tenant::DeleteTenantInput).
 -    pub fn builder() -> crate::operation::delete_tenant::builders::DeleteTenantInputBuilder {
 -        crate::operation::delete_tenant::builders::DeleteTenantInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_tenant::builders::DeleteTenantInputBuilder {
-+        super::operation::delete_tenant::builders::DeleteTenantInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_tenant::builders::DeleteTenantInputBuilder {
++        super::super::super::operation::delete_tenant::builders::DeleteTenantInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_tenant::DeleteTenantInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::delete_tenant::DeleteTenantInput {
-+    ) -> ::std::result::Result<super::operation::delete_tenant::DeleteTenantInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::delete_tenant::DeleteTenantInput {
++    ) -> ::std::result::Result<super::super::super::operation::delete_tenant::DeleteTenantInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::delete_tenant::DeleteTenantInput {
              tenant_name: self.tenant_name,
          })
      }

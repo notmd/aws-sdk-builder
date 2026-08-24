@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`StartMessageMoveTaskInput`](crate::operation::start_message_move_task::StartMessageMoveTaskInput).
 -    pub fn builder() -> crate::operation::start_message_move_task::builders::StartMessageMoveTaskInputBuilder {
 -        crate::operation::start_message_move_task::builders::StartMessageMoveTaskInputBuilder::default()
-+    pub fn builder() -> super::operation::start_message_move_task::builders::StartMessageMoveTaskInputBuilder {
-+        super::operation::start_message_move_task::builders::StartMessageMoveTaskInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::start_message_move_task::builders::StartMessageMoveTaskInputBuilder {
++        super::super::super::operation::start_message_move_task::builders::StartMessageMoveTaskInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::start_message_move_task::StartMessageMoveTaskInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::start_message_move_task::StartMessageMoveTaskInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::start_message_move_task::StartMessageMoveTaskInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::start_message_move_task::StartMessageMoveTaskInput {
-+        ::std::result::Result::Ok(super::operation::start_message_move_task::StartMessageMoveTaskInput {
++        ::std::result::Result::Ok(super::super::super::operation::start_message_move_task::StartMessageMoveTaskInput {
              source_arn: self.source_arn,
              destination_arn: self.destination_arn,
              max_number_of_messages_per_second: self.max_number_of_messages_per_second,

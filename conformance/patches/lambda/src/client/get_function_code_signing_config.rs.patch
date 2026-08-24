@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigFluentBuilder {
 -        crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigFluentBuilder {
-+        super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigFluentBuilder {
++        super::super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigFluentBuilder::new(self.handle.clone())
      }
  }

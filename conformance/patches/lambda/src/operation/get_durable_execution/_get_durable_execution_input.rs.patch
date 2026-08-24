@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetDurableExecutionInput`](crate::operation::get_durable_execution::GetDurableExecutionInput).
 -    pub fn builder() -> crate::operation::get_durable_execution::builders::GetDurableExecutionInputBuilder {
 -        crate::operation::get_durable_execution::builders::GetDurableExecutionInputBuilder::default()
-+    pub fn builder() -> super::operation::get_durable_execution::builders::GetDurableExecutionInputBuilder {
-+        super::operation::get_durable_execution::builders::GetDurableExecutionInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_durable_execution::builders::GetDurableExecutionInputBuilder {
++        super::super::super::operation::get_durable_execution::builders::GetDurableExecutionInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_durable_execution::GetDurableExecutionInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_durable_execution::GetDurableExecutionInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_durable_execution::GetDurableExecutionInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_durable_execution::GetDurableExecutionInput {
-+        ::std::result::Result::Ok(super::operation::get_durable_execution::GetDurableExecutionInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_durable_execution::GetDurableExecutionInput {
              durable_execution_arn: self.durable_execution_arn,
              include_execution_data: self.include_execution_data,
          })

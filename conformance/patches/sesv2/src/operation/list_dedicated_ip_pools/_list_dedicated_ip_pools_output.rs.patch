@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListDedicatedIpPoolsOutput`](crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsOutput).
 -    pub fn builder() -> crate::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsOutputBuilder {
 -        crate::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsOutputBuilder {
-+        super::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsOutputBuilder {
++        super::super::super::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ListDedicatedIpPoolsOutput`](crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsOutput).
 -    pub fn build(self) -> crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsOutput {
 -        crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsOutput {
-+    pub fn build(self) -> super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsOutput {
-+        super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsOutput {
++    pub fn build(self) -> super::super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsOutput {
++        super::super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsOutput {
              dedicated_ip_pools: self.dedicated_ip_pools,
              next_token: self.next_token,
              _request_id: self._request_id,

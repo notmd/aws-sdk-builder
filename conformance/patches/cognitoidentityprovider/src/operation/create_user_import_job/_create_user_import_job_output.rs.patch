@@ -5,13 +5,13 @@
  pub struct CreateUserImportJobOutput {
      /// <p>The details of the user import job. Includes logging destination, status, and the Amazon S3 pre-signed URL for CSV upload.</p>
 -    pub user_import_job: ::std::option::Option<crate::types::UserImportJobType>,
-+    pub user_import_job: ::std::option::Option<super::types::UserImportJobType>,
++    pub user_import_job: ::std::option::Option<super::super::super::types::UserImportJobType>,
      _request_id: Option<String>,
  }
  impl CreateUserImportJobOutput {
      /// <p>The details of the user import job. Includes logging destination, status, and the Amazon S3 pre-signed URL for CSV upload.</p>
 -    pub fn user_import_job(&self) -> ::std::option::Option<&crate::types::UserImportJobType> {
-+    pub fn user_import_job(&self) -> ::std::option::Option<&super::types::UserImportJobType> {
++    pub fn user_import_job(&self) -> ::std::option::Option<&super::super::super::types::UserImportJobType> {
          self.user_import_job.as_ref()
      }
  }
@@ -21,8 +21,8 @@
      /// Creates a new builder-style object to manufacture [`CreateUserImportJobOutput`](crate::operation::create_user_import_job::CreateUserImportJobOutput).
 -    pub fn builder() -> crate::operation::create_user_import_job::builders::CreateUserImportJobOutputBuilder {
 -        crate::operation::create_user_import_job::builders::CreateUserImportJobOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_user_import_job::builders::CreateUserImportJobOutputBuilder {
-+        super::operation::create_user_import_job::builders::CreateUserImportJobOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_user_import_job::builders::CreateUserImportJobOutputBuilder {
++        super::super::super::operation::create_user_import_job::builders::CreateUserImportJobOutputBuilder::default()
      }
  }
 
@@ -31,25 +31,25 @@
  #[non_exhaustive]
  pub struct CreateUserImportJobOutputBuilder {
 -    pub(crate) user_import_job: ::std::option::Option<crate::types::UserImportJobType>,
-+    pub(crate) user_import_job: ::std::option::Option<super::types::UserImportJobType>,
++    pub(crate) user_import_job: ::std::option::Option<super::super::super::types::UserImportJobType>,
      _request_id: Option<String>,
  }
  impl CreateUserImportJobOutputBuilder {
      /// <p>The details of the user import job. Includes logging destination, status, and the Amazon S3 pre-signed URL for CSV upload.</p>
 -    pub fn user_import_job(mut self, input: crate::types::UserImportJobType) -> Self {
-+    pub fn user_import_job(mut self, input: super::types::UserImportJobType) -> Self {
++    pub fn user_import_job(mut self, input: super::super::super::types::UserImportJobType) -> Self {
          self.user_import_job = ::std::option::Option::Some(input);
          self
      }
      /// <p>The details of the user import job. Includes logging destination, status, and the Amazon S3 pre-signed URL for CSV upload.</p>
 -    pub fn set_user_import_job(mut self, input: ::std::option::Option<crate::types::UserImportJobType>) -> Self {
-+    pub fn set_user_import_job(mut self, input: ::std::option::Option<super::types::UserImportJobType>) -> Self {
++    pub fn set_user_import_job(mut self, input: ::std::option::Option<super::super::super::types::UserImportJobType>) -> Self {
          self.user_import_job = input;
          self
      }
      /// <p>The details of the user import job. Includes logging destination, status, and the Amazon S3 pre-signed URL for CSV upload.</p>
 -    pub fn get_user_import_job(&self) -> &::std::option::Option<crate::types::UserImportJobType> {
-+    pub fn get_user_import_job(&self) -> &::std::option::Option<super::types::UserImportJobType> {
++    pub fn get_user_import_job(&self) -> &::std::option::Option<super::super::super::types::UserImportJobType> {
          &self.user_import_job
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -59,8 +59,8 @@
      /// Consumes the builder and constructs a [`CreateUserImportJobOutput`](crate::operation::create_user_import_job::CreateUserImportJobOutput).
 -    pub fn build(self) -> crate::operation::create_user_import_job::CreateUserImportJobOutput {
 -        crate::operation::create_user_import_job::CreateUserImportJobOutput {
-+    pub fn build(self) -> super::operation::create_user_import_job::CreateUserImportJobOutput {
-+        super::operation::create_user_import_job::CreateUserImportJobOutput {
++    pub fn build(self) -> super::super::super::operation::create_user_import_job::CreateUserImportJobOutput {
++        super::super::super::operation::create_user_import_job::CreateUserImportJobOutput {
              user_import_job: self.user_import_job,
              _request_id: self._request_id,
          }

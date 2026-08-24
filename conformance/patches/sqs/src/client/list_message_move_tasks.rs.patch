@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListMessageMoveTasksError>`](crate::operation::list_message_move_tasks::ListMessageMoveTasksError)
 -    pub fn list_message_move_tasks(&self) -> crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksFluentBuilder {
 -        crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksFluentBuilder::new(self.handle.clone())
-+    pub fn list_message_move_tasks(&self) -> super::operation::list_message_move_tasks::builders::ListMessageMoveTasksFluentBuilder {
-+        super::operation::list_message_move_tasks::builders::ListMessageMoveTasksFluentBuilder::new(self.handle.clone())
++    pub fn list_message_move_tasks(&self) -> super::super::operation::list_message_move_tasks::builders::ListMessageMoveTasksFluentBuilder {
++        super::super::operation::list_message_move_tasks::builders::ListMessageMoveTasksFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigFluentBuilder {
 -        crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigFluentBuilder {
-+        super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigFluentBuilder {
++        super::super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigFluentBuilder::new(self.handle.clone())
      }
  }

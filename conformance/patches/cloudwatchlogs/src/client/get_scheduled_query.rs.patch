@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetScheduledQueryError>`](crate::operation::get_scheduled_query::GetScheduledQueryError)
 -    pub fn get_scheduled_query(&self) -> crate::operation::get_scheduled_query::builders::GetScheduledQueryFluentBuilder {
 -        crate::operation::get_scheduled_query::builders::GetScheduledQueryFluentBuilder::new(self.handle.clone())
-+    pub fn get_scheduled_query(&self) -> super::operation::get_scheduled_query::builders::GetScheduledQueryFluentBuilder {
-+        super::operation::get_scheduled_query::builders::GetScheduledQueryFluentBuilder::new(self.handle.clone())
++    pub fn get_scheduled_query(&self) -> super::super::operation::get_scheduled_query::builders::GetScheduledQueryFluentBuilder {
++        super::super::operation::get_scheduled_query::builders::GetScheduledQueryFluentBuilder::new(self.handle.clone())
      }
  }

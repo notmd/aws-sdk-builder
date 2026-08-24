@@ -5,10 +5,10 @@
  pub struct DescribeServiceJobOutput {
      /// <p>A list of job attempts associated with the service job.</p>
 -    pub attempts: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobAttemptDetail>>,
-+    pub attempts: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobAttemptDetail>>,
++    pub attempts: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobAttemptDetail>>,
      /// <p>The configured capacity for the service job, such as the number of instances. The number of instances should be the same value as the <code>serviceRequestPayload.InstanceCount</code> field.</p>
 -    pub capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobCapacityUsageDetail>>,
-+    pub capacity_usage: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobCapacityUsageDetail>>,
++    pub capacity_usage: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobCapacityUsageDetail>>,
      /// <p>The Unix timestamp (in milliseconds) for when the service job was created.</p>
      pub created_at: ::std::option::Option<i64>,
      /// <p>Indicates whether the service job has been terminated.</p>
@@ -17,10 +17,10 @@
      pub job_queue: ::std::option::Option<::std::string::String>,
      /// <p>The latest attempt associated with the service job.</p>
 -    pub latest_attempt: ::std::option::Option<crate::types::LatestServiceJobAttempt>,
-+    pub latest_attempt: ::std::option::Option<super::types::LatestServiceJobAttempt>,
++    pub latest_attempt: ::std::option::Option<super::super::super::types::LatestServiceJobAttempt>,
      /// <p>The retry strategy to use for failed service jobs that are submitted with this service job.</p>
 -    pub retry_strategy: ::std::option::Option<crate::types::ServiceJobRetryStrategy>,
-+    pub retry_strategy: ::std::option::Option<super::types::ServiceJobRetryStrategy>,
++    pub retry_strategy: ::std::option::Option<super::super::super::types::ServiceJobRetryStrategy>,
      /// <p>The Unix timestamp (in milliseconds) for when the service job was scheduled. This represents when the service job was dispatched to SageMaker and the service job transitioned to the <code>SCHEDULED</code> state.</p>
      pub scheduled_at: ::std::option::Option<i64>,
      /// <p>The scheduling priority of the service job.</p>
@@ -29,22 +29,22 @@
      pub service_request_payload: ::std::option::Option<::std::string::String>,
      /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
 -    pub service_job_type: ::std::option::Option<crate::types::ServiceJobType>,
-+    pub service_job_type: ::std::option::Option<super::types::ServiceJobType>,
++    pub service_job_type: ::std::option::Option<super::super::super::types::ServiceJobType>,
      /// <p>The share identifier for the service job. This is used for fair-share scheduling.</p>
      pub share_identifier: ::std::option::Option<::std::string::String>,
      /// <p>The name of the quota share that the service job is associated with.</p>
      pub quota_share_name: ::std::option::Option<::std::string::String>,
      /// <p>Specifies the service job behavior when preempted.</p>
 -    pub preemption_configuration: ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>,
-+    pub preemption_configuration: ::std::option::Option<super::types::ServiceJobPreemptionConfiguration>,
++    pub preemption_configuration: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>,
      /// <p>Summarizes the preemptions of the service job. This field appears on a service job when it has been preempted.</p>
 -    pub preemption_summary: ::std::option::Option<crate::types::ServiceJobPreemptionSummary>,
-+    pub preemption_summary: ::std::option::Option<super::types::ServiceJobPreemptionSummary>,
++    pub preemption_summary: ::std::option::Option<super::super::super::types::ServiceJobPreemptionSummary>,
      /// <p>The Unix timestamp (in milliseconds) for when the service job was started.</p>
      pub started_at: ::std::option::Option<i64>,
      /// <p>The current status of the service job.</p>
 -    pub status: ::std::option::Option<crate::types::ServiceJobStatus>,
-+    pub status: ::std::option::Option<super::types::ServiceJobStatus>,
++    pub status: ::std::option::Option<super::super::super::types::ServiceJobStatus>,
      /// <p>A short, human-readable string to provide more details for the current status of the service job.</p>
      pub status_reason: ::std::option::Option<::std::string::String>,
      /// <p>The Unix timestamp (in milliseconds) for when the service job stopped running.</p>
@@ -53,7 +53,7 @@
      pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      /// <p>The timeout configuration for the service job.</p>
 -    pub timeout_config: ::std::option::Option<crate::types::ServiceJobTimeout>,
-+    pub timeout_config: ::std::option::Option<super::types::ServiceJobTimeout>,
++    pub timeout_config: ::std::option::Option<super::super::super::types::ServiceJobTimeout>,
      _request_id: Option<String>,
  }
  impl DescribeServiceJobOutput {
@@ -62,14 +62,14 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attempts.is_none()`.
 -    pub fn attempts(&self) -> &[crate::types::ServiceJobAttemptDetail] {
-+    pub fn attempts(&self) -> &[super::types::ServiceJobAttemptDetail] {
++    pub fn attempts(&self) -> &[super::super::super::types::ServiceJobAttemptDetail] {
          self.attempts.as_deref().unwrap_or_default()
      }
      /// <p>The configured capacity for the service job, such as the number of instances. The number of instances should be the same value as the <code>serviceRequestPayload.InstanceCount</code> field.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.capacity_usage.is_none()`.
 -    pub fn capacity_usage(&self) -> &[crate::types::ServiceJobCapacityUsageDetail] {
-+    pub fn capacity_usage(&self) -> &[super::types::ServiceJobCapacityUsageDetail] {
++    pub fn capacity_usage(&self) -> &[super::super::super::types::ServiceJobCapacityUsageDetail] {
          self.capacity_usage.as_deref().unwrap_or_default()
      }
      /// <p>The Unix timestamp (in milliseconds) for when the service job was created.</p>
@@ -78,12 +78,12 @@
      }
      /// <p>The latest attempt associated with the service job.</p>
 -    pub fn latest_attempt(&self) -> ::std::option::Option<&crate::types::LatestServiceJobAttempt> {
-+    pub fn latest_attempt(&self) -> ::std::option::Option<&super::types::LatestServiceJobAttempt> {
++    pub fn latest_attempt(&self) -> ::std::option::Option<&super::super::super::types::LatestServiceJobAttempt> {
          self.latest_attempt.as_ref()
      }
      /// <p>The retry strategy to use for failed service jobs that are submitted with this service job.</p>
 -    pub fn retry_strategy(&self) -> ::std::option::Option<&crate::types::ServiceJobRetryStrategy> {
-+    pub fn retry_strategy(&self) -> ::std::option::Option<&super::types::ServiceJobRetryStrategy> {
++    pub fn retry_strategy(&self) -> ::std::option::Option<&super::super::super::types::ServiceJobRetryStrategy> {
          self.retry_strategy.as_ref()
      }
      /// <p>The Unix timestamp (in milliseconds) for when the service job was scheduled. This represents when the service job was dispatched to SageMaker and the service job transitioned to the <code>SCHEDULED</code> state.</p>
@@ -92,7 +92,7 @@
      }
      /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
 -    pub fn service_job_type(&self) -> ::std::option::Option<&crate::types::ServiceJobType> {
-+    pub fn service_job_type(&self) -> ::std::option::Option<&super::types::ServiceJobType> {
++    pub fn service_job_type(&self) -> ::std::option::Option<&super::super::super::types::ServiceJobType> {
          self.service_job_type.as_ref()
      }
      /// <p>The share identifier for the service job. This is used for fair-share scheduling.</p>
@@ -101,12 +101,12 @@
      }
      /// <p>Specifies the service job behavior when preempted.</p>
 -    pub fn preemption_configuration(&self) -> ::std::option::Option<&crate::types::ServiceJobPreemptionConfiguration> {
-+    pub fn preemption_configuration(&self) -> ::std::option::Option<&super::types::ServiceJobPreemptionConfiguration> {
++    pub fn preemption_configuration(&self) -> ::std::option::Option<&super::super::super::types::ServiceJobPreemptionConfiguration> {
          self.preemption_configuration.as_ref()
      }
      /// <p>Summarizes the preemptions of the service job. This field appears on a service job when it has been preempted.</p>
 -    pub fn preemption_summary(&self) -> ::std::option::Option<&crate::types::ServiceJobPreemptionSummary> {
-+    pub fn preemption_summary(&self) -> ::std::option::Option<&super::types::ServiceJobPreemptionSummary> {
++    pub fn preemption_summary(&self) -> ::std::option::Option<&super::super::super::types::ServiceJobPreemptionSummary> {
          self.preemption_summary.as_ref()
      }
      /// <p>The Unix timestamp (in milliseconds) for when the service job was started.</p>
@@ -115,7 +115,7 @@
      }
      /// <p>The current status of the service job.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::ServiceJobStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::ServiceJobStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::super::types::ServiceJobStatus> {
          self.status.as_ref()
      }
      /// <p>A short, human-readable string to provide more details for the current status of the service job.</p>
@@ -124,7 +124,7 @@
      }
      /// <p>The timeout configuration for the service job.</p>
 -    pub fn timeout_config(&self) -> ::std::option::Option<&crate::types::ServiceJobTimeout> {
-+    pub fn timeout_config(&self) -> ::std::option::Option<&super::types::ServiceJobTimeout> {
++    pub fn timeout_config(&self) -> ::std::option::Option<&super::super::super::types::ServiceJobTimeout> {
          self.timeout_config.as_ref()
      }
  }
@@ -134,8 +134,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeServiceJobOutput`](crate::operation::describe_service_job::DescribeServiceJobOutput).
 -    pub fn builder() -> crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder {
 -        crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder {
-+        super::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder {
++        super::super::super::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::default()
      }
  }
 
@@ -145,8 +145,8 @@
  pub struct DescribeServiceJobOutputBuilder {
 -    pub(crate) attempts: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobAttemptDetail>>,
 -    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobCapacityUsageDetail>>,
-+    pub(crate) attempts: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobAttemptDetail>>,
-+    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobCapacityUsageDetail>>,
++    pub(crate) attempts: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobAttemptDetail>>,
++    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobCapacityUsageDetail>>,
      pub(crate) created_at: ::std::option::Option<i64>,
      pub(crate) is_terminated: ::std::option::Option<bool>,
      pub(crate) job_arn: ::std::option::Option<::std::string::String>,
@@ -156,27 +156,27 @@
      pub(crate) job_queue: ::std::option::Option<::std::string::String>,
 -    pub(crate) latest_attempt: ::std::option::Option<crate::types::LatestServiceJobAttempt>,
 -    pub(crate) retry_strategy: ::std::option::Option<crate::types::ServiceJobRetryStrategy>,
-+    pub(crate) latest_attempt: ::std::option::Option<super::types::LatestServiceJobAttempt>,
-+    pub(crate) retry_strategy: ::std::option::Option<super::types::ServiceJobRetryStrategy>,
++    pub(crate) latest_attempt: ::std::option::Option<super::super::super::types::LatestServiceJobAttempt>,
++    pub(crate) retry_strategy: ::std::option::Option<super::super::super::types::ServiceJobRetryStrategy>,
      pub(crate) scheduled_at: ::std::option::Option<i64>,
      pub(crate) scheduling_priority: ::std::option::Option<i32>,
      pub(crate) service_request_payload: ::std::option::Option<::std::string::String>,
 -    pub(crate) service_job_type: ::std::option::Option<crate::types::ServiceJobType>,
-+    pub(crate) service_job_type: ::std::option::Option<super::types::ServiceJobType>,
++    pub(crate) service_job_type: ::std::option::Option<super::super::super::types::ServiceJobType>,
      pub(crate) share_identifier: ::std::option::Option<::std::string::String>,
      pub(crate) quota_share_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) preemption_configuration: ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>,
 -    pub(crate) preemption_summary: ::std::option::Option<crate::types::ServiceJobPreemptionSummary>,
-+    pub(crate) preemption_configuration: ::std::option::Option<super::types::ServiceJobPreemptionConfiguration>,
-+    pub(crate) preemption_summary: ::std::option::Option<super::types::ServiceJobPreemptionSummary>,
++    pub(crate) preemption_configuration: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>,
++    pub(crate) preemption_summary: ::std::option::Option<super::super::super::types::ServiceJobPreemptionSummary>,
      pub(crate) started_at: ::std::option::Option<i64>,
 -    pub(crate) status: ::std::option::Option<crate::types::ServiceJobStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::ServiceJobStatus>,
++    pub(crate) status: ::std::option::Option<super::super::super::types::ServiceJobStatus>,
      pub(crate) status_reason: ::std::option::Option<::std::string::String>,
      pub(crate) stopped_at: ::std::option::Option<i64>,
      pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) timeout_config: ::std::option::Option<crate::types::ServiceJobTimeout>,
-+    pub(crate) timeout_config: ::std::option::Option<super::types::ServiceJobTimeout>,
++    pub(crate) timeout_config: ::std::option::Option<super::super::super::types::ServiceJobTimeout>,
      _request_id: Option<String>,
  }
  impl DescribeServiceJobOutputBuilder {
@@ -185,7 +185,7 @@
      ///
      /// <p>A list of job attempts associated with the service job.</p>
 -    pub fn attempts(mut self, input: crate::types::ServiceJobAttemptDetail) -> Self {
-+    pub fn attempts(mut self, input: super::types::ServiceJobAttemptDetail) -> Self {
++    pub fn attempts(mut self, input: super::super::super::types::ServiceJobAttemptDetail) -> Self {
          let mut v = self.attempts.unwrap_or_default();
          v.push(input);
          self.attempts = ::std::option::Option::Some(v);
@@ -194,13 +194,13 @@
      }
      /// <p>A list of job attempts associated with the service job.</p>
 -    pub fn set_attempts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobAttemptDetail>>) -> Self {
-+    pub fn set_attempts(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobAttemptDetail>>) -> Self {
++    pub fn set_attempts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobAttemptDetail>>) -> Self {
          self.attempts = input;
          self
      }
      /// <p>A list of job attempts associated with the service job.</p>
 -    pub fn get_attempts(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceJobAttemptDetail>> {
-+    pub fn get_attempts(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ServiceJobAttemptDetail>> {
++    pub fn get_attempts(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobAttemptDetail>> {
          &self.attempts
      }
      /// Appends an item to `capacity_usage`.
@@ -209,7 +209,7 @@
      ///
      /// <p>The configured capacity for the service job, such as the number of instances. The number of instances should be the same value as the <code>serviceRequestPayload.InstanceCount</code> field.</p>
 -    pub fn capacity_usage(mut self, input: crate::types::ServiceJobCapacityUsageDetail) -> Self {
-+    pub fn capacity_usage(mut self, input: super::types::ServiceJobCapacityUsageDetail) -> Self {
++    pub fn capacity_usage(mut self, input: super::super::super::types::ServiceJobCapacityUsageDetail) -> Self {
          let mut v = self.capacity_usage.unwrap_or_default();
          v.push(input);
          self.capacity_usage = ::std::option::Option::Some(v);
@@ -218,13 +218,13 @@
      }
      /// <p>The configured capacity for the service job, such as the number of instances. The number of instances should be the same value as the <code>serviceRequestPayload.InstanceCount</code> field.</p>
 -    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobCapacityUsageDetail>>) -> Self {
-+    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobCapacityUsageDetail>>) -> Self {
++    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobCapacityUsageDetail>>) -> Self {
          self.capacity_usage = input;
          self
      }
      /// <p>The configured capacity for the service job, such as the number of instances. The number of instances should be the same value as the <code>serviceRequestPayload.InstanceCount</code> field.</p>
 -    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceJobCapacityUsageDetail>> {
-+    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ServiceJobCapacityUsageDetail>> {
++    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobCapacityUsageDetail>> {
          &self.capacity_usage
      }
      /// <p>The Unix timestamp (in milliseconds) for when the service job was created.</p>
@@ -233,36 +233,36 @@
      }
      /// <p>The latest attempt associated with the service job.</p>
 -    pub fn latest_attempt(mut self, input: crate::types::LatestServiceJobAttempt) -> Self {
-+    pub fn latest_attempt(mut self, input: super::types::LatestServiceJobAttempt) -> Self {
++    pub fn latest_attempt(mut self, input: super::super::super::types::LatestServiceJobAttempt) -> Self {
          self.latest_attempt = ::std::option::Option::Some(input);
          self
      }
      /// <p>The latest attempt associated with the service job.</p>
 -    pub fn set_latest_attempt(mut self, input: ::std::option::Option<crate::types::LatestServiceJobAttempt>) -> Self {
-+    pub fn set_latest_attempt(mut self, input: ::std::option::Option<super::types::LatestServiceJobAttempt>) -> Self {
++    pub fn set_latest_attempt(mut self, input: ::std::option::Option<super::super::super::types::LatestServiceJobAttempt>) -> Self {
          self.latest_attempt = input;
          self
      }
      /// <p>The latest attempt associated with the service job.</p>
 -    pub fn get_latest_attempt(&self) -> &::std::option::Option<crate::types::LatestServiceJobAttempt> {
-+    pub fn get_latest_attempt(&self) -> &::std::option::Option<super::types::LatestServiceJobAttempt> {
++    pub fn get_latest_attempt(&self) -> &::std::option::Option<super::super::super::types::LatestServiceJobAttempt> {
          &self.latest_attempt
      }
      /// <p>The retry strategy to use for failed service jobs that are submitted with this service job.</p>
 -    pub fn retry_strategy(mut self, input: crate::types::ServiceJobRetryStrategy) -> Self {
-+    pub fn retry_strategy(mut self, input: super::types::ServiceJobRetryStrategy) -> Self {
++    pub fn retry_strategy(mut self, input: super::super::super::types::ServiceJobRetryStrategy) -> Self {
          self.retry_strategy = ::std::option::Option::Some(input);
          self
      }
      /// <p>The retry strategy to use for failed service jobs that are submitted with this service job.</p>
 -    pub fn set_retry_strategy(mut self, input: ::std::option::Option<crate::types::ServiceJobRetryStrategy>) -> Self {
-+    pub fn set_retry_strategy(mut self, input: ::std::option::Option<super::types::ServiceJobRetryStrategy>) -> Self {
++    pub fn set_retry_strategy(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobRetryStrategy>) -> Self {
          self.retry_strategy = input;
          self
      }
      /// <p>The retry strategy to use for failed service jobs that are submitted with this service job.</p>
 -    pub fn get_retry_strategy(&self) -> &::std::option::Option<crate::types::ServiceJobRetryStrategy> {
-+    pub fn get_retry_strategy(&self) -> &::std::option::Option<super::types::ServiceJobRetryStrategy> {
++    pub fn get_retry_strategy(&self) -> &::std::option::Option<super::super::super::types::ServiceJobRetryStrategy> {
          &self.retry_strategy
      }
      /// <p>The Unix timestamp (in milliseconds) for when the service job was scheduled. This represents when the service job was dispatched to SageMaker and the service job transitioned to the <code>SCHEDULED</code> state.</p>
@@ -271,19 +271,19 @@
      /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
      /// This field is required.
 -    pub fn service_job_type(mut self, input: crate::types::ServiceJobType) -> Self {
-+    pub fn service_job_type(mut self, input: super::types::ServiceJobType) -> Self {
++    pub fn service_job_type(mut self, input: super::super::super::types::ServiceJobType) -> Self {
          self.service_job_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
 -    pub fn set_service_job_type(mut self, input: ::std::option::Option<crate::types::ServiceJobType>) -> Self {
-+    pub fn set_service_job_type(mut self, input: ::std::option::Option<super::types::ServiceJobType>) -> Self {
++    pub fn set_service_job_type(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobType>) -> Self {
          self.service_job_type = input;
          self
      }
      /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
 -    pub fn get_service_job_type(&self) -> &::std::option::Option<crate::types::ServiceJobType> {
-+    pub fn get_service_job_type(&self) -> &::std::option::Option<super::types::ServiceJobType> {
++    pub fn get_service_job_type(&self) -> &::std::option::Option<super::super::super::types::ServiceJobType> {
          &self.service_job_type
      }
      /// <p>The share identifier for the service job. This is used for fair-share scheduling.</p>
@@ -292,36 +292,36 @@
      }
      /// <p>Specifies the service job behavior when preempted.</p>
 -    pub fn preemption_configuration(mut self, input: crate::types::ServiceJobPreemptionConfiguration) -> Self {
-+    pub fn preemption_configuration(mut self, input: super::types::ServiceJobPreemptionConfiguration) -> Self {
++    pub fn preemption_configuration(mut self, input: super::super::super::types::ServiceJobPreemptionConfiguration) -> Self {
          self.preemption_configuration = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies the service job behavior when preempted.</p>
 -    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>) -> Self {
-+    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::types::ServiceJobPreemptionConfiguration>) -> Self {
++    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>) -> Self {
          self.preemption_configuration = input;
          self
      }
      /// <p>Specifies the service job behavior when preempted.</p>
 -    pub fn get_preemption_configuration(&self) -> &::std::option::Option<crate::types::ServiceJobPreemptionConfiguration> {
-+    pub fn get_preemption_configuration(&self) -> &::std::option::Option<super::types::ServiceJobPreemptionConfiguration> {
++    pub fn get_preemption_configuration(&self) -> &::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration> {
          &self.preemption_configuration
      }
      /// <p>Summarizes the preemptions of the service job. This field appears on a service job when it has been preempted.</p>
 -    pub fn preemption_summary(mut self, input: crate::types::ServiceJobPreemptionSummary) -> Self {
-+    pub fn preemption_summary(mut self, input: super::types::ServiceJobPreemptionSummary) -> Self {
++    pub fn preemption_summary(mut self, input: super::super::super::types::ServiceJobPreemptionSummary) -> Self {
          self.preemption_summary = ::std::option::Option::Some(input);
          self
      }
      /// <p>Summarizes the preemptions of the service job. This field appears on a service job when it has been preempted.</p>
 -    pub fn set_preemption_summary(mut self, input: ::std::option::Option<crate::types::ServiceJobPreemptionSummary>) -> Self {
-+    pub fn set_preemption_summary(mut self, input: ::std::option::Option<super::types::ServiceJobPreemptionSummary>) -> Self {
++    pub fn set_preemption_summary(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionSummary>) -> Self {
          self.preemption_summary = input;
          self
      }
      /// <p>Summarizes the preemptions of the service job. This field appears on a service job when it has been preempted.</p>
 -    pub fn get_preemption_summary(&self) -> &::std::option::Option<crate::types::ServiceJobPreemptionSummary> {
-+    pub fn get_preemption_summary(&self) -> &::std::option::Option<super::types::ServiceJobPreemptionSummary> {
++    pub fn get_preemption_summary(&self) -> &::std::option::Option<super::super::super::types::ServiceJobPreemptionSummary> {
          &self.preemption_summary
      }
      /// <p>The Unix timestamp (in milliseconds) for when the service job was started.</p>
@@ -330,19 +330,19 @@
      /// <p>The current status of the service job.</p>
      /// This field is required.
 -    pub fn status(mut self, input: crate::types::ServiceJobStatus) -> Self {
-+    pub fn status(mut self, input: super::types::ServiceJobStatus) -> Self {
++    pub fn status(mut self, input: super::super::super::types::ServiceJobStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current status of the service job.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ServiceJobStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::ServiceJobStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>The current status of the service job.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::ServiceJobStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::ServiceJobStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::super::types::ServiceJobStatus> {
          &self.status
      }
      /// <p>A short, human-readable string to provide more details for the current status of the service job.</p>
@@ -351,19 +351,19 @@
      }
      /// <p>The timeout configuration for the service job.</p>
 -    pub fn timeout_config(mut self, input: crate::types::ServiceJobTimeout) -> Self {
-+    pub fn timeout_config(mut self, input: super::types::ServiceJobTimeout) -> Self {
++    pub fn timeout_config(mut self, input: super::super::super::types::ServiceJobTimeout) -> Self {
          self.timeout_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The timeout configuration for the service job.</p>
 -    pub fn set_timeout_config(mut self, input: ::std::option::Option<crate::types::ServiceJobTimeout>) -> Self {
-+    pub fn set_timeout_config(mut self, input: ::std::option::Option<super::types::ServiceJobTimeout>) -> Self {
++    pub fn set_timeout_config(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobTimeout>) -> Self {
          self.timeout_config = input;
          self
      }
      /// <p>The timeout configuration for the service job.</p>
 -    pub fn get_timeout_config(&self) -> &::std::option::Option<crate::types::ServiceJobTimeout> {
-+    pub fn get_timeout_config(&self) -> &::std::option::Option<super::types::ServiceJobTimeout> {
++    pub fn get_timeout_config(&self) -> &::std::option::Option<super::super::super::types::ServiceJobTimeout> {
          &self.timeout_config
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -373,8 +373,8 @@
      /// Consumes the builder and constructs a [`DescribeServiceJobOutput`](crate::operation::describe_service_job::DescribeServiceJobOutput).
 -    pub fn build(self) -> crate::operation::describe_service_job::DescribeServiceJobOutput {
 -        crate::operation::describe_service_job::DescribeServiceJobOutput {
-+    pub fn build(self) -> super::operation::describe_service_job::DescribeServiceJobOutput {
-+        super::operation::describe_service_job::DescribeServiceJobOutput {
++    pub fn build(self) -> super::super::super::operation::describe_service_job::DescribeServiceJobOutput {
++        super::super::super::operation::describe_service_job::DescribeServiceJobOutput {
              attempts: self.attempts,
              capacity_usage: self.capacity_usage,
              created_at: self.created_at,

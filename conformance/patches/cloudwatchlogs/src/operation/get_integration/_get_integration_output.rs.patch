@@ -5,13 +5,13 @@
      pub integration_name: ::std::option::Option<::std::string::String>,
      /// <p>The type of integration. Integrations with OpenSearch Service have the type <code>OPENSEARCH</code>.</p>
 -    pub integration_type: ::std::option::Option<crate::types::IntegrationType>,
-+    pub integration_type: ::std::option::Option<super::types::IntegrationType>,
++    pub integration_type: ::std::option::Option<super::super::super::types::IntegrationType>,
      /// <p>The current status of this integration.</p>
 -    pub integration_status: ::std::option::Option<crate::types::IntegrationStatus>,
-+    pub integration_status: ::std::option::Option<super::types::IntegrationStatus>,
++    pub integration_status: ::std::option::Option<super::super::super::types::IntegrationStatus>,
      /// <p>A structure that contains information about the integration configuration. For an integration with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace, and policies.</p>
 -    pub integration_details: ::std::option::Option<crate::types::IntegrationDetails>,
-+    pub integration_details: ::std::option::Option<super::types::IntegrationDetails>,
++    pub integration_details: ::std::option::Option<super::super::super::types::IntegrationDetails>,
      _request_id: Option<String>,
  }
  impl GetIntegrationOutput {
@@ -20,17 +20,17 @@
      }
      /// <p>The type of integration. Integrations with OpenSearch Service have the type <code>OPENSEARCH</code>.</p>
 -    pub fn integration_type(&self) -> ::std::option::Option<&crate::types::IntegrationType> {
-+    pub fn integration_type(&self) -> ::std::option::Option<&super::types::IntegrationType> {
++    pub fn integration_type(&self) -> ::std::option::Option<&super::super::super::types::IntegrationType> {
          self.integration_type.as_ref()
      }
      /// <p>The current status of this integration.</p>
 -    pub fn integration_status(&self) -> ::std::option::Option<&crate::types::IntegrationStatus> {
-+    pub fn integration_status(&self) -> ::std::option::Option<&super::types::IntegrationStatus> {
++    pub fn integration_status(&self) -> ::std::option::Option<&super::super::super::types::IntegrationStatus> {
          self.integration_status.as_ref()
      }
      /// <p>A structure that contains information about the integration configuration. For an integration with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace, and policies.</p>
 -    pub fn integration_details(&self) -> ::std::option::Option<&crate::types::IntegrationDetails> {
-+    pub fn integration_details(&self) -> ::std::option::Option<&super::types::IntegrationDetails> {
++    pub fn integration_details(&self) -> ::std::option::Option<&super::super::super::types::IntegrationDetails> {
          self.integration_details.as_ref()
      }
  }
@@ -40,8 +40,8 @@
      /// Creates a new builder-style object to manufacture [`GetIntegrationOutput`](crate::operation::get_integration::GetIntegrationOutput).
 -    pub fn builder() -> crate::operation::get_integration::builders::GetIntegrationOutputBuilder {
 -        crate::operation::get_integration::builders::GetIntegrationOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_integration::builders::GetIntegrationOutputBuilder {
-+        super::operation::get_integration::builders::GetIntegrationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_integration::builders::GetIntegrationOutputBuilder {
++        super::super::super::operation::get_integration::builders::GetIntegrationOutputBuilder::default()
      }
  }
 
@@ -52,9 +52,9 @@
 -    pub(crate) integration_type: ::std::option::Option<crate::types::IntegrationType>,
 -    pub(crate) integration_status: ::std::option::Option<crate::types::IntegrationStatus>,
 -    pub(crate) integration_details: ::std::option::Option<crate::types::IntegrationDetails>,
-+    pub(crate) integration_type: ::std::option::Option<super::types::IntegrationType>,
-+    pub(crate) integration_status: ::std::option::Option<super::types::IntegrationStatus>,
-+    pub(crate) integration_details: ::std::option::Option<super::types::IntegrationDetails>,
++    pub(crate) integration_type: ::std::option::Option<super::super::super::types::IntegrationType>,
++    pub(crate) integration_status: ::std::option::Option<super::super::super::types::IntegrationStatus>,
++    pub(crate) integration_details: ::std::option::Option<super::super::super::types::IntegrationDetails>,
      _request_id: Option<String>,
  }
  impl GetIntegrationOutputBuilder {
@@ -63,53 +63,53 @@
      }
      /// <p>The type of integration. Integrations with OpenSearch Service have the type <code>OPENSEARCH</code>.</p>
 -    pub fn integration_type(mut self, input: crate::types::IntegrationType) -> Self {
-+    pub fn integration_type(mut self, input: super::types::IntegrationType) -> Self {
++    pub fn integration_type(mut self, input: super::super::super::types::IntegrationType) -> Self {
          self.integration_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of integration. Integrations with OpenSearch Service have the type <code>OPENSEARCH</code>.</p>
 -    pub fn set_integration_type(mut self, input: ::std::option::Option<crate::types::IntegrationType>) -> Self {
-+    pub fn set_integration_type(mut self, input: ::std::option::Option<super::types::IntegrationType>) -> Self {
++    pub fn set_integration_type(mut self, input: ::std::option::Option<super::super::super::types::IntegrationType>) -> Self {
          self.integration_type = input;
          self
      }
      /// <p>The type of integration. Integrations with OpenSearch Service have the type <code>OPENSEARCH</code>.</p>
 -    pub fn get_integration_type(&self) -> &::std::option::Option<crate::types::IntegrationType> {
-+    pub fn get_integration_type(&self) -> &::std::option::Option<super::types::IntegrationType> {
++    pub fn get_integration_type(&self) -> &::std::option::Option<super::super::super::types::IntegrationType> {
          &self.integration_type
      }
      /// <p>The current status of this integration.</p>
 -    pub fn integration_status(mut self, input: crate::types::IntegrationStatus) -> Self {
-+    pub fn integration_status(mut self, input: super::types::IntegrationStatus) -> Self {
++    pub fn integration_status(mut self, input: super::super::super::types::IntegrationStatus) -> Self {
          self.integration_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current status of this integration.</p>
 -    pub fn set_integration_status(mut self, input: ::std::option::Option<crate::types::IntegrationStatus>) -> Self {
-+    pub fn set_integration_status(mut self, input: ::std::option::Option<super::types::IntegrationStatus>) -> Self {
++    pub fn set_integration_status(mut self, input: ::std::option::Option<super::super::super::types::IntegrationStatus>) -> Self {
          self.integration_status = input;
          self
      }
      /// <p>The current status of this integration.</p>
 -    pub fn get_integration_status(&self) -> &::std::option::Option<crate::types::IntegrationStatus> {
-+    pub fn get_integration_status(&self) -> &::std::option::Option<super::types::IntegrationStatus> {
++    pub fn get_integration_status(&self) -> &::std::option::Option<super::super::super::types::IntegrationStatus> {
          &self.integration_status
      }
      /// <p>A structure that contains information about the integration configuration. For an integration with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace, and policies.</p>
 -    pub fn integration_details(mut self, input: crate::types::IntegrationDetails) -> Self {
-+    pub fn integration_details(mut self, input: super::types::IntegrationDetails) -> Self {
++    pub fn integration_details(mut self, input: super::super::super::types::IntegrationDetails) -> Self {
          self.integration_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>A structure that contains information about the integration configuration. For an integration with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace, and policies.</p>
 -    pub fn set_integration_details(mut self, input: ::std::option::Option<crate::types::IntegrationDetails>) -> Self {
-+    pub fn set_integration_details(mut self, input: ::std::option::Option<super::types::IntegrationDetails>) -> Self {
++    pub fn set_integration_details(mut self, input: ::std::option::Option<super::super::super::types::IntegrationDetails>) -> Self {
          self.integration_details = input;
          self
      }
      /// <p>A structure that contains information about the integration configuration. For an integration with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace, and policies.</p>
 -    pub fn get_integration_details(&self) -> &::std::option::Option<crate::types::IntegrationDetails> {
-+    pub fn get_integration_details(&self) -> &::std::option::Option<super::types::IntegrationDetails> {
++    pub fn get_integration_details(&self) -> &::std::option::Option<super::super::super::types::IntegrationDetails> {
          &self.integration_details
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -119,8 +119,8 @@
      /// Consumes the builder and constructs a [`GetIntegrationOutput`](crate::operation::get_integration::GetIntegrationOutput).
 -    pub fn build(self) -> crate::operation::get_integration::GetIntegrationOutput {
 -        crate::operation::get_integration::GetIntegrationOutput {
-+    pub fn build(self) -> super::operation::get_integration::GetIntegrationOutput {
-+        super::operation::get_integration::GetIntegrationOutput {
++    pub fn build(self) -> super::super::super::operation::get_integration::GetIntegrationOutput {
++        super::super::super::operation::get_integration::GetIntegrationOutput {
              integration_name: self.integration_name,
              integration_type: self.integration_type,
              integration_status: self.integration_status,

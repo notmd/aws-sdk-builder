@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TagMfaDeviceOutput`](crate::operation::tag_mfa_device::TagMfaDeviceOutput).
 -    pub fn builder() -> crate::operation::tag_mfa_device::builders::TagMfaDeviceOutputBuilder {
 -        crate::operation::tag_mfa_device::builders::TagMfaDeviceOutputBuilder::default()
-+    pub fn builder() -> super::operation::tag_mfa_device::builders::TagMfaDeviceOutputBuilder {
-+        super::operation::tag_mfa_device::builders::TagMfaDeviceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::tag_mfa_device::builders::TagMfaDeviceOutputBuilder {
++        super::super::super::operation::tag_mfa_device::builders::TagMfaDeviceOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`TagMfaDeviceOutput`](crate::operation::tag_mfa_device::TagMfaDeviceOutput).
 -    pub fn build(self) -> crate::operation::tag_mfa_device::TagMfaDeviceOutput {
 -        crate::operation::tag_mfa_device::TagMfaDeviceOutput {
-+    pub fn build(self) -> super::operation::tag_mfa_device::TagMfaDeviceOutput {
-+        super::operation::tag_mfa_device::TagMfaDeviceOutput {
++    pub fn build(self) -> super::super::super::operation::tag_mfa_device::TagMfaDeviceOutput {
++        super::super::super::operation::tag_mfa_device::TagMfaDeviceOutput {
              _request_id: self._request_id,
          }
      }

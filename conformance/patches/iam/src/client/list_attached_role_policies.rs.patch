@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListAttachedRolePoliciesError>`](crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError)
 -    pub fn list_attached_role_policies(&self) -> crate::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesFluentBuilder {
 -        crate::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesFluentBuilder::new(self.handle.clone())
-+    pub fn list_attached_role_policies(&self) -> super::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesFluentBuilder {
-+        super::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesFluentBuilder::new(self.handle.clone())
++    pub fn list_attached_role_policies(&self) -> super::super::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesFluentBuilder {
++        super::super::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesFluentBuilder::new(self.handle.clone())
      }
  }

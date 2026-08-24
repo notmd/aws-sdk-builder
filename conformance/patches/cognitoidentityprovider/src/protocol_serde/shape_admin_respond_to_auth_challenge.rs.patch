@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput,
 -    crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
-+    super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput,
-+    super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
++    super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput,
++    super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled(generic)),
-+        None => return Err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled(generic)),
++        None => return Err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "AliasExistsException" => crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::AliasExistsException({
-+        "AliasExistsException" => super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::AliasExistsException({
++        "AliasExistsException" => super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::AliasExistsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::AliasExistsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_alias_exists_exception::de_alias_exists_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                let mut output = super::types::error::builders::AliasExistsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_alias_exists_exception::de_alias_exists_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                let mut output = super::super::types::error::builders::AliasExistsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_alias_exists_exception::de_alias_exists_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "CodeMismatchException" => crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::CodeMismatchException({
-+        "CodeMismatchException" => super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::CodeMismatchException({
++        "CodeMismatchException" => super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::CodeMismatchException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::CodeMismatchExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_code_mismatch_exception::de_code_mismatch_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                let mut output = super::types::error::builders::CodeMismatchExceptionBuilder::default();
-+                output = super::protocol_serde::shape_code_mismatch_exception::de_code_mismatch_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                let mut output = super::super::types::error::builders::CodeMismatchExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_code_mismatch_exception::de_code_mismatch_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,16 +61,16 @@
              tmp
          }),
 -        "ExpiredCodeException" => crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::ExpiredCodeException({
-+        "ExpiredCodeException" => super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::ExpiredCodeException({
++        "ExpiredCodeException" => super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::ExpiredCodeException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ExpiredCodeExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_expired_code_exception::de_expired_code_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                let mut output = super::types::error::builders::ExpiredCodeExceptionBuilder::default();
-+                output = super::protocol_serde::shape_expired_code_exception::de_expired_code_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                let mut output = super::super::types::error::builders::ExpiredCodeExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_expired_code_exception::de_expired_code_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -79,16 +79,16 @@
              tmp
          }),
 -        "InternalErrorException" => crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InternalErrorException({
-+        "InternalErrorException" => super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InternalErrorException({
++        "InternalErrorException" => super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InternalErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -97,14 +97,14 @@
          }),
          "InvalidEmailRoleAccessPolicyException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidEmailRoleAccessPolicyException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidEmailRoleAccessPolicyException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidEmailRoleAccessPolicyException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -113,19 +113,19 @@
          }
          "InvalidLambdaResponseException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidLambdaResponseException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidLambdaResponseException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidLambdaResponseException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
-+                    let mut output = super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
++                    let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -134,17 +134,17 @@
          }
          "InvalidParameterException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidParameterException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidParameterException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidParameterException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                        super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -153,16 +153,16 @@
          }
          "InvalidPasswordException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidPasswordException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidPasswordException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidPasswordException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidPasswordExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidPasswordExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidPasswordExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -171,20 +171,20 @@
          }
          "InvalidSmsRoleAccessPolicyException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidSmsRoleAccessPolicyException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidSmsRoleAccessPolicyException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidSmsRoleAccessPolicyException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
-+                        super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
++                        super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
                              _response_body,
                              output,
                          )
 -                        .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                        .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                        .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -193,14 +193,14 @@
          }
          "InvalidSmsRoleTrustRelationshipException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidSmsRoleTrustRelationshipException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidSmsRoleTrustRelationshipException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidSmsRoleTrustRelationshipException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -209,14 +209,14 @@
          }
          "InvalidUserPoolConfigurationException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidUserPoolConfigurationException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidUserPoolConfigurationException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::InvalidUserPoolConfigurationException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -225,19 +225,19 @@
          }
          "MFAMethodNotFoundException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::MfaMethodNotFoundException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::MfaMethodNotFoundException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::MfaMethodNotFoundException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::MfaMethodNotFoundExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_mfa_method_not_found_exception::de_mfa_method_not_found_exception_json_err(
-+                    let mut output = super::types::error::builders::MfaMethodNotFoundExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_mfa_method_not_found_exception::de_mfa_method_not_found_exception_json_err(
++                    let mut output = super::super::types::error::builders::MfaMethodNotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_mfa_method_not_found_exception::de_mfa_method_not_found_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -246,16 +246,16 @@
              })
          }
 -        "NotAuthorizedException" => crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::NotAuthorizedException({
-+        "NotAuthorizedException" => super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::NotAuthorizedException({
++        "NotAuthorizedException" => super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::NotAuthorizedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -264,19 +264,19 @@
          }),
          "OperationNotEnabledException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::OperationNotEnabledException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::OperationNotEnabledException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::OperationNotEnabledException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-+                    let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
++                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -285,14 +285,14 @@
          }
          "PasswordHistoryPolicyViolationException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::PasswordHistoryPolicyViolationException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::PasswordHistoryPolicyViolationException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::PasswordHistoryPolicyViolationException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::PasswordHistoryPolicyViolationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_password_history_policy_violation_exception::de_password_history_policy_violation_exception_json_err(_response_body, output).map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    let mut output = super::types::error::builders::PasswordHistoryPolicyViolationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_password_history_policy_violation_exception::de_password_history_policy_violation_exception_json_err(_response_body, output).map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    let mut output = super::super::types::error::builders::PasswordHistoryPolicyViolationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_password_history_policy_violation_exception::de_password_history_policy_violation_exception_json_err(_response_body, output).map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -301,19 +301,19 @@
          }
          "PasswordResetRequiredException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::PasswordResetRequiredException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::PasswordResetRequiredException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::PasswordResetRequiredException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
-+                    let mut output = super::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
++                    let mut output = super::super::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -322,17 +322,17 @@
          }
          "ResourceNotFoundException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::ResourceNotFoundException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::ResourceNotFoundException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::ResourceNotFoundException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                        super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -341,19 +341,19 @@
          }
          "SoftwareTokenMFANotFoundException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::SoftwareTokenMfaNotFoundException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::SoftwareTokenMfaNotFoundException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::SoftwareTokenMfaNotFoundException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::SoftwareTokenMfaNotFoundExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_software_token_mfa_not_found_exception::de_software_token_mfa_not_found_exception_json_err(
-+                    let mut output = super::types::error::builders::SoftwareTokenMfaNotFoundExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_software_token_mfa_not_found_exception::de_software_token_mfa_not_found_exception_json_err(
++                    let mut output = super::super::types::error::builders::SoftwareTokenMfaNotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_software_token_mfa_not_found_exception::de_software_token_mfa_not_found_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -362,17 +362,17 @@
          }
          "TooManyRequestsException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::TooManyRequestsException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::TooManyRequestsException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::TooManyRequestsException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                        super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -381,17 +381,17 @@
          }
          "UnexpectedLambdaException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UnexpectedLambdaException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UnexpectedLambdaException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UnexpectedLambdaException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                        super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                        super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -400,19 +400,19 @@
          }
          "UserLambdaValidationException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UserLambdaValidationException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UserLambdaValidationException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UserLambdaValidationException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::UserLambdaValidationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
-+                    let mut output = super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
++                    let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -421,17 +421,17 @@
          }
          "UserNotConfirmedException" => {
 -            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UserNotConfirmedException({
-+            super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UserNotConfirmedException({
++            super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UserNotConfirmedException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::UserNotConfirmedExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                        super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                        super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -440,16 +440,16 @@
              })
          }
 -        "UserNotFoundException" => crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UserNotFoundException({
-+        "UserNotFoundException" => super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UserNotFoundException({
++        "UserNotFoundException" => super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::UserNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+                let mut output = super::types::error::builders::UserNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++                let mut output = super::super::types::error::builders::UserNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -458,7 +458,7 @@
              tmp
          }),
 -        _ => crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::generic(generic),
-+        _ => super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::generic(generic),
++        _ => super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::generic(generic),
      })
  }
 
@@ -468,17 +468,17 @@
  ) -> std::result::Result<
 -    crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput,
 -    crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
-+    super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput,
-+    super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
++    super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput,
++    super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder::default();
 -        output = crate::protocol_serde::shape_admin_respond_to_auth_challenge::de_admin_respond_to_auth_challenge(_response_body, output)
 -            .map_err(crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
-+        let mut output = super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder::default();
-+        output = super::protocol_serde::shape_admin_respond_to_auth_challenge::de_admin_respond_to_auth_challenge(_response_body, output)
-+            .map_err(super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
++        let mut output = super::super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder::default();
++        output = super::super::protocol_serde::shape_admin_respond_to_auth_challenge::de_admin_respond_to_auth_challenge(_response_body, output)
++            .map_err(super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -487,12 +487,12 @@
 
  pub fn ser_admin_respond_to_auth_challenge_input(
 -    input: &crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeInput,
-+    input: &super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeInput,
++    input: &super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_admin_respond_to_auth_challenge_input::ser_admin_respond_to_auth_challenge_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_admin_respond_to_auth_challenge_input::ser_admin_respond_to_auth_challenge_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_admin_respond_to_auth_challenge_input::ser_admin_respond_to_auth_challenge_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -501,14 +501,14 @@
  pub(crate) fn de_admin_respond_to_auth_challenge(
      _value: &[u8],
 -    mut builder: crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder,
-+    mut builder: super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder,
++    mut builder: super::super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder,
-+    super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder,
++    super::super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -517,7 +517,7 @@
                          builder = builder.set_challenge_name(
                              ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                .map(|s| s.to_unescaped().map(|u| crate::types::ChallengeNameType::from(u.as_ref())))
-+                                .map(|s| s.to_unescaped().map(|u| super::types::ChallengeNameType::from(u.as_ref())))
++                                .map(|s| s.to_unescaped().map(|u| super::super::types::ChallengeNameType::from(u.as_ref())))
                                  .transpose()?,
                          );
                      }
@@ -526,13 +526,13 @@
                      "ChallengeParameters" => {
                          builder = builder.set_challenge_parameters(
 -                            crate::protocol_serde::shape_challenge_parameters_type::de_challenge_parameters_type(tokens, _value, depth + 1)?,
-+                            super::protocol_serde::shape_challenge_parameters_type::de_challenge_parameters_type(tokens, _value, depth + 1)?,
++                            super::super::protocol_serde::shape_challenge_parameters_type::de_challenge_parameters_type(tokens, _value, depth + 1)?,
                          );
                      }
                      "AuthenticationResult" => {
                          builder = builder.set_authentication_result(
 -                            crate::protocol_serde::shape_authentication_result_type::de_authentication_result_type(tokens, _value, depth + 1)?,
-+                            super::protocol_serde::shape_authentication_result_type::de_authentication_result_type(tokens, _value, depth + 1)?,
++                            super::super::protocol_serde::shape_authentication_result_type::de_authentication_result_type(tokens, _value, depth + 1)?,
                          );
                      }
                      _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

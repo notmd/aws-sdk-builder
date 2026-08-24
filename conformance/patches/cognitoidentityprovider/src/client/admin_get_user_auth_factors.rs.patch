@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AdminGetUserAuthFactorsError>`](crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError)
 -    pub fn admin_get_user_auth_factors(&self) -> crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder {
 -        crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder::new(self.handle.clone())
-+    pub fn admin_get_user_auth_factors(&self) -> super::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder {
-+        super::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder::new(self.handle.clone())
++    pub fn admin_get_user_auth_factors(&self) -> super::super::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder {
++        super::super::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder::new(self.handle.clone())
      }
  }

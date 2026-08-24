@@ -5,7 +5,7 @@
      pub organization_id: ::std::option::Option<::std::string::String>,
      /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
 -    pub enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
-+    pub enabled_features: ::std::option::Option<::std::vec::Vec<super::types::FeatureType>>,
++    pub enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
      _request_id: Option<String>,
  }
  impl DisableOrganizationsRootSessionsOutput {
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enabled_features.is_none()`.
 -    pub fn enabled_features(&self) -> &[crate::types::FeatureType] {
-+    pub fn enabled_features(&self) -> &[super::types::FeatureType] {
++    pub fn enabled_features(&self) -> &[super::super::super::types::FeatureType] {
          self.enabled_features.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DisableOrganizationsRootSessionsOutput`](crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput).
 -    pub fn builder() -> crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsOutputBuilder {
 -        crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsOutputBuilder::default()
-+    pub fn builder() -> super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsOutputBuilder {
-+        super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsOutputBuilder {
++        super::super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct DisableOrganizationsRootSessionsOutputBuilder {
      pub(crate) organization_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
-+    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<super::types::FeatureType>>,
++    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
      _request_id: Option<String>,
  }
  impl DisableOrganizationsRootSessionsOutputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
 -    pub fn enabled_features(mut self, input: crate::types::FeatureType) -> Self {
-+    pub fn enabled_features(mut self, input: super::types::FeatureType) -> Self {
++    pub fn enabled_features(mut self, input: super::super::super::types::FeatureType) -> Self {
          let mut v = self.enabled_features.unwrap_or_default();
          v.push(input);
          self.enabled_features = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
 -    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self {
-+    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FeatureType>>) -> Self {
++    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self {
          self.enabled_features = input;
          self
      }
      /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
 -    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
-+    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FeatureType>> {
++    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>> {
          &self.enabled_features
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DisableOrganizationsRootSessionsOutput`](crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput).
 -    pub fn build(self) -> crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput {
 -        crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput {
-+    pub fn build(self) -> super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput {
-+        super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput {
++    pub fn build(self) -> super::super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput {
++        super::super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput {
              organization_id: self.organization_id,
              enabled_features: self.enabled_features,
              _request_id: self._request_id,

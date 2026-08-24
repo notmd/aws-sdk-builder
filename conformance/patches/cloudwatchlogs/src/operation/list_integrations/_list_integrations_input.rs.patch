@@ -5,10 +5,10 @@
      pub integration_name_prefix: ::std::option::Option<::std::string::String>,
      /// <p>To limit the results to integrations of a certain type, specify that type here.</p>
 -    pub integration_type: ::std::option::Option<crate::types::IntegrationType>,
-+    pub integration_type: ::std::option::Option<super::types::IntegrationType>,
++    pub integration_type: ::std::option::Option<super::super::super::types::IntegrationType>,
      /// <p>To limit the results to integrations with a certain status, specify that status here.</p>
 -    pub integration_status: ::std::option::Option<crate::types::IntegrationStatus>,
-+    pub integration_status: ::std::option::Option<super::types::IntegrationStatus>,
++    pub integration_status: ::std::option::Option<super::super::super::types::IntegrationStatus>,
  }
  impl ListIntegrationsInput {
      /// <p>To limit the results to integrations that start with a certain name prefix, specify that name prefix here.</p>
@@ -17,12 +17,12 @@
      }
      /// <p>To limit the results to integrations of a certain type, specify that type here.</p>
 -    pub fn integration_type(&self) -> ::std::option::Option<&crate::types::IntegrationType> {
-+    pub fn integration_type(&self) -> ::std::option::Option<&super::types::IntegrationType> {
++    pub fn integration_type(&self) -> ::std::option::Option<&super::super::super::types::IntegrationType> {
          self.integration_type.as_ref()
      }
      /// <p>To limit the results to integrations with a certain status, specify that status here.</p>
 -    pub fn integration_status(&self) -> ::std::option::Option<&crate::types::IntegrationStatus> {
-+    pub fn integration_status(&self) -> ::std::option::Option<&super::types::IntegrationStatus> {
++    pub fn integration_status(&self) -> ::std::option::Option<&super::super::super::types::IntegrationStatus> {
          self.integration_status.as_ref()
      }
  }
@@ -30,8 +30,8 @@
      /// Creates a new builder-style object to manufacture [`ListIntegrationsInput`](crate::operation::list_integrations::ListIntegrationsInput).
 -    pub fn builder() -> crate::operation::list_integrations::builders::ListIntegrationsInputBuilder {
 -        crate::operation::list_integrations::builders::ListIntegrationsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_integrations::builders::ListIntegrationsInputBuilder {
-+        super::operation::list_integrations::builders::ListIntegrationsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_integrations::builders::ListIntegrationsInputBuilder {
++        super::super::super::operation::list_integrations::builders::ListIntegrationsInputBuilder::default()
      }
  }
 
@@ -41,8 +41,8 @@
      pub(crate) integration_name_prefix: ::std::option::Option<::std::string::String>,
 -    pub(crate) integration_type: ::std::option::Option<crate::types::IntegrationType>,
 -    pub(crate) integration_status: ::std::option::Option<crate::types::IntegrationStatus>,
-+    pub(crate) integration_type: ::std::option::Option<super::types::IntegrationType>,
-+    pub(crate) integration_status: ::std::option::Option<super::types::IntegrationStatus>,
++    pub(crate) integration_type: ::std::option::Option<super::super::super::types::IntegrationType>,
++    pub(crate) integration_status: ::std::option::Option<super::super::super::types::IntegrationStatus>,
  }
  impl ListIntegrationsInputBuilder {
      /// <p>To limit the results to integrations that start with a certain name prefix, specify that name prefix here.</p>
@@ -51,36 +51,36 @@
      }
      /// <p>To limit the results to integrations of a certain type, specify that type here.</p>
 -    pub fn integration_type(mut self, input: crate::types::IntegrationType) -> Self {
-+    pub fn integration_type(mut self, input: super::types::IntegrationType) -> Self {
++    pub fn integration_type(mut self, input: super::super::super::types::IntegrationType) -> Self {
          self.integration_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>To limit the results to integrations of a certain type, specify that type here.</p>
 -    pub fn set_integration_type(mut self, input: ::std::option::Option<crate::types::IntegrationType>) -> Self {
-+    pub fn set_integration_type(mut self, input: ::std::option::Option<super::types::IntegrationType>) -> Self {
++    pub fn set_integration_type(mut self, input: ::std::option::Option<super::super::super::types::IntegrationType>) -> Self {
          self.integration_type = input;
          self
      }
      /// <p>To limit the results to integrations of a certain type, specify that type here.</p>
 -    pub fn get_integration_type(&self) -> &::std::option::Option<crate::types::IntegrationType> {
-+    pub fn get_integration_type(&self) -> &::std::option::Option<super::types::IntegrationType> {
++    pub fn get_integration_type(&self) -> &::std::option::Option<super::super::super::types::IntegrationType> {
          &self.integration_type
      }
      /// <p>To limit the results to integrations with a certain status, specify that status here.</p>
 -    pub fn integration_status(mut self, input: crate::types::IntegrationStatus) -> Self {
-+    pub fn integration_status(mut self, input: super::types::IntegrationStatus) -> Self {
++    pub fn integration_status(mut self, input: super::super::super::types::IntegrationStatus) -> Self {
          self.integration_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>To limit the results to integrations with a certain status, specify that status here.</p>
 -    pub fn set_integration_status(mut self, input: ::std::option::Option<crate::types::IntegrationStatus>) -> Self {
-+    pub fn set_integration_status(mut self, input: ::std::option::Option<super::types::IntegrationStatus>) -> Self {
++    pub fn set_integration_status(mut self, input: ::std::option::Option<super::super::super::types::IntegrationStatus>) -> Self {
          self.integration_status = input;
          self
      }
      /// <p>To limit the results to integrations with a certain status, specify that status here.</p>
 -    pub fn get_integration_status(&self) -> &::std::option::Option<crate::types::IntegrationStatus> {
-+    pub fn get_integration_status(&self) -> &::std::option::Option<super::types::IntegrationStatus> {
++    pub fn get_integration_status(&self) -> &::std::option::Option<super::super::super::types::IntegrationStatus> {
          &self.integration_status
      }
      /// Consumes the builder and constructs a [`ListIntegrationsInput`](crate::operation::list_integrations::ListIntegrationsInput).
@@ -88,8 +88,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::list_integrations::ListIntegrationsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_integrations::ListIntegrationsInput {
-+    ) -> ::std::result::Result<super::operation::list_integrations::ListIntegrationsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_integrations::ListIntegrationsInput {
++    ) -> ::std::result::Result<super::super::super::operation::list_integrations::ListIntegrationsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_integrations::ListIntegrationsInput {
              integration_name_prefix: self.integration_name_prefix,
              integration_type: self.integration_type,
              integration_status: self.integration_status,

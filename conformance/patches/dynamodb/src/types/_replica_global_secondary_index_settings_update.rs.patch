@@ -5,7 +5,7 @@
      pub provisioned_read_capacity_units: ::std::option::Option<i64>,
      /// <p>Auto scaling settings for managing a global secondary index replica's read capacity units.</p>
 -    pub provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-+    pub provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<super::types::AutoScalingSettingsUpdate>,
++    pub provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<super::super::types::AutoScalingSettingsUpdate>,
  }
  impl ReplicaGlobalSecondaryIndexSettingsUpdate {
      /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>Auto scaling settings for managing a global secondary index replica's read capacity units.</p>
 -    pub fn provisioned_read_capacity_auto_scaling_settings_update(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsUpdate> {
-+    pub fn provisioned_read_capacity_auto_scaling_settings_update(&self) -> ::std::option::Option<&super::types::AutoScalingSettingsUpdate> {
++    pub fn provisioned_read_capacity_auto_scaling_settings_update(&self) -> ::std::option::Option<&super::super::types::AutoScalingSettingsUpdate> {
          self.provisioned_read_capacity_auto_scaling_settings_update.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ReplicaGlobalSecondaryIndexSettingsUpdate`](crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate).
 -    pub fn builder() -> crate::types::builders::ReplicaGlobalSecondaryIndexSettingsUpdateBuilder {
 -        crate::types::builders::ReplicaGlobalSecondaryIndexSettingsUpdateBuilder::default()
-+    pub fn builder() -> super::types::builders::ReplicaGlobalSecondaryIndexSettingsUpdateBuilder {
-+        super::types::builders::ReplicaGlobalSecondaryIndexSettingsUpdateBuilder::default()
++    pub fn builder() -> super::super::types::builders::ReplicaGlobalSecondaryIndexSettingsUpdateBuilder {
++        super::super::types::builders::ReplicaGlobalSecondaryIndexSettingsUpdateBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) index_name: ::std::option::Option<::std::string::String>,
      pub(crate) provisioned_read_capacity_units: ::std::option::Option<i64>,
 -    pub(crate) provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-+    pub(crate) provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<super::types::AutoScalingSettingsUpdate>,
++    pub(crate) provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<super::super::types::AutoScalingSettingsUpdate>,
  }
  impl ReplicaGlobalSecondaryIndexSettingsUpdateBuilder {
      /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
@@ -41,7 +41,7 @@
      }
      /// <p>Auto scaling settings for managing a global secondary index replica's read capacity units.</p>
 -    pub fn provisioned_read_capacity_auto_scaling_settings_update(mut self, input: crate::types::AutoScalingSettingsUpdate) -> Self {
-+    pub fn provisioned_read_capacity_auto_scaling_settings_update(mut self, input: super::types::AutoScalingSettingsUpdate) -> Self {
++    pub fn provisioned_read_capacity_auto_scaling_settings_update(mut self, input: super::super::types::AutoScalingSettingsUpdate) -> Self {
          self.provisioned_read_capacity_auto_scaling_settings_update = ::std::option::Option::Some(input);
          self
      }
@@ -50,14 +50,14 @@
      pub fn set_provisioned_read_capacity_auto_scaling_settings_update(
          mut self,
 -        input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-+        input: ::std::option::Option<super::types::AutoScalingSettingsUpdate>,
++        input: ::std::option::Option<super::super::types::AutoScalingSettingsUpdate>,
      ) -> Self {
          self.provisioned_read_capacity_auto_scaling_settings_update = input;
          self
      }
      /// <p>Auto scaling settings for managing a global secondary index replica's read capacity units.</p>
 -    pub fn get_provisioned_read_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
-+    pub fn get_provisioned_read_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<super::types::AutoScalingSettingsUpdate> {
++    pub fn get_provisioned_read_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<super::super::types::AutoScalingSettingsUpdate> {
          &self.provisioned_read_capacity_auto_scaling_settings_update
      }
      /// Consumes the builder and constructs a [`ReplicaGlobalSecondaryIndexSettingsUpdate`](crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate).
@@ -67,8 +67,8 @@
          self,
 -    ) -> ::std::result::Result<crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate {
-+    ) -> ::std::result::Result<super::types::ReplicaGlobalSecondaryIndexSettingsUpdate, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ReplicaGlobalSecondaryIndexSettingsUpdate {
++    ) -> ::std::result::Result<super::super::types::ReplicaGlobalSecondaryIndexSettingsUpdate, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ReplicaGlobalSecondaryIndexSettingsUpdate {
              index_name: self.index_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "index_name",

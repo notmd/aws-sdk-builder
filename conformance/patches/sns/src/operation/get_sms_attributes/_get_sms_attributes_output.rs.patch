@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetSmsAttributesOutput`](crate::operation::get_sms_attributes::GetSmsAttributesOutput).
 -    pub fn builder() -> crate::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder {
 -        crate::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder {
-+        super::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder {
++        super::super::super::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetSmsAttributesOutput`](crate::operation::get_sms_attributes::GetSmsAttributesOutput).
 -    pub fn build(self) -> crate::operation::get_sms_attributes::GetSmsAttributesOutput {
 -        crate::operation::get_sms_attributes::GetSmsAttributesOutput {
-+    pub fn build(self) -> super::operation::get_sms_attributes::GetSmsAttributesOutput {
-+        super::operation::get_sms_attributes::GetSmsAttributesOutput {
++    pub fn build(self) -> super::super::super::operation::get_sms_attributes::GetSmsAttributesOutput {
++        super::super::super::operation::get_sms_attributes::GetSmsAttributesOutput {
              attributes: self.attributes,
              _request_id: self._request_id,
          }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateIdentityProviderError>`](crate::operation::create_identity_provider::CreateIdentityProviderError)
 -    pub fn create_identity_provider(&self) -> crate::operation::create_identity_provider::builders::CreateIdentityProviderFluentBuilder {
 -        crate::operation::create_identity_provider::builders::CreateIdentityProviderFluentBuilder::new(self.handle.clone())
-+    pub fn create_identity_provider(&self) -> super::operation::create_identity_provider::builders::CreateIdentityProviderFluentBuilder {
-+        super::operation::create_identity_provider::builders::CreateIdentityProviderFluentBuilder::new(self.handle.clone())
++    pub fn create_identity_provider(&self) -> super::super::operation::create_identity_provider::builders::CreateIdentityProviderFluentBuilder {
++        super::super::operation::create_identity_provider::builders::CreateIdentityProviderFluentBuilder::new(self.handle.clone())
      }
  }

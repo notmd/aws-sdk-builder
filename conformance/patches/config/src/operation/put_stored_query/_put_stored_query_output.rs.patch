@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutStoredQueryOutput`](crate::operation::put_stored_query::PutStoredQueryOutput).
 -    pub fn builder() -> crate::operation::put_stored_query::builders::PutStoredQueryOutputBuilder {
 -        crate::operation::put_stored_query::builders::PutStoredQueryOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_stored_query::builders::PutStoredQueryOutputBuilder {
-+        super::operation::put_stored_query::builders::PutStoredQueryOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_stored_query::builders::PutStoredQueryOutputBuilder {
++        super::super::super::operation::put_stored_query::builders::PutStoredQueryOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutStoredQueryOutput`](crate::operation::put_stored_query::PutStoredQueryOutput).
 -    pub fn build(self) -> crate::operation::put_stored_query::PutStoredQueryOutput {
 -        crate::operation::put_stored_query::PutStoredQueryOutput {
-+    pub fn build(self) -> super::operation::put_stored_query::PutStoredQueryOutput {
-+        super::operation::put_stored_query::PutStoredQueryOutput {
++    pub fn build(self) -> super::super::super::operation::put_stored_query::PutStoredQueryOutput {
++        super::super::super::operation::put_stored_query::PutStoredQueryOutput {
              query_arn: self.query_arn,
              _request_id: self._request_id,
          }

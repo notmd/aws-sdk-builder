@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetOrganizationCustomRulePolicyInput`](crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyInput).
 -    pub fn builder() -> crate::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyInputBuilder {
 -        crate::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyInputBuilder {
-+        super::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyInputBuilder {
++        super::super::super::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyInput,
-+        super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyInput,
++        super::super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyInput {
-+            super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyInput {
++            super::super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyInput {
                  organization_config_rule_name: self.organization_config_rule_name,
              },
          )

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetBucketEncryptionError>`](crate::operation::get_bucket_encryption::GetBucketEncryptionError)
 -    pub fn get_bucket_encryption(&self) -> crate::operation::get_bucket_encryption::builders::GetBucketEncryptionFluentBuilder {
 -        crate::operation::get_bucket_encryption::builders::GetBucketEncryptionFluentBuilder::new(self.handle.clone())
-+    pub fn get_bucket_encryption(&self) -> super::operation::get_bucket_encryption::builders::GetBucketEncryptionFluentBuilder {
-+        super::operation::get_bucket_encryption::builders::GetBucketEncryptionFluentBuilder::new(self.handle.clone())
++    pub fn get_bucket_encryption(&self) -> super::super::operation::get_bucket_encryption::builders::GetBucketEncryptionFluentBuilder {
++        super::super::operation::get_bucket_encryption::builders::GetBucketEncryptionFluentBuilder::new(self.handle.clone())
      }
  }

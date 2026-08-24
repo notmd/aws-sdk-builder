@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesFluentBuilder {
 -        crate::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesFluentBuilder::new(
-+    ) -> super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesFluentBuilder {
-+        super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesFluentBuilder::new(
++    ) -> super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesFluentBuilder {
++        super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesFluentBuilder::new(
              self.handle.clone(),
          )
      }

@@ -5,7 +5,7 @@
      pub service_namespace: ::std::option::Option<::std::string::String>,
      /// <p>The&nbsp;<code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
 -    pub policies: ::std::option::Option<::std::vec::Vec<crate::types::PolicyGrantingServiceAccess>>,
-+    pub policies: ::std::option::Option<::std::vec::Vec<super::types::PolicyGrantingServiceAccess>>,
++    pub policies: ::std::option::Option<::std::vec::Vec<super::super::types::PolicyGrantingServiceAccess>>,
  }
  impl ListPoliciesGrantingServiceAccessEntry {
      /// <p>The namespace of the service that was accessed.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policies.is_none()`.
 -    pub fn policies(&self) -> &[crate::types::PolicyGrantingServiceAccess] {
-+    pub fn policies(&self) -> &[super::types::PolicyGrantingServiceAccess] {
++    pub fn policies(&self) -> &[super::super::types::PolicyGrantingServiceAccess] {
          self.policies.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ListPoliciesGrantingServiceAccessEntry`](crate::types::ListPoliciesGrantingServiceAccessEntry).
 -    pub fn builder() -> crate::types::builders::ListPoliciesGrantingServiceAccessEntryBuilder {
 -        crate::types::builders::ListPoliciesGrantingServiceAccessEntryBuilder::default()
-+    pub fn builder() -> super::types::builders::ListPoliciesGrantingServiceAccessEntryBuilder {
-+        super::types::builders::ListPoliciesGrantingServiceAccessEntryBuilder::default()
++    pub fn builder() -> super::super::types::builders::ListPoliciesGrantingServiceAccessEntryBuilder {
++        super::super::types::builders::ListPoliciesGrantingServiceAccessEntryBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct ListPoliciesGrantingServiceAccessEntryBuilder {
      pub(crate) service_namespace: ::std::option::Option<::std::string::String>,
 -    pub(crate) policies: ::std::option::Option<::std::vec::Vec<crate::types::PolicyGrantingServiceAccess>>,
-+    pub(crate) policies: ::std::option::Option<::std::vec::Vec<super::types::PolicyGrantingServiceAccess>>,
++    pub(crate) policies: ::std::option::Option<::std::vec::Vec<super::super::types::PolicyGrantingServiceAccess>>,
  }
  impl ListPoliciesGrantingServiceAccessEntryBuilder {
      /// <p>The namespace of the service that was accessed.</p>
@@ -41,7 +41,7 @@
      ///
      /// <p>The&nbsp;<code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
 -    pub fn policies(mut self, input: crate::types::PolicyGrantingServiceAccess) -> Self {
-+    pub fn policies(mut self, input: super::types::PolicyGrantingServiceAccess) -> Self {
++    pub fn policies(mut self, input: super::super::types::PolicyGrantingServiceAccess) -> Self {
          let mut v = self.policies.unwrap_or_default();
          v.push(input);
          self.policies = ::std::option::Option::Some(v);
@@ -50,20 +50,20 @@
      }
      /// <p>The&nbsp;<code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
 -    pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyGrantingServiceAccess>>) -> Self {
-+    pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PolicyGrantingServiceAccess>>) -> Self {
++    pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::PolicyGrantingServiceAccess>>) -> Self {
          self.policies = input;
          self
      }
      /// <p>The&nbsp;<code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
 -    pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyGrantingServiceAccess>> {
-+    pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PolicyGrantingServiceAccess>> {
++    pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::PolicyGrantingServiceAccess>> {
          &self.policies
      }
      /// Consumes the builder and constructs a [`ListPoliciesGrantingServiceAccessEntry`](crate::types::ListPoliciesGrantingServiceAccessEntry).
 -    pub fn build(self) -> crate::types::ListPoliciesGrantingServiceAccessEntry {
 -        crate::types::ListPoliciesGrantingServiceAccessEntry {
-+    pub fn build(self) -> super::types::ListPoliciesGrantingServiceAccessEntry {
-+        super::types::ListPoliciesGrantingServiceAccessEntry {
++    pub fn build(self) -> super::super::types::ListPoliciesGrantingServiceAccessEntry {
++        super::super::types::ListPoliciesGrantingServiceAccessEntry {
              service_namespace: self.service_namespace,
              policies: self.policies,
          }

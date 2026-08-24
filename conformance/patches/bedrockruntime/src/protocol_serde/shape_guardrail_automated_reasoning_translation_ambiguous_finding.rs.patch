@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    Option<crate::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding>,
-+    Option<super::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding>,
++    Option<super::super::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding>,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  >
  where
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder::default();
-+            let mut builder = super::types::builders::GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder::default();
++            let mut builder = super::super::types::builders::GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,13 +23,13 @@
                          "options" => {
                              builder = builder.set_options(
 -                                    crate::protocol_serde::shape_guardrail_automated_reasoning_translation_option_list::de_guardrail_automated_reasoning_translation_option_list(tokens, _value, depth + 1)?
-+                                    super::protocol_serde::shape_guardrail_automated_reasoning_translation_option_list::de_guardrail_automated_reasoning_translation_option_list(tokens, _value, depth + 1)?
++                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_translation_option_list::de_guardrail_automated_reasoning_translation_option_list(tokens, _value, depth + 1)?
                                  );
                          }
                          "differenceScenarios" => {
                              builder = builder.set_difference_scenarios(
 -                                    crate::protocol_serde::shape_guardrail_automated_reasoning_difference_scenario_list::de_guardrail_automated_reasoning_difference_scenario_list(tokens, _value, depth + 1)?
-+                                    super::protocol_serde::shape_guardrail_automated_reasoning_difference_scenario_list::de_guardrail_automated_reasoning_difference_scenario_list(tokens, _value, depth + 1)?
++                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_difference_scenario_list::de_guardrail_automated_reasoning_difference_scenario_list(tokens, _value, depth + 1)?
                                  );
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

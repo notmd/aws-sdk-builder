@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::AggregatedSourceStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::AggregatedSourceStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::AggregatedSourceStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::AggregatedSourceStatusBuilder::default();
-+            let mut builder = super::types::builders::AggregatedSourceStatusBuilder::default();
++            let mut builder = super::super::types::builders::AggregatedSourceStatusBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                              builder = builder.set_source_type(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::AggregatedSourceType::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::AggregatedSourceType::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::AggregatedSourceType::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -32,7 +32,7 @@
                              builder = builder.set_last_update_status(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::AggregatedSourceStatusType::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::AggregatedSourceStatusType::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::AggregatedSourceStatusType::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }

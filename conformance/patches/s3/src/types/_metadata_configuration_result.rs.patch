@@ -5,36 +5,36 @@
  pub struct MetadataConfigurationResult {
      /// <p>The destination settings for a metadata configuration.</p>
 -    pub destination_result: ::std::option::Option<crate::types::DestinationResult>,
-+    pub destination_result: ::std::option::Option<super::types::DestinationResult>,
++    pub destination_result: ::std::option::Option<super::super::types::DestinationResult>,
      /// <p>The journal table configuration for a metadata configuration.</p>
 -    pub journal_table_configuration_result: ::std::option::Option<crate::types::JournalTableConfigurationResult>,
-+    pub journal_table_configuration_result: ::std::option::Option<super::types::JournalTableConfigurationResult>,
++    pub journal_table_configuration_result: ::std::option::Option<super::super::types::JournalTableConfigurationResult>,
      /// <p>The inventory table configuration for a metadata configuration.</p>
 -    pub inventory_table_configuration_result: ::std::option::Option<crate::types::InventoryTableConfigurationResult>,
-+    pub inventory_table_configuration_result: ::std::option::Option<super::types::InventoryTableConfigurationResult>,
++    pub inventory_table_configuration_result: ::std::option::Option<super::super::types::InventoryTableConfigurationResult>,
      /// <p>The annotation table configuration result, if an annotation table is configured.</p>
 -    pub annotation_table_configuration_result: ::std::option::Option<crate::types::AnnotationTableConfigurationResult>,
-+    pub annotation_table_configuration_result: ::std::option::Option<super::types::AnnotationTableConfigurationResult>,
++    pub annotation_table_configuration_result: ::std::option::Option<super::super::types::AnnotationTableConfigurationResult>,
  }
  impl MetadataConfigurationResult {
      /// <p>The destination settings for a metadata configuration.</p>
 -    pub fn destination_result(&self) -> ::std::option::Option<&crate::types::DestinationResult> {
-+    pub fn destination_result(&self) -> ::std::option::Option<&super::types::DestinationResult> {
++    pub fn destination_result(&self) -> ::std::option::Option<&super::super::types::DestinationResult> {
          self.destination_result.as_ref()
      }
      /// <p>The journal table configuration for a metadata configuration.</p>
 -    pub fn journal_table_configuration_result(&self) -> ::std::option::Option<&crate::types::JournalTableConfigurationResult> {
-+    pub fn journal_table_configuration_result(&self) -> ::std::option::Option<&super::types::JournalTableConfigurationResult> {
++    pub fn journal_table_configuration_result(&self) -> ::std::option::Option<&super::super::types::JournalTableConfigurationResult> {
          self.journal_table_configuration_result.as_ref()
      }
      /// <p>The inventory table configuration for a metadata configuration.</p>
 -    pub fn inventory_table_configuration_result(&self) -> ::std::option::Option<&crate::types::InventoryTableConfigurationResult> {
-+    pub fn inventory_table_configuration_result(&self) -> ::std::option::Option<&super::types::InventoryTableConfigurationResult> {
++    pub fn inventory_table_configuration_result(&self) -> ::std::option::Option<&super::super::types::InventoryTableConfigurationResult> {
          self.inventory_table_configuration_result.as_ref()
      }
      /// <p>The annotation table configuration result, if an annotation table is configured.</p>
 -    pub fn annotation_table_configuration_result(&self) -> ::std::option::Option<&crate::types::AnnotationTableConfigurationResult> {
-+    pub fn annotation_table_configuration_result(&self) -> ::std::option::Option<&super::types::AnnotationTableConfigurationResult> {
++    pub fn annotation_table_configuration_result(&self) -> ::std::option::Option<&super::super::types::AnnotationTableConfigurationResult> {
          self.annotation_table_configuration_result.as_ref()
      }
  }
@@ -42,8 +42,8 @@
      /// Creates a new builder-style object to manufacture [`MetadataConfigurationResult`](crate::types::MetadataConfigurationResult).
 -    pub fn builder() -> crate::types::builders::MetadataConfigurationResultBuilder {
 -        crate::types::builders::MetadataConfigurationResultBuilder::default()
-+    pub fn builder() -> super::types::builders::MetadataConfigurationResultBuilder {
-+        super::types::builders::MetadataConfigurationResultBuilder::default()
++    pub fn builder() -> super::super::types::builders::MetadataConfigurationResultBuilder {
++        super::super::types::builders::MetadataConfigurationResultBuilder::default()
      }
  }
 
@@ -55,67 +55,67 @@
 -    pub(crate) journal_table_configuration_result: ::std::option::Option<crate::types::JournalTableConfigurationResult>,
 -    pub(crate) inventory_table_configuration_result: ::std::option::Option<crate::types::InventoryTableConfigurationResult>,
 -    pub(crate) annotation_table_configuration_result: ::std::option::Option<crate::types::AnnotationTableConfigurationResult>,
-+    pub(crate) destination_result: ::std::option::Option<super::types::DestinationResult>,
-+    pub(crate) journal_table_configuration_result: ::std::option::Option<super::types::JournalTableConfigurationResult>,
-+    pub(crate) inventory_table_configuration_result: ::std::option::Option<super::types::InventoryTableConfigurationResult>,
-+    pub(crate) annotation_table_configuration_result: ::std::option::Option<super::types::AnnotationTableConfigurationResult>,
++    pub(crate) destination_result: ::std::option::Option<super::super::types::DestinationResult>,
++    pub(crate) journal_table_configuration_result: ::std::option::Option<super::super::types::JournalTableConfigurationResult>,
++    pub(crate) inventory_table_configuration_result: ::std::option::Option<super::super::types::InventoryTableConfigurationResult>,
++    pub(crate) annotation_table_configuration_result: ::std::option::Option<super::super::types::AnnotationTableConfigurationResult>,
  }
  impl MetadataConfigurationResultBuilder {
      /// <p>The destination settings for a metadata configuration.</p>
      /// This field is required.
 -    pub fn destination_result(mut self, input: crate::types::DestinationResult) -> Self {
-+    pub fn destination_result(mut self, input: super::types::DestinationResult) -> Self {
++    pub fn destination_result(mut self, input: super::super::types::DestinationResult) -> Self {
          self.destination_result = ::std::option::Option::Some(input);
          self
      }
      /// <p>The destination settings for a metadata configuration.</p>
 -    pub fn set_destination_result(mut self, input: ::std::option::Option<crate::types::DestinationResult>) -> Self {
-+    pub fn set_destination_result(mut self, input: ::std::option::Option<super::types::DestinationResult>) -> Self {
++    pub fn set_destination_result(mut self, input: ::std::option::Option<super::super::types::DestinationResult>) -> Self {
          self.destination_result = input;
          self
      }
      /// <p>The destination settings for a metadata configuration.</p>
 -    pub fn get_destination_result(&self) -> &::std::option::Option<crate::types::DestinationResult> {
-+    pub fn get_destination_result(&self) -> &::std::option::Option<super::types::DestinationResult> {
++    pub fn get_destination_result(&self) -> &::std::option::Option<super::super::types::DestinationResult> {
          &self.destination_result
      }
      /// <p>The journal table configuration for a metadata configuration.</p>
 -    pub fn journal_table_configuration_result(mut self, input: crate::types::JournalTableConfigurationResult) -> Self {
-+    pub fn journal_table_configuration_result(mut self, input: super::types::JournalTableConfigurationResult) -> Self {
++    pub fn journal_table_configuration_result(mut self, input: super::super::types::JournalTableConfigurationResult) -> Self {
          self.journal_table_configuration_result = ::std::option::Option::Some(input);
          self
      }
      /// <p>The journal table configuration for a metadata configuration.</p>
 -    pub fn set_journal_table_configuration_result(mut self, input: ::std::option::Option<crate::types::JournalTableConfigurationResult>) -> Self {
-+    pub fn set_journal_table_configuration_result(mut self, input: ::std::option::Option<super::types::JournalTableConfigurationResult>) -> Self {
++    pub fn set_journal_table_configuration_result(mut self, input: ::std::option::Option<super::super::types::JournalTableConfigurationResult>) -> Self {
          self.journal_table_configuration_result = input;
          self
      }
      /// <p>The journal table configuration for a metadata configuration.</p>
 -    pub fn get_journal_table_configuration_result(&self) -> &::std::option::Option<crate::types::JournalTableConfigurationResult> {
-+    pub fn get_journal_table_configuration_result(&self) -> &::std::option::Option<super::types::JournalTableConfigurationResult> {
++    pub fn get_journal_table_configuration_result(&self) -> &::std::option::Option<super::super::types::JournalTableConfigurationResult> {
          &self.journal_table_configuration_result
      }
      /// <p>The inventory table configuration for a metadata configuration.</p>
 -    pub fn inventory_table_configuration_result(mut self, input: crate::types::InventoryTableConfigurationResult) -> Self {
-+    pub fn inventory_table_configuration_result(mut self, input: super::types::InventoryTableConfigurationResult) -> Self {
++    pub fn inventory_table_configuration_result(mut self, input: super::super::types::InventoryTableConfigurationResult) -> Self {
          self.inventory_table_configuration_result = ::std::option::Option::Some(input);
          self
      }
      /// <p>The inventory table configuration for a metadata configuration.</p>
 -    pub fn set_inventory_table_configuration_result(mut self, input: ::std::option::Option<crate::types::InventoryTableConfigurationResult>) -> Self {
-+    pub fn set_inventory_table_configuration_result(mut self, input: ::std::option::Option<super::types::InventoryTableConfigurationResult>) -> Self {
++    pub fn set_inventory_table_configuration_result(mut self, input: ::std::option::Option<super::super::types::InventoryTableConfigurationResult>) -> Self {
          self.inventory_table_configuration_result = input;
          self
      }
      /// <p>The inventory table configuration for a metadata configuration.</p>
 -    pub fn get_inventory_table_configuration_result(&self) -> &::std::option::Option<crate::types::InventoryTableConfigurationResult> {
-+    pub fn get_inventory_table_configuration_result(&self) -> &::std::option::Option<super::types::InventoryTableConfigurationResult> {
++    pub fn get_inventory_table_configuration_result(&self) -> &::std::option::Option<super::super::types::InventoryTableConfigurationResult> {
          &self.inventory_table_configuration_result
      }
      /// <p>The annotation table configuration result, if an annotation table is configured.</p>
 -    pub fn annotation_table_configuration_result(mut self, input: crate::types::AnnotationTableConfigurationResult) -> Self {
-+    pub fn annotation_table_configuration_result(mut self, input: super::types::AnnotationTableConfigurationResult) -> Self {
++    pub fn annotation_table_configuration_result(mut self, input: super::super::types::AnnotationTableConfigurationResult) -> Self {
          self.annotation_table_configuration_result = ::std::option::Option::Some(input);
          self
      }
@@ -124,21 +124,21 @@
      pub fn set_annotation_table_configuration_result(
          mut self,
 -        input: ::std::option::Option<crate::types::AnnotationTableConfigurationResult>,
-+        input: ::std::option::Option<super::types::AnnotationTableConfigurationResult>,
++        input: ::std::option::Option<super::super::types::AnnotationTableConfigurationResult>,
      ) -> Self {
          self.annotation_table_configuration_result = input;
          self
      }
      /// <p>The annotation table configuration result, if an annotation table is configured.</p>
 -    pub fn get_annotation_table_configuration_result(&self) -> &::std::option::Option<crate::types::AnnotationTableConfigurationResult> {
-+    pub fn get_annotation_table_configuration_result(&self) -> &::std::option::Option<super::types::AnnotationTableConfigurationResult> {
++    pub fn get_annotation_table_configuration_result(&self) -> &::std::option::Option<super::super::types::AnnotationTableConfigurationResult> {
          &self.annotation_table_configuration_result
      }
      /// Consumes the builder and constructs a [`MetadataConfigurationResult`](crate::types::MetadataConfigurationResult).
 -    pub fn build(self) -> crate::types::MetadataConfigurationResult {
 -        crate::types::MetadataConfigurationResult {
-+    pub fn build(self) -> super::types::MetadataConfigurationResult {
-+        super::types::MetadataConfigurationResult {
++    pub fn build(self) -> super::super::types::MetadataConfigurationResult {
++        super::super::types::MetadataConfigurationResult {
              destination_result: self.destination_result,
              journal_table_configuration_result: self.journal_table_configuration_result,
              inventory_table_configuration_result: self.inventory_table_configuration_result,

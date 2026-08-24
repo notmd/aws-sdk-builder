@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeImportError>`](crate::operation::describe_import::DescribeImportError)
 -    pub fn describe_import(&self) -> crate::operation::describe_import::builders::DescribeImportFluentBuilder {
 -        crate::operation::describe_import::builders::DescribeImportFluentBuilder::new(self.handle.clone())
-+    pub fn describe_import(&self) -> super::operation::describe_import::builders::DescribeImportFluentBuilder {
-+        super::operation::describe_import::builders::DescribeImportFluentBuilder::new(self.handle.clone())
++    pub fn describe_import(&self) -> super::super::operation::describe_import::builders::DescribeImportFluentBuilder {
++        super::super::operation::describe_import::builders::DescribeImportFluentBuilder::new(self.handle.clone())
      }
  }

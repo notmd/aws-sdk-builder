@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PinpointDestination`](crate::types::PinpointDestination).
 -    pub fn builder() -> crate::types::builders::PinpointDestinationBuilder {
 -        crate::types::builders::PinpointDestinationBuilder::default()
-+    pub fn builder() -> super::types::builders::PinpointDestinationBuilder {
-+        super::types::builders::PinpointDestinationBuilder::default()
++    pub fn builder() -> super::super::types::builders::PinpointDestinationBuilder {
++        super::super::types::builders::PinpointDestinationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PinpointDestination`](crate::types::PinpointDestination).
 -    pub fn build(self) -> crate::types::PinpointDestination {
 -        crate::types::PinpointDestination {
-+    pub fn build(self) -> super::types::PinpointDestination {
-+        super::types::PinpointDestination {
++    pub fn build(self) -> super::super::types::PinpointDestination {
++        super::super::types::PinpointDestination {
              application_arn: self.application_arn,
          }
      }

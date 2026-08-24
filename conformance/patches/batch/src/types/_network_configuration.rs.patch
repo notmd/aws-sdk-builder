@@ -5,12 +5,12 @@
  pub struct NetworkConfiguration {
      /// <p>Indicates whether the job has a public IP address. For a job that's running on Fargate resources in a private subnet to send outbound traffic to the internet (for example, to pull container images), the private subnet requires a NAT gateway be attached to route requests to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon ECS task networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. The default value is "<code>DISABLED</code>".</p>
 -    pub assign_public_ip: ::std::option::Option<crate::types::AssignPublicIp>,
-+    pub assign_public_ip: ::std::option::Option<super::types::AssignPublicIp>,
++    pub assign_public_ip: ::std::option::Option<super::super::types::AssignPublicIp>,
  }
  impl NetworkConfiguration {
      /// <p>Indicates whether the job has a public IP address. For a job that's running on Fargate resources in a private subnet to send outbound traffic to the internet (for example, to pull container images), the private subnet requires a NAT gateway be attached to route requests to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon ECS task networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. The default value is "<code>DISABLED</code>".</p>
 -    pub fn assign_public_ip(&self) -> ::std::option::Option<&crate::types::AssignPublicIp> {
-+    pub fn assign_public_ip(&self) -> ::std::option::Option<&super::types::AssignPublicIp> {
++    pub fn assign_public_ip(&self) -> ::std::option::Option<&super::super::types::AssignPublicIp> {
          self.assign_public_ip.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`NetworkConfiguration`](crate::types::NetworkConfiguration).
 -    pub fn builder() -> crate::types::builders::NetworkConfigurationBuilder {
 -        crate::types::builders::NetworkConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::NetworkConfigurationBuilder {
-+        super::types::builders::NetworkConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::NetworkConfigurationBuilder {
++        super::super::types::builders::NetworkConfigurationBuilder::default()
      }
  }
 
@@ -28,31 +28,31 @@
  #[non_exhaustive]
  pub struct NetworkConfigurationBuilder {
 -    pub(crate) assign_public_ip: ::std::option::Option<crate::types::AssignPublicIp>,
-+    pub(crate) assign_public_ip: ::std::option::Option<super::types::AssignPublicIp>,
++    pub(crate) assign_public_ip: ::std::option::Option<super::super::types::AssignPublicIp>,
  }
  impl NetworkConfigurationBuilder {
      /// <p>Indicates whether the job has a public IP address. For a job that's running on Fargate resources in a private subnet to send outbound traffic to the internet (for example, to pull container images), the private subnet requires a NAT gateway be attached to route requests to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon ECS task networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. The default value is "<code>DISABLED</code>".</p>
 -    pub fn assign_public_ip(mut self, input: crate::types::AssignPublicIp) -> Self {
-+    pub fn assign_public_ip(mut self, input: super::types::AssignPublicIp) -> Self {
++    pub fn assign_public_ip(mut self, input: super::super::types::AssignPublicIp) -> Self {
          self.assign_public_ip = ::std::option::Option::Some(input);
          self
      }
      /// <p>Indicates whether the job has a public IP address. For a job that's running on Fargate resources in a private subnet to send outbound traffic to the internet (for example, to pull container images), the private subnet requires a NAT gateway be attached to route requests to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon ECS task networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. The default value is "<code>DISABLED</code>".</p>
 -    pub fn set_assign_public_ip(mut self, input: ::std::option::Option<crate::types::AssignPublicIp>) -> Self {
-+    pub fn set_assign_public_ip(mut self, input: ::std::option::Option<super::types::AssignPublicIp>) -> Self {
++    pub fn set_assign_public_ip(mut self, input: ::std::option::Option<super::super::types::AssignPublicIp>) -> Self {
          self.assign_public_ip = input;
          self
      }
      /// <p>Indicates whether the job has a public IP address. For a job that's running on Fargate resources in a private subnet to send outbound traffic to the internet (for example, to pull container images), the private subnet requires a NAT gateway be attached to route requests to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon ECS task networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. The default value is "<code>DISABLED</code>".</p>
 -    pub fn get_assign_public_ip(&self) -> &::std::option::Option<crate::types::AssignPublicIp> {
-+    pub fn get_assign_public_ip(&self) -> &::std::option::Option<super::types::AssignPublicIp> {
++    pub fn get_assign_public_ip(&self) -> &::std::option::Option<super::super::types::AssignPublicIp> {
          &self.assign_public_ip
      }
      /// Consumes the builder and constructs a [`NetworkConfiguration`](crate::types::NetworkConfiguration).
 -    pub fn build(self) -> crate::types::NetworkConfiguration {
 -        crate::types::NetworkConfiguration {
-+    pub fn build(self) -> super::types::NetworkConfiguration {
-+        super::types::NetworkConfiguration {
++    pub fn build(self) -> super::super::types::NetworkConfiguration {
++        super::super::types::NetworkConfiguration {
              assign_public_ip: self.assign_public_ip,
          }
      }

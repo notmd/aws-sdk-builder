@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GroupType`](crate::types::GroupType).
 -    pub fn builder() -> crate::types::builders::GroupTypeBuilder {
 -        crate::types::builders::GroupTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::GroupTypeBuilder {
-+        super::types::builders::GroupTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::GroupTypeBuilder {
++        super::super::types::builders::GroupTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GroupType`](crate::types::GroupType).
 -    pub fn build(self) -> crate::types::GroupType {
 -        crate::types::GroupType {
-+    pub fn build(self) -> super::types::GroupType {
-+        super::types::GroupType {
++    pub fn build(self) -> super::super::types::GroupType {
++        super::super::types::GroupType {
              group_name: self.group_name,
              user_pool_id: self.user_pool_id,
              description: self.description,

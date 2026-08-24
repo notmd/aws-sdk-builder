@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateUserPoolClientError>`](crate::operation::create_user_pool_client::CreateUserPoolClientError)
 -    pub fn create_user_pool_client(&self) -> crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder {
 -        crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::new(self.handle.clone())
-+    pub fn create_user_pool_client(&self) -> super::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder {
-+        super::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::new(self.handle.clone())
++    pub fn create_user_pool_client(&self) -> super::super::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder {
++        super::super::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::new(self.handle.clone())
      }
  }

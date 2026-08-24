@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListPhoneNumbersOptedOutError>`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError)
 -    pub fn list_phone_numbers_opted_out(&self) -> crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutFluentBuilder {
 -        crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutFluentBuilder::new(self.handle.clone())
-+    pub fn list_phone_numbers_opted_out(&self) -> super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutFluentBuilder {
-+        super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutFluentBuilder::new(self.handle.clone())
++    pub fn list_phone_numbers_opted_out(&self) -> super::super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutFluentBuilder {
++        super::super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutFluentBuilder::new(self.handle.clone())
      }
  }

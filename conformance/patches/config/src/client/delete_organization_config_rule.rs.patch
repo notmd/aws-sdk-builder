@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleFluentBuilder {
 -        crate::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleFluentBuilder {
-+        super::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleFluentBuilder {
++        super::super::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleFluentBuilder::new(self.handle.clone())
      }
  }

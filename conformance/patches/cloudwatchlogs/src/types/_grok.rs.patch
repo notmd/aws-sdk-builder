@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Grok`](crate::types::Grok).
 -    pub fn builder() -> crate::types::builders::GrokBuilder {
 -        crate::types::builders::GrokBuilder::default()
-+    pub fn builder() -> super::types::builders::GrokBuilder {
-+        super::types::builders::GrokBuilder::default()
++    pub fn builder() -> super::super::types::builders::GrokBuilder {
++        super::super::types::builders::GrokBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`r#match`](crate::types::builders::GrokBuilder::match)
 -    pub fn build(self) -> ::std::result::Result<crate::types::Grok, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::Grok {
-+    pub fn build(self) -> ::std::result::Result<super::types::Grok, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Grok {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Grok, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Grok {
              source: self.source,
              r#match: self.r#match.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(

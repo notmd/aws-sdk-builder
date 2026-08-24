@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateEmailTemplateOutput`](crate::operation::create_email_template::CreateEmailTemplateOutput).
 -    pub fn builder() -> crate::operation::create_email_template::builders::CreateEmailTemplateOutputBuilder {
 -        crate::operation::create_email_template::builders::CreateEmailTemplateOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_email_template::builders::CreateEmailTemplateOutputBuilder {
-+        super::operation::create_email_template::builders::CreateEmailTemplateOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_email_template::builders::CreateEmailTemplateOutputBuilder {
++        super::super::super::operation::create_email_template::builders::CreateEmailTemplateOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateEmailTemplateOutput`](crate::operation::create_email_template::CreateEmailTemplateOutput).
 -    pub fn build(self) -> crate::operation::create_email_template::CreateEmailTemplateOutput {
 -        crate::operation::create_email_template::CreateEmailTemplateOutput {
-+    pub fn build(self) -> super::operation::create_email_template::CreateEmailTemplateOutput {
-+        super::operation::create_email_template::CreateEmailTemplateOutput {
++    pub fn build(self) -> super::super::super::operation::create_email_template::CreateEmailTemplateOutput {
++        super::super::super::operation::create_email_template::CreateEmailTemplateOutput {
              _request_id: self._request_id,
          }
      }

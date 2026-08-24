@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ForgetDeviceOutput`](crate::operation::forget_device::ForgetDeviceOutput).
 -    pub fn builder() -> crate::operation::forget_device::builders::ForgetDeviceOutputBuilder {
 -        crate::operation::forget_device::builders::ForgetDeviceOutputBuilder::default()
-+    pub fn builder() -> super::operation::forget_device::builders::ForgetDeviceOutputBuilder {
-+        super::operation::forget_device::builders::ForgetDeviceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::forget_device::builders::ForgetDeviceOutputBuilder {
++        super::super::super::operation::forget_device::builders::ForgetDeviceOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ForgetDeviceOutput`](crate::operation::forget_device::ForgetDeviceOutput).
 -    pub fn build(self) -> crate::operation::forget_device::ForgetDeviceOutput {
 -        crate::operation::forget_device::ForgetDeviceOutput {
-+    pub fn build(self) -> super::operation::forget_device::ForgetDeviceOutput {
-+        super::operation::forget_device::ForgetDeviceOutput {
++    pub fn build(self) -> super::super::super::operation::forget_device::ForgetDeviceOutput {
++        super::super::super::operation::forget_device::ForgetDeviceOutput {
              _request_id: self._request_id,
          }
      }

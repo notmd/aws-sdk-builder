@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribePackageError>`](crate::operation::describe_package::DescribePackageError)
 -    pub fn describe_package(&self) -> crate::operation::describe_package::builders::DescribePackageFluentBuilder {
 -        crate::operation::describe_package::builders::DescribePackageFluentBuilder::new(self.handle.clone())
-+    pub fn describe_package(&self) -> super::operation::describe_package::builders::DescribePackageFluentBuilder {
-+        super::operation::describe_package::builders::DescribePackageFluentBuilder::new(self.handle.clone())
++    pub fn describe_package(&self) -> super::super::operation::describe_package::builders::DescribePackageFluentBuilder {
++        super::super::operation::describe_package::builders::DescribePackageFluentBuilder::new(self.handle.clone())
      }
  }

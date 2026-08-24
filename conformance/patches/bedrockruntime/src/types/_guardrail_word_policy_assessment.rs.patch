@@ -5,21 +5,21 @@
  pub struct GuardrailWordPolicyAssessment {
      /// <p>Custom words in the assessment.</p>
 -    pub custom_words: ::std::vec::Vec<crate::types::GuardrailCustomWord>,
-+    pub custom_words: ::std::vec::Vec<super::types::GuardrailCustomWord>,
++    pub custom_words: ::std::vec::Vec<super::super::types::GuardrailCustomWord>,
      /// <p>Managed word lists in the assessment.</p>
 -    pub managed_word_lists: ::std::vec::Vec<crate::types::GuardrailManagedWord>,
-+    pub managed_word_lists: ::std::vec::Vec<super::types::GuardrailManagedWord>,
++    pub managed_word_lists: ::std::vec::Vec<super::super::types::GuardrailManagedWord>,
  }
  impl GuardrailWordPolicyAssessment {
      /// <p>Custom words in the assessment.</p>
 -    pub fn custom_words(&self) -> &[crate::types::GuardrailCustomWord] {
-+    pub fn custom_words(&self) -> &[super::types::GuardrailCustomWord] {
++    pub fn custom_words(&self) -> &[super::super::types::GuardrailCustomWord] {
          use std::ops::Deref;
          self.custom_words.deref()
      }
      /// <p>Managed word lists in the assessment.</p>
 -    pub fn managed_word_lists(&self) -> &[crate::types::GuardrailManagedWord] {
-+    pub fn managed_word_lists(&self) -> &[super::types::GuardrailManagedWord] {
++    pub fn managed_word_lists(&self) -> &[super::super::types::GuardrailManagedWord] {
          use std::ops::Deref;
          self.managed_word_lists.deref()
      }
@@ -29,8 +29,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailWordPolicyAssessment`](crate::types::GuardrailWordPolicyAssessment).
 -    pub fn builder() -> crate::types::builders::GuardrailWordPolicyAssessmentBuilder {
 -        crate::types::builders::GuardrailWordPolicyAssessmentBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailWordPolicyAssessmentBuilder {
-+        super::types::builders::GuardrailWordPolicyAssessmentBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailWordPolicyAssessmentBuilder {
++        super::super::types::builders::GuardrailWordPolicyAssessmentBuilder::default()
      }
  }
 
@@ -40,8 +40,8 @@
  pub struct GuardrailWordPolicyAssessmentBuilder {
 -    pub(crate) custom_words: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>>,
 -    pub(crate) managed_word_lists: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>>,
-+    pub(crate) custom_words: ::std::option::Option<::std::vec::Vec<super::types::GuardrailCustomWord>>,
-+    pub(crate) managed_word_lists: ::std::option::Option<::std::vec::Vec<super::types::GuardrailManagedWord>>,
++    pub(crate) custom_words: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailCustomWord>>,
++    pub(crate) managed_word_lists: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailManagedWord>>,
  }
  impl GuardrailWordPolicyAssessmentBuilder {
      /// Appends an item to `custom_words`.
@@ -50,7 +50,7 @@
      ///
      /// <p>Custom words in the assessment.</p>
 -    pub fn custom_words(mut self, input: crate::types::GuardrailCustomWord) -> Self {
-+    pub fn custom_words(mut self, input: super::types::GuardrailCustomWord) -> Self {
++    pub fn custom_words(mut self, input: super::super::types::GuardrailCustomWord) -> Self {
          let mut v = self.custom_words.unwrap_or_default();
          v.push(input);
          self.custom_words = ::std::option::Option::Some(v);
@@ -59,13 +59,13 @@
      }
      /// <p>Custom words in the assessment.</p>
 -    pub fn set_custom_words(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>>) -> Self {
-+    pub fn set_custom_words(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailCustomWord>>) -> Self {
++    pub fn set_custom_words(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailCustomWord>>) -> Self {
          self.custom_words = input;
          self
      }
      /// <p>Custom words in the assessment.</p>
 -    pub fn get_custom_words(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>> {
-+    pub fn get_custom_words(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailCustomWord>> {
++    pub fn get_custom_words(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailCustomWord>> {
          &self.custom_words
      }
      /// Appends an item to `managed_word_lists`.
@@ -74,7 +74,7 @@
      ///
      /// <p>Managed word lists in the assessment.</p>
 -    pub fn managed_word_lists(mut self, input: crate::types::GuardrailManagedWord) -> Self {
-+    pub fn managed_word_lists(mut self, input: super::types::GuardrailManagedWord) -> Self {
++    pub fn managed_word_lists(mut self, input: super::super::types::GuardrailManagedWord) -> Self {
          let mut v = self.managed_word_lists.unwrap_or_default();
          v.push(input);
          self.managed_word_lists = ::std::option::Option::Some(v);
@@ -83,13 +83,13 @@
      }
      /// <p>Managed word lists in the assessment.</p>
 -    pub fn set_managed_word_lists(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>>) -> Self {
-+    pub fn set_managed_word_lists(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailManagedWord>>) -> Self {
++    pub fn set_managed_word_lists(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailManagedWord>>) -> Self {
          self.managed_word_lists = input;
          self
      }
      /// <p>Managed word lists in the assessment.</p>
 -    pub fn get_managed_word_lists(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>> {
-+    pub fn get_managed_word_lists(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailManagedWord>> {
++    pub fn get_managed_word_lists(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailManagedWord>> {
          &self.managed_word_lists
      }
      /// Consumes the builder and constructs a [`GuardrailWordPolicyAssessment`](crate::types::GuardrailWordPolicyAssessment).
@@ -99,8 +99,8 @@
      /// - [`managed_word_lists`](crate::types::builders::GuardrailWordPolicyAssessmentBuilder::managed_word_lists)
 -    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailWordPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailWordPolicyAssessment {
-+    pub fn build(self) -> ::std::result::Result<super::types::GuardrailWordPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailWordPolicyAssessment {
++    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailWordPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailWordPolicyAssessment {
              custom_words: self.custom_words.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "custom_words",

@@ -5,15 +5,15 @@
  pub fn ser_prompt_variable_values(
      object_21: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::PromptVariableValues,
-+    input: &super::types::PromptVariableValues,
++    input: &super::super::types::PromptVariableValues,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
 -        crate::types::PromptVariableValues::Text(inner) => {
-+        super::types::PromptVariableValues::Text(inner) => {
++        super::super::types::PromptVariableValues::Text(inner) => {
              object_21.key("text").string(inner.as_str());
          }
 -        crate::types::PromptVariableValues::Unknown => {
-+        super::types::PromptVariableValues::Unknown => {
++        super::super::types::PromptVariableValues::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                  "PromptVariableValues",
              ))

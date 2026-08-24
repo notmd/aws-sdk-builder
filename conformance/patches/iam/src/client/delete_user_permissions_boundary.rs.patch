@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryFluentBuilder {
 -        crate::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryFluentBuilder {
-+        super::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryFluentBuilder {
++        super::super::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryFluentBuilder::new(self.handle.clone())
      }
  }

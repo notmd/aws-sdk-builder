@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`NotifyEmailType`](crate::types::NotifyEmailType).
 -    pub fn builder() -> crate::types::builders::NotifyEmailTypeBuilder {
 -        crate::types::builders::NotifyEmailTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::NotifyEmailTypeBuilder {
-+        super::types::builders::NotifyEmailTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::NotifyEmailTypeBuilder {
++        super::super::types::builders::NotifyEmailTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`subject`](crate::types::builders::NotifyEmailTypeBuilder::subject)
 -    pub fn build(self) -> ::std::result::Result<crate::types::NotifyEmailType, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::NotifyEmailType {
-+    pub fn build(self) -> ::std::result::Result<super::types::NotifyEmailType, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::NotifyEmailType {
++    pub fn build(self) -> ::std::result::Result<super::super::types::NotifyEmailType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::NotifyEmailType {
              subject: self.subject.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "subject",

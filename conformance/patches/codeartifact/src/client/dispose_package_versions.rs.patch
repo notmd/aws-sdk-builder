@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DisposePackageVersionsError>`](crate::operation::dispose_package_versions::DisposePackageVersionsError)
 -    pub fn dispose_package_versions(&self) -> crate::operation::dispose_package_versions::builders::DisposePackageVersionsFluentBuilder {
 -        crate::operation::dispose_package_versions::builders::DisposePackageVersionsFluentBuilder::new(self.handle.clone())
-+    pub fn dispose_package_versions(&self) -> super::operation::dispose_package_versions::builders::DisposePackageVersionsFluentBuilder {
-+        super::operation::dispose_package_versions::builders::DisposePackageVersionsFluentBuilder::new(self.handle.clone())
++    pub fn dispose_package_versions(&self) -> super::super::operation::dispose_package_versions::builders::DisposePackageVersionsFluentBuilder {
++        super::super::operation::dispose_package_versions::builders::DisposePackageVersionsFluentBuilder::new(self.handle.clone())
      }
  }

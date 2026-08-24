@@ -5,7 +5,7 @@
      pub results: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      /// <p>Details about the query.</p>
 -    pub query_info: ::std::option::Option<crate::types::QueryInfo>,
-+    pub query_info: ::std::option::Option<super::types::QueryInfo>,
++    pub query_info: ::std::option::Option<super::super::super::types::QueryInfo>,
      /// <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      }
      /// <p>Details about the query.</p>
 -    pub fn query_info(&self) -> ::std::option::Option<&crate::types::QueryInfo> {
-+    pub fn query_info(&self) -> ::std::option::Option<&super::types::QueryInfo> {
++    pub fn query_info(&self) -> ::std::option::Option<&super::super::super::types::QueryInfo> {
          self.query_info.as_ref()
      }
      /// <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`SelectAggregateResourceConfigOutput`](crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigOutput).
 -    pub fn builder() -> crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigOutputBuilder {
 -        crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigOutputBuilder::default()
-+    pub fn builder() -> super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigOutputBuilder {
-+        super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigOutputBuilder {
++        super::super::super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct SelectAggregateResourceConfigOutputBuilder {
      pub(crate) results: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) query_info: ::std::option::Option<crate::types::QueryInfo>,
-+    pub(crate) query_info: ::std::option::Option<super::types::QueryInfo>,
++    pub(crate) query_info: ::std::option::Option<super::super::super::types::QueryInfo>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,19 +43,19 @@
      }
      /// <p>Details about the query.</p>
 -    pub fn query_info(mut self, input: crate::types::QueryInfo) -> Self {
-+    pub fn query_info(mut self, input: super::types::QueryInfo) -> Self {
++    pub fn query_info(mut self, input: super::super::super::types::QueryInfo) -> Self {
          self.query_info = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the query.</p>
 -    pub fn set_query_info(mut self, input: ::std::option::Option<crate::types::QueryInfo>) -> Self {
-+    pub fn set_query_info(mut self, input: ::std::option::Option<super::types::QueryInfo>) -> Self {
++    pub fn set_query_info(mut self, input: ::std::option::Option<super::super::super::types::QueryInfo>) -> Self {
          self.query_info = input;
          self
      }
      /// <p>Details about the query.</p>
 -    pub fn get_query_info(&self) -> &::std::option::Option<crate::types::QueryInfo> {
-+    pub fn get_query_info(&self) -> &::std::option::Option<super::types::QueryInfo> {
++    pub fn get_query_info(&self) -> &::std::option::Option<super::super::super::types::QueryInfo> {
          &self.query_info
      }
      /// <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`SelectAggregateResourceConfigOutput`](crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigOutput).
 -    pub fn build(self) -> crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigOutput {
 -        crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigOutput {
-+    pub fn build(self) -> super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigOutput {
-+        super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigOutput {
++    pub fn build(self) -> super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigOutput {
++        super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigOutput {
              results: self.results,
              query_info: self.query_info,
              next_token: self.next_token,

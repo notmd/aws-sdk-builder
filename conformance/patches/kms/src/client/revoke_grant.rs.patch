@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<RevokeGrantError>`](crate::operation::revoke_grant::RevokeGrantError)
 -    pub fn revoke_grant(&self) -> crate::operation::revoke_grant::builders::RevokeGrantFluentBuilder {
 -        crate::operation::revoke_grant::builders::RevokeGrantFluentBuilder::new(self.handle.clone())
-+    pub fn revoke_grant(&self) -> super::operation::revoke_grant::builders::RevokeGrantFluentBuilder {
-+        super::operation::revoke_grant::builders::RevokeGrantFluentBuilder::new(self.handle.clone())
++    pub fn revoke_grant(&self) -> super::super::operation::revoke_grant::builders::RevokeGrantFluentBuilder {
++        super::super::operation::revoke_grant::builders::RevokeGrantFluentBuilder::new(self.handle.clone())
      }
  }

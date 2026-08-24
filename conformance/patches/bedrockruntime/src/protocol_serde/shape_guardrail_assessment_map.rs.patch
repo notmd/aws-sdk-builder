@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    Option<::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>>,
-+    Option<::std::collections::HashMap<::std::string::String, super::types::GuardrailAssessment>>,
++    Option<::std::collections::HashMap<::std::string::String, super::super::types::GuardrailAssessment>>,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  >
  where
@@ -14,7 +14,7 @@
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                          let key = key.to_unescaped().map(|u| u.into_owned())?;
 -                        let value = crate::protocol_serde::shape_guardrail_assessment::de_guardrail_assessment(tokens, _value, depth + 1)?;
-+                        let value = super::protocol_serde::shape_guardrail_assessment::de_guardrail_assessment(tokens, _value, depth + 1)?;
++                        let value = super::super::protocol_serde::shape_guardrail_assessment::de_guardrail_assessment(tokens, _value, depth + 1)?;
                          match value {
                              Some(value) => {
                                  map.insert(key, value);

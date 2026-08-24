@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SearchVectorsError>`](crate::operation::search_vectors::SearchVectorsError)
 -    pub fn search_vectors(&self) -> crate::operation::search_vectors::builders::SearchVectorsFluentBuilder {
 -        crate::operation::search_vectors::builders::SearchVectorsFluentBuilder::new(self.handle.clone())
-+    pub fn search_vectors(&self) -> super::operation::search_vectors::builders::SearchVectorsFluentBuilder {
-+        super::operation::search_vectors::builders::SearchVectorsFluentBuilder::new(self.handle.clone())
++    pub fn search_vectors(&self) -> super::super::operation::search_vectors::builders::SearchVectorsFluentBuilder {
++        super::super::operation::search_vectors::builders::SearchVectorsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::get_delegation_request::GetDelegationRequestOutput,
 -    crate::operation::get_delegation_request::GetDelegationRequestError,
-+    super::operation::get_delegation_request::GetDelegationRequestOutput,
-+    super::operation::get_delegation_request::GetDelegationRequestError,
++    super::super::operation::get_delegation_request::GetDelegationRequestOutput,
++    super::super::operation::get_delegation_request::GetDelegationRequestError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::get_delegation_request::GetDelegationRequestError::unhandled(generic)),
-+        None => return Err(super::operation::get_delegation_request::GetDelegationRequestError::unhandled(generic)),
++        None => return Err(super::super::operation::get_delegation_request::GetDelegationRequestError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "NoSuchEntity" => crate::operation::get_delegation_request::GetDelegationRequestError::NoSuchEntityException({
-+        "NoSuchEntity" => super::operation::get_delegation_request::GetDelegationRequestError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::get_delegation_request::GetDelegationRequestError::NoSuchEntityException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
-+                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
-+                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
++                let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "ServiceFailure" => crate::operation::get_delegation_request::GetDelegationRequestError::ServiceFailureException({
-+        "ServiceFailure" => super::operation::get_delegation_request::GetDelegationRequestError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::get_delegation_request::GetDelegationRequestError::ServiceFailureException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
-+                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
-+                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
++                let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,7 +61,7 @@
              tmp
          }),
 -        _ => crate::operation::get_delegation_request::GetDelegationRequestError::generic(generic),
-+        _ => super::operation::get_delegation_request::GetDelegationRequestError::generic(generic),
++        _ => super::super::operation::get_delegation_request::GetDelegationRequestError::generic(generic),
      })
  }
 
@@ -71,17 +71,17 @@
  ) -> std::result::Result<
 -    crate::operation::get_delegation_request::GetDelegationRequestOutput,
 -    crate::operation::get_delegation_request::GetDelegationRequestError,
-+    super::operation::get_delegation_request::GetDelegationRequestOutput,
-+    super::operation::get_delegation_request::GetDelegationRequestError,
++    super::super::operation::get_delegation_request::GetDelegationRequestOutput,
++    super::super::operation::get_delegation_request::GetDelegationRequestError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder::default();
 -        output = crate::protocol_serde::shape_get_delegation_request::de_get_delegation_request(_response_body, output)
 -            .map_err(crate::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
-+        let mut output = super::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder::default();
-+        output = super::protocol_serde::shape_get_delegation_request::de_get_delegation_request(_response_body, output)
-+            .map_err(super::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
++        let mut output = super::super::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder::default();
++        output = super::super::protocol_serde::shape_get_delegation_request::de_get_delegation_request(_response_body, output)
++            .map_err(super::super::operation::get_delegation_request::GetDelegationRequestError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -90,10 +90,10 @@
  pub fn de_get_delegation_request(
      inp: &[u8],
 -    mut builder: crate::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder,
-+    mut builder: super::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder,
++    mut builder: super::super::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder,
-+    super::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder,
++    super::super::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -102,7 +102,7 @@
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_delegation_request::de_delegation_request(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_delegation_request::de_delegation_request(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_delegation_request::de_delegation_request(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -112,8 +112,8 @@
                      Some(
 -                        Result::<crate::types::PermissionCheckStatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::PermissionCheckStatusType::from(
-+                        Result::<super::types::PermissionCheckStatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::PermissionCheckStatusType::from(
++                        Result::<super::super::types::PermissionCheckStatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::PermissionCheckStatusType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -123,8 +123,8 @@
                      Some(
 -                        Result::<crate::types::PermissionCheckResultType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::PermissionCheckResultType::from(
-+                        Result::<super::types::PermissionCheckResultType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::PermissionCheckResultType::from(
++                        Result::<super::super::types::PermissionCheckResultType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::PermissionCheckResultType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )

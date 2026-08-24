@@ -5,13 +5,13 @@
  pub struct AssetType {
      /// <p>The category that the image corresponds to in your managed login configuration. Managed login has asset categories for different types of logos, backgrounds, and icons.</p>
 -    pub category: crate::types::AssetCategoryType,
-+    pub category: super::types::AssetCategoryType,
++    pub category: super::super::types::AssetCategoryType,
      /// <p>The display-mode target of the asset: light, dark, or browser-adaptive. For example, Amazon Cognito displays a dark-mode image only when the browser or application is in dark mode, but displays a browser-adaptive file in all contexts.</p>
 -    pub color_mode: crate::types::ColorSchemeModeType,
-+    pub color_mode: super::types::ColorSchemeModeType,
++    pub color_mode: super::super::types::ColorSchemeModeType,
      /// <p>The file type of the image file.</p>
 -    pub extension: crate::types::AssetExtensionType,
-+    pub extension: super::types::AssetExtensionType,
++    pub extension: super::super::types::AssetExtensionType,
      /// <p>The image file, in Base64-encoded binary.</p>
      pub bytes: ::std::option::Option<::aws_smithy_types::Blob>,
      /// <p>The ID of the asset.</p>
@@ -20,17 +20,17 @@
  impl AssetType {
      /// <p>The category that the image corresponds to in your managed login configuration. Managed login has asset categories for different types of logos, backgrounds, and icons.</p>
 -    pub fn category(&self) -> &crate::types::AssetCategoryType {
-+    pub fn category(&self) -> &super::types::AssetCategoryType {
++    pub fn category(&self) -> &super::super::types::AssetCategoryType {
          &self.category
      }
      /// <p>The display-mode target of the asset: light, dark, or browser-adaptive. For example, Amazon Cognito displays a dark-mode image only when the browser or application is in dark mode, but displays a browser-adaptive file in all contexts.</p>
 -    pub fn color_mode(&self) -> &crate::types::ColorSchemeModeType {
-+    pub fn color_mode(&self) -> &super::types::ColorSchemeModeType {
++    pub fn color_mode(&self) -> &super::super::types::ColorSchemeModeType {
          &self.color_mode
      }
      /// <p>The file type of the image file.</p>
 -    pub fn extension(&self) -> &crate::types::AssetExtensionType {
-+    pub fn extension(&self) -> &super::types::AssetExtensionType {
++    pub fn extension(&self) -> &super::super::types::AssetExtensionType {
          &self.extension
      }
      /// <p>The image file, in Base64-encoded binary.</p>
@@ -40,8 +40,8 @@
      /// Creates a new builder-style object to manufacture [`AssetType`](crate::types::AssetType).
 -    pub fn builder() -> crate::types::builders::AssetTypeBuilder {
 -        crate::types::builders::AssetTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::AssetTypeBuilder {
-+        super::types::builders::AssetTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::AssetTypeBuilder {
++        super::super::types::builders::AssetTypeBuilder::default()
      }
  }
 
@@ -52,9 +52,9 @@
 -    pub(crate) category: ::std::option::Option<crate::types::AssetCategoryType>,
 -    pub(crate) color_mode: ::std::option::Option<crate::types::ColorSchemeModeType>,
 -    pub(crate) extension: ::std::option::Option<crate::types::AssetExtensionType>,
-+    pub(crate) category: ::std::option::Option<super::types::AssetCategoryType>,
-+    pub(crate) color_mode: ::std::option::Option<super::types::ColorSchemeModeType>,
-+    pub(crate) extension: ::std::option::Option<super::types::AssetExtensionType>,
++    pub(crate) category: ::std::option::Option<super::super::types::AssetCategoryType>,
++    pub(crate) color_mode: ::std::option::Option<super::super::types::ColorSchemeModeType>,
++    pub(crate) extension: ::std::option::Option<super::super::types::AssetExtensionType>,
      pub(crate) bytes: ::std::option::Option<::aws_smithy_types::Blob>,
      pub(crate) resource_id: ::std::option::Option<::std::string::String>,
  }
@@ -63,55 +63,55 @@
      /// <p>The category that the image corresponds to in your managed login configuration. Managed login has asset categories for different types of logos, backgrounds, and icons.</p>
      /// This field is required.
 -    pub fn category(mut self, input: crate::types::AssetCategoryType) -> Self {
-+    pub fn category(mut self, input: super::types::AssetCategoryType) -> Self {
++    pub fn category(mut self, input: super::super::types::AssetCategoryType) -> Self {
          self.category = ::std::option::Option::Some(input);
          self
      }
      /// <p>The category that the image corresponds to in your managed login configuration. Managed login has asset categories for different types of logos, backgrounds, and icons.</p>
 -    pub fn set_category(mut self, input: ::std::option::Option<crate::types::AssetCategoryType>) -> Self {
-+    pub fn set_category(mut self, input: ::std::option::Option<super::types::AssetCategoryType>) -> Self {
++    pub fn set_category(mut self, input: ::std::option::Option<super::super::types::AssetCategoryType>) -> Self {
          self.category = input;
          self
      }
      /// <p>The category that the image corresponds to in your managed login configuration. Managed login has asset categories for different types of logos, backgrounds, and icons.</p>
 -    pub fn get_category(&self) -> &::std::option::Option<crate::types::AssetCategoryType> {
-+    pub fn get_category(&self) -> &::std::option::Option<super::types::AssetCategoryType> {
++    pub fn get_category(&self) -> &::std::option::Option<super::super::types::AssetCategoryType> {
          &self.category
      }
      /// <p>The display-mode target of the asset: light, dark, or browser-adaptive. For example, Amazon Cognito displays a dark-mode image only when the browser or application is in dark mode, but displays a browser-adaptive file in all contexts.</p>
      /// This field is required.
 -    pub fn color_mode(mut self, input: crate::types::ColorSchemeModeType) -> Self {
-+    pub fn color_mode(mut self, input: super::types::ColorSchemeModeType) -> Self {
++    pub fn color_mode(mut self, input: super::super::types::ColorSchemeModeType) -> Self {
          self.color_mode = ::std::option::Option::Some(input);
          self
      }
      /// <p>The display-mode target of the asset: light, dark, or browser-adaptive. For example, Amazon Cognito displays a dark-mode image only when the browser or application is in dark mode, but displays a browser-adaptive file in all contexts.</p>
 -    pub fn set_color_mode(mut self, input: ::std::option::Option<crate::types::ColorSchemeModeType>) -> Self {
-+    pub fn set_color_mode(mut self, input: ::std::option::Option<super::types::ColorSchemeModeType>) -> Self {
++    pub fn set_color_mode(mut self, input: ::std::option::Option<super::super::types::ColorSchemeModeType>) -> Self {
          self.color_mode = input;
          self
      }
      /// <p>The display-mode target of the asset: light, dark, or browser-adaptive. For example, Amazon Cognito displays a dark-mode image only when the browser or application is in dark mode, but displays a browser-adaptive file in all contexts.</p>
 -    pub fn get_color_mode(&self) -> &::std::option::Option<crate::types::ColorSchemeModeType> {
-+    pub fn get_color_mode(&self) -> &::std::option::Option<super::types::ColorSchemeModeType> {
++    pub fn get_color_mode(&self) -> &::std::option::Option<super::super::types::ColorSchemeModeType> {
          &self.color_mode
      }
      /// <p>The file type of the image file.</p>
      /// This field is required.
 -    pub fn extension(mut self, input: crate::types::AssetExtensionType) -> Self {
-+    pub fn extension(mut self, input: super::types::AssetExtensionType) -> Self {
++    pub fn extension(mut self, input: super::super::types::AssetExtensionType) -> Self {
          self.extension = ::std::option::Option::Some(input);
          self
      }
      /// <p>The file type of the image file.</p>
 -    pub fn set_extension(mut self, input: ::std::option::Option<crate::types::AssetExtensionType>) -> Self {
-+    pub fn set_extension(mut self, input: ::std::option::Option<super::types::AssetExtensionType>) -> Self {
++    pub fn set_extension(mut self, input: ::std::option::Option<super::super::types::AssetExtensionType>) -> Self {
          self.extension = input;
          self
      }
      /// <p>The file type of the image file.</p>
 -    pub fn get_extension(&self) -> &::std::option::Option<crate::types::AssetExtensionType> {
-+    pub fn get_extension(&self) -> &::std::option::Option<super::types::AssetExtensionType> {
++    pub fn get_extension(&self) -> &::std::option::Option<super::super::types::AssetExtensionType> {
          &self.extension
      }
      /// <p>The image file, in Base64-encoded binary.</p>
@@ -121,8 +121,8 @@
      /// - [`extension`](crate::types::builders::AssetTypeBuilder::extension)
 -    pub fn build(self) -> ::std::result::Result<crate::types::AssetType, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::AssetType {
-+    pub fn build(self) -> ::std::result::Result<super::types::AssetType, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::AssetType {
++    pub fn build(self) -> ::std::result::Result<super::super::types::AssetType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::AssetType {
              category: self.category.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "category",

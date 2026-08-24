@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderFluentBuilder {
 -        crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderFluentBuilder::new(
-+    ) -> super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderFluentBuilder {
-+        super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderFluentBuilder::new(
++    ) -> super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderFluentBuilder {
++        super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderFluentBuilder::new(
              self.handle.clone(),
          )
      }

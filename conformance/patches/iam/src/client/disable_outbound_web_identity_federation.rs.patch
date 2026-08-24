@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationFluentBuilder {
 -        crate::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationFluentBuilder::new(
-+    ) -> super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationFluentBuilder {
-+        super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationFluentBuilder::new(
++    ) -> super::super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationFluentBuilder {
++        super::super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationFluentBuilder::new(
              self.handle.clone(),
          )
      }

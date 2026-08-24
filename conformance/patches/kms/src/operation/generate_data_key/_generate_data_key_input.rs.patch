@@ -5,7 +5,7 @@
      /// <p>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
      /// <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code> parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
 -    pub key_spec: ::std::option::Option<crate::types::DataKeySpec>,
-+    pub key_spec: ::std::option::Option<super::types::DataKeySpec>,
++    pub key_spec: ::std::option::Option<super::super::super::types::DataKeySpec>,
      /// <p>A list of grant tokens.</p>
      /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -14,7 +14,7 @@
      /// <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts the plaintext data key under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code> field in the response is null or empty.</p>
      /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub recipient: ::std::option::Option<crate::types::RecipientInfo>,
-+    pub recipient: ::std::option::Option<super::types::RecipientInfo>,
++    pub recipient: ::std::option::Option<super::super::super::types::RecipientInfo>,
      /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
      /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub dry_run: ::std::option::Option<bool>,
@@ -23,7 +23,7 @@
      /// <p>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
      /// <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code> parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
 -    pub fn key_spec(&self) -> ::std::option::Option<&crate::types::DataKeySpec> {
-+    pub fn key_spec(&self) -> ::std::option::Option<&super::types::DataKeySpec> {
++    pub fn key_spec(&self) -> ::std::option::Option<&super::super::super::types::DataKeySpec> {
          self.key_spec.as_ref()
      }
      /// <p>A list of grant tokens.</p>
@@ -32,7 +32,7 @@
      /// <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts the plaintext data key under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code> field in the response is null or empty.</p>
      /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn recipient(&self) -> ::std::option::Option<&crate::types::RecipientInfo> {
-+    pub fn recipient(&self) -> ::std::option::Option<&super::types::RecipientInfo> {
++    pub fn recipient(&self) -> ::std::option::Option<&super::super::super::types::RecipientInfo> {
          self.recipient.as_ref()
      }
      /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
@@ -42,8 +42,8 @@
      /// Creates a new builder-style object to manufacture [`GenerateDataKeyInput`](crate::operation::generate_data_key::GenerateDataKeyInput).
 -    pub fn builder() -> crate::operation::generate_data_key::builders::GenerateDataKeyInputBuilder {
 -        crate::operation::generate_data_key::builders::GenerateDataKeyInputBuilder::default()
-+    pub fn builder() -> super::operation::generate_data_key::builders::GenerateDataKeyInputBuilder {
-+        super::operation::generate_data_key::builders::GenerateDataKeyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::generate_data_key::builders::GenerateDataKeyInputBuilder {
++        super::super::super::operation::generate_data_key::builders::GenerateDataKeyInputBuilder::default()
      }
  }
 
@@ -52,10 +52,10 @@
      pub(crate) encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      pub(crate) number_of_bytes: ::std::option::Option<i32>,
 -    pub(crate) key_spec: ::std::option::Option<crate::types::DataKeySpec>,
-+    pub(crate) key_spec: ::std::option::Option<super::types::DataKeySpec>,
++    pub(crate) key_spec: ::std::option::Option<super::super::super::types::DataKeySpec>,
      pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) recipient: ::std::option::Option<crate::types::RecipientInfo>,
-+    pub(crate) recipient: ::std::option::Option<super::types::RecipientInfo>,
++    pub(crate) recipient: ::std::option::Option<super::super::super::types::RecipientInfo>,
      pub(crate) dry_run: ::std::option::Option<bool>,
  }
  impl GenerateDataKeyInputBuilder {
@@ -64,21 +64,21 @@
      /// <p>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
      /// <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code> parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
 -    pub fn key_spec(mut self, input: crate::types::DataKeySpec) -> Self {
-+    pub fn key_spec(mut self, input: super::types::DataKeySpec) -> Self {
++    pub fn key_spec(mut self, input: super::super::super::types::DataKeySpec) -> Self {
          self.key_spec = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
      /// <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code> parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
 -    pub fn set_key_spec(mut self, input: ::std::option::Option<crate::types::DataKeySpec>) -> Self {
-+    pub fn set_key_spec(mut self, input: ::std::option::Option<super::types::DataKeySpec>) -> Self {
++    pub fn set_key_spec(mut self, input: ::std::option::Option<super::super::super::types::DataKeySpec>) -> Self {
          self.key_spec = input;
          self
      }
      /// <p>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
      /// <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code> parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
 -    pub fn get_key_spec(&self) -> &::std::option::Option<crate::types::DataKeySpec> {
-+    pub fn get_key_spec(&self) -> &::std::option::Option<super::types::DataKeySpec> {
++    pub fn get_key_spec(&self) -> &::std::option::Option<super::super::super::types::DataKeySpec> {
          &self.key_spec
      }
      /// Appends an item to `grant_tokens`.
@@ -87,7 +87,7 @@
      /// <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts the plaintext data key under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code> field in the response is null or empty.</p>
      /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn recipient(mut self, input: crate::types::RecipientInfo) -> Self {
-+    pub fn recipient(mut self, input: super::types::RecipientInfo) -> Self {
++    pub fn recipient(mut self, input: super::super::super::types::RecipientInfo) -> Self {
          self.recipient = ::std::option::Option::Some(input);
          self
      }
@@ -96,7 +96,7 @@
      /// <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts the plaintext data key under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code> field in the response is null or empty.</p>
      /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn set_recipient(mut self, input: ::std::option::Option<crate::types::RecipientInfo>) -> Self {
-+    pub fn set_recipient(mut self, input: ::std::option::Option<super::types::RecipientInfo>) -> Self {
++    pub fn set_recipient(mut self, input: ::std::option::Option<super::super::super::types::RecipientInfo>) -> Self {
          self.recipient = input;
          self
      }
@@ -105,7 +105,7 @@
      /// <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts the plaintext data key under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code> field in the response is null or empty.</p>
      /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn get_recipient(&self) -> &::std::option::Option<crate::types::RecipientInfo> {
-+    pub fn get_recipient(&self) -> &::std::option::Option<super::types::RecipientInfo> {
++    pub fn get_recipient(&self) -> &::std::option::Option<super::super::super::types::RecipientInfo> {
          &self.recipient
      }
      /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
@@ -115,8 +115,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::generate_data_key::GenerateDataKeyInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::generate_data_key::GenerateDataKeyInput {
-+    ) -> ::std::result::Result<super::operation::generate_data_key::GenerateDataKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::generate_data_key::GenerateDataKeyInput {
++    ) -> ::std::result::Result<super::super::super::operation::generate_data_key::GenerateDataKeyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::generate_data_key::GenerateDataKeyInput {
              key_id: self.key_id,
              encryption_context: self.encryption_context,
              number_of_bytes: self.number_of_bytes,

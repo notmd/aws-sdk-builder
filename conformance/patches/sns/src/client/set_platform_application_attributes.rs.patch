@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesFluentBuilder {
 -        crate::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesFluentBuilder {
-+        super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesFluentBuilder {
++        super::super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CompleteWebAuthnRegistrationOutput`](crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationOutput).
 -    pub fn builder() -> crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationOutputBuilder {
 -        crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationOutputBuilder::default()
-+    pub fn builder() -> super::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationOutputBuilder {
-+        super::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationOutputBuilder {
++        super::super::super::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CompleteWebAuthnRegistrationOutput`](crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationOutput).
 -    pub fn build(self) -> crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationOutput {
 -        crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationOutput {
-+    pub fn build(self) -> super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationOutput {
-+        super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationOutput {
++    pub fn build(self) -> super::super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationOutput {
++        super::super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationOutput {
              _request_id: self._request_id,
          }
      }

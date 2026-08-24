@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`LiveTailSessionLogEvent`](crate::types::LiveTailSessionLogEvent).
 -    pub fn builder() -> crate::types::builders::LiveTailSessionLogEventBuilder {
 -        crate::types::builders::LiveTailSessionLogEventBuilder::default()
-+    pub fn builder() -> super::types::builders::LiveTailSessionLogEventBuilder {
-+        super::types::builders::LiveTailSessionLogEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::LiveTailSessionLogEventBuilder {
++        super::super::types::builders::LiveTailSessionLogEventBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`LiveTailSessionLogEvent`](crate::types::LiveTailSessionLogEvent).
 -    pub fn build(self) -> crate::types::LiveTailSessionLogEvent {
 -        crate::types::LiveTailSessionLogEvent {
-+    pub fn build(self) -> super::types::LiveTailSessionLogEvent {
-+        super::types::LiveTailSessionLogEvent {
++    pub fn build(self) -> super::super::types::LiveTailSessionLogEvent {
++        super::super::types::LiveTailSessionLogEvent {
              log_stream_name: self.log_stream_name,
              log_group_identifier: self.log_group_identifier,
              message: self.message,

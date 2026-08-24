@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsFluentBuilder {
 -        crate::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsFluentBuilder::new(
-+    ) -> super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsFluentBuilder {
-+        super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsFluentBuilder::new(
++    ) -> super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsFluentBuilder {
++        super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsFluentBuilder::new(
              self.handle.clone(),
          )
      }

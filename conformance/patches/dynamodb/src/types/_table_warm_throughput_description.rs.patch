@@ -5,7 +5,7 @@
      pub write_units_per_second: ::std::option::Option<i64>,
      /// <p>Represents warm throughput value of the base table.</p>
 -    pub status: ::std::option::Option<crate::types::TableStatus>,
-+    pub status: ::std::option::Option<super::types::TableStatus>,
++    pub status: ::std::option::Option<super::super::types::TableStatus>,
  }
  impl TableWarmThroughputDescription {
      /// <p>Represents the base table's warm throughput value in read units per second.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>Represents warm throughput value of the base table.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::TableStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::TableStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::TableStatus> {
          self.status.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`TableWarmThroughputDescription`](crate::types::TableWarmThroughputDescription).
 -    pub fn builder() -> crate::types::builders::TableWarmThroughputDescriptionBuilder {
 -        crate::types::builders::TableWarmThroughputDescriptionBuilder::default()
-+    pub fn builder() -> super::types::builders::TableWarmThroughputDescriptionBuilder {
-+        super::types::builders::TableWarmThroughputDescriptionBuilder::default()
++    pub fn builder() -> super::super::types::builders::TableWarmThroughputDescriptionBuilder {
++        super::super::types::builders::TableWarmThroughputDescriptionBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) read_units_per_second: ::std::option::Option<i64>,
      pub(crate) write_units_per_second: ::std::option::Option<i64>,
 -    pub(crate) status: ::std::option::Option<crate::types::TableStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::TableStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::TableStatus>,
  }
  impl TableWarmThroughputDescriptionBuilder {
      /// <p>Represents the base table's warm throughput value in read units per second.</p>
@@ -41,26 +41,26 @@
      }
      /// <p>Represents warm throughput value of the base table.</p>
 -    pub fn status(mut self, input: crate::types::TableStatus) -> Self {
-+    pub fn status(mut self, input: super::types::TableStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::TableStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>Represents warm throughput value of the base table.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::TableStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::TableStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::TableStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>Represents warm throughput value of the base table.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::TableStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::TableStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::TableStatus> {
          &self.status
      }
      /// Consumes the builder and constructs a [`TableWarmThroughputDescription`](crate::types::TableWarmThroughputDescription).
 -    pub fn build(self) -> crate::types::TableWarmThroughputDescription {
 -        crate::types::TableWarmThroughputDescription {
-+    pub fn build(self) -> super::types::TableWarmThroughputDescription {
-+        super::types::TableWarmThroughputDescription {
++    pub fn build(self) -> super::super::types::TableWarmThroughputDescription {
++        super::super::types::TableWarmThroughputDescription {
              read_units_per_second: self.read_units_per_second,
              write_units_per_second: self.write_units_per_second,
              status: self.status,

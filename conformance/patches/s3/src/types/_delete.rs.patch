@@ -5,7 +5,7 @@
      /// <p><b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p>
      /// </note>
 -    pub objects: ::std::vec::Vec<crate::types::ObjectIdentifier>,
-+    pub objects: ::std::vec::Vec<super::types::ObjectIdentifier>,
++    pub objects: ::std::vec::Vec<super::super::types::ObjectIdentifier>,
      /// <p>Element to enable quiet mode for the request. When you add this element, you must set its value to <code>true</code>.</p>
      pub quiet: ::std::option::Option<bool>,
  }
@@ -14,7 +14,7 @@
      /// <p><b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p>
      /// </note>
 -    pub fn objects(&self) -> &[crate::types::ObjectIdentifier] {
-+    pub fn objects(&self) -> &[super::types::ObjectIdentifier] {
++    pub fn objects(&self) -> &[super::super::types::ObjectIdentifier] {
          use std::ops::Deref;
          self.objects.deref()
      }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`Delete`](crate::types::Delete).
 -    pub fn builder() -> crate::types::builders::DeleteBuilder {
 -        crate::types::builders::DeleteBuilder::default()
-+    pub fn builder() -> super::types::builders::DeleteBuilder {
-+        super::types::builders::DeleteBuilder::default()
++    pub fn builder() -> super::super::types::builders::DeleteBuilder {
++        super::super::types::builders::DeleteBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DeleteBuilder {
 -    pub(crate) objects: ::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>>,
-+    pub(crate) objects: ::std::option::Option<::std::vec::Vec<super::types::ObjectIdentifier>>,
++    pub(crate) objects: ::std::option::Option<::std::vec::Vec<super::super::types::ObjectIdentifier>>,
      pub(crate) quiet: ::std::option::Option<bool>,
  }
  impl DeleteBuilder {
@@ -43,7 +43,7 @@
      /// <p><b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p>
      /// </note>
 -    pub fn objects(mut self, input: crate::types::ObjectIdentifier) -> Self {
-+    pub fn objects(mut self, input: super::types::ObjectIdentifier) -> Self {
++    pub fn objects(mut self, input: super::super::types::ObjectIdentifier) -> Self {
          let mut v = self.objects.unwrap_or_default();
          v.push(input);
          self.objects = ::std::option::Option::Some(v);
@@ -52,7 +52,7 @@
      /// <p><b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p>
      /// </note>
 -    pub fn set_objects(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>>) -> Self {
-+    pub fn set_objects(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ObjectIdentifier>>) -> Self {
++    pub fn set_objects(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ObjectIdentifier>>) -> Self {
          self.objects = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p><b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p>
      /// </note>
 -    pub fn get_objects(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>> {
-+    pub fn get_objects(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ObjectIdentifier>> {
++    pub fn get_objects(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ObjectIdentifier>> {
          &self.objects
      }
      /// <p>Element to enable quiet mode for the request. When you add this element, you must set its value to <code>true</code>.</p>
@@ -71,8 +71,8 @@
      /// - [`objects`](crate::types::builders::DeleteBuilder::objects)
 -    pub fn build(self) -> ::std::result::Result<crate::types::Delete, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::Delete {
-+    pub fn build(self) -> ::std::result::Result<super::types::Delete, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Delete {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Delete, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Delete {
              objects: self.objects.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "objects",

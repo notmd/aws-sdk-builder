@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ConverseStreamMetrics`](crate::types::ConverseStreamMetrics).
 -    pub fn builder() -> crate::types::builders::ConverseStreamMetricsBuilder {
 -        crate::types::builders::ConverseStreamMetricsBuilder::default()
-+    pub fn builder() -> super::types::builders::ConverseStreamMetricsBuilder {
-+        super::types::builders::ConverseStreamMetricsBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConverseStreamMetricsBuilder {
++        super::super::types::builders::ConverseStreamMetricsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`latency_ms`](crate::types::builders::ConverseStreamMetricsBuilder::latency_ms)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ConverseStreamMetrics, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ConverseStreamMetrics {
-+    pub fn build(self) -> ::std::result::Result<super::types::ConverseStreamMetrics, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ConverseStreamMetrics {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ConverseStreamMetrics, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ConverseStreamMetrics {
              latency_ms: self.latency_ms.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "latency_ms",

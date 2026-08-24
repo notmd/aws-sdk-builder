@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`OnDemandThroughput`](crate::types::OnDemandThroughput).
 -    pub fn builder() -> crate::types::builders::OnDemandThroughputBuilder {
 -        crate::types::builders::OnDemandThroughputBuilder::default()
-+    pub fn builder() -> super::types::builders::OnDemandThroughputBuilder {
-+        super::types::builders::OnDemandThroughputBuilder::default()
++    pub fn builder() -> super::super::types::builders::OnDemandThroughputBuilder {
++        super::super::types::builders::OnDemandThroughputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`OnDemandThroughput`](crate::types::OnDemandThroughput).
 -    pub fn build(self) -> crate::types::OnDemandThroughput {
 -        crate::types::OnDemandThroughput {
-+    pub fn build(self) -> super::types::OnDemandThroughput {
-+        super::types::OnDemandThroughput {
++    pub fn build(self) -> super::super::types::OnDemandThroughput {
++        super::super::types::OnDemandThroughput {
              max_read_request_units: self.max_read_request_units,
              max_write_request_units: self.max_write_request_units,
          }

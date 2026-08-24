@@ -5,7 +5,7 @@
  pub struct ListAnomaliesOutput {
      /// <p>An array of structures, where each structure contains information about one anomaly that a log anomaly detector has found.</p>
 -    pub anomalies: ::std::option::Option<::std::vec::Vec<crate::types::Anomaly>>,
-+    pub anomalies: ::std::option::Option<::std::vec::Vec<super::types::Anomaly>>,
++    pub anomalies: ::std::option::Option<::std::vec::Vec<super::super::super::types::Anomaly>>,
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.anomalies.is_none()`.
 -    pub fn anomalies(&self) -> &[crate::types::Anomaly] {
-+    pub fn anomalies(&self) -> &[super::types::Anomaly] {
++    pub fn anomalies(&self) -> &[super::super::super::types::Anomaly] {
          self.anomalies.as_deref().unwrap_or_default()
      }
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListAnomaliesOutput`](crate::operation::list_anomalies::ListAnomaliesOutput).
 -    pub fn builder() -> crate::operation::list_anomalies::builders::ListAnomaliesOutputBuilder {
 -        crate::operation::list_anomalies::builders::ListAnomaliesOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_anomalies::builders::ListAnomaliesOutputBuilder {
-+        super::operation::list_anomalies::builders::ListAnomaliesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_anomalies::builders::ListAnomaliesOutputBuilder {
++        super::super::super::operation::list_anomalies::builders::ListAnomaliesOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListAnomaliesOutputBuilder {
 -    pub(crate) anomalies: ::std::option::Option<::std::vec::Vec<crate::types::Anomaly>>,
-+    pub(crate) anomalies: ::std::option::Option<::std::vec::Vec<super::types::Anomaly>>,
++    pub(crate) anomalies: ::std::option::Option<::std::vec::Vec<super::super::super::types::Anomaly>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>An array of structures, where each structure contains information about one anomaly that a log anomaly detector has found.</p>
 -    pub fn anomalies(mut self, input: crate::types::Anomaly) -> Self {
-+    pub fn anomalies(mut self, input: super::types::Anomaly) -> Self {
++    pub fn anomalies(mut self, input: super::super::super::types::Anomaly) -> Self {
          let mut v = self.anomalies.unwrap_or_default();
          v.push(input);
          self.anomalies = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>An array of structures, where each structure contains information about one anomaly that a log anomaly detector has found.</p>
 -    pub fn set_anomalies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Anomaly>>) -> Self {
-+    pub fn set_anomalies(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Anomaly>>) -> Self {
++    pub fn set_anomalies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Anomaly>>) -> Self {
          self.anomalies = input;
          self
      }
      /// <p>An array of structures, where each structure contains information about one anomaly that a log anomaly detector has found.</p>
 -    pub fn get_anomalies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Anomaly>> {
-+    pub fn get_anomalies(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Anomaly>> {
++    pub fn get_anomalies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Anomaly>> {
          &self.anomalies
      }
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListAnomaliesOutput`](crate::operation::list_anomalies::ListAnomaliesOutput).
 -    pub fn build(self) -> crate::operation::list_anomalies::ListAnomaliesOutput {
 -        crate::operation::list_anomalies::ListAnomaliesOutput {
-+    pub fn build(self) -> super::operation::list_anomalies::ListAnomaliesOutput {
-+        super::operation::list_anomalies::ListAnomaliesOutput {
++    pub fn build(self) -> super::super::super::operation::list_anomalies::ListAnomaliesOutput {
++        super::super::super::operation::list_anomalies::ListAnomaliesOutput {
              anomalies: self.anomalies,
              next_token: self.next_token,
              _request_id: self._request_id,

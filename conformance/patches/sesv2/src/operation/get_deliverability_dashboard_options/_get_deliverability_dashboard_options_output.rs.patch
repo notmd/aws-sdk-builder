@@ -5,13 +5,13 @@
      pub subscription_expiry_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The current status of your Deliverability dashboard subscription. If this value is <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end of the current calendar month.</p>
 -    pub account_status: ::std::option::Option<crate::types::DeliverabilityDashboardAccountStatus>,
-+    pub account_status: ::std::option::Option<super::types::DeliverabilityDashboardAccountStatus>,
++    pub account_status: ::std::option::Option<super::super::super::types::DeliverabilityDashboardAccountStatus>,
      /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at the end of the current calendar month.</p>
 -    pub active_subscribed_domains: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>,
-+    pub active_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityTrackingOption>>,
++    pub active_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
      /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that's scheduled to expire at the end of the current calendar month.</p>
 -    pub pending_expiration_subscribed_domains: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>,
-+    pub pending_expiration_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityTrackingOption>>,
++    pub pending_expiration_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
      _request_id: Option<String>,
  }
  impl GetDeliverabilityDashboardOptionsOutput {
@@ -20,21 +20,21 @@
      }
      /// <p>The current status of your Deliverability dashboard subscription. If this value is <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end of the current calendar month.</p>
 -    pub fn account_status(&self) -> ::std::option::Option<&crate::types::DeliverabilityDashboardAccountStatus> {
-+    pub fn account_status(&self) -> ::std::option::Option<&super::types::DeliverabilityDashboardAccountStatus> {
++    pub fn account_status(&self) -> ::std::option::Option<&super::super::super::types::DeliverabilityDashboardAccountStatus> {
          self.account_status.as_ref()
      }
      /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at the end of the current calendar month.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.active_subscribed_domains.is_none()`.
 -    pub fn active_subscribed_domains(&self) -> &[crate::types::DomainDeliverabilityTrackingOption] {
-+    pub fn active_subscribed_domains(&self) -> &[super::types::DomainDeliverabilityTrackingOption] {
++    pub fn active_subscribed_domains(&self) -> &[super::super::super::types::DomainDeliverabilityTrackingOption] {
          self.active_subscribed_domains.as_deref().unwrap_or_default()
      }
      /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that's scheduled to expire at the end of the current calendar month.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.pending_expiration_subscribed_domains.is_none()`.
 -    pub fn pending_expiration_subscribed_domains(&self) -> &[crate::types::DomainDeliverabilityTrackingOption] {
-+    pub fn pending_expiration_subscribed_domains(&self) -> &[super::types::DomainDeliverabilityTrackingOption] {
++    pub fn pending_expiration_subscribed_domains(&self) -> &[super::super::super::types::DomainDeliverabilityTrackingOption] {
          self.pending_expiration_subscribed_domains.as_deref().unwrap_or_default()
      }
  }
@@ -44,8 +44,8 @@
      /// Creates a new builder-style object to manufacture [`GetDeliverabilityDashboardOptionsOutput`](crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput).
 -    pub fn builder() -> crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder {
 -        crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder {
-+        super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder {
++        super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder::default()
      }
  }
 
@@ -56,9 +56,9 @@
 -    pub(crate) account_status: ::std::option::Option<crate::types::DeliverabilityDashboardAccountStatus>,
 -    pub(crate) active_subscribed_domains: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>,
 -    pub(crate) pending_expiration_subscribed_domains: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>,
-+    pub(crate) account_status: ::std::option::Option<super::types::DeliverabilityDashboardAccountStatus>,
-+    pub(crate) active_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityTrackingOption>>,
-+    pub(crate) pending_expiration_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityTrackingOption>>,
++    pub(crate) account_status: ::std::option::Option<super::super::super::types::DeliverabilityDashboardAccountStatus>,
++    pub(crate) active_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
++    pub(crate) pending_expiration_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
      _request_id: Option<String>,
  }
  impl GetDeliverabilityDashboardOptionsOutputBuilder {
@@ -67,19 +67,19 @@
      }
      /// <p>The current status of your Deliverability dashboard subscription. If this value is <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end of the current calendar month.</p>
 -    pub fn account_status(mut self, input: crate::types::DeliverabilityDashboardAccountStatus) -> Self {
-+    pub fn account_status(mut self, input: super::types::DeliverabilityDashboardAccountStatus) -> Self {
++    pub fn account_status(mut self, input: super::super::super::types::DeliverabilityDashboardAccountStatus) -> Self {
          self.account_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current status of your Deliverability dashboard subscription. If this value is <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end of the current calendar month.</p>
 -    pub fn set_account_status(mut self, input: ::std::option::Option<crate::types::DeliverabilityDashboardAccountStatus>) -> Self {
-+    pub fn set_account_status(mut self, input: ::std::option::Option<super::types::DeliverabilityDashboardAccountStatus>) -> Self {
++    pub fn set_account_status(mut self, input: ::std::option::Option<super::super::super::types::DeliverabilityDashboardAccountStatus>) -> Self {
          self.account_status = input;
          self
      }
      /// <p>The current status of your Deliverability dashboard subscription. If this value is <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end of the current calendar month.</p>
 -    pub fn get_account_status(&self) -> &::std::option::Option<crate::types::DeliverabilityDashboardAccountStatus> {
-+    pub fn get_account_status(&self) -> &::std::option::Option<super::types::DeliverabilityDashboardAccountStatus> {
++    pub fn get_account_status(&self) -> &::std::option::Option<super::super::super::types::DeliverabilityDashboardAccountStatus> {
          &self.account_status
      }
      /// Appends an item to `active_subscribed_domains`.
@@ -88,7 +88,7 @@
      ///
      /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at the end of the current calendar month.</p>
 -    pub fn active_subscribed_domains(mut self, input: crate::types::DomainDeliverabilityTrackingOption) -> Self {
-+    pub fn active_subscribed_domains(mut self, input: super::types::DomainDeliverabilityTrackingOption) -> Self {
++    pub fn active_subscribed_domains(mut self, input: super::super::super::types::DomainDeliverabilityTrackingOption) -> Self {
          let mut v = self.active_subscribed_domains.unwrap_or_default();
          v.push(input);
          self.active_subscribed_domains = ::std::option::Option::Some(v);
@@ -97,14 +97,14 @@
      pub fn set_active_subscribed_domains(
          mut self,
 -        input: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>,
-+        input: ::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityTrackingOption>>,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
      ) -> Self {
          self.active_subscribed_domains = input;
          self
      }
      /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at the end of the current calendar month.</p>
 -    pub fn get_active_subscribed_domains(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>> {
-+    pub fn get_active_subscribed_domains(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityTrackingOption>> {
++    pub fn get_active_subscribed_domains(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>> {
          &self.active_subscribed_domains
      }
      /// Appends an item to `pending_expiration_subscribed_domains`.
@@ -113,7 +113,7 @@
      ///
      /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that's scheduled to expire at the end of the current calendar month.</p>
 -    pub fn pending_expiration_subscribed_domains(mut self, input: crate::types::DomainDeliverabilityTrackingOption) -> Self {
-+    pub fn pending_expiration_subscribed_domains(mut self, input: super::types::DomainDeliverabilityTrackingOption) -> Self {
++    pub fn pending_expiration_subscribed_domains(mut self, input: super::super::super::types::DomainDeliverabilityTrackingOption) -> Self {
          let mut v = self.pending_expiration_subscribed_domains.unwrap_or_default();
          v.push(input);
          self.pending_expiration_subscribed_domains = ::std::option::Option::Some(v);
@@ -122,7 +122,7 @@
      pub fn set_pending_expiration_subscribed_domains(
          mut self,
 -        input: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>,
-+        input: ::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityTrackingOption>>,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
      ) -> Self {
          self.pending_expiration_subscribed_domains = input;
          self
@@ -131,7 +131,7 @@
      pub fn get_pending_expiration_subscribed_domains(
          &self,
 -    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>> {
-+    ) -> &::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityTrackingOption>> {
++    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>> {
          &self.pending_expiration_subscribed_domains
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -141,8 +141,8 @@
      /// Consumes the builder and constructs a [`GetDeliverabilityDashboardOptionsOutput`](crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput).
 -    pub fn build(self) -> crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput {
 -        crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput {
-+    pub fn build(self) -> super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput {
-+        super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput {
++    pub fn build(self) -> super::super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput {
++        super::super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput {
              dashboard_enabled: self.dashboard_enabled.unwrap_or_default(),
              subscription_expiry_date: self.subscription_expiry_date,
              account_status: self.account_status,

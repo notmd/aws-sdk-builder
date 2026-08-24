@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetQueueUrlError>`](crate::operation::get_queue_url::GetQueueUrlError)
 -    pub fn get_queue_url(&self) -> crate::operation::get_queue_url::builders::GetQueueUrlFluentBuilder {
 -        crate::operation::get_queue_url::builders::GetQueueUrlFluentBuilder::new(self.handle.clone())
-+    pub fn get_queue_url(&self) -> super::operation::get_queue_url::builders::GetQueueUrlFluentBuilder {
-+        super::operation::get_queue_url::builders::GetQueueUrlFluentBuilder::new(self.handle.clone())
++    pub fn get_queue_url(&self) -> super::super::operation::get_queue_url::builders::GetQueueUrlFluentBuilder {
++        super::super::operation::get_queue_url::builders::GetQueueUrlFluentBuilder::new(self.handle.clone())
      }
  }

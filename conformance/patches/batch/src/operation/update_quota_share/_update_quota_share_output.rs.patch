@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateQuotaShareOutput`](crate::operation::update_quota_share::UpdateQuotaShareOutput).
 -    pub fn builder() -> crate::operation::update_quota_share::builders::UpdateQuotaShareOutputBuilder {
 -        crate::operation::update_quota_share::builders::UpdateQuotaShareOutputBuilder::default()
-+    pub fn builder() -> super::operation::update_quota_share::builders::UpdateQuotaShareOutputBuilder {
-+        super::operation::update_quota_share::builders::UpdateQuotaShareOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_quota_share::builders::UpdateQuotaShareOutputBuilder {
++        super::super::super::operation::update_quota_share::builders::UpdateQuotaShareOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UpdateQuotaShareOutput`](crate::operation::update_quota_share::UpdateQuotaShareOutput).
 -    pub fn build(self) -> crate::operation::update_quota_share::UpdateQuotaShareOutput {
 -        crate::operation::update_quota_share::UpdateQuotaShareOutput {
-+    pub fn build(self) -> super::operation::update_quota_share::UpdateQuotaShareOutput {
-+        super::operation::update_quota_share::UpdateQuotaShareOutput {
++    pub fn build(self) -> super::super::super::operation::update_quota_share::UpdateQuotaShareOutput {
++        super::super::super::operation::update_quota_share::UpdateQuotaShareOutput {
              quota_share_name: self.quota_share_name,
              quota_share_arn: self.quota_share_arn,
              _request_id: self._request_id,

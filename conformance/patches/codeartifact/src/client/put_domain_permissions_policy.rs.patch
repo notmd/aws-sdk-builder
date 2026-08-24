@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyFluentBuilder {
 -        crate::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyFluentBuilder {
-+        super::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyFluentBuilder {
++        super::super::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyFluentBuilder::new(self.handle.clone())
      }
  }

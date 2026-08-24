@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
 -    crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
-+    super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
-+    super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
++    super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
++    super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled(generic)),
-+        None => return Err(super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled(generic)),
++        None => return Err(super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InvalidInput" => crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::InvalidInputException({
-+        "InvalidInput" => super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::InvalidInputException({
++        "InvalidInput" => super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::InvalidInputException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "NoSuchEntity" => crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::NoSuchEntityException({
-+        "NoSuchEntity" => super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::NoSuchEntityException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
-+                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
-+                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
++                let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,7 +61,7 @@
              tmp
          }),
 -        _ => crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::generic(generic),
-+        _ => super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::generic(generic),
++        _ => super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::generic(generic),
      })
  }
 
@@ -71,23 +71,23 @@
  ) -> std::result::Result<
 -    crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
 -    crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
-+    super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
-+    super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
++    super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
++    super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::default();
 -        output = crate::protocol_serde::shape_get_service_last_accessed_details::de_get_service_last_accessed_details(_response_body, output)
 -            .map_err(crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
-+        let mut output = super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::default();
-+        output = super::protocol_serde::shape_get_service_last_accessed_details::de_get_service_last_accessed_details(_response_body, output)
-+            .map_err(super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
++        let mut output = super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::default();
++        output = super::super::protocol_serde::shape_get_service_last_accessed_details::de_get_service_last_accessed_details(_response_body, output)
++            .map_err(super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        crate::serde_util::get_service_last_accessed_details_output_output_correct_errors(output)
-+        super::serde_util::get_service_last_accessed_details_output_output_correct_errors(output)
++        super::super::serde_util::get_service_last_accessed_details_output_output_correct_errors(output)
              .build()
 -            .map_err(crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?
-+            .map_err(super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?
++            .map_err(super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::unhandled)?
      })
  }
 
@@ -96,10 +96,10 @@
  pub fn de_get_service_last_accessed_details(
      inp: &[u8],
 -    mut builder: crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder,
-+    mut builder: super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder,
++    mut builder: super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder,
-+    super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder,
++    super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -109,8 +109,8 @@
                      Some(
 -                        Result::<crate::types::JobStatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::JobStatusType::from(
-+                        Result::<super::types::JobStatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::JobStatusType::from(
++                        Result::<super::super::types::JobStatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::JobStatusType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -120,8 +120,8 @@
                      Some(
 -                        Result::<crate::types::AccessAdvisorUsageGranularityType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::AccessAdvisorUsageGranularityType::from(
-+                        Result::<super::types::AccessAdvisorUsageGranularityType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::AccessAdvisorUsageGranularityType::from(
++                        Result::<super::super::types::AccessAdvisorUsageGranularityType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::AccessAdvisorUsageGranularityType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -130,7 +130,7 @@
                  let var_4 =
                      Some(
 -                        crate::protocol_serde::shape_services_last_accessed::de_services_last_accessed(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_services_last_accessed::de_services_last_accessed(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_services_last_accessed::de_services_last_accessed(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -139,7 +139,7 @@
                  let var_8 =
                      Some(
 -                        crate::protocol_serde::shape_error_details::de_error_details(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_error_details::de_error_details(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_error_details::de_error_details(&mut tag, depth + 1)
                          ?
                      )
                  ;

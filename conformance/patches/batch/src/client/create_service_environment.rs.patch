@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateServiceEnvironmentError>`](crate::operation::create_service_environment::CreateServiceEnvironmentError)
 -    pub fn create_service_environment(&self) -> crate::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder {
 -        crate::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder::new(self.handle.clone())
-+    pub fn create_service_environment(&self) -> super::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder {
-+        super::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder::new(self.handle.clone())
++    pub fn create_service_environment(&self) -> super::super::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder {
++        super::super::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder::new(self.handle.clone())
      }
  }

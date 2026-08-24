@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteJobQueueInput`](crate::operation::delete_job_queue::DeleteJobQueueInput).
 -    pub fn builder() -> crate::operation::delete_job_queue::builders::DeleteJobQueueInputBuilder {
 -        crate::operation::delete_job_queue::builders::DeleteJobQueueInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_job_queue::builders::DeleteJobQueueInputBuilder {
-+        super::operation::delete_job_queue::builders::DeleteJobQueueInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_job_queue::builders::DeleteJobQueueInputBuilder {
++        super::super::super::operation::delete_job_queue::builders::DeleteJobQueueInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_job_queue::DeleteJobQueueInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::delete_job_queue::DeleteJobQueueInput { job_queue: self.job_queue })
-+    ) -> ::std::result::Result<super::operation::delete_job_queue::DeleteJobQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::delete_job_queue::DeleteJobQueueInput { job_queue: self.job_queue })
++    ) -> ::std::result::Result<super::super::super::operation::delete_job_queue::DeleteJobQueueInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::delete_job_queue::DeleteJobQueueInput { job_queue: self.job_queue })
      }
  }

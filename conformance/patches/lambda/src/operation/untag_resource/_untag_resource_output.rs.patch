@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UntagResourceOutput`](crate::operation::untag_resource::UntagResourceOutput).
 -    pub fn builder() -> crate::operation::untag_resource::builders::UntagResourceOutputBuilder {
 -        crate::operation::untag_resource::builders::UntagResourceOutputBuilder::default()
-+    pub fn builder() -> super::operation::untag_resource::builders::UntagResourceOutputBuilder {
-+        super::operation::untag_resource::builders::UntagResourceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::untag_resource::builders::UntagResourceOutputBuilder {
++        super::super::super::operation::untag_resource::builders::UntagResourceOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UntagResourceOutput`](crate::operation::untag_resource::UntagResourceOutput).
 -    pub fn build(self) -> crate::operation::untag_resource::UntagResourceOutput {
 -        crate::operation::untag_resource::UntagResourceOutput {
-+    pub fn build(self) -> super::operation::untag_resource::UntagResourceOutput {
-+        super::operation::untag_resource::UntagResourceOutput {
++    pub fn build(self) -> super::super::super::operation::untag_resource::UntagResourceOutput {
++        super::super::super::operation::untag_resource::UntagResourceOutput {
              _request_id: self._request_id,
          }
      }

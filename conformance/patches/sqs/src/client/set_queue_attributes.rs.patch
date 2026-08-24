@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SetQueueAttributesError>`](crate::operation::set_queue_attributes::SetQueueAttributesError)
 -    pub fn set_queue_attributes(&self) -> crate::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder {
 -        crate::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder::new(self.handle.clone())
-+    pub fn set_queue_attributes(&self) -> super::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder {
-+        super::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder::new(self.handle.clone())
++    pub fn set_queue_attributes(&self) -> super::super::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder {
++        super::super::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder::new(self.handle.clone())
      }
  }

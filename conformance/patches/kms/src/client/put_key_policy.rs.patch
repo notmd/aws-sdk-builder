@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutKeyPolicyError>`](crate::operation::put_key_policy::PutKeyPolicyError)
 -    pub fn put_key_policy(&self) -> crate::operation::put_key_policy::builders::PutKeyPolicyFluentBuilder {
 -        crate::operation::put_key_policy::builders::PutKeyPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn put_key_policy(&self) -> super::operation::put_key_policy::builders::PutKeyPolicyFluentBuilder {
-+        super::operation::put_key_policy::builders::PutKeyPolicyFluentBuilder::new(self.handle.clone())
++    pub fn put_key_policy(&self) -> super::super::operation::put_key_policy::builders::PutKeyPolicyFluentBuilder {
++        super::super::operation::put_key_policy::builders::PutKeyPolicyFluentBuilder::new(self.handle.clone())
      }
  }

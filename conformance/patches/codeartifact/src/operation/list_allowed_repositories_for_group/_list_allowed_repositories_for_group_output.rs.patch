@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListAllowedRepositoriesForGroupOutput`](crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput).
 -    pub fn builder() -> crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder {
 -        crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder {
-+        super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder {
++        super::super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ListAllowedRepositoriesForGroupOutput`](crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput).
 -    pub fn build(self) -> crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput {
 -        crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput {
-+    pub fn build(self) -> super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput {
-+        super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput {
++    pub fn build(self) -> super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput {
++        super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput {
              allowed_repositories: self.allowed_repositories,
              next_token: self.next_token,
              _request_id: self._request_id,

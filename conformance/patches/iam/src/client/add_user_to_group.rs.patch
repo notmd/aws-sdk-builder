@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AddUserToGroupError>`](crate::operation::add_user_to_group::AddUserToGroupError)
 -    pub fn add_user_to_group(&self) -> crate::operation::add_user_to_group::builders::AddUserToGroupFluentBuilder {
 -        crate::operation::add_user_to_group::builders::AddUserToGroupFluentBuilder::new(self.handle.clone())
-+    pub fn add_user_to_group(&self) -> super::operation::add_user_to_group::builders::AddUserToGroupFluentBuilder {
-+        super::operation::add_user_to_group::builders::AddUserToGroupFluentBuilder::new(self.handle.clone())
++    pub fn add_user_to_group(&self) -> super::super::operation::add_user_to_group::builders::AddUserToGroupFluentBuilder {
++        super::super::operation::add_user_to_group::builders::AddUserToGroupFluentBuilder::new(self.handle.clone())
      }
  }

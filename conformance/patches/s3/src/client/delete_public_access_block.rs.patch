@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeletePublicAccessBlockError>`](crate::operation::delete_public_access_block::DeletePublicAccessBlockError)
 -    pub fn delete_public_access_block(&self) -> crate::operation::delete_public_access_block::builders::DeletePublicAccessBlockFluentBuilder {
 -        crate::operation::delete_public_access_block::builders::DeletePublicAccessBlockFluentBuilder::new(self.handle.clone())
-+    pub fn delete_public_access_block(&self) -> super::operation::delete_public_access_block::builders::DeletePublicAccessBlockFluentBuilder {
-+        super::operation::delete_public_access_block::builders::DeletePublicAccessBlockFluentBuilder::new(self.handle.clone())
++    pub fn delete_public_access_block(&self) -> super::super::operation::delete_public_access_block::builders::DeletePublicAccessBlockFluentBuilder {
++        super::super::operation::delete_public_access_block::builders::DeletePublicAccessBlockFluentBuilder::new(self.handle.clone())
      }
  }

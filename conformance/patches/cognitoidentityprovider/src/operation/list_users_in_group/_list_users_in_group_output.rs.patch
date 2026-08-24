@@ -5,7 +5,7 @@
  pub struct ListUsersInGroupOutput {
      /// <p>An array of users who are members in the group, and their attributes.</p>
 -    pub users: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>,
-+    pub users: ::std::option::Option<::std::vec::Vec<super::types::UserType>>,
++    pub users: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserType>>,
      /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.users.is_none()`.
 -    pub fn users(&self) -> &[crate::types::UserType] {
-+    pub fn users(&self) -> &[super::types::UserType] {
++    pub fn users(&self) -> &[super::super::super::types::UserType] {
          self.users.as_deref().unwrap_or_default()
      }
      /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListUsersInGroupOutput`](crate::operation::list_users_in_group::ListUsersInGroupOutput).
 -    pub fn builder() -> crate::operation::list_users_in_group::builders::ListUsersInGroupOutputBuilder {
 -        crate::operation::list_users_in_group::builders::ListUsersInGroupOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_users_in_group::builders::ListUsersInGroupOutputBuilder {
-+        super::operation::list_users_in_group::builders::ListUsersInGroupOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_users_in_group::builders::ListUsersInGroupOutputBuilder {
++        super::super::super::operation::list_users_in_group::builders::ListUsersInGroupOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListUsersInGroupOutputBuilder {
 -    pub(crate) users: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>,
-+    pub(crate) users: ::std::option::Option<::std::vec::Vec<super::types::UserType>>,
++    pub(crate) users: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserType>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>An array of users who are members in the group, and their attributes.</p>
 -    pub fn users(mut self, input: crate::types::UserType) -> Self {
-+    pub fn users(mut self, input: super::types::UserType) -> Self {
++    pub fn users(mut self, input: super::super::super::types::UserType) -> Self {
          let mut v = self.users.unwrap_or_default();
          v.push(input);
          self.users = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>An array of users who are members in the group, and their attributes.</p>
 -    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>) -> Self {
-+    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::UserType>>) -> Self {
++    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserType>>) -> Self {
          self.users = input;
          self
      }
      /// <p>An array of users who are members in the group, and their attributes.</p>
 -    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UserType>> {
-+    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<super::types::UserType>> {
++    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::UserType>> {
          &self.users
      }
      /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListUsersInGroupOutput`](crate::operation::list_users_in_group::ListUsersInGroupOutput).
 -    pub fn build(self) -> crate::operation::list_users_in_group::ListUsersInGroupOutput {
 -        crate::operation::list_users_in_group::ListUsersInGroupOutput {
-+    pub fn build(self) -> super::operation::list_users_in_group::ListUsersInGroupOutput {
-+        super::operation::list_users_in_group::ListUsersInGroupOutput {
++    pub fn build(self) -> super::super::super::operation::list_users_in_group::ListUsersInGroupOutput {
++        super::super::super::operation::list_users_in_group::ListUsersInGroupOutput {
              users: self.users,
              next_token: self.next_token,
              _request_id: self._request_id,

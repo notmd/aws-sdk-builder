@@ -5,7 +5,7 @@
      pub signature_valid: bool,
      /// <p>The signing algorithm that was used to verify the signature.</p>
 -    pub signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
-+    pub signing_algorithm: ::std::option::Option<super::types::SigningAlgorithmSpec>,
++    pub signing_algorithm: ::std::option::Option<super::super::super::types::SigningAlgorithmSpec>,
      _request_id: Option<String>,
  }
  impl VerifyOutput {
@@ -14,7 +14,7 @@
      }
      /// <p>The signing algorithm that was used to verify the signature.</p>
 -    pub fn signing_algorithm(&self) -> ::std::option::Option<&crate::types::SigningAlgorithmSpec> {
-+    pub fn signing_algorithm(&self) -> ::std::option::Option<&super::types::SigningAlgorithmSpec> {
++    pub fn signing_algorithm(&self) -> ::std::option::Option<&super::super::super::types::SigningAlgorithmSpec> {
          self.signing_algorithm.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`VerifyOutput`](crate::operation::verify::VerifyOutput).
 -    pub fn builder() -> crate::operation::verify::builders::VerifyOutputBuilder {
 -        crate::operation::verify::builders::VerifyOutputBuilder::default()
-+    pub fn builder() -> super::operation::verify::builders::VerifyOutputBuilder {
-+        super::operation::verify::builders::VerifyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::verify::builders::VerifyOutputBuilder {
++        super::super::super::operation::verify::builders::VerifyOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
      pub(crate) signature_valid: ::std::option::Option<bool>,
 -    pub(crate) signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
-+    pub(crate) signing_algorithm: ::std::option::Option<super::types::SigningAlgorithmSpec>,
++    pub(crate) signing_algorithm: ::std::option::Option<super::super::super::types::SigningAlgorithmSpec>,
      _request_id: Option<String>,
  }
  impl VerifyOutputBuilder {
@@ -43,19 +43,19 @@
      }
      /// <p>The signing algorithm that was used to verify the signature.</p>
 -    pub fn signing_algorithm(mut self, input: crate::types::SigningAlgorithmSpec) -> Self {
-+    pub fn signing_algorithm(mut self, input: super::types::SigningAlgorithmSpec) -> Self {
++    pub fn signing_algorithm(mut self, input: super::super::super::types::SigningAlgorithmSpec) -> Self {
          self.signing_algorithm = ::std::option::Option::Some(input);
          self
      }
      /// <p>The signing algorithm that was used to verify the signature.</p>
 -    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self {
-+    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<super::types::SigningAlgorithmSpec>) -> Self {
++    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<super::super::super::types::SigningAlgorithmSpec>) -> Self {
          self.signing_algorithm = input;
          self
      }
      /// <p>The signing algorithm that was used to verify the signature.</p>
 -    pub fn get_signing_algorithm(&self) -> &::std::option::Option<crate::types::SigningAlgorithmSpec> {
-+    pub fn get_signing_algorithm(&self) -> &::std::option::Option<super::types::SigningAlgorithmSpec> {
++    pub fn get_signing_algorithm(&self) -> &::std::option::Option<super::super::super::types::SigningAlgorithmSpec> {
          &self.signing_algorithm
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`VerifyOutput`](crate::operation::verify::VerifyOutput).
 -    pub fn build(self) -> crate::operation::verify::VerifyOutput {
 -        crate::operation::verify::VerifyOutput {
-+    pub fn build(self) -> super::operation::verify::VerifyOutput {
-+        super::operation::verify::VerifyOutput {
++    pub fn build(self) -> super::super::super::operation::verify::VerifyOutput {
++        super::super::super::operation::verify::VerifyOutput {
              key_id: self.key_id,
              signature_valid: self.signature_valid.unwrap_or_default(),
              signing_algorithm: self.signing_algorithm,

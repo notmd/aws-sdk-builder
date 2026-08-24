@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateCustomVerificationEmailTemplateOutput`](crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput).
 -    pub fn builder() -> crate::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder {
 -        crate::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder {
-+        super::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder {
++        super::super::super::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateCustomVerificationEmailTemplateOutput`](crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput).
 -    pub fn build(self) -> crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput {
 -        crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput {
-+    pub fn build(self) -> super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput {
-+        super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput {
++    pub fn build(self) -> super::super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput {
++        super::super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput {
              _request_id: self._request_id,
          }
      }

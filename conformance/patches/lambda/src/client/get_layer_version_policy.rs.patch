@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetLayerVersionPolicyError>`](crate::operation::get_layer_version_policy::GetLayerVersionPolicyError)
 -    pub fn get_layer_version_policy(&self) -> crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyFluentBuilder {
 -        crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn get_layer_version_policy(&self) -> super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyFluentBuilder {
-+        super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyFluentBuilder::new(self.handle.clone())
++    pub fn get_layer_version_policy(&self) -> super::super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyFluentBuilder {
++        super::super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyFluentBuilder::new(self.handle.clone())
      }
  }

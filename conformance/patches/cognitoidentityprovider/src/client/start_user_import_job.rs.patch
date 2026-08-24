@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<StartUserImportJobError>`](crate::operation::start_user_import_job::StartUserImportJobError)
 -    pub fn start_user_import_job(&self) -> crate::operation::start_user_import_job::builders::StartUserImportJobFluentBuilder {
 -        crate::operation::start_user_import_job::builders::StartUserImportJobFluentBuilder::new(self.handle.clone())
-+    pub fn start_user_import_job(&self) -> super::operation::start_user_import_job::builders::StartUserImportJobFluentBuilder {
-+        super::operation::start_user_import_job::builders::StartUserImportJobFluentBuilder::new(self.handle.clone())
++    pub fn start_user_import_job(&self) -> super::super::operation::start_user_import_job::builders::StartUserImportJobFluentBuilder {
++        super::super::operation::start_user_import_job::builders::StartUserImportJobFluentBuilder::new(self.handle.clone())
      }
  }

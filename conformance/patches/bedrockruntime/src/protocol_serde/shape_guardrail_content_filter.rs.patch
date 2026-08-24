@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::GuardrailContentFilter>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::GuardrailContentFilter>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::GuardrailContentFilter>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::GuardrailContentFilterBuilder::default();
-+            let mut builder = super::types::builders::GuardrailContentFilterBuilder::default();
++            let mut builder = super::super::types::builders::GuardrailContentFilterBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                              builder = builder.set_type(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::GuardrailContentFilterType::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::GuardrailContentFilterType::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailContentFilterType::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -32,7 +32,7 @@
                              builder = builder.set_confidence(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::GuardrailContentFilterConfidence::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::GuardrailContentFilterConfidence::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailContentFilterConfidence::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -41,7 +41,7 @@
                              builder = builder.set_filter_strength(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::GuardrailContentFilterStrength::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::GuardrailContentFilterStrength::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailContentFilterStrength::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -50,7 +50,7 @@
                              builder = builder.set_action(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::GuardrailContentPolicyAction::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::GuardrailContentPolicyAction::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailContentPolicyAction::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -59,7 +59,7 @@
              }
              Ok(Some(
 -                crate::serde_util::guardrail_content_filter_correct_errors(builder)
-+                super::serde_util::guardrail_content_filter_correct_errors(builder)
++                super::super::serde_util::guardrail_content_filter_correct_errors(builder)
                      .build()
                      .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))

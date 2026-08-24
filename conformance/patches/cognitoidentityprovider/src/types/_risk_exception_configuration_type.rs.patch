@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RiskExceptionConfigurationType`](crate::types::RiskExceptionConfigurationType).
 -    pub fn builder() -> crate::types::builders::RiskExceptionConfigurationTypeBuilder {
 -        crate::types::builders::RiskExceptionConfigurationTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::RiskExceptionConfigurationTypeBuilder {
-+        super::types::builders::RiskExceptionConfigurationTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::RiskExceptionConfigurationTypeBuilder {
++        super::super::types::builders::RiskExceptionConfigurationTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`RiskExceptionConfigurationType`](crate::types::RiskExceptionConfigurationType).
 -    pub fn build(self) -> crate::types::RiskExceptionConfigurationType {
 -        crate::types::RiskExceptionConfigurationType {
-+    pub fn build(self) -> super::types::RiskExceptionConfigurationType {
-+        super::types::RiskExceptionConfigurationType {
++    pub fn build(self) -> super::super::types::RiskExceptionConfigurationType {
++        super::super::types::RiskExceptionConfigurationType {
              blocked_ip_range_list: self.blocked_ip_range_list,
              skipped_ip_range_list: self.skipped_ip_range_list,
          }

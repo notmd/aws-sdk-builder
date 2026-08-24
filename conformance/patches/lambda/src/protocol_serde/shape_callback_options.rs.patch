@@ -5,7 +5,7 @@
  pub fn ser_callback_options(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::CallbackOptions,
-+    input: &super::types::CallbackOptions,
++    input: &super::super::types::CallbackOptions,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if input.timeout_seconds != 0 {
          object.key("TimeoutSeconds").number(

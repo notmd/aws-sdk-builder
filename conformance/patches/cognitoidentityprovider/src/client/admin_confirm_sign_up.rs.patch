@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AdminConfirmSignUpError>`](crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError)
 -    pub fn admin_confirm_sign_up(&self) -> crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpFluentBuilder {
 -        crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpFluentBuilder::new(self.handle.clone())
-+    pub fn admin_confirm_sign_up(&self) -> super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpFluentBuilder {
-+        super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpFluentBuilder::new(self.handle.clone())
++    pub fn admin_confirm_sign_up(&self) -> super::super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpFluentBuilder {
++        super::super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpFluentBuilder::new(self.handle.clone())
      }
  }

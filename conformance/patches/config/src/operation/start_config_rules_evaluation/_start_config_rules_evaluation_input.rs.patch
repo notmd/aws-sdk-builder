@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`StartConfigRulesEvaluationInput`](crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationInput).
 -    pub fn builder() -> crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationInputBuilder {
 -        crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationInputBuilder::default()
-+    pub fn builder() -> super::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationInputBuilder {
-+        super::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationInputBuilder {
++        super::super::super::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationInput,
-+        super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationInput,
++        super::super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationInput {
-+        ::std::result::Result::Ok(super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationInput {
++        ::std::result::Result::Ok(super::super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationInput {
              config_rule_names: self.config_rule_names,
          })
      }

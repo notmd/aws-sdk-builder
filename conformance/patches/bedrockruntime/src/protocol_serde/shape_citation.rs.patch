@@ -5,7 +5,7 @@
  pub fn ser_citation(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::Citation,
-+    input: &super::types::Citation,
++    input: &super::super::types::Citation,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.title {
          object.key("title").string(var_1.as_str());
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_6 = array_4.value().start_object();
 -                crate::protocol_serde::shape_citation_source_content::ser_citation_source_content(&mut object_6, item_5)?;
-+                super::protocol_serde::shape_citation_source_content::ser_citation_source_content(&mut object_6, item_5)?;
++                super::super::protocol_serde::shape_citation_source_content::ser_citation_source_content(&mut object_6, item_5)?;
                  object_6.finish();
              }
          }
@@ -23,7 +23,7 @@
          #[allow(unused_mut)]
          let mut object_8 = object.key("location").start_object();
 -        crate::protocol_serde::shape_citation_location::ser_citation_location(&mut object_8, var_7)?;
-+        super::protocol_serde::shape_citation_location::ser_citation_location(&mut object_8, var_7)?;
++        super::super::protocol_serde::shape_citation_location::ser_citation_location(&mut object_8, var_7)?;
          object_8.finish();
      }
      Ok(())
@@ -32,7 +32,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::Citation>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::Citation>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::Citation>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -41,7 +41,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::CitationBuilder::default();
-+            let mut builder = super::types::builders::CitationBuilder::default();
++            let mut builder = super::super::types::builders::CitationBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -50,7 +50,7 @@
                          "sourceContent" => {
                              builder = builder.set_source_content(
 -                                crate::protocol_serde::shape_citation_source_content_list::de_citation_source_content_list(
-+                                super::protocol_serde::shape_citation_source_content_list::de_citation_source_content_list(
++                                super::super::protocol_serde::shape_citation_source_content_list::de_citation_source_content_list(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -59,7 +59,7 @@
                          }
                          "location" => {
 -                            builder = builder.set_location(crate::protocol_serde::shape_citation_location::de_citation_location(
-+                            builder = builder.set_location(super::protocol_serde::shape_citation_location::de_citation_location(
++                            builder = builder.set_location(super::super::protocol_serde::shape_citation_location::de_citation_location(
                                  tokens,
                                  _value,
                                  depth + 1,

@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for MaxNumberOfConfigRulesExceededException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::MaxNumberOfConfigRulesExceededException {
-+impl ::aws_types::request_id::RequestId for super::types::error::MaxNumberOfConfigRulesExceededException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::MaxNumberOfConfigRulesExceededException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`MaxNumberOfConfigRulesExceededException`](crate::types::error::MaxNumberOfConfigRulesExceededException).
 -    pub fn builder() -> crate::types::error::builders::MaxNumberOfConfigRulesExceededExceptionBuilder {
 -        crate::types::error::builders::MaxNumberOfConfigRulesExceededExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::MaxNumberOfConfigRulesExceededExceptionBuilder {
-+        super::types::error::builders::MaxNumberOfConfigRulesExceededExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::MaxNumberOfConfigRulesExceededExceptionBuilder {
++        super::super::super::types::error::builders::MaxNumberOfConfigRulesExceededExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`MaxNumberOfConfigRulesExceededException`](crate::types::error::MaxNumberOfConfigRulesExceededException).
 -    pub fn build(self) -> crate::types::error::MaxNumberOfConfigRulesExceededException {
 -        crate::types::error::MaxNumberOfConfigRulesExceededException {
-+    pub fn build(self) -> super::types::error::MaxNumberOfConfigRulesExceededException {
-+        super::types::error::MaxNumberOfConfigRulesExceededException {
++    pub fn build(self) -> super::super::super::types::error::MaxNumberOfConfigRulesExceededException {
++        super::super::super::types::error::MaxNumberOfConfigRulesExceededException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

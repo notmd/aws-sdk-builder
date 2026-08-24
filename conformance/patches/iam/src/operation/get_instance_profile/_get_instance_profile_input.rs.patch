@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetInstanceProfileInput`](crate::operation::get_instance_profile::GetInstanceProfileInput).
 -    pub fn builder() -> crate::operation::get_instance_profile::builders::GetInstanceProfileInputBuilder {
 -        crate::operation::get_instance_profile::builders::GetInstanceProfileInputBuilder::default()
-+    pub fn builder() -> super::operation::get_instance_profile::builders::GetInstanceProfileInputBuilder {
-+        super::operation::get_instance_profile::builders::GetInstanceProfileInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_instance_profile::builders::GetInstanceProfileInputBuilder {
++        super::super::super::operation::get_instance_profile::builders::GetInstanceProfileInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_instance_profile::GetInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_instance_profile::GetInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_instance_profile::GetInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_instance_profile::GetInstanceProfileInput {
-+        ::std::result::Result::Ok(super::operation::get_instance_profile::GetInstanceProfileInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_instance_profile::GetInstanceProfileInput {
              instance_profile_name: self.instance_profile_name,
          })
      }

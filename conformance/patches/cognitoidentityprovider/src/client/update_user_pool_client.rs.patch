@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateUserPoolClientError>`](crate::operation::update_user_pool_client::UpdateUserPoolClientError)
 -    pub fn update_user_pool_client(&self) -> crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder {
 -        crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::new(self.handle.clone())
-+    pub fn update_user_pool_client(&self) -> super::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder {
-+        super::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::new(self.handle.clone())
++    pub fn update_user_pool_client(&self) -> super::super::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder {
++        super::super::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CountTokensError>`](crate::operation::count_tokens::CountTokensError)
 -    pub fn count_tokens(&self) -> crate::operation::count_tokens::builders::CountTokensFluentBuilder {
 -        crate::operation::count_tokens::builders::CountTokensFluentBuilder::new(self.handle.clone())
-+    pub fn count_tokens(&self) -> super::operation::count_tokens::builders::CountTokensFluentBuilder {
-+        super::operation::count_tokens::builders::CountTokensFluentBuilder::new(self.handle.clone())
++    pub fn count_tokens(&self) -> super::super::operation::count_tokens::builders::CountTokensFluentBuilder {
++        super::super::operation::count_tokens::builders::CountTokensFluentBuilder::new(self.handle.clone())
      }
  }

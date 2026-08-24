@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ExportTableToPointInTimeError>`](crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError)
 -    pub fn export_table_to_point_in_time(&self) -> crate::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeFluentBuilder {
 -        crate::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeFluentBuilder::new(self.handle.clone())
-+    pub fn export_table_to_point_in_time(&self) -> super::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeFluentBuilder {
-+        super::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeFluentBuilder::new(self.handle.clone())
++    pub fn export_table_to_point_in_time(&self) -> super::super::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeFluentBuilder {
++        super::super::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeFluentBuilder::new(self.handle.clone())
      }
  }

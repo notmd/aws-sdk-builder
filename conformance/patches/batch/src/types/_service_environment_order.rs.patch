@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ServiceEnvironmentOrder`](crate::types::ServiceEnvironmentOrder).
 -    pub fn builder() -> crate::types::builders::ServiceEnvironmentOrderBuilder {
 -        crate::types::builders::ServiceEnvironmentOrderBuilder::default()
-+    pub fn builder() -> super::types::builders::ServiceEnvironmentOrderBuilder {
-+        super::types::builders::ServiceEnvironmentOrderBuilder::default()
++    pub fn builder() -> super::super::types::builders::ServiceEnvironmentOrderBuilder {
++        super::super::types::builders::ServiceEnvironmentOrderBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ServiceEnvironmentOrder`](crate::types::ServiceEnvironmentOrder).
 -    pub fn build(self) -> crate::types::ServiceEnvironmentOrder {
 -        crate::types::ServiceEnvironmentOrder {
-+    pub fn build(self) -> super::types::ServiceEnvironmentOrder {
-+        super::types::ServiceEnvironmentOrder {
++    pub fn build(self) -> super::super::types::ServiceEnvironmentOrder {
++        super::super::types::ServiceEnvironmentOrder {
              order: self.order,
              service_environment: self.service_environment,
          }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`StoredQuery`](crate::types::StoredQuery).
 -    pub fn builder() -> crate::types::builders::StoredQueryBuilder {
 -        crate::types::builders::StoredQueryBuilder::default()
-+    pub fn builder() -> super::types::builders::StoredQueryBuilder {
-+        super::types::builders::StoredQueryBuilder::default()
++    pub fn builder() -> super::super::types::builders::StoredQueryBuilder {
++        super::super::types::builders::StoredQueryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`query_name`](crate::types::builders::StoredQueryBuilder::query_name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::StoredQuery, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::StoredQuery {
-+    pub fn build(self) -> ::std::result::Result<super::types::StoredQuery, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::StoredQuery {
++    pub fn build(self) -> ::std::result::Result<super::super::types::StoredQuery, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::StoredQuery {
              query_id: self.query_id,
              query_arn: self.query_arn,
              query_name: self.query_name.ok_or_else(|| {

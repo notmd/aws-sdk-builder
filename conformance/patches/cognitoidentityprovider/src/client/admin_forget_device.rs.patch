@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AdminForgetDeviceError>`](crate::operation::admin_forget_device::AdminForgetDeviceError)
 -    pub fn admin_forget_device(&self) -> crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder {
 -        crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder::new(self.handle.clone())
-+    pub fn admin_forget_device(&self) -> super::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder {
-+        super::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder::new(self.handle.clone())
++    pub fn admin_forget_device(&self) -> super::super::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder {
++        super::super::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder::new(self.handle.clone())
      }
  }

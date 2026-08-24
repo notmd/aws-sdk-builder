@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ConfirmSignUpError>`](crate::operation::confirm_sign_up::ConfirmSignUpError)
 -    pub fn confirm_sign_up(&self) -> crate::operation::confirm_sign_up::builders::ConfirmSignUpFluentBuilder {
 -        crate::operation::confirm_sign_up::builders::ConfirmSignUpFluentBuilder::new(self.handle.clone())
-+    pub fn confirm_sign_up(&self) -> super::operation::confirm_sign_up::builders::ConfirmSignUpFluentBuilder {
-+        super::operation::confirm_sign_up::builders::ConfirmSignUpFluentBuilder::new(self.handle.clone())
++    pub fn confirm_sign_up(&self) -> super::super::operation::confirm_sign_up::builders::ConfirmSignUpFluentBuilder {
++        super::super::operation::confirm_sign_up::builders::ConfirmSignUpFluentBuilder::new(self.handle.clone())
      }
  }

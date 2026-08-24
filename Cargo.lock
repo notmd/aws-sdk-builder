@@ -184,6 +184,7 @@ dependencies = [
  "aws-sdk-builder-sts",
  "diffy",
  "proc-macro2",
+ "quote",
  "serde",
  "serde_json",
  "syn 3.0.3",

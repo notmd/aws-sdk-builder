@@ -5,7 +5,7 @@
      pub signature: ::std::option::Option<::aws_smithy_types::Blob>,
      /// <p>The signing algorithm that was used to sign the message.</p>
 -    pub signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
-+    pub signing_algorithm: ::std::option::Option<super::types::SigningAlgorithmSpec>,
++    pub signing_algorithm: ::std::option::Option<super::super::super::types::SigningAlgorithmSpec>,
      _request_id: Option<String>,
  }
  impl SignOutput {
@@ -14,7 +14,7 @@
      }
      /// <p>The signing algorithm that was used to sign the message.</p>
 -    pub fn signing_algorithm(&self) -> ::std::option::Option<&crate::types::SigningAlgorithmSpec> {
-+    pub fn signing_algorithm(&self) -> ::std::option::Option<&super::types::SigningAlgorithmSpec> {
++    pub fn signing_algorithm(&self) -> ::std::option::Option<&super::super::super::types::SigningAlgorithmSpec> {
          self.signing_algorithm.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`SignOutput`](crate::operation::sign::SignOutput).
 -    pub fn builder() -> crate::operation::sign::builders::SignOutputBuilder {
 -        crate::operation::sign::builders::SignOutputBuilder::default()
-+    pub fn builder() -> super::operation::sign::builders::SignOutputBuilder {
-+        super::operation::sign::builders::SignOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::sign::builders::SignOutputBuilder {
++        super::super::super::operation::sign::builders::SignOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
      pub(crate) signature: ::std::option::Option<::aws_smithy_types::Blob>,
 -    pub(crate) signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
-+    pub(crate) signing_algorithm: ::std::option::Option<super::types::SigningAlgorithmSpec>,
++    pub(crate) signing_algorithm: ::std::option::Option<super::super::super::types::SigningAlgorithmSpec>,
      _request_id: Option<String>,
  }
  impl SignOutputBuilder {
@@ -43,19 +43,19 @@
      }
      /// <p>The signing algorithm that was used to sign the message.</p>
 -    pub fn signing_algorithm(mut self, input: crate::types::SigningAlgorithmSpec) -> Self {
-+    pub fn signing_algorithm(mut self, input: super::types::SigningAlgorithmSpec) -> Self {
++    pub fn signing_algorithm(mut self, input: super::super::super::types::SigningAlgorithmSpec) -> Self {
          self.signing_algorithm = ::std::option::Option::Some(input);
          self
      }
      /// <p>The signing algorithm that was used to sign the message.</p>
 -    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self {
-+    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<super::types::SigningAlgorithmSpec>) -> Self {
++    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<super::super::super::types::SigningAlgorithmSpec>) -> Self {
          self.signing_algorithm = input;
          self
      }
      /// <p>The signing algorithm that was used to sign the message.</p>
 -    pub fn get_signing_algorithm(&self) -> &::std::option::Option<crate::types::SigningAlgorithmSpec> {
-+    pub fn get_signing_algorithm(&self) -> &::std::option::Option<super::types::SigningAlgorithmSpec> {
++    pub fn get_signing_algorithm(&self) -> &::std::option::Option<super::super::super::types::SigningAlgorithmSpec> {
          &self.signing_algorithm
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`SignOutput`](crate::operation::sign::SignOutput).
 -    pub fn build(self) -> crate::operation::sign::SignOutput {
 -        crate::operation::sign::SignOutput {
-+    pub fn build(self) -> super::operation::sign::SignOutput {
-+        super::operation::sign::SignOutput {
++    pub fn build(self) -> super::super::super::operation::sign::SignOutput {
++        super::super::super::operation::sign::SignOutput {
              key_id: self.key_id,
              signature: self.signature,
              signing_algorithm: self.signing_algorithm,

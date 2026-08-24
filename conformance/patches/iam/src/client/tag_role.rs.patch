@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<TagRoleError>`](crate::operation::tag_role::TagRoleError)
 -    pub fn tag_role(&self) -> crate::operation::tag_role::builders::TagRoleFluentBuilder {
 -        crate::operation::tag_role::builders::TagRoleFluentBuilder::new(self.handle.clone())
-+    pub fn tag_role(&self) -> super::operation::tag_role::builders::TagRoleFluentBuilder {
-+        super::operation::tag_role::builders::TagRoleFluentBuilder::new(self.handle.clone())
++    pub fn tag_role(&self) -> super::super::operation::tag_role::builders::TagRoleFluentBuilder {
++        super::super::operation::tag_role::builders::TagRoleFluentBuilder::new(self.handle.clone())
      }
  }

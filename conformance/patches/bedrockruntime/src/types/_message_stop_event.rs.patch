@@ -5,14 +5,14 @@
  pub struct MessageStopEvent {
      /// <p>The reason why the model stopped generating output.</p>
 -    pub stop_reason: crate::types::StopReason,
-+    pub stop_reason: super::types::StopReason,
++    pub stop_reason: super::super::types::StopReason,
      /// <p>The additional model response fields.</p>
      pub additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
  }
  impl MessageStopEvent {
      /// <p>The reason why the model stopped generating output.</p>
 -    pub fn stop_reason(&self) -> &crate::types::StopReason {
-+    pub fn stop_reason(&self) -> &super::types::StopReason {
++    pub fn stop_reason(&self) -> &super::super::types::StopReason {
          &self.stop_reason
      }
      /// <p>The additional model response fields.</p>
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`MessageStopEvent`](crate::types::MessageStopEvent).
 -    pub fn builder() -> crate::types::builders::MessageStopEventBuilder {
 -        crate::types::builders::MessageStopEventBuilder::default()
-+    pub fn builder() -> super::types::builders::MessageStopEventBuilder {
-+        super::types::builders::MessageStopEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::MessageStopEventBuilder {
++        super::super::types::builders::MessageStopEventBuilder::default()
      }
  }
 
@@ -32,26 +32,26 @@
  #[non_exhaustive]
  pub struct MessageStopEventBuilder {
 -    pub(crate) stop_reason: ::std::option::Option<crate::types::StopReason>,
-+    pub(crate) stop_reason: ::std::option::Option<super::types::StopReason>,
++    pub(crate) stop_reason: ::std::option::Option<super::super::types::StopReason>,
      pub(crate) additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
  }
  impl MessageStopEventBuilder {
      /// <p>The reason why the model stopped generating output.</p>
      /// This field is required.
 -    pub fn stop_reason(mut self, input: crate::types::StopReason) -> Self {
-+    pub fn stop_reason(mut self, input: super::types::StopReason) -> Self {
++    pub fn stop_reason(mut self, input: super::super::types::StopReason) -> Self {
          self.stop_reason = ::std::option::Option::Some(input);
          self
      }
      /// <p>The reason why the model stopped generating output.</p>
 -    pub fn set_stop_reason(mut self, input: ::std::option::Option<crate::types::StopReason>) -> Self {
-+    pub fn set_stop_reason(mut self, input: ::std::option::Option<super::types::StopReason>) -> Self {
++    pub fn set_stop_reason(mut self, input: ::std::option::Option<super::super::types::StopReason>) -> Self {
          self.stop_reason = input;
          self
      }
      /// <p>The reason why the model stopped generating output.</p>
 -    pub fn get_stop_reason(&self) -> &::std::option::Option<crate::types::StopReason> {
-+    pub fn get_stop_reason(&self) -> &::std::option::Option<super::types::StopReason> {
++    pub fn get_stop_reason(&self) -> &::std::option::Option<super::super::types::StopReason> {
          &self.stop_reason
      }
      /// <p>The additional model response fields.</p>
@@ -61,8 +61,8 @@
      /// - [`stop_reason`](crate::types::builders::MessageStopEventBuilder::stop_reason)
 -    pub fn build(self) -> ::std::result::Result<crate::types::MessageStopEvent, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::MessageStopEvent {
-+    pub fn build(self) -> ::std::result::Result<super::types::MessageStopEvent, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::MessageStopEvent {
++    pub fn build(self) -> ::std::result::Result<super::super::types::MessageStopEvent, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::MessageStopEvent {
              stop_reason: self.stop_reason.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "stop_reason",

@@ -5,13 +5,13 @@
  pub struct AdminGetDeviceOutput {
      /// <p>Details of the requested device. Includes device information, last-accessed and created dates, and the device key.</p>
 -    pub device: ::std::option::Option<crate::types::DeviceType>,
-+    pub device: ::std::option::Option<super::types::DeviceType>,
++    pub device: ::std::option::Option<super::super::super::types::DeviceType>,
      _request_id: Option<String>,
  }
  impl AdminGetDeviceOutput {
      /// <p>Details of the requested device. Includes device information, last-accessed and created dates, and the device key.</p>
 -    pub fn device(&self) -> ::std::option::Option<&crate::types::DeviceType> {
-+    pub fn device(&self) -> ::std::option::Option<&super::types::DeviceType> {
++    pub fn device(&self) -> ::std::option::Option<&super::super::super::types::DeviceType> {
          self.device.as_ref()
      }
  }
@@ -21,8 +21,8 @@
      /// Creates a new builder-style object to manufacture [`AdminGetDeviceOutput`](crate::operation::admin_get_device::AdminGetDeviceOutput).
 -    pub fn builder() -> crate::operation::admin_get_device::builders::AdminGetDeviceOutputBuilder {
 -        crate::operation::admin_get_device::builders::AdminGetDeviceOutputBuilder::default()
-+    pub fn builder() -> super::operation::admin_get_device::builders::AdminGetDeviceOutputBuilder {
-+        super::operation::admin_get_device::builders::AdminGetDeviceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_get_device::builders::AdminGetDeviceOutputBuilder {
++        super::super::super::operation::admin_get_device::builders::AdminGetDeviceOutputBuilder::default()
      }
  }
 
@@ -31,26 +31,26 @@
  #[non_exhaustive]
  pub struct AdminGetDeviceOutputBuilder {
 -    pub(crate) device: ::std::option::Option<crate::types::DeviceType>,
-+    pub(crate) device: ::std::option::Option<super::types::DeviceType>,
++    pub(crate) device: ::std::option::Option<super::super::super::types::DeviceType>,
      _request_id: Option<String>,
  }
  impl AdminGetDeviceOutputBuilder {
      /// <p>Details of the requested device. Includes device information, last-accessed and created dates, and the device key.</p>
      /// This field is required.
 -    pub fn device(mut self, input: crate::types::DeviceType) -> Self {
-+    pub fn device(mut self, input: super::types::DeviceType) -> Self {
++    pub fn device(mut self, input: super::super::super::types::DeviceType) -> Self {
          self.device = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details of the requested device. Includes device information, last-accessed and created dates, and the device key.</p>
 -    pub fn set_device(mut self, input: ::std::option::Option<crate::types::DeviceType>) -> Self {
-+    pub fn set_device(mut self, input: ::std::option::Option<super::types::DeviceType>) -> Self {
++    pub fn set_device(mut self, input: ::std::option::Option<super::super::super::types::DeviceType>) -> Self {
          self.device = input;
          self
      }
      /// <p>Details of the requested device. Includes device information, last-accessed and created dates, and the device key.</p>
 -    pub fn get_device(&self) -> &::std::option::Option<crate::types::DeviceType> {
-+    pub fn get_device(&self) -> &::std::option::Option<super::types::DeviceType> {
++    pub fn get_device(&self) -> &::std::option::Option<super::super::super::types::DeviceType> {
          &self.device
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -60,8 +60,8 @@
      /// Consumes the builder and constructs a [`AdminGetDeviceOutput`](crate::operation::admin_get_device::AdminGetDeviceOutput).
 -    pub fn build(self) -> crate::operation::admin_get_device::AdminGetDeviceOutput {
 -        crate::operation::admin_get_device::AdminGetDeviceOutput {
-+    pub fn build(self) -> super::operation::admin_get_device::AdminGetDeviceOutput {
-+        super::operation::admin_get_device::AdminGetDeviceOutput {
++    pub fn build(self) -> super::super::super::operation::admin_get_device::AdminGetDeviceOutput {
++        super::super::super::operation::admin_get_device::AdminGetDeviceOutput {
              device: self.device,
              _request_id: self._request_id,
          }

@@ -5,10 +5,10 @@
  pub struct BatchExecuteStatementOutput {
      /// <p>The response to each PartiQL statement in the batch. The values of the list are ordered according to the ordering of the request statements.</p>
 -    pub responses: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>,
-+    pub responses: ::std::option::Option<::std::vec::Vec<super::types::BatchStatementResponse>>,
++    pub responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>,
      /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
 -    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
-+    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::types::ConsumedCapacity>>,
++    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
      _request_id: Option<String>,
  }
  impl BatchExecuteStatementOutput {
@@ -17,14 +17,14 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.responses.is_none()`.
 -    pub fn responses(&self) -> &[crate::types::BatchStatementResponse] {
-+    pub fn responses(&self) -> &[super::types::BatchStatementResponse] {
++    pub fn responses(&self) -> &[super::super::super::types::BatchStatementResponse] {
          self.responses.as_deref().unwrap_or_default()
      }
      /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.consumed_capacity.is_none()`.
 -    pub fn consumed_capacity(&self) -> &[crate::types::ConsumedCapacity] {
-+    pub fn consumed_capacity(&self) -> &[super::types::ConsumedCapacity] {
++    pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] {
          self.consumed_capacity.as_deref().unwrap_or_default()
      }
  }
@@ -34,8 +34,8 @@
      /// Creates a new builder-style object to manufacture [`BatchExecuteStatementOutput`](crate::operation::batch_execute_statement::BatchExecuteStatementOutput).
 -    pub fn builder() -> crate::operation::batch_execute_statement::builders::BatchExecuteStatementOutputBuilder {
 -        crate::operation::batch_execute_statement::builders::BatchExecuteStatementOutputBuilder::default()
-+    pub fn builder() -> super::operation::batch_execute_statement::builders::BatchExecuteStatementOutputBuilder {
-+        super::operation::batch_execute_statement::builders::BatchExecuteStatementOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::batch_execute_statement::builders::BatchExecuteStatementOutputBuilder {
++        super::super::super::operation::batch_execute_statement::builders::BatchExecuteStatementOutputBuilder::default()
      }
  }
 
@@ -45,8 +45,8 @@
  pub struct BatchExecuteStatementOutputBuilder {
 -    pub(crate) responses: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>,
 -    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
-+    pub(crate) responses: ::std::option::Option<::std::vec::Vec<super::types::BatchStatementResponse>>,
-+    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<super::types::ConsumedCapacity>>,
++    pub(crate) responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>,
++    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
      _request_id: Option<String>,
  }
  impl BatchExecuteStatementOutputBuilder {
@@ -55,7 +55,7 @@
      ///
      /// <p>The response to each PartiQL statement in the batch. The values of the list are ordered according to the ordering of the request statements.</p>
 -    pub fn responses(mut self, input: crate::types::BatchStatementResponse) -> Self {
-+    pub fn responses(mut self, input: super::types::BatchStatementResponse) -> Self {
++    pub fn responses(mut self, input: super::super::super::types::BatchStatementResponse) -> Self {
          let mut v = self.responses.unwrap_or_default();
          v.push(input);
          self.responses = ::std::option::Option::Some(v);
@@ -64,13 +64,13 @@
      }
      /// <p>The response to each PartiQL statement in the batch. The values of the list are ordered according to the ordering of the request statements.</p>
 -    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>) -> Self {
-+    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::BatchStatementResponse>>) -> Self {
++    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>) -> Self {
          self.responses = input;
          self
      }
      /// <p>The response to each PartiQL statement in the batch. The values of the list are ordered according to the ordering of the request statements.</p>
 -    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>> {
-+    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<super::types::BatchStatementResponse>> {
++    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>> {
          &self.responses
      }
      /// Appends an item to `consumed_capacity`.
@@ -79,7 +79,7 @@
      ///
      /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
 -    pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
-+    pub fn consumed_capacity(mut self, input: super::types::ConsumedCapacity) -> Self {
++    pub fn consumed_capacity(mut self, input: super::super::super::types::ConsumedCapacity) -> Self {
          let mut v = self.consumed_capacity.unwrap_or_default();
          v.push(input);
          self.consumed_capacity = ::std::option::Option::Some(v);
@@ -88,13 +88,13 @@
      }
      /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
 -    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
-+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ConsumedCapacity>>) -> Self {
++    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self {
          self.consumed_capacity = input;
          self
      }
      /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
 -    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> {
-+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ConsumedCapacity>> {
++    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> {
          &self.consumed_capacity
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -104,8 +104,8 @@
      /// Consumes the builder and constructs a [`BatchExecuteStatementOutput`](crate::operation::batch_execute_statement::BatchExecuteStatementOutput).
 -    pub fn build(self) -> crate::operation::batch_execute_statement::BatchExecuteStatementOutput {
 -        crate::operation::batch_execute_statement::BatchExecuteStatementOutput {
-+    pub fn build(self) -> super::operation::batch_execute_statement::BatchExecuteStatementOutput {
-+        super::operation::batch_execute_statement::BatchExecuteStatementOutput {
++    pub fn build(self) -> super::super::super::operation::batch_execute_statement::BatchExecuteStatementOutput {
++        super::super::super::operation::batch_execute_statement::BatchExecuteStatementOutput {
              responses: self.responses,
              consumed_capacity: self.consumed_capacity,
              _request_id: self._request_id,

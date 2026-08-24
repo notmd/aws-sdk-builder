@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ParseKeyValue`](crate::types::ParseKeyValue).
 -    pub fn builder() -> crate::types::builders::ParseKeyValueBuilder {
 -        crate::types::builders::ParseKeyValueBuilder::default()
-+    pub fn builder() -> super::types::builders::ParseKeyValueBuilder {
-+        super::types::builders::ParseKeyValueBuilder::default()
++    pub fn builder() -> super::super::types::builders::ParseKeyValueBuilder {
++        super::super::types::builders::ParseKeyValueBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ParseKeyValue`](crate::types::ParseKeyValue).
 -    pub fn build(self) -> crate::types::ParseKeyValue {
 -        crate::types::ParseKeyValue {
-+    pub fn build(self) -> super::types::ParseKeyValue {
-+        super::types::ParseKeyValue {
++    pub fn build(self) -> super::super::types::ParseKeyValue {
++        super::super::types::ParseKeyValue {
              source: self.source,
              destination: self.destination,
              field_delimiter: self.field_delimiter,

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteConfigurationSetOutput`](crate::operation::delete_configuration_set::DeleteConfigurationSetOutput).
 -    pub fn builder() -> crate::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder {
 -        crate::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder {
-+        super::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder {
++        super::super::super::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteConfigurationSetOutput`](crate::operation::delete_configuration_set::DeleteConfigurationSetOutput).
 -    pub fn build(self) -> crate::operation::delete_configuration_set::DeleteConfigurationSetOutput {
 -        crate::operation::delete_configuration_set::DeleteConfigurationSetOutput {
-+    pub fn build(self) -> super::operation::delete_configuration_set::DeleteConfigurationSetOutput {
-+        super::operation::delete_configuration_set::DeleteConfigurationSetOutput {
++    pub fn build(self) -> super::super::super::operation::delete_configuration_set::DeleteConfigurationSetOutput {
++        super::super::super::operation::delete_configuration_set::DeleteConfigurationSetOutput {
              _request_id: self._request_id,
          }
      }

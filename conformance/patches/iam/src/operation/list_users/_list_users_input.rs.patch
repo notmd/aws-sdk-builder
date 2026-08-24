@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListUsersInput`](crate::operation::list_users::ListUsersInput).
 -    pub fn builder() -> crate::operation::list_users::builders::ListUsersInputBuilder {
 -        crate::operation::list_users::builders::ListUsersInputBuilder::default()
-+    pub fn builder() -> super::operation::list_users::builders::ListUsersInputBuilder {
-+        super::operation::list_users::builders::ListUsersInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_users::builders::ListUsersInputBuilder {
++        super::super::super::operation::list_users::builders::ListUsersInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ListUsersInput`](crate::operation::list_users::ListUsersInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::list_users::ListUsersInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_users::ListUsersInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::list_users::ListUsersInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_users::ListUsersInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_users::ListUsersInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_users::ListUsersInput {
              path_prefix: self.path_prefix,
              marker: self.marker,
              max_items: self.max_items,

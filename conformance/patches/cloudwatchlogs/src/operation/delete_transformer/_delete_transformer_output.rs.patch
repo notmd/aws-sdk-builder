@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteTransformerOutput`](crate::operation::delete_transformer::DeleteTransformerOutput).
 -    pub fn builder() -> crate::operation::delete_transformer::builders::DeleteTransformerOutputBuilder {
 -        crate::operation::delete_transformer::builders::DeleteTransformerOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_transformer::builders::DeleteTransformerOutputBuilder {
-+        super::operation::delete_transformer::builders::DeleteTransformerOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_transformer::builders::DeleteTransformerOutputBuilder {
++        super::super::super::operation::delete_transformer::builders::DeleteTransformerOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteTransformerOutput`](crate::operation::delete_transformer::DeleteTransformerOutput).
 -    pub fn build(self) -> crate::operation::delete_transformer::DeleteTransformerOutput {
 -        crate::operation::delete_transformer::DeleteTransformerOutput {
-+    pub fn build(self) -> super::operation::delete_transformer::DeleteTransformerOutput {
-+        super::operation::delete_transformer::DeleteTransformerOutput {
++    pub fn build(self) -> super::super::super::operation::delete_transformer::DeleteTransformerOutput {
++        super::super::super::operation::delete_transformer::DeleteTransformerOutput {
              _request_id: self._request_id,
          }
      }

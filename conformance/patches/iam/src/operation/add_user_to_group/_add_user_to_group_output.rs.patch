@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AddUserToGroupOutput`](crate::operation::add_user_to_group::AddUserToGroupOutput).
 -    pub fn builder() -> crate::operation::add_user_to_group::builders::AddUserToGroupOutputBuilder {
 -        crate::operation::add_user_to_group::builders::AddUserToGroupOutputBuilder::default()
-+    pub fn builder() -> super::operation::add_user_to_group::builders::AddUserToGroupOutputBuilder {
-+        super::operation::add_user_to_group::builders::AddUserToGroupOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::add_user_to_group::builders::AddUserToGroupOutputBuilder {
++        super::super::super::operation::add_user_to_group::builders::AddUserToGroupOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AddUserToGroupOutput`](crate::operation::add_user_to_group::AddUserToGroupOutput).
 -    pub fn build(self) -> crate::operation::add_user_to_group::AddUserToGroupOutput {
 -        crate::operation::add_user_to_group::AddUserToGroupOutput {
-+    pub fn build(self) -> super::operation::add_user_to_group::AddUserToGroupOutput {
-+        super::operation::add_user_to_group::AddUserToGroupOutput {
++    pub fn build(self) -> super::super::super::operation::add_user_to_group::AddUserToGroupOutput {
++        super::super::super::operation::add_user_to_group::AddUserToGroupOutput {
              _request_id: self._request_id,
          }
      }

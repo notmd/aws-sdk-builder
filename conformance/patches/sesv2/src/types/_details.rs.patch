@@ -5,12 +5,12 @@
  pub struct Details {
      /// <p>A list of route configuration details. Must contain exactly one route configuration.</p>
 -    pub routes_details: ::std::vec::Vec<crate::types::RouteDetails>,
-+    pub routes_details: ::std::vec::Vec<super::types::RouteDetails>,
++    pub routes_details: ::std::vec::Vec<super::super::types::RouteDetails>,
  }
  impl Details {
      /// <p>A list of route configuration details. Must contain exactly one route configuration.</p>
 -    pub fn routes_details(&self) -> &[crate::types::RouteDetails] {
-+    pub fn routes_details(&self) -> &[super::types::RouteDetails] {
++    pub fn routes_details(&self) -> &[super::super::types::RouteDetails] {
          use std::ops::Deref;
          self.routes_details.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`Details`](crate::types::Details).
 -    pub fn builder() -> crate::types::builders::DetailsBuilder {
 -        crate::types::builders::DetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::DetailsBuilder {
-+        super::types::builders::DetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::DetailsBuilder {
++        super::super::types::builders::DetailsBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct DetailsBuilder {
 -    pub(crate) routes_details: ::std::option::Option<::std::vec::Vec<crate::types::RouteDetails>>,
-+    pub(crate) routes_details: ::std::option::Option<::std::vec::Vec<super::types::RouteDetails>>,
++    pub(crate) routes_details: ::std::option::Option<::std::vec::Vec<super::super::types::RouteDetails>>,
  }
  impl DetailsBuilder {
      /// Appends an item to `routes_details`.
@@ -39,7 +39,7 @@
      ///
      /// <p>A list of route configuration details. Must contain exactly one route configuration.</p>
 -    pub fn routes_details(mut self, input: crate::types::RouteDetails) -> Self {
-+    pub fn routes_details(mut self, input: super::types::RouteDetails) -> Self {
++    pub fn routes_details(mut self, input: super::super::types::RouteDetails) -> Self {
          let mut v = self.routes_details.unwrap_or_default();
          v.push(input);
          self.routes_details = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>A list of route configuration details. Must contain exactly one route configuration.</p>
 -    pub fn set_routes_details(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RouteDetails>>) -> Self {
-+    pub fn set_routes_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::RouteDetails>>) -> Self {
++    pub fn set_routes_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::RouteDetails>>) -> Self {
          self.routes_details = input;
          self
      }
      /// <p>A list of route configuration details. Must contain exactly one route configuration.</p>
 -    pub fn get_routes_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RouteDetails>> {
-+    pub fn get_routes_details(&self) -> &::std::option::Option<::std::vec::Vec<super::types::RouteDetails>> {
++    pub fn get_routes_details(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::RouteDetails>> {
          &self.routes_details
      }
      /// Consumes the builder and constructs a [`Details`](crate::types::Details).
@@ -62,8 +62,8 @@
      /// - [`routes_details`](crate::types::builders::DetailsBuilder::routes_details)
 -    pub fn build(self) -> ::std::result::Result<crate::types::Details, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::Details {
-+    pub fn build(self) -> ::std::result::Result<super::types::Details, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Details {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Details, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Details {
              routes_details: self.routes_details.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "routes_details",

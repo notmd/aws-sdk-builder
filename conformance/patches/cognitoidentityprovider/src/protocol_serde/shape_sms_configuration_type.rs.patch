@@ -5,7 +5,7 @@
  pub fn ser_sms_configuration_type(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::SmsConfigurationType,
-+    input: &super::types::SmsConfigurationType,
++    input: &super::super::types::SmsConfigurationType,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("SnsCallerArn").string(input.sns_caller_arn.as_str());
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_4 = object.key("EumsSms").start_object();
 -        crate::protocol_serde::shape_eums_sms_configuration_type::ser_eums_sms_configuration_type(&mut object_4, var_3)?;
-+        super::protocol_serde::shape_eums_sms_configuration_type::ser_eums_sms_configuration_type(&mut object_4, var_3)?;
++        super::super::protocol_serde::shape_eums_sms_configuration_type::ser_eums_sms_configuration_type(&mut object_4, var_3)?;
          object_4.finish();
      }
      Ok(())
@@ -23,7 +23,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::SmsConfigurationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::SmsConfigurationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::SmsConfigurationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -32,7 +32,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::SmsConfigurationTypeBuilder::default();
-+            let mut builder = super::types::builders::SmsConfigurationTypeBuilder::default();
++            let mut builder = super::super::types::builders::SmsConfigurationTypeBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -41,7 +41,7 @@
                          }
                          "EumsSms" => {
 -                            builder = builder.set_eums_sms(crate::protocol_serde::shape_eums_sms_configuration_type::de_eums_sms_configuration_type(
-+                            builder = builder.set_eums_sms(super::protocol_serde::shape_eums_sms_configuration_type::de_eums_sms_configuration_type(
++                            builder = builder.set_eums_sms(super::super::protocol_serde::shape_eums_sms_configuration_type::de_eums_sms_configuration_type(
                                  tokens,
                                  _value,
                                  depth + 1,

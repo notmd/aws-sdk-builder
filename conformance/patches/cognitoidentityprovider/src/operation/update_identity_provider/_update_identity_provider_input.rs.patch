@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateIdentityProviderInput`](crate::operation::update_identity_provider::UpdateIdentityProviderInput).
 -    pub fn builder() -> crate::operation::update_identity_provider::builders::UpdateIdentityProviderInputBuilder {
 -        crate::operation::update_identity_provider::builders::UpdateIdentityProviderInputBuilder::default()
-+    pub fn builder() -> super::operation::update_identity_provider::builders::UpdateIdentityProviderInputBuilder {
-+        super::operation::update_identity_provider::builders::UpdateIdentityProviderInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_identity_provider::builders::UpdateIdentityProviderInputBuilder {
++        super::super::super::operation::update_identity_provider::builders::UpdateIdentityProviderInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::update_identity_provider::UpdateIdentityProviderInput,
-+        super::operation::update_identity_provider::UpdateIdentityProviderInput,
++        super::super::super::operation::update_identity_provider::UpdateIdentityProviderInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::update_identity_provider::UpdateIdentityProviderInput {
-+        ::std::result::Result::Ok(super::operation::update_identity_provider::UpdateIdentityProviderInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_identity_provider::UpdateIdentityProviderInput {
              user_pool_id: self.user_pool_id,
              provider_name: self.provider_name,
              provider_details: self.provider_details,

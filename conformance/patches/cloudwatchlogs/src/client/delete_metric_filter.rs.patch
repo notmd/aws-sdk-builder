@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteMetricFilterError>`](crate::operation::delete_metric_filter::DeleteMetricFilterError)
 -    pub fn delete_metric_filter(&self) -> crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder {
 -        crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder::new(self.handle.clone())
-+    pub fn delete_metric_filter(&self) -> super::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder {
-+        super::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder::new(self.handle.clone())
++    pub fn delete_metric_filter(&self) -> super::super::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder {
++        super::super::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder::new(self.handle.clone())
      }
  }

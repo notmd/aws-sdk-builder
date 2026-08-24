@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for WebAuthnRelyingPartyMismatchException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::WebAuthnRelyingPartyMismatchException {
-+impl ::aws_types::request_id::RequestId for super::types::error::WebAuthnRelyingPartyMismatchException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::WebAuthnRelyingPartyMismatchException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`WebAuthnRelyingPartyMismatchException`](crate::types::error::WebAuthnRelyingPartyMismatchException).
 -    pub fn builder() -> crate::types::error::builders::WebAuthnRelyingPartyMismatchExceptionBuilder {
 -        crate::types::error::builders::WebAuthnRelyingPartyMismatchExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::WebAuthnRelyingPartyMismatchExceptionBuilder {
-+        super::types::error::builders::WebAuthnRelyingPartyMismatchExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::WebAuthnRelyingPartyMismatchExceptionBuilder {
++        super::super::super::types::error::builders::WebAuthnRelyingPartyMismatchExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`WebAuthnRelyingPartyMismatchException`](crate::types::error::WebAuthnRelyingPartyMismatchException).
 -    pub fn build(self) -> crate::types::error::WebAuthnRelyingPartyMismatchException {
 -        crate::types::error::WebAuthnRelyingPartyMismatchException {
-+    pub fn build(self) -> super::types::error::WebAuthnRelyingPartyMismatchException {
-+        super::types::error::WebAuthnRelyingPartyMismatchException {
++    pub fn build(self) -> super::super::super::types::error::WebAuthnRelyingPartyMismatchException {
++        super::super::super::types::error::WebAuthnRelyingPartyMismatchException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

@@ -5,22 +5,22 @@
  pub struct EventRiskType {
      /// <p>The action taken by adaptive authentication. If <code>NoRisk</code>, your user pool took no action. If <code>AccountTakeover</code>, your user pool applied the adaptive authentication automated response that you configured. If <code>Block</code>, your user pool prevented the attempt.</p>
 -    pub risk_decision: ::std::option::Option<crate::types::RiskDecisionType>,
-+    pub risk_decision: ::std::option::Option<super::types::RiskDecisionType>,
++    pub risk_decision: ::std::option::Option<super::super::types::RiskDecisionType>,
      /// <p>The risk level that adaptive authentication assessed for the authentication event.</p>
 -    pub risk_level: ::std::option::Option<crate::types::RiskLevelType>,
-+    pub risk_level: ::std::option::Option<super::types::RiskLevelType>,
++    pub risk_level: ::std::option::Option<super::super::types::RiskLevelType>,
      /// <p>Indicates whether compromised credentials were detected during an authentication event.</p>
      pub compromised_credentials_detected: ::std::option::Option<bool>,
  }
  impl EventRiskType {
      /// <p>The action taken by adaptive authentication. If <code>NoRisk</code>, your user pool took no action. If <code>AccountTakeover</code>, your user pool applied the adaptive authentication automated response that you configured. If <code>Block</code>, your user pool prevented the attempt.</p>
 -    pub fn risk_decision(&self) -> ::std::option::Option<&crate::types::RiskDecisionType> {
-+    pub fn risk_decision(&self) -> ::std::option::Option<&super::types::RiskDecisionType> {
++    pub fn risk_decision(&self) -> ::std::option::Option<&super::super::types::RiskDecisionType> {
          self.risk_decision.as_ref()
      }
      /// <p>The risk level that adaptive authentication assessed for the authentication event.</p>
 -    pub fn risk_level(&self) -> ::std::option::Option<&crate::types::RiskLevelType> {
-+    pub fn risk_level(&self) -> ::std::option::Option<&super::types::RiskLevelType> {
++    pub fn risk_level(&self) -> ::std::option::Option<&super::super::types::RiskLevelType> {
          self.risk_level.as_ref()
      }
      /// <p>Indicates whether compromised credentials were detected during an authentication event.</p>
@@ -30,8 +30,8 @@
      /// Creates a new builder-style object to manufacture [`EventRiskType`](crate::types::EventRiskType).
 -    pub fn builder() -> crate::types::builders::EventRiskTypeBuilder {
 -        crate::types::builders::EventRiskTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::EventRiskTypeBuilder {
-+        super::types::builders::EventRiskTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::EventRiskTypeBuilder {
++        super::super::types::builders::EventRiskTypeBuilder::default()
      }
  }
 
@@ -41,43 +41,43 @@
  pub struct EventRiskTypeBuilder {
 -    pub(crate) risk_decision: ::std::option::Option<crate::types::RiskDecisionType>,
 -    pub(crate) risk_level: ::std::option::Option<crate::types::RiskLevelType>,
-+    pub(crate) risk_decision: ::std::option::Option<super::types::RiskDecisionType>,
-+    pub(crate) risk_level: ::std::option::Option<super::types::RiskLevelType>,
++    pub(crate) risk_decision: ::std::option::Option<super::super::types::RiskDecisionType>,
++    pub(crate) risk_level: ::std::option::Option<super::super::types::RiskLevelType>,
      pub(crate) compromised_credentials_detected: ::std::option::Option<bool>,
  }
  impl EventRiskTypeBuilder {
      /// <p>The action taken by adaptive authentication. If <code>NoRisk</code>, your user pool took no action. If <code>AccountTakeover</code>, your user pool applied the adaptive authentication automated response that you configured. If <code>Block</code>, your user pool prevented the attempt.</p>
 -    pub fn risk_decision(mut self, input: crate::types::RiskDecisionType) -> Self {
-+    pub fn risk_decision(mut self, input: super::types::RiskDecisionType) -> Self {
++    pub fn risk_decision(mut self, input: super::super::types::RiskDecisionType) -> Self {
          self.risk_decision = ::std::option::Option::Some(input);
          self
      }
      /// <p>The action taken by adaptive authentication. If <code>NoRisk</code>, your user pool took no action. If <code>AccountTakeover</code>, your user pool applied the adaptive authentication automated response that you configured. If <code>Block</code>, your user pool prevented the attempt.</p>
 -    pub fn set_risk_decision(mut self, input: ::std::option::Option<crate::types::RiskDecisionType>) -> Self {
-+    pub fn set_risk_decision(mut self, input: ::std::option::Option<super::types::RiskDecisionType>) -> Self {
++    pub fn set_risk_decision(mut self, input: ::std::option::Option<super::super::types::RiskDecisionType>) -> Self {
          self.risk_decision = input;
          self
      }
      /// <p>The action taken by adaptive authentication. If <code>NoRisk</code>, your user pool took no action. If <code>AccountTakeover</code>, your user pool applied the adaptive authentication automated response that you configured. If <code>Block</code>, your user pool prevented the attempt.</p>
 -    pub fn get_risk_decision(&self) -> &::std::option::Option<crate::types::RiskDecisionType> {
-+    pub fn get_risk_decision(&self) -> &::std::option::Option<super::types::RiskDecisionType> {
++    pub fn get_risk_decision(&self) -> &::std::option::Option<super::super::types::RiskDecisionType> {
          &self.risk_decision
      }
      /// <p>The risk level that adaptive authentication assessed for the authentication event.</p>
 -    pub fn risk_level(mut self, input: crate::types::RiskLevelType) -> Self {
-+    pub fn risk_level(mut self, input: super::types::RiskLevelType) -> Self {
++    pub fn risk_level(mut self, input: super::super::types::RiskLevelType) -> Self {
          self.risk_level = ::std::option::Option::Some(input);
          self
      }
      /// <p>The risk level that adaptive authentication assessed for the authentication event.</p>
 -    pub fn set_risk_level(mut self, input: ::std::option::Option<crate::types::RiskLevelType>) -> Self {
-+    pub fn set_risk_level(mut self, input: ::std::option::Option<super::types::RiskLevelType>) -> Self {
++    pub fn set_risk_level(mut self, input: ::std::option::Option<super::super::types::RiskLevelType>) -> Self {
          self.risk_level = input;
          self
      }
      /// <p>The risk level that adaptive authentication assessed for the authentication event.</p>
 -    pub fn get_risk_level(&self) -> &::std::option::Option<crate::types::RiskLevelType> {
-+    pub fn get_risk_level(&self) -> &::std::option::Option<super::types::RiskLevelType> {
++    pub fn get_risk_level(&self) -> &::std::option::Option<super::super::types::RiskLevelType> {
          &self.risk_level
      }
      /// <p>Indicates whether compromised credentials were detected during an authentication event.</p>
@@ -87,8 +87,8 @@
      /// Consumes the builder and constructs a [`EventRiskType`](crate::types::EventRiskType).
 -    pub fn build(self) -> crate::types::EventRiskType {
 -        crate::types::EventRiskType {
-+    pub fn build(self) -> super::types::EventRiskType {
-+        super::types::EventRiskType {
++    pub fn build(self) -> super::super::types::EventRiskType {
++        super::super::types::EventRiskType {
              risk_decision: self.risk_decision,
              risk_level: self.risk_level,
              compromised_credentials_detected: self.compromised_credentials_detected,

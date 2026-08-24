@@ -5,7 +5,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      /// <p>The account ID of the expected bucket owner.</p>
      pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
  }
@@ -14,7 +14,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
-+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
++    pub fn request_payer(&self) -> ::std::option::Option<&super::super::super::types::RequestPayer> {
          self.request_payer.as_ref()
      }
      /// <p>The account ID of the expected bucket owner.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListObjectAnnotationsInput`](crate::operation::list_object_annotations::ListObjectAnnotationsInput).
 -    pub fn builder() -> crate::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder {
 -        crate::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder {
-+        super::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder {
++        super::super::super::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) annotation_prefix: ::std::option::Option<::std::string::String>,
      pub(crate) continuation_token: ::std::option::Option<::std::string::String>,
 -    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub(crate) request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
  }
  impl ListObjectAnnotationsInputBuilder {
@@ -43,7 +43,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
-+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::super::super::types::RequestPayer) -> Self {
          self.request_payer = ::std::option::Option::Some(input);
          self
      }
@@ -52,7 +52,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
-+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::super::super::types::RequestPayer>) -> Self {
          self.request_payer = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
-+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::super::super::types::RequestPayer> {
          &self.request_payer
      }
      /// <p>The account ID of the expected bucket owner.</p>
@@ -70,10 +70,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::list_object_annotations::ListObjectAnnotationsInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::list_object_annotations::ListObjectAnnotationsInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::list_object_annotations::ListObjectAnnotationsInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::list_object_annotations::ListObjectAnnotationsInput {
-+        ::std::result::Result::Ok(super::operation::list_object_annotations::ListObjectAnnotationsInput {
++        ::std::result::Result::Ok(super::super::super::operation::list_object_annotations::ListObjectAnnotationsInput {
              bucket: self.bucket,
              key: self.key,
              version_id: self.version_id,

@@ -5,7 +5,7 @@
  pub struct ListServiceJobsOutput {
      /// <p>A list of service job summaries.</p>
 -    pub job_summary_list: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobSummary>>,
-+    pub job_summary_list: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobSummary>>,
++    pub job_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobSummary>>,
      /// <p>The <code>nextToken</code> value to include in a future <code>ListServiceJobs</code> request. When the results of a <code>ListServiceJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.job_summary_list.is_none()`.
 -    pub fn job_summary_list(&self) -> &[crate::types::ServiceJobSummary] {
-+    pub fn job_summary_list(&self) -> &[super::types::ServiceJobSummary] {
++    pub fn job_summary_list(&self) -> &[super::super::super::types::ServiceJobSummary] {
          self.job_summary_list.as_deref().unwrap_or_default()
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>ListServiceJobs</code> request. When the results of a <code>ListServiceJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListServiceJobsOutput`](crate::operation::list_service_jobs::ListServiceJobsOutput).
 -    pub fn builder() -> crate::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder {
 -        crate::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder {
-+        super::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder {
++        super::super::super::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListServiceJobsOutputBuilder {
 -    pub(crate) job_summary_list: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobSummary>>,
-+    pub(crate) job_summary_list: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobSummary>>,
++    pub(crate) job_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobSummary>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of service job summaries.</p>
 -    pub fn job_summary_list(mut self, input: crate::types::ServiceJobSummary) -> Self {
-+    pub fn job_summary_list(mut self, input: super::types::ServiceJobSummary) -> Self {
++    pub fn job_summary_list(mut self, input: super::super::super::types::ServiceJobSummary) -> Self {
          let mut v = self.job_summary_list.unwrap_or_default();
          v.push(input);
          self.job_summary_list = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of service job summaries.</p>
 -    pub fn set_job_summary_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobSummary>>) -> Self {
-+    pub fn set_job_summary_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobSummary>>) -> Self {
++    pub fn set_job_summary_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobSummary>>) -> Self {
          self.job_summary_list = input;
          self
      }
      /// <p>A list of service job summaries.</p>
 -    pub fn get_job_summary_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceJobSummary>> {
-+    pub fn get_job_summary_list(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ServiceJobSummary>> {
++    pub fn get_job_summary_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobSummary>> {
          &self.job_summary_list
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>ListServiceJobs</code> request. When the results of a <code>ListServiceJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListServiceJobsOutput`](crate::operation::list_service_jobs::ListServiceJobsOutput).
 -    pub fn build(self) -> crate::operation::list_service_jobs::ListServiceJobsOutput {
 -        crate::operation::list_service_jobs::ListServiceJobsOutput {
-+    pub fn build(self) -> super::operation::list_service_jobs::ListServiceJobsOutput {
-+        super::operation::list_service_jobs::ListServiceJobsOutput {
++    pub fn build(self) -> super::super::super::operation::list_service_jobs::ListServiceJobsOutput {
++        super::super::super::operation::list_service_jobs::ListServiceJobsOutput {
              job_summary_list: self.job_summary_list,
              next_token: self.next_token,
              _request_id: self._request_id,

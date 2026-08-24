@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListInstanceProfileTagsError>`](crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError)
 -    pub fn list_instance_profile_tags(&self) -> crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsFluentBuilder {
 -        crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsFluentBuilder::new(self.handle.clone())
-+    pub fn list_instance_profile_tags(&self) -> super::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsFluentBuilder {
-+        super::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsFluentBuilder::new(self.handle.clone())
++    pub fn list_instance_profile_tags(&self) -> super::super::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsFluentBuilder {
++        super::super::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,33 +5,33 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::admin_list_devices::AdminListDevicesOutput, crate::operation::admin_list_devices::AdminListDevicesError> {
-+) -> std::result::Result<super::operation::admin_list_devices::AdminListDevicesOutput, super::operation::admin_list_devices::AdminListDevicesError> {
++) -> std::result::Result<super::super::operation::admin_list_devices::AdminListDevicesOutput, super::super::operation::admin_list_devices::AdminListDevicesError> {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::admin_list_devices::AdminListDevicesError::unhandled(generic)),
-+        None => return Err(super::operation::admin_list_devices::AdminListDevicesError::unhandled(generic)),
++        None => return Err(super::super::operation::admin_list_devices::AdminListDevicesError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InternalErrorException" => crate::operation::admin_list_devices::AdminListDevicesError::InternalErrorException({
-+        "InternalErrorException" => super::operation::admin_list_devices::AdminListDevicesError::InternalErrorException({
++        "InternalErrorException" => super::super::operation::admin_list_devices::AdminListDevicesError::InternalErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -40,16 +40,16 @@
              tmp
          }),
 -        "InvalidParameterException" => crate::operation::admin_list_devices::AdminListDevicesError::InvalidParameterException({
-+        "InvalidParameterException" => super::operation::admin_list_devices::AdminListDevicesError::InvalidParameterException({
++        "InvalidParameterException" => super::super::operation::admin_list_devices::AdminListDevicesError::InvalidParameterException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -58,14 +58,14 @@
          }),
          "InvalidUserPoolConfigurationException" => {
 -            crate::operation::admin_list_devices::AdminListDevicesError::InvalidUserPoolConfigurationException({
-+            super::operation::admin_list_devices::AdminListDevicesError::InvalidUserPoolConfigurationException({
++            super::super::operation::admin_list_devices::AdminListDevicesError::InvalidUserPoolConfigurationException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(crate::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(super::super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -74,16 +74,16 @@
              })
          }
 -        "NotAuthorizedException" => crate::operation::admin_list_devices::AdminListDevicesError::NotAuthorizedException({
-+        "NotAuthorizedException" => super::operation::admin_list_devices::AdminListDevicesError::NotAuthorizedException({
++        "NotAuthorizedException" => super::super::operation::admin_list_devices::AdminListDevicesError::NotAuthorizedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
-+                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -92,17 +92,17 @@
              tmp
          }),
 -        "OperationNotEnabledException" => crate::operation::admin_list_devices::AdminListDevicesError::OperationNotEnabledException({
-+        "OperationNotEnabledException" => super::operation::admin_list_devices::AdminListDevicesError::OperationNotEnabledException({
++        "OperationNotEnabledException" => super::super::operation::admin_list_devices::AdminListDevicesError::OperationNotEnabledException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-+                let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
-+                    super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
++                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -111,16 +111,16 @@
              tmp
          }),
 -        "ResourceNotFoundException" => crate::operation::admin_list_devices::AdminListDevicesError::ResourceNotFoundException({
-+        "ResourceNotFoundException" => super::operation::admin_list_devices::AdminListDevicesError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::super::operation::admin_list_devices::AdminListDevicesError::ResourceNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
-+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -129,16 +129,16 @@
              tmp
          }),
 -        "TooManyRequestsException" => crate::operation::admin_list_devices::AdminListDevicesError::TooManyRequestsException({
-+        "TooManyRequestsException" => super::operation::admin_list_devices::AdminListDevicesError::TooManyRequestsException({
++        "TooManyRequestsException" => super::super::operation::admin_list_devices::AdminListDevicesError::TooManyRequestsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
-+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
++                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -147,7 +147,7 @@
              tmp
          }),
 -        _ => crate::operation::admin_list_devices::AdminListDevicesError::generic(generic),
-+        _ => super::operation::admin_list_devices::AdminListDevicesError::generic(generic),
++        _ => super::super::operation::admin_list_devices::AdminListDevicesError::generic(generic),
      })
  }
 
@@ -156,15 +156,15 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::admin_list_devices::AdminListDevicesOutput, crate::operation::admin_list_devices::AdminListDevicesError> {
-+) -> std::result::Result<super::operation::admin_list_devices::AdminListDevicesOutput, super::operation::admin_list_devices::AdminListDevicesError> {
++) -> std::result::Result<super::super::operation::admin_list_devices::AdminListDevicesOutput, super::super::operation::admin_list_devices::AdminListDevicesError> {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder::default();
 -        output = crate::protocol_serde::shape_admin_list_devices::de_admin_list_devices(_response_body, output)
 -            .map_err(crate::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
-+        let mut output = super::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder::default();
-+        output = super::protocol_serde::shape_admin_list_devices::de_admin_list_devices(_response_body, output)
-+            .map_err(super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
++        let mut output = super::super::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder::default();
++        output = super::super::protocol_serde::shape_admin_list_devices::de_admin_list_devices(_response_body, output)
++            .map_err(super::super::operation::admin_list_devices::AdminListDevicesError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -173,12 +173,12 @@
 
  pub fn ser_admin_list_devices_input(
 -    input: &crate::operation::admin_list_devices::AdminListDevicesInput,
-+    input: &super::operation::admin_list_devices::AdminListDevicesInput,
++    input: &super::super::operation::admin_list_devices::AdminListDevicesInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_admin_list_devices_input::ser_admin_list_devices_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_admin_list_devices_input::ser_admin_list_devices_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_admin_list_devices_input::ser_admin_list_devices_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -187,14 +187,14 @@
  pub(crate) fn de_admin_list_devices(
      _value: &[u8],
 -    mut builder: crate::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder,
-+    mut builder: super::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder,
++    mut builder: super::super::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder,
-+    super::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder,
++    super::super::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -203,7 +203,7 @@
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                  "Devices" => {
 -                    builder = builder.set_devices(crate::protocol_serde::shape_device_list_type::de_device_list_type(
-+                    builder = builder.set_devices(super::protocol_serde::shape_device_list_type::de_device_list_type(
++                    builder = builder.set_devices(super::super::protocol_serde::shape_device_list_type::de_device_list_type(
                          tokens,
                          _value,
                          depth + 1,

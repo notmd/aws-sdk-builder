@@ -5,7 +5,7 @@
  pub struct VerifySoftwareTokenOutput {
      /// <p>Amazon Cognito can accept or reject the code that you provide. This response parameter indicates the success of TOTP verification. Some reasons that this operation might return an error are clock skew on the user's device and excessive retries.</p>
 -    pub status: ::std::option::Option<crate::types::VerifySoftwareTokenResponseType>,
-+    pub status: ::std::option::Option<super::types::VerifySoftwareTokenResponseType>,
++    pub status: ::std::option::Option<super::super::super::types::VerifySoftwareTokenResponseType>,
      /// <p>This session ID satisfies an <code>MFA_SETUP</code> challenge. Supply the session ID in your challenge response.</p>
      pub session: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
  impl VerifySoftwareTokenOutput {
      /// <p>Amazon Cognito can accept or reject the code that you provide. This response parameter indicates the success of TOTP verification. Some reasons that this operation might return an error are clock skew on the user's device and excessive retries.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::VerifySoftwareTokenResponseType> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::VerifySoftwareTokenResponseType> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::super::types::VerifySoftwareTokenResponseType> {
          self.status.as_ref()
      }
      /// <p>This session ID satisfies an <code>MFA_SETUP</code> challenge. Supply the session ID in your challenge response.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`VerifySoftwareTokenOutput`](crate::operation::verify_software_token::VerifySoftwareTokenOutput).
 -    pub fn builder() -> crate::operation::verify_software_token::builders::VerifySoftwareTokenOutputBuilder {
 -        crate::operation::verify_software_token::builders::VerifySoftwareTokenOutputBuilder::default()
-+    pub fn builder() -> super::operation::verify_software_token::builders::VerifySoftwareTokenOutputBuilder {
-+        super::operation::verify_software_token::builders::VerifySoftwareTokenOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::verify_software_token::builders::VerifySoftwareTokenOutputBuilder {
++        super::super::super::operation::verify_software_token::builders::VerifySoftwareTokenOutputBuilder::default()
      }
  }
 
@@ -34,26 +34,26 @@
  #[non_exhaustive]
  pub struct VerifySoftwareTokenOutputBuilder {
 -    pub(crate) status: ::std::option::Option<crate::types::VerifySoftwareTokenResponseType>,
-+    pub(crate) status: ::std::option::Option<super::types::VerifySoftwareTokenResponseType>,
++    pub(crate) status: ::std::option::Option<super::super::super::types::VerifySoftwareTokenResponseType>,
      pub(crate) session: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
  impl VerifySoftwareTokenOutputBuilder {
      /// <p>Amazon Cognito can accept or reject the code that you provide. This response parameter indicates the success of TOTP verification. Some reasons that this operation might return an error are clock skew on the user's device and excessive retries.</p>
 -    pub fn status(mut self, input: crate::types::VerifySoftwareTokenResponseType) -> Self {
-+    pub fn status(mut self, input: super::types::VerifySoftwareTokenResponseType) -> Self {
++    pub fn status(mut self, input: super::super::super::types::VerifySoftwareTokenResponseType) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>Amazon Cognito can accept or reject the code that you provide. This response parameter indicates the success of TOTP verification. Some reasons that this operation might return an error are clock skew on the user's device and excessive retries.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::VerifySoftwareTokenResponseType>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::VerifySoftwareTokenResponseType>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::super::types::VerifySoftwareTokenResponseType>) -> Self {
          self.status = input;
          self
      }
      /// <p>Amazon Cognito can accept or reject the code that you provide. This response parameter indicates the success of TOTP verification. Some reasons that this operation might return an error are clock skew on the user's device and excessive retries.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::VerifySoftwareTokenResponseType> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::VerifySoftwareTokenResponseType> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::super::types::VerifySoftwareTokenResponseType> {
          &self.status
      }
      /// <p>This session ID satisfies an <code>MFA_SETUP</code> challenge. Supply the session ID in your challenge response.</p>
@@ -63,8 +63,8 @@
      /// Consumes the builder and constructs a [`VerifySoftwareTokenOutput`](crate::operation::verify_software_token::VerifySoftwareTokenOutput).
 -    pub fn build(self) -> crate::operation::verify_software_token::VerifySoftwareTokenOutput {
 -        crate::operation::verify_software_token::VerifySoftwareTokenOutput {
-+    pub fn build(self) -> super::operation::verify_software_token::VerifySoftwareTokenOutput {
-+        super::operation::verify_software_token::VerifySoftwareTokenOutput {
++    pub fn build(self) -> super::super::super::operation::verify_software_token::VerifySoftwareTokenOutput {
++        super::super::super::operation::verify_software_token::VerifySoftwareTokenOutput {
              status: self.status,
              session: self.session,
              _request_id: self._request_id,

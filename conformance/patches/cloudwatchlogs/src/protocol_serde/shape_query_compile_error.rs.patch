@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::QueryCompileError>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::QueryCompileError>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::QueryCompileError>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::QueryCompileErrorBuilder::default();
-+            let mut builder = super::types::builders::QueryCompileErrorBuilder::default();
++            let mut builder = super::super::types::builders::QueryCompileErrorBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          "location" => {
                              builder = builder.set_location(
 -                                crate::protocol_serde::shape_query_compile_error_location::de_query_compile_error_location(
-+                                super::protocol_serde::shape_query_compile_error_location::de_query_compile_error_location(
++                                super::super::protocol_serde::shape_query_compile_error_location::de_query_compile_error_location(
                                      tokens,
                                      _value,
                                      depth + 1,

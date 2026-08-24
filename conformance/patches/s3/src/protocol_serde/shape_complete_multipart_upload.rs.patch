@@ -6,20 +6,20 @@
  ) -> std::result::Result<
 -    crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput,
 -    crate::operation::complete_multipart_upload::CompleteMultipartUploadError,
-+    super::operation::complete_multipart_upload::CompleteMultipartUploadOutput,
-+    super::operation::complete_multipart_upload::CompleteMultipartUploadError,
++    super::super::operation::complete_multipart_upload::CompleteMultipartUploadOutput,
++    super::super::operation::complete_multipart_upload::CompleteMultipartUploadError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled)?;
 -    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled)?;
-+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled)?;
++    generic_builder = super::super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
 -    Err(crate::operation::complete_multipart_upload::CompleteMultipartUploadError::generic(
-+    Err(super::operation::complete_multipart_upload::CompleteMultipartUploadError::generic(
++    Err(super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::generic(
          generic,
      ))
  }
@@ -29,22 +29,22 @@
  ) -> std::result::Result<
 -    crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput,
 -    crate::operation::complete_multipart_upload::CompleteMultipartUploadError,
-+    super::operation::complete_multipart_upload::CompleteMultipartUploadOutput,
-+    super::operation::complete_multipart_upload::CompleteMultipartUploadError,
++    super::super::operation::complete_multipart_upload::CompleteMultipartUploadOutput,
++    super::super::operation::complete_multipart_upload::CompleteMultipartUploadError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder::default();
 -        output = crate::protocol_serde::shape_complete_multipart_upload::de_complete_multipart_upload(_response_body, output)
 -            .map_err(crate::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled)?;
-+        let mut output = super::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder::default();
-+        output = super::protocol_serde::shape_complete_multipart_upload::de_complete_multipart_upload(_response_body, output)
-+            .map_err(super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled)?;
++        let mut output = super::super::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder::default();
++        output = super::super::protocol_serde::shape_complete_multipart_upload::de_complete_multipart_upload(_response_body, output)
++            .map_err(super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled)?;
          output = output.set_bucket_key_enabled(
 -            crate::protocol_serde::shape_complete_multipart_upload_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
 -                crate::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
-+            super::protocol_serde::shape_complete_multipart_upload_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
-+                super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
++            super::super::protocol_serde::shape_complete_multipart_upload_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
++                super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
                      "Failed to parse BucketKeyEnabled from header `x-amz-server-side-encryption-bucket-key-enabled",
                  )
              })?,
@@ -52,8 +52,8 @@
          output = output.set_expiration(
 -            crate::protocol_serde::shape_complete_multipart_upload_output::de_expiration_header(_response_headers).map_err(|_| {
 -                crate::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
-+            super::protocol_serde::shape_complete_multipart_upload_output::de_expiration_header(_response_headers).map_err(|_| {
-+                super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
++            super::super::protocol_serde::shape_complete_multipart_upload_output::de_expiration_header(_response_headers).map_err(|_| {
++                super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
                      "Failed to parse Expiration from header `x-amz-expiration",
                  )
              })?,
@@ -61,8 +61,8 @@
          output = output.set_request_charged(
 -            crate::protocol_serde::shape_complete_multipart_upload_output::de_request_charged_header(_response_headers).map_err(|_| {
 -                crate::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
-+            super::protocol_serde::shape_complete_multipart_upload_output::de_request_charged_header(_response_headers).map_err(|_| {
-+                super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
++            super::super::protocol_serde::shape_complete_multipart_upload_output::de_request_charged_header(_response_headers).map_err(|_| {
++                super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
                      "Failed to parse RequestCharged from header `x-amz-request-charged",
                  )
              })?,
@@ -70,8 +70,8 @@
          output = output.set_ssekms_key_id(
 -            crate::protocol_serde::shape_complete_multipart_upload_output::de_ssekms_key_id_header(_response_headers).map_err(|_| {
 -                crate::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
-+            super::protocol_serde::shape_complete_multipart_upload_output::de_ssekms_key_id_header(_response_headers).map_err(|_| {
-+                super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
++            super::super::protocol_serde::shape_complete_multipart_upload_output::de_ssekms_key_id_header(_response_headers).map_err(|_| {
++                super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
                      "Failed to parse SSEKMSKeyId from header `x-amz-server-side-encryption-aws-kms-key-id",
                  )
              })?,
@@ -79,8 +79,8 @@
          output = output.set_server_side_encryption(
 -            crate::protocol_serde::shape_complete_multipart_upload_output::de_server_side_encryption_header(_response_headers).map_err(|_| {
 -                crate::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
-+            super::protocol_serde::shape_complete_multipart_upload_output::de_server_side_encryption_header(_response_headers).map_err(|_| {
-+                super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
++            super::super::protocol_serde::shape_complete_multipart_upload_output::de_server_side_encryption_header(_response_headers).map_err(|_| {
++                super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
                      "Failed to parse ServerSideEncryption from header `x-amz-server-side-encryption",
                  )
              })?,
@@ -88,14 +88,14 @@
          output = output.set_version_id(
 -            crate::protocol_serde::shape_complete_multipart_upload_output::de_version_id_header(_response_headers).map_err(|_| {
 -                crate::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
-+            super::protocol_serde::shape_complete_multipart_upload_output::de_version_id_header(_response_headers).map_err(|_| {
-+                super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
++            super::super::protocol_serde::shape_complete_multipart_upload_output::de_version_id_header(_response_headers).map_err(|_| {
++                super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
                      "Failed to parse VersionId from header `x-amz-version-id",
                  )
              })?,
          );
 -        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
-+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
++        output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -104,7 +104,7 @@
 
  pub fn ser_complete_multipart_upload_headers(
 -    input: &crate::operation::complete_multipart_upload::CompleteMultipartUploadInput,
-+    input: &super::operation::complete_multipart_upload::CompleteMultipartUploadInput,
++    input: &super::super::operation::complete_multipart_upload::CompleteMultipartUploadInput,
      mut builder: ::http_1x::request::Builder,
  ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
      if let ::std::option::Option::Some(inner_1) = &input.checksum_crc32 {
@@ -113,10 +113,10 @@
  pub fn de_complete_multipart_upload(
      inp: &[u8],
 -    mut builder: crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder,
-+    mut builder: super::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder,
++    mut builder: super::super::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder,
-+    super::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder,
++    super::super::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -126,8 +126,8 @@
                      Some(
 -                        Result::<crate::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::ChecksumType::from(
-+                        Result::<super::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::ChecksumType::from(
++                        Result::<super::super::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::ChecksumType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteMultiRegionEndpointError>`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError)
 -    pub fn delete_multi_region_endpoint(&self) -> crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder {
 -        crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder::new(self.handle.clone())
-+    pub fn delete_multi_region_endpoint(&self) -> super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder {
-+        super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder::new(self.handle.clone())
++    pub fn delete_multi_region_endpoint(&self) -> super::super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder {
++        super::super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder::new(self.handle.clone())
      }
  }

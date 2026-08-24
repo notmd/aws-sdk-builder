@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateContinuousBackupsError>`](crate::operation::update_continuous_backups::UpdateContinuousBackupsError)
 -    pub fn update_continuous_backups(&self) -> crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsFluentBuilder {
 -        crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsFluentBuilder::new(self.handle.clone())
-+    pub fn update_continuous_backups(&self) -> super::operation::update_continuous_backups::builders::UpdateContinuousBackupsFluentBuilder {
-+        super::operation::update_continuous_backups::builders::UpdateContinuousBackupsFluentBuilder::new(self.handle.clone())
++    pub fn update_continuous_backups(&self) -> super::super::operation::update_continuous_backups::builders::UpdateContinuousBackupsFluentBuilder {
++        super::super::operation::update_continuous_backups::builders::UpdateContinuousBackupsFluentBuilder::new(self.handle.clone())
      }
  }

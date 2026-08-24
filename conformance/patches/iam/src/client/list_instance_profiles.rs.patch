@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListInstanceProfilesError>`](crate::operation::list_instance_profiles::ListInstanceProfilesError)
 -    pub fn list_instance_profiles(&self) -> crate::operation::list_instance_profiles::builders::ListInstanceProfilesFluentBuilder {
 -        crate::operation::list_instance_profiles::builders::ListInstanceProfilesFluentBuilder::new(self.handle.clone())
-+    pub fn list_instance_profiles(&self) -> super::operation::list_instance_profiles::builders::ListInstanceProfilesFluentBuilder {
-+        super::operation::list_instance_profiles::builders::ListInstanceProfilesFluentBuilder::new(self.handle.clone())
++    pub fn list_instance_profiles(&self) -> super::super::operation::list_instance_profiles::builders::ListInstanceProfilesFluentBuilder {
++        super::super::operation::list_instance_profiles::builders::ListInstanceProfilesFluentBuilder::new(self.handle.clone())
      }
  }

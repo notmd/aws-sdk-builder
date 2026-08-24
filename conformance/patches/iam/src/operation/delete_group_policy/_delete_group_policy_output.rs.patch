@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteGroupPolicyOutput`](crate::operation::delete_group_policy::DeleteGroupPolicyOutput).
 -    pub fn builder() -> crate::operation::delete_group_policy::builders::DeleteGroupPolicyOutputBuilder {
 -        crate::operation::delete_group_policy::builders::DeleteGroupPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_group_policy::builders::DeleteGroupPolicyOutputBuilder {
-+        super::operation::delete_group_policy::builders::DeleteGroupPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_group_policy::builders::DeleteGroupPolicyOutputBuilder {
++        super::super::super::operation::delete_group_policy::builders::DeleteGroupPolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteGroupPolicyOutput`](crate::operation::delete_group_policy::DeleteGroupPolicyOutput).
 -    pub fn build(self) -> crate::operation::delete_group_policy::DeleteGroupPolicyOutput {
 -        crate::operation::delete_group_policy::DeleteGroupPolicyOutput {
-+    pub fn build(self) -> super::operation::delete_group_policy::DeleteGroupPolicyOutput {
-+        super::operation::delete_group_policy::DeleteGroupPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::delete_group_policy::DeleteGroupPolicyOutput {
++        super::super::super::operation::delete_group_policy::DeleteGroupPolicyOutput {
              _request_id: self._request_id,
          }
      }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`BidirectionalOutputPayloadPart`](crate::types::BidirectionalOutputPayloadPart).
 -    pub fn builder() -> crate::types::builders::BidirectionalOutputPayloadPartBuilder {
 -        crate::types::builders::BidirectionalOutputPayloadPartBuilder::default()
-+    pub fn builder() -> super::types::builders::BidirectionalOutputPayloadPartBuilder {
-+        super::types::builders::BidirectionalOutputPayloadPartBuilder::default()
++    pub fn builder() -> super::super::types::builders::BidirectionalOutputPayloadPartBuilder {
++        super::super::types::builders::BidirectionalOutputPayloadPartBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`BidirectionalOutputPayloadPart`](crate::types::BidirectionalOutputPayloadPart).
 -    pub fn build(self) -> crate::types::BidirectionalOutputPayloadPart {
 -        crate::types::BidirectionalOutputPayloadPart { bytes: self.bytes }
-+    pub fn build(self) -> super::types::BidirectionalOutputPayloadPart {
-+        super::types::BidirectionalOutputPayloadPart { bytes: self.bytes }
++    pub fn build(self) -> super::super::types::BidirectionalOutputPayloadPart {
++        super::super::types::BidirectionalOutputPayloadPart { bytes: self.bytes }
      }
  }
  impl ::std::fmt::Debug for BidirectionalOutputPayloadPartBuilder {

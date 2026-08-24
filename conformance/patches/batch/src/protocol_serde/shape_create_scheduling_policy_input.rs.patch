@@ -5,13 +5,13 @@
  pub fn ser_create_scheduling_policy_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::create_scheduling_policy::CreateSchedulingPolicyInput,
-+    input: &super::operation::create_scheduling_policy::CreateSchedulingPolicyInput,
++    input: &super::super::operation::create_scheduling_policy::CreateSchedulingPolicyInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.fairshare_policy {
          #[allow(unused_mut)]
          let mut object_2 = object.key("fairsharePolicy").start_object();
 -        crate::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_2, var_1)?;
          object_2.finish();
      }
      if let Some(var_3) = &input.name {
@@ -20,7 +20,7 @@
          #[allow(unused_mut)]
          let mut object_5 = object.key("quotaSharePolicy").start_object();
 -        crate::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
-+        super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
          object_5.finish();
      }
      if let Some(var_6) = &input.tags {

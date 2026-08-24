@@ -5,7 +5,7 @@
      pub template_name: ::std::option::Option<::std::string::String>,
      /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
 -    pub template_content: ::std::option::Option<crate::types::EmailTemplateContent>,
-+    pub template_content: ::std::option::Option<super::types::EmailTemplateContent>,
++    pub template_content: ::std::option::Option<super::super::super::types::EmailTemplateContent>,
  }
  impl UpdateEmailTemplateInput {
      /// <p>The name of the template.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
 -    pub fn template_content(&self) -> ::std::option::Option<&crate::types::EmailTemplateContent> {
-+    pub fn template_content(&self) -> ::std::option::Option<&super::types::EmailTemplateContent> {
++    pub fn template_content(&self) -> ::std::option::Option<&super::super::super::types::EmailTemplateContent> {
          self.template_content.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateEmailTemplateInput`](crate::operation::update_email_template::UpdateEmailTemplateInput).
 -    pub fn builder() -> crate::operation::update_email_template::builders::UpdateEmailTemplateInputBuilder {
 -        crate::operation::update_email_template::builders::UpdateEmailTemplateInputBuilder::default()
-+    pub fn builder() -> super::operation::update_email_template::builders::UpdateEmailTemplateInputBuilder {
-+        super::operation::update_email_template::builders::UpdateEmailTemplateInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_email_template::builders::UpdateEmailTemplateInputBuilder {
++        super::super::super::operation::update_email_template::builders::UpdateEmailTemplateInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct UpdateEmailTemplateInputBuilder {
      pub(crate) template_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) template_content: ::std::option::Option<crate::types::EmailTemplateContent>,
-+    pub(crate) template_content: ::std::option::Option<super::types::EmailTemplateContent>,
++    pub(crate) template_content: ::std::option::Option<super::super::super::types::EmailTemplateContent>,
  }
  impl UpdateEmailTemplateInputBuilder {
      /// <p>The name of the template.</p>
@@ -41,29 +41,29 @@
      /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
      /// This field is required.
 -    pub fn template_content(mut self, input: crate::types::EmailTemplateContent) -> Self {
-+    pub fn template_content(mut self, input: super::types::EmailTemplateContent) -> Self {
++    pub fn template_content(mut self, input: super::super::super::types::EmailTemplateContent) -> Self {
          self.template_content = ::std::option::Option::Some(input);
          self
      }
      /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
 -    pub fn set_template_content(mut self, input: ::std::option::Option<crate::types::EmailTemplateContent>) -> Self {
-+    pub fn set_template_content(mut self, input: ::std::option::Option<super::types::EmailTemplateContent>) -> Self {
++    pub fn set_template_content(mut self, input: ::std::option::Option<super::super::super::types::EmailTemplateContent>) -> Self {
          self.template_content = input;
          self
      }
      /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
 -    pub fn get_template_content(&self) -> &::std::option::Option<crate::types::EmailTemplateContent> {
-+    pub fn get_template_content(&self) -> &::std::option::Option<super::types::EmailTemplateContent> {
++    pub fn get_template_content(&self) -> &::std::option::Option<super::super::super::types::EmailTemplateContent> {
          &self.template_content
      }
      /// Consumes the builder and constructs a [`UpdateEmailTemplateInput`](crate::operation::update_email_template::UpdateEmailTemplateInput).
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::update_email_template::UpdateEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::update_email_template::UpdateEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::update_email_template::UpdateEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::update_email_template::UpdateEmailTemplateInput {
-+        ::std::result::Result::Ok(super::operation::update_email_template::UpdateEmailTemplateInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_email_template::UpdateEmailTemplateInput {
              template_name: self.template_name,
              template_content: self.template_content,
          })

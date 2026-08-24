@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SubmitJobOutput`](crate::operation::submit_job::SubmitJobOutput).
 -    pub fn builder() -> crate::operation::submit_job::builders::SubmitJobOutputBuilder {
 -        crate::operation::submit_job::builders::SubmitJobOutputBuilder::default()
-+    pub fn builder() -> super::operation::submit_job::builders::SubmitJobOutputBuilder {
-+        super::operation::submit_job::builders::SubmitJobOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::submit_job::builders::SubmitJobOutputBuilder {
++        super::super::super::operation::submit_job::builders::SubmitJobOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`SubmitJobOutput`](crate::operation::submit_job::SubmitJobOutput).
 -    pub fn build(self) -> crate::operation::submit_job::SubmitJobOutput {
 -        crate::operation::submit_job::SubmitJobOutput {
-+    pub fn build(self) -> super::operation::submit_job::SubmitJobOutput {
-+        super::operation::submit_job::SubmitJobOutput {
++    pub fn build(self) -> super::super::super::operation::submit_job::SubmitJobOutput {
++        super::super::super::operation::submit_job::SubmitJobOutput {
              job_arn: self.job_arn,
              job_name: self.job_name,
              job_id: self.job_id,

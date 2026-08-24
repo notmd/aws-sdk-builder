@@ -5,18 +5,18 @@
      pub batch_size: ::std::option::Option<i32>,
      /// <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
 -    pub filter_criteria: ::std::option::Option<crate::types::FilterCriteria>,
-+    pub filter_criteria: ::std::option::Option<super::types::FilterCriteria>,
++    pub filter_criteria: ::std::option::Option<super::super::super::types::FilterCriteria>,
      /// <p>The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key.</p>
      pub kms_key_arn: ::std::option::Option<::std::string::String>,
      /// <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
 -    pub metrics_config: ::std::option::Option<crate::types::EventSourceMappingMetricsConfig>,
-+    pub metrics_config: ::std::option::Option<super::types::EventSourceMappingMetricsConfig>,
++    pub metrics_config: ::std::option::Option<super::super::super::types::EventSourceMappingMetricsConfig>,
      /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.</p>
 -    pub logging_config: ::std::option::Option<crate::types::EventSourceMappingLoggingConfig>,
-+    pub logging_config: ::std::option::Option<super::types::EventSourceMappingLoggingConfig>,
++    pub logging_config: ::std::option::Option<super::super::super::types::EventSourceMappingLoggingConfig>,
      /// <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
 -    pub scaling_config: ::std::option::Option<crate::types::ScalingConfig>,
-+    pub scaling_config: ::std::option::Option<super::types::ScalingConfig>,
++    pub scaling_config: ::std::option::Option<super::super::super::types::ScalingConfig>,
      /// <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
      /// <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p>
      /// <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
@@ -25,7 +25,7 @@
      pub parallelization_factor: ::std::option::Option<i32>,
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
 -    pub destination_config: ::std::option::Option<crate::types::DestinationConfig>,
-+    pub destination_config: ::std::option::Option<super::types::DestinationConfig>,
++    pub destination_config: ::std::option::Option<super::super::super::types::DestinationConfig>,
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
      pub maximum_record_age_in_seconds: ::std::option::Option<i32>,
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.</p>
@@ -34,22 +34,22 @@
      pub tumbling_window_in_seconds: ::std::option::Option<i32>,
      /// <p>An array of authentication protocols or VPC components required to secure your event source.</p>
 -    pub source_access_configurations: ::std::option::Option<::std::vec::Vec<crate::types::SourceAccessConfiguration>>,
-+    pub source_access_configurations: ::std::option::Option<::std::vec::Vec<super::types::SourceAccessConfiguration>>,
++    pub source_access_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::SourceAccessConfiguration>>,
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
 -    pub function_response_types: ::std::option::Option<::std::vec::Vec<crate::types::FunctionResponseType>>,
-+    pub function_response_types: ::std::option::Option<::std::vec::Vec<super::types::FunctionResponseType>>,
++    pub function_response_types: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionResponseType>>,
      /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
 -    pub amazon_managed_kafka_event_source_config: ::std::option::Option<crate::types::AmazonManagedKafkaEventSourceConfig>,
-+    pub amazon_managed_kafka_event_source_config: ::std::option::Option<super::types::AmazonManagedKafkaEventSourceConfig>,
++    pub amazon_managed_kafka_event_source_config: ::std::option::Option<super::super::super::types::AmazonManagedKafkaEventSourceConfig>,
      /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
 -    pub self_managed_kafka_event_source_config: ::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig>,
-+    pub self_managed_kafka_event_source_config: ::std::option::Option<super::types::SelfManagedKafkaEventSourceConfig>,
++    pub self_managed_kafka_event_source_config: ::std::option::Option<super::super::super::types::SelfManagedKafkaEventSourceConfig>,
      /// <p>Specific configuration settings for a DocumentDB event source.</p>
 -    pub document_db_event_source_config: ::std::option::Option<crate::types::DocumentDbEventSourceConfig>,
-+    pub document_db_event_source_config: ::std::option::Option<super::types::DocumentDbEventSourceConfig>,
++    pub document_db_event_source_config: ::std::option::Option<super::super::super::types::DocumentDbEventSourceConfig>,
      /// <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
 -    pub provisioned_poller_config: ::std::option::Option<crate::types::ProvisionedPollerConfig>,
-+    pub provisioned_poller_config: ::std::option::Option<super::types::ProvisionedPollerConfig>,
++    pub provisioned_poller_config: ::std::option::Option<super::super::super::types::ProvisionedPollerConfig>,
  }
  impl UpdateEventSourceMappingInput {
      /// <p>The identifier of the event source mapping.</p>
@@ -58,7 +58,7 @@
      }
      /// <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
 -    pub fn filter_criteria(&self) -> ::std::option::Option<&crate::types::FilterCriteria> {
-+    pub fn filter_criteria(&self) -> ::std::option::Option<&super::types::FilterCriteria> {
++    pub fn filter_criteria(&self) -> ::std::option::Option<&super::super::super::types::FilterCriteria> {
          self.filter_criteria.as_ref()
      }
      /// <p>The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key.</p>
@@ -67,17 +67,17 @@
      }
      /// <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
 -    pub fn metrics_config(&self) -> ::std::option::Option<&crate::types::EventSourceMappingMetricsConfig> {
-+    pub fn metrics_config(&self) -> ::std::option::Option<&super::types::EventSourceMappingMetricsConfig> {
++    pub fn metrics_config(&self) -> ::std::option::Option<&super::super::super::types::EventSourceMappingMetricsConfig> {
          self.metrics_config.as_ref()
      }
      /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.</p>
 -    pub fn logging_config(&self) -> ::std::option::Option<&crate::types::EventSourceMappingLoggingConfig> {
-+    pub fn logging_config(&self) -> ::std::option::Option<&super::types::EventSourceMappingLoggingConfig> {
++    pub fn logging_config(&self) -> ::std::option::Option<&super::super::super::types::EventSourceMappingLoggingConfig> {
          self.logging_config.as_ref()
      }
      /// <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
 -    pub fn scaling_config(&self) -> ::std::option::Option<&crate::types::ScalingConfig> {
-+    pub fn scaling_config(&self) -> ::std::option::Option<&super::types::ScalingConfig> {
++    pub fn scaling_config(&self) -> ::std::option::Option<&super::super::super::types::ScalingConfig> {
          self.scaling_config.as_ref()
      }
      /// <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
@@ -86,7 +86,7 @@
      }
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
 -    pub fn destination_config(&self) -> ::std::option::Option<&crate::types::DestinationConfig> {
-+    pub fn destination_config(&self) -> ::std::option::Option<&super::types::DestinationConfig> {
++    pub fn destination_config(&self) -> ::std::option::Option<&super::super::super::types::DestinationConfig> {
          self.destination_config.as_ref()
      }
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
@@ -95,34 +95,34 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.source_access_configurations.is_none()`.
 -    pub fn source_access_configurations(&self) -> &[crate::types::SourceAccessConfiguration] {
-+    pub fn source_access_configurations(&self) -> &[super::types::SourceAccessConfiguration] {
++    pub fn source_access_configurations(&self) -> &[super::super::super::types::SourceAccessConfiguration] {
          self.source_access_configurations.as_deref().unwrap_or_default()
      }
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.function_response_types.is_none()`.
 -    pub fn function_response_types(&self) -> &[crate::types::FunctionResponseType] {
-+    pub fn function_response_types(&self) -> &[super::types::FunctionResponseType] {
++    pub fn function_response_types(&self) -> &[super::super::super::types::FunctionResponseType] {
          self.function_response_types.as_deref().unwrap_or_default()
      }
      /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
 -    pub fn amazon_managed_kafka_event_source_config(&self) -> ::std::option::Option<&crate::types::AmazonManagedKafkaEventSourceConfig> {
-+    pub fn amazon_managed_kafka_event_source_config(&self) -> ::std::option::Option<&super::types::AmazonManagedKafkaEventSourceConfig> {
++    pub fn amazon_managed_kafka_event_source_config(&self) -> ::std::option::Option<&super::super::super::types::AmazonManagedKafkaEventSourceConfig> {
          self.amazon_managed_kafka_event_source_config.as_ref()
      }
      /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
 -    pub fn self_managed_kafka_event_source_config(&self) -> ::std::option::Option<&crate::types::SelfManagedKafkaEventSourceConfig> {
-+    pub fn self_managed_kafka_event_source_config(&self) -> ::std::option::Option<&super::types::SelfManagedKafkaEventSourceConfig> {
++    pub fn self_managed_kafka_event_source_config(&self) -> ::std::option::Option<&super::super::super::types::SelfManagedKafkaEventSourceConfig> {
          self.self_managed_kafka_event_source_config.as_ref()
      }
      /// <p>Specific configuration settings for a DocumentDB event source.</p>
 -    pub fn document_db_event_source_config(&self) -> ::std::option::Option<&crate::types::DocumentDbEventSourceConfig> {
-+    pub fn document_db_event_source_config(&self) -> ::std::option::Option<&super::types::DocumentDbEventSourceConfig> {
++    pub fn document_db_event_source_config(&self) -> ::std::option::Option<&super::super::super::types::DocumentDbEventSourceConfig> {
          self.document_db_event_source_config.as_ref()
      }
      /// <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
 -    pub fn provisioned_poller_config(&self) -> ::std::option::Option<&crate::types::ProvisionedPollerConfig> {
-+    pub fn provisioned_poller_config(&self) -> ::std::option::Option<&super::types::ProvisionedPollerConfig> {
++    pub fn provisioned_poller_config(&self) -> ::std::option::Option<&super::super::super::types::ProvisionedPollerConfig> {
          self.provisioned_poller_config.as_ref()
      }
  }
@@ -130,8 +130,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateEventSourceMappingInput`](crate::operation::update_event_source_mapping::UpdateEventSourceMappingInput).
 -    pub fn builder() -> crate::operation::update_event_source_mapping::builders::UpdateEventSourceMappingInputBuilder {
 -        crate::operation::update_event_source_mapping::builders::UpdateEventSourceMappingInputBuilder::default()
-+    pub fn builder() -> super::operation::update_event_source_mapping::builders::UpdateEventSourceMappingInputBuilder {
-+        super::operation::update_event_source_mapping::builders::UpdateEventSourceMappingInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_event_source_mapping::builders::UpdateEventSourceMappingInputBuilder {
++        super::super::super::operation::update_event_source_mapping::builders::UpdateEventSourceMappingInputBuilder::default()
      }
  }
 
@@ -140,18 +140,18 @@
      pub(crate) enabled: ::std::option::Option<bool>,
      pub(crate) batch_size: ::std::option::Option<i32>,
 -    pub(crate) filter_criteria: ::std::option::Option<crate::types::FilterCriteria>,
-+    pub(crate) filter_criteria: ::std::option::Option<super::types::FilterCriteria>,
++    pub(crate) filter_criteria: ::std::option::Option<super::super::super::types::FilterCriteria>,
      pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) metrics_config: ::std::option::Option<crate::types::EventSourceMappingMetricsConfig>,
 -    pub(crate) logging_config: ::std::option::Option<crate::types::EventSourceMappingLoggingConfig>,
 -    pub(crate) scaling_config: ::std::option::Option<crate::types::ScalingConfig>,
-+    pub(crate) metrics_config: ::std::option::Option<super::types::EventSourceMappingMetricsConfig>,
-+    pub(crate) logging_config: ::std::option::Option<super::types::EventSourceMappingLoggingConfig>,
-+    pub(crate) scaling_config: ::std::option::Option<super::types::ScalingConfig>,
++    pub(crate) metrics_config: ::std::option::Option<super::super::super::types::EventSourceMappingMetricsConfig>,
++    pub(crate) logging_config: ::std::option::Option<super::super::super::types::EventSourceMappingLoggingConfig>,
++    pub(crate) scaling_config: ::std::option::Option<super::super::super::types::ScalingConfig>,
      pub(crate) maximum_batching_window_in_seconds: ::std::option::Option<i32>,
      pub(crate) parallelization_factor: ::std::option::Option<i32>,
 -    pub(crate) destination_config: ::std::option::Option<crate::types::DestinationConfig>,
-+    pub(crate) destination_config: ::std::option::Option<super::types::DestinationConfig>,
++    pub(crate) destination_config: ::std::option::Option<super::super::super::types::DestinationConfig>,
      pub(crate) maximum_record_age_in_seconds: ::std::option::Option<i32>,
      pub(crate) bisect_batch_on_function_error: ::std::option::Option<bool>,
      pub(crate) maximum_retry_attempts: ::std::option::Option<i32>,
@@ -162,12 +162,12 @@
 -    pub(crate) self_managed_kafka_event_source_config: ::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig>,
 -    pub(crate) document_db_event_source_config: ::std::option::Option<crate::types::DocumentDbEventSourceConfig>,
 -    pub(crate) provisioned_poller_config: ::std::option::Option<crate::types::ProvisionedPollerConfig>,
-+    pub(crate) source_access_configurations: ::std::option::Option<::std::vec::Vec<super::types::SourceAccessConfiguration>>,
-+    pub(crate) function_response_types: ::std::option::Option<::std::vec::Vec<super::types::FunctionResponseType>>,
-+    pub(crate) amazon_managed_kafka_event_source_config: ::std::option::Option<super::types::AmazonManagedKafkaEventSourceConfig>,
-+    pub(crate) self_managed_kafka_event_source_config: ::std::option::Option<super::types::SelfManagedKafkaEventSourceConfig>,
-+    pub(crate) document_db_event_source_config: ::std::option::Option<super::types::DocumentDbEventSourceConfig>,
-+    pub(crate) provisioned_poller_config: ::std::option::Option<super::types::ProvisionedPollerConfig>,
++    pub(crate) source_access_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::SourceAccessConfiguration>>,
++    pub(crate) function_response_types: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionResponseType>>,
++    pub(crate) amazon_managed_kafka_event_source_config: ::std::option::Option<super::super::super::types::AmazonManagedKafkaEventSourceConfig>,
++    pub(crate) self_managed_kafka_event_source_config: ::std::option::Option<super::super::super::types::SelfManagedKafkaEventSourceConfig>,
++    pub(crate) document_db_event_source_config: ::std::option::Option<super::super::super::types::DocumentDbEventSourceConfig>,
++    pub(crate) provisioned_poller_config: ::std::option::Option<super::super::super::types::ProvisionedPollerConfig>,
  }
  impl UpdateEventSourceMappingInputBuilder {
      /// <p>The identifier of the event source mapping.</p>
@@ -176,19 +176,19 @@
      }
      /// <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
 -    pub fn filter_criteria(mut self, input: crate::types::FilterCriteria) -> Self {
-+    pub fn filter_criteria(mut self, input: super::types::FilterCriteria) -> Self {
++    pub fn filter_criteria(mut self, input: super::super::super::types::FilterCriteria) -> Self {
          self.filter_criteria = ::std::option::Option::Some(input);
          self
      }
      /// <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
 -    pub fn set_filter_criteria(mut self, input: ::std::option::Option<crate::types::FilterCriteria>) -> Self {
-+    pub fn set_filter_criteria(mut self, input: ::std::option::Option<super::types::FilterCriteria>) -> Self {
++    pub fn set_filter_criteria(mut self, input: ::std::option::Option<super::super::super::types::FilterCriteria>) -> Self {
          self.filter_criteria = input;
          self
      }
      /// <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
 -    pub fn get_filter_criteria(&self) -> &::std::option::Option<crate::types::FilterCriteria> {
-+    pub fn get_filter_criteria(&self) -> &::std::option::Option<super::types::FilterCriteria> {
++    pub fn get_filter_criteria(&self) -> &::std::option::Option<super::super::super::types::FilterCriteria> {
          &self.filter_criteria
      }
      /// <p>The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key.</p>
@@ -197,53 +197,53 @@
      }
      /// <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
 -    pub fn metrics_config(mut self, input: crate::types::EventSourceMappingMetricsConfig) -> Self {
-+    pub fn metrics_config(mut self, input: super::types::EventSourceMappingMetricsConfig) -> Self {
++    pub fn metrics_config(mut self, input: super::super::super::types::EventSourceMappingMetricsConfig) -> Self {
          self.metrics_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
 -    pub fn set_metrics_config(mut self, input: ::std::option::Option<crate::types::EventSourceMappingMetricsConfig>) -> Self {
-+    pub fn set_metrics_config(mut self, input: ::std::option::Option<super::types::EventSourceMappingMetricsConfig>) -> Self {
++    pub fn set_metrics_config(mut self, input: ::std::option::Option<super::super::super::types::EventSourceMappingMetricsConfig>) -> Self {
          self.metrics_config = input;
          self
      }
      /// <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
 -    pub fn get_metrics_config(&self) -> &::std::option::Option<crate::types::EventSourceMappingMetricsConfig> {
-+    pub fn get_metrics_config(&self) -> &::std::option::Option<super::types::EventSourceMappingMetricsConfig> {
++    pub fn get_metrics_config(&self) -> &::std::option::Option<super::super::super::types::EventSourceMappingMetricsConfig> {
          &self.metrics_config
      }
      /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.</p>
 -    pub fn logging_config(mut self, input: crate::types::EventSourceMappingLoggingConfig) -> Self {
-+    pub fn logging_config(mut self, input: super::types::EventSourceMappingLoggingConfig) -> Self {
++    pub fn logging_config(mut self, input: super::super::super::types::EventSourceMappingLoggingConfig) -> Self {
          self.logging_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.</p>
 -    pub fn set_logging_config(mut self, input: ::std::option::Option<crate::types::EventSourceMappingLoggingConfig>) -> Self {
-+    pub fn set_logging_config(mut self, input: ::std::option::Option<super::types::EventSourceMappingLoggingConfig>) -> Self {
++    pub fn set_logging_config(mut self, input: ::std::option::Option<super::super::super::types::EventSourceMappingLoggingConfig>) -> Self {
          self.logging_config = input;
          self
      }
      /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.</p>
 -    pub fn get_logging_config(&self) -> &::std::option::Option<crate::types::EventSourceMappingLoggingConfig> {
-+    pub fn get_logging_config(&self) -> &::std::option::Option<super::types::EventSourceMappingLoggingConfig> {
++    pub fn get_logging_config(&self) -> &::std::option::Option<super::super::super::types::EventSourceMappingLoggingConfig> {
          &self.logging_config
      }
      /// <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
 -    pub fn scaling_config(mut self, input: crate::types::ScalingConfig) -> Self {
-+    pub fn scaling_config(mut self, input: super::types::ScalingConfig) -> Self {
++    pub fn scaling_config(mut self, input: super::super::super::types::ScalingConfig) -> Self {
          self.scaling_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
 -    pub fn set_scaling_config(mut self, input: ::std::option::Option<crate::types::ScalingConfig>) -> Self {
-+    pub fn set_scaling_config(mut self, input: ::std::option::Option<super::types::ScalingConfig>) -> Self {
++    pub fn set_scaling_config(mut self, input: ::std::option::Option<super::super::super::types::ScalingConfig>) -> Self {
          self.scaling_config = input;
          self
      }
      /// <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
 -    pub fn get_scaling_config(&self) -> &::std::option::Option<crate::types::ScalingConfig> {
-+    pub fn get_scaling_config(&self) -> &::std::option::Option<super::types::ScalingConfig> {
++    pub fn get_scaling_config(&self) -> &::std::option::Option<super::super::super::types::ScalingConfig> {
          &self.scaling_config
      }
      /// <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
@@ -252,19 +252,19 @@
      }
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
 -    pub fn destination_config(mut self, input: crate::types::DestinationConfig) -> Self {
-+    pub fn destination_config(mut self, input: super::types::DestinationConfig) -> Self {
++    pub fn destination_config(mut self, input: super::super::super::types::DestinationConfig) -> Self {
          self.destination_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
 -    pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
-+    pub fn set_destination_config(mut self, input: ::std::option::Option<super::types::DestinationConfig>) -> Self {
++    pub fn set_destination_config(mut self, input: ::std::option::Option<super::super::super::types::DestinationConfig>) -> Self {
          self.destination_config = input;
          self
      }
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
 -    pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
-+    pub fn get_destination_config(&self) -> &::std::option::Option<super::types::DestinationConfig> {
++    pub fn get_destination_config(&self) -> &::std::option::Option<super::super::super::types::DestinationConfig> {
          &self.destination_config
      }
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
@@ -273,7 +273,7 @@
      ///
      /// <p>An array of authentication protocols or VPC components required to secure your event source.</p>
 -    pub fn source_access_configurations(mut self, input: crate::types::SourceAccessConfiguration) -> Self {
-+    pub fn source_access_configurations(mut self, input: super::types::SourceAccessConfiguration) -> Self {
++    pub fn source_access_configurations(mut self, input: super::super::super::types::SourceAccessConfiguration) -> Self {
          let mut v = self.source_access_configurations.unwrap_or_default();
          v.push(input);
          self.source_access_configurations = ::std::option::Option::Some(v);
@@ -282,14 +282,14 @@
      pub fn set_source_access_configurations(
          mut self,
 -        input: ::std::option::Option<::std::vec::Vec<crate::types::SourceAccessConfiguration>>,
-+        input: ::std::option::Option<::std::vec::Vec<super::types::SourceAccessConfiguration>>,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SourceAccessConfiguration>>,
      ) -> Self {
          self.source_access_configurations = input;
          self
      }
      /// <p>An array of authentication protocols or VPC components required to secure your event source.</p>
 -    pub fn get_source_access_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SourceAccessConfiguration>> {
-+    pub fn get_source_access_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SourceAccessConfiguration>> {
++    pub fn get_source_access_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SourceAccessConfiguration>> {
          &self.source_access_configurations
      }
      /// Appends an item to `function_response_types`.
@@ -298,7 +298,7 @@
      ///
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
 -    pub fn function_response_types(mut self, input: crate::types::FunctionResponseType) -> Self {
-+    pub fn function_response_types(mut self, input: super::types::FunctionResponseType) -> Self {
++    pub fn function_response_types(mut self, input: super::super::super::types::FunctionResponseType) -> Self {
          let mut v = self.function_response_types.unwrap_or_default();
          v.push(input);
          self.function_response_types = ::std::option::Option::Some(v);
@@ -307,18 +307,18 @@
      }
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
 -    pub fn set_function_response_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionResponseType>>) -> Self {
-+    pub fn set_function_response_types(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FunctionResponseType>>) -> Self {
++    pub fn set_function_response_types(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionResponseType>>) -> Self {
          self.function_response_types = input;
          self
      }
      /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
 -    pub fn get_function_response_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionResponseType>> {
-+    pub fn get_function_response_types(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FunctionResponseType>> {
++    pub fn get_function_response_types(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionResponseType>> {
          &self.function_response_types
      }
      /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
 -    pub fn amazon_managed_kafka_event_source_config(mut self, input: crate::types::AmazonManagedKafkaEventSourceConfig) -> Self {
-+    pub fn amazon_managed_kafka_event_source_config(mut self, input: super::types::AmazonManagedKafkaEventSourceConfig) -> Self {
++    pub fn amazon_managed_kafka_event_source_config(mut self, input: super::super::super::types::AmazonManagedKafkaEventSourceConfig) -> Self {
          self.amazon_managed_kafka_event_source_config = ::std::option::Option::Some(input);
          self
      }
@@ -327,19 +327,19 @@
      pub fn set_amazon_managed_kafka_event_source_config(
          mut self,
 -        input: ::std::option::Option<crate::types::AmazonManagedKafkaEventSourceConfig>,
-+        input: ::std::option::Option<super::types::AmazonManagedKafkaEventSourceConfig>,
++        input: ::std::option::Option<super::super::super::types::AmazonManagedKafkaEventSourceConfig>,
      ) -> Self {
          self.amazon_managed_kafka_event_source_config = input;
          self
      }
      /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
 -    pub fn get_amazon_managed_kafka_event_source_config(&self) -> &::std::option::Option<crate::types::AmazonManagedKafkaEventSourceConfig> {
-+    pub fn get_amazon_managed_kafka_event_source_config(&self) -> &::std::option::Option<super::types::AmazonManagedKafkaEventSourceConfig> {
++    pub fn get_amazon_managed_kafka_event_source_config(&self) -> &::std::option::Option<super::super::super::types::AmazonManagedKafkaEventSourceConfig> {
          &self.amazon_managed_kafka_event_source_config
      }
      /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
 -    pub fn self_managed_kafka_event_source_config(mut self, input: crate::types::SelfManagedKafkaEventSourceConfig) -> Self {
-+    pub fn self_managed_kafka_event_source_config(mut self, input: super::types::SelfManagedKafkaEventSourceConfig) -> Self {
++    pub fn self_managed_kafka_event_source_config(mut self, input: super::super::super::types::SelfManagedKafkaEventSourceConfig) -> Self {
          self.self_managed_kafka_event_source_config = ::std::option::Option::Some(input);
          self
      }
@@ -348,48 +348,48 @@
      pub fn set_self_managed_kafka_event_source_config(
          mut self,
 -        input: ::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig>,
-+        input: ::std::option::Option<super::types::SelfManagedKafkaEventSourceConfig>,
++        input: ::std::option::Option<super::super::super::types::SelfManagedKafkaEventSourceConfig>,
      ) -> Self {
          self.self_managed_kafka_event_source_config = input;
          self
      }
      /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
 -    pub fn get_self_managed_kafka_event_source_config(&self) -> &::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig> {
-+    pub fn get_self_managed_kafka_event_source_config(&self) -> &::std::option::Option<super::types::SelfManagedKafkaEventSourceConfig> {
++    pub fn get_self_managed_kafka_event_source_config(&self) -> &::std::option::Option<super::super::super::types::SelfManagedKafkaEventSourceConfig> {
          &self.self_managed_kafka_event_source_config
      }
      /// <p>Specific configuration settings for a DocumentDB event source.</p>
 -    pub fn document_db_event_source_config(mut self, input: crate::types::DocumentDbEventSourceConfig) -> Self {
-+    pub fn document_db_event_source_config(mut self, input: super::types::DocumentDbEventSourceConfig) -> Self {
++    pub fn document_db_event_source_config(mut self, input: super::super::super::types::DocumentDbEventSourceConfig) -> Self {
          self.document_db_event_source_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specific configuration settings for a DocumentDB event source.</p>
 -    pub fn set_document_db_event_source_config(mut self, input: ::std::option::Option<crate::types::DocumentDbEventSourceConfig>) -> Self {
-+    pub fn set_document_db_event_source_config(mut self, input: ::std::option::Option<super::types::DocumentDbEventSourceConfig>) -> Self {
++    pub fn set_document_db_event_source_config(mut self, input: ::std::option::Option<super::super::super::types::DocumentDbEventSourceConfig>) -> Self {
          self.document_db_event_source_config = input;
          self
      }
      /// <p>Specific configuration settings for a DocumentDB event source.</p>
 -    pub fn get_document_db_event_source_config(&self) -> &::std::option::Option<crate::types::DocumentDbEventSourceConfig> {
-+    pub fn get_document_db_event_source_config(&self) -> &::std::option::Option<super::types::DocumentDbEventSourceConfig> {
++    pub fn get_document_db_event_source_config(&self) -> &::std::option::Option<super::super::super::types::DocumentDbEventSourceConfig> {
          &self.document_db_event_source_config
      }
      /// <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
 -    pub fn provisioned_poller_config(mut self, input: crate::types::ProvisionedPollerConfig) -> Self {
-+    pub fn provisioned_poller_config(mut self, input: super::types::ProvisionedPollerConfig) -> Self {
++    pub fn provisioned_poller_config(mut self, input: super::super::super::types::ProvisionedPollerConfig) -> Self {
          self.provisioned_poller_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
 -    pub fn set_provisioned_poller_config(mut self, input: ::std::option::Option<crate::types::ProvisionedPollerConfig>) -> Self {
-+    pub fn set_provisioned_poller_config(mut self, input: ::std::option::Option<super::types::ProvisionedPollerConfig>) -> Self {
++    pub fn set_provisioned_poller_config(mut self, input: ::std::option::Option<super::super::super::types::ProvisionedPollerConfig>) -> Self {
          self.provisioned_poller_config = input;
          self
      }
      /// <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
 -    pub fn get_provisioned_poller_config(&self) -> &::std::option::Option<crate::types::ProvisionedPollerConfig> {
-+    pub fn get_provisioned_poller_config(&self) -> &::std::option::Option<super::types::ProvisionedPollerConfig> {
++    pub fn get_provisioned_poller_config(&self) -> &::std::option::Option<super::super::super::types::ProvisionedPollerConfig> {
          &self.provisioned_poller_config
      }
      /// Consumes the builder and constructs a [`UpdateEventSourceMappingInput`](crate::operation::update_event_source_mapping::UpdateEventSourceMappingInput).
@@ -398,11 +398,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
-+        super::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
++        super::super::super::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::update_event_source_mapping::UpdateEventSourceMappingInput {
-+        ::std::result::Result::Ok(super::operation::update_event_source_mapping::UpdateEventSourceMappingInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_event_source_mapping::UpdateEventSourceMappingInput {
              uuid: self.uuid,
              function_name: self.function_name,
              enabled: self.enabled,

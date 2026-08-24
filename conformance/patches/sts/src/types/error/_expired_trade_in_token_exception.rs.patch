@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for ExpiredTradeInTokenException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::ExpiredTradeInTokenException {
-+impl ::aws_types::request_id::RequestId for super::types::error::ExpiredTradeInTokenException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::ExpiredTradeInTokenException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`ExpiredTradeInTokenException`](crate::types::error::ExpiredTradeInTokenException).
 -    pub fn builder() -> crate::types::error::builders::ExpiredTradeInTokenExceptionBuilder {
 -        crate::types::error::builders::ExpiredTradeInTokenExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::ExpiredTradeInTokenExceptionBuilder {
-+        super::types::error::builders::ExpiredTradeInTokenExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::ExpiredTradeInTokenExceptionBuilder {
++        super::super::super::types::error::builders::ExpiredTradeInTokenExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`ExpiredTradeInTokenException`](crate::types::error::ExpiredTradeInTokenException).
 -    pub fn build(self) -> crate::types::error::ExpiredTradeInTokenException {
 -        crate::types::error::ExpiredTradeInTokenException {
-+    pub fn build(self) -> super::types::error::ExpiredTradeInTokenException {
-+        super::types::error::ExpiredTradeInTokenException {
++    pub fn build(self) -> super::super::super::types::error::ExpiredTradeInTokenException {
++        super::super::super::types::error::ExpiredTradeInTokenException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

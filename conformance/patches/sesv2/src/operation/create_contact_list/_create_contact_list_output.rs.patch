@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateContactListOutput`](crate::operation::create_contact_list::CreateContactListOutput).
 -    pub fn builder() -> crate::operation::create_contact_list::builders::CreateContactListOutputBuilder {
 -        crate::operation::create_contact_list::builders::CreateContactListOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_contact_list::builders::CreateContactListOutputBuilder {
-+        super::operation::create_contact_list::builders::CreateContactListOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_contact_list::builders::CreateContactListOutputBuilder {
++        super::super::super::operation::create_contact_list::builders::CreateContactListOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateContactListOutput`](crate::operation::create_contact_list::CreateContactListOutput).
 -    pub fn build(self) -> crate::operation::create_contact_list::CreateContactListOutput {
 -        crate::operation::create_contact_list::CreateContactListOutput {
-+    pub fn build(self) -> super::operation::create_contact_list::CreateContactListOutput {
-+        super::operation::create_contact_list::CreateContactListOutput {
++    pub fn build(self) -> super::super::super::operation::create_contact_list::CreateContactListOutput {
++        super::super::super::operation::create_contact_list::CreateContactListOutput {
              _request_id: self._request_id,
          }
      }

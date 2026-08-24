@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutRolePermissionsBoundaryOutput`](crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput).
 -    pub fn builder() -> crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryOutputBuilder {
 -        crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryOutputBuilder {
-+        super::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryOutputBuilder {
++        super::super::super::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutRolePermissionsBoundaryOutput`](crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput).
 -    pub fn build(self) -> crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput {
 -        crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput {
-+    pub fn build(self) -> super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput {
-+        super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput {
++    pub fn build(self) -> super::super::super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput {
++        super::super::super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput {
              _request_id: self._request_id,
          }
      }

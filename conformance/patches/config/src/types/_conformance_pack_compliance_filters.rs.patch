@@ -5,7 +5,7 @@
      /// <p>Filters the results by compliance.</p>
      /// <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
 -    pub compliance_type: ::std::option::Option<crate::types::ConformancePackComplianceType>,
-+    pub compliance_type: ::std::option::Option<super::types::ConformancePackComplianceType>,
++    pub compliance_type: ::std::option::Option<super::super::types::ConformancePackComplianceType>,
  }
  impl ConformancePackComplianceFilters {
      /// <p>Filters the results by Config rule names.</p>
@@ -14,7 +14,7 @@
      /// <p>Filters the results by compliance.</p>
      /// <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
 -    pub fn compliance_type(&self) -> ::std::option::Option<&crate::types::ConformancePackComplianceType> {
-+    pub fn compliance_type(&self) -> ::std::option::Option<&super::types::ConformancePackComplianceType> {
++    pub fn compliance_type(&self) -> ::std::option::Option<&super::super::types::ConformancePackComplianceType> {
          self.compliance_type.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ConformancePackComplianceFilters`](crate::types::ConformancePackComplianceFilters).
 -    pub fn builder() -> crate::types::builders::ConformancePackComplianceFiltersBuilder {
 -        crate::types::builders::ConformancePackComplianceFiltersBuilder::default()
-+    pub fn builder() -> super::types::builders::ConformancePackComplianceFiltersBuilder {
-+        super::types::builders::ConformancePackComplianceFiltersBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConformancePackComplianceFiltersBuilder {
++        super::super::types::builders::ConformancePackComplianceFiltersBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct ConformancePackComplianceFiltersBuilder {
      pub(crate) config_rule_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) compliance_type: ::std::option::Option<crate::types::ConformancePackComplianceType>,
-+    pub(crate) compliance_type: ::std::option::Option<super::types::ConformancePackComplianceType>,
++    pub(crate) compliance_type: ::std::option::Option<super::super::types::ConformancePackComplianceType>,
  }
  impl ConformancePackComplianceFiltersBuilder {
      /// Appends an item to `config_rule_names`.
@@ -41,28 +41,28 @@
      /// <p>Filters the results by compliance.</p>
      /// <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
 -    pub fn compliance_type(mut self, input: crate::types::ConformancePackComplianceType) -> Self {
-+    pub fn compliance_type(mut self, input: super::types::ConformancePackComplianceType) -> Self {
++    pub fn compliance_type(mut self, input: super::super::types::ConformancePackComplianceType) -> Self {
          self.compliance_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>Filters the results by compliance.</p>
      /// <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
 -    pub fn set_compliance_type(mut self, input: ::std::option::Option<crate::types::ConformancePackComplianceType>) -> Self {
-+    pub fn set_compliance_type(mut self, input: ::std::option::Option<super::types::ConformancePackComplianceType>) -> Self {
++    pub fn set_compliance_type(mut self, input: ::std::option::Option<super::super::types::ConformancePackComplianceType>) -> Self {
          self.compliance_type = input;
          self
      }
      /// <p>Filters the results by compliance.</p>
      /// <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
 -    pub fn get_compliance_type(&self) -> &::std::option::Option<crate::types::ConformancePackComplianceType> {
-+    pub fn get_compliance_type(&self) -> &::std::option::Option<super::types::ConformancePackComplianceType> {
++    pub fn get_compliance_type(&self) -> &::std::option::Option<super::super::types::ConformancePackComplianceType> {
          &self.compliance_type
      }
      /// Consumes the builder and constructs a [`ConformancePackComplianceFilters`](crate::types::ConformancePackComplianceFilters).
 -    pub fn build(self) -> crate::types::ConformancePackComplianceFilters {
 -        crate::types::ConformancePackComplianceFilters {
-+    pub fn build(self) -> super::types::ConformancePackComplianceFilters {
-+        super::types::ConformancePackComplianceFilters {
++    pub fn build(self) -> super::super::types::ConformancePackComplianceFilters {
++        super::super::types::ConformancePackComplianceFilters {
              config_rule_names: self.config_rule_names,
              compliance_type: self.compliance_type,
          }

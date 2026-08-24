@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AttachRolePolicyError>`](crate::operation::attach_role_policy::AttachRolePolicyError)
 -    pub fn attach_role_policy(&self) -> crate::operation::attach_role_policy::builders::AttachRolePolicyFluentBuilder {
 -        crate::operation::attach_role_policy::builders::AttachRolePolicyFluentBuilder::new(self.handle.clone())
-+    pub fn attach_role_policy(&self) -> super::operation::attach_role_policy::builders::AttachRolePolicyFluentBuilder {
-+        super::operation::attach_role_policy::builders::AttachRolePolicyFluentBuilder::new(self.handle.clone())
++    pub fn attach_role_policy(&self) -> super::super::operation::attach_role_policy::builders::AttachRolePolicyFluentBuilder {
++        super::super::operation::attach_role_policy::builders::AttachRolePolicyFluentBuilder::new(self.handle.clone())
      }
  }

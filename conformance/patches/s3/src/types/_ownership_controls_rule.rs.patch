@@ -5,7 +5,7 @@
      /// <p>This functionality is not supported for directory buckets. Directory buckets use the bucket owner enforced setting for S3 Object Ownership.</p>
      /// </note>
 -    pub object_ownership: crate::types::ObjectOwnership,
-+    pub object_ownership: super::types::ObjectOwnership,
++    pub object_ownership: super::super::types::ObjectOwnership,
  }
  impl OwnershipControlsRule {
      /// <p>The container element for object ownership for a bucket's ownership controls.</p>
@@ -14,7 +14,7 @@
      /// <p>This functionality is not supported for directory buckets. Directory buckets use the bucket owner enforced setting for S3 Object Ownership.</p>
      /// </note>
 -    pub fn object_ownership(&self) -> &crate::types::ObjectOwnership {
-+    pub fn object_ownership(&self) -> &super::types::ObjectOwnership {
++    pub fn object_ownership(&self) -> &super::super::types::ObjectOwnership {
          &self.object_ownership
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`OwnershipControlsRule`](crate::types::OwnershipControlsRule).
 -    pub fn builder() -> crate::types::builders::OwnershipControlsRuleBuilder {
 -        crate::types::builders::OwnershipControlsRuleBuilder::default()
-+    pub fn builder() -> super::types::builders::OwnershipControlsRuleBuilder {
-+        super::types::builders::OwnershipControlsRuleBuilder::default()
++    pub fn builder() -> super::super::types::builders::OwnershipControlsRuleBuilder {
++        super::super::types::builders::OwnershipControlsRuleBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  #[non_exhaustive]
  pub struct OwnershipControlsRuleBuilder {
 -    pub(crate) object_ownership: ::std::option::Option<crate::types::ObjectOwnership>,
-+    pub(crate) object_ownership: ::std::option::Option<super::types::ObjectOwnership>,
++    pub(crate) object_ownership: ::std::option::Option<super::super::types::ObjectOwnership>,
  }
  impl OwnershipControlsRuleBuilder {
      /// <p>The container element for object ownership for a bucket's ownership controls.</p>
@@ -41,7 +41,7 @@
      /// </note>
      /// This field is required.
 -    pub fn object_ownership(mut self, input: crate::types::ObjectOwnership) -> Self {
-+    pub fn object_ownership(mut self, input: super::types::ObjectOwnership) -> Self {
++    pub fn object_ownership(mut self, input: super::super::types::ObjectOwnership) -> Self {
          self.object_ownership = ::std::option::Option::Some(input);
          self
      }
@@ -50,7 +50,7 @@
      /// <p>This functionality is not supported for directory buckets. Directory buckets use the bucket owner enforced setting for S3 Object Ownership.</p>
      /// </note>
 -    pub fn set_object_ownership(mut self, input: ::std::option::Option<crate::types::ObjectOwnership>) -> Self {
-+    pub fn set_object_ownership(mut self, input: ::std::option::Option<super::types::ObjectOwnership>) -> Self {
++    pub fn set_object_ownership(mut self, input: ::std::option::Option<super::super::types::ObjectOwnership>) -> Self {
          self.object_ownership = input;
          self
      }
@@ -59,7 +59,7 @@
      /// <p>This functionality is not supported for directory buckets. Directory buckets use the bucket owner enforced setting for S3 Object Ownership.</p>
      /// </note>
 -    pub fn get_object_ownership(&self) -> &::std::option::Option<crate::types::ObjectOwnership> {
-+    pub fn get_object_ownership(&self) -> &::std::option::Option<super::types::ObjectOwnership> {
++    pub fn get_object_ownership(&self) -> &::std::option::Option<super::super::types::ObjectOwnership> {
          &self.object_ownership
      }
      /// Consumes the builder and constructs a [`OwnershipControlsRule`](crate::types::OwnershipControlsRule).
@@ -67,8 +67,8 @@
      /// - [`object_ownership`](crate::types::builders::OwnershipControlsRuleBuilder::object_ownership)
 -    pub fn build(self) -> ::std::result::Result<crate::types::OwnershipControlsRule, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::OwnershipControlsRule {
-+    pub fn build(self) -> ::std::result::Result<super::types::OwnershipControlsRule, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::OwnershipControlsRule {
++    pub fn build(self) -> ::std::result::Result<super::super::types::OwnershipControlsRule, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::OwnershipControlsRule {
              object_ownership: self.object_ownership.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "object_ownership",

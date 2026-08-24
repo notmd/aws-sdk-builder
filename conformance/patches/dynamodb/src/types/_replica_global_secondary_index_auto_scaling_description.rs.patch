@@ -5,13 +5,13 @@
      /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
      /// </ul>
 -    pub index_status: ::std::option::Option<crate::types::IndexStatus>,
-+    pub index_status: ::std::option::Option<super::types::IndexStatus>,
++    pub index_status: ::std::option::Option<super::super::types::IndexStatus>,
      /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
 -    pub provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-+    pub provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<super::types::AutoScalingSettingsDescription>,
++    pub provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<super::super::types::AutoScalingSettingsDescription>,
      /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
 -    pub provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-+    pub provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<super::types::AutoScalingSettingsDescription>,
++    pub provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<super::super::types::AutoScalingSettingsDescription>,
  }
  impl ReplicaGlobalSecondaryIndexAutoScalingDescription {
      /// <p>The name of the global secondary index.</p>
@@ -20,17 +20,17 @@
      /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
      /// </ul>
 -    pub fn index_status(&self) -> ::std::option::Option<&crate::types::IndexStatus> {
-+    pub fn index_status(&self) -> ::std::option::Option<&super::types::IndexStatus> {
++    pub fn index_status(&self) -> ::std::option::Option<&super::super::types::IndexStatus> {
          self.index_status.as_ref()
      }
      /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
 -    pub fn provisioned_read_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsDescription> {
-+    pub fn provisioned_read_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&super::types::AutoScalingSettingsDescription> {
++    pub fn provisioned_read_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&super::super::types::AutoScalingSettingsDescription> {
          self.provisioned_read_capacity_auto_scaling_settings.as_ref()
      }
      /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
 -    pub fn provisioned_write_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsDescription> {
-+    pub fn provisioned_write_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&super::types::AutoScalingSettingsDescription> {
++    pub fn provisioned_write_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&super::super::types::AutoScalingSettingsDescription> {
          self.provisioned_write_capacity_auto_scaling_settings.as_ref()
      }
  }
@@ -38,8 +38,8 @@
      /// Creates a new builder-style object to manufacture [`ReplicaGlobalSecondaryIndexAutoScalingDescription`](crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription).
 -    pub fn builder() -> crate::types::builders::ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder {
 -        crate::types::builders::ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder::default()
-+    pub fn builder() -> super::types::builders::ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder {
-+        super::types::builders::ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder::default()
++    pub fn builder() -> super::super::types::builders::ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder {
++        super::super::types::builders::ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder::default()
      }
  }
 
@@ -50,9 +50,9 @@
 -    pub(crate) index_status: ::std::option::Option<crate::types::IndexStatus>,
 -    pub(crate) provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
 -    pub(crate) provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-+    pub(crate) index_status: ::std::option::Option<super::types::IndexStatus>,
-+    pub(crate) provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<super::types::AutoScalingSettingsDescription>,
-+    pub(crate) provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<super::types::AutoScalingSettingsDescription>,
++    pub(crate) index_status: ::std::option::Option<super::super::types::IndexStatus>,
++    pub(crate) provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<super::super::types::AutoScalingSettingsDescription>,
++    pub(crate) provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<super::super::types::AutoScalingSettingsDescription>,
  }
  impl ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder {
      /// <p>The name of the global secondary index.</p>
@@ -61,7 +61,7 @@
      /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
      /// </ul>
 -    pub fn index_status(mut self, input: crate::types::IndexStatus) -> Self {
-+    pub fn index_status(mut self, input: super::types::IndexStatus) -> Self {
++    pub fn index_status(mut self, input: super::super::types::IndexStatus) -> Self {
          self.index_status = ::std::option::Option::Some(input);
          self
      }
@@ -70,7 +70,7 @@
      /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
      /// </ul>
 -    pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
-+    pub fn set_index_status(mut self, input: ::std::option::Option<super::types::IndexStatus>) -> Self {
++    pub fn set_index_status(mut self, input: ::std::option::Option<super::super::types::IndexStatus>) -> Self {
          self.index_status = input;
          self
      }
@@ -79,12 +79,12 @@
      /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
      /// </ul>
 -    pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
-+    pub fn get_index_status(&self) -> &::std::option::Option<super::types::IndexStatus> {
++    pub fn get_index_status(&self) -> &::std::option::Option<super::super::types::IndexStatus> {
          &self.index_status
      }
      /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
 -    pub fn provisioned_read_capacity_auto_scaling_settings(mut self, input: crate::types::AutoScalingSettingsDescription) -> Self {
-+    pub fn provisioned_read_capacity_auto_scaling_settings(mut self, input: super::types::AutoScalingSettingsDescription) -> Self {
++    pub fn provisioned_read_capacity_auto_scaling_settings(mut self, input: super::super::types::AutoScalingSettingsDescription) -> Self {
          self.provisioned_read_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
          self
      }
@@ -93,19 +93,19 @@
      pub fn set_provisioned_read_capacity_auto_scaling_settings(
          mut self,
 -        input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-+        input: ::std::option::Option<super::types::AutoScalingSettingsDescription>,
++        input: ::std::option::Option<super::super::types::AutoScalingSettingsDescription>,
      ) -> Self {
          self.provisioned_read_capacity_auto_scaling_settings = input;
          self
      }
      /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
 -    pub fn get_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> {
-+    pub fn get_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<super::types::AutoScalingSettingsDescription> {
++    pub fn get_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<super::super::types::AutoScalingSettingsDescription> {
          &self.provisioned_read_capacity_auto_scaling_settings
      }
      /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
 -    pub fn provisioned_write_capacity_auto_scaling_settings(mut self, input: crate::types::AutoScalingSettingsDescription) -> Self {
-+    pub fn provisioned_write_capacity_auto_scaling_settings(mut self, input: super::types::AutoScalingSettingsDescription) -> Self {
++    pub fn provisioned_write_capacity_auto_scaling_settings(mut self, input: super::super::types::AutoScalingSettingsDescription) -> Self {
          self.provisioned_write_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
          self
      }
@@ -114,21 +114,21 @@
      pub fn set_provisioned_write_capacity_auto_scaling_settings(
          mut self,
 -        input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-+        input: ::std::option::Option<super::types::AutoScalingSettingsDescription>,
++        input: ::std::option::Option<super::super::types::AutoScalingSettingsDescription>,
      ) -> Self {
          self.provisioned_write_capacity_auto_scaling_settings = input;
          self
      }
      /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
 -    pub fn get_provisioned_write_capacity_auto_scaling_settings(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> {
-+    pub fn get_provisioned_write_capacity_auto_scaling_settings(&self) -> &::std::option::Option<super::types::AutoScalingSettingsDescription> {
++    pub fn get_provisioned_write_capacity_auto_scaling_settings(&self) -> &::std::option::Option<super::super::types::AutoScalingSettingsDescription> {
          &self.provisioned_write_capacity_auto_scaling_settings
      }
      /// Consumes the builder and constructs a [`ReplicaGlobalSecondaryIndexAutoScalingDescription`](crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription).
 -    pub fn build(self) -> crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription {
 -        crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription {
-+    pub fn build(self) -> super::types::ReplicaGlobalSecondaryIndexAutoScalingDescription {
-+        super::types::ReplicaGlobalSecondaryIndexAutoScalingDescription {
++    pub fn build(self) -> super::super::types::ReplicaGlobalSecondaryIndexAutoScalingDescription {
++        super::super::types::ReplicaGlobalSecondaryIndexAutoScalingDescription {
              index_name: self.index_name,
              index_status: self.index_status,
              provisioned_read_capacity_auto_scaling_settings: self.provisioned_read_capacity_auto_scaling_settings,

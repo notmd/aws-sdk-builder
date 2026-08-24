@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::PatternToken>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::PatternToken>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::PatternToken>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::PatternTokenBuilder::default();
-+            let mut builder = super::types::builders::PatternTokenBuilder::default();
++            let mut builder = super::super::types::builders::PatternTokenBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          "enumerations" => {
                              builder =
 -                                builder.set_enumerations(crate::protocol_serde::shape_enumerations::de_enumerations(tokens, _value, depth + 1)?);
-+                                builder.set_enumerations(super::protocol_serde::shape_enumerations::de_enumerations(tokens, _value, depth + 1)?);
++                                builder.set_enumerations(super::super::protocol_serde::shape_enumerations::de_enumerations(tokens, _value, depth + 1)?);
                          }
                          "inferredTokenName" => {
                              builder = builder.set_inferred_token_name(

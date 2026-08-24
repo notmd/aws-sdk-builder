@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for NoAvailableOrganizationException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::NoAvailableOrganizationException {
-+impl ::aws_types::request_id::RequestId for super::types::error::NoAvailableOrganizationException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::NoAvailableOrganizationException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`NoAvailableOrganizationException`](crate::types::error::NoAvailableOrganizationException).
 -    pub fn builder() -> crate::types::error::builders::NoAvailableOrganizationExceptionBuilder {
 -        crate::types::error::builders::NoAvailableOrganizationExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::NoAvailableOrganizationExceptionBuilder {
-+        super::types::error::builders::NoAvailableOrganizationExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::NoAvailableOrganizationExceptionBuilder {
++        super::super::super::types::error::builders::NoAvailableOrganizationExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`NoAvailableOrganizationException`](crate::types::error::NoAvailableOrganizationException).
 -    pub fn build(self) -> crate::types::error::NoAvailableOrganizationException {
 -        crate::types::error::NoAvailableOrganizationException {
-+    pub fn build(self) -> super::types::error::NoAvailableOrganizationException {
-+        super::types::error::NoAvailableOrganizationException {
++    pub fn build(self) -> super::super::super::types::error::NoAvailableOrganizationException {
++        super::super::super::types::error::NoAvailableOrganizationException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

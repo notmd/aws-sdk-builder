@@ -5,14 +5,14 @@
      AccessPointArn(::std::string::String),
      /// <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.</p>
 -    And(crate::types::MetricsAndOperator),
-+    And(super::types::MetricsAndOperator),
++    And(super::super::types::MetricsAndOperator),
      /// <p>The prefix used when evaluating a metrics filter.</p>
      Prefix(::std::string::String),
      /// <p>The tag used when evaluating a metrics filter.</p><note>
      /// <p><code>Tag</code> filters are not supported for directory buckets.</p>
      /// </note>
 -    Tag(crate::types::Tag),
-+    Tag(super::types::Tag),
++    Tag(super::super::types::Tag),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -21,7 +21,7 @@
      /// Tries to convert the enum instance into [`And`](crate::types::MetricsFilter::And), extracting the inner [`MetricsAndOperator`](crate::types::MetricsAndOperator).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_and(&self) -> ::std::result::Result<&crate::types::MetricsAndOperator, &Self> {
-+    pub fn as_and(&self) -> ::std::result::Result<&super::types::MetricsAndOperator, &Self> {
++    pub fn as_and(&self) -> ::std::result::Result<&super::super::types::MetricsAndOperator, &Self> {
          if let MetricsFilter::And(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -30,7 +30,7 @@
      /// Tries to convert the enum instance into [`Tag`](crate::types::MetricsFilter::Tag), extracting the inner [`Tag`](crate::types::Tag).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_tag(&self) -> ::std::result::Result<&crate::types::Tag, &Self> {
-+    pub fn as_tag(&self) -> ::std::result::Result<&super::types::Tag, &Self> {
++    pub fn as_tag(&self) -> ::std::result::Result<&super::super::types::Tag, &Self> {
          if let MetricsFilter::Tag(val) = &self {
              ::std::result::Result::Ok(val)
          } else {

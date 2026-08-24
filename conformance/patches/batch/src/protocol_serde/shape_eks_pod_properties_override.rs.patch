@@ -5,7 +5,7 @@
  pub fn ser_eks_pod_properties_override(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::EksPodPropertiesOverride,
-+    input: &super::types::EksPodPropertiesOverride,
++    input: &super::super::types::EksPodPropertiesOverride,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.containers {
          let mut array_2 = object.key("containers").start_array();
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_4 = array_2.value().start_object();
 -                crate::protocol_serde::shape_eks_container_override::ser_eks_container_override(&mut object_4, item_3)?;
-+                super::protocol_serde::shape_eks_container_override::ser_eks_container_override(&mut object_4, item_3)?;
++                super::super::protocol_serde::shape_eks_container_override::ser_eks_container_override(&mut object_4, item_3)?;
                  object_4.finish();
              }
          }
@@ -23,7 +23,7 @@
                  #[allow(unused_mut)]
                  let mut object_8 = array_6.value().start_object();
 -                crate::protocol_serde::shape_eks_container_override::ser_eks_container_override(&mut object_8, item_7)?;
-+                super::protocol_serde::shape_eks_container_override::ser_eks_container_override(&mut object_8, item_7)?;
++                super::super::protocol_serde::shape_eks_container_override::ser_eks_container_override(&mut object_8, item_7)?;
                  object_8.finish();
              }
          }
@@ -32,7 +32,7 @@
          #[allow(unused_mut)]
          let mut object_10 = object.key("metadata").start_object();
 -        crate::protocol_serde::shape_eks_metadata::ser_eks_metadata(&mut object_10, var_9)?;
-+        super::protocol_serde::shape_eks_metadata::ser_eks_metadata(&mut object_10, var_9)?;
++        super::super::protocol_serde::shape_eks_metadata::ser_eks_metadata(&mut object_10, var_9)?;
          object_10.finish();
      }
      Ok(())

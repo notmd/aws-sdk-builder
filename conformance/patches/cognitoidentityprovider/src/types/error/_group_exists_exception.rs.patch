@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for GroupExistsException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::GroupExistsException {
-+impl ::aws_types::request_id::RequestId for super::types::error::GroupExistsException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::GroupExistsException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`GroupExistsException`](crate::types::error::GroupExistsException).
 -    pub fn builder() -> crate::types::error::builders::GroupExistsExceptionBuilder {
 -        crate::types::error::builders::GroupExistsExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::GroupExistsExceptionBuilder {
-+        super::types::error::builders::GroupExistsExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::GroupExistsExceptionBuilder {
++        super::super::super::types::error::builders::GroupExistsExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`GroupExistsException`](crate::types::error::GroupExistsException).
 -    pub fn build(self) -> crate::types::error::GroupExistsException {
 -        crate::types::error::GroupExistsException {
-+    pub fn build(self) -> super::types::error::GroupExistsException {
-+        super::types::error::GroupExistsException {
++    pub fn build(self) -> super::super::super::types::error::GroupExistsException {
++        super::super::super::types::error::GroupExistsException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

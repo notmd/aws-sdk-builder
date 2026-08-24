@@ -5,33 +5,33 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::create_grant::CreateGrantOutput, crate::operation::create_grant::CreateGrantError> {
-+) -> std::result::Result<super::operation::create_grant::CreateGrantOutput, super::operation::create_grant::CreateGrantError> {
++) -> std::result::Result<super::super::operation::create_grant::CreateGrantOutput, super::super::operation::create_grant::CreateGrantError> {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::create_grant::CreateGrantError::unhandled(generic)),
-+        None => return Err(super::operation::create_grant::CreateGrantError::unhandled(generic)),
++        None => return Err(super::super::operation::create_grant::CreateGrantError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "DependencyTimeoutException" => crate::operation::create_grant::CreateGrantError::DependencyTimeoutException({
-+        "DependencyTimeoutException" => super::operation::create_grant::CreateGrantError::DependencyTimeoutException({
++        "DependencyTimeoutException" => super::super::operation::create_grant::CreateGrantError::DependencyTimeoutException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+                let mut output = super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-+                output = super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++                let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -40,16 +40,16 @@
              tmp
          }),
 -        "DisabledException" => crate::operation::create_grant::CreateGrantError::DisabledException({
-+        "DisabledException" => super::operation::create_grant::CreateGrantError::DisabledException({
++        "DisabledException" => super::super::operation::create_grant::CreateGrantError::DisabledException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::DisabledExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+                let mut output = super::types::error::builders::DisabledExceptionBuilder::default();
-+                output = super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++                let mut output = super::super::types::error::builders::DisabledExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -58,16 +58,16 @@
              tmp
          }),
 -        "DryRunOperationException" => crate::operation::create_grant::CreateGrantError::DryRunOperationException({
-+        "DryRunOperationException" => super::operation::create_grant::CreateGrantError::DryRunOperationException({
++        "DryRunOperationException" => super::super::operation::create_grant::CreateGrantError::DryRunOperationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::DryRunOperationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+                let mut output = super::types::error::builders::DryRunOperationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++                let mut output = super::super::types::error::builders::DryRunOperationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -76,16 +76,16 @@
              tmp
          }),
 -        "InvalidArnException" => crate::operation::create_grant::CreateGrantError::InvalidArnException({
-+        "InvalidArnException" => super::operation::create_grant::CreateGrantError::InvalidArnException({
++        "InvalidArnException" => super::super::operation::create_grant::CreateGrantError::InvalidArnException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidArnExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidArnExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidArnExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -94,17 +94,17 @@
              tmp
          }),
 -        "InvalidGrantTokenException" => crate::operation::create_grant::CreateGrantError::InvalidGrantTokenException({
-+        "InvalidGrantTokenException" => super::operation::create_grant::CreateGrantError::InvalidGrantTokenException({
++        "InvalidGrantTokenException" => super::super::operation::create_grant::CreateGrantError::InvalidGrantTokenException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
-+                let mut output = super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+                    super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++                    super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -113,16 +113,16 @@
              tmp
          }),
 -        "KMSInternalException" => crate::operation::create_grant::CreateGrantError::KmsInternalException({
-+        "KMSInternalException" => super::operation::create_grant::CreateGrantError::KmsInternalException({
++        "KMSInternalException" => super::super::operation::create_grant::CreateGrantError::KmsInternalException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
-+                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++                let mut output = super::super::types::error::builders::KmsInternalExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -131,16 +131,16 @@
              tmp
          }),
 -        "KMSInvalidStateException" => crate::operation::create_grant::CreateGrantError::KmsInvalidStateException({
-+        "KMSInvalidStateException" => super::operation::create_grant::CreateGrantError::KmsInvalidStateException({
++        "KMSInvalidStateException" => super::super::operation::create_grant::CreateGrantError::KmsInvalidStateException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+                let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-+                output = super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++                let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -149,16 +149,16 @@
              tmp
          }),
 -        "LimitExceededException" => crate::operation::create_grant::CreateGrantError::LimitExceededException({
-+        "LimitExceededException" => super::operation::create_grant::CreateGrantError::LimitExceededException({
++        "LimitExceededException" => super::super::operation::create_grant::CreateGrantError::LimitExceededException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -167,16 +167,16 @@
              tmp
          }),
 -        "NotFoundException" => crate::operation::create_grant::CreateGrantError::NotFoundException({
-+        "NotFoundException" => super::operation::create_grant::CreateGrantError::NotFoundException({
++        "NotFoundException" => super::super::operation::create_grant::CreateGrantError::NotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -185,7 +185,7 @@
              tmp
          }),
 -        _ => crate::operation::create_grant::CreateGrantError::generic(generic),
-+        _ => super::operation::create_grant::CreateGrantError::generic(generic),
++        _ => super::super::operation::create_grant::CreateGrantError::generic(generic),
      })
  }
 
@@ -194,15 +194,15 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::create_grant::CreateGrantOutput, crate::operation::create_grant::CreateGrantError> {
-+) -> std::result::Result<super::operation::create_grant::CreateGrantOutput, super::operation::create_grant::CreateGrantError> {
++) -> std::result::Result<super::super::operation::create_grant::CreateGrantOutput, super::super::operation::create_grant::CreateGrantError> {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::create_grant::builders::CreateGrantOutputBuilder::default();
 -        output = crate::protocol_serde::shape_create_grant::de_create_grant(_response_body, output)
 -            .map_err(crate::operation::create_grant::CreateGrantError::unhandled)?;
-+        let mut output = super::operation::create_grant::builders::CreateGrantOutputBuilder::default();
-+        output = super::protocol_serde::shape_create_grant::de_create_grant(_response_body, output)
-+            .map_err(super::operation::create_grant::CreateGrantError::unhandled)?;
++        let mut output = super::super::operation::create_grant::builders::CreateGrantOutputBuilder::default();
++        output = super::super::protocol_serde::shape_create_grant::de_create_grant(_response_body, output)
++            .map_err(super::super::operation::create_grant::CreateGrantError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -211,12 +211,12 @@
 
  pub fn ser_create_grant_input(
 -    input: &crate::operation::create_grant::CreateGrantInput,
-+    input: &super::operation::create_grant::CreateGrantInput,
++    input: &super::super::operation::create_grant::CreateGrantInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_create_grant_input::ser_create_grant_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_create_grant_input::ser_create_grant_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_create_grant_input::ser_create_grant_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -226,11 +226,11 @@
      _value: &[u8],
 -    mut builder: crate::operation::create_grant::builders::CreateGrantOutputBuilder,
 -) -> ::std::result::Result<crate::operation::create_grant::builders::CreateGrantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+    mut builder: super::operation::create_grant::builders::CreateGrantOutputBuilder,
-+) -> ::std::result::Result<super::operation::create_grant::builders::CreateGrantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::super::operation::create_grant::builders::CreateGrantOutputBuilder,
++) -> ::std::result::Result<super::super::operation::create_grant::builders::CreateGrantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
  {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;

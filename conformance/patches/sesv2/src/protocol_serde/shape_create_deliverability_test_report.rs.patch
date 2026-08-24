@@ -6,37 +6,37 @@
  ) -> std::result::Result<
 -    crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportOutput,
 -    crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError,
-+    super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportOutput,
-+    super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError,
++    super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportOutput,
++    super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled(generic)),
-+        None => return Err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled(generic)),
++        None => return Err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
          "AccountSuspendedException" => {
 -            crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::AccountSuspendedException({
-+            super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::AccountSuspendedException({
++            super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::AccountSuspendedException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::AccountSuspendedExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::AccountSuspendedExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::AccountSuspendedExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                        super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++                        super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -45,16 +45,16 @@
              })
          }
 -        "BadRequestException" => crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::BadRequestException({
-+        "BadRequestException" => super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::BadRequestException({
++        "BadRequestException" => super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::BadRequestException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                let mut output = super::types::error::builders::BadRequestExceptionBuilder::default();
-+                output = super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -63,19 +63,19 @@
          }),
          "ConcurrentModificationException" => {
 -            crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::ConcurrentModificationException({
-+            super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::ConcurrentModificationException({
++            super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::ConcurrentModificationException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
-+                    let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
++                    let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                    .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++                    .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -84,16 +84,16 @@
          }
          "LimitExceededException" => {
 -            crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::LimitExceededException({
-+            super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::LimitExceededException({
++            super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::LimitExceededException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                    let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -102,20 +102,20 @@
          }
          "MailFromDomainNotVerifiedException" => {
 -            crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::MailFromDomainNotVerifiedException({
-+            super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::MailFromDomainNotVerifiedException({
++            super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::MailFromDomainNotVerifiedException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(
-+                        super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(
++                        super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(
                              _response_body,
                              output,
                          )
 -                        .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                        .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -124,16 +124,16 @@
              })
          }
 -        "MessageRejected" => crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::MessageRejected({
-+        "MessageRejected" => super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::MessageRejected({
++        "MessageRejected" => super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::MessageRejected({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::MessageRejectedBuilder::default();
 -                output = crate::protocol_serde::shape_message_rejected::de_message_rejected_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                let mut output = super::types::error::builders::MessageRejectedBuilder::default();
-+                output = super::protocol_serde::shape_message_rejected::de_message_rejected_json_err(_response_body, output)
-+                    .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++                let mut output = super::super::types::error::builders::MessageRejectedBuilder::default();
++                output = super::super::protocol_serde::shape_message_rejected::de_message_rejected_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -142,16 +142,16 @@
              tmp
          }),
 -        "NotFoundException" => crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::NotFoundException({
-+        "NotFoundException" => super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::NotFoundException({
++        "NotFoundException" => super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::NotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -160,16 +160,16 @@
          }),
          "SendingPausedException" => {
 -            crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::SendingPausedException({
-+            super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::SendingPausedException({
++            super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::SendingPausedException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::SendingPausedExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                    let mut output = super::types::error::builders::SendingPausedExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++                    let mut output = super::super::types::error::builders::SendingPausedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -178,17 +178,17 @@
          }
          "TooManyRequestsException" => {
 -            crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::TooManyRequestsException({
-+            super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::TooManyRequestsException({
++            super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::TooManyRequestsException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                        super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -197,7 +197,7 @@
              })
          }
 -        _ => crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::generic(generic),
-+        _ => super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::generic(generic),
++        _ => super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::generic(generic),
      })
  }
 
@@ -207,34 +207,34 @@
  ) -> std::result::Result<
 -    crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportOutput,
 -    crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError,
-+    super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportOutput,
-+    super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError,
++    super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportOutput,
++    super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder::default();
 -        output = crate::protocol_serde::shape_create_deliverability_test_report::de_create_deliverability_test_report(_response_body, output)
 -            .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+        let mut output = super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder::default();
-+        output = super::protocol_serde::shape_create_deliverability_test_report::de_create_deliverability_test_report(_response_body, output)
-+            .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
++        let mut output = super::super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder::default();
++        output = super::super::protocol_serde::shape_create_deliverability_test_report::de_create_deliverability_test_report(_response_body, output)
++            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        crate::serde_util::create_deliverability_test_report_output_output_correct_errors(output)
-+        super::serde_util::create_deliverability_test_report_output_output_correct_errors(output)
++        super::super::serde_util::create_deliverability_test_report_output_output_correct_errors(output)
              .build()
 -            .map_err(crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?
-+            .map_err(super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?
++            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?
      })
  }
 
  pub fn ser_create_deliverability_test_report_input(
 -    input: &crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput,
-+    input: &super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput,
++    input: &super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_create_deliverability_test_report_input::ser_create_deliverability_test_report_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_create_deliverability_test_report_input::ser_create_deliverability_test_report_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_create_deliverability_test_report_input::ser_create_deliverability_test_report_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -243,14 +243,14 @@
  pub(crate) fn de_create_deliverability_test_report(
      _value: &[u8],
 -    mut builder: crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder,
-+    mut builder: super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder,
++    mut builder: super::super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder,
-+    super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder,
++    super::super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -259,7 +259,7 @@
                      builder = builder.set_deliverability_test_status(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| crate::types::DeliverabilityTestStatus::from(u.as_ref())))
-+                            .map(|s| s.to_unescaped().map(|u| super::types::DeliverabilityTestStatus::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::DeliverabilityTestStatus::from(u.as_ref())))
                              .transpose()?,
                      );
                  }

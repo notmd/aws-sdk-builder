@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for LimitExceededException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::LimitExceededException {
-+impl ::aws_types::request_id::RequestId for super::types::error::LimitExceededException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::LimitExceededException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`LimitExceededException`](crate::types::error::LimitExceededException).
 -    pub fn builder() -> crate::types::error::builders::LimitExceededExceptionBuilder {
 -        crate::types::error::builders::LimitExceededExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::LimitExceededExceptionBuilder {
-+        super::types::error::builders::LimitExceededExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::LimitExceededExceptionBuilder {
++        super::super::super::types::error::builders::LimitExceededExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`LimitExceededException`](crate::types::error::LimitExceededException).
 -    pub fn build(self) -> crate::types::error::LimitExceededException {
 -        crate::types::error::LimitExceededException {
-+    pub fn build(self) -> super::types::error::LimitExceededException {
-+        super::types::error::LimitExceededException {
++    pub fn build(self) -> super::super::super::types::error::LimitExceededException {
++        super::super::super::types::error::LimitExceededException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

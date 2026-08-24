@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteFunctionEventInvokeConfigInput`](crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput).
 -    pub fn builder() -> crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigInputBuilder {
 -        crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigInputBuilder {
-+        super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigInputBuilder {
++        super::super::super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput,
-+        super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput,
++        super::super::super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput {
-+            super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput {
++            super::super::super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput {
                  function_name: self.function_name,
                  qualifier: self.qualifier,
              },

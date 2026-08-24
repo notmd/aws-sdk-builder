@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::simulate_custom_policy::SimulateCustomPolicyOutput,
 -    crate::operation::simulate_custom_policy::SimulateCustomPolicyError,
-+    super::operation::simulate_custom_policy::SimulateCustomPolicyOutput,
-+    super::operation::simulate_custom_policy::SimulateCustomPolicyError,
++    super::super::operation::simulate_custom_policy::SimulateCustomPolicyOutput,
++    super::super::operation::simulate_custom_policy::SimulateCustomPolicyError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled(generic)),
-+        None => return Err(super::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled(generic)),
++        None => return Err(super::super::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InvalidInput" => crate::operation::simulate_custom_policy::SimulateCustomPolicyError::InvalidInputException({
-+        "InvalidInput" => super::operation::simulate_custom_policy::SimulateCustomPolicyError::InvalidInputException({
++        "InvalidInput" => super::super::operation::simulate_custom_policy::SimulateCustomPolicyError::InvalidInputException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "PolicyEvaluation" => crate::operation::simulate_custom_policy::SimulateCustomPolicyError::PolicyEvaluationException({
-+        "PolicyEvaluation" => super::operation::simulate_custom_policy::SimulateCustomPolicyError::PolicyEvaluationException({
++        "PolicyEvaluation" => super::super::operation::simulate_custom_policy::SimulateCustomPolicyError::PolicyEvaluationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::PolicyEvaluationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_policy_evaluation_exception::de_policy_evaluation_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::PolicyEvaluationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_policy_evaluation_exception::de_policy_evaluation_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::PolicyEvaluationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_policy_evaluation_exception::de_policy_evaluation_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,7 +61,7 @@
              tmp
          }),
 -        _ => crate::operation::simulate_custom_policy::SimulateCustomPolicyError::generic(generic),
-+        _ => super::operation::simulate_custom_policy::SimulateCustomPolicyError::generic(generic),
++        _ => super::super::operation::simulate_custom_policy::SimulateCustomPolicyError::generic(generic),
      })
  }
 
@@ -71,17 +71,17 @@
  ) -> std::result::Result<
 -    crate::operation::simulate_custom_policy::SimulateCustomPolicyOutput,
 -    crate::operation::simulate_custom_policy::SimulateCustomPolicyError,
-+    super::operation::simulate_custom_policy::SimulateCustomPolicyOutput,
-+    super::operation::simulate_custom_policy::SimulateCustomPolicyError,
++    super::super::operation::simulate_custom_policy::SimulateCustomPolicyOutput,
++    super::super::operation::simulate_custom_policy::SimulateCustomPolicyError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::simulate_custom_policy::builders::SimulateCustomPolicyOutputBuilder::default();
 -        output = crate::protocol_serde::shape_simulate_custom_policy::de_simulate_custom_policy(_response_body, output)
 -            .map_err(crate::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
-+        let mut output = super::operation::simulate_custom_policy::builders::SimulateCustomPolicyOutputBuilder::default();
-+        output = super::protocol_serde::shape_simulate_custom_policy::de_simulate_custom_policy(_response_body, output)
-+            .map_err(super::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
++        let mut output = super::super::operation::simulate_custom_policy::builders::SimulateCustomPolicyOutputBuilder::default();
++        output = super::super::protocol_serde::shape_simulate_custom_policy::de_simulate_custom_policy(_response_body, output)
++            .map_err(super::super::operation::simulate_custom_policy::SimulateCustomPolicyError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -90,10 +90,10 @@
  pub fn de_simulate_custom_policy(
      inp: &[u8],
 -    mut builder: crate::operation::simulate_custom_policy::builders::SimulateCustomPolicyOutputBuilder,
-+    mut builder: super::operation::simulate_custom_policy::builders::SimulateCustomPolicyOutputBuilder,
++    mut builder: super::super::operation::simulate_custom_policy::builders::SimulateCustomPolicyOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::simulate_custom_policy::builders::SimulateCustomPolicyOutputBuilder,
-+    super::operation::simulate_custom_policy::builders::SimulateCustomPolicyOutputBuilder,
++    super::super::operation::simulate_custom_policy::builders::SimulateCustomPolicyOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -102,7 +102,7 @@
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_evaluation_results_list_type::de_evaluation_results_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_evaluation_results_list_type::de_evaluation_results_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_evaluation_results_list_type::de_evaluation_results_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;

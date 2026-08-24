@@ -5,7 +5,7 @@
  pub struct ListDomainDeliverabilityCampaignsOutput {
      /// <p>An array of responses, one for each campaign that used the domain to send email during the specified time range.</p>
 -    pub domain_deliverability_campaigns: ::std::vec::Vec<crate::types::DomainDeliverabilityCampaign>,
-+    pub domain_deliverability_campaigns: ::std::vec::Vec<super::types::DomainDeliverabilityCampaign>,
++    pub domain_deliverability_campaigns: ::std::vec::Vec<super::super::super::types::DomainDeliverabilityCampaign>,
      /// <p>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the position of the campaign in the list of campaigns.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
  impl ListDomainDeliverabilityCampaignsOutput {
      /// <p>An array of responses, one for each campaign that used the domain to send email during the specified time range.</p>
 -    pub fn domain_deliverability_campaigns(&self) -> &[crate::types::DomainDeliverabilityCampaign] {
-+    pub fn domain_deliverability_campaigns(&self) -> &[super::types::DomainDeliverabilityCampaign] {
++    pub fn domain_deliverability_campaigns(&self) -> &[super::super::super::types::DomainDeliverabilityCampaign] {
          use std::ops::Deref;
          self.domain_deliverability_campaigns.deref()
      }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListDomainDeliverabilityCampaignsOutput`](crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsOutput).
 -    pub fn builder() -> crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder {
 -        crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder {
-+        super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder {
++        super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListDomainDeliverabilityCampaignsOutputBuilder {
 -    pub(crate) domain_deliverability_campaigns: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityCampaign>>,
-+    pub(crate) domain_deliverability_campaigns: ::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityCampaign>>,
++    pub(crate) domain_deliverability_campaigns: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityCampaign>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>An array of responses, one for each campaign that used the domain to send email during the specified time range.</p>
 -    pub fn domain_deliverability_campaigns(mut self, input: crate::types::DomainDeliverabilityCampaign) -> Self {
-+    pub fn domain_deliverability_campaigns(mut self, input: super::types::DomainDeliverabilityCampaign) -> Self {
++    pub fn domain_deliverability_campaigns(mut self, input: super::super::super::types::DomainDeliverabilityCampaign) -> Self {
          let mut v = self.domain_deliverability_campaigns.unwrap_or_default();
          v.push(input);
          self.domain_deliverability_campaigns = ::std::option::Option::Some(v);
@@ -52,14 +52,14 @@
      pub fn set_domain_deliverability_campaigns(
          mut self,
 -        input: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityCampaign>>,
-+        input: ::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityCampaign>>,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityCampaign>>,
      ) -> Self {
          self.domain_deliverability_campaigns = input;
          self
      }
      /// <p>An array of responses, one for each campaign that used the domain to send email during the specified time range.</p>
 -    pub fn get_domain_deliverability_campaigns(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityCampaign>> {
-+    pub fn get_domain_deliverability_campaigns(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DomainDeliverabilityCampaign>> {
++    pub fn get_domain_deliverability_campaigns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityCampaign>> {
          &self.domain_deliverability_campaigns
      }
      /// <p>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the position of the campaign in the list of campaigns.</p>
@@ -68,12 +68,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsOutput,
-+        super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsOutput,
++        super::super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsOutput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsOutput {
-+            super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsOutput {
++            super::super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsOutput {
                  domain_deliverability_campaigns: self.domain_deliverability_campaigns.ok_or_else(|| {
                      ::aws_smithy_types::error::operation::BuildError::missing_field(
                          "domain_deliverability_campaigns",

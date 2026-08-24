@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetLogGroupFieldsError>`](crate::operation::get_log_group_fields::GetLogGroupFieldsError)
 -    pub fn get_log_group_fields(&self) -> crate::operation::get_log_group_fields::builders::GetLogGroupFieldsFluentBuilder {
 -        crate::operation::get_log_group_fields::builders::GetLogGroupFieldsFluentBuilder::new(self.handle.clone())
-+    pub fn get_log_group_fields(&self) -> super::operation::get_log_group_fields::builders::GetLogGroupFieldsFluentBuilder {
-+        super::operation::get_log_group_fields::builders::GetLogGroupFieldsFluentBuilder::new(self.handle.clone())
++    pub fn get_log_group_fields(&self) -> super::super::operation::get_log_group_fields::builders::GetLogGroupFieldsFluentBuilder {
++        super::super::operation::get_log_group_fields::builders::GetLogGroupFieldsFluentBuilder::new(self.handle.clone())
      }
  }

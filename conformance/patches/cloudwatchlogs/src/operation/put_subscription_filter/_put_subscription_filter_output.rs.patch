@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutSubscriptionFilterOutput`](crate::operation::put_subscription_filter::PutSubscriptionFilterOutput).
 -    pub fn builder() -> crate::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder {
 -        crate::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder {
-+        super::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder {
++        super::super::super::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutSubscriptionFilterOutput`](crate::operation::put_subscription_filter::PutSubscriptionFilterOutput).
 -    pub fn build(self) -> crate::operation::put_subscription_filter::PutSubscriptionFilterOutput {
 -        crate::operation::put_subscription_filter::PutSubscriptionFilterOutput {
-+    pub fn build(self) -> super::operation::put_subscription_filter::PutSubscriptionFilterOutput {
-+        super::operation::put_subscription_filter::PutSubscriptionFilterOutput {
++    pub fn build(self) -> super::super::super::operation::put_subscription_filter::PutSubscriptionFilterOutput {
++        super::super::super::operation::put_subscription_filter::PutSubscriptionFilterOutput {
              _request_id: self._request_id,
          }
      }

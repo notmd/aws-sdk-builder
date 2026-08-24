@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateSamlProviderOutput`](crate::operation::update_saml_provider::UpdateSamlProviderOutput).
 -    pub fn builder() -> crate::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder {
 -        crate::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder::default()
-+    pub fn builder() -> super::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder {
-+        super::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder {
++        super::super::super::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UpdateSamlProviderOutput`](crate::operation::update_saml_provider::UpdateSamlProviderOutput).
 -    pub fn build(self) -> crate::operation::update_saml_provider::UpdateSamlProviderOutput {
 -        crate::operation::update_saml_provider::UpdateSamlProviderOutput {
-+    pub fn build(self) -> super::operation::update_saml_provider::UpdateSamlProviderOutput {
-+        super::operation::update_saml_provider::UpdateSamlProviderOutput {
++    pub fn build(self) -> super::super::super::operation::update_saml_provider::UpdateSamlProviderOutput {
++        super::super::super::operation::update_saml_provider::UpdateSamlProviderOutput {
              saml_provider_arn: self.saml_provider_arn,
              _request_id: self._request_id,
          }

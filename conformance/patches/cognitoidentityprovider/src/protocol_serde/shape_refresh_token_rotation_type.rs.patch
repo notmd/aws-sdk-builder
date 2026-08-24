@@ -5,7 +5,7 @@
  pub fn ser_refresh_token_rotation_type(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::RefreshTokenRotationType,
-+    input: &super::types::RefreshTokenRotationType,
++    input: &super::super::types::RefreshTokenRotationType,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("Feature").string(input.feature.as_str());
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::RefreshTokenRotationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::RefreshTokenRotationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::RefreshTokenRotationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,7 +23,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::RefreshTokenRotationTypeBuilder::default();
-+            let mut builder = super::types::builders::RefreshTokenRotationTypeBuilder::default();
++            let mut builder = super::super::types::builders::RefreshTokenRotationTypeBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -32,7 +32,7 @@
                              builder = builder.set_feature(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::FeatureType::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::FeatureType::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::FeatureType::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -41,7 +41,7 @@
              }
              Ok(Some(
 -                crate::serde_util::refresh_token_rotation_type_correct_errors(builder)
-+                super::serde_util::refresh_token_rotation_type_correct_errors(builder)
++                super::super::serde_util::refresh_token_rotation_type_correct_errors(builder)
                      .build()
                      .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))

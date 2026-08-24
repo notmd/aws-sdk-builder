@@ -5,7 +5,7 @@
  pub struct DescribeJobsOutput {
      /// <p>The list of jobs.</p>
 -    pub jobs: ::std::option::Option<::std::vec::Vec<crate::types::JobDetail>>,
-+    pub jobs: ::std::option::Option<::std::vec::Vec<super::types::JobDetail>>,
++    pub jobs: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobDetail>>,
      _request_id: Option<String>,
  }
  impl DescribeJobsOutput {
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.jobs.is_none()`.
 -    pub fn jobs(&self) -> &[crate::types::JobDetail] {
-+    pub fn jobs(&self) -> &[super::types::JobDetail] {
++    pub fn jobs(&self) -> &[super::super::super::types::JobDetail] {
          self.jobs.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeJobsOutput`](crate::operation::describe_jobs::DescribeJobsOutput).
 -    pub fn builder() -> crate::operation::describe_jobs::builders::DescribeJobsOutputBuilder {
 -        crate::operation::describe_jobs::builders::DescribeJobsOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_jobs::builders::DescribeJobsOutputBuilder {
-+        super::operation::describe_jobs::builders::DescribeJobsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_jobs::builders::DescribeJobsOutputBuilder {
++        super::super::super::operation::describe_jobs::builders::DescribeJobsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeJobsOutputBuilder {
 -    pub(crate) jobs: ::std::option::Option<::std::vec::Vec<crate::types::JobDetail>>,
-+    pub(crate) jobs: ::std::option::Option<::std::vec::Vec<super::types::JobDetail>>,
++    pub(crate) jobs: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobDetail>>,
      _request_id: Option<String>,
  }
  impl DescribeJobsOutputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>The list of jobs.</p>
 -    pub fn jobs(mut self, input: crate::types::JobDetail) -> Self {
-+    pub fn jobs(mut self, input: super::types::JobDetail) -> Self {
++    pub fn jobs(mut self, input: super::super::super::types::JobDetail) -> Self {
          let mut v = self.jobs.unwrap_or_default();
          v.push(input);
          self.jobs = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The list of jobs.</p>
 -    pub fn set_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::JobDetail>>) -> Self {
-+    pub fn set_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::JobDetail>>) -> Self {
++    pub fn set_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobDetail>>) -> Self {
          self.jobs = input;
          self
      }
      /// <p>The list of jobs.</p>
 -    pub fn get_jobs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::JobDetail>> {
-+    pub fn get_jobs(&self) -> &::std::option::Option<::std::vec::Vec<super::types::JobDetail>> {
++    pub fn get_jobs(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::JobDetail>> {
          &self.jobs
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeJobsOutput`](crate::operation::describe_jobs::DescribeJobsOutput).
 -    pub fn build(self) -> crate::operation::describe_jobs::DescribeJobsOutput {
 -        crate::operation::describe_jobs::DescribeJobsOutput {
-+    pub fn build(self) -> super::operation::describe_jobs::DescribeJobsOutput {
-+        super::operation::describe_jobs::DescribeJobsOutput {
++    pub fn build(self) -> super::super::super::operation::describe_jobs::DescribeJobsOutput {
++        super::super::super::operation::describe_jobs::DescribeJobsOutput {
              jobs: self.jobs,
              _request_id: self._request_id,
          }

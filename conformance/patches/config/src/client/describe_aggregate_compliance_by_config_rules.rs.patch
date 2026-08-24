@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesFluentBuilder {
 -        crate::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesFluentBuilder::new(
-+    ) -> super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesFluentBuilder {
-+        super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesFluentBuilder::new(
++    ) -> super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesFluentBuilder {
++        super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesFluentBuilder::new(
              self.handle.clone(),
          )
      }

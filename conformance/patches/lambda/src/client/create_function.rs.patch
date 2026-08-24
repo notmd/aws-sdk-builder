@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateFunctionError>`](crate::operation::create_function::CreateFunctionError)
 -    pub fn create_function(&self) -> crate::operation::create_function::builders::CreateFunctionFluentBuilder {
 -        crate::operation::create_function::builders::CreateFunctionFluentBuilder::new(self.handle.clone())
-+    pub fn create_function(&self) -> super::operation::create_function::builders::CreateFunctionFluentBuilder {
-+        super::operation::create_function::builders::CreateFunctionFluentBuilder::new(self.handle.clone())
++    pub fn create_function(&self) -> super::super::operation::create_function::builders::CreateFunctionFluentBuilder {
++        super::super::operation::create_function::builders::CreateFunctionFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`S3Location`](crate::types::S3Location).
 -    pub fn builder() -> crate::types::builders::S3LocationBuilder {
 -        crate::types::builders::S3LocationBuilder::default()
-+    pub fn builder() -> super::types::builders::S3LocationBuilder {
-+        super::types::builders::S3LocationBuilder::default()
++    pub fn builder() -> super::super::types::builders::S3LocationBuilder {
++        super::super::types::builders::S3LocationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`uri`](crate::types::builders::S3LocationBuilder::uri)
 -    pub fn build(self) -> ::std::result::Result<crate::types::S3Location, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::S3Location {
-+    pub fn build(self) -> ::std::result::Result<super::types::S3Location, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::S3Location {
++    pub fn build(self) -> ::std::result::Result<super::super::types::S3Location, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::S3Location {
              uri: self.uri.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "uri",

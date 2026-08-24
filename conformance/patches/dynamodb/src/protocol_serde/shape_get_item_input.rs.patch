@@ -5,7 +5,7 @@
  pub fn ser_get_item_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::get_item::GetItemInput,
-+    input: &super::operation::get_item::GetItemInput,
++    input: &super::super::operation::get_item::GetItemInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.table_name {
          object.key("TableName").string(var_1.as_str());
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_6 = object_3.key(key_4.as_str()).start_object();
 -                crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_6, value_5)?;
-+                super::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_6, value_5)?;
++                super::super::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_6, value_5)?;
                  object_6.finish();
              }
          }

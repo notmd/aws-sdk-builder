@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PublicAccessBlockConfiguration`](crate::types::PublicAccessBlockConfiguration).
 -    pub fn builder() -> crate::types::builders::PublicAccessBlockConfigurationBuilder {
 -        crate::types::builders::PublicAccessBlockConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::PublicAccessBlockConfigurationBuilder {
-+        super::types::builders::PublicAccessBlockConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::PublicAccessBlockConfigurationBuilder {
++        super::super::types::builders::PublicAccessBlockConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PublicAccessBlockConfiguration`](crate::types::PublicAccessBlockConfiguration).
 -    pub fn build(self) -> crate::types::PublicAccessBlockConfiguration {
 -        crate::types::PublicAccessBlockConfiguration {
-+    pub fn build(self) -> super::types::PublicAccessBlockConfiguration {
-+        super::types::PublicAccessBlockConfiguration {
++    pub fn build(self) -> super::super::types::PublicAccessBlockConfiguration {
++        super::super::types::PublicAccessBlockConfiguration {
              block_public_acls: self.block_public_acls,
              ignore_public_acls: self.ignore_public_acls,
              block_public_policy: self.block_public_policy,

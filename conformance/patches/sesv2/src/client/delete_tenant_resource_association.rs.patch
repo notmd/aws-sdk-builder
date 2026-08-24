@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationFluentBuilder {
 -        crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationFluentBuilder {
-+        super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationFluentBuilder {
++        super::super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationFluentBuilder::new(self.handle.clone())
      }
  }

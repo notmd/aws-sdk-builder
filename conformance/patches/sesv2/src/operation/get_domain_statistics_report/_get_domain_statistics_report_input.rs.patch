@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetDomainStatisticsReportInput`](crate::operation::get_domain_statistics_report::GetDomainStatisticsReportInput).
 -    pub fn builder() -> crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder {
 -        crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder::default()
-+    pub fn builder() -> super::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder {
-+        super::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder {
++        super::super::super::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_domain_statistics_report::GetDomainStatisticsReportInput,
-+        super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput,
++        super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_domain_statistics_report::GetDomainStatisticsReportInput {
-+        ::std::result::Result::Ok(super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput {
              domain: self.domain,
              start_date: self.start_date,
              end_date: self.end_date,

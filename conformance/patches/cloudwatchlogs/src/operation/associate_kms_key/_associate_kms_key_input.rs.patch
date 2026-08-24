@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AssociateKmsKeyInput`](crate::operation::associate_kms_key::AssociateKmsKeyInput).
 -    pub fn builder() -> crate::operation::associate_kms_key::builders::AssociateKmsKeyInputBuilder {
 -        crate::operation::associate_kms_key::builders::AssociateKmsKeyInputBuilder::default()
-+    pub fn builder() -> super::operation::associate_kms_key::builders::AssociateKmsKeyInputBuilder {
-+        super::operation::associate_kms_key::builders::AssociateKmsKeyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::associate_kms_key::builders::AssociateKmsKeyInputBuilder {
++        super::super::super::operation::associate_kms_key::builders::AssociateKmsKeyInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::associate_kms_key::AssociateKmsKeyInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::associate_kms_key::AssociateKmsKeyInput {
-+    ) -> ::std::result::Result<super::operation::associate_kms_key::AssociateKmsKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::associate_kms_key::AssociateKmsKeyInput {
++    ) -> ::std::result::Result<super::super::super::operation::associate_kms_key::AssociateKmsKeyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::associate_kms_key::AssociateKmsKeyInput {
              log_group_name: self.log_group_name,
              kms_key_id: self.kms_key_id,
              resource_identifier: self.resource_identifier,

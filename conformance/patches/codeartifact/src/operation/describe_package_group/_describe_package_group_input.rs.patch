@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribePackageGroupInput`](crate::operation::describe_package_group::DescribePackageGroupInput).
 -    pub fn builder() -> crate::operation::describe_package_group::builders::DescribePackageGroupInputBuilder {
 -        crate::operation::describe_package_group::builders::DescribePackageGroupInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_package_group::builders::DescribePackageGroupInputBuilder {
-+        super::operation::describe_package_group::builders::DescribePackageGroupInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_package_group::builders::DescribePackageGroupInputBuilder {
++        super::super::super::operation::describe_package_group::builders::DescribePackageGroupInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_package_group::DescribePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::describe_package_group::DescribePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::describe_package_group::DescribePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::describe_package_group::DescribePackageGroupInput {
-+        ::std::result::Result::Ok(super::operation::describe_package_group::DescribePackageGroupInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_package_group::DescribePackageGroupInput {
              domain: self.domain,
              domain_owner: self.domain_owner,
              package_group: self.package_group,

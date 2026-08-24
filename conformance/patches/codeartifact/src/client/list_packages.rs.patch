@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListPackagesError>`](crate::operation::list_packages::ListPackagesError)
 -    pub fn list_packages(&self) -> crate::operation::list_packages::builders::ListPackagesFluentBuilder {
 -        crate::operation::list_packages::builders::ListPackagesFluentBuilder::new(self.handle.clone())
-+    pub fn list_packages(&self) -> super::operation::list_packages::builders::ListPackagesFluentBuilder {
-+        super::operation::list_packages::builders::ListPackagesFluentBuilder::new(self.handle.clone())
++    pub fn list_packages(&self) -> super::super::operation::list_packages::builders::ListPackagesFluentBuilder {
++        super::super::operation::list_packages::builders::ListPackagesFluentBuilder::new(self.handle.clone())
      }
  }

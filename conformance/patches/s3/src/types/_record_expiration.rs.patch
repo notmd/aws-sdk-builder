@@ -5,14 +5,14 @@
  pub struct RecordExpiration {
      /// <p>Specifies whether journal table record expiration is enabled or disabled.</p>
 -    pub expiration: crate::types::ExpirationState,
-+    pub expiration: super::types::ExpirationState,
++    pub expiration: super::super::types::ExpirationState,
      /// <p>If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from <code>7</code> to <code>2147483647</code>. For example, to retain your journal table records for one year, set this value to <code>365</code>.</p>
      pub days: ::std::option::Option<i32>,
  }
  impl RecordExpiration {
      /// <p>Specifies whether journal table record expiration is enabled or disabled.</p>
 -    pub fn expiration(&self) -> &crate::types::ExpirationState {
-+    pub fn expiration(&self) -> &super::types::ExpirationState {
++    pub fn expiration(&self) -> &super::super::types::ExpirationState {
          &self.expiration
      }
      /// <p>If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from <code>7</code> to <code>2147483647</code>. For example, to retain your journal table records for one year, set this value to <code>365</code>.</p>
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`RecordExpiration`](crate::types::RecordExpiration).
 -    pub fn builder() -> crate::types::builders::RecordExpirationBuilder {
 -        crate::types::builders::RecordExpirationBuilder::default()
-+    pub fn builder() -> super::types::builders::RecordExpirationBuilder {
-+        super::types::builders::RecordExpirationBuilder::default()
++    pub fn builder() -> super::super::types::builders::RecordExpirationBuilder {
++        super::super::types::builders::RecordExpirationBuilder::default()
      }
  }
 
@@ -32,26 +32,26 @@
  #[non_exhaustive]
  pub struct RecordExpirationBuilder {
 -    pub(crate) expiration: ::std::option::Option<crate::types::ExpirationState>,
-+    pub(crate) expiration: ::std::option::Option<super::types::ExpirationState>,
++    pub(crate) expiration: ::std::option::Option<super::super::types::ExpirationState>,
      pub(crate) days: ::std::option::Option<i32>,
  }
  impl RecordExpirationBuilder {
      /// <p>Specifies whether journal table record expiration is enabled or disabled.</p>
      /// This field is required.
 -    pub fn expiration(mut self, input: crate::types::ExpirationState) -> Self {
-+    pub fn expiration(mut self, input: super::types::ExpirationState) -> Self {
++    pub fn expiration(mut self, input: super::super::types::ExpirationState) -> Self {
          self.expiration = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies whether journal table record expiration is enabled or disabled.</p>
 -    pub fn set_expiration(mut self, input: ::std::option::Option<crate::types::ExpirationState>) -> Self {
-+    pub fn set_expiration(mut self, input: ::std::option::Option<super::types::ExpirationState>) -> Self {
++    pub fn set_expiration(mut self, input: ::std::option::Option<super::super::types::ExpirationState>) -> Self {
          self.expiration = input;
          self
      }
      /// <p>Specifies whether journal table record expiration is enabled or disabled.</p>
 -    pub fn get_expiration(&self) -> &::std::option::Option<crate::types::ExpirationState> {
-+    pub fn get_expiration(&self) -> &::std::option::Option<super::types::ExpirationState> {
++    pub fn get_expiration(&self) -> &::std::option::Option<super::super::types::ExpirationState> {
          &self.expiration
      }
      /// <p>If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from <code>7</code> to <code>2147483647</code>. For example, to retain your journal table records for one year, set this value to <code>365</code>.</p>
@@ -61,8 +61,8 @@
      /// - [`expiration`](crate::types::builders::RecordExpirationBuilder::expiration)
 -    pub fn build(self) -> ::std::result::Result<crate::types::RecordExpiration, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::RecordExpiration {
-+    pub fn build(self) -> ::std::result::Result<super::types::RecordExpiration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::RecordExpiration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::RecordExpiration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::RecordExpiration {
              expiration: self.expiration.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "expiration",

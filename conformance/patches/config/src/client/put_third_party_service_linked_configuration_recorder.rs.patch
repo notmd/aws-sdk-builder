@@ -5,9 +5,9 @@
      pub fn put_third_party_service_linked_configuration_recorder(
          &self,
 -    ) -> crate::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder
-+    ) -> super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder
++    ) -> super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder
      {
 -        crate::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder::new(self.handle.clone())
-+        super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder::new(self.handle.clone())
++        super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder::new(self.handle.clone())
      }
  }

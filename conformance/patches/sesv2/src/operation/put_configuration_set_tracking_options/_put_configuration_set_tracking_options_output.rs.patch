@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutConfigurationSetTrackingOptionsOutput`](crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput).
 -    pub fn builder() -> crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder {
 -        crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder {
-+        super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder {
++        super::super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutConfigurationSetTrackingOptionsOutput`](crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput).
 -    pub fn build(self) -> crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput {
 -        crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput {
-+    pub fn build(self) -> super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput {
-+        super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput {
++    pub fn build(self) -> super::super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput {
++        super::super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput {
              _request_id: self._request_id,
          }
      }

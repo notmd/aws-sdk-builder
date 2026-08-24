@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteEmailIdentityInput`](crate::operation::delete_email_identity::DeleteEmailIdentityInput).
 -    pub fn builder() -> crate::operation::delete_email_identity::builders::DeleteEmailIdentityInputBuilder {
 -        crate::operation::delete_email_identity::builders::DeleteEmailIdentityInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_email_identity::builders::DeleteEmailIdentityInputBuilder {
-+        super::operation::delete_email_identity::builders::DeleteEmailIdentityInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_email_identity::builders::DeleteEmailIdentityInputBuilder {
++        super::super::super::operation::delete_email_identity::builders::DeleteEmailIdentityInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_email_identity::DeleteEmailIdentityInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::delete_email_identity::DeleteEmailIdentityInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::delete_email_identity::DeleteEmailIdentityInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::delete_email_identity::DeleteEmailIdentityInput {
-+        ::std::result::Result::Ok(super::operation::delete_email_identity::DeleteEmailIdentityInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_email_identity::DeleteEmailIdentityInput {
              email_identity: self.email_identity,
          })
      }

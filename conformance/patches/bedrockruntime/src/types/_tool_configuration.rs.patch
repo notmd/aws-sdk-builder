@@ -5,21 +5,21 @@
  pub struct ToolConfiguration {
      /// <p>An array of tools that you want to pass to a model.</p>
 -    pub tools: ::std::vec::Vec<crate::types::Tool>,
-+    pub tools: ::std::vec::Vec<super::types::Tool>,
++    pub tools: ::std::vec::Vec<super::super::types::Tool>,
      /// <p>If supported by model, forces the model to request a tool.</p>
 -    pub tool_choice: ::std::option::Option<crate::types::ToolChoice>,
-+    pub tool_choice: ::std::option::Option<super::types::ToolChoice>,
++    pub tool_choice: ::std::option::Option<super::super::types::ToolChoice>,
  }
  impl ToolConfiguration {
      /// <p>An array of tools that you want to pass to a model.</p>
 -    pub fn tools(&self) -> &[crate::types::Tool] {
-+    pub fn tools(&self) -> &[super::types::Tool] {
++    pub fn tools(&self) -> &[super::super::types::Tool] {
          use std::ops::Deref;
          self.tools.deref()
      }
      /// <p>If supported by model, forces the model to request a tool.</p>
 -    pub fn tool_choice(&self) -> ::std::option::Option<&crate::types::ToolChoice> {
-+    pub fn tool_choice(&self) -> ::std::option::Option<&super::types::ToolChoice> {
++    pub fn tool_choice(&self) -> ::std::option::Option<&super::super::types::ToolChoice> {
          self.tool_choice.as_ref()
      }
  }
@@ -27,8 +27,8 @@
      /// Creates a new builder-style object to manufacture [`ToolConfiguration`](crate::types::ToolConfiguration).
 -    pub fn builder() -> crate::types::builders::ToolConfigurationBuilder {
 -        crate::types::builders::ToolConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::ToolConfigurationBuilder {
-+        super::types::builders::ToolConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::ToolConfigurationBuilder {
++        super::super::types::builders::ToolConfigurationBuilder::default()
      }
  }
 
@@ -38,8 +38,8 @@
  pub struct ToolConfigurationBuilder {
 -    pub(crate) tools: ::std::option::Option<::std::vec::Vec<crate::types::Tool>>,
 -    pub(crate) tool_choice: ::std::option::Option<crate::types::ToolChoice>,
-+    pub(crate) tools: ::std::option::Option<::std::vec::Vec<super::types::Tool>>,
-+    pub(crate) tool_choice: ::std::option::Option<super::types::ToolChoice>,
++    pub(crate) tools: ::std::option::Option<::std::vec::Vec<super::super::types::Tool>>,
++    pub(crate) tool_choice: ::std::option::Option<super::super::types::ToolChoice>,
  }
  impl ToolConfigurationBuilder {
      /// Appends an item to `tools`.
@@ -48,7 +48,7 @@
      ///
      /// <p>An array of tools that you want to pass to a model.</p>
 -    pub fn tools(mut self, input: crate::types::Tool) -> Self {
-+    pub fn tools(mut self, input: super::types::Tool) -> Self {
++    pub fn tools(mut self, input: super::super::types::Tool) -> Self {
          let mut v = self.tools.unwrap_or_default();
          v.push(input);
          self.tools = ::std::option::Option::Some(v);
@@ -57,30 +57,30 @@
      }
      /// <p>An array of tools that you want to pass to a model.</p>
 -    pub fn set_tools(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tool>>) -> Self {
-+    pub fn set_tools(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tool>>) -> Self {
++    pub fn set_tools(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::Tool>>) -> Self {
          self.tools = input;
          self
      }
      /// <p>An array of tools that you want to pass to a model.</p>
 -    pub fn get_tools(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tool>> {
-+    pub fn get_tools(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tool>> {
++    pub fn get_tools(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::Tool>> {
          &self.tools
      }
      /// <p>If supported by model, forces the model to request a tool.</p>
 -    pub fn tool_choice(mut self, input: crate::types::ToolChoice) -> Self {
-+    pub fn tool_choice(mut self, input: super::types::ToolChoice) -> Self {
++    pub fn tool_choice(mut self, input: super::super::types::ToolChoice) -> Self {
          self.tool_choice = ::std::option::Option::Some(input);
          self
      }
      /// <p>If supported by model, forces the model to request a tool.</p>
 -    pub fn set_tool_choice(mut self, input: ::std::option::Option<crate::types::ToolChoice>) -> Self {
-+    pub fn set_tool_choice(mut self, input: ::std::option::Option<super::types::ToolChoice>) -> Self {
++    pub fn set_tool_choice(mut self, input: ::std::option::Option<super::super::types::ToolChoice>) -> Self {
          self.tool_choice = input;
          self
      }
      /// <p>If supported by model, forces the model to request a tool.</p>
 -    pub fn get_tool_choice(&self) -> &::std::option::Option<crate::types::ToolChoice> {
-+    pub fn get_tool_choice(&self) -> &::std::option::Option<super::types::ToolChoice> {
++    pub fn get_tool_choice(&self) -> &::std::option::Option<super::super::types::ToolChoice> {
          &self.tool_choice
      }
      /// Consumes the builder and constructs a [`ToolConfiguration`](crate::types::ToolConfiguration).
@@ -88,8 +88,8 @@
      /// - [`tools`](crate::types::builders::ToolConfigurationBuilder::tools)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ToolConfiguration, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ToolConfiguration {
-+    pub fn build(self) -> ::std::result::Result<super::types::ToolConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ToolConfiguration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ToolConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ToolConfiguration {
              tools: self.tools.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "tools",

@@ -5,7 +5,7 @@
  pub struct TestMetricFilterOutput {
      /// <p>The matched events.</p>
 -    pub matches: ::std::option::Option<::std::vec::Vec<crate::types::MetricFilterMatchRecord>>,
-+    pub matches: ::std::option::Option<::std::vec::Vec<super::types::MetricFilterMatchRecord>>,
++    pub matches: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricFilterMatchRecord>>,
      _request_id: Option<String>,
  }
  impl TestMetricFilterOutput {
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.matches.is_none()`.
 -    pub fn matches(&self) -> &[crate::types::MetricFilterMatchRecord] {
-+    pub fn matches(&self) -> &[super::types::MetricFilterMatchRecord] {
++    pub fn matches(&self) -> &[super::super::super::types::MetricFilterMatchRecord] {
          self.matches.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`TestMetricFilterOutput`](crate::operation::test_metric_filter::TestMetricFilterOutput).
 -    pub fn builder() -> crate::operation::test_metric_filter::builders::TestMetricFilterOutputBuilder {
 -        crate::operation::test_metric_filter::builders::TestMetricFilterOutputBuilder::default()
-+    pub fn builder() -> super::operation::test_metric_filter::builders::TestMetricFilterOutputBuilder {
-+        super::operation::test_metric_filter::builders::TestMetricFilterOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::test_metric_filter::builders::TestMetricFilterOutputBuilder {
++        super::super::super::operation::test_metric_filter::builders::TestMetricFilterOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct TestMetricFilterOutputBuilder {
 -    pub(crate) matches: ::std::option::Option<::std::vec::Vec<crate::types::MetricFilterMatchRecord>>,
-+    pub(crate) matches: ::std::option::Option<::std::vec::Vec<super::types::MetricFilterMatchRecord>>,
++    pub(crate) matches: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricFilterMatchRecord>>,
      _request_id: Option<String>,
  }
  impl TestMetricFilterOutputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>The matched events.</p>
 -    pub fn matches(mut self, input: crate::types::MetricFilterMatchRecord) -> Self {
-+    pub fn matches(mut self, input: super::types::MetricFilterMatchRecord) -> Self {
++    pub fn matches(mut self, input: super::super::super::types::MetricFilterMatchRecord) -> Self {
          let mut v = self.matches.unwrap_or_default();
          v.push(input);
          self.matches = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The matched events.</p>
 -    pub fn set_matches(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MetricFilterMatchRecord>>) -> Self {
-+    pub fn set_matches(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MetricFilterMatchRecord>>) -> Self {
++    pub fn set_matches(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricFilterMatchRecord>>) -> Self {
          self.matches = input;
          self
      }
      /// <p>The matched events.</p>
 -    pub fn get_matches(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricFilterMatchRecord>> {
-+    pub fn get_matches(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MetricFilterMatchRecord>> {
++    pub fn get_matches(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MetricFilterMatchRecord>> {
          &self.matches
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`TestMetricFilterOutput`](crate::operation::test_metric_filter::TestMetricFilterOutput).
 -    pub fn build(self) -> crate::operation::test_metric_filter::TestMetricFilterOutput {
 -        crate::operation::test_metric_filter::TestMetricFilterOutput {
-+    pub fn build(self) -> super::operation::test_metric_filter::TestMetricFilterOutput {
-+        super::operation::test_metric_filter::TestMetricFilterOutput {
++    pub fn build(self) -> super::super::super::operation::test_metric_filter::TestMetricFilterOutput {
++        super::super::super::operation::test_metric_filter::TestMetricFilterOutput {
              matches: self.matches,
              _request_id: self._request_id,
          }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetCustomRulePolicyError>`](crate::operation::get_custom_rule_policy::GetCustomRulePolicyError)
 -    pub fn get_custom_rule_policy(&self) -> crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyFluentBuilder {
 -        crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyFluentBuilder::new(self.handle.clone())
-+    pub fn get_custom_rule_policy(&self) -> super::operation::get_custom_rule_policy::builders::GetCustomRulePolicyFluentBuilder {
-+        super::operation::get_custom_rule_policy::builders::GetCustomRulePolicyFluentBuilder::new(self.handle.clone())
++    pub fn get_custom_rule_policy(&self) -> super::super::operation::get_custom_rule_policy::builders::GetCustomRulePolicyFluentBuilder {
++        super::super::operation::get_custom_rule_policy::builders::GetCustomRulePolicyFluentBuilder::new(self.handle.clone())
      }
  }

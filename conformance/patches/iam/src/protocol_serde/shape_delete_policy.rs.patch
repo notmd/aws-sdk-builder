@@ -5,33 +5,33 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::delete_policy::DeletePolicyOutput, crate::operation::delete_policy::DeletePolicyError> {
-+) -> std::result::Result<super::operation::delete_policy::DeletePolicyOutput, super::operation::delete_policy::DeletePolicyError> {
++) -> std::result::Result<super::super::operation::delete_policy::DeletePolicyOutput, super::super::operation::delete_policy::DeletePolicyError> {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::delete_policy::DeletePolicyError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::delete_policy::DeletePolicyError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::delete_policy::DeletePolicyError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::delete_policy::DeletePolicyError::unhandled(generic)),
-+        None => return Err(super::operation::delete_policy::DeletePolicyError::unhandled(generic)),
++        None => return Err(super::super::operation::delete_policy::DeletePolicyError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "DeleteConflict" => crate::operation::delete_policy::DeletePolicyError::DeleteConflictException({
-+        "DeleteConflict" => super::operation::delete_policy::DeletePolicyError::DeleteConflictException({
++        "DeleteConflict" => super::super::operation::delete_policy::DeletePolicyError::DeleteConflictException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::DeleteConflictExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_delete_conflict_exception::de_delete_conflict_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::delete_policy::DeletePolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::DeleteConflictExceptionBuilder::default();
-+                output = super::protocol_serde::shape_delete_conflict_exception::de_delete_conflict_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::delete_policy::DeletePolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::DeleteConflictExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_delete_conflict_exception::de_delete_conflict_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::delete_policy::DeletePolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -40,16 +40,16 @@
              tmp
          }),
 -        "InvalidInput" => crate::operation::delete_policy::DeletePolicyError::InvalidInputException({
-+        "InvalidInput" => super::operation::delete_policy::DeletePolicyError::InvalidInputException({
++        "InvalidInput" => super::super::operation::delete_policy::DeletePolicyError::InvalidInputException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::delete_policy::DeletePolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::delete_policy::DeletePolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::delete_policy::DeletePolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -58,16 +58,16 @@
              tmp
          }),
 -        "LimitExceeded" => crate::operation::delete_policy::DeletePolicyError::LimitExceededException({
-+        "LimitExceeded" => super::operation::delete_policy::DeletePolicyError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::delete_policy::DeletePolicyError::LimitExceededException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::delete_policy::DeletePolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::delete_policy::DeletePolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::delete_policy::DeletePolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -76,16 +76,16 @@
              tmp
          }),
 -        "NoSuchEntity" => crate::operation::delete_policy::DeletePolicyError::NoSuchEntityException({
-+        "NoSuchEntity" => super::operation::delete_policy::DeletePolicyError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::delete_policy::DeletePolicyError::NoSuchEntityException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::delete_policy::DeletePolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
-+                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::delete_policy::DeletePolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::delete_policy::DeletePolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -94,16 +94,16 @@
              tmp
          }),
 -        "ServiceFailure" => crate::operation::delete_policy::DeletePolicyError::ServiceFailureException({
-+        "ServiceFailure" => super::operation::delete_policy::DeletePolicyError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::delete_policy::DeletePolicyError::ServiceFailureException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::delete_policy::DeletePolicyError::unhandled)?;
-+                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
-+                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::delete_policy::DeletePolicyError::unhandled)?;
++                let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::delete_policy::DeletePolicyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -112,7 +112,7 @@
              tmp
          }),
 -        _ => crate::operation::delete_policy::DeletePolicyError::generic(generic),
-+        _ => super::operation::delete_policy::DeletePolicyError::generic(generic),
++        _ => super::super::operation::delete_policy::DeletePolicyError::generic(generic),
      })
  }
 
@@ -121,11 +121,11 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::delete_policy::DeletePolicyOutput, crate::operation::delete_policy::DeletePolicyError> {
-+) -> std::result::Result<super::operation::delete_policy::DeletePolicyOutput, super::operation::delete_policy::DeletePolicyError> {
++) -> std::result::Result<super::super::operation::delete_policy::DeletePolicyOutput, super::super::operation::delete_policy::DeletePolicyError> {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::delete_policy::builders::DeletePolicyOutputBuilder::default();
-+        let mut output = super::operation::delete_policy::builders::DeletePolicyOutputBuilder::default();
++        let mut output = super::super::operation::delete_policy::builders::DeletePolicyOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })

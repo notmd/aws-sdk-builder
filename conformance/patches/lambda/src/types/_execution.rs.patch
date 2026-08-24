@@ -5,7 +5,7 @@
      pub function_arn: ::std::string::String,
      /// <p>The current status of the durable execution.</p>
 -    pub status: crate::types::ExecutionStatus,
-+    pub status: super::types::ExecutionStatus,
++    pub status: super::super::types::ExecutionStatus,
      /// <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
      pub start_timestamp: ::aws_smithy_types::DateTime,
      /// <p>The date and time when the durable execution ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The current status of the durable execution.</p>
 -    pub fn status(&self) -> &crate::types::ExecutionStatus {
-+    pub fn status(&self) -> &super::types::ExecutionStatus {
++    pub fn status(&self) -> &super::super::types::ExecutionStatus {
          &self.status
      }
      /// <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`Execution`](crate::types::Execution).
 -    pub fn builder() -> crate::types::builders::ExecutionBuilder {
 -        crate::types::builders::ExecutionBuilder::default()
-+    pub fn builder() -> super::types::builders::ExecutionBuilder {
-+        super::types::builders::ExecutionBuilder::default()
++    pub fn builder() -> super::super::types::builders::ExecutionBuilder {
++        super::super::types::builders::ExecutionBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) durable_execution_name: ::std::option::Option<::std::string::String>,
      pub(crate) function_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::ExecutionStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::ExecutionStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::ExecutionStatus>,
      pub(crate) start_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) end_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
@@ -43,19 +43,19 @@
      /// <p>The current status of the durable execution.</p>
      /// This field is required.
 -    pub fn status(mut self, input: crate::types::ExecutionStatus) -> Self {
-+    pub fn status(mut self, input: super::types::ExecutionStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::ExecutionStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current status of the durable execution.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::ExecutionStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::ExecutionStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>The current status of the durable execution.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExecutionStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::ExecutionStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::ExecutionStatus> {
          &self.status
      }
      /// <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
@@ -65,8 +65,8 @@
      /// - [`start_timestamp`](crate::types::builders::ExecutionBuilder::start_timestamp)
 -    pub fn build(self) -> ::std::result::Result<crate::types::Execution, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::Execution {
-+    pub fn build(self) -> ::std::result::Result<super::types::Execution, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Execution {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Execution, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Execution {
              durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "durable_execution_arn",

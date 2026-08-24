@@ -5,14 +5,14 @@
  pub struct EcsPropertiesDetail {
      /// <p>The properties for the Amazon ECS task definition of a job.</p>
 -    pub task_properties: ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskDetails>>,
-+    pub task_properties: ::std::option::Option<::std::vec::Vec<super::types::EcsTaskDetails>>,
++    pub task_properties: ::std::option::Option<::std::vec::Vec<super::super::types::EcsTaskDetails>>,
  }
  impl EcsPropertiesDetail {
      /// <p>The properties for the Amazon ECS task definition of a job.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.task_properties.is_none()`.
 -    pub fn task_properties(&self) -> &[crate::types::EcsTaskDetails] {
-+    pub fn task_properties(&self) -> &[super::types::EcsTaskDetails] {
++    pub fn task_properties(&self) -> &[super::super::types::EcsTaskDetails] {
          self.task_properties.as_deref().unwrap_or_default()
      }
  }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`EcsPropertiesDetail`](crate::types::EcsPropertiesDetail).
 -    pub fn builder() -> crate::types::builders::EcsPropertiesDetailBuilder {
 -        crate::types::builders::EcsPropertiesDetailBuilder::default()
-+    pub fn builder() -> super::types::builders::EcsPropertiesDetailBuilder {
-+        super::types::builders::EcsPropertiesDetailBuilder::default()
++    pub fn builder() -> super::super::types::builders::EcsPropertiesDetailBuilder {
++        super::super::types::builders::EcsPropertiesDetailBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct EcsPropertiesDetailBuilder {
 -    pub(crate) task_properties: ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskDetails>>,
-+    pub(crate) task_properties: ::std::option::Option<::std::vec::Vec<super::types::EcsTaskDetails>>,
++    pub(crate) task_properties: ::std::option::Option<::std::vec::Vec<super::super::types::EcsTaskDetails>>,
  }
  impl EcsPropertiesDetailBuilder {
      /// Appends an item to `task_properties`.
@@ -39,7 +39,7 @@
      ///
      /// <p>The properties for the Amazon ECS task definition of a job.</p>
 -    pub fn task_properties(mut self, input: crate::types::EcsTaskDetails) -> Self {
-+    pub fn task_properties(mut self, input: super::types::EcsTaskDetails) -> Self {
++    pub fn task_properties(mut self, input: super::super::types::EcsTaskDetails) -> Self {
          let mut v = self.task_properties.unwrap_or_default();
          v.push(input);
          self.task_properties = ::std::option::Option::Some(v);
@@ -48,20 +48,20 @@
      }
      /// <p>The properties for the Amazon ECS task definition of a job.</p>
 -    pub fn set_task_properties(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskDetails>>) -> Self {
-+    pub fn set_task_properties(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EcsTaskDetails>>) -> Self {
++    pub fn set_task_properties(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::EcsTaskDetails>>) -> Self {
          self.task_properties = input;
          self
      }
      /// <p>The properties for the Amazon ECS task definition of a job.</p>
 -    pub fn get_task_properties(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EcsTaskDetails>> {
-+    pub fn get_task_properties(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EcsTaskDetails>> {
++    pub fn get_task_properties(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::EcsTaskDetails>> {
          &self.task_properties
      }
      /// Consumes the builder and constructs a [`EcsPropertiesDetail`](crate::types::EcsPropertiesDetail).
 -    pub fn build(self) -> crate::types::EcsPropertiesDetail {
 -        crate::types::EcsPropertiesDetail {
-+    pub fn build(self) -> super::types::EcsPropertiesDetail {
-+        super::types::EcsPropertiesDetail {
++    pub fn build(self) -> super::super::types::EcsPropertiesDetail {
++        super::super::types::EcsPropertiesDetail {
              task_properties: self.task_properties,
          }
      }

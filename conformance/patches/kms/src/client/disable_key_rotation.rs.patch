@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DisableKeyRotationError>`](crate::operation::disable_key_rotation::DisableKeyRotationError)
 -    pub fn disable_key_rotation(&self) -> crate::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder {
 -        crate::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder::new(self.handle.clone())
-+    pub fn disable_key_rotation(&self) -> super::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder {
-+        super::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder::new(self.handle.clone())
++    pub fn disable_key_rotation(&self) -> super::super::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder {
++        super::super::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder::new(self.handle.clone())
      }
  }

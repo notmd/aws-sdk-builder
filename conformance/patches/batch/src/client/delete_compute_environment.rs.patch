@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteComputeEnvironmentError>`](crate::operation::delete_compute_environment::DeleteComputeEnvironmentError)
 -    pub fn delete_compute_environment(&self) -> crate::operation::delete_compute_environment::builders::DeleteComputeEnvironmentFluentBuilder {
 -        crate::operation::delete_compute_environment::builders::DeleteComputeEnvironmentFluentBuilder::new(self.handle.clone())
-+    pub fn delete_compute_environment(&self) -> super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentFluentBuilder {
-+        super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentFluentBuilder::new(self.handle.clone())
++    pub fn delete_compute_environment(&self) -> super::super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentFluentBuilder {
++        super::super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentFluentBuilder::new(self.handle.clone())
      }
  }

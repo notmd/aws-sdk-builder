@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for ResourceConcurrentModificationException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::ResourceConcurrentModificationException {
-+impl ::aws_types::request_id::RequestId for super::types::error::ResourceConcurrentModificationException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::ResourceConcurrentModificationException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`ResourceConcurrentModificationException`](crate::types::error::ResourceConcurrentModificationException).
 -    pub fn builder() -> crate::types::error::builders::ResourceConcurrentModificationExceptionBuilder {
 -        crate::types::error::builders::ResourceConcurrentModificationExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::ResourceConcurrentModificationExceptionBuilder {
-+        super::types::error::builders::ResourceConcurrentModificationExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::ResourceConcurrentModificationExceptionBuilder {
++        super::super::super::types::error::builders::ResourceConcurrentModificationExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`ResourceConcurrentModificationException`](crate::types::error::ResourceConcurrentModificationException).
 -    pub fn build(self) -> crate::types::error::ResourceConcurrentModificationException {
 -        crate::types::error::ResourceConcurrentModificationException {
-+    pub fn build(self) -> super::types::error::ResourceConcurrentModificationException {
-+        super::types::error::ResourceConcurrentModificationException {
++    pub fn build(self) -> super::super::super::types::error::ResourceConcurrentModificationException {
++        super::super::super::types::error::ResourceConcurrentModificationException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

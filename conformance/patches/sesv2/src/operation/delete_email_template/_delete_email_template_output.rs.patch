@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteEmailTemplateOutput`](crate::operation::delete_email_template::DeleteEmailTemplateOutput).
 -    pub fn builder() -> crate::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder {
 -        crate::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder {
-+        super::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder {
++        super::super::super::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteEmailTemplateOutput`](crate::operation::delete_email_template::DeleteEmailTemplateOutput).
 -    pub fn build(self) -> crate::operation::delete_email_template::DeleteEmailTemplateOutput {
 -        crate::operation::delete_email_template::DeleteEmailTemplateOutput {
-+    pub fn build(self) -> super::operation::delete_email_template::DeleteEmailTemplateOutput {
-+        super::operation::delete_email_template::DeleteEmailTemplateOutput {
++    pub fn build(self) -> super::super::super::operation::delete_email_template::DeleteEmailTemplateOutput {
++        super::super::super::operation::delete_email_template::DeleteEmailTemplateOutput {
              _request_id: self._request_id,
          }
      }

@@ -5,13 +5,13 @@
  pub struct GetPolicyOutput {
      /// <p>A structure containing details about the policy.</p>
 -    pub policy: ::std::option::Option<crate::types::Policy>,
-+    pub policy: ::std::option::Option<super::types::Policy>,
++    pub policy: ::std::option::Option<super::super::super::types::Policy>,
      _request_id: Option<String>,
  }
  impl GetPolicyOutput {
      /// <p>A structure containing details about the policy.</p>
 -    pub fn policy(&self) -> ::std::option::Option<&crate::types::Policy> {
-+    pub fn policy(&self) -> ::std::option::Option<&super::types::Policy> {
++    pub fn policy(&self) -> ::std::option::Option<&super::super::super::types::Policy> {
          self.policy.as_ref()
      }
  }
@@ -21,8 +21,8 @@
      /// Creates a new builder-style object to manufacture [`GetPolicyOutput`](crate::operation::get_policy::GetPolicyOutput).
 -    pub fn builder() -> crate::operation::get_policy::builders::GetPolicyOutputBuilder {
 -        crate::operation::get_policy::builders::GetPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_policy::builders::GetPolicyOutputBuilder {
-+        super::operation::get_policy::builders::GetPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_policy::builders::GetPolicyOutputBuilder {
++        super::super::super::operation::get_policy::builders::GetPolicyOutputBuilder::default()
      }
  }
 
@@ -31,25 +31,25 @@
  #[non_exhaustive]
  pub struct GetPolicyOutputBuilder {
 -    pub(crate) policy: ::std::option::Option<crate::types::Policy>,
-+    pub(crate) policy: ::std::option::Option<super::types::Policy>,
++    pub(crate) policy: ::std::option::Option<super::super::super::types::Policy>,
      _request_id: Option<String>,
  }
  impl GetPolicyOutputBuilder {
      /// <p>A structure containing details about the policy.</p>
 -    pub fn policy(mut self, input: crate::types::Policy) -> Self {
-+    pub fn policy(mut self, input: super::types::Policy) -> Self {
++    pub fn policy(mut self, input: super::super::super::types::Policy) -> Self {
          self.policy = ::std::option::Option::Some(input);
          self
      }
      /// <p>A structure containing details about the policy.</p>
 -    pub fn set_policy(mut self, input: ::std::option::Option<crate::types::Policy>) -> Self {
-+    pub fn set_policy(mut self, input: ::std::option::Option<super::types::Policy>) -> Self {
++    pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::Policy>) -> Self {
          self.policy = input;
          self
      }
      /// <p>A structure containing details about the policy.</p>
 -    pub fn get_policy(&self) -> &::std::option::Option<crate::types::Policy> {
-+    pub fn get_policy(&self) -> &::std::option::Option<super::types::Policy> {
++    pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::Policy> {
          &self.policy
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -59,8 +59,8 @@
      /// Consumes the builder and constructs a [`GetPolicyOutput`](crate::operation::get_policy::GetPolicyOutput).
 -    pub fn build(self) -> crate::operation::get_policy::GetPolicyOutput {
 -        crate::operation::get_policy::GetPolicyOutput {
-+    pub fn build(self) -> super::operation::get_policy::GetPolicyOutput {
-+        super::operation::get_policy::GetPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::get_policy::GetPolicyOutput {
++        super::super::super::operation::get_policy::GetPolicyOutput {
              policy: self.policy,
              _request_id: self._request_id,
          }

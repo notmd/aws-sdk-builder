@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::register_job_definition::RegisterJobDefinitionOutput,
 -    crate::operation::register_job_definition::RegisterJobDefinitionError,
-+    super::operation::register_job_definition::RegisterJobDefinitionOutput,
-+    super::operation::register_job_definition::RegisterJobDefinitionError,
++    super::super::operation::register_job_definition::RegisterJobDefinitionOutput,
++    super::super::operation::register_job_definition::RegisterJobDefinitionError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::register_job_definition::RegisterJobDefinitionError::unhandled(generic)),
-+        None => return Err(super::operation::register_job_definition::RegisterJobDefinitionError::unhandled(generic)),
++        None => return Err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "ClientException" => crate::operation::register_job_definition::RegisterJobDefinitionError::ClientException({
-+        "ClientException" => super::operation::register_job_definition::RegisterJobDefinitionError::ClientException({
++        "ClientException" => super::super::operation::register_job_definition::RegisterJobDefinitionError::ClientException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ClientExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_client_exception::de_client_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
-+                let mut output = super::types::error::builders::ClientExceptionBuilder::default();
-+                output = super::protocol_serde::shape_client_exception::de_client_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
++                let mut output = super::super::types::error::builders::ClientExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_client_exception::de_client_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "ServerException" => crate::operation::register_job_definition::RegisterJobDefinitionError::ServerException({
-+        "ServerException" => super::operation::register_job_definition::RegisterJobDefinitionError::ServerException({
++        "ServerException" => super::super::operation::register_job_definition::RegisterJobDefinitionError::ServerException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ServerExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_server_exception::de_server_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
-+                let mut output = super::types::error::builders::ServerExceptionBuilder::default();
-+                output = super::protocol_serde::shape_server_exception::de_server_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
++                let mut output = super::super::types::error::builders::ServerExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_server_exception::de_server_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,7 +61,7 @@
              tmp
          }),
 -        _ => crate::operation::register_job_definition::RegisterJobDefinitionError::generic(generic),
-+        _ => super::operation::register_job_definition::RegisterJobDefinitionError::generic(generic),
++        _ => super::super::operation::register_job_definition::RegisterJobDefinitionError::generic(generic),
      })
  }
 
@@ -71,31 +71,31 @@
  ) -> std::result::Result<
 -    crate::operation::register_job_definition::RegisterJobDefinitionOutput,
 -    crate::operation::register_job_definition::RegisterJobDefinitionError,
-+    super::operation::register_job_definition::RegisterJobDefinitionOutput,
-+    super::operation::register_job_definition::RegisterJobDefinitionError,
++    super::super::operation::register_job_definition::RegisterJobDefinitionOutput,
++    super::super::operation::register_job_definition::RegisterJobDefinitionError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::default();
 -        output = crate::protocol_serde::shape_register_job_definition::de_register_job_definition(_response_body, output)
 -            .map_err(crate::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
-+        let mut output = super::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::default();
-+        output = super::protocol_serde::shape_register_job_definition::de_register_job_definition(_response_body, output)
-+            .map_err(super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
++        let mut output = super::super::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::default();
++        output = super::super::protocol_serde::shape_register_job_definition::de_register_job_definition(_response_body, output)
++            .map_err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        crate::serde_util::register_job_definition_output_output_correct_errors(output).build()
-+        super::serde_util::register_job_definition_output_output_correct_errors(output).build()
++        super::super::serde_util::register_job_definition_output_output_correct_errors(output).build()
      })
  }
 
  pub fn ser_register_job_definition_input(
 -    input: &crate::operation::register_job_definition::RegisterJobDefinitionInput,
-+    input: &super::operation::register_job_definition::RegisterJobDefinitionInput,
++    input: &super::super::operation::register_job_definition::RegisterJobDefinitionInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_register_job_definition_input::ser_register_job_definition_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_register_job_definition_input::ser_register_job_definition_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_register_job_definition_input::ser_register_job_definition_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -104,14 +104,14 @@
  pub(crate) fn de_register_job_definition(
      _value: &[u8],
 -    mut builder: crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder,
-+    mut builder: super::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder,
++    mut builder: super::super::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder,
-+    super::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder,
++    super::super::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;

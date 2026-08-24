@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetEmailIdentityError>`](crate::operation::get_email_identity::GetEmailIdentityError)
 -    pub fn get_email_identity(&self) -> crate::operation::get_email_identity::builders::GetEmailIdentityFluentBuilder {
 -        crate::operation::get_email_identity::builders::GetEmailIdentityFluentBuilder::new(self.handle.clone())
-+    pub fn get_email_identity(&self) -> super::operation::get_email_identity::builders::GetEmailIdentityFluentBuilder {
-+        super::operation::get_email_identity::builders::GetEmailIdentityFluentBuilder::new(self.handle.clone())
++    pub fn get_email_identity(&self) -> super::super::operation::get_email_identity::builders::GetEmailIdentityFluentBuilder {
++        super::super::operation::get_email_identity::builders::GetEmailIdentityFluentBuilder::new(self.handle.clone())
      }
  }

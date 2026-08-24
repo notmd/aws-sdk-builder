@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsFluentBuilder {
 -        crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsFluentBuilder {
-+        super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsFluentBuilder {
++        super::super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListUserPoolClientsInput`](crate::operation::list_user_pool_clients::ListUserPoolClientsInput).
 -    pub fn builder() -> crate::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder {
 -        crate::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder {
-+        super::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder {
++        super::super::super::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::list_user_pool_clients::ListUserPoolClientsInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::list_user_pool_clients::ListUserPoolClientsInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::list_user_pool_clients::ListUserPoolClientsInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::list_user_pool_clients::ListUserPoolClientsInput {
-+        ::std::result::Result::Ok(super::operation::list_user_pool_clients::ListUserPoolClientsInput {
++        ::std::result::Result::Ok(super::super::super::operation::list_user_pool_clients::ListUserPoolClientsInput {
              user_pool_id: self.user_pool_id,
              max_results: self.max_results,
              next_token: self.next_token,

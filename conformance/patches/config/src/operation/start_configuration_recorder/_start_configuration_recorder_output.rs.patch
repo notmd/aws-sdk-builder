@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`StartConfigurationRecorderOutput`](crate::operation::start_configuration_recorder::StartConfigurationRecorderOutput).
 -    pub fn builder() -> crate::operation::start_configuration_recorder::builders::StartConfigurationRecorderOutputBuilder {
 -        crate::operation::start_configuration_recorder::builders::StartConfigurationRecorderOutputBuilder::default()
-+    pub fn builder() -> super::operation::start_configuration_recorder::builders::StartConfigurationRecorderOutputBuilder {
-+        super::operation::start_configuration_recorder::builders::StartConfigurationRecorderOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::start_configuration_recorder::builders::StartConfigurationRecorderOutputBuilder {
++        super::super::super::operation::start_configuration_recorder::builders::StartConfigurationRecorderOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`StartConfigurationRecorderOutput`](crate::operation::start_configuration_recorder::StartConfigurationRecorderOutput).
 -    pub fn build(self) -> crate::operation::start_configuration_recorder::StartConfigurationRecorderOutput {
 -        crate::operation::start_configuration_recorder::StartConfigurationRecorderOutput {
-+    pub fn build(self) -> super::operation::start_configuration_recorder::StartConfigurationRecorderOutput {
-+        super::operation::start_configuration_recorder::StartConfigurationRecorderOutput {
++    pub fn build(self) -> super::super::super::operation::start_configuration_recorder::StartConfigurationRecorderOutput {
++        super::super::super::operation::start_configuration_recorder::StartConfigurationRecorderOutput {
              _request_id: self._request_id,
          }
      }

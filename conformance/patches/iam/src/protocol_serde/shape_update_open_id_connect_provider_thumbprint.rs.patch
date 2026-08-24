@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
 -    crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-+    super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
-+    super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
++    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
++    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled(generic))
-+            return Err(super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled(generic))
++            return Err(super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled(generic))
          }
      };
 
@@ -29,21 +29,21 @@
      Err(match error_code {
          "ConcurrentModification" => {
 -            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ConcurrentModificationException(
-+            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ConcurrentModificationException(
++            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ConcurrentModificationException(
                  {
                      #[allow(unused_mut)]
                      let mut tmp = {
                          #[allow(unused_mut)]
 -                        let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
 -                        output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
-+                        let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-+                        output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
++                        let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                        output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
                              _response_body,
                              output,
                          )
                          .map_err(
 -                            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
-+                            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
++                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
                          )?;
                          let output = output.meta(generic);
                          output.build()
@@ -52,17 +52,17 @@
          }
          "InvalidInput" => {
 -            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::InvalidInputException({
-+            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::InvalidInputException({
++            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::InvalidInputException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-+                    let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
                          .map_err(
 -                            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
-+                            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
++                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
                          )?;
                      let output = output.meta(generic);
                      output.build()
@@ -71,17 +71,17 @@
          }
          "NoSuchEntity" => {
 -            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::NoSuchEntityException({
-+            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::NoSuchEntityException({
++            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::NoSuchEntityException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-+                    let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
                          .map_err(
 -                            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
-+                            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
++                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
                          )?;
                      let output = output.meta(generic);
                      output.build()
@@ -90,17 +90,17 @@
          }
          "ServiceFailure" => {
 -            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ServiceFailureException({
-+            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ServiceFailureException({
++            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ServiceFailureException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-+                    let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
                          .map_err(
 -                            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
-+                            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
++                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
                          )?;
                      let output = output.meta(generic);
                      output.build()
@@ -109,7 +109,7 @@
              })
          }
 -        _ => crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::generic(generic),
-+        _ => super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::generic(generic),
++        _ => super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::generic(generic),
      })
  }
 
@@ -119,14 +119,14 @@
  ) -> std::result::Result<
 -    crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
 -    crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-+    super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
-+    super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
++    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
++    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
  > {
      Ok({
          #[allow(unused_mut)]
          let mut output =
 -            crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder::default();
-+            super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder::default();
++            super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })

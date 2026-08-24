@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateBackupError>`](crate::operation::create_backup::CreateBackupError)
 -    pub fn create_backup(&self) -> crate::operation::create_backup::builders::CreateBackupFluentBuilder {
 -        crate::operation::create_backup::builders::CreateBackupFluentBuilder::new(self.handle.clone())
-+    pub fn create_backup(&self) -> super::operation::create_backup::builders::CreateBackupFluentBuilder {
-+        super::operation::create_backup::builders::CreateBackupFluentBuilder::new(self.handle.clone())
++    pub fn create_backup(&self) -> super::super::operation::create_backup::builders::CreateBackupFluentBuilder {
++        super::super::operation::create_backup::builders::CreateBackupFluentBuilder::new(self.handle.clone())
      }
  }

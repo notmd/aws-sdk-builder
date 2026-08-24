@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationFluentBuilder {
 -        crate::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationFluentBuilder::new(
-+    ) -> super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationFluentBuilder {
-+        super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationFluentBuilder::new(
++    ) -> super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationFluentBuilder {
++        super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationFluentBuilder::new(
              self.handle.clone(),
          )
      }

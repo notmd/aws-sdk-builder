@@ -5,7 +5,7 @@
  pub fn ser_entity(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::Entity,
-+    input: &super::types::Entity,
++    input: &super::super::types::Entity,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.key_attributes {
          #[allow(unused_mut)]

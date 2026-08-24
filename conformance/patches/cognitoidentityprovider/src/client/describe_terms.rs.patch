@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeTermsError>`](crate::operation::describe_terms::DescribeTermsError)
 -    pub fn describe_terms(&self) -> crate::operation::describe_terms::builders::DescribeTermsFluentBuilder {
 -        crate::operation::describe_terms::builders::DescribeTermsFluentBuilder::new(self.handle.clone())
-+    pub fn describe_terms(&self) -> super::operation::describe_terms::builders::DescribeTermsFluentBuilder {
-+        super::operation::describe_terms::builders::DescribeTermsFluentBuilder::new(self.handle.clone())
++    pub fn describe_terms(&self) -> super::super::operation::describe_terms::builders::DescribeTermsFluentBuilder {
++        super::super::operation::describe_terms::builders::DescribeTermsFluentBuilder::new(self.handle.clone())
      }
  }

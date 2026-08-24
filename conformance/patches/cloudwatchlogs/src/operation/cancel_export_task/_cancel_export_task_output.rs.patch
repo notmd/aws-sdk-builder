@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CancelExportTaskOutput`](crate::operation::cancel_export_task::CancelExportTaskOutput).
 -    pub fn builder() -> crate::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder {
 -        crate::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder::default()
-+    pub fn builder() -> super::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder {
-+        super::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder {
++        super::super::super::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CancelExportTaskOutput`](crate::operation::cancel_export_task::CancelExportTaskOutput).
 -    pub fn build(self) -> crate::operation::cancel_export_task::CancelExportTaskOutput {
 -        crate::operation::cancel_export_task::CancelExportTaskOutput {
-+    pub fn build(self) -> super::operation::cancel_export_task::CancelExportTaskOutput {
-+        super::operation::cancel_export_task::CancelExportTaskOutput {
++    pub fn build(self) -> super::super::super::operation::cancel_export_task::CancelExportTaskOutput {
++        super::super::super::operation::cancel_export_task::CancelExportTaskOutput {
              _request_id: self._request_id,
          }
      }

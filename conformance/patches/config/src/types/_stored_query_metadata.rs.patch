@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`StoredQueryMetadata`](crate::types::StoredQueryMetadata).
 -    pub fn builder() -> crate::types::builders::StoredQueryMetadataBuilder {
 -        crate::types::builders::StoredQueryMetadataBuilder::default()
-+    pub fn builder() -> super::types::builders::StoredQueryMetadataBuilder {
-+        super::types::builders::StoredQueryMetadataBuilder::default()
++    pub fn builder() -> super::super::types::builders::StoredQueryMetadataBuilder {
++        super::super::types::builders::StoredQueryMetadataBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`query_name`](crate::types::builders::StoredQueryMetadataBuilder::query_name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::StoredQueryMetadata, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::StoredQueryMetadata {
-+    pub fn build(self) -> ::std::result::Result<super::types::StoredQueryMetadata, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::StoredQueryMetadata {
++    pub fn build(self) -> ::std::result::Result<super::super::types::StoredQueryMetadata, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::StoredQueryMetadata {
              query_id: self.query_id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "query_id",

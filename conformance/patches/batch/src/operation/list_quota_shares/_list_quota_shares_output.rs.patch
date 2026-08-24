@@ -5,7 +5,7 @@
  pub struct ListQuotaSharesOutput {
      /// <p>A list of quota shares that match the request.</p>
 -    pub quota_shares: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareDetail>>,
-+    pub quota_shares: ::std::option::Option<::std::vec::Vec<super::types::QuotaShareDetail>>,
++    pub quota_shares: ::std::option::Option<::std::vec::Vec<super::super::super::types::QuotaShareDetail>>,
      /// <p>The <code>nextToken</code> value to include in a future <code>ListQuotaShares</code> request. When the results of a <code>ListQuotaShares</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.quota_shares.is_none()`.
 -    pub fn quota_shares(&self) -> &[crate::types::QuotaShareDetail] {
-+    pub fn quota_shares(&self) -> &[super::types::QuotaShareDetail] {
++    pub fn quota_shares(&self) -> &[super::super::super::types::QuotaShareDetail] {
          self.quota_shares.as_deref().unwrap_or_default()
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>ListQuotaShares</code> request. When the results of a <code>ListQuotaShares</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListQuotaSharesOutput`](crate::operation::list_quota_shares::ListQuotaSharesOutput).
 -    pub fn builder() -> crate::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder {
 -        crate::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder {
-+        super::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder {
++        super::super::super::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListQuotaSharesOutputBuilder {
 -    pub(crate) quota_shares: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareDetail>>,
-+    pub(crate) quota_shares: ::std::option::Option<::std::vec::Vec<super::types::QuotaShareDetail>>,
++    pub(crate) quota_shares: ::std::option::Option<::std::vec::Vec<super::super::super::types::QuotaShareDetail>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of quota shares that match the request.</p>
 -    pub fn quota_shares(mut self, input: crate::types::QuotaShareDetail) -> Self {
-+    pub fn quota_shares(mut self, input: super::types::QuotaShareDetail) -> Self {
++    pub fn quota_shares(mut self, input: super::super::super::types::QuotaShareDetail) -> Self {
          let mut v = self.quota_shares.unwrap_or_default();
          v.push(input);
          self.quota_shares = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of quota shares that match the request.</p>
 -    pub fn set_quota_shares(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareDetail>>) -> Self {
-+    pub fn set_quota_shares(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::QuotaShareDetail>>) -> Self {
++    pub fn set_quota_shares(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::QuotaShareDetail>>) -> Self {
          self.quota_shares = input;
          self
      }
      /// <p>A list of quota shares that match the request.</p>
 -    pub fn get_quota_shares(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareDetail>> {
-+    pub fn get_quota_shares(&self) -> &::std::option::Option<::std::vec::Vec<super::types::QuotaShareDetail>> {
++    pub fn get_quota_shares(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::QuotaShareDetail>> {
          &self.quota_shares
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>ListQuotaShares</code> request. When the results of a <code>ListQuotaShares</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListQuotaSharesOutput`](crate::operation::list_quota_shares::ListQuotaSharesOutput).
 -    pub fn build(self) -> crate::operation::list_quota_shares::ListQuotaSharesOutput {
 -        crate::operation::list_quota_shares::ListQuotaSharesOutput {
-+    pub fn build(self) -> super::operation::list_quota_shares::ListQuotaSharesOutput {
-+        super::operation::list_quota_shares::ListQuotaSharesOutput {
++    pub fn build(self) -> super::super::super::operation::list_quota_shares::ListQuotaSharesOutput {
++        super::super::super::operation::list_quota_shares::ListQuotaSharesOutput {
              quota_shares: self.quota_shares,
              next_token: self.next_token,
              _request_id: self._request_id,

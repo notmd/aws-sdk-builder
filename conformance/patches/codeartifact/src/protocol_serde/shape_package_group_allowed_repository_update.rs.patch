@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    Option<::std::collections::HashMap<crate::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>>,
-+    Option<::std::collections::HashMap<super::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>>,
++    Option<::std::collections::HashMap<super::super::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>>,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  >
  where
@@ -15,8 +15,8 @@
                              .to_unescaped()
 -                            .map(|u| crate::types::PackageGroupAllowedRepositoryUpdateType::from(u.as_ref()))?;
 -                        let value = crate::protocol_serde::shape_repository_name_list::de_repository_name_list(tokens, _value, depth + 1)?;
-+                            .map(|u| super::types::PackageGroupAllowedRepositoryUpdateType::from(u.as_ref()))?;
-+                        let value = super::protocol_serde::shape_repository_name_list::de_repository_name_list(tokens, _value, depth + 1)?;
++                            .map(|u| super::super::types::PackageGroupAllowedRepositoryUpdateType::from(u.as_ref()))?;
++                        let value = super::super::protocol_serde::shape_repository_name_list::de_repository_name_list(tokens, _value, depth + 1)?;
                          match value {
                              Some(value) => {
                                  map.insert(key, value);

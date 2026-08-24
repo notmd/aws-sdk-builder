@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TransformedLogRecord`](crate::types::TransformedLogRecord).
 -    pub fn builder() -> crate::types::builders::TransformedLogRecordBuilder {
 -        crate::types::builders::TransformedLogRecordBuilder::default()
-+    pub fn builder() -> super::types::builders::TransformedLogRecordBuilder {
-+        super::types::builders::TransformedLogRecordBuilder::default()
++    pub fn builder() -> super::super::types::builders::TransformedLogRecordBuilder {
++        super::super::types::builders::TransformedLogRecordBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`TransformedLogRecord`](crate::types::TransformedLogRecord).
 -    pub fn build(self) -> crate::types::TransformedLogRecord {
 -        crate::types::TransformedLogRecord {
-+    pub fn build(self) -> super::types::TransformedLogRecord {
-+        super::types::TransformedLogRecord {
++    pub fn build(self) -> super::super::types::TransformedLogRecord {
++        super::super::types::TransformedLogRecord {
              event_number: self.event_number.unwrap_or_default(),
              event_message: self.event_message,
              transformed_event_message: self.transformed_event_message,

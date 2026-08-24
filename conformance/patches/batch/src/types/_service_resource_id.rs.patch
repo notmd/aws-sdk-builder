@@ -5,14 +5,14 @@
  pub struct ServiceResourceId {
      /// <p>The name of the resource identifier.</p>
 -    pub name: ::std::option::Option<crate::types::ServiceResourceIdName>,
-+    pub name: ::std::option::Option<super::types::ServiceResourceIdName>,
++    pub name: ::std::option::Option<super::super::types::ServiceResourceIdName>,
      /// <p>The value of the resource identifier.</p>
      pub value: ::std::option::Option<::std::string::String>,
  }
  impl ServiceResourceId {
      /// <p>The name of the resource identifier.</p>
 -    pub fn name(&self) -> ::std::option::Option<&crate::types::ServiceResourceIdName> {
-+    pub fn name(&self) -> ::std::option::Option<&super::types::ServiceResourceIdName> {
++    pub fn name(&self) -> ::std::option::Option<&super::super::types::ServiceResourceIdName> {
          self.name.as_ref()
      }
      /// <p>The value of the resource identifier.</p>
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ServiceResourceId`](crate::types::ServiceResourceId).
 -    pub fn builder() -> crate::types::builders::ServiceResourceIdBuilder {
 -        crate::types::builders::ServiceResourceIdBuilder::default()
-+    pub fn builder() -> super::types::builders::ServiceResourceIdBuilder {
-+        super::types::builders::ServiceResourceIdBuilder::default()
++    pub fn builder() -> super::super::types::builders::ServiceResourceIdBuilder {
++        super::super::types::builders::ServiceResourceIdBuilder::default()
      }
  }
 
@@ -32,26 +32,26 @@
  #[non_exhaustive]
  pub struct ServiceResourceIdBuilder {
 -    pub(crate) name: ::std::option::Option<crate::types::ServiceResourceIdName>,
-+    pub(crate) name: ::std::option::Option<super::types::ServiceResourceIdName>,
++    pub(crate) name: ::std::option::Option<super::super::types::ServiceResourceIdName>,
      pub(crate) value: ::std::option::Option<::std::string::String>,
  }
  impl ServiceResourceIdBuilder {
      /// <p>The name of the resource identifier.</p>
      /// This field is required.
 -    pub fn name(mut self, input: crate::types::ServiceResourceIdName) -> Self {
-+    pub fn name(mut self, input: super::types::ServiceResourceIdName) -> Self {
++    pub fn name(mut self, input: super::super::types::ServiceResourceIdName) -> Self {
          self.name = ::std::option::Option::Some(input);
          self
      }
      /// <p>The name of the resource identifier.</p>
 -    pub fn set_name(mut self, input: ::std::option::Option<crate::types::ServiceResourceIdName>) -> Self {
-+    pub fn set_name(mut self, input: ::std::option::Option<super::types::ServiceResourceIdName>) -> Self {
++    pub fn set_name(mut self, input: ::std::option::Option<super::super::types::ServiceResourceIdName>) -> Self {
          self.name = input;
          self
      }
      /// <p>The name of the resource identifier.</p>
 -    pub fn get_name(&self) -> &::std::option::Option<crate::types::ServiceResourceIdName> {
-+    pub fn get_name(&self) -> &::std::option::Option<super::types::ServiceResourceIdName> {
++    pub fn get_name(&self) -> &::std::option::Option<super::super::types::ServiceResourceIdName> {
          &self.name
      }
      /// <p>The value of the resource identifier.</p>
@@ -61,8 +61,8 @@
      /// Consumes the builder and constructs a [`ServiceResourceId`](crate::types::ServiceResourceId).
 -    pub fn build(self) -> crate::types::ServiceResourceId {
 -        crate::types::ServiceResourceId {
-+    pub fn build(self) -> super::types::ServiceResourceId {
-+        super::types::ServiceResourceId {
++    pub fn build(self) -> super::super::types::ServiceResourceId {
++        super::super::types::ServiceResourceId {
              name: self.name,
              value: self.value,
          }

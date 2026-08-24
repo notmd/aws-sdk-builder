@@ -5,14 +5,14 @@
  pub struct AnnotationTableConfigurationResult {
      /// <p>The current configuration state of the annotation table.</p>
 -    pub configuration_state: crate::types::AnnotationConfigurationState,
-+    pub configuration_state: super::types::AnnotationConfigurationState,
++    pub configuration_state: super::super::types::AnnotationConfigurationState,
      /// <p>The provisioning status of the annotation table. Possible values: <code>CREATING</code>, <code>BACKFILLING</code>, <code>ACTIVE</code>, <code>FAILED</code>.</p>
      pub table_status: ::std::option::Option<::std::string::String>,
      /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
      /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
      /// </note>
 -    pub error: ::std::option::Option<crate::types::ErrorDetails>,
-+    pub error: ::std::option::Option<super::types::ErrorDetails>,
++    pub error: ::std::option::Option<super::super::types::ErrorDetails>,
      /// <p>The name of the annotation table.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
      /// <p>The ARN of the annotation table.</p>
@@ -21,7 +21,7 @@
  impl AnnotationTableConfigurationResult {
      /// <p>The current configuration state of the annotation table.</p>
 -    pub fn configuration_state(&self) -> &crate::types::AnnotationConfigurationState {
-+    pub fn configuration_state(&self) -> &super::types::AnnotationConfigurationState {
++    pub fn configuration_state(&self) -> &super::super::types::AnnotationConfigurationState {
          &self.configuration_state
      }
      /// <p>The provisioning status of the annotation table. Possible values: <code>CREATING</code>, <code>BACKFILLING</code>, <code>ACTIVE</code>, <code>FAILED</code>.</p>
@@ -30,7 +30,7 @@
      /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
      /// </note>
 -    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorDetails> {
-+    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorDetails> {
++    pub fn error(&self) -> ::std::option::Option<&super::super::types::ErrorDetails> {
          self.error.as_ref()
      }
      /// <p>The name of the annotation table.</p>
@@ -40,8 +40,8 @@
      /// Creates a new builder-style object to manufacture [`AnnotationTableConfigurationResult`](crate::types::AnnotationTableConfigurationResult).
 -    pub fn builder() -> crate::types::builders::AnnotationTableConfigurationResultBuilder {
 -        crate::types::builders::AnnotationTableConfigurationResultBuilder::default()
-+    pub fn builder() -> super::types::builders::AnnotationTableConfigurationResultBuilder {
-+        super::types::builders::AnnotationTableConfigurationResultBuilder::default()
++    pub fn builder() -> super::super::types::builders::AnnotationTableConfigurationResultBuilder {
++        super::super::types::builders::AnnotationTableConfigurationResultBuilder::default()
      }
  }
 
@@ -50,10 +50,10 @@
  #[non_exhaustive]
  pub struct AnnotationTableConfigurationResultBuilder {
 -    pub(crate) configuration_state: ::std::option::Option<crate::types::AnnotationConfigurationState>,
-+    pub(crate) configuration_state: ::std::option::Option<super::types::AnnotationConfigurationState>,
++    pub(crate) configuration_state: ::std::option::Option<super::super::types::AnnotationConfigurationState>,
      pub(crate) table_status: ::std::option::Option<::std::string::String>,
 -    pub(crate) error: ::std::option::Option<crate::types::ErrorDetails>,
-+    pub(crate) error: ::std::option::Option<super::types::ErrorDetails>,
++    pub(crate) error: ::std::option::Option<super::super::types::ErrorDetails>,
      pub(crate) table_name: ::std::option::Option<::std::string::String>,
      pub(crate) table_arn: ::std::option::Option<::std::string::String>,
      pub(crate) role: ::std::option::Option<::std::string::String>,
@@ -62,19 +62,19 @@
      /// <p>The current configuration state of the annotation table.</p>
      /// This field is required.
 -    pub fn configuration_state(mut self, input: crate::types::AnnotationConfigurationState) -> Self {
-+    pub fn configuration_state(mut self, input: super::types::AnnotationConfigurationState) -> Self {
++    pub fn configuration_state(mut self, input: super::super::types::AnnotationConfigurationState) -> Self {
          self.configuration_state = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current configuration state of the annotation table.</p>
 -    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::AnnotationConfigurationState>) -> Self {
-+    pub fn set_configuration_state(mut self, input: ::std::option::Option<super::types::AnnotationConfigurationState>) -> Self {
++    pub fn set_configuration_state(mut self, input: ::std::option::Option<super::super::types::AnnotationConfigurationState>) -> Self {
          self.configuration_state = input;
          self
      }
      /// <p>The current configuration state of the annotation table.</p>
 -    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::AnnotationConfigurationState> {
-+    pub fn get_configuration_state(&self) -> &::std::option::Option<super::types::AnnotationConfigurationState> {
++    pub fn get_configuration_state(&self) -> &::std::option::Option<super::super::types::AnnotationConfigurationState> {
          &self.configuration_state
      }
      /// <p>The provisioning status of the annotation table. Possible values: <code>CREATING</code>, <code>BACKFILLING</code>, <code>ACTIVE</code>, <code>FAILED</code>.</p>
@@ -83,7 +83,7 @@
      /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
      /// </note>
 -    pub fn error(mut self, input: crate::types::ErrorDetails) -> Self {
-+    pub fn error(mut self, input: super::types::ErrorDetails) -> Self {
++    pub fn error(mut self, input: super::super::types::ErrorDetails) -> Self {
          self.error = ::std::option::Option::Some(input);
          self
      }
@@ -92,7 +92,7 @@
      /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
      /// </note>
 -    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
-+    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorDetails>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::super::types::ErrorDetails>) -> Self {
          self.error = input;
          self
      }
@@ -101,7 +101,7 @@
      /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
      /// </note>
 -    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
-+    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorDetails> {
++    pub fn get_error(&self) -> &::std::option::Option<super::super::types::ErrorDetails> {
          &self.error
      }
      /// <p>The name of the annotation table.</p>
@@ -111,8 +111,8 @@
      /// - [`configuration_state`](crate::types::builders::AnnotationTableConfigurationResultBuilder::configuration_state)
 -    pub fn build(self) -> ::std::result::Result<crate::types::AnnotationTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::AnnotationTableConfigurationResult {
-+    pub fn build(self) -> ::std::result::Result<super::types::AnnotationTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::AnnotationTableConfigurationResult {
++    pub fn build(self) -> ::std::result::Result<super::super::types::AnnotationTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::AnnotationTableConfigurationResult {
              configuration_state: self.configuration_state.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "configuration_state",

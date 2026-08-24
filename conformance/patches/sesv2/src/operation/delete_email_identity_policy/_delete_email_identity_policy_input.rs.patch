@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteEmailIdentityPolicyInput`](crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput).
 -    pub fn builder() -> crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyInputBuilder {
 -        crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyInputBuilder {
-+        super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyInputBuilder {
++        super::super::super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput,
-+        super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput,
++        super::super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput {
-+        ::std::result::Result::Ok(super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput {
              email_identity: self.email_identity,
              policy_name: self.policy_name,
          })

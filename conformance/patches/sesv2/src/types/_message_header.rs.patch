@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`MessageHeader`](crate::types::MessageHeader).
 -    pub fn builder() -> crate::types::builders::MessageHeaderBuilder {
 -        crate::types::builders::MessageHeaderBuilder::default()
-+    pub fn builder() -> super::types::builders::MessageHeaderBuilder {
-+        super::types::builders::MessageHeaderBuilder::default()
++    pub fn builder() -> super::super::types::builders::MessageHeaderBuilder {
++        super::super::types::builders::MessageHeaderBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`value`](crate::types::builders::MessageHeaderBuilder::value)
 -    pub fn build(self) -> ::std::result::Result<crate::types::MessageHeader, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::MessageHeader {
-+    pub fn build(self) -> ::std::result::Result<super::types::MessageHeader, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::MessageHeader {
++    pub fn build(self) -> ::std::result::Result<super::super::types::MessageHeader, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::MessageHeader {
              name: self.name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "name",

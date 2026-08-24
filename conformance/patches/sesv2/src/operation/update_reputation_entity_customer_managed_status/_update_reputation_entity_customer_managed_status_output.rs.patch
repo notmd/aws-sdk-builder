@@ -6,8 +6,8 @@
      pub fn builder(
 -    ) -> crate::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder {
 -        crate::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder::default()
-+    ) -> super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder {
-+        super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder::default()
++    ) -> super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder {
++        super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
 -    pub fn build(self) -> crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
 -        crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
-+    pub fn build(self) -> super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
-+        super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
++    pub fn build(self) -> super::super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
++        super::super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
              _request_id: self._request_id,
          }
      }

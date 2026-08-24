@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GrantConstraints`](crate::types::GrantConstraints).
 -    pub fn builder() -> crate::types::builders::GrantConstraintsBuilder {
 -        crate::types::builders::GrantConstraintsBuilder::default()
-+    pub fn builder() -> super::types::builders::GrantConstraintsBuilder {
-+        super::types::builders::GrantConstraintsBuilder::default()
++    pub fn builder() -> super::super::types::builders::GrantConstraintsBuilder {
++        super::super::types::builders::GrantConstraintsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GrantConstraints`](crate::types::GrantConstraints).
 -    pub fn build(self) -> crate::types::GrantConstraints {
 -        crate::types::GrantConstraints {
-+    pub fn build(self) -> super::types::GrantConstraints {
-+        super::types::GrantConstraints {
++    pub fn build(self) -> super::super::types::GrantConstraints {
++        super::super::types::GrantConstraints {
              encryption_context_subset: self.encryption_context_subset,
              encryption_context_equals: self.encryption_context_equals,
              source_arn: self.source_arn,

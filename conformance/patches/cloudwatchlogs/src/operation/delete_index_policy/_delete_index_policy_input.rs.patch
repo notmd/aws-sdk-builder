@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteIndexPolicyInput`](crate::operation::delete_index_policy::DeleteIndexPolicyInput).
 -    pub fn builder() -> crate::operation::delete_index_policy::builders::DeleteIndexPolicyInputBuilder {
 -        crate::operation::delete_index_policy::builders::DeleteIndexPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_index_policy::builders::DeleteIndexPolicyInputBuilder {
-+        super::operation::delete_index_policy::builders::DeleteIndexPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_index_policy::builders::DeleteIndexPolicyInputBuilder {
++        super::super::super::operation::delete_index_policy::builders::DeleteIndexPolicyInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_index_policy::DeleteIndexPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::delete_index_policy::DeleteIndexPolicyInput {
-+    ) -> ::std::result::Result<super::operation::delete_index_policy::DeleteIndexPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::delete_index_policy::DeleteIndexPolicyInput {
++    ) -> ::std::result::Result<super::super::super::operation::delete_index_policy::DeleteIndexPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::delete_index_policy::DeleteIndexPolicyInput {
              log_group_identifier: self.log_group_identifier,
          })
      }

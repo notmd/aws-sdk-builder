@@ -5,7 +5,7 @@
  pub fn ser_describe_quota_share_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::describe_quota_share::DescribeQuotaShareInput,
-+    input: &super::operation::describe_quota_share::DescribeQuotaShareInput,
++    input: &super::super::operation::describe_quota_share::DescribeQuotaShareInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.quota_share_arn {
          object.key("quotaShareArn").string(var_1.as_str());

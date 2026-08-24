@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PurgeQueueInput`](crate::operation::purge_queue::PurgeQueueInput).
 -    pub fn builder() -> crate::operation::purge_queue::builders::PurgeQueueInputBuilder {
 -        crate::operation::purge_queue::builders::PurgeQueueInputBuilder::default()
-+    pub fn builder() -> super::operation::purge_queue::builders::PurgeQueueInputBuilder {
-+        super::operation::purge_queue::builders::PurgeQueueInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::purge_queue::builders::PurgeQueueInputBuilder {
++        super::super::super::operation::purge_queue::builders::PurgeQueueInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`PurgeQueueInput`](crate::operation::purge_queue::PurgeQueueInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::purge_queue::PurgeQueueInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::purge_queue::PurgeQueueInput { queue_url: self.queue_url })
-+    pub fn build(self) -> ::std::result::Result<super::operation::purge_queue::PurgeQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::purge_queue::PurgeQueueInput { queue_url: self.queue_url })
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::purge_queue::PurgeQueueInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::purge_queue::PurgeQueueInput { queue_url: self.queue_url })
      }
  }

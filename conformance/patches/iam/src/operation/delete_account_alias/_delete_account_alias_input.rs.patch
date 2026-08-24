@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteAccountAliasInput`](crate::operation::delete_account_alias::DeleteAccountAliasInput).
 -    pub fn builder() -> crate::operation::delete_account_alias::builders::DeleteAccountAliasInputBuilder {
 -        crate::operation::delete_account_alias::builders::DeleteAccountAliasInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_account_alias::builders::DeleteAccountAliasInputBuilder {
-+        super::operation::delete_account_alias::builders::DeleteAccountAliasInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_account_alias::builders::DeleteAccountAliasInputBuilder {
++        super::super::super::operation::delete_account_alias::builders::DeleteAccountAliasInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_account_alias::DeleteAccountAliasInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::delete_account_alias::DeleteAccountAliasInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::delete_account_alias::DeleteAccountAliasInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::delete_account_alias::DeleteAccountAliasInput {
-+        ::std::result::Result::Ok(super::operation::delete_account_alias::DeleteAccountAliasInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_account_alias::DeleteAccountAliasInput {
              account_alias: self.account_alias,
          })
      }

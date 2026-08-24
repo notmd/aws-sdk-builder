@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetStoredQueryError>`](crate::operation::get_stored_query::GetStoredQueryError)
 -    pub fn get_stored_query(&self) -> crate::operation::get_stored_query::builders::GetStoredQueryFluentBuilder {
 -        crate::operation::get_stored_query::builders::GetStoredQueryFluentBuilder::new(self.handle.clone())
-+    pub fn get_stored_query(&self) -> super::operation::get_stored_query::builders::GetStoredQueryFluentBuilder {
-+        super::operation::get_stored_query::builders::GetStoredQueryFluentBuilder::new(self.handle.clone())
++    pub fn get_stored_query(&self) -> super::super::operation::get_stored_query::builders::GetStoredQueryFluentBuilder {
++        super::super::operation::get_stored_query::builders::GetStoredQueryFluentBuilder::new(self.handle.clone())
      }
  }

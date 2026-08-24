@@ -5,7 +5,7 @@
      pub name: ::std::string::String,
      /// <p>The third-party cloud service provider. Currently, <code>AZURE</code> is supported.</p>
 -    pub provider: crate::types::Provider,
-+    pub provider: super::types::Provider,
++    pub provider: super::super::types::Provider,
      /// <p>The Azure tenant identifier for the connector.</p>
      pub tenant_identifier: ::std::string::String,
      /// <p>The date and time that the connector was created.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The third-party cloud service provider. Currently, <code>AZURE</code> is supported.</p>
 -    pub fn provider(&self) -> &crate::types::Provider {
-+    pub fn provider(&self) -> &super::types::Provider {
++    pub fn provider(&self) -> &super::super::types::Provider {
          &self.provider
      }
      /// <p>The Azure tenant identifier for the connector.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ConnectorSummary`](crate::types::ConnectorSummary).
 -    pub fn builder() -> crate::types::builders::ConnectorSummaryBuilder {
 -        crate::types::builders::ConnectorSummaryBuilder::default()
-+    pub fn builder() -> super::types::builders::ConnectorSummaryBuilder {
-+        super::types::builders::ConnectorSummaryBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConnectorSummaryBuilder {
++        super::super::types::builders::ConnectorSummaryBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) arn: ::std::option::Option<::std::string::String>,
      pub(crate) name: ::std::option::Option<::std::string::String>,
 -    pub(crate) provider: ::std::option::Option<crate::types::Provider>,
-+    pub(crate) provider: ::std::option::Option<super::types::Provider>,
++    pub(crate) provider: ::std::option::Option<super::super::types::Provider>,
      pub(crate) tenant_identifier: ::std::option::Option<::std::string::String>,
      pub(crate) created_time: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
@@ -43,19 +43,19 @@
      /// <p>The third-party cloud service provider. Currently, <code>AZURE</code> is supported.</p>
      /// This field is required.
 -    pub fn provider(mut self, input: crate::types::Provider) -> Self {
-+    pub fn provider(mut self, input: super::types::Provider) -> Self {
++    pub fn provider(mut self, input: super::super::types::Provider) -> Self {
          self.provider = ::std::option::Option::Some(input);
          self
      }
      /// <p>The third-party cloud service provider. Currently, <code>AZURE</code> is supported.</p>
 -    pub fn set_provider(mut self, input: ::std::option::Option<crate::types::Provider>) -> Self {
-+    pub fn set_provider(mut self, input: ::std::option::Option<super::types::Provider>) -> Self {
++    pub fn set_provider(mut self, input: ::std::option::Option<super::super::types::Provider>) -> Self {
          self.provider = input;
          self
      }
      /// <p>The third-party cloud service provider. Currently, <code>AZURE</code> is supported.</p>
 -    pub fn get_provider(&self) -> &::std::option::Option<crate::types::Provider> {
-+    pub fn get_provider(&self) -> &::std::option::Option<super::types::Provider> {
++    pub fn get_provider(&self) -> &::std::option::Option<super::super::types::Provider> {
          &self.provider
      }
      /// <p>The Azure tenant identifier for the connector.</p>
@@ -65,8 +65,8 @@
      /// - [`created_time`](crate::types::builders::ConnectorSummaryBuilder::created_time)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ConnectorSummary, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ConnectorSummary {
-+    pub fn build(self) -> ::std::result::Result<super::types::ConnectorSummary, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ConnectorSummary {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ConnectorSummary, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ConnectorSummary {
              arn: self.arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "arn",

@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::LayerVersionsListItem>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::LayerVersionsListItem>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::LayerVersionsListItem>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::LayerVersionsListItemBuilder::default();
-+            let mut builder = super::types::builders::LayerVersionsListItemBuilder::default();
++            let mut builder = super::super::types::builders::LayerVersionsListItemBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,12 +23,12 @@
                          "CompatibleArchitectures" => {
                              builder = builder.set_compatible_architectures(
 -                                crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
                              );
                          }
                          "CompatibleRuntimes" => {
 -                            builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
-+                            builder = builder.set_compatible_runtimes(super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
++                            builder = builder.set_compatible_runtimes(super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
                                  tokens,
                                  _value,
                                  depth + 1,

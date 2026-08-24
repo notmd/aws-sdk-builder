@@ -5,7 +5,7 @@
  pub struct AdminListGroupsForUserOutput {
      /// <p>An array of groups and information about them.</p>
 -    pub groups: ::std::option::Option<::std::vec::Vec<crate::types::GroupType>>,
-+    pub groups: ::std::option::Option<::std::vec::Vec<super::types::GroupType>>,
++    pub groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupType>>,
      /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.groups.is_none()`.
 -    pub fn groups(&self) -> &[crate::types::GroupType] {
-+    pub fn groups(&self) -> &[super::types::GroupType] {
++    pub fn groups(&self) -> &[super::super::super::types::GroupType] {
          self.groups.as_deref().unwrap_or_default()
      }
      /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`AdminListGroupsForUserOutput`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput).
 -    pub fn builder() -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserOutputBuilder {
 -        crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserOutputBuilder::default()
-+    pub fn builder() -> super::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserOutputBuilder {
-+        super::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserOutputBuilder {
++        super::super::super::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct AdminListGroupsForUserOutputBuilder {
 -    pub(crate) groups: ::std::option::Option<::std::vec::Vec<crate::types::GroupType>>,
-+    pub(crate) groups: ::std::option::Option<::std::vec::Vec<super::types::GroupType>>,
++    pub(crate) groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupType>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>An array of groups and information about them.</p>
 -    pub fn groups(mut self, input: crate::types::GroupType) -> Self {
-+    pub fn groups(mut self, input: super::types::GroupType) -> Self {
++    pub fn groups(mut self, input: super::super::super::types::GroupType) -> Self {
          let mut v = self.groups.unwrap_or_default();
          v.push(input);
          self.groups = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>An array of groups and information about them.</p>
 -    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GroupType>>) -> Self {
-+    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GroupType>>) -> Self {
++    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupType>>) -> Self {
          self.groups = input;
          self
      }
      /// <p>An array of groups and information about them.</p>
 -    pub fn get_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GroupType>> {
-+    pub fn get_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GroupType>> {
++    pub fn get_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GroupType>> {
          &self.groups
      }
      /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`AdminListGroupsForUserOutput`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput).
 -    pub fn build(self) -> crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput {
 -        crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput {
-+    pub fn build(self) -> super::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput {
-+        super::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput {
++    pub fn build(self) -> super::super::super::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput {
++        super::super::super::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput {
              groups: self.groups,
              next_token: self.next_token,
              _request_id: self._request_id,

@@ -5,13 +5,13 @@
  pub struct UpdateGroupOutput {
      /// <p>Contains the updated details of the group, including precedence, IAM role, and description.</p>
 -    pub group: ::std::option::Option<crate::types::GroupType>,
-+    pub group: ::std::option::Option<super::types::GroupType>,
++    pub group: ::std::option::Option<super::super::super::types::GroupType>,
      _request_id: Option<String>,
  }
  impl UpdateGroupOutput {
      /// <p>Contains the updated details of the group, including precedence, IAM role, and description.</p>
 -    pub fn group(&self) -> ::std::option::Option<&crate::types::GroupType> {
-+    pub fn group(&self) -> ::std::option::Option<&super::types::GroupType> {
++    pub fn group(&self) -> ::std::option::Option<&super::super::super::types::GroupType> {
          self.group.as_ref()
      }
  }
@@ -21,8 +21,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateGroupOutput`](crate::operation::update_group::UpdateGroupOutput).
 -    pub fn builder() -> crate::operation::update_group::builders::UpdateGroupOutputBuilder {
 -        crate::operation::update_group::builders::UpdateGroupOutputBuilder::default()
-+    pub fn builder() -> super::operation::update_group::builders::UpdateGroupOutputBuilder {
-+        super::operation::update_group::builders::UpdateGroupOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_group::builders::UpdateGroupOutputBuilder {
++        super::super::super::operation::update_group::builders::UpdateGroupOutputBuilder::default()
      }
  }
 
@@ -31,25 +31,25 @@
  #[non_exhaustive]
  pub struct UpdateGroupOutputBuilder {
 -    pub(crate) group: ::std::option::Option<crate::types::GroupType>,
-+    pub(crate) group: ::std::option::Option<super::types::GroupType>,
++    pub(crate) group: ::std::option::Option<super::super::super::types::GroupType>,
      _request_id: Option<String>,
  }
  impl UpdateGroupOutputBuilder {
      /// <p>Contains the updated details of the group, including precedence, IAM role, and description.</p>
 -    pub fn group(mut self, input: crate::types::GroupType) -> Self {
-+    pub fn group(mut self, input: super::types::GroupType) -> Self {
++    pub fn group(mut self, input: super::super::super::types::GroupType) -> Self {
          self.group = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains the updated details of the group, including precedence, IAM role, and description.</p>
 -    pub fn set_group(mut self, input: ::std::option::Option<crate::types::GroupType>) -> Self {
-+    pub fn set_group(mut self, input: ::std::option::Option<super::types::GroupType>) -> Self {
++    pub fn set_group(mut self, input: ::std::option::Option<super::super::super::types::GroupType>) -> Self {
          self.group = input;
          self
      }
      /// <p>Contains the updated details of the group, including precedence, IAM role, and description.</p>
 -    pub fn get_group(&self) -> &::std::option::Option<crate::types::GroupType> {
-+    pub fn get_group(&self) -> &::std::option::Option<super::types::GroupType> {
++    pub fn get_group(&self) -> &::std::option::Option<super::super::super::types::GroupType> {
          &self.group
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -59,8 +59,8 @@
      /// Consumes the builder and constructs a [`UpdateGroupOutput`](crate::operation::update_group::UpdateGroupOutput).
 -    pub fn build(self) -> crate::operation::update_group::UpdateGroupOutput {
 -        crate::operation::update_group::UpdateGroupOutput {
-+    pub fn build(self) -> super::operation::update_group::UpdateGroupOutput {
-+        super::operation::update_group::UpdateGroupOutput {
++    pub fn build(self) -> super::super::super::operation::update_group::UpdateGroupOutput {
++        super::super::super::operation::update_group::UpdateGroupOutput {
              group: self.group,
              _request_id: self._request_id,
          }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DisableKeyError>`](crate::operation::disable_key::DisableKeyError)
 -    pub fn disable_key(&self) -> crate::operation::disable_key::builders::DisableKeyFluentBuilder {
 -        crate::operation::disable_key::builders::DisableKeyFluentBuilder::new(self.handle.clone())
-+    pub fn disable_key(&self) -> super::operation::disable_key::builders::DisableKeyFluentBuilder {
-+        super::operation::disable_key::builders::DisableKeyFluentBuilder::new(self.handle.clone())
++    pub fn disable_key(&self) -> super::super::operation::disable_key::builders::DisableKeyFluentBuilder {
++        super::super::operation::disable_key::builders::DisableKeyFluentBuilder::new(self.handle.clone())
      }
  }

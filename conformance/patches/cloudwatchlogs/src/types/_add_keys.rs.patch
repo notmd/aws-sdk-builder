@@ -5,12 +5,12 @@
  pub struct AddKeys {
      /// <p>An array of objects, where each object contains the information about one key to add to the log event.</p>
 -    pub entries: ::std::vec::Vec<crate::types::AddKeyEntry>,
-+    pub entries: ::std::vec::Vec<super::types::AddKeyEntry>,
++    pub entries: ::std::vec::Vec<super::super::types::AddKeyEntry>,
  }
  impl AddKeys {
      /// <p>An array of objects, where each object contains the information about one key to add to the log event.</p>
 -    pub fn entries(&self) -> &[crate::types::AddKeyEntry] {
-+    pub fn entries(&self) -> &[super::types::AddKeyEntry] {
++    pub fn entries(&self) -> &[super::super::types::AddKeyEntry] {
          use std::ops::Deref;
          self.entries.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`AddKeys`](crate::types::AddKeys).
 -    pub fn builder() -> crate::types::builders::AddKeysBuilder {
 -        crate::types::builders::AddKeysBuilder::default()
-+    pub fn builder() -> super::types::builders::AddKeysBuilder {
-+        super::types::builders::AddKeysBuilder::default()
++    pub fn builder() -> super::super::types::builders::AddKeysBuilder {
++        super::super::types::builders::AddKeysBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct AddKeysBuilder {
 -    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::AddKeyEntry>>,
-+    pub(crate) entries: ::std::option::Option<::std::vec::Vec<super::types::AddKeyEntry>>,
++    pub(crate) entries: ::std::option::Option<::std::vec::Vec<super::super::types::AddKeyEntry>>,
  }
  impl AddKeysBuilder {
      /// Appends an item to `entries`.
@@ -39,7 +39,7 @@
      ///
      /// <p>An array of objects, where each object contains the information about one key to add to the log event.</p>
 -    pub fn entries(mut self, input: crate::types::AddKeyEntry) -> Self {
-+    pub fn entries(mut self, input: super::types::AddKeyEntry) -> Self {
++    pub fn entries(mut self, input: super::super::types::AddKeyEntry) -> Self {
          let mut v = self.entries.unwrap_or_default();
          v.push(input);
          self.entries = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>An array of objects, where each object contains the information about one key to add to the log event.</p>
 -    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AddKeyEntry>>) -> Self {
-+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AddKeyEntry>>) -> Self {
++    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::AddKeyEntry>>) -> Self {
          self.entries = input;
          self
      }
      /// <p>An array of objects, where each object contains the information about one key to add to the log event.</p>
 -    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AddKeyEntry>> {
-+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AddKeyEntry>> {
++    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::AddKeyEntry>> {
          &self.entries
      }
      /// Consumes the builder and constructs a [`AddKeys`](crate::types::AddKeys).
@@ -62,8 +62,8 @@
      /// - [`entries`](crate::types::builders::AddKeysBuilder::entries)
 -    pub fn build(self) -> ::std::result::Result<crate::types::AddKeys, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::AddKeys {
-+    pub fn build(self) -> ::std::result::Result<super::types::AddKeys, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::AddKeys {
++    pub fn build(self) -> ::std::result::Result<super::super::types::AddKeys, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::AddKeys {
              entries: self.entries.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "entries",

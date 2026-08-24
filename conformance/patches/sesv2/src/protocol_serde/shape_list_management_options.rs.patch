@@ -5,7 +5,7 @@
  pub fn ser_list_management_options(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ListManagementOptions,
-+    input: &super::types::ListManagementOptions,
++    input: &super::super::types::ListManagementOptions,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("ContactListName").string(input.contact_list_name.as_str());

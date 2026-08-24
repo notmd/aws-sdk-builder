@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutDeliverabilityDashboardOptionOutput`](crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput).
 -    pub fn builder() -> crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder {
 -        crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder {
-+        super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder {
++        super::super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutDeliverabilityDashboardOptionOutput`](crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput).
 -    pub fn build(self) -> crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput {
 -        crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput {
-+    pub fn build(self) -> super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput {
-+        super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput {
++    pub fn build(self) -> super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput {
++        super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput {
              _request_id: self._request_id,
          }
      }

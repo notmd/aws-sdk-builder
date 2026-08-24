@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteUserPoolDomainError>`](crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError)
 -    pub fn delete_user_pool_domain(&self) -> crate::operation::delete_user_pool_domain::builders::DeleteUserPoolDomainFluentBuilder {
 -        crate::operation::delete_user_pool_domain::builders::DeleteUserPoolDomainFluentBuilder::new(self.handle.clone())
-+    pub fn delete_user_pool_domain(&self) -> super::operation::delete_user_pool_domain::builders::DeleteUserPoolDomainFluentBuilder {
-+        super::operation::delete_user_pool_domain::builders::DeleteUserPoolDomainFluentBuilder::new(self.handle.clone())
++    pub fn delete_user_pool_domain(&self) -> super::super::operation::delete_user_pool_domain::builders::DeleteUserPoolDomainFluentBuilder {
++        super::super::operation::delete_user_pool_domain::builders::DeleteUserPoolDomainFluentBuilder::new(self.handle.clone())
      }
  }

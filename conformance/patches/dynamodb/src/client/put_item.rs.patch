@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutItemError>`](crate::operation::put_item::PutItemError)
 -    pub fn put_item(&self) -> crate::operation::put_item::builders::PutItemFluentBuilder {
 -        crate::operation::put_item::builders::PutItemFluentBuilder::new(self.handle.clone())
-+    pub fn put_item(&self) -> super::operation::put_item::builders::PutItemFluentBuilder {
-+        super::operation::put_item::builders::PutItemFluentBuilder::new(self.handle.clone())
++    pub fn put_item(&self) -> super::super::operation::put_item::builders::PutItemFluentBuilder {
++        super::super::operation::put_item::builders::PutItemFluentBuilder::new(self.handle.clone())
      }
  }

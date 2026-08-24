@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`MessageTemplateType`](crate::types::MessageTemplateType).
 -    pub fn builder() -> crate::types::builders::MessageTemplateTypeBuilder {
 -        crate::types::builders::MessageTemplateTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::MessageTemplateTypeBuilder {
-+        super::types::builders::MessageTemplateTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::MessageTemplateTypeBuilder {
++        super::super::types::builders::MessageTemplateTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`MessageTemplateType`](crate::types::MessageTemplateType).
 -    pub fn build(self) -> crate::types::MessageTemplateType {
 -        crate::types::MessageTemplateType {
-+    pub fn build(self) -> super::types::MessageTemplateType {
-+        super::types::MessageTemplateType {
++    pub fn build(self) -> super::super::types::MessageTemplateType {
++        super::super::types::MessageTemplateType {
              sms_message: self.sms_message,
              email_message: self.email_message,
              email_subject: self.email_subject,

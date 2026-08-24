@@ -5,12 +5,12 @@
  pub struct GuardrailTopicPolicyAssessment {
      /// <p>The topics in the assessment.</p>
 -    pub topics: ::std::vec::Vec<crate::types::GuardrailTopic>,
-+    pub topics: ::std::vec::Vec<super::types::GuardrailTopic>,
++    pub topics: ::std::vec::Vec<super::super::types::GuardrailTopic>,
  }
  impl GuardrailTopicPolicyAssessment {
      /// <p>The topics in the assessment.</p>
 -    pub fn topics(&self) -> &[crate::types::GuardrailTopic] {
-+    pub fn topics(&self) -> &[super::types::GuardrailTopic] {
++    pub fn topics(&self) -> &[super::super::types::GuardrailTopic] {
          use std::ops::Deref;
          self.topics.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailTopicPolicyAssessment`](crate::types::GuardrailTopicPolicyAssessment).
 -    pub fn builder() -> crate::types::builders::GuardrailTopicPolicyAssessmentBuilder {
 -        crate::types::builders::GuardrailTopicPolicyAssessmentBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailTopicPolicyAssessmentBuilder {
-+        super::types::builders::GuardrailTopicPolicyAssessmentBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailTopicPolicyAssessmentBuilder {
++        super::super::types::builders::GuardrailTopicPolicyAssessmentBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct GuardrailTopicPolicyAssessmentBuilder {
 -    pub(crate) topics: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailTopic>>,
-+    pub(crate) topics: ::std::option::Option<::std::vec::Vec<super::types::GuardrailTopic>>,
++    pub(crate) topics: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailTopic>>,
  }
  impl GuardrailTopicPolicyAssessmentBuilder {
      /// Appends an item to `topics`.
@@ -39,7 +39,7 @@
      ///
      /// <p>The topics in the assessment.</p>
 -    pub fn topics(mut self, input: crate::types::GuardrailTopic) -> Self {
-+    pub fn topics(mut self, input: super::types::GuardrailTopic) -> Self {
++    pub fn topics(mut self, input: super::super::types::GuardrailTopic) -> Self {
          let mut v = self.topics.unwrap_or_default();
          v.push(input);
          self.topics = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>The topics in the assessment.</p>
 -    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailTopic>>) -> Self {
-+    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailTopic>>) -> Self {
++    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailTopic>>) -> Self {
          self.topics = input;
          self
      }
      /// <p>The topics in the assessment.</p>
 -    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailTopic>> {
-+    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailTopic>> {
++    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailTopic>> {
          &self.topics
      }
      /// Consumes the builder and constructs a [`GuardrailTopicPolicyAssessment`](crate::types::GuardrailTopicPolicyAssessment).
@@ -62,8 +62,8 @@
      /// - [`topics`](crate::types::builders::GuardrailTopicPolicyAssessmentBuilder::topics)
 -    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailTopicPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailTopicPolicyAssessment {
-+    pub fn build(self) -> ::std::result::Result<super::types::GuardrailTopicPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailTopicPolicyAssessment {
++    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailTopicPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailTopicPolicyAssessment {
              topics: self.topics.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "topics",

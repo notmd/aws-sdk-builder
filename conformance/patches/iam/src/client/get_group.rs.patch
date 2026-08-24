@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetGroupError>`](crate::operation::get_group::GetGroupError)
 -    pub fn get_group(&self) -> crate::operation::get_group::builders::GetGroupFluentBuilder {
 -        crate::operation::get_group::builders::GetGroupFluentBuilder::new(self.handle.clone())
-+    pub fn get_group(&self) -> super::operation::get_group::builders::GetGroupFluentBuilder {
-+        super::operation::get_group::builders::GetGroupFluentBuilder::new(self.handle.clone())
++    pub fn get_group(&self) -> super::super::operation::get_group::builders::GetGroupFluentBuilder {
++        super::super::operation::get_group::builders::GetGroupFluentBuilder::new(self.handle.clone())
      }
  }

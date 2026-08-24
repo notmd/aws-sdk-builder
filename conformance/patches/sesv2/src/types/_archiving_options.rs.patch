@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ArchivingOptions`](crate::types::ArchivingOptions).
 -    pub fn builder() -> crate::types::builders::ArchivingOptionsBuilder {
 -        crate::types::builders::ArchivingOptionsBuilder::default()
-+    pub fn builder() -> super::types::builders::ArchivingOptionsBuilder {
-+        super::types::builders::ArchivingOptionsBuilder::default()
++    pub fn builder() -> super::super::types::builders::ArchivingOptionsBuilder {
++        super::super::types::builders::ArchivingOptionsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ArchivingOptions`](crate::types::ArchivingOptions).
 -    pub fn build(self) -> crate::types::ArchivingOptions {
 -        crate::types::ArchivingOptions {
-+    pub fn build(self) -> super::types::ArchivingOptions {
-+        super::types::ArchivingOptions {
++    pub fn build(self) -> super::super::types::ArchivingOptions {
++        super::super::types::ArchivingOptions {
              archive_arn: self.archive_arn,
          }
      }

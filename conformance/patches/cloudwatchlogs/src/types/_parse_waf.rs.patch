@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ParseWaf`](crate::types::ParseWaf).
 -    pub fn builder() -> crate::types::builders::ParseWafBuilder {
 -        crate::types::builders::ParseWafBuilder::default()
-+    pub fn builder() -> super::types::builders::ParseWafBuilder {
-+        super::types::builders::ParseWafBuilder::default()
++    pub fn builder() -> super::super::types::builders::ParseWafBuilder {
++        super::super::types::builders::ParseWafBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`ParseWaf`](crate::types::ParseWaf).
 -    pub fn build(self) -> crate::types::ParseWaf {
 -        crate::types::ParseWaf { source: self.source }
-+    pub fn build(self) -> super::types::ParseWaf {
-+        super::types::ParseWaf { source: self.source }
++    pub fn build(self) -> super::super::types::ParseWaf {
++        super::super::types::ParseWaf { source: self.source }
      }
  }

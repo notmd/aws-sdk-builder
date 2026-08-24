@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::AccessKeyMetadata, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::AccessKeyMetadata, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::AccessKeyMetadata, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::AccessKeyMetadata::builder();
-+    let mut builder = super::types::AccessKeyMetadata::builder();
++    let mut builder = super::super::types::AccessKeyMetadata::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("UserName") /* UserName com.amazonaws.iam#AccessKeyMetadata$UserName */ =>  {
@@ -21,8 +21,8 @@
                      Some(
 -                        Result::<crate::types::StatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::StatusType::from(
-+                        Result::<super::types::StatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::StatusType::from(
++                        Result::<super::super::types::StatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::StatusType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )

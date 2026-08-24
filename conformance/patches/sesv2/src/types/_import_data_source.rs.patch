@@ -5,7 +5,7 @@
      pub s3_url: ::std::string::String,
      /// <p>The data format of the import job's data source.</p>
 -    pub data_format: crate::types::DataFormat,
-+    pub data_format: super::types::DataFormat,
++    pub data_format: super::super::types::DataFormat,
  }
  impl ImportDataSource {
      /// <p>An Amazon S3 URL in the format s3://<i><bucket_name></bucket_name></i>/<i><object>.
@@ -14,7 +14,7 @@
      }
      /// <p>The data format of the import job's data source.</p>
 -    pub fn data_format(&self) -> &crate::types::DataFormat {
-+    pub fn data_format(&self) -> &super::types::DataFormat {
++    pub fn data_format(&self) -> &super::super::types::DataFormat {
          &self.data_format
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ImportDataSource`](crate::types::ImportDataSource).
 -    pub fn builder() -> crate::types::builders::ImportDataSourceBuilder {
 -        crate::types::builders::ImportDataSourceBuilder::default()
-+    pub fn builder() -> super::types::builders::ImportDataSourceBuilder {
-+        super::types::builders::ImportDataSourceBuilder::default()
++    pub fn builder() -> super::super::types::builders::ImportDataSourceBuilder {
++        super::super::types::builders::ImportDataSourceBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct ImportDataSourceBuilder {
      pub(crate) s3_url: ::std::option::Option<::std::string::String>,
 -    pub(crate) data_format: ::std::option::Option<crate::types::DataFormat>,
-+    pub(crate) data_format: ::std::option::Option<super::types::DataFormat>,
++    pub(crate) data_format: ::std::option::Option<super::super::types::DataFormat>,
  }
  impl ImportDataSourceBuilder {
      /// <p>An Amazon S3 URL in the format s3://<i><bucket_name></bucket_name></i>/<i><object>.
@@ -41,19 +41,19 @@
      /// <p>The data format of the import job's data source.</p>
      /// This field is required.
 -    pub fn data_format(mut self, input: crate::types::DataFormat) -> Self {
-+    pub fn data_format(mut self, input: super::types::DataFormat) -> Self {
++    pub fn data_format(mut self, input: super::super::types::DataFormat) -> Self {
          self.data_format = ::std::option::Option::Some(input);
          self
      }
      /// <p>The data format of the import job's data source.</p>
 -    pub fn set_data_format(mut self, input: ::std::option::Option<crate::types::DataFormat>) -> Self {
-+    pub fn set_data_format(mut self, input: ::std::option::Option<super::types::DataFormat>) -> Self {
++    pub fn set_data_format(mut self, input: ::std::option::Option<super::super::types::DataFormat>) -> Self {
          self.data_format = input;
          self
      }
      /// <p>The data format of the import job's data source.</p>
 -    pub fn get_data_format(&self) -> &::std::option::Option<crate::types::DataFormat> {
-+    pub fn get_data_format(&self) -> &::std::option::Option<super::types::DataFormat> {
++    pub fn get_data_format(&self) -> &::std::option::Option<super::super::types::DataFormat> {
          &self.data_format
      }
      /// Consumes the builder and constructs a [`ImportDataSource`](crate::types::ImportDataSource).
@@ -63,8 +63,8 @@
      /// - [`data_format`](crate::types::builders::ImportDataSourceBuilder::data_format)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ImportDataSource, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ImportDataSource {
-+    pub fn build(self) -> ::std::result::Result<super::types::ImportDataSource, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ImportDataSource {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ImportDataSource, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ImportDataSource {
              s3_url: self.s3_url.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "s3_url",

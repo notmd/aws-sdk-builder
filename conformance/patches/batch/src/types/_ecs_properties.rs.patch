@@ -5,7 +5,7 @@
      /// <p>This object is currently limited to one task element. However, the task element can run up to 10 containers.</p>
      /// </note>
 -    pub task_properties: ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskProperties>>,
-+    pub task_properties: ::std::option::Option<::std::vec::Vec<super::types::EcsTaskProperties>>,
++    pub task_properties: ::std::option::Option<::std::vec::Vec<super::super::types::EcsTaskProperties>>,
  }
  impl EcsProperties {
      /// <p>An object that contains the properties for the Amazon ECS task definition of a job.</p><note>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.task_properties.is_none()`.
 -    pub fn task_properties(&self) -> &[crate::types::EcsTaskProperties] {
-+    pub fn task_properties(&self) -> &[super::types::EcsTaskProperties] {
++    pub fn task_properties(&self) -> &[super::super::types::EcsTaskProperties] {
          self.task_properties.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`EcsProperties`](crate::types::EcsProperties).
 -    pub fn builder() -> crate::types::builders::EcsPropertiesBuilder {
 -        crate::types::builders::EcsPropertiesBuilder::default()
-+    pub fn builder() -> super::types::builders::EcsPropertiesBuilder {
-+        super::types::builders::EcsPropertiesBuilder::default()
++    pub fn builder() -> super::super::types::builders::EcsPropertiesBuilder {
++        super::super::types::builders::EcsPropertiesBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  #[non_exhaustive]
  pub struct EcsPropertiesBuilder {
 -    pub(crate) task_properties: ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskProperties>>,
-+    pub(crate) task_properties: ::std::option::Option<::std::vec::Vec<super::types::EcsTaskProperties>>,
++    pub(crate) task_properties: ::std::option::Option<::std::vec::Vec<super::super::types::EcsTaskProperties>>,
  }
  impl EcsPropertiesBuilder {
      /// Appends an item to `task_properties`.
@@ -41,7 +41,7 @@
      /// <p>This object is currently limited to one task element. However, the task element can run up to 10 containers.</p>
      /// </note>
 -    pub fn task_properties(mut self, input: crate::types::EcsTaskProperties) -> Self {
-+    pub fn task_properties(mut self, input: super::types::EcsTaskProperties) -> Self {
++    pub fn task_properties(mut self, input: super::super::types::EcsTaskProperties) -> Self {
          let mut v = self.task_properties.unwrap_or_default();
          v.push(input);
          self.task_properties = ::std::option::Option::Some(v);
@@ -50,7 +50,7 @@
      /// <p>This object is currently limited to one task element. However, the task element can run up to 10 containers.</p>
      /// </note>
 -    pub fn set_task_properties(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskProperties>>) -> Self {
-+    pub fn set_task_properties(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EcsTaskProperties>>) -> Self {
++    pub fn set_task_properties(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::EcsTaskProperties>>) -> Self {
          self.task_properties = input;
          self
      }
@@ -59,14 +59,14 @@
      /// <p>This object is currently limited to one task element. However, the task element can run up to 10 containers.</p>
      /// </note>
 -    pub fn get_task_properties(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EcsTaskProperties>> {
-+    pub fn get_task_properties(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EcsTaskProperties>> {
++    pub fn get_task_properties(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::EcsTaskProperties>> {
          &self.task_properties
      }
      /// Consumes the builder and constructs a [`EcsProperties`](crate::types::EcsProperties).
 -    pub fn build(self) -> crate::types::EcsProperties {
 -        crate::types::EcsProperties {
-+    pub fn build(self) -> super::types::EcsProperties {
-+        super::types::EcsProperties {
++    pub fn build(self) -> super::super::types::EcsProperties {
++        super::super::types::EcsProperties {
              task_properties: self.task_properties,
          }
      }

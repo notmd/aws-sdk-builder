@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SendingOptions`](crate::types::SendingOptions).
 -    pub fn builder() -> crate::types::builders::SendingOptionsBuilder {
 -        crate::types::builders::SendingOptionsBuilder::default()
-+    pub fn builder() -> super::types::builders::SendingOptionsBuilder {
-+        super::types::builders::SendingOptionsBuilder::default()
++    pub fn builder() -> super::super::types::builders::SendingOptionsBuilder {
++        super::super::types::builders::SendingOptionsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`SendingOptions`](crate::types::SendingOptions).
 -    pub fn build(self) -> crate::types::SendingOptions {
 -        crate::types::SendingOptions {
-+    pub fn build(self) -> super::types::SendingOptions {
-+        super::types::SendingOptions {
++    pub fn build(self) -> super::super::types::SendingOptions {
++        super::super::types::SendingOptions {
              sending_enabled: self.sending_enabled.unwrap_or_default(),
          }
      }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CapacityLimit`](crate::types::CapacityLimit).
 -    pub fn builder() -> crate::types::builders::CapacityLimitBuilder {
 -        crate::types::builders::CapacityLimitBuilder::default()
-+    pub fn builder() -> super::types::builders::CapacityLimitBuilder {
-+        super::types::builders::CapacityLimitBuilder::default()
++    pub fn builder() -> super::super::types::builders::CapacityLimitBuilder {
++        super::super::types::builders::CapacityLimitBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CapacityLimit`](crate::types::CapacityLimit).
 -    pub fn build(self) -> crate::types::CapacityLimit {
 -        crate::types::CapacityLimit {
-+    pub fn build(self) -> super::types::CapacityLimit {
-+        super::types::CapacityLimit {
++    pub fn build(self) -> super::super::types::CapacityLimit {
++        super::super::types::CapacityLimit {
              max_capacity: self.max_capacity,
              capacity_unit: self.capacity_unit,
          }

@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for OrganizationAllFeaturesNotEnabledException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::OrganizationAllFeaturesNotEnabledException {
-+impl ::aws_types::request_id::RequestId for super::types::error::OrganizationAllFeaturesNotEnabledException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::OrganizationAllFeaturesNotEnabledException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`OrganizationAllFeaturesNotEnabledException`](crate::types::error::OrganizationAllFeaturesNotEnabledException).
 -    pub fn builder() -> crate::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder {
 -        crate::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder {
-+        super::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder {
++        super::super::super::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`OrganizationAllFeaturesNotEnabledException`](crate::types::error::OrganizationAllFeaturesNotEnabledException).
 -    pub fn build(self) -> crate::types::error::OrganizationAllFeaturesNotEnabledException {
 -        crate::types::error::OrganizationAllFeaturesNotEnabledException {
-+    pub fn build(self) -> super::types::error::OrganizationAllFeaturesNotEnabledException {
-+        super::types::error::OrganizationAllFeaturesNotEnabledException {
++    pub fn build(self) -> super::super::super::types::error::OrganizationAllFeaturesNotEnabledException {
++        super::super::super::types::error::OrganizationAllFeaturesNotEnabledException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ManagedInstancesNetworkConfiguration`](crate::types::ManagedInstancesNetworkConfiguration).
 -    pub fn builder() -> crate::types::builders::ManagedInstancesNetworkConfigurationBuilder {
 -        crate::types::builders::ManagedInstancesNetworkConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::ManagedInstancesNetworkConfigurationBuilder {
-+        super::types::builders::ManagedInstancesNetworkConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::ManagedInstancesNetworkConfigurationBuilder {
++        super::super::types::builders::ManagedInstancesNetworkConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ManagedInstancesNetworkConfiguration`](crate::types::ManagedInstancesNetworkConfiguration).
 -    pub fn build(self) -> crate::types::ManagedInstancesNetworkConfiguration {
 -        crate::types::ManagedInstancesNetworkConfiguration {
-+    pub fn build(self) -> super::types::ManagedInstancesNetworkConfiguration {
-+        super::types::ManagedInstancesNetworkConfiguration {
++    pub fn build(self) -> super::super::types::ManagedInstancesNetworkConfiguration {
++        super::super::types::ManagedInstancesNetworkConfiguration {
              subnets: self.subnets,
              security_groups: self.security_groups,
          }

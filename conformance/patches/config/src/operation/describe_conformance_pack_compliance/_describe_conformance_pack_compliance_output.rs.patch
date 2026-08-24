@@ -5,7 +5,7 @@
      pub conformance_pack_name: ::std::string::String,
      /// <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
 -    pub conformance_pack_rule_compliance_list: ::std::vec::Vec<crate::types::ConformancePackRuleCompliance>,
-+    pub conformance_pack_rule_compliance_list: ::std::vec::Vec<super::types::ConformancePackRuleCompliance>,
++    pub conformance_pack_rule_compliance_list: ::std::vec::Vec<super::super::super::types::ConformancePackRuleCompliance>,
      /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      }
      /// <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
 -    pub fn conformance_pack_rule_compliance_list(&self) -> &[crate::types::ConformancePackRuleCompliance] {
-+    pub fn conformance_pack_rule_compliance_list(&self) -> &[super::types::ConformancePackRuleCompliance] {
++    pub fn conformance_pack_rule_compliance_list(&self) -> &[super::super::super::types::ConformancePackRuleCompliance] {
          use std::ops::Deref;
          self.conformance_pack_rule_compliance_list.deref()
      }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeConformancePackComplianceOutput`](crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput).
 -    pub fn builder() -> crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder {
 -        crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder {
-+        super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder {
++        super::super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct DescribeConformancePackComplianceOutputBuilder {
      pub(crate) conformance_pack_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) conformance_pack_rule_compliance_list: ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackRuleCompliance>>,
-+    pub(crate) conformance_pack_rule_compliance_list: ::std::option::Option<::std::vec::Vec<super::types::ConformancePackRuleCompliance>>,
++    pub(crate) conformance_pack_rule_compliance_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackRuleCompliance>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
 -    pub fn conformance_pack_rule_compliance_list(mut self, input: crate::types::ConformancePackRuleCompliance) -> Self {
-+    pub fn conformance_pack_rule_compliance_list(mut self, input: super::types::ConformancePackRuleCompliance) -> Self {
++    pub fn conformance_pack_rule_compliance_list(mut self, input: super::super::super::types::ConformancePackRuleCompliance) -> Self {
          let mut v = self.conformance_pack_rule_compliance_list.unwrap_or_default();
          v.push(input);
          self.conformance_pack_rule_compliance_list = ::std::option::Option::Some(v);
@@ -52,14 +52,14 @@
      pub fn set_conformance_pack_rule_compliance_list(
          mut self,
 -        input: ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackRuleCompliance>>,
-+        input: ::std::option::Option<::std::vec::Vec<super::types::ConformancePackRuleCompliance>>,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackRuleCompliance>>,
      ) -> Self {
          self.conformance_pack_rule_compliance_list = input;
          self
      }
      /// <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
 -    pub fn get_conformance_pack_rule_compliance_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConformancePackRuleCompliance>> {
-+    pub fn get_conformance_pack_rule_compliance_list(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ConformancePackRuleCompliance>> {
++    pub fn get_conformance_pack_rule_compliance_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackRuleCompliance>> {
          &self.conformance_pack_rule_compliance_list
      }
      /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -68,12 +68,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput,
-+        super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput,
++        super::super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput {
-+            super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput {
++            super::super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput {
                  conformance_pack_name: self.conformance_pack_name
                      .ok_or_else(||
                          ::aws_smithy_types::error::operation::BuildError::missing_field("conformance_pack_name", "conformance_pack_name was not specified but it is required when building DescribeConformancePackComplianceOutput")

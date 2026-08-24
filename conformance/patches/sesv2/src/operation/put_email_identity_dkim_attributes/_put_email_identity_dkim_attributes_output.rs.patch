@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutEmailIdentityDkimAttributesOutput`](crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesOutput).
 -    pub fn builder() -> crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder {
 -        crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder {
-+        super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder {
++        super::super::super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutEmailIdentityDkimAttributesOutput`](crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesOutput).
 -    pub fn build(self) -> crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesOutput {
 -        crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesOutput {
-+    pub fn build(self) -> super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesOutput {
-+        super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesOutput {
++    pub fn build(self) -> super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesOutput {
++        super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesOutput {
              _request_id: self._request_id,
          }
      }

@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsFluentBuilder {
 -        crate::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsFluentBuilder::new(
-+    ) -> super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsFluentBuilder {
-+        super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsFluentBuilder::new(
++    ) -> super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsFluentBuilder {
++        super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsFluentBuilder::new(
              self.handle.clone(),
          )
      }

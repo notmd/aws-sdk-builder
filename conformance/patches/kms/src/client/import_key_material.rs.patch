@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ImportKeyMaterialError>`](crate::operation::import_key_material::ImportKeyMaterialError)
 -    pub fn import_key_material(&self) -> crate::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder {
 -        crate::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder::new(self.handle.clone())
-+    pub fn import_key_material(&self) -> super::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder {
-+        super::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder::new(self.handle.clone())
++    pub fn import_key_material(&self) -> super::super::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder {
++        super::super::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder::new(self.handle.clone())
      }
  }

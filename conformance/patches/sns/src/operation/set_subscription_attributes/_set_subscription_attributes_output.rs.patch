@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SetSubscriptionAttributesOutput`](crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput).
 -    pub fn builder() -> crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder {
 -        crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder::default()
-+    pub fn builder() -> super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder {
-+        super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder {
++        super::super::super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`SetSubscriptionAttributesOutput`](crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput).
 -    pub fn build(self) -> crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput {
 -        crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput {
-+    pub fn build(self) -> super::operation::set_subscription_attributes::SetSubscriptionAttributesOutput {
-+        super::operation::set_subscription_attributes::SetSubscriptionAttributesOutput {
++    pub fn build(self) -> super::super::super::operation::set_subscription_attributes::SetSubscriptionAttributesOutput {
++        super::super::super::operation::set_subscription_attributes::SetSubscriptionAttributesOutput {
              _request_id: self._request_id,
          }
      }

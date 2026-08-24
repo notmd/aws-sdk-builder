@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AssumeRoleWithWebIdentityError>`](crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError)
 -    pub fn assume_role_with_web_identity(&self) -> crate::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder {
 -        crate::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder::new(self.handle.clone())
-+    pub fn assume_role_with_web_identity(&self) -> super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder {
-+        super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder::new(self.handle.clone())
++    pub fn assume_role_with_web_identity(&self) -> super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder {
++        super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder::new(self.handle.clone())
      }
  }

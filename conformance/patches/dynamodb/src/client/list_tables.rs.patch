@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListTablesError>`](crate::operation::list_tables::ListTablesError)
 -    pub fn list_tables(&self) -> crate::operation::list_tables::builders::ListTablesFluentBuilder {
 -        crate::operation::list_tables::builders::ListTablesFluentBuilder::new(self.handle.clone())
-+    pub fn list_tables(&self) -> super::operation::list_tables::builders::ListTablesFluentBuilder {
-+        super::operation::list_tables::builders::ListTablesFluentBuilder::new(self.handle.clone())
++    pub fn list_tables(&self) -> super::super::operation::list_tables::builders::ListTablesFluentBuilder {
++        super::super::operation::list_tables::builders::ListTablesFluentBuilder::new(self.handle.clone())
      }
  }

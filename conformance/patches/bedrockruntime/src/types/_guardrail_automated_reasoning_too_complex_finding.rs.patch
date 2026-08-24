@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningTooComplexFinding`](crate::types::GuardrailAutomatedReasoningTooComplexFinding).
 -    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder {
 -        crate::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder {
-+        super::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder {
++        super::super::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningTooComplexFinding`](crate::types::GuardrailAutomatedReasoningTooComplexFinding).
 -    pub fn build(self) -> crate::types::GuardrailAutomatedReasoningTooComplexFinding {
 -        crate::types::GuardrailAutomatedReasoningTooComplexFinding {}
-+    pub fn build(self) -> super::types::GuardrailAutomatedReasoningTooComplexFinding {
-+        super::types::GuardrailAutomatedReasoningTooComplexFinding {}
++    pub fn build(self) -> super::super::types::GuardrailAutomatedReasoningTooComplexFinding {
++        super::super::types::GuardrailAutomatedReasoningTooComplexFinding {}
      }
  }

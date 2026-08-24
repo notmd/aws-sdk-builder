@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateSAMLProviderError>`](crate::operation::update_saml_provider::UpdateSAMLProviderError)
 -    pub fn update_saml_provider(&self) -> crate::operation::update_saml_provider::builders::UpdateSAMLProviderFluentBuilder {
 -        crate::operation::update_saml_provider::builders::UpdateSAMLProviderFluentBuilder::new(self.handle.clone())
-+    pub fn update_saml_provider(&self) -> super::operation::update_saml_provider::builders::UpdateSAMLProviderFluentBuilder {
-+        super::operation::update_saml_provider::builders::UpdateSAMLProviderFluentBuilder::new(self.handle.clone())
++    pub fn update_saml_provider(&self) -> super::super::operation::update_saml_provider::builders::UpdateSAMLProviderFluentBuilder {
++        super::super::operation::update_saml_provider::builders::UpdateSAMLProviderFluentBuilder::new(self.handle.clone())
      }
  }

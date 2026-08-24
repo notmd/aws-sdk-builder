@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionFluentBuilder {
 -        crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::disassociate_external_connection::builders::DisassociateExternalConnectionFluentBuilder {
-+        super::operation::disassociate_external_connection::builders::DisassociateExternalConnectionFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::disassociate_external_connection::builders::DisassociateExternalConnectionFluentBuilder {
++        super::super::operation::disassociate_external_connection::builders::DisassociateExternalConnectionFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutPublicAccessBlockError>`](crate::operation::put_public_access_block::PutPublicAccessBlockError)
 -    pub fn put_public_access_block(&self) -> crate::operation::put_public_access_block::builders::PutPublicAccessBlockFluentBuilder {
 -        crate::operation::put_public_access_block::builders::PutPublicAccessBlockFluentBuilder::new(self.handle.clone())
-+    pub fn put_public_access_block(&self) -> super::operation::put_public_access_block::builders::PutPublicAccessBlockFluentBuilder {
-+        super::operation::put_public_access_block::builders::PutPublicAccessBlockFluentBuilder::new(self.handle.clone())
++    pub fn put_public_access_block(&self) -> super::super::operation::put_public_access_block::builders::PutPublicAccessBlockFluentBuilder {
++        super::super::operation::put_public_access_block::builders::PutPublicAccessBlockFluentBuilder::new(self.handle.clone())
      }
  }

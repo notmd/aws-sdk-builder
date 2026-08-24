@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListKeysInput`](crate::operation::list_keys::ListKeysInput).
 -    pub fn builder() -> crate::operation::list_keys::builders::ListKeysInputBuilder {
 -        crate::operation::list_keys::builders::ListKeysInputBuilder::default()
-+    pub fn builder() -> super::operation::list_keys::builders::ListKeysInputBuilder {
-+        super::operation::list_keys::builders::ListKeysInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_keys::builders::ListKeysInputBuilder {
++        super::super::super::operation::list_keys::builders::ListKeysInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ListKeysInput`](crate::operation::list_keys::ListKeysInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::list_keys::ListKeysInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_keys::ListKeysInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::list_keys::ListKeysInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_keys::ListKeysInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_keys::ListKeysInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_keys::ListKeysInput {
              limit: self.limit,
              marker: self.marker,
          })

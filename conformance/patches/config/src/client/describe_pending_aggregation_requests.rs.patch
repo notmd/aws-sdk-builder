@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder {
 -        crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder {
-+        super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder {
++        super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder::new(self.handle.clone())
      }
  }

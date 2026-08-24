@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigFluentBuilder {
 -        crate::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigFluentBuilder {
-+        super::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigFluentBuilder {
++        super::super::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigFluentBuilder::new(self.handle.clone())
      }
  }

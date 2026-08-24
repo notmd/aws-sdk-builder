@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetLoginProfileInput`](crate::operation::get_login_profile::GetLoginProfileInput).
 -    pub fn builder() -> crate::operation::get_login_profile::builders::GetLoginProfileInputBuilder {
 -        crate::operation::get_login_profile::builders::GetLoginProfileInputBuilder::default()
-+    pub fn builder() -> super::operation::get_login_profile::builders::GetLoginProfileInputBuilder {
-+        super::operation::get_login_profile::builders::GetLoginProfileInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_login_profile::builders::GetLoginProfileInputBuilder {
++        super::super::super::operation::get_login_profile::builders::GetLoginProfileInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_login_profile::GetLoginProfileInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_login_profile::GetLoginProfileInput { user_name: self.user_name })
-+    ) -> ::std::result::Result<super::operation::get_login_profile::GetLoginProfileInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_login_profile::GetLoginProfileInput { user_name: self.user_name })
++    ) -> ::std::result::Result<super::super::super::operation::get_login_profile::GetLoginProfileInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_login_profile::GetLoginProfileInput { user_name: self.user_name })
      }
  }

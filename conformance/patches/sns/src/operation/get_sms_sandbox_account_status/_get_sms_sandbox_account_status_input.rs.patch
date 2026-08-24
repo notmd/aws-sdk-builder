@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetSmsSandboxAccountStatusInput`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput).
 -    pub fn builder() -> crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder {
 -        crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder::default()
-+    pub fn builder() -> super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder {
-+        super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder {
++        super::super::super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput,
-+        super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput,
++        super::super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput {})
-+        ::std::result::Result::Ok(super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput {})
++        ::std::result::Result::Ok(super::super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput {})
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`OrganizationAggregationSource`](crate::types::OrganizationAggregationSource).
 -    pub fn builder() -> crate::types::builders::OrganizationAggregationSourceBuilder {
 -        crate::types::builders::OrganizationAggregationSourceBuilder::default()
-+    pub fn builder() -> super::types::builders::OrganizationAggregationSourceBuilder {
-+        super::types::builders::OrganizationAggregationSourceBuilder::default()
++    pub fn builder() -> super::super::types::builders::OrganizationAggregationSourceBuilder {
++        super::super::types::builders::OrganizationAggregationSourceBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`role_arn`](crate::types::builders::OrganizationAggregationSourceBuilder::role_arn)
 -    pub fn build(self) -> ::std::result::Result<crate::types::OrganizationAggregationSource, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::OrganizationAggregationSource {
-+    pub fn build(self) -> ::std::result::Result<super::types::OrganizationAggregationSource, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::OrganizationAggregationSource {
++    pub fn build(self) -> ::std::result::Result<super::super::types::OrganizationAggregationSource, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::OrganizationAggregationSource {
              role_arn: self.role_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "role_arn",

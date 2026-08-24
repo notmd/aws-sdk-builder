@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
 -    pub fn builder() -> crate::operation::tag_resource::builders::TagResourceInputBuilder {
 -        crate::operation::tag_resource::builders::TagResourceInputBuilder::default()
-+    pub fn builder() -> super::operation::tag_resource::builders::TagResourceInputBuilder {
-+        super::operation::tag_resource::builders::TagResourceInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::tag_resource::builders::TagResourceInputBuilder {
++        super::super::super::operation::tag_resource::builders::TagResourceInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::tag_resource::TagResourceInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::tag_resource::TagResourceInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::tag_resource::TagResourceInput {
              resource: self.resource,
              tags: self.tags,
          })

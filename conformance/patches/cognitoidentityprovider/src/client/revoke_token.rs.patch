@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<RevokeTokenError>`](crate::operation::revoke_token::RevokeTokenError)
 -    pub fn revoke_token(&self) -> crate::operation::revoke_token::builders::RevokeTokenFluentBuilder {
 -        crate::operation::revoke_token::builders::RevokeTokenFluentBuilder::new(self.handle.clone())
-+    pub fn revoke_token(&self) -> super::operation::revoke_token::builders::RevokeTokenFluentBuilder {
-+        super::operation::revoke_token::builders::RevokeTokenFluentBuilder::new(self.handle.clone())
++    pub fn revoke_token(&self) -> super::super::operation::revoke_token::builders::RevokeTokenFluentBuilder {
++        super::super::operation::revoke_token::builders::RevokeTokenFluentBuilder::new(self.handle.clone())
      }
  }

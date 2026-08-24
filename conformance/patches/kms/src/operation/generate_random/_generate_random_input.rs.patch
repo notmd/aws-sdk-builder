@@ -5,7 +5,7 @@
      /// <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the plaintext bytes under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in the response is null or empty.</p>
      /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub recipient: ::std::option::Option<crate::types::RecipientInfo>,
-+    pub recipient: ::std::option::Option<super::types::RecipientInfo>,
++    pub recipient: ::std::option::Option<super::super::super::types::RecipientInfo>,
  }
  impl GenerateRandomInput {
      /// <p>The length of the random byte string. This parameter is required.</p>
@@ -14,7 +14,7 @@
      /// <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the plaintext bytes under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in the response is null or empty.</p>
      /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn recipient(&self) -> ::std::option::Option<&crate::types::RecipientInfo> {
-+    pub fn recipient(&self) -> ::std::option::Option<&super::types::RecipientInfo> {
++    pub fn recipient(&self) -> ::std::option::Option<&super::super::super::types::RecipientInfo> {
          self.recipient.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`GenerateRandomInput`](crate::operation::generate_random::GenerateRandomInput).
 -    pub fn builder() -> crate::operation::generate_random::builders::GenerateRandomInputBuilder {
 -        crate::operation::generate_random::builders::GenerateRandomInputBuilder::default()
-+    pub fn builder() -> super::operation::generate_random::builders::GenerateRandomInputBuilder {
-+        super::operation::generate_random::builders::GenerateRandomInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::generate_random::builders::GenerateRandomInputBuilder {
++        super::super::super::operation::generate_random::builders::GenerateRandomInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) number_of_bytes: ::std::option::Option<i32>,
      pub(crate) custom_key_store_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) recipient: ::std::option::Option<crate::types::RecipientInfo>,
-+    pub(crate) recipient: ::std::option::Option<super::types::RecipientInfo>,
++    pub(crate) recipient: ::std::option::Option<super::super::super::types::RecipientInfo>,
  }
  impl GenerateRandomInputBuilder {
      /// <p>The length of the random byte string. This parameter is required.</p>
@@ -41,7 +41,7 @@
      /// <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the plaintext bytes under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in the response is null or empty.</p>
      /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn recipient(mut self, input: crate::types::RecipientInfo) -> Self {
-+    pub fn recipient(mut self, input: super::types::RecipientInfo) -> Self {
++    pub fn recipient(mut self, input: super::super::super::types::RecipientInfo) -> Self {
          self.recipient = ::std::option::Option::Some(input);
          self
      }
@@ -50,7 +50,7 @@
      /// <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the plaintext bytes under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in the response is null or empty.</p>
      /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn set_recipient(mut self, input: ::std::option::Option<crate::types::RecipientInfo>) -> Self {
-+    pub fn set_recipient(mut self, input: ::std::option::Option<super::types::RecipientInfo>) -> Self {
++    pub fn set_recipient(mut self, input: ::std::option::Option<super::super::super::types::RecipientInfo>) -> Self {
          self.recipient = input;
          self
      }
@@ -59,7 +59,7 @@
      /// <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the plaintext bytes under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in the response is null or empty.</p>
      /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn get_recipient(&self) -> &::std::option::Option<crate::types::RecipientInfo> {
-+    pub fn get_recipient(&self) -> &::std::option::Option<super::types::RecipientInfo> {
++    pub fn get_recipient(&self) -> &::std::option::Option<super::super::super::types::RecipientInfo> {
          &self.recipient
      }
      /// Consumes the builder and constructs a [`GenerateRandomInput`](crate::operation::generate_random::GenerateRandomInput).
@@ -67,8 +67,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::generate_random::GenerateRandomInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::generate_random::GenerateRandomInput {
-+    ) -> ::std::result::Result<super::operation::generate_random::GenerateRandomInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::generate_random::GenerateRandomInput {
++    ) -> ::std::result::Result<super::super::super::operation::generate_random::GenerateRandomInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::generate_random::GenerateRandomInput {
              number_of_bytes: self.number_of_bytes,
              custom_key_store_id: self.custom_key_store_id,
              recipient: self.recipient,

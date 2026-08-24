@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetDataProtectionPolicyError>`](crate::operation::get_data_protection_policy::GetDataProtectionPolicyError)
 -    pub fn get_data_protection_policy(&self) -> crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyFluentBuilder {
 -        crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn get_data_protection_policy(&self) -> super::operation::get_data_protection_policy::builders::GetDataProtectionPolicyFluentBuilder {
-+        super::operation::get_data_protection_policy::builders::GetDataProtectionPolicyFluentBuilder::new(self.handle.clone())
++    pub fn get_data_protection_policy(&self) -> super::super::operation::get_data_protection_policy::builders::GetDataProtectionPolicyFluentBuilder {
++        super::super::operation::get_data_protection_policy::builders::GetDataProtectionPolicyFluentBuilder::new(self.handle.clone())
      }
  }

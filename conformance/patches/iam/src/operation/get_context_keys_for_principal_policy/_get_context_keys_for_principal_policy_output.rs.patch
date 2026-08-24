@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetContextKeysForPrincipalPolicyOutput`](crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput).
 -    pub fn builder() -> crate::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder {
 -        crate::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder {
-+        super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder {
++        super::super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetContextKeysForPrincipalPolicyOutput`](crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput).
 -    pub fn build(self) -> crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput {
 -        crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput {
-+    pub fn build(self) -> super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput {
-+        super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput {
++        super::super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput {
              context_key_names: self.context_key_names,
              _request_id: self._request_id,
          }

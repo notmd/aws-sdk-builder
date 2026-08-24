@@ -5,12 +5,12 @@
  pub struct RoutingType {
      /// <p>The failover configuration that specifies the secondary region and health check settings.</p>
 -    pub failover: ::std::option::Option<crate::types::FailoverType>,
-+    pub failover: ::std::option::Option<super::types::FailoverType>,
++    pub failover: ::std::option::Option<super::super::types::FailoverType>,
  }
  impl RoutingType {
      /// <p>The failover configuration that specifies the secondary region and health check settings.</p>
 -    pub fn failover(&self) -> ::std::option::Option<&crate::types::FailoverType> {
-+    pub fn failover(&self) -> ::std::option::Option<&super::types::FailoverType> {
++    pub fn failover(&self) -> ::std::option::Option<&super::super::types::FailoverType> {
          self.failover.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`RoutingType`](crate::types::RoutingType).
 -    pub fn builder() -> crate::types::builders::RoutingTypeBuilder {
 -        crate::types::builders::RoutingTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::RoutingTypeBuilder {
-+        super::types::builders::RoutingTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::RoutingTypeBuilder {
++        super::super::types::builders::RoutingTypeBuilder::default()
      }
  }
 
@@ -28,30 +28,30 @@
  #[non_exhaustive]
  pub struct RoutingTypeBuilder {
 -    pub(crate) failover: ::std::option::Option<crate::types::FailoverType>,
-+    pub(crate) failover: ::std::option::Option<super::types::FailoverType>,
++    pub(crate) failover: ::std::option::Option<super::super::types::FailoverType>,
  }
  impl RoutingTypeBuilder {
      /// <p>The failover configuration that specifies the secondary region and health check settings.</p>
 -    pub fn failover(mut self, input: crate::types::FailoverType) -> Self {
-+    pub fn failover(mut self, input: super::types::FailoverType) -> Self {
++    pub fn failover(mut self, input: super::super::types::FailoverType) -> Self {
          self.failover = ::std::option::Option::Some(input);
          self
      }
      /// <p>The failover configuration that specifies the secondary region and health check settings.</p>
 -    pub fn set_failover(mut self, input: ::std::option::Option<crate::types::FailoverType>) -> Self {
-+    pub fn set_failover(mut self, input: ::std::option::Option<super::types::FailoverType>) -> Self {
++    pub fn set_failover(mut self, input: ::std::option::Option<super::super::types::FailoverType>) -> Self {
          self.failover = input;
          self
      }
      /// <p>The failover configuration that specifies the secondary region and health check settings.</p>
 -    pub fn get_failover(&self) -> &::std::option::Option<crate::types::FailoverType> {
-+    pub fn get_failover(&self) -> &::std::option::Option<super::types::FailoverType> {
++    pub fn get_failover(&self) -> &::std::option::Option<super::super::types::FailoverType> {
          &self.failover
      }
      /// Consumes the builder and constructs a [`RoutingType`](crate::types::RoutingType).
 -    pub fn build(self) -> crate::types::RoutingType {
 -        crate::types::RoutingType { failover: self.failover }
-+    pub fn build(self) -> super::types::RoutingType {
-+        super::types::RoutingType { failover: self.failover }
++    pub fn build(self) -> super::super::types::RoutingType {
++        super::super::types::RoutingType { failover: self.failover }
      }
  }

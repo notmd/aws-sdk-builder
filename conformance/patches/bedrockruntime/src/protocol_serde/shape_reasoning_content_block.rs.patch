@@ -5,25 +5,25 @@
  pub fn ser_reasoning_content_block(
      object_9: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ReasoningContentBlock,
-+    input: &super::types::ReasoningContentBlock,
++    input: &super::super::types::ReasoningContentBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
 -        crate::types::ReasoningContentBlock::ReasoningText(inner) => {
-+        super::types::ReasoningContentBlock::ReasoningText(inner) => {
++        super::super::types::ReasoningContentBlock::ReasoningText(inner) => {
              #[allow(unused_mut)]
              let mut object_1 = object_9.key("reasoningText").start_object();
 -            crate::protocol_serde::shape_reasoning_text_block::ser_reasoning_text_block(&mut object_1, inner)?;
-+            super::protocol_serde::shape_reasoning_text_block::ser_reasoning_text_block(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_reasoning_text_block::ser_reasoning_text_block(&mut object_1, inner)?;
              object_1.finish();
          }
 -        crate::types::ReasoningContentBlock::RedactedContent(inner) => {
-+        super::types::ReasoningContentBlock::RedactedContent(inner) => {
++        super::super::types::ReasoningContentBlock::RedactedContent(inner) => {
              object_9
                  .key("redactedContent")
                  .string_unchecked(&::aws_smithy_types::base64::encode(inner));
          }
 -        crate::types::ReasoningContentBlock::Unknown => {
-+        super::types::ReasoningContentBlock::Unknown => {
++        super::super::types::ReasoningContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                  "ReasoningContentBlock",
              ))
@@ -32,7 +32,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ReasoningContentBlock>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ReasoningContentBlock>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ReasoningContentBlock>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -42,13 +42,13 @@
                      variant = match key.as_ref() {
 -                        "reasoningText" => Some(crate::types::ReasoningContentBlock::ReasoningText(
 -                            crate::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?.ok_or_else(
-+                        "reasoningText" => Some(super::types::ReasoningContentBlock::ReasoningText(
-+                            super::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?.ok_or_else(
++                        "reasoningText" => Some(super::super::types::ReasoningContentBlock::ReasoningText(
++                            super::super::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?.ok_or_else(
                                  || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningText' cannot be null"),
                              )?,
                          )),
 -                        "redactedContent" => Some(crate::types::ReasoningContentBlock::RedactedContent(
-+                        "redactedContent" => Some(super::types::ReasoningContentBlock::RedactedContent(
++                        "redactedContent" => Some(super::super::types::ReasoningContentBlock::RedactedContent(
                              ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| {
                                  ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null")
                              })?,
@@ -57,7 +57,7 @@
                          _ => {
                              ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
 -                            Some(crate::types::ReasoningContentBlock::Unknown)
-+                            Some(super::types::ReasoningContentBlock::Unknown)
++                            Some(super::super::types::ReasoningContentBlock::Unknown)
                          }
                      };
                  }

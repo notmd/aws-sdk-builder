@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Capacity`](crate::types::Capacity).
 -    pub fn builder() -> crate::types::builders::CapacityBuilder {
 -        crate::types::builders::CapacityBuilder::default()
-+    pub fn builder() -> super::types::builders::CapacityBuilder {
-+        super::types::builders::CapacityBuilder::default()
++    pub fn builder() -> super::super::types::builders::CapacityBuilder {
++        super::super::types::builders::CapacityBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Capacity`](crate::types::Capacity).
 -    pub fn build(self) -> crate::types::Capacity {
 -        crate::types::Capacity {
-+    pub fn build(self) -> super::types::Capacity {
-+        super::types::Capacity {
++    pub fn build(self) -> super::super::types::Capacity {
++        super::super::types::Capacity {
              read_capacity_units: self.read_capacity_units,
              write_capacity_units: self.write_capacity_units,
              capacity_units: self.capacity_units,

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<TransactWriteItemsError>`](crate::operation::transact_write_items::TransactWriteItemsError)
 -    pub fn transact_write_items(&self) -> crate::operation::transact_write_items::builders::TransactWriteItemsFluentBuilder {
 -        crate::operation::transact_write_items::builders::TransactWriteItemsFluentBuilder::new(self.handle.clone())
-+    pub fn transact_write_items(&self) -> super::operation::transact_write_items::builders::TransactWriteItemsFluentBuilder {
-+        super::operation::transact_write_items::builders::TransactWriteItemsFluentBuilder::new(self.handle.clone())
++    pub fn transact_write_items(&self) -> super::super::operation::transact_write_items::builders::TransactWriteItemsFluentBuilder {
++        super::super::operation::transact_write_items::builders::TransactWriteItemsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutSuppressedDestinationError>`](crate::operation::put_suppressed_destination::PutSuppressedDestinationError)
 -    pub fn put_suppressed_destination(&self) -> crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationFluentBuilder {
 -        crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationFluentBuilder::new(self.handle.clone())
-+    pub fn put_suppressed_destination(&self) -> super::operation::put_suppressed_destination::builders::PutSuppressedDestinationFluentBuilder {
-+        super::operation::put_suppressed_destination::builders::PutSuppressedDestinationFluentBuilder::new(self.handle.clone())
++    pub fn put_suppressed_destination(&self) -> super::super::operation::put_suppressed_destination::builders::PutSuppressedDestinationFluentBuilder {
++        super::super::operation::put_suppressed_destination::builders::PutSuppressedDestinationFluentBuilder::new(self.handle.clone())
      }
  }

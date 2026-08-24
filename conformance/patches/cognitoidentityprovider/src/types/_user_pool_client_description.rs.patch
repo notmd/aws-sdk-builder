@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UserPoolClientDescription`](crate::types::UserPoolClientDescription).
 -    pub fn builder() -> crate::types::builders::UserPoolClientDescriptionBuilder {
 -        crate::types::builders::UserPoolClientDescriptionBuilder::default()
-+    pub fn builder() -> super::types::builders::UserPoolClientDescriptionBuilder {
-+        super::types::builders::UserPoolClientDescriptionBuilder::default()
++    pub fn builder() -> super::super::types::builders::UserPoolClientDescriptionBuilder {
++        super::super::types::builders::UserPoolClientDescriptionBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UserPoolClientDescription`](crate::types::UserPoolClientDescription).
 -    pub fn build(self) -> crate::types::UserPoolClientDescription {
 -        crate::types::UserPoolClientDescription {
-+    pub fn build(self) -> super::types::UserPoolClientDescription {
-+        super::types::UserPoolClientDescription {
++    pub fn build(self) -> super::super::types::UserPoolClientDescription {
++        super::super::types::UserPoolClientDescription {
              client_id: self.client_id,
              user_pool_id: self.user_pool_id,
              client_name: self.client_name,

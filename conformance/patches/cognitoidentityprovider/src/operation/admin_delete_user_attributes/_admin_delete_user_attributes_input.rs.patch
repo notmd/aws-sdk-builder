@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminDeleteUserAttributesInput`](crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesInput).
 -    pub fn builder() -> crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder {
 -        crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder::default()
-+    pub fn builder() -> super::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder {
-+        super::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder {
++        super::super::super::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesInput,
-+        super::operation::admin_delete_user_attributes::AdminDeleteUserAttributesInput,
++        super::super::super::operation::admin_delete_user_attributes::AdminDeleteUserAttributesInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesInput {
-+        ::std::result::Result::Ok(super::operation::admin_delete_user_attributes::AdminDeleteUserAttributesInput {
++        ::std::result::Result::Ok(super::super::super::operation::admin_delete_user_attributes::AdminDeleteUserAttributesInput {
              user_pool_id: self.user_pool_id,
              username: self.username,
              user_attribute_names: self.user_attribute_names,

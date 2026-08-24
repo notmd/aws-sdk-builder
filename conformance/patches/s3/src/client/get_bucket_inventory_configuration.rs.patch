@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationFluentBuilder {
 -        crate::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationFluentBuilder {
-+        super::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationFluentBuilder {
++        super::super::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

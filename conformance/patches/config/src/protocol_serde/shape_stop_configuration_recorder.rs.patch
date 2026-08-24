@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput,
 -    crate::operation::stop_configuration_recorder::StopConfigurationRecorderError,
-+    super::operation::stop_configuration_recorder::StopConfigurationRecorderOutput,
-+    super::operation::stop_configuration_recorder::StopConfigurationRecorderError,
++    super::super::operation::stop_configuration_recorder::StopConfigurationRecorderOutput,
++    super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled(
-+            return Err(super::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled(
++            return Err(super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled(
                  generic,
              ))
          }
@@ -29,20 +29,20 @@
      Err(match error_code {
          "NoSuchConfigurationRecorderException" => {
 -            crate::operation::stop_configuration_recorder::StopConfigurationRecorderError::NoSuchConfigurationRecorderException({
-+            super::operation::stop_configuration_recorder::StopConfigurationRecorderError::NoSuchConfigurationRecorderException({
++            super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError::NoSuchConfigurationRecorderException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(
-+                        super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(
++                        super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(
                              _response_body,
                              output,
                          )
 -                        .map_err(crate::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled)?;
-+                        .map_err(super::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled)?;
++                        .map_err(super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -51,17 +51,17 @@
          }
          "UnmodifiableEntityException" => {
 -            crate::operation::stop_configuration_recorder::StopConfigurationRecorderError::UnmodifiableEntityException({
-+            super::operation::stop_configuration_recorder::StopConfigurationRecorderError::UnmodifiableEntityException({
++            super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError::UnmodifiableEntityException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled)?;
-+                        super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled)?;
++                        super::super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -70,7 +70,7 @@
              })
          }
 -        _ => crate::operation::stop_configuration_recorder::StopConfigurationRecorderError::generic(generic),
-+        _ => super::operation::stop_configuration_recorder::StopConfigurationRecorderError::generic(generic),
++        _ => super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError::generic(generic),
      })
  }
 
@@ -80,13 +80,13 @@
  ) -> std::result::Result<
 -    crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput,
 -    crate::operation::stop_configuration_recorder::StopConfigurationRecorderError,
-+    super::operation::stop_configuration_recorder::StopConfigurationRecorderOutput,
-+    super::operation::stop_configuration_recorder::StopConfigurationRecorderError,
++    super::super::operation::stop_configuration_recorder::StopConfigurationRecorderOutput,
++    super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderOutputBuilder::default();
-+        let mut output = super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderOutputBuilder::default();
++        let mut output = super::super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -95,12 +95,12 @@
 
  pub fn ser_stop_configuration_recorder_input(
 -    input: &crate::operation::stop_configuration_recorder::StopConfigurationRecorderInput,
-+    input: &super::operation::stop_configuration_recorder::StopConfigurationRecorderInput,
++    input: &super::super::operation::stop_configuration_recorder::StopConfigurationRecorderInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_stop_configuration_recorder_input::ser_stop_configuration_recorder_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_stop_configuration_recorder_input::ser_stop_configuration_recorder_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_stop_configuration_recorder_input::ser_stop_configuration_recorder_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }

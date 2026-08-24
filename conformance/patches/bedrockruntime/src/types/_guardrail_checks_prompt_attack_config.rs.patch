@@ -5,12 +5,12 @@
  pub struct GuardrailChecksPromptAttackConfig {
      /// <p>The prompt attack categories to evaluate.</p>
 -    pub categories: ::std::vec::Vec<crate::types::GuardrailChecksPromptAttackCategoryConfig>,
-+    pub categories: ::std::vec::Vec<super::types::GuardrailChecksPromptAttackCategoryConfig>,
++    pub categories: ::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackCategoryConfig>,
  }
  impl GuardrailChecksPromptAttackConfig {
      /// <p>The prompt attack categories to evaluate.</p>
 -    pub fn categories(&self) -> &[crate::types::GuardrailChecksPromptAttackCategoryConfig] {
-+    pub fn categories(&self) -> &[super::types::GuardrailChecksPromptAttackCategoryConfig] {
++    pub fn categories(&self) -> &[super::super::types::GuardrailChecksPromptAttackCategoryConfig] {
          use std::ops::Deref;
          self.categories.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailChecksPromptAttackConfig`](crate::types::GuardrailChecksPromptAttackConfig).
 -    pub fn builder() -> crate::types::builders::GuardrailChecksPromptAttackConfigBuilder {
 -        crate::types::builders::GuardrailChecksPromptAttackConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailChecksPromptAttackConfigBuilder {
-+        super::types::builders::GuardrailChecksPromptAttackConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailChecksPromptAttackConfigBuilder {
++        super::super::types::builders::GuardrailChecksPromptAttackConfigBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct GuardrailChecksPromptAttackConfigBuilder {
 -    pub(crate) categories: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackCategoryConfig>>,
-+    pub(crate) categories: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksPromptAttackCategoryConfig>>,
++    pub(crate) categories: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackCategoryConfig>>,
  }
  impl GuardrailChecksPromptAttackConfigBuilder {
      /// Appends an item to `categories`.
@@ -39,7 +39,7 @@
      ///
      /// <p>The prompt attack categories to evaluate.</p>
 -    pub fn categories(mut self, input: crate::types::GuardrailChecksPromptAttackCategoryConfig) -> Self {
-+    pub fn categories(mut self, input: super::types::GuardrailChecksPromptAttackCategoryConfig) -> Self {
++    pub fn categories(mut self, input: super::super::types::GuardrailChecksPromptAttackCategoryConfig) -> Self {
          let mut v = self.categories.unwrap_or_default();
          v.push(input);
          self.categories = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>The prompt attack categories to evaluate.</p>
 -    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackCategoryConfig>>) -> Self {
-+    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksPromptAttackCategoryConfig>>) -> Self {
++    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackCategoryConfig>>) -> Self {
          self.categories = input;
          self
      }
      /// <p>The prompt attack categories to evaluate.</p>
 -    pub fn get_categories(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackCategoryConfig>> {
-+    pub fn get_categories(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksPromptAttackCategoryConfig>> {
++    pub fn get_categories(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackCategoryConfig>> {
          &self.categories
      }
      /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackConfig`](crate::types::GuardrailChecksPromptAttackConfig).
@@ -62,8 +62,8 @@
      /// - [`categories`](crate::types::builders::GuardrailChecksPromptAttackConfigBuilder::categories)
 -    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailChecksPromptAttackConfig, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailChecksPromptAttackConfig {
-+    pub fn build(self) -> ::std::result::Result<super::types::GuardrailChecksPromptAttackConfig, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailChecksPromptAttackConfig {
++    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackConfig, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailChecksPromptAttackConfig {
              categories: self.categories.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "categories",

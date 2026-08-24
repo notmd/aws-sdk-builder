@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::GroupDetail, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::GroupDetail, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::GroupDetail, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::GroupDetail::builder();
-+    let mut builder = super::types::GroupDetail::builder();
++    let mut builder = super::super::types::GroupDetail::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("Path") /* Path com.amazonaws.iam#GroupDetail$Path */ =>  {
@@ -20,7 +20,7 @@
                  let var_6 =
                      Some(
 -                        crate::protocol_serde::shape_policy_detail_list_type::de_policy_detail_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_policy_detail_list_type::de_policy_detail_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_policy_detail_list_type::de_policy_detail_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -29,7 +29,7 @@
                  let var_7 =
                      Some(
 -                        crate::protocol_serde::shape_attached_policies_list_type::de_attached_policies_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_attached_policies_list_type::de_attached_policies_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_attached_policies_list_type::de_attached_policies_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;

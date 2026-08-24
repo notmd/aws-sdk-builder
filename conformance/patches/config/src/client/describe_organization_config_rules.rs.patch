@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesFluentBuilder {
 -        crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesFluentBuilder {
-+        super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesFluentBuilder {
++        super::super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesFluentBuilder::new(self.handle.clone())
      }
  }

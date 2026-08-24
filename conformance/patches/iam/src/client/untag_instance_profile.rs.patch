@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UntagInstanceProfileError>`](crate::operation::untag_instance_profile::UntagInstanceProfileError)
 -    pub fn untag_instance_profile(&self) -> crate::operation::untag_instance_profile::builders::UntagInstanceProfileFluentBuilder {
 -        crate::operation::untag_instance_profile::builders::UntagInstanceProfileFluentBuilder::new(self.handle.clone())
-+    pub fn untag_instance_profile(&self) -> super::operation::untag_instance_profile::builders::UntagInstanceProfileFluentBuilder {
-+        super::operation::untag_instance_profile::builders::UntagInstanceProfileFluentBuilder::new(self.handle.clone())
++    pub fn untag_instance_profile(&self) -> super::super::operation::untag_instance_profile::builders::UntagInstanceProfileFluentBuilder {
++        super::super::operation::untag_instance_profile::builders::UntagInstanceProfileFluentBuilder::new(self.handle.clone())
      }
  }

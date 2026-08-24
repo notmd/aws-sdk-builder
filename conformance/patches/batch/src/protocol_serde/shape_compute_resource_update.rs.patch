@@ -5,7 +5,7 @@
  pub fn ser_compute_resource_update(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ComputeResourceUpdate,
-+    input: &super::types::ComputeResourceUpdate,
++    input: &super::super::types::ComputeResourceUpdate,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.minv_cpus {
          object.key("minvCpus").number(
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_23 = object.key("launchTemplate").start_object();
 -        crate::protocol_serde::shape_launch_template_specification::ser_launch_template_specification(&mut object_23, var_22)?;
-+        super::protocol_serde::shape_launch_template_specification::ser_launch_template_specification(&mut object_23, var_22)?;
++        super::super::protocol_serde::shape_launch_template_specification::ser_launch_template_specification(&mut object_23, var_22)?;
          object_23.finish();
      }
      if let Some(var_24) = &input.ec2_configuration {
@@ -23,7 +23,7 @@
                  #[allow(unused_mut)]
                  let mut object_27 = array_25.value().start_object();
 -                crate::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(&mut object_27, item_26)?;
-+                super::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(&mut object_27, item_26)?;
++                super::super::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(&mut object_27, item_26)?;
                  object_27.finish();
              }
          }
@@ -32,14 +32,14 @@
          #[allow(unused_mut)]
          let mut object_32 = object.key("scalingPolicy").start_object();
 -        crate::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(&mut object_32, var_31)?;
-+        super::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(&mut object_32, var_31)?;
++        super::super::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(&mut object_32, var_31)?;
          object_32.finish();
      }
      if let Some(var_33) = &input.managed_instances_provider {
          #[allow(unused_mut)]
          let mut object_34 = object.key("managedInstancesProvider").start_object();
 -        crate::protocol_serde::shape_update_managed_instances_provider_configuration::ser_update_managed_instances_provider_configuration(
-+        super::protocol_serde::shape_update_managed_instances_provider_configuration::ser_update_managed_instances_provider_configuration(
++        super::super::protocol_serde::shape_update_managed_instances_provider_configuration::ser_update_managed_instances_provider_configuration(
              &mut object_34,
              var_33,
          )?;

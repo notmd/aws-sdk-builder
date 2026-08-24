@@ -5,7 +5,7 @@
  pub struct DeletePackageVersionsOutput {
      /// <p>A list of the package versions that were successfully deleted. The status of every successful version will be <code>Deleted</code>.</p>
 -    pub successful_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>>,
-+    pub successful_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::SuccessfulPackageVersionInfo>>,
++    pub successful_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
      /// <p>A <code>PackageVersionError</code> object that contains a map of errors codes for the deleted package that failed. The possible error codes are:</p>
      /// <ul>
      /// <li>
@@ -14,7 +14,7 @@
      /// <p><code>SKIPPED</code></p></li>
      /// </ul>
 -    pub failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>>,
-+    pub failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PackageVersionError>>,
++    pub failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
      _request_id: Option<String>,
  }
  impl DeletePackageVersionsOutput {
@@ -23,7 +23,7 @@
      pub fn successful_versions(
          &self,
 -    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>> {
-+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::SuccessfulPackageVersionInfo>> {
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>> {
          self.successful_versions.as_ref()
      }
      /// <p>A <code>PackageVersionError</code> object that contains a map of errors codes for the deleted package that failed. The possible error codes are:</p>
@@ -32,7 +32,7 @@
      /// <p><code>SKIPPED</code></p></li>
      /// </ul>
 -    pub fn failed_versions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>> {
-+    pub fn failed_versions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::PackageVersionError>> {
++    pub fn failed_versions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
          self.failed_versions.as_ref()
      }
  }
@@ -42,8 +42,8 @@
      /// Creates a new builder-style object to manufacture [`DeletePackageVersionsOutput`](crate::operation::delete_package_versions::DeletePackageVersionsOutput).
 -    pub fn builder() -> crate::operation::delete_package_versions::builders::DeletePackageVersionsOutputBuilder {
 -        crate::operation::delete_package_versions::builders::DeletePackageVersionsOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_package_versions::builders::DeletePackageVersionsOutputBuilder {
-+        super::operation::delete_package_versions::builders::DeletePackageVersionsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_package_versions::builders::DeletePackageVersionsOutputBuilder {
++        super::super::super::operation::delete_package_versions::builders::DeletePackageVersionsOutputBuilder::default()
      }
  }
 
@@ -53,8 +53,8 @@
      pub(crate) successful_versions:
 -        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>>,
 -    pub(crate) failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>>,
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::SuccessfulPackageVersionInfo>>,
-+    pub(crate) failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PackageVersionError>>,
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
++    pub(crate) failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
      _request_id: Option<String>,
  }
  impl DeletePackageVersionsOutputBuilder {
@@ -63,7 +63,7 @@
      ///
      /// <p>A list of the package versions that were successfully deleted. The status of every successful version will be <code>Deleted</code>.</p>
 -    pub fn successful_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::SuccessfulPackageVersionInfo) -> Self {
-+    pub fn successful_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::SuccessfulPackageVersionInfo) -> Self {
++    pub fn successful_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::SuccessfulPackageVersionInfo) -> Self {
          let mut hash_map = self.successful_versions.unwrap_or_default();
          hash_map.insert(k.into(), v);
          self.successful_versions = ::std::option::Option::Some(hash_map);
@@ -72,7 +72,7 @@
      pub fn set_successful_versions(
          mut self,
 -        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>>,
-+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::SuccessfulPackageVersionInfo>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
      ) -> Self {
          self.successful_versions = input;
          self
@@ -81,7 +81,7 @@
      pub fn get_successful_versions(
          &self,
 -    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>> {
-+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::SuccessfulPackageVersionInfo>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>> {
          &self.successful_versions
      }
      /// Adds a key-value pair to `failed_versions`.
@@ -90,7 +90,7 @@
      /// <p><code>SKIPPED</code></p></li>
      /// </ul>
 -    pub fn failed_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::PackageVersionError) -> Self {
-+    pub fn failed_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::PackageVersionError) -> Self {
++    pub fn failed_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PackageVersionError) -> Self {
          let mut hash_map = self.failed_versions.unwrap_or_default();
          hash_map.insert(k.into(), v);
          self.failed_versions = ::std::option::Option::Some(hash_map);
@@ -99,7 +99,7 @@
      pub fn set_failed_versions(
          mut self,
 -        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>>,
-+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PackageVersionError>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
      ) -> Self {
          self.failed_versions = input;
          self
@@ -108,7 +108,7 @@
      pub fn get_failed_versions(
          &self,
 -    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>> {
-+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PackageVersionError>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
          &self.failed_versions
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -118,8 +118,8 @@
      /// Consumes the builder and constructs a [`DeletePackageVersionsOutput`](crate::operation::delete_package_versions::DeletePackageVersionsOutput).
 -    pub fn build(self) -> crate::operation::delete_package_versions::DeletePackageVersionsOutput {
 -        crate::operation::delete_package_versions::DeletePackageVersionsOutput {
-+    pub fn build(self) -> super::operation::delete_package_versions::DeletePackageVersionsOutput {
-+        super::operation::delete_package_versions::DeletePackageVersionsOutput {
++    pub fn build(self) -> super::super::super::operation::delete_package_versions::DeletePackageVersionsOutput {
++        super::super::super::operation::delete_package_versions::DeletePackageVersionsOutput {
              successful_versions: self.successful_versions,
              failed_versions: self.failed_versions,
              _request_id: self._request_id,

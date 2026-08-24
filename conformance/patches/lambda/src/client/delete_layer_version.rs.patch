@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteLayerVersionError>`](crate::operation::delete_layer_version::DeleteLayerVersionError)
 -    pub fn delete_layer_version(&self) -> crate::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder {
 -        crate::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder::new(self.handle.clone())
-+    pub fn delete_layer_version(&self) -> super::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder {
-+        super::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder::new(self.handle.clone())
++    pub fn delete_layer_version(&self) -> super::super::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder {
++        super::super::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder::new(self.handle.clone())
      }
  }

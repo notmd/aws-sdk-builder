@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeUserPoolInput`](crate::operation::describe_user_pool::DescribeUserPoolInput).
 -    pub fn builder() -> crate::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder {
 -        crate::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder {
-+        super::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder {
++        super::super::super::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_user_pool::DescribeUserPoolInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::describe_user_pool::DescribeUserPoolInput {
-+    ) -> ::std::result::Result<super::operation::describe_user_pool::DescribeUserPoolInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::describe_user_pool::DescribeUserPoolInput {
++    ) -> ::std::result::Result<super::super::super::operation::describe_user_pool::DescribeUserPoolInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::describe_user_pool::DescribeUserPoolInput {
              user_pool_id: self.user_pool_id,
          })
      }

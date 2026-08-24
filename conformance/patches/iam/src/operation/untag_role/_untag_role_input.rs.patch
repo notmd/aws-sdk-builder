@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UntagRoleInput`](crate::operation::untag_role::UntagRoleInput).
 -    pub fn builder() -> crate::operation::untag_role::builders::UntagRoleInputBuilder {
 -        crate::operation::untag_role::builders::UntagRoleInputBuilder::default()
-+    pub fn builder() -> super::operation::untag_role::builders::UntagRoleInputBuilder {
-+        super::operation::untag_role::builders::UntagRoleInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::untag_role::builders::UntagRoleInputBuilder {
++        super::super::super::operation::untag_role::builders::UntagRoleInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UntagRoleInput`](crate::operation::untag_role::UntagRoleInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::untag_role::UntagRoleInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::untag_role::UntagRoleInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::untag_role::UntagRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::untag_role::UntagRoleInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::untag_role::UntagRoleInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::untag_role::UntagRoleInput {
              role_name: self.role_name,
              tag_keys: self.tag_keys,
          })

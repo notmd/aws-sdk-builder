@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetDomainPermissionsPolicyInput`](crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput).
 -    pub fn builder() -> crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder {
 -        crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder {
-+        super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder {
++        super::super::super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
-+        super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
++        super::super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput {
-+        ::std::result::Result::Ok(super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput {
              domain: self.domain,
              domain_owner: self.domain_owner,
          })

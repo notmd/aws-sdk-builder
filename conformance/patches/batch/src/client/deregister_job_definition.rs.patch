@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeregisterJobDefinitionError>`](crate::operation::deregister_job_definition::DeregisterJobDefinitionError)
 -    pub fn deregister_job_definition(&self) -> crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionFluentBuilder {
 -        crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionFluentBuilder::new(self.handle.clone())
-+    pub fn deregister_job_definition(&self) -> super::operation::deregister_job_definition::builders::DeregisterJobDefinitionFluentBuilder {
-+        super::operation::deregister_job_definition::builders::DeregisterJobDefinitionFluentBuilder::new(self.handle.clone())
++    pub fn deregister_job_definition(&self) -> super::super::operation::deregister_job_definition::builders::DeregisterJobDefinitionFluentBuilder {
++        super::super::operation::deregister_job_definition::builders::DeregisterJobDefinitionFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateServiceJobInput`](crate::operation::update_service_job::UpdateServiceJobInput).
 -    pub fn builder() -> crate::operation::update_service_job::builders::UpdateServiceJobInputBuilder {
 -        crate::operation::update_service_job::builders::UpdateServiceJobInputBuilder::default()
-+    pub fn builder() -> super::operation::update_service_job::builders::UpdateServiceJobInputBuilder {
-+        super::operation::update_service_job::builders::UpdateServiceJobInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_service_job::builders::UpdateServiceJobInputBuilder {
++        super::super::super::operation::update_service_job::builders::UpdateServiceJobInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::update_service_job::UpdateServiceJobInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::update_service_job::UpdateServiceJobInput {
-+    ) -> ::std::result::Result<super::operation::update_service_job::UpdateServiceJobInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::update_service_job::UpdateServiceJobInput {
++    ) -> ::std::result::Result<super::super::super::operation::update_service_job::UpdateServiceJobInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::update_service_job::UpdateServiceJobInput {
              job_id: self.job_id,
              scheduling_priority: self.scheduling_priority,
          })

@@ -5,12 +5,12 @@
      /// <p>The updated server-side encryption type for this object. The <code>UpdateObjectEncryption</code> operation supports the SSE-S3 and SSE-KMS encryption types.</p>
      /// <p>Valid Values: <code>SSES3</code> | <code>SSEKMS</code></p>
 -    pub object_encryption: ::std::option::Option<crate::types::ObjectEncryption>,
-+    pub object_encryption: ::std::option::Option<super::types::ObjectEncryption>,
++    pub object_encryption: ::std::option::Option<super::super::super::types::ObjectEncryption>,
      /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      /// <p>The account ID of the expected bucket owner. If the account ID that you provide doesn't match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
      pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
      /// <p>The MD5 hash for the request body. For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
@@ -19,7 +19,7 @@
      /// <p>Indicates the algorithm used to create the checksum for the object when you use an Amazon Web Services SDK. This header doesn't provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity </a> in the <i>Amazon S3 User Guide</i>.</p>
      /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
 -    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-+    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
++    pub checksum_algorithm: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>,
  }
  impl UpdateObjectEncryptionInput {
      /// <p>The name of the general purpose bucket that contains the specified object key name.</p>
@@ -28,14 +28,14 @@
      /// <p>The updated server-side encryption type for this object. The <code>UpdateObjectEncryption</code> operation supports the SSE-S3 and SSE-KMS encryption types.</p>
      /// <p>Valid Values: <code>SSES3</code> | <code>SSEKMS</code></p>
 -    pub fn object_encryption(&self) -> ::std::option::Option<&crate::types::ObjectEncryption> {
-+    pub fn object_encryption(&self) -> ::std::option::Option<&super::types::ObjectEncryption> {
++    pub fn object_encryption(&self) -> ::std::option::Option<&super::super::super::types::ObjectEncryption> {
          self.object_encryption.as_ref()
      }
      /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
-+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
++    pub fn request_payer(&self) -> ::std::option::Option<&super::super::super::types::RequestPayer> {
          self.request_payer.as_ref()
      }
      /// <p>The account ID of the expected bucket owner. If the account ID that you provide doesn't match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -44,7 +44,7 @@
      /// <p>Indicates the algorithm used to create the checksum for the object when you use an Amazon Web Services SDK. This header doesn't provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity </a> in the <i>Amazon S3 User Guide</i>.</p>
      /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
 -    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
-+    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
++    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::super::super::types::ChecksumAlgorithm> {
          self.checksum_algorithm.as_ref()
      }
  }
@@ -52,8 +52,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateObjectEncryptionInput`](crate::operation::update_object_encryption::UpdateObjectEncryptionInput).
 -    pub fn builder() -> crate::operation::update_object_encryption::builders::UpdateObjectEncryptionInputBuilder {
 -        crate::operation::update_object_encryption::builders::UpdateObjectEncryptionInputBuilder::default()
-+    pub fn builder() -> super::operation::update_object_encryption::builders::UpdateObjectEncryptionInputBuilder {
-+        super::operation::update_object_encryption::builders::UpdateObjectEncryptionInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_object_encryption::builders::UpdateObjectEncryptionInputBuilder {
++        super::super::super::operation::update_object_encryption::builders::UpdateObjectEncryptionInputBuilder::default()
      }
  }
 
@@ -63,12 +63,12 @@
      pub(crate) version_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) object_encryption: ::std::option::Option<crate::types::ObjectEncryption>,
 -    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub(crate) object_encryption: ::std::option::Option<super::types::ObjectEncryption>,
-+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub(crate) object_encryption: ::std::option::Option<super::super::super::types::ObjectEncryption>,
++    pub(crate) request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
      pub(crate) content_md5: ::std::option::Option<::std::string::String>,
 -    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-+    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
++    pub(crate) checksum_algorithm: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>,
  }
  impl UpdateObjectEncryptionInputBuilder {
      /// <p>The name of the general purpose bucket that contains the specified object key name.</p>
@@ -77,28 +77,28 @@
      /// <p>Valid Values: <code>SSES3</code> | <code>SSEKMS</code></p>
      /// This field is required.
 -    pub fn object_encryption(mut self, input: crate::types::ObjectEncryption) -> Self {
-+    pub fn object_encryption(mut self, input: super::types::ObjectEncryption) -> Self {
++    pub fn object_encryption(mut self, input: super::super::super::types::ObjectEncryption) -> Self {
          self.object_encryption = ::std::option::Option::Some(input);
          self
      }
      /// <p>The updated server-side encryption type for this object. The <code>UpdateObjectEncryption</code> operation supports the SSE-S3 and SSE-KMS encryption types.</p>
      /// <p>Valid Values: <code>SSES3</code> | <code>SSEKMS</code></p>
 -    pub fn set_object_encryption(mut self, input: ::std::option::Option<crate::types::ObjectEncryption>) -> Self {
-+    pub fn set_object_encryption(mut self, input: ::std::option::Option<super::types::ObjectEncryption>) -> Self {
++    pub fn set_object_encryption(mut self, input: ::std::option::Option<super::super::super::types::ObjectEncryption>) -> Self {
          self.object_encryption = input;
          self
      }
      /// <p>The updated server-side encryption type for this object. The <code>UpdateObjectEncryption</code> operation supports the SSE-S3 and SSE-KMS encryption types.</p>
      /// <p>Valid Values: <code>SSES3</code> | <code>SSEKMS</code></p>
 -    pub fn get_object_encryption(&self) -> &::std::option::Option<crate::types::ObjectEncryption> {
-+    pub fn get_object_encryption(&self) -> &::std::option::Option<super::types::ObjectEncryption> {
++    pub fn get_object_encryption(&self) -> &::std::option::Option<super::super::super::types::ObjectEncryption> {
          &self.object_encryption
      }
      /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
-+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::super::super::types::RequestPayer) -> Self {
          self.request_payer = ::std::option::Option::Some(input);
          self
      }
@@ -107,7 +107,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
-+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::super::super::types::RequestPayer>) -> Self {
          self.request_payer = input;
          self
      }
@@ -116,7 +116,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
-+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::super::super::types::RequestPayer> {
          &self.request_payer
      }
      /// <p>The account ID of the expected bucket owner. If the account ID that you provide doesn't match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -125,21 +125,21 @@
      /// <p>Indicates the algorithm used to create the checksum for the object when you use an Amazon Web Services SDK. This header doesn't provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity </a> in the <i>Amazon S3 User Guide</i>.</p>
      /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
 -    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
-+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
++    pub fn checksum_algorithm(mut self, input: super::super::super::types::ChecksumAlgorithm) -> Self {
          self.checksum_algorithm = ::std::option::Option::Some(input);
          self
      }
      /// <p>Indicates the algorithm used to create the checksum for the object when you use an Amazon Web Services SDK. This header doesn't provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity </a> in the <i>Amazon S3 User Guide</i>.</p>
      /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
 -    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
-+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
++    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>) -> Self {
          self.checksum_algorithm = input;
          self
      }
      /// <p>Indicates the algorithm used to create the checksum for the object when you use an Amazon Web Services SDK. This header doesn't provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity </a> in the <i>Amazon S3 User Guide</i>.</p>
      /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
 -    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
-+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
++    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::super::super::types::ChecksumAlgorithm> {
          &self.checksum_algorithm
      }
      /// Consumes the builder and constructs a [`UpdateObjectEncryptionInput`](crate::operation::update_object_encryption::UpdateObjectEncryptionInput).
@@ -148,11 +148,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::update_object_encryption::UpdateObjectEncryptionInput,
-+        super::operation::update_object_encryption::UpdateObjectEncryptionInput,
++        super::super::super::operation::update_object_encryption::UpdateObjectEncryptionInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::update_object_encryption::UpdateObjectEncryptionInput {
-+        ::std::result::Result::Ok(super::operation::update_object_encryption::UpdateObjectEncryptionInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_object_encryption::UpdateObjectEncryptionInput {
              bucket: self.bucket,
              key: self.key,
              version_id: self.version_id,

@@ -5,14 +5,14 @@
  pub(crate) fn de_conditional_check_failed_exception_json_err(
      _value: &[u8],
 -    mut builder: crate::types::error::builders::ConditionalCheckFailedExceptionBuilder,
-+    mut builder: super::types::error::builders::ConditionalCheckFailedExceptionBuilder,
++    mut builder: super::super::types::error::builders::ConditionalCheckFailedExceptionBuilder,
  ) -> ::std::result::Result<
 -    crate::types::error::builders::ConditionalCheckFailedExceptionBuilder,
-+    super::types::error::builders::ConditionalCheckFailedExceptionBuilder,
++    super::super::types::error::builders::ConditionalCheckFailedExceptionBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -21,7 +21,7 @@
                  }
                  "Item" => {
 -                    builder = builder.set_item(crate::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?);
-+                    builder = builder.set_item(super::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?);
++                    builder = builder.set_item(super::super::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?);
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },

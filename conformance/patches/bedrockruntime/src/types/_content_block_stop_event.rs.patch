@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ContentBlockStopEvent`](crate::types::ContentBlockStopEvent).
 -    pub fn builder() -> crate::types::builders::ContentBlockStopEventBuilder {
 -        crate::types::builders::ContentBlockStopEventBuilder::default()
-+    pub fn builder() -> super::types::builders::ContentBlockStopEventBuilder {
-+        super::types::builders::ContentBlockStopEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::ContentBlockStopEventBuilder {
++        super::super::types::builders::ContentBlockStopEventBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`content_block_index`](crate::types::builders::ContentBlockStopEventBuilder::content_block_index)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ContentBlockStopEvent, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ContentBlockStopEvent {
-+    pub fn build(self) -> ::std::result::Result<super::types::ContentBlockStopEvent, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ContentBlockStopEvent {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ContentBlockStopEvent, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ContentBlockStopEvent {
              content_block_index: self.content_block_index.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "content_block_index",

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateAliasError>`](crate::operation::update_alias::UpdateAliasError)
 -    pub fn update_alias(&self) -> crate::operation::update_alias::builders::UpdateAliasFluentBuilder {
 -        crate::operation::update_alias::builders::UpdateAliasFluentBuilder::new(self.handle.clone())
-+    pub fn update_alias(&self) -> super::operation::update_alias::builders::UpdateAliasFluentBuilder {
-+        super::operation::update_alias::builders::UpdateAliasFluentBuilder::new(self.handle.clone())
++    pub fn update_alias(&self) -> super::super::operation::update_alias::builders::UpdateAliasFluentBuilder {
++        super::super::operation::update_alias::builders::UpdateAliasFluentBuilder::new(self.handle.clone())
      }
  }

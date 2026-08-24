@@ -5,7 +5,7 @@
  pub fn ser_grant_constraints(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::GrantConstraints,
-+    input: &super::types::GrantConstraints,
++    input: &super::super::types::GrantConstraints,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.encryption_context_subset {
          #[allow(unused_mut)]
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::GrantConstraints>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::GrantConstraints>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::GrantConstraints>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,7 +23,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::GrantConstraintsBuilder::default();
-+            let mut builder = super::types::builders::GrantConstraintsBuilder::default();
++            let mut builder = super::super::types::builders::GrantConstraintsBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -32,13 +32,13 @@
                          "EncryptionContextSubset" => {
                              builder = builder.set_encryption_context_subset(
 -                                crate::protocol_serde::shape_encryption_context_type::de_encryption_context_type(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_encryption_context_type::de_encryption_context_type(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_encryption_context_type::de_encryption_context_type(tokens, _value, depth + 1)?,
                              );
                          }
                          "EncryptionContextEquals" => {
                              builder = builder.set_encryption_context_equals(
 -                                crate::protocol_serde::shape_encryption_context_type::de_encryption_context_type(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_encryption_context_type::de_encryption_context_type(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_encryption_context_type::de_encryption_context_type(tokens, _value, depth + 1)?,
                              );
                          }
                          "SourceArn" => {

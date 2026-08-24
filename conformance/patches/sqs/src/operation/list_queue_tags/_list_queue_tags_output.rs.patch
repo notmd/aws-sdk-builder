@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListQueueTagsOutput`](crate::operation::list_queue_tags::ListQueueTagsOutput).
 -    pub fn builder() -> crate::operation::list_queue_tags::builders::ListQueueTagsOutputBuilder {
 -        crate::operation::list_queue_tags::builders::ListQueueTagsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_queue_tags::builders::ListQueueTagsOutputBuilder {
-+        super::operation::list_queue_tags::builders::ListQueueTagsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_queue_tags::builders::ListQueueTagsOutputBuilder {
++        super::super::super::operation::list_queue_tags::builders::ListQueueTagsOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ListQueueTagsOutput`](crate::operation::list_queue_tags::ListQueueTagsOutput).
 -    pub fn build(self) -> crate::operation::list_queue_tags::ListQueueTagsOutput {
 -        crate::operation::list_queue_tags::ListQueueTagsOutput {
-+    pub fn build(self) -> super::operation::list_queue_tags::ListQueueTagsOutput {
-+        super::operation::list_queue_tags::ListQueueTagsOutput {
++    pub fn build(self) -> super::super::super::operation::list_queue_tags::ListQueueTagsOutput {
++        super::super::super::operation::list_queue_tags::ListQueueTagsOutput {
              tags: self.tags,
              _request_id: self._request_id,
          }

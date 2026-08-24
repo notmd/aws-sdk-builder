@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ConfirmDeviceOutput`](crate::operation::confirm_device::ConfirmDeviceOutput).
 -    pub fn builder() -> crate::operation::confirm_device::builders::ConfirmDeviceOutputBuilder {
 -        crate::operation::confirm_device::builders::ConfirmDeviceOutputBuilder::default()
-+    pub fn builder() -> super::operation::confirm_device::builders::ConfirmDeviceOutputBuilder {
-+        super::operation::confirm_device::builders::ConfirmDeviceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::confirm_device::builders::ConfirmDeviceOutputBuilder {
++        super::super::super::operation::confirm_device::builders::ConfirmDeviceOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ConfirmDeviceOutput`](crate::operation::confirm_device::ConfirmDeviceOutput).
 -    pub fn build(self) -> crate::operation::confirm_device::ConfirmDeviceOutput {
 -        crate::operation::confirm_device::ConfirmDeviceOutput {
-+    pub fn build(self) -> super::operation::confirm_device::ConfirmDeviceOutput {
-+        super::operation::confirm_device::ConfirmDeviceOutput {
++    pub fn build(self) -> super::super::super::operation::confirm_device::ConfirmDeviceOutput {
++        super::super::super::operation::confirm_device::ConfirmDeviceOutput {
              user_confirmation_necessary: self.user_confirmation_necessary.unwrap_or_default(),
              _request_id: self._request_id,
          }

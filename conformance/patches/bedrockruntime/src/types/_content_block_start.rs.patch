@@ -5,13 +5,13 @@
  pub enum ContentBlockStart {
      /// <p>The initial event indicating the start of a streaming image block.</p>
 -    Image(crate::types::ImageBlockStart),
-+    Image(super::types::ImageBlockStart),
++    Image(super::super::types::ImageBlockStart),
      /// <p>The</p>
 -    ToolResult(crate::types::ToolResultBlockStart),
-+    ToolResult(super::types::ToolResultBlockStart),
++    ToolResult(super::super::types::ToolResultBlockStart),
      /// <p>Information about a tool that the model is requesting to use.</p>
 -    ToolUse(crate::types::ToolUseBlockStart),
-+    ToolUse(super::types::ToolUseBlockStart),
++    ToolUse(super::super::types::ToolUseBlockStart),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -20,7 +20,7 @@
      /// Tries to convert the enum instance into [`Image`](crate::types::ContentBlockStart::Image), extracting the inner [`ImageBlockStart`](crate::types::ImageBlockStart).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_image(&self) -> ::std::result::Result<&crate::types::ImageBlockStart, &Self> {
-+    pub fn as_image(&self) -> ::std::result::Result<&super::types::ImageBlockStart, &Self> {
++    pub fn as_image(&self) -> ::std::result::Result<&super::super::types::ImageBlockStart, &Self> {
          if let ContentBlockStart::Image(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -29,7 +29,7 @@
      /// Tries to convert the enum instance into [`ToolResult`](crate::types::ContentBlockStart::ToolResult), extracting the inner [`ToolResultBlockStart`](crate::types::ToolResultBlockStart).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_tool_result(&self) -> ::std::result::Result<&crate::types::ToolResultBlockStart, &Self> {
-+    pub fn as_tool_result(&self) -> ::std::result::Result<&super::types::ToolResultBlockStart, &Self> {
++    pub fn as_tool_result(&self) -> ::std::result::Result<&super::super::types::ToolResultBlockStart, &Self> {
          if let ContentBlockStart::ToolResult(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -38,7 +38,7 @@
      /// Tries to convert the enum instance into [`ToolUse`](crate::types::ContentBlockStart::ToolUse), extracting the inner [`ToolUseBlockStart`](crate::types::ToolUseBlockStart).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_tool_use(&self) -> ::std::result::Result<&crate::types::ToolUseBlockStart, &Self> {
-+    pub fn as_tool_use(&self) -> ::std::result::Result<&super::types::ToolUseBlockStart, &Self> {
++    pub fn as_tool_use(&self) -> ::std::result::Result<&super::super::types::ToolUseBlockStart, &Self> {
          if let ContentBlockStart::ToolUse(val) = &self {
              ::std::result::Result::Ok(val)
          } else {

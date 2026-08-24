@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListContactListsInput`](crate::operation::list_contact_lists::ListContactListsInput).
 -    pub fn builder() -> crate::operation::list_contact_lists::builders::ListContactListsInputBuilder {
 -        crate::operation::list_contact_lists::builders::ListContactListsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_contact_lists::builders::ListContactListsInputBuilder {
-+        super::operation::list_contact_lists::builders::ListContactListsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_contact_lists::builders::ListContactListsInputBuilder {
++        super::super::super::operation::list_contact_lists::builders::ListContactListsInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::list_contact_lists::ListContactListsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_contact_lists::ListContactListsInput {
-+    ) -> ::std::result::Result<super::operation::list_contact_lists::ListContactListsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_contact_lists::ListContactListsInput {
++    ) -> ::std::result::Result<super::super::super::operation::list_contact_lists::ListContactListsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_contact_lists::ListContactListsInput {
              page_size: self.page_size,
              next_token: self.next_token,
          })

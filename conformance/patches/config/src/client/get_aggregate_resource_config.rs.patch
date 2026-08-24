@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigFluentBuilder {
 -        crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigFluentBuilder {
-+        super::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigFluentBuilder {
++        super::super::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigFluentBuilder::new(self.handle.clone())
      }
  }

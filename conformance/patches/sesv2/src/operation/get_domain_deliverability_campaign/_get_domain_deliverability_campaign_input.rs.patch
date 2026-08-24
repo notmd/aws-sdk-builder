@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetDomainDeliverabilityCampaignInput`](crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignInput).
 -    pub fn builder() -> crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignInputBuilder {
 -        crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignInputBuilder::default()
-+    pub fn builder() -> super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignInputBuilder {
-+        super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignInputBuilder {
++        super::super::super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignInput,
-+        super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignInput,
++        super::super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignInput {
-+            super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignInput {
++            super::super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignInput {
                  campaign_id: self.campaign_id,
              },
          )

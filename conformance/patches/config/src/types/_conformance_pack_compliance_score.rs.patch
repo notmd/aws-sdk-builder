@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ConformancePackComplianceScore`](crate::types::ConformancePackComplianceScore).
 -    pub fn builder() -> crate::types::builders::ConformancePackComplianceScoreBuilder {
 -        crate::types::builders::ConformancePackComplianceScoreBuilder::default()
-+    pub fn builder() -> super::types::builders::ConformancePackComplianceScoreBuilder {
-+        super::types::builders::ConformancePackComplianceScoreBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConformancePackComplianceScoreBuilder {
++        super::super::types::builders::ConformancePackComplianceScoreBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ConformancePackComplianceScore`](crate::types::ConformancePackComplianceScore).
 -    pub fn build(self) -> crate::types::ConformancePackComplianceScore {
 -        crate::types::ConformancePackComplianceScore {
-+    pub fn build(self) -> super::types::ConformancePackComplianceScore {
-+        super::types::ConformancePackComplianceScore {
++    pub fn build(self) -> super::super::types::ConformancePackComplianceScore {
++        super::super::types::ConformancePackComplianceScore {
              score: self.score,
              conformance_pack_name: self.conformance_pack_name,
              last_updated_time: self.last_updated_time,

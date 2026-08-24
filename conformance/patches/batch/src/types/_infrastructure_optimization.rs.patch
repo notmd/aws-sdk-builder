@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`InfrastructureOptimization`](crate::types::InfrastructureOptimization).
 -    pub fn builder() -> crate::types::builders::InfrastructureOptimizationBuilder {
 -        crate::types::builders::InfrastructureOptimizationBuilder::default()
-+    pub fn builder() -> super::types::builders::InfrastructureOptimizationBuilder {
-+        super::types::builders::InfrastructureOptimizationBuilder::default()
++    pub fn builder() -> super::super::types::builders::InfrastructureOptimizationBuilder {
++        super::super::types::builders::InfrastructureOptimizationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`InfrastructureOptimization`](crate::types::InfrastructureOptimization).
 -    pub fn build(self) -> crate::types::InfrastructureOptimization {
 -        crate::types::InfrastructureOptimization {
-+    pub fn build(self) -> super::types::InfrastructureOptimization {
-+        super::types::InfrastructureOptimization {
++    pub fn build(self) -> super::super::types::InfrastructureOptimization {
++        super::super::types::InfrastructureOptimization {
              scale_in_after: self.scale_in_after,
          }
      }

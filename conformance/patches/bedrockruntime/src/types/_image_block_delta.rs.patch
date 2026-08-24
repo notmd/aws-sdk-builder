@@ -5,20 +5,20 @@
  pub struct ImageBlockDelta {
      /// <p>The incremental image source data for this delta event.</p>
 -    pub source: ::std::option::Option<crate::types::ImageSource>,
-+    pub source: ::std::option::Option<super::types::ImageSource>,
++    pub source: ::std::option::Option<super::super::types::ImageSource>,
      /// <p>Error information if this image delta could not be processed.</p>
 -    pub error: ::std::option::Option<crate::types::ErrorBlock>,
-+    pub error: ::std::option::Option<super::types::ErrorBlock>,
++    pub error: ::std::option::Option<super::super::types::ErrorBlock>,
  }
  impl ImageBlockDelta {
      /// <p>The incremental image source data for this delta event.</p>
 -    pub fn source(&self) -> ::std::option::Option<&crate::types::ImageSource> {
-+    pub fn source(&self) -> ::std::option::Option<&super::types::ImageSource> {
++    pub fn source(&self) -> ::std::option::Option<&super::super::types::ImageSource> {
          self.source.as_ref()
      }
      /// <p>Error information if this image delta could not be processed.</p>
 -    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorBlock> {
-+    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorBlock> {
++    pub fn error(&self) -> ::std::option::Option<&super::super::types::ErrorBlock> {
          self.error.as_ref()
      }
  }
@@ -28,8 +28,8 @@
      /// Creates a new builder-style object to manufacture [`ImageBlockDelta`](crate::types::ImageBlockDelta).
 -    pub fn builder() -> crate::types::builders::ImageBlockDeltaBuilder {
 -        crate::types::builders::ImageBlockDeltaBuilder::default()
-+    pub fn builder() -> super::types::builders::ImageBlockDeltaBuilder {
-+        super::types::builders::ImageBlockDeltaBuilder::default()
++    pub fn builder() -> super::super::types::builders::ImageBlockDeltaBuilder {
++        super::super::types::builders::ImageBlockDeltaBuilder::default()
      }
  }
 
@@ -39,49 +39,49 @@
  pub struct ImageBlockDeltaBuilder {
 -    pub(crate) source: ::std::option::Option<crate::types::ImageSource>,
 -    pub(crate) error: ::std::option::Option<crate::types::ErrorBlock>,
-+    pub(crate) source: ::std::option::Option<super::types::ImageSource>,
-+    pub(crate) error: ::std::option::Option<super::types::ErrorBlock>,
++    pub(crate) source: ::std::option::Option<super::super::types::ImageSource>,
++    pub(crate) error: ::std::option::Option<super::super::types::ErrorBlock>,
  }
  impl ImageBlockDeltaBuilder {
      /// <p>The incremental image source data for this delta event.</p>
 -    pub fn source(mut self, input: crate::types::ImageSource) -> Self {
-+    pub fn source(mut self, input: super::types::ImageSource) -> Self {
++    pub fn source(mut self, input: super::super::types::ImageSource) -> Self {
          self.source = ::std::option::Option::Some(input);
          self
      }
      /// <p>The incremental image source data for this delta event.</p>
 -    pub fn set_source(mut self, input: ::std::option::Option<crate::types::ImageSource>) -> Self {
-+    pub fn set_source(mut self, input: ::std::option::Option<super::types::ImageSource>) -> Self {
++    pub fn set_source(mut self, input: ::std::option::Option<super::super::types::ImageSource>) -> Self {
          self.source = input;
          self
      }
      /// <p>The incremental image source data for this delta event.</p>
 -    pub fn get_source(&self) -> &::std::option::Option<crate::types::ImageSource> {
-+    pub fn get_source(&self) -> &::std::option::Option<super::types::ImageSource> {
++    pub fn get_source(&self) -> &::std::option::Option<super::super::types::ImageSource> {
          &self.source
      }
      /// <p>Error information if this image delta could not be processed.</p>
 -    pub fn error(mut self, input: crate::types::ErrorBlock) -> Self {
-+    pub fn error(mut self, input: super::types::ErrorBlock) -> Self {
++    pub fn error(mut self, input: super::super::types::ErrorBlock) -> Self {
          self.error = ::std::option::Option::Some(input);
          self
      }
      /// <p>Error information if this image delta could not be processed.</p>
 -    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorBlock>) -> Self {
-+    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorBlock>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::super::types::ErrorBlock>) -> Self {
          self.error = input;
          self
      }
      /// <p>Error information if this image delta could not be processed.</p>
 -    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorBlock> {
-+    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorBlock> {
++    pub fn get_error(&self) -> &::std::option::Option<super::super::types::ErrorBlock> {
          &self.error
      }
      /// Consumes the builder and constructs a [`ImageBlockDelta`](crate::types::ImageBlockDelta).
 -    pub fn build(self) -> crate::types::ImageBlockDelta {
 -        crate::types::ImageBlockDelta {
-+    pub fn build(self) -> super::types::ImageBlockDelta {
-+        super::types::ImageBlockDelta {
++    pub fn build(self) -> super::super::types::ImageBlockDelta {
++        super::super::types::ImageBlockDelta {
              source: self.source,
              error: self.error,
          }

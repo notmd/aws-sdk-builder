@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SubstituteStringEntry`](crate::types::SubstituteStringEntry).
 -    pub fn builder() -> crate::types::builders::SubstituteStringEntryBuilder {
 -        crate::types::builders::SubstituteStringEntryBuilder::default()
-+    pub fn builder() -> super::types::builders::SubstituteStringEntryBuilder {
-+        super::types::builders::SubstituteStringEntryBuilder::default()
++    pub fn builder() -> super::super::types::builders::SubstituteStringEntryBuilder {
++        super::super::types::builders::SubstituteStringEntryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`to`](crate::types::builders::SubstituteStringEntryBuilder::to)
 -    pub fn build(self) -> ::std::result::Result<crate::types::SubstituteStringEntry, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::SubstituteStringEntry {
-+    pub fn build(self) -> ::std::result::Result<super::types::SubstituteStringEntry, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::SubstituteStringEntry {
++    pub fn build(self) -> ::std::result::Result<super::super::types::SubstituteStringEntry, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::SubstituteStringEntry {
              source: self.source.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "source",

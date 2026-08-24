@@ -7,9 +7,9 @@
 -    pub event_stream: crate::event_receiver::EventReceiver<
 -        crate::types::InvokeWithResponseStreamResponseEvent,
 -        crate::types::error::InvokeWithResponseStreamResponseEventError,
-+    pub event_stream: super::event_receiver::EventReceiver<
-+        super::types::InvokeWithResponseStreamResponseEvent,
-+        super::types::error::InvokeWithResponseStreamResponseEventError,
++    pub event_stream: super::super::super::event_receiver::EventReceiver<
++        super::super::super::types::InvokeWithResponseStreamResponseEvent,
++        super::super::super::types::error::InvokeWithResponseStreamResponseEventError,
      >,
      /// <p>The type of data the stream is returning.</p>
      pub response_stream_content_type: ::std::option::Option<::std::string::String>,
@@ -20,9 +20,9 @@
 -    ) -> &crate::event_receiver::EventReceiver<
 -        crate::types::InvokeWithResponseStreamResponseEvent,
 -        crate::types::error::InvokeWithResponseStreamResponseEventError,
-+    ) -> &super::event_receiver::EventReceiver<
-+        super::types::InvokeWithResponseStreamResponseEvent,
-+        super::types::error::InvokeWithResponseStreamResponseEventError,
++    ) -> &super::super::super::event_receiver::EventReceiver<
++        super::super::super::types::InvokeWithResponseStreamResponseEvent,
++        super::super::super::types::error::InvokeWithResponseStreamResponseEventError,
      > {
          &self.event_stream
      }
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`InvokeWithResponseStreamOutput`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput).
 -    pub fn builder() -> crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder {
 -        crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default()
-+    pub fn builder() -> super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder {
-+        super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder {
++        super::super::super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default()
      }
  }
 
@@ -44,9 +44,9 @@
 -        crate::event_receiver::EventReceiver<
 -            crate::types::InvokeWithResponseStreamResponseEvent,
 -            crate::types::error::InvokeWithResponseStreamResponseEventError,
-+        super::event_receiver::EventReceiver<
-+            super::types::InvokeWithResponseStreamResponseEvent,
-+            super::types::error::InvokeWithResponseStreamResponseEventError,
++        super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::InvokeWithResponseStreamResponseEvent,
++            super::super::super::types::error::InvokeWithResponseStreamResponseEventError,
          >,
      >,
      pub(crate) response_stream_content_type: ::std::option::Option<::std::string::String>,
@@ -57,9 +57,9 @@
 -        input: crate::event_receiver::EventReceiver<
 -            crate::types::InvokeWithResponseStreamResponseEvent,
 -            crate::types::error::InvokeWithResponseStreamResponseEventError,
-+        input: super::event_receiver::EventReceiver<
-+            super::types::InvokeWithResponseStreamResponseEvent,
-+            super::types::error::InvokeWithResponseStreamResponseEventError,
++        input: super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::InvokeWithResponseStreamResponseEvent,
++            super::super::super::types::error::InvokeWithResponseStreamResponseEventError,
          >,
      ) -> Self {
          self.event_stream = ::std::option::Option::Some(input);
@@ -70,9 +70,9 @@
 -            crate::event_receiver::EventReceiver<
 -                crate::types::InvokeWithResponseStreamResponseEvent,
 -                crate::types::error::InvokeWithResponseStreamResponseEventError,
-+            super::event_receiver::EventReceiver<
-+                super::types::InvokeWithResponseStreamResponseEvent,
-+                super::types::error::InvokeWithResponseStreamResponseEventError,
++            super::super::super::event_receiver::EventReceiver<
++                super::super::super::types::InvokeWithResponseStreamResponseEvent,
++                super::super::super::types::error::InvokeWithResponseStreamResponseEventError,
              >,
          >,
      ) -> Self {
@@ -83,9 +83,9 @@
 -        crate::event_receiver::EventReceiver<
 -            crate::types::InvokeWithResponseStreamResponseEvent,
 -            crate::types::error::InvokeWithResponseStreamResponseEventError,
-+        super::event_receiver::EventReceiver<
-+            super::types::InvokeWithResponseStreamResponseEvent,
-+            super::types::error::InvokeWithResponseStreamResponseEventError,
++        super::super::super::event_receiver::EventReceiver<
++            super::super::super::types::InvokeWithResponseStreamResponseEvent,
++            super::super::super::types::error::InvokeWithResponseStreamResponseEventError,
          >,
      > {
          &self.event_stream
@@ -94,11 +94,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
-+        super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
++        super::super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
-+        ::std::result::Result::Ok(super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
++        ::std::result::Result::Ok(super::super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
              status_code: self.status_code.unwrap_or_default(),
              executed_version: self.executed_version,
              event_stream: self.event_stream.ok_or_else(|| {

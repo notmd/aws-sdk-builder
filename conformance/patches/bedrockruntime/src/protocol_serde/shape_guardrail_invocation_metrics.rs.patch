@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::GuardrailInvocationMetrics>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::GuardrailInvocationMetrics>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::GuardrailInvocationMetrics>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::GuardrailInvocationMetricsBuilder::default();
-+            let mut builder = super::types::builders::GuardrailInvocationMetricsBuilder::default();
++            let mut builder = super::super::types::builders::GuardrailInvocationMetricsBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          }
                          "usage" => {
 -                            builder = builder.set_usage(crate::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
-+                            builder = builder.set_usage(super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
++                            builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -32,7 +32,7 @@
                          }
                          "guardrailCoverage" => {
 -                            builder = builder.set_guardrail_coverage(crate::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(
-+                            builder = builder.set_guardrail_coverage(super::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(
++                            builder = builder.set_guardrail_coverage(super::super::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(
                                  tokens,
                                  _value,
                                  depth + 1,

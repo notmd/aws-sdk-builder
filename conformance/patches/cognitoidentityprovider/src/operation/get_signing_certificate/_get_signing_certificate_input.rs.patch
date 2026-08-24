@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetSigningCertificateInput`](crate::operation::get_signing_certificate::GetSigningCertificateInput).
 -    pub fn builder() -> crate::operation::get_signing_certificate::builders::GetSigningCertificateInputBuilder {
 -        crate::operation::get_signing_certificate::builders::GetSigningCertificateInputBuilder::default()
-+    pub fn builder() -> super::operation::get_signing_certificate::builders::GetSigningCertificateInputBuilder {
-+        super::operation::get_signing_certificate::builders::GetSigningCertificateInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_signing_certificate::builders::GetSigningCertificateInputBuilder {
++        super::super::super::operation::get_signing_certificate::builders::GetSigningCertificateInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_signing_certificate::GetSigningCertificateInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_signing_certificate::GetSigningCertificateInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_signing_certificate::GetSigningCertificateInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_signing_certificate::GetSigningCertificateInput {
-+        ::std::result::Result::Ok(super::operation::get_signing_certificate::GetSigningCertificateInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_signing_certificate::GetSigningCertificateInput {
              user_pool_id: self.user_pool_id,
          })
      }

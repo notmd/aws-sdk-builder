@@ -5,7 +5,7 @@
      pub write_units_per_second: ::std::option::Option<i64>,
      /// <p>Represents the warm throughput status being created or updated on a global secondary index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
 -    pub status: ::std::option::Option<crate::types::IndexStatus>,
-+    pub status: ::std::option::Option<super::types::IndexStatus>,
++    pub status: ::std::option::Option<super::super::types::IndexStatus>,
  }
  impl GlobalSecondaryIndexWarmThroughputDescription {
      /// <p>Represents warm throughput read units per second value for a global secondary index.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>Represents the warm throughput status being created or updated on a global secondary index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::IndexStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::IndexStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::IndexStatus> {
          self.status.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`GlobalSecondaryIndexWarmThroughputDescription`](crate::types::GlobalSecondaryIndexWarmThroughputDescription).
 -    pub fn builder() -> crate::types::builders::GlobalSecondaryIndexWarmThroughputDescriptionBuilder {
 -        crate::types::builders::GlobalSecondaryIndexWarmThroughputDescriptionBuilder::default()
-+    pub fn builder() -> super::types::builders::GlobalSecondaryIndexWarmThroughputDescriptionBuilder {
-+        super::types::builders::GlobalSecondaryIndexWarmThroughputDescriptionBuilder::default()
++    pub fn builder() -> super::super::types::builders::GlobalSecondaryIndexWarmThroughputDescriptionBuilder {
++        super::super::types::builders::GlobalSecondaryIndexWarmThroughputDescriptionBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) read_units_per_second: ::std::option::Option<i64>,
      pub(crate) write_units_per_second: ::std::option::Option<i64>,
 -    pub(crate) status: ::std::option::Option<crate::types::IndexStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::IndexStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::IndexStatus>,
  }
  impl GlobalSecondaryIndexWarmThroughputDescriptionBuilder {
      /// <p>Represents warm throughput read units per second value for a global secondary index.</p>
@@ -41,26 +41,26 @@
      }
      /// <p>Represents the warm throughput status being created or updated on a global secondary index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
 -    pub fn status(mut self, input: crate::types::IndexStatus) -> Self {
-+    pub fn status(mut self, input: super::types::IndexStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::IndexStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>Represents the warm throughput status being created or updated on a global secondary index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::IndexStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::IndexStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>Represents the warm throughput status being created or updated on a global secondary index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::IndexStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::IndexStatus> {
          &self.status
      }
      /// Consumes the builder and constructs a [`GlobalSecondaryIndexWarmThroughputDescription`](crate::types::GlobalSecondaryIndexWarmThroughputDescription).
 -    pub fn build(self) -> crate::types::GlobalSecondaryIndexWarmThroughputDescription {
 -        crate::types::GlobalSecondaryIndexWarmThroughputDescription {
-+    pub fn build(self) -> super::types::GlobalSecondaryIndexWarmThroughputDescription {
-+        super::types::GlobalSecondaryIndexWarmThroughputDescription {
++    pub fn build(self) -> super::super::types::GlobalSecondaryIndexWarmThroughputDescription {
++        super::super::types::GlobalSecondaryIndexWarmThroughputDescription {
              read_units_per_second: self.read_units_per_second,
              write_units_per_second: self.write_units_per_second,
              status: self.status,

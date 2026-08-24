@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationFluentBuilder {
 -        crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationFluentBuilder {
-+        super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationFluentBuilder {
++        super::super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutQueryDefinitionError>`](crate::operation::put_query_definition::PutQueryDefinitionError)
 -    pub fn put_query_definition(&self) -> crate::operation::put_query_definition::builders::PutQueryDefinitionFluentBuilder {
 -        crate::operation::put_query_definition::builders::PutQueryDefinitionFluentBuilder::new(self.handle.clone())
-+    pub fn put_query_definition(&self) -> super::operation::put_query_definition::builders::PutQueryDefinitionFluentBuilder {
-+        super::operation::put_query_definition::builders::PutQueryDefinitionFluentBuilder::new(self.handle.clone())
++    pub fn put_query_definition(&self) -> super::super::operation::put_query_definition::builders::PutQueryDefinitionFluentBuilder {
++        super::super::operation::put_query_definition::builders::PutQueryDefinitionFluentBuilder::new(self.handle.clone())
      }
  }

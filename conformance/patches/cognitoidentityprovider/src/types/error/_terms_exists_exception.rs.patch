@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for TermsExistsException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::TermsExistsException {
-+impl ::aws_types::request_id::RequestId for super::types::error::TermsExistsException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::TermsExistsException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`TermsExistsException`](crate::types::error::TermsExistsException).
 -    pub fn builder() -> crate::types::error::builders::TermsExistsExceptionBuilder {
 -        crate::types::error::builders::TermsExistsExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::TermsExistsExceptionBuilder {
-+        super::types::error::builders::TermsExistsExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::TermsExistsExceptionBuilder {
++        super::super::super::types::error::builders::TermsExistsExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`TermsExistsException`](crate::types::error::TermsExistsException).
 -    pub fn build(self) -> crate::types::error::TermsExistsException {
 -        crate::types::error::TermsExistsException {
-+    pub fn build(self) -> super::types::error::TermsExistsException {
-+        super::types::error::TermsExistsException {
++    pub fn build(self) -> super::super::super::types::error::TermsExistsException {
++        super::super::super::types::error::TermsExistsException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

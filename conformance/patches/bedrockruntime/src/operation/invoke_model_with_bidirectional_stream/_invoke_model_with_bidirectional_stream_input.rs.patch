@@ -6,8 +6,8 @@
      pub body: ::aws_smithy_http::event_stream::EventStreamSender<
 -        crate::types::InvokeModelWithBidirectionalStreamInput,
 -        crate::types::error::InvokeModelWithBidirectionalStreamInputError,
-+        super::types::InvokeModelWithBidirectionalStreamInput,
-+        super::types::error::InvokeModelWithBidirectionalStreamInputError,
++        super::super::super::types::InvokeModelWithBidirectionalStreamInput,
++        super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
      >,
  }
  impl InvokeModelWithBidirectionalStreamInput {
@@ -17,8 +17,8 @@
      ) -> &::aws_smithy_http::event_stream::EventStreamSender<
 -        crate::types::InvokeModelWithBidirectionalStreamInput,
 -        crate::types::error::InvokeModelWithBidirectionalStreamInputError,
-+        super::types::InvokeModelWithBidirectionalStreamInput,
-+        super::types::error::InvokeModelWithBidirectionalStreamInputError,
++        super::super::super::types::InvokeModelWithBidirectionalStreamInput,
++        super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
      > {
          &self.body
      }
@@ -28,8 +28,8 @@
      /// Creates a new builder-style object to manufacture [`InvokeModelWithBidirectionalStreamInput`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput).
 -    pub fn builder() -> crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder {
 -        crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder::default()
-+    pub fn builder() -> super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder {
-+        super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder {
++        super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder::default()
      }
  }
 
@@ -39,8 +39,8 @@
          ::aws_smithy_http::event_stream::EventStreamSender<
 -            crate::types::InvokeModelWithBidirectionalStreamInput,
 -            crate::types::error::InvokeModelWithBidirectionalStreamInputError,
-+            super::types::InvokeModelWithBidirectionalStreamInput,
-+            super::types::error::InvokeModelWithBidirectionalStreamInputError,
++            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
++            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
          >,
      >,
  }
@@ -50,8 +50,8 @@
          input: ::aws_smithy_http::event_stream::EventStreamSender<
 -            crate::types::InvokeModelWithBidirectionalStreamInput,
 -            crate::types::error::InvokeModelWithBidirectionalStreamInputError,
-+            super::types::InvokeModelWithBidirectionalStreamInput,
-+            super::types::error::InvokeModelWithBidirectionalStreamInputError,
++            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
++            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
          >,
      ) -> Self {
          self.body = ::std::option::Option::Some(input);
@@ -61,8 +61,8 @@
              ::aws_smithy_http::event_stream::EventStreamSender<
 -                crate::types::InvokeModelWithBidirectionalStreamInput,
 -                crate::types::error::InvokeModelWithBidirectionalStreamInputError,
-+                super::types::InvokeModelWithBidirectionalStreamInput,
-+                super::types::error::InvokeModelWithBidirectionalStreamInputError,
++                super::super::super::types::InvokeModelWithBidirectionalStreamInput,
++                super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
              >,
          >,
      ) -> Self {
@@ -72,8 +72,8 @@
          ::aws_smithy_http::event_stream::EventStreamSender<
 -            crate::types::InvokeModelWithBidirectionalStreamInput,
 -            crate::types::error::InvokeModelWithBidirectionalStreamInputError,
-+            super::types::InvokeModelWithBidirectionalStreamInput,
-+            super::types::error::InvokeModelWithBidirectionalStreamInputError,
++            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
++            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
          >,
      > {
          &self.body
@@ -82,12 +82,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput,
-+        super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput,
++        super::super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput {
-+            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput {
++            super::super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput {
                  model_id: self.model_id,
                  body: self.body.ok_or_else(|| {
                      ::aws_smithy_types::error::operation::BuildError::missing_field(

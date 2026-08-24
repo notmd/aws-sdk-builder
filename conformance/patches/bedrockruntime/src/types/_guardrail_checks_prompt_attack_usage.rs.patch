@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailChecksPromptAttackUsage`](crate::types::GuardrailChecksPromptAttackUsage).
 -    pub fn builder() -> crate::types::builders::GuardrailChecksPromptAttackUsageBuilder {
 -        crate::types::builders::GuardrailChecksPromptAttackUsageBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailChecksPromptAttackUsageBuilder {
-+        super::types::builders::GuardrailChecksPromptAttackUsageBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailChecksPromptAttackUsageBuilder {
++        super::super::types::builders::GuardrailChecksPromptAttackUsageBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`text_units`](crate::types::builders::GuardrailChecksPromptAttackUsageBuilder::text_units)
 -    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailChecksPromptAttackUsage, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailChecksPromptAttackUsage {
-+    pub fn build(self) -> ::std::result::Result<super::types::GuardrailChecksPromptAttackUsage, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailChecksPromptAttackUsage {
++    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackUsage, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailChecksPromptAttackUsage {
              text_units: self.text_units.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "text_units",

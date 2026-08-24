@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::DeletionTaskFailureReasonType, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::DeletionTaskFailureReasonType, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::DeletionTaskFailureReasonType, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::DeletionTaskFailureReasonType::builder();
-+    let mut builder = super::types::DeletionTaskFailureReasonType::builder();
++    let mut builder = super::super::types::DeletionTaskFailureReasonType::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("Reason") /* Reason com.amazonaws.iam#DeletionTaskFailureReasonType$Reason */ =>  {
@@ -20,7 +20,7 @@
                  let var_2 =
                      Some(
 -                        crate::protocol_serde::shape_role_usage_list_type::de_role_usage_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_role_usage_list_type::de_role_usage_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_role_usage_list_type::de_role_usage_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;

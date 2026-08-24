@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteTermsError>`](crate::operation::delete_terms::DeleteTermsError)
 -    pub fn delete_terms(&self) -> crate::operation::delete_terms::builders::DeleteTermsFluentBuilder {
 -        crate::operation::delete_terms::builders::DeleteTermsFluentBuilder::new(self.handle.clone())
-+    pub fn delete_terms(&self) -> super::operation::delete_terms::builders::DeleteTermsFluentBuilder {
-+        super::operation::delete_terms::builders::DeleteTermsFluentBuilder::new(self.handle.clone())
++    pub fn delete_terms(&self) -> super::super::operation::delete_terms::builders::DeleteTermsFluentBuilder {
++        super::super::operation::delete_terms::builders::DeleteTermsFluentBuilder::new(self.handle.clone())
      }
  }

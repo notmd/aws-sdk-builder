@@ -5,14 +5,14 @@
  }
  impl ::std::error::Error for BucketAlreadyOwnedByYou {}
 -impl crate::s3_request_id::RequestIdExt for crate::types::error::BucketAlreadyOwnedByYou {
-+impl super::s3_request_id::RequestIdExt for super::types::error::BucketAlreadyOwnedByYou {
++impl super::super::super::s3_request_id::RequestIdExt for super::super::super::types::error::BucketAlreadyOwnedByYou {
      fn extended_request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().extended_request_id()
      }
  }
 -impl ::aws_types::request_id::RequestId for crate::types::error::BucketAlreadyOwnedByYou {
-+impl ::aws_types::request_id::RequestId for super::types::error::BucketAlreadyOwnedByYou {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::BucketAlreadyOwnedByYou {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`BucketAlreadyOwnedByYou`](crate::types::error::BucketAlreadyOwnedByYou).
 -    pub fn builder() -> crate::types::error::builders::BucketAlreadyOwnedByYouBuilder {
 -        crate::types::error::builders::BucketAlreadyOwnedByYouBuilder::default()
-+    pub fn builder() -> super::types::error::builders::BucketAlreadyOwnedByYouBuilder {
-+        super::types::error::builders::BucketAlreadyOwnedByYouBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::BucketAlreadyOwnedByYouBuilder {
++        super::super::super::types::error::builders::BucketAlreadyOwnedByYouBuilder::default()
      }
  }
 
@@ -33,8 +33,8 @@
      /// Consumes the builder and constructs a [`BucketAlreadyOwnedByYou`](crate::types::error::BucketAlreadyOwnedByYou).
 -    pub fn build(self) -> crate::types::error::BucketAlreadyOwnedByYou {
 -        crate::types::error::BucketAlreadyOwnedByYou {
-+    pub fn build(self) -> super::types::error::BucketAlreadyOwnedByYou {
-+        super::types::error::BucketAlreadyOwnedByYou {
++    pub fn build(self) -> super::super::super::types::error::BucketAlreadyOwnedByYou {
++        super::super::super::types::error::BucketAlreadyOwnedByYou {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

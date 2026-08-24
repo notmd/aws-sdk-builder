@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SendDelegationTokenInput`](crate::operation::send_delegation_token::SendDelegationTokenInput).
 -    pub fn builder() -> crate::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder {
 -        crate::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder::default()
-+    pub fn builder() -> super::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder {
-+        super::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder {
++        super::super::super::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::send_delegation_token::SendDelegationTokenInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::send_delegation_token::SendDelegationTokenInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::send_delegation_token::SendDelegationTokenInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::send_delegation_token::SendDelegationTokenInput {
-+        ::std::result::Result::Ok(super::operation::send_delegation_token::SendDelegationTokenInput {
++        ::std::result::Result::Ok(super::super::super::operation::send_delegation_token::SendDelegationTokenInput {
              delegation_request_id: self.delegation_request_id,
          })
      }

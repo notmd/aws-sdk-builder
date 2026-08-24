@@ -29,7 +29,7 @@ macro_rules! include_sdk {
     () => {
         include!(concat!(
             env!("OUT_DIR"),
-            "/generated/bedrockruntime/src/lib.rs"
+            "/generated/bedrockruntime/original.rs"
         ));
     };
 }

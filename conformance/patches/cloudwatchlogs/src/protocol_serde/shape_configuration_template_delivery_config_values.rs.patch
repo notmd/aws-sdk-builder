@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ConfigurationTemplateDeliveryConfigValues>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ConfigurationTemplateDeliveryConfigValues>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ConfigurationTemplateDeliveryConfigValues>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::ConfigurationTemplateDeliveryConfigValuesBuilder::default();
-+            let mut builder = super::types::builders::ConfigurationTemplateDeliveryConfigValuesBuilder::default();
++            let mut builder = super::super::types::builders::ConfigurationTemplateDeliveryConfigValuesBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          "recordFields" => {
                              builder =
 -                                builder.set_record_fields(crate::protocol_serde::shape_record_fields::de_record_fields(tokens, _value, depth + 1)?);
-+                                builder.set_record_fields(super::protocol_serde::shape_record_fields::de_record_fields(tokens, _value, depth + 1)?);
++                                builder.set_record_fields(super::super::protocol_serde::shape_record_fields::de_record_fields(tokens, _value, depth + 1)?);
                          }
                          "fieldDelimiter" => {
                              builder = builder.set_field_delimiter(
@@ -32,7 +32,7 @@
                          "s3DeliveryConfiguration" => {
                              builder = builder.set_s3_delivery_configuration(
 -                                crate::protocol_serde::shape_s3_delivery_configuration::de_s3_delivery_configuration(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_s3_delivery_configuration::de_s3_delivery_configuration(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_s3_delivery_configuration::de_s3_delivery_configuration(tokens, _value, depth + 1)?,
                              );
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AttachGroupPolicyInput`](crate::operation::attach_group_policy::AttachGroupPolicyInput).
 -    pub fn builder() -> crate::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder {
 -        crate::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder {
-+        super::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder {
++        super::super::super::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::attach_group_policy::AttachGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::attach_group_policy::AttachGroupPolicyInput {
-+    ) -> ::std::result::Result<super::operation::attach_group_policy::AttachGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::attach_group_policy::AttachGroupPolicyInput {
++    ) -> ::std::result::Result<super::super::super::operation::attach_group_policy::AttachGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::attach_group_policy::AttachGroupPolicyInput {
              group_name: self.group_name,
              policy_arn: self.policy_arn,
          })

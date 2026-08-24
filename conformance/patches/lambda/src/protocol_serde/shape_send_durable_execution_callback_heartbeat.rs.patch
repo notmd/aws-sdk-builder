@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
 -    crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
-+    super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
-+    super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
++    super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
++    super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(generic))
-+            return Err(super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(generic))
++            return Err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(generic))
          }
      };
 
@@ -29,17 +29,17 @@
      Err(match error_code {
          "CallbackTimeoutException" => {
 -            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::CallbackTimeoutException({
-+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::CallbackTimeoutException({
++            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::CallbackTimeoutException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::CallbackTimeoutExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_callback_timeout_exception::de_callback_timeout_exception_json_err(_response_body, output)
-+                    let mut output = super::types::error::builders::CallbackTimeoutExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_callback_timeout_exception::de_callback_timeout_exception_json_err(_response_body, output)
++                    let mut output = super::super::types::error::builders::CallbackTimeoutExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_callback_timeout_exception::de_callback_timeout_exception_json_err(_response_body, output)
                          .map_err(
 -                            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
-+                            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
++                            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
                          )?;
                      let output = output.meta(generic);
                      output.build()
@@ -48,19 +48,19 @@
          }
          "InvalidParameterValueException" => {
 -            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::InvalidParameterValueException({
-+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::InvalidParameterValueException({
++            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::InvalidParameterValueException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-+                    let mut output = super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
++                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
-+                    .map_err(super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
++                    .map_err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -69,18 +69,18 @@
          }
          "ResourceNotFoundException" => {
 -            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ResourceNotFoundException({
-+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ResourceNotFoundException({
++            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ResourceNotFoundException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                        super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                              .map_err(
 -                            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
-+                            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
++                            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
                          )?;
                      let output = output.meta(generic);
                      output.build()
@@ -89,16 +89,16 @@
          }
          "ServiceException" => {
 -            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ServiceException({
-+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ServiceException({
++            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ServiceException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output).map_err(
 -                        crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
-+                    let mut output = super::types::error::builders::ServiceExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output).map_err(
-+                        super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
++                    let mut output = super::super::types::error::builders::ServiceExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output).map_err(
++                        super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
                      )?;
                      let output = output.meta(generic);
                      output.build()
@@ -107,24 +107,24 @@
          }
          "TooManyRequestsException" => {
 -            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::TooManyRequestsException({
-+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::TooManyRequestsException({
++            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::TooManyRequestsException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                              .map_err(
 -                                crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
-+                                super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
++                                super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
                              )?;
                      output = output.set_retry_after_seconds(
 -                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
 -                            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(
-+                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
-+                            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(
++                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
++                            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(
                                  "Failed to parse retryAfterSeconds from header `Retry-After",
                              )
                          })?,
@@ -133,7 +133,7 @@
              })
          }
 -        _ => crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::generic(generic),
-+        _ => super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::generic(generic),
++        _ => super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::generic(generic),
      })
  }
 
@@ -143,14 +143,14 @@
  ) -> std::result::Result<
 -    crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
 -    crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
-+    super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
-+    super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
++    super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
++    super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
  > {
      Ok({
          #[allow(unused_mut)]
          let mut output =
 -            crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder::default();
-+            super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder::default();
++            super::super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })

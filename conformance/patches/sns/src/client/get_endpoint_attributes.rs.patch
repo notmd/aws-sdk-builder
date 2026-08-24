@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetEndpointAttributesError>`](crate::operation::get_endpoint_attributes::GetEndpointAttributesError)
 -    pub fn get_endpoint_attributes(&self) -> crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesFluentBuilder {
 -        crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesFluentBuilder::new(self.handle.clone())
-+    pub fn get_endpoint_attributes(&self) -> super::operation::get_endpoint_attributes::builders::GetEndpointAttributesFluentBuilder {
-+        super::operation::get_endpoint_attributes::builders::GetEndpointAttributesFluentBuilder::new(self.handle.clone())
++    pub fn get_endpoint_attributes(&self) -> super::super::operation::get_endpoint_attributes::builders::GetEndpointAttributesFluentBuilder {
++        super::super::operation::get_endpoint_attributes::builders::GetEndpointAttributesFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UntagQueueError>`](crate::operation::untag_queue::UntagQueueError)
 -    pub fn untag_queue(&self) -> crate::operation::untag_queue::builders::UntagQueueFluentBuilder {
 -        crate::operation::untag_queue::builders::UntagQueueFluentBuilder::new(self.handle.clone())
-+    pub fn untag_queue(&self) -> super::operation::untag_queue::builders::UntagQueueFluentBuilder {
-+        super::operation::untag_queue::builders::UntagQueueFluentBuilder::new(self.handle.clone())
++    pub fn untag_queue(&self) -> super::super::operation::untag_queue::builders::UntagQueueFluentBuilder {
++        super::super::operation::untag_queue::builders::UntagQueueFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteTransformerError>`](crate::operation::delete_transformer::DeleteTransformerError)
 -    pub fn delete_transformer(&self) -> crate::operation::delete_transformer::builders::DeleteTransformerFluentBuilder {
 -        crate::operation::delete_transformer::builders::DeleteTransformerFluentBuilder::new(self.handle.clone())
-+    pub fn delete_transformer(&self) -> super::operation::delete_transformer::builders::DeleteTransformerFluentBuilder {
-+        super::operation::delete_transformer::builders::DeleteTransformerFluentBuilder::new(self.handle.clone())
++    pub fn delete_transformer(&self) -> super::super::operation::delete_transformer::builders::DeleteTransformerFluentBuilder {
++        super::super::operation::delete_transformer::builders::DeleteTransformerFluentBuilder::new(self.handle.clone())
      }
  }

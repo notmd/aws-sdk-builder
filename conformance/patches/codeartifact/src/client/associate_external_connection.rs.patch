@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::associate_external_connection::builders::AssociateExternalConnectionFluentBuilder {
 -        crate::operation::associate_external_connection::builders::AssociateExternalConnectionFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::associate_external_connection::builders::AssociateExternalConnectionFluentBuilder {
-+        super::operation::associate_external_connection::builders::AssociateExternalConnectionFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::associate_external_connection::builders::AssociateExternalConnectionFluentBuilder {
++        super::super::operation::associate_external_connection::builders::AssociateExternalConnectionFluentBuilder::new(self.handle.clone())
      }
  }

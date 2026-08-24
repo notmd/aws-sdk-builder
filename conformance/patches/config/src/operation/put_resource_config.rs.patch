@@ -5,13 +5,13 @@
      pub(crate) async fn orchestrate(
          runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
 -        input: crate::operation::put_resource_config::PutResourceConfigInput,
-+        input: super::operation::put_resource_config::PutResourceConfigInput,
++        input: super::super::operation::put_resource_config::PutResourceConfigInput,
      ) -> ::std::result::Result<
 -        crate::operation::put_resource_config::PutResourceConfigOutput,
-+        super::operation::put_resource_config::PutResourceConfigOutput,
++        super::super::operation::put_resource_config::PutResourceConfigOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
 -            crate::operation::put_resource_config::PutResourceConfigError,
-+            super::operation::put_resource_config::PutResourceConfigError,
++            super::super::operation::put_resource_config::PutResourceConfigError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -20,7 +20,7 @@
          >| {
              err.map_service_error(|err| {
 -                err.downcast::<crate::operation::put_resource_config::PutResourceConfigError>()
-+                err.downcast::<super::operation::put_resource_config::PutResourceConfigError>()
++                err.downcast::<super::super::operation::put_resource_config::PutResourceConfigError>()
                      .expect("correct error type")
              })
          };
@@ -29,7 +29,7 @@
          ::std::result::Result::Ok(
              output
 -                .downcast::<crate::operation::put_resource_config::PutResourceConfigOutput>()
-+                .downcast::<super::operation::put_resource_config::PutResourceConfigOutput>()
++                .downcast::<super::super::operation::put_resource_config::PutResourceConfigOutput>()
                  .expect("correct output type"),
          )
      }
@@ -38,7 +38,7 @@
      pub(crate) async fn orchestrate_with_stop_point(
          runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
 -        input: crate::operation::put_resource_config::PutResourceConfigInput,
-+        input: super::operation::put_resource_config::PutResourceConfigInput,
++        input: super::super::operation::put_resource_config::PutResourceConfigInput,
          stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
      ) -> ::std::result::Result<
          ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -48,8 +48,8 @@
          client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
 -        client_config: &crate::config::Config,
 -        config_override: ::std::option::Option<crate::config::Builder>,
-+        client_config: &super::config::Config,
-+        config_override: ::std::option::Option<super::config::Builder>,
++        client_config: &super::super::config::Config,
++        config_override: ::std::option::Option<super::super::config::Builder>,
      ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
          let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -58,7 +58,7 @@
                  runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
              }
 -            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
++            runtime_plugins = runtime_plugins.with_operation_plugin(super::super::config::ConfigOverrideRuntimePlugin::new(
                  config_override,
                  client_config.config.clone(),
                  &client_config.runtime_components,
@@ -67,7 +67,7 @@
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
 -            crate::config::auth::Params::builder()
-+            super::config::auth::Params::builder()
++            super::super::config::auth::Params::builder()
                  .operation_name("PutResourceConfig")
                  .build()
                  .expect("required fields set"),
@@ -76,15 +76,15 @@
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
 -                crate::operation::put_resource_config::PutResourceConfigError,
-+                super::operation::put_resource_config::PutResourceConfigError,
++                super::super::operation::put_resource_config::PutResourceConfigError,
              >::new())
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
 -                crate::operation::put_resource_config::PutResourceConfigError,
-+                super::operation::put_resource_config::PutResourceConfigError,
++                super::super::operation::put_resource_config::PutResourceConfigError,
              >::new())
              .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
 -                crate::operation::put_resource_config::PutResourceConfigError,
-+                super::operation::put_resource_config::PutResourceConfigError,
++                super::super::operation::put_resource_config::PutResourceConfigError,
              >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -93,13 +93,13 @@
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
          let parse_result = if !success && status != 200 || force_error {
 -            crate::protocol_serde::shape_put_resource_config::de_put_resource_config_http_error(status, headers, body)
-+            super::protocol_serde::shape_put_resource_config::de_put_resource_config_http_error(status, headers, body)
++            super::super::protocol_serde::shape_put_resource_config::de_put_resource_config_http_error(status, headers, body)
          } else {
 -            crate::protocol_serde::shape_put_resource_config::de_put_resource_config_http_response(status, headers, body)
-+            super::protocol_serde::shape_put_resource_config::de_put_resource_config_http_response(status, headers, body)
++            super::super::protocol_serde::shape_put_resource_config::de_put_resource_config_http_response(status, headers, body)
          };
 -        crate::protocol_serde::type_erase_result(parse_result)
-+        super::protocol_serde::type_erase_result(parse_result)
++        super::super::protocol_serde::type_erase_result(parse_result)
      }
  }
  #[derive(Debug)]
@@ -108,18 +108,18 @@
      ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
          let input = input
 -            .downcast::<crate::operation::put_resource_config::PutResourceConfigInput>()
-+            .downcast::<super::operation::put_resource_config::PutResourceConfigInput>()
++            .downcast::<super::super::operation::put_resource_config::PutResourceConfigInput>()
              .expect("correct type");
          let _header_serialization_settings = _cfg
 -            .load::<crate::serialization_settings::HeaderSerializationSettings>()
-+            .load::<super::serialization_settings::HeaderSerializationSettings>()
++            .load::<super::super::serialization_settings::HeaderSerializationSettings>()
              .cloned()
              .unwrap_or_default();
          let mut request_builder = {
              #[allow(clippy::uninlined_format_args)]
              fn uri_base(
 -                _input: &crate::operation::put_resource_config::PutResourceConfigInput,
-+                _input: &super::operation::put_resource_config::PutResourceConfigInput,
++                _input: &super::super::operation::put_resource_config::PutResourceConfigInput,
                  output: &mut ::std::string::String,
              ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                  use ::std::fmt::Write as _;
@@ -128,7 +128,7 @@
              #[allow(clippy::unnecessary_wraps)]
              fn update_http_builder(
 -                input: &crate::operation::put_resource_config::PutResourceConfigInput,
-+                input: &super::operation::put_resource_config::PutResourceConfigInput,
++                input: &super::super::operation::put_resource_config::PutResourceConfigInput,
                  builder: ::http_1x::request::Builder,
              ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                  let mut uri = ::std::string::String::new();
@@ -137,7 +137,7 @@
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_put_resource_config::ser_put_resource_config_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_put_resource_config::ser_put_resource_config_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_resource_config::ser_put_resource_config_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -146,7 +146,7 @@
              .ok_or("failed to downcast to PutResourceConfigInput")?;
 
 -        let params = crate::config::endpoint::Params::builder()
-+        let params = super::config::endpoint::Params::builder()
++        let params = super::super::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
              .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
              .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -155,13 +155,13 @@
      /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConnector.html">PutConnector</a>, a connector cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p></li>
      /// </ul>
 -    InsufficientPermissionsException(crate::types::error::InsufficientPermissionsException),
-+    InsufficientPermissionsException(super::types::error::InsufficientPermissionsException),
++    InsufficientPermissionsException(super::super::types::error::InsufficientPermissionsException),
      /// <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000. Delete unused resources using <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html">DeleteResourceConfig</a> <code></code>.</p>
 -    MaxActiveResourcesExceededException(crate::types::error::MaxActiveResourcesExceededException),
-+    MaxActiveResourcesExceededException(super::types::error::MaxActiveResourcesExceededException),
++    MaxActiveResourcesExceededException(super::super::types::error::MaxActiveResourcesExceededException),
      /// <p>There is no configuration recorder running.</p>
 -    NoRunningConfigurationRecorderException(crate::types::error::NoRunningConfigurationRecorderException),
-+    NoRunningConfigurationRecorderException(super::types::error::NoRunningConfigurationRecorderException),
++    NoRunningConfigurationRecorderException(super::super::types::error::NoRunningConfigurationRecorderException),
      /// <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
      /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html">PutStoredQuery</a>, one of the following errors:</p>
      /// <ul>
@@ -170,7 +170,7 @@
      /// <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p></li>
      /// </ul>
 -    ValidationException(crate::types::error::ValidationException),
-+    ValidationException(super::types::error::ValidationException),
++    ValidationException(super::super::types::error::ValidationException),
      /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
      #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
      variable wildcard pattern and check `.code()`:
@@ -179,7 +179,7 @@
       \
      See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-PutResourceConfigError) for what information is available for the error.")]
 -    Unhandled(crate::error::sealed_unhandled::Unhandled),
-+    Unhandled(super::error::sealed_unhandled::Unhandled),
++    Unhandled(super::super::error::sealed_unhandled::Unhandled),
  }
  impl PutResourceConfigError {
      /// Creates the `PutResourceConfigError::Unhandled` variant from any error type.
@@ -188,7 +188,7 @@
          err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
      ) -> Self {
 -        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
-+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::super::error::sealed_unhandled::Unhandled {
              source: err.into(),
              meta: ::std::default::Default::default(),
          })
@@ -197,7 +197,7 @@
      /// Creates the `PutResourceConfigError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
      pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
 -        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
-+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::super::error::sealed_unhandled::Unhandled {
              source: err.clone().into(),
              meta: err,
          })
@@ -206,24 +206,24 @@
          meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
      ) -> Self {
 -        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
-+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::super::error::sealed_unhandled::Unhandled {
              source,
              meta: meta.unwrap_or_default(),
          })
      }
  }
 -impl ::aws_types::request_id::RequestId for crate::operation::put_resource_config::PutResourceConfigError {
-+impl ::aws_types::request_id::RequestId for super::operation::put_resource_config::PutResourceConfigError {
++impl ::aws_types::request_id::RequestId for super::super::operation::put_resource_config::PutResourceConfigError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
      }
  }
 
 -pub use crate::operation::put_resource_config::_put_resource_config_input::PutResourceConfigInput;
-+pub use super::operation::put_resource_config::_put_resource_config_input::PutResourceConfigInput;
++pub use super::super::operation::put_resource_config::_put_resource_config_input::PutResourceConfigInput;
 
 -pub use crate::operation::put_resource_config::_put_resource_config_output::PutResourceConfigOutput;
-+pub use super::operation::put_resource_config::_put_resource_config_output::PutResourceConfigOutput;
++pub use super::super::operation::put_resource_config::_put_resource_config_output::PutResourceConfigOutput;
 
  mod _put_resource_config_input;
 

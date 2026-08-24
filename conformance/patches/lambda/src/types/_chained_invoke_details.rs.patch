@@ -5,7 +5,7 @@
      pub result: ::std::option::Option<::std::string::String>,
      /// <p>Details about the chained invocation failure.</p>
 -    pub error: ::std::option::Option<crate::types::ErrorObject>,
-+    pub error: ::std::option::Option<super::types::ErrorObject>,
++    pub error: ::std::option::Option<super::super::types::ErrorObject>,
  }
  impl ChainedInvokeDetails {
      /// <p>The response payload from the chained invocation.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>Details about the chained invocation failure.</p>
 -    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorObject> {
-+    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorObject> {
++    pub fn error(&self) -> ::std::option::Option<&super::super::types::ErrorObject> {
          self.error.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ChainedInvokeDetails`](crate::types::ChainedInvokeDetails).
 -    pub fn builder() -> crate::types::builders::ChainedInvokeDetailsBuilder {
 -        crate::types::builders::ChainedInvokeDetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::ChainedInvokeDetailsBuilder {
-+        super::types::builders::ChainedInvokeDetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::ChainedInvokeDetailsBuilder {
++        super::super::types::builders::ChainedInvokeDetailsBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct ChainedInvokeDetailsBuilder {
      pub(crate) result: ::std::option::Option<::std::string::String>,
 -    pub(crate) error: ::std::option::Option<crate::types::ErrorObject>,
-+    pub(crate) error: ::std::option::Option<super::types::ErrorObject>,
++    pub(crate) error: ::std::option::Option<super::super::types::ErrorObject>,
  }
  impl ChainedInvokeDetailsBuilder {
      /// <p>The response payload from the chained invocation.</p>
@@ -43,26 +43,26 @@
      }
      /// <p>Details about the chained invocation failure.</p>
 -    pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
-+    pub fn error(mut self, input: super::types::ErrorObject) -> Self {
++    pub fn error(mut self, input: super::super::types::ErrorObject) -> Self {
          self.error = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the chained invocation failure.</p>
 -    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
-+    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorObject>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::super::types::ErrorObject>) -> Self {
          self.error = input;
          self
      }
      /// <p>Details about the chained invocation failure.</p>
 -    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
-+    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorObject> {
++    pub fn get_error(&self) -> &::std::option::Option<super::super::types::ErrorObject> {
          &self.error
      }
      /// Consumes the builder and constructs a [`ChainedInvokeDetails`](crate::types::ChainedInvokeDetails).
 -    pub fn build(self) -> crate::types::ChainedInvokeDetails {
 -        crate::types::ChainedInvokeDetails {
-+    pub fn build(self) -> super::types::ChainedInvokeDetails {
-+        super::types::ChainedInvokeDetails {
++    pub fn build(self) -> super::super::types::ChainedInvokeDetails {
++        super::super::types::ChainedInvokeDetails {
              result: self.result,
              error: self.error,
          }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminUpdateUserAttributesOutput`](crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput).
 -    pub fn builder() -> crate::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesOutputBuilder {
 -        crate::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesOutputBuilder::default()
-+    pub fn builder() -> super::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesOutputBuilder {
-+        super::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesOutputBuilder {
++        super::super::super::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AdminUpdateUserAttributesOutput`](crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput).
 -    pub fn build(self) -> crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput {
 -        crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput {
-+    pub fn build(self) -> super::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput {
-+        super::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput {
++    pub fn build(self) -> super::super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput {
++        super::super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput {
              _request_id: self._request_id,
          }
      }

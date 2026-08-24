@@ -5,20 +5,20 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::RoutingRule, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::RoutingRule, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::RoutingRule, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::RoutingRule::builder();
-+    let mut builder = super::types::RoutingRule::builder();
++    let mut builder = super::super::types::RoutingRule::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("Condition") /* Condition com.amazonaws.s3#RoutingRule$Condition */ =>  {
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_condition::de_condition(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_condition::de_condition(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_condition::de_condition(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -27,7 +27,7 @@
                  let var_2 =
                      Some(
 -                        crate::protocol_serde::shape_redirect::de_redirect(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_redirect::de_redirect(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_redirect::de_redirect(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -36,12 +36,12 @@
          }
      }
 -    Ok(crate::serde_util::routing_rule_correct_errors(builder).build())
-+    Ok(super::serde_util::routing_rule_correct_errors(builder).build())
++    Ok(super::super::serde_util::routing_rule_correct_errors(builder).build())
  }
 
  pub fn ser_routing_rule(
 -    input: &crate::types::RoutingRule,
-+    input: &super::types::RoutingRule,
++    input: &super::super::types::RoutingRule,
      writer: ::aws_smithy_xml::encode::ElWriter,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      #[allow(unused_mut)]
@@ -50,12 +50,12 @@
      if let Some(var_3) = &input.condition {
          let inner_writer = scope.start_el("Condition");
 -        crate::protocol_serde::shape_condition::ser_condition(var_3, inner_writer)?
-+        super::protocol_serde::shape_condition::ser_condition(var_3, inner_writer)?
++        super::super::protocol_serde::shape_condition::ser_condition(var_3, inner_writer)?
      }
      if let Some(var_4) = &input.redirect {
          let inner_writer = scope.start_el("Redirect");
 -        crate::protocol_serde::shape_redirect::ser_redirect(var_4, inner_writer)?
-+        super::protocol_serde::shape_redirect::ser_redirect(var_4, inner_writer)?
++        super::super::protocol_serde::shape_redirect::ser_redirect(var_4, inner_writer)?
      }
      scope.finish();
      Ok(())

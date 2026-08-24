@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for InvalidSequenceTokenException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::InvalidSequenceTokenException {
-+impl ::aws_types::request_id::RequestId for super::types::error::InvalidSequenceTokenException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::InvalidSequenceTokenException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`InvalidSequenceTokenException`](crate::types::error::InvalidSequenceTokenException).
 -    pub fn builder() -> crate::types::error::builders::InvalidSequenceTokenExceptionBuilder {
 -        crate::types::error::builders::InvalidSequenceTokenExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::InvalidSequenceTokenExceptionBuilder {
-+        super::types::error::builders::InvalidSequenceTokenExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::InvalidSequenceTokenExceptionBuilder {
++        super::super::super::types::error::builders::InvalidSequenceTokenExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`InvalidSequenceTokenException`](crate::types::error::InvalidSequenceTokenException).
 -    pub fn build(self) -> crate::types::error::InvalidSequenceTokenException {
 -        crate::types::error::InvalidSequenceTokenException {
-+    pub fn build(self) -> super::types::error::InvalidSequenceTokenException {
-+        super::types::error::InvalidSequenceTokenException {
++    pub fn build(self) -> super::super::super::types::error::InvalidSequenceTokenException {
++        super::super::super::types::error::InvalidSequenceTokenException {
              expected_sequence_token: self.expected_sequence_token,
              message: self.message,
              meta: self.meta.unwrap_or_default(),

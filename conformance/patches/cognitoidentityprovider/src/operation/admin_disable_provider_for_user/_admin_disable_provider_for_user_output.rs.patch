@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminDisableProviderForUserOutput`](crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserOutput).
 -    pub fn builder() -> crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserOutputBuilder {
 -        crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserOutputBuilder::default()
-+    pub fn builder() -> super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserOutputBuilder {
-+        super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserOutputBuilder {
++        super::super::super::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AdminDisableProviderForUserOutput`](crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserOutput).
 -    pub fn build(self) -> crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserOutput {
 -        crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserOutput {
-+    pub fn build(self) -> super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserOutput {
-+        super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserOutput {
++    pub fn build(self) -> super::super::super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserOutput {
++        super::super::super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserOutput {
              _request_id: self._request_id,
          }
      }

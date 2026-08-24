@@ -5,7 +5,7 @@
      pub ssh_public_key_id: ::std::option::Option<::std::string::String>,
      /// <p>The status to assign to the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
 -    pub status: ::std::option::Option<crate::types::StatusType>,
-+    pub status: ::std::option::Option<super::types::StatusType>,
++    pub status: ::std::option::Option<super::super::super::types::StatusType>,
  }
  impl UpdateSshPublicKeyInput {
      /// <p>The name of the IAM user associated with the SSH public key.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The status to assign to the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::StatusType> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::StatusType> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::super::types::StatusType> {
          self.status.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateSshPublicKeyInput`](crate::operation::update_ssh_public_key::UpdateSshPublicKeyInput).
 -    pub fn builder() -> crate::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder {
 -        crate::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder::default()
-+    pub fn builder() -> super::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder {
-+        super::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder {
++        super::super::super::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) user_name: ::std::option::Option<::std::string::String>,
      pub(crate) ssh_public_key_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::StatusType>,
-+    pub(crate) status: ::std::option::Option<super::types::StatusType>,
++    pub(crate) status: ::std::option::Option<super::super::super::types::StatusType>,
  }
  impl UpdateSshPublicKeyInputBuilder {
      /// <p>The name of the IAM user associated with the SSH public key.</p>
@@ -41,29 +41,29 @@
      /// <p>The status to assign to the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
      /// This field is required.
 -    pub fn status(mut self, input: crate::types::StatusType) -> Self {
-+    pub fn status(mut self, input: super::types::StatusType) -> Self {
++    pub fn status(mut self, input: super::super::super::types::StatusType) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status to assign to the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::StatusType>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::super::types::StatusType>) -> Self {
          self.status = input;
          self
      }
      /// <p>The status to assign to the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::StatusType> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::super::types::StatusType> {
          &self.status
      }
      /// Consumes the builder and constructs a [`UpdateSshPublicKeyInput`](crate::operation::update_ssh_public_key::UpdateSshPublicKeyInput).
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::update_ssh_public_key::UpdateSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::update_ssh_public_key::UpdateSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::update_ssh_public_key::UpdateSshPublicKeyInput {
-+        ::std::result::Result::Ok(super::operation::update_ssh_public_key::UpdateSshPublicKeyInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyInput {
              user_name: self.user_name,
              ssh_public_key_id: self.ssh_public_key_id,
              status: self.status,

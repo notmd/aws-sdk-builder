@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::SelfManagedEventSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::SelfManagedEventSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::SelfManagedEventSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,14 +14,14 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::SelfManagedEventSourceBuilder::default();
-+            let mut builder = super::types::builders::SelfManagedEventSourceBuilder::default();
++            let mut builder = super::super::types::builders::SelfManagedEventSourceBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "Endpoints" => {
 -                            builder = builder.set_endpoints(crate::protocol_serde::shape_endpoints::de_endpoints(tokens, _value, depth + 1)?);
-+                            builder = builder.set_endpoints(super::protocol_serde::shape_endpoints::de_endpoints(tokens, _value, depth + 1)?);
++                            builder = builder.set_endpoints(super::super::protocol_serde::shape_endpoints::de_endpoints(tokens, _value, depth + 1)?);
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
@@ -30,7 +30,7 @@
  pub fn ser_self_managed_event_source(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::SelfManagedEventSource,
-+    input: &super::types::SelfManagedEventSource,
++    input: &super::super::types::SelfManagedEventSource,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.endpoints {
          #[allow(unused_mut)]

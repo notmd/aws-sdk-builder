@@ -5,14 +5,14 @@
      pub guardrail_version: ::std::option::Option<::std::string::String>,
      /// <p>The source of data used in the request to apply the guardrail.</p>
 -    pub source: ::std::option::Option<crate::types::GuardrailContentSource>,
-+    pub source: ::std::option::Option<super::types::GuardrailContentSource>,
++    pub source: ::std::option::Option<super::super::super::types::GuardrailContentSource>,
      /// <p>The content details used in the request to apply the guardrail.</p>
 -    pub content: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentBlock>>,
-+    pub content: ::std::option::Option<::std::vec::Vec<super::types::GuardrailContentBlock>>,
++    pub content: ::std::option::Option<::std::vec::Vec<super::super::super::types::GuardrailContentBlock>>,
      /// <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
      /// <p>Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII).</p>
 -    pub output_scope: ::std::option::Option<crate::types::GuardrailOutputScope>,
-+    pub output_scope: ::std::option::Option<super::types::GuardrailOutputScope>,
++    pub output_scope: ::std::option::Option<super::super::super::types::GuardrailOutputScope>,
  }
  impl ApplyGuardrailInput {
      /// <p>The guardrail identifier used in the request to apply the guardrail.</p>
@@ -21,20 +21,20 @@
      }
      /// <p>The source of data used in the request to apply the guardrail.</p>
 -    pub fn source(&self) -> ::std::option::Option<&crate::types::GuardrailContentSource> {
-+    pub fn source(&self) -> ::std::option::Option<&super::types::GuardrailContentSource> {
++    pub fn source(&self) -> ::std::option::Option<&super::super::super::types::GuardrailContentSource> {
          self.source.as_ref()
      }
      /// <p>The content details used in the request to apply the guardrail.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.content.is_none()`.
 -    pub fn content(&self) -> &[crate::types::GuardrailContentBlock] {
-+    pub fn content(&self) -> &[super::types::GuardrailContentBlock] {
++    pub fn content(&self) -> &[super::super::super::types::GuardrailContentBlock] {
          self.content.as_deref().unwrap_or_default()
      }
      /// <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
      /// <p>Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII).</p>
 -    pub fn output_scope(&self) -> ::std::option::Option<&crate::types::GuardrailOutputScope> {
-+    pub fn output_scope(&self) -> ::std::option::Option<&super::types::GuardrailOutputScope> {
++    pub fn output_scope(&self) -> ::std::option::Option<&super::super::super::types::GuardrailOutputScope> {
          self.output_scope.as_ref()
      }
  }
@@ -42,8 +42,8 @@
      /// Creates a new builder-style object to manufacture [`ApplyGuardrailInput`](crate::operation::apply_guardrail::ApplyGuardrailInput).
 -    pub fn builder() -> crate::operation::apply_guardrail::builders::ApplyGuardrailInputBuilder {
 -        crate::operation::apply_guardrail::builders::ApplyGuardrailInputBuilder::default()
-+    pub fn builder() -> super::operation::apply_guardrail::builders::ApplyGuardrailInputBuilder {
-+        super::operation::apply_guardrail::builders::ApplyGuardrailInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::apply_guardrail::builders::ApplyGuardrailInputBuilder {
++        super::super::super::operation::apply_guardrail::builders::ApplyGuardrailInputBuilder::default()
      }
  }
 
@@ -54,9 +54,9 @@
 -    pub(crate) source: ::std::option::Option<crate::types::GuardrailContentSource>,
 -    pub(crate) content: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentBlock>>,
 -    pub(crate) output_scope: ::std::option::Option<crate::types::GuardrailOutputScope>,
-+    pub(crate) source: ::std::option::Option<super::types::GuardrailContentSource>,
-+    pub(crate) content: ::std::option::Option<::std::vec::Vec<super::types::GuardrailContentBlock>>,
-+    pub(crate) output_scope: ::std::option::Option<super::types::GuardrailOutputScope>,
++    pub(crate) source: ::std::option::Option<super::super::super::types::GuardrailContentSource>,
++    pub(crate) content: ::std::option::Option<::std::vec::Vec<super::super::super::types::GuardrailContentBlock>>,
++    pub(crate) output_scope: ::std::option::Option<super::super::super::types::GuardrailOutputScope>,
  }
  impl ApplyGuardrailInputBuilder {
      /// <p>The guardrail identifier used in the request to apply the guardrail.</p>
@@ -65,19 +65,19 @@
      /// <p>The source of data used in the request to apply the guardrail.</p>
      /// This field is required.
 -    pub fn source(mut self, input: crate::types::GuardrailContentSource) -> Self {
-+    pub fn source(mut self, input: super::types::GuardrailContentSource) -> Self {
++    pub fn source(mut self, input: super::super::super::types::GuardrailContentSource) -> Self {
          self.source = ::std::option::Option::Some(input);
          self
      }
      /// <p>The source of data used in the request to apply the guardrail.</p>
 -    pub fn set_source(mut self, input: ::std::option::Option<crate::types::GuardrailContentSource>) -> Self {
-+    pub fn set_source(mut self, input: ::std::option::Option<super::types::GuardrailContentSource>) -> Self {
++    pub fn set_source(mut self, input: ::std::option::Option<super::super::super::types::GuardrailContentSource>) -> Self {
          self.source = input;
          self
      }
      /// <p>The source of data used in the request to apply the guardrail.</p>
 -    pub fn get_source(&self) -> &::std::option::Option<crate::types::GuardrailContentSource> {
-+    pub fn get_source(&self) -> &::std::option::Option<super::types::GuardrailContentSource> {
++    pub fn get_source(&self) -> &::std::option::Option<super::super::super::types::GuardrailContentSource> {
          &self.source
      }
      /// Appends an item to `content`.
@@ -86,7 +86,7 @@
      ///
      /// <p>The content details used in the request to apply the guardrail.</p>
 -    pub fn content(mut self, input: crate::types::GuardrailContentBlock) -> Self {
-+    pub fn content(mut self, input: super::types::GuardrailContentBlock) -> Self {
++    pub fn content(mut self, input: super::super::super::types::GuardrailContentBlock) -> Self {
          let mut v = self.content.unwrap_or_default();
          v.push(input);
          self.content = ::std::option::Option::Some(v);
@@ -95,33 +95,33 @@
      }
      /// <p>The content details used in the request to apply the guardrail.</p>
 -    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentBlock>>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailContentBlock>>) -> Self {
++    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GuardrailContentBlock>>) -> Self {
          self.content = input;
          self
      }
      /// <p>The content details used in the request to apply the guardrail.</p>
 -    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentBlock>> {
-+    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailContentBlock>> {
++    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GuardrailContentBlock>> {
          &self.content
      }
      /// <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
      /// <p>Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII).</p>
 -    pub fn output_scope(mut self, input: crate::types::GuardrailOutputScope) -> Self {
-+    pub fn output_scope(mut self, input: super::types::GuardrailOutputScope) -> Self {
++    pub fn output_scope(mut self, input: super::super::super::types::GuardrailOutputScope) -> Self {
          self.output_scope = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
      /// <p>Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII).</p>
 -    pub fn set_output_scope(mut self, input: ::std::option::Option<crate::types::GuardrailOutputScope>) -> Self {
-+    pub fn set_output_scope(mut self, input: ::std::option::Option<super::types::GuardrailOutputScope>) -> Self {
++    pub fn set_output_scope(mut self, input: ::std::option::Option<super::super::super::types::GuardrailOutputScope>) -> Self {
          self.output_scope = input;
          self
      }
      /// <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
      /// <p>Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII).</p>
 -    pub fn get_output_scope(&self) -> &::std::option::Option<crate::types::GuardrailOutputScope> {
-+    pub fn get_output_scope(&self) -> &::std::option::Option<super::types::GuardrailOutputScope> {
++    pub fn get_output_scope(&self) -> &::std::option::Option<super::super::super::types::GuardrailOutputScope> {
          &self.output_scope
      }
      /// Consumes the builder and constructs a [`ApplyGuardrailInput`](crate::operation::apply_guardrail::ApplyGuardrailInput).
@@ -129,8 +129,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::apply_guardrail::ApplyGuardrailInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::apply_guardrail::ApplyGuardrailInput {
-+    ) -> ::std::result::Result<super::operation::apply_guardrail::ApplyGuardrailInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::apply_guardrail::ApplyGuardrailInput {
++    ) -> ::std::result::Result<super::super::super::operation::apply_guardrail::ApplyGuardrailInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::apply_guardrail::ApplyGuardrailInput {
              guardrail_identifier: self.guardrail_identifier,
              guardrail_version: self.guardrail_version,
              source: self.source,

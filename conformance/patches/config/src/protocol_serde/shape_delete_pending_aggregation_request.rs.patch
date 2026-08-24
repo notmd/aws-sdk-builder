@@ -6,39 +6,39 @@
  ) -> std::result::Result<
 -    crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestOutput,
 -    crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
-+    super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestOutput,
-+    super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
++    super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestOutput,
++    super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::unhandled(generic)),
-+        None => return Err(super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::unhandled(generic)),
++        None => return Err(super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
          "InvalidParameterValueException" => {
 -            crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::InvalidParameterValueException({
-+            super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::InvalidParameterValueException({
++            super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::InvalidParameterValueException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-+                    let mut output = super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
++                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::unhandled)?;
-+                    .map_err(super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::unhandled)?;
++                    .map_err(super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -47,7 +47,7 @@
              })
          }
 -        _ => crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::generic(generic),
-+        _ => super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::generic(generic),
++        _ => super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::generic(generic),
      })
  }
 
@@ -57,13 +57,13 @@
  ) -> std::result::Result<
 -    crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestOutput,
 -    crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
-+    super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestOutput,
-+    super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
++    super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestOutput,
++    super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestOutputBuilder::default();
-+        let mut output = super::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestOutputBuilder::default();
++        let mut output = super::super::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -72,12 +72,12 @@
 
  pub fn ser_delete_pending_aggregation_request_input(
 -    input: &crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestInput,
-+    input: &super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestInput,
++    input: &super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_delete_pending_aggregation_request_input::ser_delete_pending_aggregation_request_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_delete_pending_aggregation_request_input::ser_delete_pending_aggregation_request_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_delete_pending_aggregation_request_input::ser_delete_pending_aggregation_request_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }

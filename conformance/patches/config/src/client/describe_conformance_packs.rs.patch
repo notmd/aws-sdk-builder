@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeConformancePacksError>`](crate::operation::describe_conformance_packs::DescribeConformancePacksError)
 -    pub fn describe_conformance_packs(&self) -> crate::operation::describe_conformance_packs::builders::DescribeConformancePacksFluentBuilder {
 -        crate::operation::describe_conformance_packs::builders::DescribeConformancePacksFluentBuilder::new(self.handle.clone())
-+    pub fn describe_conformance_packs(&self) -> super::operation::describe_conformance_packs::builders::DescribeConformancePacksFluentBuilder {
-+        super::operation::describe_conformance_packs::builders::DescribeConformancePacksFluentBuilder::new(self.handle.clone())
++    pub fn describe_conformance_packs(&self) -> super::super::operation::describe_conformance_packs::builders::DescribeConformancePacksFluentBuilder {
++        super::super::operation::describe_conformance_packs::builders::DescribeConformancePacksFluentBuilder::new(self.handle.clone())
      }
  }

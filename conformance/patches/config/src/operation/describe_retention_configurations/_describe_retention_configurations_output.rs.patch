@@ -5,7 +5,7 @@
  pub struct DescribeRetentionConfigurationsOutput {
      /// <p>Returns a retention configuration object.</p>
 -    pub retention_configurations: ::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>>,
-+    pub retention_configurations: ::std::option::Option<::std::vec::Vec<super::types::RetentionConfiguration>>,
++    pub retention_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::RetentionConfiguration>>,
      /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.retention_configurations.is_none()`.
 -    pub fn retention_configurations(&self) -> &[crate::types::RetentionConfiguration] {
-+    pub fn retention_configurations(&self) -> &[super::types::RetentionConfiguration] {
++    pub fn retention_configurations(&self) -> &[super::super::super::types::RetentionConfiguration] {
          self.retention_configurations.as_deref().unwrap_or_default()
      }
      /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeRetentionConfigurationsOutput`](crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput).
 -    pub fn builder() -> crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsOutputBuilder {
 -        crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsOutputBuilder {
-+        super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsOutputBuilder {
++        super::super::super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeRetentionConfigurationsOutputBuilder {
 -    pub(crate) retention_configurations: ::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>>,
-+    pub(crate) retention_configurations: ::std::option::Option<::std::vec::Vec<super::types::RetentionConfiguration>>,
++    pub(crate) retention_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::RetentionConfiguration>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>Returns a retention configuration object.</p>
 -    pub fn retention_configurations(mut self, input: crate::types::RetentionConfiguration) -> Self {
-+    pub fn retention_configurations(mut self, input: super::types::RetentionConfiguration) -> Self {
++    pub fn retention_configurations(mut self, input: super::super::super::types::RetentionConfiguration) -> Self {
          let mut v = self.retention_configurations.unwrap_or_default();
          v.push(input);
          self.retention_configurations = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>Returns a retention configuration object.</p>
 -    pub fn set_retention_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>>) -> Self {
-+    pub fn set_retention_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::RetentionConfiguration>>) -> Self {
++    pub fn set_retention_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RetentionConfiguration>>) -> Self {
          self.retention_configurations = input;
          self
      }
      /// <p>Returns a retention configuration object.</p>
 -    pub fn get_retention_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>> {
-+    pub fn get_retention_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::RetentionConfiguration>> {
++    pub fn get_retention_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::RetentionConfiguration>> {
          &self.retention_configurations
      }
      /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeRetentionConfigurationsOutput`](crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput).
 -    pub fn build(self) -> crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput {
 -        crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput {
-+    pub fn build(self) -> super::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput {
-+        super::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput {
++    pub fn build(self) -> super::super::super::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput {
++        super::super::super::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput {
              retention_configurations: self.retention_configurations,
              next_token: self.next_token,
              _request_id: self._request_id,

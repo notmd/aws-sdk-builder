@@ -5,7 +5,7 @@
  pub fn ser_create_alias_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::create_alias::CreateAliasInput,
-+    input: &super::operation::create_alias::CreateAliasInput,
++    input: &super::super::operation::create_alias::CreateAliasInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.description {
          object.key("Description").string(var_1.as_str());
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_5 = object.key("RoutingConfig").start_object();
 -        crate::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_5, var_4)?;
-+        super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_5, var_4)?;
          object_5.finish();
      }
      Ok(())

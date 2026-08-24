@@ -5,12 +5,12 @@
  pub struct BulkEmailContent {
      /// <p>The template to use for the bulk email message.</p>
 -    pub template: ::std::option::Option<crate::types::Template>,
-+    pub template: ::std::option::Option<super::types::Template>,
++    pub template: ::std::option::Option<super::super::types::Template>,
  }
  impl BulkEmailContent {
      /// <p>The template to use for the bulk email message.</p>
 -    pub fn template(&self) -> ::std::option::Option<&crate::types::Template> {
-+    pub fn template(&self) -> ::std::option::Option<&super::types::Template> {
++    pub fn template(&self) -> ::std::option::Option<&super::super::types::Template> {
          self.template.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`BulkEmailContent`](crate::types::BulkEmailContent).
 -    pub fn builder() -> crate::types::builders::BulkEmailContentBuilder {
 -        crate::types::builders::BulkEmailContentBuilder::default()
-+    pub fn builder() -> super::types::builders::BulkEmailContentBuilder {
-+        super::types::builders::BulkEmailContentBuilder::default()
++    pub fn builder() -> super::super::types::builders::BulkEmailContentBuilder {
++        super::super::types::builders::BulkEmailContentBuilder::default()
      }
  }
 
@@ -28,30 +28,30 @@
  #[non_exhaustive]
  pub struct BulkEmailContentBuilder {
 -    pub(crate) template: ::std::option::Option<crate::types::Template>,
-+    pub(crate) template: ::std::option::Option<super::types::Template>,
++    pub(crate) template: ::std::option::Option<super::super::types::Template>,
  }
  impl BulkEmailContentBuilder {
      /// <p>The template to use for the bulk email message.</p>
 -    pub fn template(mut self, input: crate::types::Template) -> Self {
-+    pub fn template(mut self, input: super::types::Template) -> Self {
++    pub fn template(mut self, input: super::super::types::Template) -> Self {
          self.template = ::std::option::Option::Some(input);
          self
      }
      /// <p>The template to use for the bulk email message.</p>
 -    pub fn set_template(mut self, input: ::std::option::Option<crate::types::Template>) -> Self {
-+    pub fn set_template(mut self, input: ::std::option::Option<super::types::Template>) -> Self {
++    pub fn set_template(mut self, input: ::std::option::Option<super::super::types::Template>) -> Self {
          self.template = input;
          self
      }
      /// <p>The template to use for the bulk email message.</p>
 -    pub fn get_template(&self) -> &::std::option::Option<crate::types::Template> {
-+    pub fn get_template(&self) -> &::std::option::Option<super::types::Template> {
++    pub fn get_template(&self) -> &::std::option::Option<super::super::types::Template> {
          &self.template
      }
      /// Consumes the builder and constructs a [`BulkEmailContent`](crate::types::BulkEmailContent).
 -    pub fn build(self) -> crate::types::BulkEmailContent {
 -        crate::types::BulkEmailContent { template: self.template }
-+    pub fn build(self) -> super::types::BulkEmailContent {
-+        super::types::BulkEmailContent { template: self.template }
++    pub fn build(self) -> super::super::types::BulkEmailContent {
++        super::super::types::BulkEmailContent { template: self.template }
      }
  }

@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for CustomKeyStoreNotFoundException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::CustomKeyStoreNotFoundException {
-+impl ::aws_types::request_id::RequestId for super::types::error::CustomKeyStoreNotFoundException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::CustomKeyStoreNotFoundException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`CustomKeyStoreNotFoundException`](crate::types::error::CustomKeyStoreNotFoundException).
 -    pub fn builder() -> crate::types::error::builders::CustomKeyStoreNotFoundExceptionBuilder {
 -        crate::types::error::builders::CustomKeyStoreNotFoundExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::CustomKeyStoreNotFoundExceptionBuilder {
-+        super::types::error::builders::CustomKeyStoreNotFoundExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::CustomKeyStoreNotFoundExceptionBuilder {
++        super::super::super::types::error::builders::CustomKeyStoreNotFoundExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`CustomKeyStoreNotFoundException`](crate::types::error::CustomKeyStoreNotFoundException).
 -    pub fn build(self) -> crate::types::error::CustomKeyStoreNotFoundException {
 -        crate::types::error::CustomKeyStoreNotFoundException {
-+    pub fn build(self) -> super::types::error::CustomKeyStoreNotFoundException {
-+        super::types::error::CustomKeyStoreNotFoundException {
++    pub fn build(self) -> super::super::super::types::error::CustomKeyStoreNotFoundException {
++        super::super::super::types::error::CustomKeyStoreNotFoundException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

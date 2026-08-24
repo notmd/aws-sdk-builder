@@ -5,7 +5,7 @@
  pub fn ser_guardrail_checks_content_filter_category_config(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::GuardrailChecksContentFilterCategoryConfig,
-+    input: &super::types::GuardrailChecksContentFilterCategoryConfig,
++    input: &super::super::types::GuardrailChecksContentFilterCategoryConfig,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("category").string(input.category.as_str());

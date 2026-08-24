@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteDeliveryDestinationPolicyOutput`](crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyOutput).
 -    pub fn builder() -> crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyOutputBuilder {
 -        crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyOutputBuilder {
-+        super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyOutputBuilder {
++        super::super::super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteDeliveryDestinationPolicyOutput`](crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyOutput).
 -    pub fn build(self) -> crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyOutput {
 -        crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyOutput {
-+    pub fn build(self) -> super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyOutput {
-+        super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyOutput {
++        super::super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyOutput {
              _request_id: self._request_id,
          }
      }

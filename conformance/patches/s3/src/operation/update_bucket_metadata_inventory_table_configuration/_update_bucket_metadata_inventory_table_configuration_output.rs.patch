@@ -5,7 +5,7 @@
      _request_id: Option<String>,
  }
 -impl crate::s3_request_id::RequestIdExt for UpdateBucketMetadataInventoryTableConfigurationOutput {
-+impl super::s3_request_id::RequestIdExt for UpdateBucketMetadataInventoryTableConfigurationOutput {
++impl super::super::super::s3_request_id::RequestIdExt for UpdateBucketMetadataInventoryTableConfigurationOutput {
      fn extended_request_id(&self) -> Option<&str> {
          self._extended_request_id.as_deref()
      }
@@ -14,10 +14,10 @@
      /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataInventoryTableConfigurationOutput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput).
      pub fn builder(
 -    ) -> crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder
-+    ) -> super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder
++    ) -> super::super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder
      {
 -        crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder::default()
-+        super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder::default()
++        super::super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder::default()
      }
  }
 
@@ -27,8 +27,8 @@
          self,
 -    ) -> crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
 -        crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
-+    ) -> super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
-+        super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
++    ) -> super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
++        super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
              _extended_request_id: self._extended_request_id,
              _request_id: self._request_id,
          }

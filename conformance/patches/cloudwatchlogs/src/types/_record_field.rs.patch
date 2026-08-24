@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RecordField`](crate::types::RecordField).
 -    pub fn builder() -> crate::types::builders::RecordFieldBuilder {
 -        crate::types::builders::RecordFieldBuilder::default()
-+    pub fn builder() -> super::types::builders::RecordFieldBuilder {
-+        super::types::builders::RecordFieldBuilder::default()
++    pub fn builder() -> super::super::types::builders::RecordFieldBuilder {
++        super::super::types::builders::RecordFieldBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`RecordField`](crate::types::RecordField).
 -    pub fn build(self) -> crate::types::RecordField {
 -        crate::types::RecordField {
-+    pub fn build(self) -> super::types::RecordField {
-+        super::types::RecordField {
++    pub fn build(self) -> super::super::types::RecordField {
++        super::super::types::RecordField {
              name: self.name,
              mandatory: self.mandatory,
          }

@@ -6,18 +6,18 @@
  ) -> std::result::Result<
 -    crate::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput,
 -    crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
-+    super::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput,
-+    super::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
++    super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput,
++    super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::get_access_key_last_used::GetAccessKeyLastUsedError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
 -    Err(crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::generic(generic))
-+    Err(super::operation::get_access_key_last_used::GetAccessKeyLastUsedError::generic(generic))
++    Err(super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedError::generic(generic))
  }
 
  #[allow(clippy::unnecessary_wraps)]
@@ -27,17 +27,17 @@
  ) -> std::result::Result<
 -    crate::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput,
 -    crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
-+    super::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput,
-+    super::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
++    super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput,
++    super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder::default();
 -        output = crate::protocol_serde::shape_get_access_key_last_used::de_get_access_key_last_used(_response_body, output)
 -            .map_err(crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::unhandled)?;
-+        let mut output = super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder::default();
-+        output = super::protocol_serde::shape_get_access_key_last_used::de_get_access_key_last_used(_response_body, output)
-+            .map_err(super::operation::get_access_key_last_used::GetAccessKeyLastUsedError::unhandled)?;
++        let mut output = super::super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder::default();
++        output = super::super::protocol_serde::shape_get_access_key_last_used::de_get_access_key_last_used(_response_body, output)
++            .map_err(super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -46,10 +46,10 @@
  pub fn de_get_access_key_last_used(
      inp: &[u8],
 -    mut builder: crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder,
-+    mut builder: super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder,
++    mut builder: super::super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder,
-+    super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder,
++    super::super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -58,7 +58,7 @@
                  let var_2 =
                      Some(
 -                        crate::protocol_serde::shape_access_key_last_used::de_access_key_last_used(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_access_key_last_used::de_access_key_last_used(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_access_key_last_used::de_access_key_last_used(&mut tag, depth + 1)
                          ?
                      )
                  ;

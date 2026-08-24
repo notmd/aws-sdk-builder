@@ -6,39 +6,39 @@
  ) -> std::result::Result<
 -    crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput,
 -    crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError,
-+    super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput,
-+    super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError,
++    super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput,
++    super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled(generic)),
-+        None => return Err(super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled(generic)),
++        None => return Err(super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
          "ConcurrentModificationException" => {
 -            crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::ConcurrentModificationException({
-+            super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::ConcurrentModificationException({
++            super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::ConcurrentModificationException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
-+                    let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
++                    let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
-+                    .map_err(super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
++                    .map_err(super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -47,16 +47,16 @@
              })
          }
 -        "InternalErrorException" => crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::InternalErrorException({
-+        "InternalErrorException" => super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::InternalErrorException({
++        "InternalErrorException" => super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::InternalErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -65,16 +65,16 @@
              tmp
          }),
 -        "InvalidParameterException" => crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::InvalidParameterException({
-+        "InvalidParameterException" => super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::InvalidParameterException({
++        "InvalidParameterException" => super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::InvalidParameterException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -83,16 +83,16 @@
              tmp
          }),
 -        "NotAuthorizedException" => crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::NotAuthorizedException({
-+        "NotAuthorizedException" => super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::NotAuthorizedException({
++        "NotAuthorizedException" => super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::NotAuthorizedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
-+                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -101,19 +101,19 @@
          }),
          "OperationNotEnabledException" => {
 -            crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::OperationNotEnabledException({
-+            super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::OperationNotEnabledException({
++            super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::OperationNotEnabledException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-+                    let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
++                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
-+                    .map_err(super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
++                    .map_err(super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -122,16 +122,16 @@
              })
          }
 -        "ResourceNotFoundException" => crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::ResourceNotFoundException({
-+        "ResourceNotFoundException" => super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::ResourceNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
-+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -140,16 +140,16 @@
              tmp
          }),
 -        "TooManyRequestsException" => crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::TooManyRequestsException({
-+        "TooManyRequestsException" => super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::TooManyRequestsException({
++        "TooManyRequestsException" => super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::TooManyRequestsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
-+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
++                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -158,7 +158,7 @@
              tmp
          }),
 -        _ => crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::generic(generic),
-+        _ => super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::generic(generic),
++        _ => super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::generic(generic),
      })
  }
 
@@ -168,13 +168,13 @@
  ) -> std::result::Result<
 -    crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput,
 -    crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError,
-+    super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput,
-+    super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError,
++    super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput,
++    super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingOutputBuilder::default();
-+        let mut output = super::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingOutputBuilder::default();
++        let mut output = super::super::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -183,12 +183,12 @@
 
  pub fn ser_delete_managed_login_branding_input(
 -    input: &crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput,
-+    input: &super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput,
++    input: &super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_delete_managed_login_branding_input::ser_delete_managed_login_branding_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_delete_managed_login_branding_input::ser_delete_managed_login_branding_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_delete_managed_login_branding_input::ser_delete_managed_login_branding_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }

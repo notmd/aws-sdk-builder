@@ -5,7 +5,7 @@
  pub struct InventoryTableConfigurationResult {
      /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
 -    pub configuration_state: crate::types::InventoryConfigurationState,
-+    pub configuration_state: super::types::InventoryConfigurationState,
++    pub configuration_state: super::super::types::InventoryConfigurationState,
      /// <p>The status of the inventory table. The status values are:</p>
      /// <ul>
      /// <li>
@@ -14,7 +14,7 @@
      /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
      /// </note>
 -    pub error: ::std::option::Option<crate::types::ErrorDetails>,
-+    pub error: ::std::option::Option<super::types::ErrorDetails>,
++    pub error: ::std::option::Option<super::super::types::ErrorDetails>,
      /// <p>The name of the inventory table.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
      /// <p>The Amazon Resource Name (ARN) for the inventory table.</p>
@@ -23,7 +23,7 @@
  impl InventoryTableConfigurationResult {
      /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
 -    pub fn configuration_state(&self) -> &crate::types::InventoryConfigurationState {
-+    pub fn configuration_state(&self) -> &super::types::InventoryConfigurationState {
++    pub fn configuration_state(&self) -> &super::super::types::InventoryConfigurationState {
          &self.configuration_state
      }
      /// <p>The status of the inventory table. The status values are:</p>
@@ -32,7 +32,7 @@
      /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
      /// </note>
 -    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorDetails> {
-+    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorDetails> {
++    pub fn error(&self) -> ::std::option::Option<&super::super::types::ErrorDetails> {
          self.error.as_ref()
      }
      /// <p>The name of the inventory table.</p>
@@ -42,8 +42,8 @@
      /// Creates a new builder-style object to manufacture [`InventoryTableConfigurationResult`](crate::types::InventoryTableConfigurationResult).
 -    pub fn builder() -> crate::types::builders::InventoryTableConfigurationResultBuilder {
 -        crate::types::builders::InventoryTableConfigurationResultBuilder::default()
-+    pub fn builder() -> super::types::builders::InventoryTableConfigurationResultBuilder {
-+        super::types::builders::InventoryTableConfigurationResultBuilder::default()
++    pub fn builder() -> super::super::types::builders::InventoryTableConfigurationResultBuilder {
++        super::super::types::builders::InventoryTableConfigurationResultBuilder::default()
      }
  }
 
@@ -52,10 +52,10 @@
  #[non_exhaustive]
  pub struct InventoryTableConfigurationResultBuilder {
 -    pub(crate) configuration_state: ::std::option::Option<crate::types::InventoryConfigurationState>,
-+    pub(crate) configuration_state: ::std::option::Option<super::types::InventoryConfigurationState>,
++    pub(crate) configuration_state: ::std::option::Option<super::super::types::InventoryConfigurationState>,
      pub(crate) table_status: ::std::option::Option<::std::string::String>,
 -    pub(crate) error: ::std::option::Option<crate::types::ErrorDetails>,
-+    pub(crate) error: ::std::option::Option<super::types::ErrorDetails>,
++    pub(crate) error: ::std::option::Option<super::super::types::ErrorDetails>,
      pub(crate) table_name: ::std::option::Option<::std::string::String>,
      pub(crate) table_arn: ::std::option::Option<::std::string::String>,
  }
@@ -64,19 +64,19 @@
      /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
      /// This field is required.
 -    pub fn configuration_state(mut self, input: crate::types::InventoryConfigurationState) -> Self {
-+    pub fn configuration_state(mut self, input: super::types::InventoryConfigurationState) -> Self {
++    pub fn configuration_state(mut self, input: super::super::types::InventoryConfigurationState) -> Self {
          self.configuration_state = ::std::option::Option::Some(input);
          self
      }
      /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
 -    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::InventoryConfigurationState>) -> Self {
-+    pub fn set_configuration_state(mut self, input: ::std::option::Option<super::types::InventoryConfigurationState>) -> Self {
++    pub fn set_configuration_state(mut self, input: ::std::option::Option<super::super::types::InventoryConfigurationState>) -> Self {
          self.configuration_state = input;
          self
      }
      /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
 -    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::InventoryConfigurationState> {
-+    pub fn get_configuration_state(&self) -> &::std::option::Option<super::types::InventoryConfigurationState> {
++    pub fn get_configuration_state(&self) -> &::std::option::Option<super::super::types::InventoryConfigurationState> {
          &self.configuration_state
      }
      /// <p>The status of the inventory table. The status values are:</p>
@@ -85,7 +85,7 @@
      /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
      /// </note>
 -    pub fn error(mut self, input: crate::types::ErrorDetails) -> Self {
-+    pub fn error(mut self, input: super::types::ErrorDetails) -> Self {
++    pub fn error(mut self, input: super::super::types::ErrorDetails) -> Self {
          self.error = ::std::option::Option::Some(input);
          self
      }
@@ -94,7 +94,7 @@
      /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
      /// </note>
 -    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
-+    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorDetails>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::super::types::ErrorDetails>) -> Self {
          self.error = input;
          self
      }
@@ -103,7 +103,7 @@
      /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
      /// </note>
 -    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
-+    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorDetails> {
++    pub fn get_error(&self) -> &::std::option::Option<super::super::types::ErrorDetails> {
          &self.error
      }
      /// <p>The name of the inventory table.</p>
@@ -113,8 +113,8 @@
      /// - [`configuration_state`](crate::types::builders::InventoryTableConfigurationResultBuilder::configuration_state)
 -    pub fn build(self) -> ::std::result::Result<crate::types::InventoryTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::InventoryTableConfigurationResult {
-+    pub fn build(self) -> ::std::result::Result<super::types::InventoryTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::InventoryTableConfigurationResult {
++    pub fn build(self) -> ::std::result::Result<super::super::types::InventoryTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::InventoryTableConfigurationResult {
              configuration_state: self.configuration_state.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "configuration_state",

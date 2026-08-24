@@ -5,11 +5,11 @@
      pub guardrail_version: ::std::string::String,
      /// <p>The trace behavior for the guardrail.</p>
 -    pub trace: crate::types::GuardrailTrace,
-+    pub trace: super::types::GuardrailTrace,
++    pub trace: super::super::types::GuardrailTrace,
      /// <p>The processing mode.</p>
      /// <p>The processing mode. For more information, see <i>Configure streaming response behavior</i> in the <i>Amazon Bedrock User Guide</i>.</p>
 -    pub stream_processing_mode: crate::types::GuardrailStreamProcessingMode,
-+    pub stream_processing_mode: super::types::GuardrailStreamProcessingMode,
++    pub stream_processing_mode: super::super::types::GuardrailStreamProcessingMode,
  }
  impl GuardrailStreamConfiguration {
      /// <p>The identifier for the guardrail.</p>
@@ -18,13 +18,13 @@
      }
      /// <p>The trace behavior for the guardrail.</p>
 -    pub fn trace(&self) -> &crate::types::GuardrailTrace {
-+    pub fn trace(&self) -> &super::types::GuardrailTrace {
++    pub fn trace(&self) -> &super::super::types::GuardrailTrace {
          &self.trace
      }
      /// <p>The processing mode.</p>
      /// <p>The processing mode. For more information, see <i>Configure streaming response behavior</i> in the <i>Amazon Bedrock User Guide</i>.</p>
 -    pub fn stream_processing_mode(&self) -> &crate::types::GuardrailStreamProcessingMode {
-+    pub fn stream_processing_mode(&self) -> &super::types::GuardrailStreamProcessingMode {
++    pub fn stream_processing_mode(&self) -> &super::super::types::GuardrailStreamProcessingMode {
          &self.stream_processing_mode
      }
  }
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailStreamConfiguration`](crate::types::GuardrailStreamConfiguration).
 -    pub fn builder() -> crate::types::builders::GuardrailStreamConfigurationBuilder {
 -        crate::types::builders::GuardrailStreamConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailStreamConfigurationBuilder {
-+        super::types::builders::GuardrailStreamConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailStreamConfigurationBuilder {
++        super::super::types::builders::GuardrailStreamConfigurationBuilder::default()
      }
  }
 
@@ -43,8 +43,8 @@
      pub(crate) guardrail_version: ::std::option::Option<::std::string::String>,
 -    pub(crate) trace: ::std::option::Option<crate::types::GuardrailTrace>,
 -    pub(crate) stream_processing_mode: ::std::option::Option<crate::types::GuardrailStreamProcessingMode>,
-+    pub(crate) trace: ::std::option::Option<super::types::GuardrailTrace>,
-+    pub(crate) stream_processing_mode: ::std::option::Option<super::types::GuardrailStreamProcessingMode>,
++    pub(crate) trace: ::std::option::Option<super::super::types::GuardrailTrace>,
++    pub(crate) stream_processing_mode: ::std::option::Option<super::super::types::GuardrailStreamProcessingMode>,
  }
  impl GuardrailStreamConfigurationBuilder {
      /// <p>The identifier for the guardrail.</p>
@@ -53,58 +53,58 @@
      }
      /// <p>The trace behavior for the guardrail.</p>
 -    pub fn trace(mut self, input: crate::types::GuardrailTrace) -> Self {
-+    pub fn trace(mut self, input: super::types::GuardrailTrace) -> Self {
++    pub fn trace(mut self, input: super::super::types::GuardrailTrace) -> Self {
          self.trace = ::std::option::Option::Some(input);
          self
      }
      /// <p>The trace behavior for the guardrail.</p>
 -    pub fn set_trace(mut self, input: ::std::option::Option<crate::types::GuardrailTrace>) -> Self {
-+    pub fn set_trace(mut self, input: ::std::option::Option<super::types::GuardrailTrace>) -> Self {
++    pub fn set_trace(mut self, input: ::std::option::Option<super::super::types::GuardrailTrace>) -> Self {
          self.trace = input;
          self
      }
      /// <p>The trace behavior for the guardrail.</p>
 -    pub fn get_trace(&self) -> &::std::option::Option<crate::types::GuardrailTrace> {
-+    pub fn get_trace(&self) -> &::std::option::Option<super::types::GuardrailTrace> {
++    pub fn get_trace(&self) -> &::std::option::Option<super::super::types::GuardrailTrace> {
          &self.trace
      }
      /// <p>The processing mode.</p>
      /// <p>The processing mode. For more information, see <i>Configure streaming response behavior</i> in the <i>Amazon Bedrock User Guide</i>.</p>
 -    pub fn stream_processing_mode(mut self, input: crate::types::GuardrailStreamProcessingMode) -> Self {
-+    pub fn stream_processing_mode(mut self, input: super::types::GuardrailStreamProcessingMode) -> Self {
++    pub fn stream_processing_mode(mut self, input: super::super::types::GuardrailStreamProcessingMode) -> Self {
          self.stream_processing_mode = ::std::option::Option::Some(input);
          self
      }
      /// <p>The processing mode.</p>
      /// <p>The processing mode. For more information, see <i>Configure streaming response behavior</i> in the <i>Amazon Bedrock User Guide</i>.</p>
 -    pub fn set_stream_processing_mode(mut self, input: ::std::option::Option<crate::types::GuardrailStreamProcessingMode>) -> Self {
-+    pub fn set_stream_processing_mode(mut self, input: ::std::option::Option<super::types::GuardrailStreamProcessingMode>) -> Self {
++    pub fn set_stream_processing_mode(mut self, input: ::std::option::Option<super::super::types::GuardrailStreamProcessingMode>) -> Self {
          self.stream_processing_mode = input;
          self
      }
      /// <p>The processing mode.</p>
      /// <p>The processing mode. For more information, see <i>Configure streaming response behavior</i> in the <i>Amazon Bedrock User Guide</i>.</p>
 -    pub fn get_stream_processing_mode(&self) -> &::std::option::Option<crate::types::GuardrailStreamProcessingMode> {
-+    pub fn get_stream_processing_mode(&self) -> &::std::option::Option<super::types::GuardrailStreamProcessingMode> {
++    pub fn get_stream_processing_mode(&self) -> &::std::option::Option<super::super::types::GuardrailStreamProcessingMode> {
          &self.stream_processing_mode
      }
      /// Consumes the builder and constructs a [`GuardrailStreamConfiguration`](crate::types::GuardrailStreamConfiguration).
 -    pub fn build(self) -> crate::types::GuardrailStreamConfiguration {
 -        crate::types::GuardrailStreamConfiguration {
-+    pub fn build(self) -> super::types::GuardrailStreamConfiguration {
-+        super::types::GuardrailStreamConfiguration {
++    pub fn build(self) -> super::super::types::GuardrailStreamConfiguration {
++        super::super::types::GuardrailStreamConfiguration {
              guardrail_identifier: self.guardrail_identifier.unwrap_or_default(),
              guardrail_version: self.guardrail_version.unwrap_or_default(),
              trace: self.trace.unwrap_or(
                  "disabled"
 -                    .parse::<crate::types::GuardrailTrace>()
-+                    .parse::<super::types::GuardrailTrace>()
++                    .parse::<super::super::types::GuardrailTrace>()
                      .expect("static value validated to member"),
              ),
              stream_processing_mode: self.stream_processing_mode.unwrap_or(
                  "sync"
 -                    .parse::<crate::types::GuardrailStreamProcessingMode>()
-+                    .parse::<super::types::GuardrailStreamProcessingMode>()
++                    .parse::<super::super::types::GuardrailStreamProcessingMode>()
                      .expect("static value validated to member"),
              ),
          }

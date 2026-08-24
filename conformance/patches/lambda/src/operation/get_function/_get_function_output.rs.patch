@@ -5,29 +5,29 @@
  pub struct GetFunctionOutput {
      /// <p>The configuration of the function or version.</p>
 -    pub configuration: ::std::option::Option<crate::types::FunctionConfiguration>,
-+    pub configuration: ::std::option::Option<super::types::FunctionConfiguration>,
++    pub configuration: ::std::option::Option<super::super::super::types::FunctionConfiguration>,
      /// <p>The deployment package of the function or version.</p>
 -    pub code: ::std::option::Option<crate::types::FunctionCodeLocation>,
-+    pub code: ::std::option::Option<super::types::FunctionCodeLocation>,
++    pub code: ::std::option::Option<super::super::super::types::FunctionCodeLocation>,
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. Lambda returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
      pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      /// <p>An object that contains details about an error related to retrieving tags.</p>
 -    pub tags_error: ::std::option::Option<crate::types::TagsError>,
-+    pub tags_error: ::std::option::Option<super::types::TagsError>,
++    pub tags_error: ::std::option::Option<super::super::super::types::TagsError>,
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
 -    pub concurrency: ::std::option::Option<crate::types::Concurrency>,
-+    pub concurrency: ::std::option::Option<super::types::Concurrency>,
++    pub concurrency: ::std::option::Option<super::super::super::types::Concurrency>,
      _request_id: Option<String>,
  }
  impl GetFunctionOutput {
      /// <p>The configuration of the function or version.</p>
 -    pub fn configuration(&self) -> ::std::option::Option<&crate::types::FunctionConfiguration> {
-+    pub fn configuration(&self) -> ::std::option::Option<&super::types::FunctionConfiguration> {
++    pub fn configuration(&self) -> ::std::option::Option<&super::super::super::types::FunctionConfiguration> {
          self.configuration.as_ref()
      }
      /// <p>The deployment package of the function or version.</p>
 -    pub fn code(&self) -> ::std::option::Option<&crate::types::FunctionCodeLocation> {
-+    pub fn code(&self) -> ::std::option::Option<&super::types::FunctionCodeLocation> {
++    pub fn code(&self) -> ::std::option::Option<&super::super::super::types::FunctionCodeLocation> {
          self.code.as_ref()
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. Lambda returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
@@ -36,12 +36,12 @@
      }
      /// <p>An object that contains details about an error related to retrieving tags.</p>
 -    pub fn tags_error(&self) -> ::std::option::Option<&crate::types::TagsError> {
-+    pub fn tags_error(&self) -> ::std::option::Option<&super::types::TagsError> {
++    pub fn tags_error(&self) -> ::std::option::Option<&super::super::super::types::TagsError> {
          self.tags_error.as_ref()
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
 -    pub fn concurrency(&self) -> ::std::option::Option<&crate::types::Concurrency> {
-+    pub fn concurrency(&self) -> ::std::option::Option<&super::types::Concurrency> {
++    pub fn concurrency(&self) -> ::std::option::Option<&super::super::super::types::Concurrency> {
          self.concurrency.as_ref()
      }
  }
@@ -51,8 +51,8 @@
      /// Creates a new builder-style object to manufacture [`GetFunctionOutput`](crate::operation::get_function::GetFunctionOutput).
 -    pub fn builder() -> crate::operation::get_function::builders::GetFunctionOutputBuilder {
 -        crate::operation::get_function::builders::GetFunctionOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_function::builders::GetFunctionOutputBuilder {
-+        super::operation::get_function::builders::GetFunctionOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_function::builders::GetFunctionOutputBuilder {
++        super::super::super::operation::get_function::builders::GetFunctionOutputBuilder::default()
      }
  }
 
@@ -62,48 +62,48 @@
  pub struct GetFunctionOutputBuilder {
 -    pub(crate) configuration: ::std::option::Option<crate::types::FunctionConfiguration>,
 -    pub(crate) code: ::std::option::Option<crate::types::FunctionCodeLocation>,
-+    pub(crate) configuration: ::std::option::Option<super::types::FunctionConfiguration>,
-+    pub(crate) code: ::std::option::Option<super::types::FunctionCodeLocation>,
++    pub(crate) configuration: ::std::option::Option<super::super::super::types::FunctionConfiguration>,
++    pub(crate) code: ::std::option::Option<super::super::super::types::FunctionCodeLocation>,
      pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) tags_error: ::std::option::Option<crate::types::TagsError>,
 -    pub(crate) concurrency: ::std::option::Option<crate::types::Concurrency>,
-+    pub(crate) tags_error: ::std::option::Option<super::types::TagsError>,
-+    pub(crate) concurrency: ::std::option::Option<super::types::Concurrency>,
++    pub(crate) tags_error: ::std::option::Option<super::super::super::types::TagsError>,
++    pub(crate) concurrency: ::std::option::Option<super::super::super::types::Concurrency>,
      _request_id: Option<String>,
  }
  impl GetFunctionOutputBuilder {
      /// <p>The configuration of the function or version.</p>
 -    pub fn configuration(mut self, input: crate::types::FunctionConfiguration) -> Self {
-+    pub fn configuration(mut self, input: super::types::FunctionConfiguration) -> Self {
++    pub fn configuration(mut self, input: super::super::super::types::FunctionConfiguration) -> Self {
          self.configuration = ::std::option::Option::Some(input);
          self
      }
      /// <p>The configuration of the function or version.</p>
 -    pub fn set_configuration(mut self, input: ::std::option::Option<crate::types::FunctionConfiguration>) -> Self {
-+    pub fn set_configuration(mut self, input: ::std::option::Option<super::types::FunctionConfiguration>) -> Self {
++    pub fn set_configuration(mut self, input: ::std::option::Option<super::super::super::types::FunctionConfiguration>) -> Self {
          self.configuration = input;
          self
      }
      /// <p>The configuration of the function or version.</p>
 -    pub fn get_configuration(&self) -> &::std::option::Option<crate::types::FunctionConfiguration> {
-+    pub fn get_configuration(&self) -> &::std::option::Option<super::types::FunctionConfiguration> {
++    pub fn get_configuration(&self) -> &::std::option::Option<super::super::super::types::FunctionConfiguration> {
          &self.configuration
      }
      /// <p>The deployment package of the function or version.</p>
 -    pub fn code(mut self, input: crate::types::FunctionCodeLocation) -> Self {
-+    pub fn code(mut self, input: super::types::FunctionCodeLocation) -> Self {
++    pub fn code(mut self, input: super::super::super::types::FunctionCodeLocation) -> Self {
          self.code = ::std::option::Option::Some(input);
          self
      }
      /// <p>The deployment package of the function or version.</p>
 -    pub fn set_code(mut self, input: ::std::option::Option<crate::types::FunctionCodeLocation>) -> Self {
-+    pub fn set_code(mut self, input: ::std::option::Option<super::types::FunctionCodeLocation>) -> Self {
++    pub fn set_code(mut self, input: ::std::option::Option<super::super::super::types::FunctionCodeLocation>) -> Self {
          self.code = input;
          self
      }
      /// <p>The deployment package of the function or version.</p>
 -    pub fn get_code(&self) -> &::std::option::Option<crate::types::FunctionCodeLocation> {
-+    pub fn get_code(&self) -> &::std::option::Option<super::types::FunctionCodeLocation> {
++    pub fn get_code(&self) -> &::std::option::Option<super::super::super::types::FunctionCodeLocation> {
          &self.code
      }
      /// Adds a key-value pair to `tags`.
@@ -112,36 +112,36 @@
      }
      /// <p>An object that contains details about an error related to retrieving tags.</p>
 -    pub fn tags_error(mut self, input: crate::types::TagsError) -> Self {
-+    pub fn tags_error(mut self, input: super::types::TagsError) -> Self {
++    pub fn tags_error(mut self, input: super::super::super::types::TagsError) -> Self {
          self.tags_error = ::std::option::Option::Some(input);
          self
      }
      /// <p>An object that contains details about an error related to retrieving tags.</p>
 -    pub fn set_tags_error(mut self, input: ::std::option::Option<crate::types::TagsError>) -> Self {
-+    pub fn set_tags_error(mut self, input: ::std::option::Option<super::types::TagsError>) -> Self {
++    pub fn set_tags_error(mut self, input: ::std::option::Option<super::super::super::types::TagsError>) -> Self {
          self.tags_error = input;
          self
      }
      /// <p>An object that contains details about an error related to retrieving tags.</p>
 -    pub fn get_tags_error(&self) -> &::std::option::Option<crate::types::TagsError> {
-+    pub fn get_tags_error(&self) -> &::std::option::Option<super::types::TagsError> {
++    pub fn get_tags_error(&self) -> &::std::option::Option<super::super::super::types::TagsError> {
          &self.tags_error
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
 -    pub fn concurrency(mut self, input: crate::types::Concurrency) -> Self {
-+    pub fn concurrency(mut self, input: super::types::Concurrency) -> Self {
++    pub fn concurrency(mut self, input: super::super::super::types::Concurrency) -> Self {
          self.concurrency = ::std::option::Option::Some(input);
          self
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
 -    pub fn set_concurrency(mut self, input: ::std::option::Option<crate::types::Concurrency>) -> Self {
-+    pub fn set_concurrency(mut self, input: ::std::option::Option<super::types::Concurrency>) -> Self {
++    pub fn set_concurrency(mut self, input: ::std::option::Option<super::super::super::types::Concurrency>) -> Self {
          self.concurrency = input;
          self
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
 -    pub fn get_concurrency(&self) -> &::std::option::Option<crate::types::Concurrency> {
-+    pub fn get_concurrency(&self) -> &::std::option::Option<super::types::Concurrency> {
++    pub fn get_concurrency(&self) -> &::std::option::Option<super::super::super::types::Concurrency> {
          &self.concurrency
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -151,8 +151,8 @@
      /// Consumes the builder and constructs a [`GetFunctionOutput`](crate::operation::get_function::GetFunctionOutput).
 -    pub fn build(self) -> crate::operation::get_function::GetFunctionOutput {
 -        crate::operation::get_function::GetFunctionOutput {
-+    pub fn build(self) -> super::operation::get_function::GetFunctionOutput {
-+        super::operation::get_function::GetFunctionOutput {
++    pub fn build(self) -> super::super::super::operation::get_function::GetFunctionOutput {
++        super::super::super::operation::get_function::GetFunctionOutput {
              configuration: self.configuration,
              code: self.code,
              tags: self.tags,

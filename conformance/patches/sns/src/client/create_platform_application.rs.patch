@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreatePlatformApplicationError>`](crate::operation::create_platform_application::CreatePlatformApplicationError)
 -    pub fn create_platform_application(&self) -> crate::operation::create_platform_application::builders::CreatePlatformApplicationFluentBuilder {
 -        crate::operation::create_platform_application::builders::CreatePlatformApplicationFluentBuilder::new(self.handle.clone())
-+    pub fn create_platform_application(&self) -> super::operation::create_platform_application::builders::CreatePlatformApplicationFluentBuilder {
-+        super::operation::create_platform_application::builders::CreatePlatformApplicationFluentBuilder::new(self.handle.clone())
++    pub fn create_platform_application(&self) -> super::super::operation::create_platform_application::builders::CreatePlatformApplicationFluentBuilder {
++        super::super::operation::create_platform_application::builders::CreatePlatformApplicationFluentBuilder::new(self.handle.clone())
      }
  }

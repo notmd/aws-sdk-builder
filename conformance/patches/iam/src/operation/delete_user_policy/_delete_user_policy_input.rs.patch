@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteUserPolicyInput`](crate::operation::delete_user_policy::DeleteUserPolicyInput).
 -    pub fn builder() -> crate::operation::delete_user_policy::builders::DeleteUserPolicyInputBuilder {
 -        crate::operation::delete_user_policy::builders::DeleteUserPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_user_policy::builders::DeleteUserPolicyInputBuilder {
-+        super::operation::delete_user_policy::builders::DeleteUserPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_user_policy::builders::DeleteUserPolicyInputBuilder {
++        super::super::super::operation::delete_user_policy::builders::DeleteUserPolicyInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_user_policy::DeleteUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::delete_user_policy::DeleteUserPolicyInput {
-+    ) -> ::std::result::Result<super::operation::delete_user_policy::DeleteUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::delete_user_policy::DeleteUserPolicyInput {
++    ) -> ::std::result::Result<super::super::super::operation::delete_user_policy::DeleteUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::delete_user_policy::DeleteUserPolicyInput {
              user_name: self.user_name,
              policy_name: self.policy_name,
          })

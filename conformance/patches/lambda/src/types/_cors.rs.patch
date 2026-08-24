@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Cors`](crate::types::Cors).
 -    pub fn builder() -> crate::types::builders::CorsBuilder {
 -        crate::types::builders::CorsBuilder::default()
-+    pub fn builder() -> super::types::builders::CorsBuilder {
-+        super::types::builders::CorsBuilder::default()
++    pub fn builder() -> super::super::types::builders::CorsBuilder {
++        super::super::types::builders::CorsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Cors`](crate::types::Cors).
 -    pub fn build(self) -> crate::types::Cors {
 -        crate::types::Cors {
-+    pub fn build(self) -> super::types::Cors {
-+        super::types::Cors {
++    pub fn build(self) -> super::super::types::Cors {
++        super::super::types::Cors {
              allow_credentials: self.allow_credentials,
              allow_headers: self.allow_headers,
              allow_methods: self.allow_methods,

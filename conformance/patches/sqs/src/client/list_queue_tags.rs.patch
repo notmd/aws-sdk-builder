@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListQueueTagsError>`](crate::operation::list_queue_tags::ListQueueTagsError)
 -    pub fn list_queue_tags(&self) -> crate::operation::list_queue_tags::builders::ListQueueTagsFluentBuilder {
 -        crate::operation::list_queue_tags::builders::ListQueueTagsFluentBuilder::new(self.handle.clone())
-+    pub fn list_queue_tags(&self) -> super::operation::list_queue_tags::builders::ListQueueTagsFluentBuilder {
-+        super::operation::list_queue_tags::builders::ListQueueTagsFluentBuilder::new(self.handle.clone())
++    pub fn list_queue_tags(&self) -> super::super::operation::list_queue_tags::builders::ListQueueTagsFluentBuilder {
++        super::super::operation::list_queue_tags::builders::ListQueueTagsFluentBuilder::new(self.handle.clone())
      }
  }

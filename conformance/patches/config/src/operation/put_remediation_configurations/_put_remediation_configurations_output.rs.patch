@@ -5,7 +5,7 @@
  pub struct PutRemediationConfigurationsOutput {
      /// <p>Returns a list of failed remediation batch objects.</p>
 -    pub failed_batches: ::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>>,
-+    pub failed_batches: ::std::option::Option<::std::vec::Vec<super::types::FailedRemediationBatch>>,
++    pub failed_batches: ::std::option::Option<::std::vec::Vec<super::super::super::types::FailedRemediationBatch>>,
      _request_id: Option<String>,
  }
  impl PutRemediationConfigurationsOutput {
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.failed_batches.is_none()`.
 -    pub fn failed_batches(&self) -> &[crate::types::FailedRemediationBatch] {
-+    pub fn failed_batches(&self) -> &[super::types::FailedRemediationBatch] {
++    pub fn failed_batches(&self) -> &[super::super::super::types::FailedRemediationBatch] {
          self.failed_batches.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`PutRemediationConfigurationsOutput`](crate::operation::put_remediation_configurations::PutRemediationConfigurationsOutput).
 -    pub fn builder() -> crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsOutputBuilder {
 -        crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_remediation_configurations::builders::PutRemediationConfigurationsOutputBuilder {
-+        super::operation::put_remediation_configurations::builders::PutRemediationConfigurationsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_remediation_configurations::builders::PutRemediationConfigurationsOutputBuilder {
++        super::super::super::operation::put_remediation_configurations::builders::PutRemediationConfigurationsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct PutRemediationConfigurationsOutputBuilder {
 -    pub(crate) failed_batches: ::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>>,
-+    pub(crate) failed_batches: ::std::option::Option<::std::vec::Vec<super::types::FailedRemediationBatch>>,
++    pub(crate) failed_batches: ::std::option::Option<::std::vec::Vec<super::super::super::types::FailedRemediationBatch>>,
      _request_id: Option<String>,
  }
  impl PutRemediationConfigurationsOutputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>Returns a list of failed remediation batch objects.</p>
 -    pub fn failed_batches(mut self, input: crate::types::FailedRemediationBatch) -> Self {
-+    pub fn failed_batches(mut self, input: super::types::FailedRemediationBatch) -> Self {
++    pub fn failed_batches(mut self, input: super::super::super::types::FailedRemediationBatch) -> Self {
          let mut v = self.failed_batches.unwrap_or_default();
          v.push(input);
          self.failed_batches = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>Returns a list of failed remediation batch objects.</p>
 -    pub fn set_failed_batches(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>>) -> Self {
-+    pub fn set_failed_batches(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FailedRemediationBatch>>) -> Self {
++    pub fn set_failed_batches(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FailedRemediationBatch>>) -> Self {
          self.failed_batches = input;
          self
      }
      /// <p>Returns a list of failed remediation batch objects.</p>
 -    pub fn get_failed_batches(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>> {
-+    pub fn get_failed_batches(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FailedRemediationBatch>> {
++    pub fn get_failed_batches(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FailedRemediationBatch>> {
          &self.failed_batches
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`PutRemediationConfigurationsOutput`](crate::operation::put_remediation_configurations::PutRemediationConfigurationsOutput).
 -    pub fn build(self) -> crate::operation::put_remediation_configurations::PutRemediationConfigurationsOutput {
 -        crate::operation::put_remediation_configurations::PutRemediationConfigurationsOutput {
-+    pub fn build(self) -> super::operation::put_remediation_configurations::PutRemediationConfigurationsOutput {
-+        super::operation::put_remediation_configurations::PutRemediationConfigurationsOutput {
++    pub fn build(self) -> super::super::super::operation::put_remediation_configurations::PutRemediationConfigurationsOutput {
++        super::super::super::operation::put_remediation_configurations::PutRemediationConfigurationsOutput {
              failed_batches: self.failed_batches,
              _request_id: self._request_id,
          }

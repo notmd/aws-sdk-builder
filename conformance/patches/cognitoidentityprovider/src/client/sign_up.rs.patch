@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SignUpError>`](crate::operation::sign_up::SignUpError)
 -    pub fn sign_up(&self) -> crate::operation::sign_up::builders::SignUpFluentBuilder {
 -        crate::operation::sign_up::builders::SignUpFluentBuilder::new(self.handle.clone())
-+    pub fn sign_up(&self) -> super::operation::sign_up::builders::SignUpFluentBuilder {
-+        super::operation::sign_up::builders::SignUpFluentBuilder::new(self.handle.clone())
++    pub fn sign_up(&self) -> super::super::operation::sign_up::builders::SignUpFluentBuilder {
++        super::super::operation::sign_up::builders::SignUpFluentBuilder::new(self.handle.clone())
      }
  }

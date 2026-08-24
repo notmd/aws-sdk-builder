@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpstreamRepository`](crate::types::UpstreamRepository).
 -    pub fn builder() -> crate::types::builders::UpstreamRepositoryBuilder {
 -        crate::types::builders::UpstreamRepositoryBuilder::default()
-+    pub fn builder() -> super::types::builders::UpstreamRepositoryBuilder {
-+        super::types::builders::UpstreamRepositoryBuilder::default()
++    pub fn builder() -> super::super::types::builders::UpstreamRepositoryBuilder {
++        super::super::types::builders::UpstreamRepositoryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`repository_name`](crate::types::builders::UpstreamRepositoryBuilder::repository_name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::UpstreamRepository, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::UpstreamRepository {
-+    pub fn build(self) -> ::std::result::Result<super::types::UpstreamRepository, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::UpstreamRepository {
++    pub fn build(self) -> ::std::result::Result<super::super::types::UpstreamRepository, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::UpstreamRepository {
              repository_name: self.repository_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "repository_name",

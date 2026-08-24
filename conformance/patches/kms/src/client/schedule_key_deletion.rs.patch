@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ScheduleKeyDeletionError>`](crate::operation::schedule_key_deletion::ScheduleKeyDeletionError)
 -    pub fn schedule_key_deletion(&self) -> crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionFluentBuilder {
 -        crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionFluentBuilder::new(self.handle.clone())
-+    pub fn schedule_key_deletion(&self) -> super::operation::schedule_key_deletion::builders::ScheduleKeyDeletionFluentBuilder {
-+        super::operation::schedule_key_deletion::builders::ScheduleKeyDeletionFluentBuilder::new(self.handle.clone())
++    pub fn schedule_key_deletion(&self) -> super::super::operation::schedule_key_deletion::builders::ScheduleKeyDeletionFluentBuilder {
++        super::super::operation::schedule_key_deletion::builders::ScheduleKeyDeletionFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::GuardrailWordPolicyAssessment>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::GuardrailWordPolicyAssessment>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::GuardrailWordPolicyAssessment>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::GuardrailWordPolicyAssessmentBuilder::default();
-+            let mut builder = super::types::builders::GuardrailWordPolicyAssessmentBuilder::default();
++            let mut builder = super::super::types::builders::GuardrailWordPolicyAssessmentBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,13 +23,13 @@
                          "customWords" => {
                              builder = builder.set_custom_words(
 -                                crate::protocol_serde::shape_guardrail_custom_word_list::de_guardrail_custom_word_list(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_guardrail_custom_word_list::de_guardrail_custom_word_list(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_guardrail_custom_word_list::de_guardrail_custom_word_list(tokens, _value, depth + 1)?,
                              );
                          }
                          "managedWordLists" => {
                              builder = builder.set_managed_word_lists(
 -                                crate::protocol_serde::shape_guardrail_managed_word_list::de_guardrail_managed_word_list(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_guardrail_managed_word_list::de_guardrail_managed_word_list(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_guardrail_managed_word_list::de_guardrail_managed_word_list(tokens, _value, depth + 1)?,
                              );
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -38,7 +38,7 @@
              }
              Ok(Some(
 -                crate::serde_util::guardrail_word_policy_assessment_correct_errors(builder)
-+                super::serde_util::guardrail_word_policy_assessment_correct_errors(builder)
++                super::super::serde_util::guardrail_word_policy_assessment_correct_errors(builder)
                      .build()
                      .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))

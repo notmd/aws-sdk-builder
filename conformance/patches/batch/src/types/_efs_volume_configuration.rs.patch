@@ -5,12 +5,12 @@
      pub root_directory: ::std::option::Option<::std::string::String>,
      /// <p>Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of <code>DISABLED</code> is used. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting data in transit</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
 -    pub transit_encryption: ::std::option::Option<crate::types::EfsTransitEncryption>,
-+    pub transit_encryption: ::std::option::Option<super::types::EfsTransitEncryption>,
++    pub transit_encryption: ::std::option::Option<super::super::types::EfsTransitEncryption>,
      /// <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server. If you don't specify a transit encryption port, it uses the port selection strategy that the Amazon EFS mount helper uses. The value must be between 0 and 65,535. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html">EFS mount helper</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
      pub transit_encryption_port: ::std::option::Option<i32>,
      /// <p>The authorization configuration details for the Amazon EFS file system.</p>
 -    pub authorization_config: ::std::option::Option<crate::types::EfsAuthorizationConfig>,
-+    pub authorization_config: ::std::option::Option<super::types::EfsAuthorizationConfig>,
++    pub authorization_config: ::std::option::Option<super::super::types::EfsAuthorizationConfig>,
  }
  impl EfsVolumeConfiguration {
      /// <p>The Amazon EFS file system ID to use.</p>
@@ -19,7 +19,7 @@
      }
      /// <p>Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of <code>DISABLED</code> is used. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting data in transit</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
 -    pub fn transit_encryption(&self) -> ::std::option::Option<&crate::types::EfsTransitEncryption> {
-+    pub fn transit_encryption(&self) -> ::std::option::Option<&super::types::EfsTransitEncryption> {
++    pub fn transit_encryption(&self) -> ::std::option::Option<&super::super::types::EfsTransitEncryption> {
          self.transit_encryption.as_ref()
      }
      /// <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server. If you don't specify a transit encryption port, it uses the port selection strategy that the Amazon EFS mount helper uses. The value must be between 0 and 65,535. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html">EFS mount helper</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
@@ -28,7 +28,7 @@
      }
      /// <p>The authorization configuration details for the Amazon EFS file system.</p>
 -    pub fn authorization_config(&self) -> ::std::option::Option<&crate::types::EfsAuthorizationConfig> {
-+    pub fn authorization_config(&self) -> ::std::option::Option<&super::types::EfsAuthorizationConfig> {
++    pub fn authorization_config(&self) -> ::std::option::Option<&super::super::types::EfsAuthorizationConfig> {
          self.authorization_config.as_ref()
      }
  }
@@ -36,8 +36,8 @@
      /// Creates a new builder-style object to manufacture [`EfsVolumeConfiguration`](crate::types::EfsVolumeConfiguration).
 -    pub fn builder() -> crate::types::builders::EfsVolumeConfigurationBuilder {
 -        crate::types::builders::EfsVolumeConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::EfsVolumeConfigurationBuilder {
-+        super::types::builders::EfsVolumeConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::EfsVolumeConfigurationBuilder {
++        super::super::types::builders::EfsVolumeConfigurationBuilder::default()
      }
  }
 
@@ -46,10 +46,10 @@
      pub(crate) file_system_id: ::std::option::Option<::std::string::String>,
      pub(crate) root_directory: ::std::option::Option<::std::string::String>,
 -    pub(crate) transit_encryption: ::std::option::Option<crate::types::EfsTransitEncryption>,
-+    pub(crate) transit_encryption: ::std::option::Option<super::types::EfsTransitEncryption>,
++    pub(crate) transit_encryption: ::std::option::Option<super::super::types::EfsTransitEncryption>,
      pub(crate) transit_encryption_port: ::std::option::Option<i32>,
 -    pub(crate) authorization_config: ::std::option::Option<crate::types::EfsAuthorizationConfig>,
-+    pub(crate) authorization_config: ::std::option::Option<super::types::EfsAuthorizationConfig>,
++    pub(crate) authorization_config: ::std::option::Option<super::super::types::EfsAuthorizationConfig>,
  }
  impl EfsVolumeConfigurationBuilder {
      /// <p>The Amazon EFS file system ID to use.</p>
@@ -58,19 +58,19 @@
      }
      /// <p>Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of <code>DISABLED</code> is used. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting data in transit</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
 -    pub fn transit_encryption(mut self, input: crate::types::EfsTransitEncryption) -> Self {
-+    pub fn transit_encryption(mut self, input: super::types::EfsTransitEncryption) -> Self {
++    pub fn transit_encryption(mut self, input: super::super::types::EfsTransitEncryption) -> Self {
          self.transit_encryption = ::std::option::Option::Some(input);
          self
      }
      /// <p>Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of <code>DISABLED</code> is used. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting data in transit</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
 -    pub fn set_transit_encryption(mut self, input: ::std::option::Option<crate::types::EfsTransitEncryption>) -> Self {
-+    pub fn set_transit_encryption(mut self, input: ::std::option::Option<super::types::EfsTransitEncryption>) -> Self {
++    pub fn set_transit_encryption(mut self, input: ::std::option::Option<super::super::types::EfsTransitEncryption>) -> Self {
          self.transit_encryption = input;
          self
      }
      /// <p>Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of <code>DISABLED</code> is used. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting data in transit</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
 -    pub fn get_transit_encryption(&self) -> &::std::option::Option<crate::types::EfsTransitEncryption> {
-+    pub fn get_transit_encryption(&self) -> &::std::option::Option<super::types::EfsTransitEncryption> {
++    pub fn get_transit_encryption(&self) -> &::std::option::Option<super::super::types::EfsTransitEncryption> {
          &self.transit_encryption
      }
      /// <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server. If you don't specify a transit encryption port, it uses the port selection strategy that the Amazon EFS mount helper uses. The value must be between 0 and 65,535. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html">EFS mount helper</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
@@ -79,26 +79,26 @@
      }
      /// <p>The authorization configuration details for the Amazon EFS file system.</p>
 -    pub fn authorization_config(mut self, input: crate::types::EfsAuthorizationConfig) -> Self {
-+    pub fn authorization_config(mut self, input: super::types::EfsAuthorizationConfig) -> Self {
++    pub fn authorization_config(mut self, input: super::super::types::EfsAuthorizationConfig) -> Self {
          self.authorization_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The authorization configuration details for the Amazon EFS file system.</p>
 -    pub fn set_authorization_config(mut self, input: ::std::option::Option<crate::types::EfsAuthorizationConfig>) -> Self {
-+    pub fn set_authorization_config(mut self, input: ::std::option::Option<super::types::EfsAuthorizationConfig>) -> Self {
++    pub fn set_authorization_config(mut self, input: ::std::option::Option<super::super::types::EfsAuthorizationConfig>) -> Self {
          self.authorization_config = input;
          self
      }
      /// <p>The authorization configuration details for the Amazon EFS file system.</p>
 -    pub fn get_authorization_config(&self) -> &::std::option::Option<crate::types::EfsAuthorizationConfig> {
-+    pub fn get_authorization_config(&self) -> &::std::option::Option<super::types::EfsAuthorizationConfig> {
++    pub fn get_authorization_config(&self) -> &::std::option::Option<super::super::types::EfsAuthorizationConfig> {
          &self.authorization_config
      }
      /// Consumes the builder and constructs a [`EfsVolumeConfiguration`](crate::types::EfsVolumeConfiguration).
 -    pub fn build(self) -> crate::types::EfsVolumeConfiguration {
 -        crate::types::EfsVolumeConfiguration {
-+    pub fn build(self) -> super::types::EfsVolumeConfiguration {
-+        super::types::EfsVolumeConfiguration {
++    pub fn build(self) -> super::super::types::EfsVolumeConfiguration {
++        super::super::types::EfsVolumeConfiguration {
              file_system_id: self.file_system_id,
              root_directory: self.root_directory,
              transit_encryption: self.transit_encryption,

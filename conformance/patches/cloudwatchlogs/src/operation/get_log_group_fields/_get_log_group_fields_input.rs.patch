@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetLogGroupFieldsInput`](crate::operation::get_log_group_fields::GetLogGroupFieldsInput).
 -    pub fn builder() -> crate::operation::get_log_group_fields::builders::GetLogGroupFieldsInputBuilder {
 -        crate::operation::get_log_group_fields::builders::GetLogGroupFieldsInputBuilder::default()
-+    pub fn builder() -> super::operation::get_log_group_fields::builders::GetLogGroupFieldsInputBuilder {
-+        super::operation::get_log_group_fields::builders::GetLogGroupFieldsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_log_group_fields::builders::GetLogGroupFieldsInputBuilder {
++        super::super::super::operation::get_log_group_fields::builders::GetLogGroupFieldsInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_log_group_fields::GetLogGroupFieldsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_log_group_fields::GetLogGroupFieldsInput {
-+    ) -> ::std::result::Result<super::operation::get_log_group_fields::GetLogGroupFieldsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_log_group_fields::GetLogGroupFieldsInput {
++    ) -> ::std::result::Result<super::super::super::operation::get_log_group_fields::GetLogGroupFieldsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_log_group_fields::GetLogGroupFieldsInput {
              log_group_name: self.log_group_name,
              time: self.time,
              log_group_identifier: self.log_group_identifier,

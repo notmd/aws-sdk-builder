@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SimplePrefix`](crate::types::SimplePrefix).
 -    pub fn builder() -> crate::types::builders::SimplePrefixBuilder {
 -        crate::types::builders::SimplePrefixBuilder::default()
-+    pub fn builder() -> super::types::builders::SimplePrefixBuilder {
-+        super::types::builders::SimplePrefixBuilder::default()
++    pub fn builder() -> super::super::types::builders::SimplePrefixBuilder {
++        super::super::types::builders::SimplePrefixBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`SimplePrefix`](crate::types::SimplePrefix).
 -    pub fn build(self) -> crate::types::SimplePrefix {
 -        crate::types::SimplePrefix {}
-+    pub fn build(self) -> super::types::SimplePrefix {
-+        super::types::SimplePrefix {}
++    pub fn build(self) -> super::super::types::SimplePrefix {
++        super::super::types::SimplePrefix {}
      }
  }

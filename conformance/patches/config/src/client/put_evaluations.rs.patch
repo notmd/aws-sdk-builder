@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutEvaluationsError>`](crate::operation::put_evaluations::PutEvaluationsError)
 -    pub fn put_evaluations(&self) -> crate::operation::put_evaluations::builders::PutEvaluationsFluentBuilder {
 -        crate::operation::put_evaluations::builders::PutEvaluationsFluentBuilder::new(self.handle.clone())
-+    pub fn put_evaluations(&self) -> super::operation::put_evaluations::builders::PutEvaluationsFluentBuilder {
-+        super::operation::put_evaluations::builders::PutEvaluationsFluentBuilder::new(self.handle.clone())
++    pub fn put_evaluations(&self) -> super::super::operation::put_evaluations::builders::PutEvaluationsFluentBuilder {
++        super::super::operation::put_evaluations::builders::PutEvaluationsFluentBuilder::new(self.handle.clone())
      }
  }

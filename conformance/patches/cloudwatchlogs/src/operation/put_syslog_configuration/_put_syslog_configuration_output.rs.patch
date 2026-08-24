@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutSyslogConfigurationOutput`](crate::operation::put_syslog_configuration::PutSyslogConfigurationOutput).
 -    pub fn builder() -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder {
 -        crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder {
-+        super::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder {
++        super::super::super::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutSyslogConfigurationOutput`](crate::operation::put_syslog_configuration::PutSyslogConfigurationOutput).
 -    pub fn build(self) -> crate::operation::put_syslog_configuration::PutSyslogConfigurationOutput {
 -        crate::operation::put_syslog_configuration::PutSyslogConfigurationOutput {
-+    pub fn build(self) -> super::operation::put_syslog_configuration::PutSyslogConfigurationOutput {
-+        super::operation::put_syslog_configuration::PutSyslogConfigurationOutput {
++    pub fn build(self) -> super::super::super::operation::put_syslog_configuration::PutSyslogConfigurationOutput {
++        super::super::super::operation::put_syslog_configuration::PutSyslogConfigurationOutput {
              _request_id: self._request_id,
          }
      }

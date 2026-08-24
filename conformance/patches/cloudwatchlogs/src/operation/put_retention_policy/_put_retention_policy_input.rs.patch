@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutRetentionPolicyInput`](crate::operation::put_retention_policy::PutRetentionPolicyInput).
 -    pub fn builder() -> crate::operation::put_retention_policy::builders::PutRetentionPolicyInputBuilder {
 -        crate::operation::put_retention_policy::builders::PutRetentionPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::put_retention_policy::builders::PutRetentionPolicyInputBuilder {
-+        super::operation::put_retention_policy::builders::PutRetentionPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_retention_policy::builders::PutRetentionPolicyInputBuilder {
++        super::super::super::operation::put_retention_policy::builders::PutRetentionPolicyInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::put_retention_policy::PutRetentionPolicyInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::put_retention_policy::PutRetentionPolicyInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::put_retention_policy::PutRetentionPolicyInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::put_retention_policy::PutRetentionPolicyInput {
-+        ::std::result::Result::Ok(super::operation::put_retention_policy::PutRetentionPolicyInput {
++        ::std::result::Result::Ok(super::super::super::operation::put_retention_policy::PutRetentionPolicyInput {
              log_group_name: self.log_group_name,
              retention_in_days: self.retention_in_days,
          })

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetScheduledQueryHistoryError>`](crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryError)
 -    pub fn get_scheduled_query_history(&self) -> crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryFluentBuilder {
 -        crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryFluentBuilder::new(self.handle.clone())
-+    pub fn get_scheduled_query_history(&self) -> super::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryFluentBuilder {
-+        super::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryFluentBuilder::new(self.handle.clone())
++    pub fn get_scheduled_query_history(&self) -> super::super::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryFluentBuilder {
++        super::super::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryFluentBuilder::new(self.handle.clone())
      }
  }

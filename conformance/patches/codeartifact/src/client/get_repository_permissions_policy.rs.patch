@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyFluentBuilder {
 -        crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyFluentBuilder {
-+        super::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyFluentBuilder {
++        super::super::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutDedicatedIpWarmupAttributesInput`](crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput).
 -    pub fn builder() -> crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder {
 -        crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder::default()
-+    pub fn builder() -> super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder {
-+        super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder {
++        super::super::super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput,
-+        super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput,
++        super::super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput {
-+            super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput {
++            super::super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput {
                  ip: self.ip,
                  warmup_percentage: self.warmup_percentage,
              },

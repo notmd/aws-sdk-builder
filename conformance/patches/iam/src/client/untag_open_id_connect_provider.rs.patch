@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::untag_open_id_connect_provider::builders::UntagOpenIDConnectProviderFluentBuilder {
 -        crate::operation::untag_open_id_connect_provider::builders::UntagOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::untag_open_id_connect_provider::builders::UntagOpenIDConnectProviderFluentBuilder {
-+        super::operation::untag_open_id_connect_provider::builders::UntagOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::untag_open_id_connect_provider::builders::UntagOpenIDConnectProviderFluentBuilder {
++        super::super::operation::untag_open_id_connect_provider::builders::UntagOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder {
 -        crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder {
-+        super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder {
++        super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder::new(self.handle.clone())
      }
  }

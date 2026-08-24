@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::Import>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::Import>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::Import>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::ImportBuilder::default();
-+            let mut builder = super::types::builders::ImportBuilder::default();
++            let mut builder = super::super::types::builders::ImportBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                              builder = builder.set_import_status(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::ImportStatus::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::ImportStatus::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::ImportStatus::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -32,7 +32,7 @@
                          }
                          "importStatistics" => {
 -                            builder = builder.set_import_statistics(crate::protocol_serde::shape_import_statistics::de_import_statistics(
-+                            builder = builder.set_import_statistics(super::protocol_serde::shape_import_statistics::de_import_statistics(
++                            builder = builder.set_import_statistics(super::super::protocol_serde::shape_import_statistics::de_import_statistics(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -41,7 +41,7 @@
                          "importFilter" => {
                              builder =
 -                                builder.set_import_filter(crate::protocol_serde::shape_import_filter::de_import_filter(tokens, _value, depth + 1)?);
-+                                builder.set_import_filter(super::protocol_serde::shape_import_filter::de_import_filter(tokens, _value, depth + 1)?);
++                                builder.set_import_filter(super::super::protocol_serde::shape_import_filter::de_import_filter(tokens, _value, depth + 1)?);
                          }
                          "creationTime" => {
                              builder = builder.set_creation_time(

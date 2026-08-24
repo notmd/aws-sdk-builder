@@ -5,7 +5,7 @@
  pub fn ser_message_header(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::MessageHeader,
-+    input: &super::types::MessageHeader,
++    input: &super::super::types::MessageHeader,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("Name").string(input.name.as_str());

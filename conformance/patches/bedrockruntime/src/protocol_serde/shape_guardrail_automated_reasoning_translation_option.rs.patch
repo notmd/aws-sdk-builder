@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::GuardrailAutomatedReasoningTranslationOption>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::GuardrailAutomatedReasoningTranslationOption>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningTranslationOption>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::GuardrailAutomatedReasoningTranslationOptionBuilder::default();
-+            let mut builder = super::types::builders::GuardrailAutomatedReasoningTranslationOptionBuilder::default();
++            let mut builder = super::super::types::builders::GuardrailAutomatedReasoningTranslationOptionBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          "translations" => {
                              builder = builder.set_translations(
 -                                    crate::protocol_serde::shape_guardrail_automated_reasoning_translation_list::de_guardrail_automated_reasoning_translation_list(tokens, _value, depth + 1)?
-+                                    super::protocol_serde::shape_guardrail_automated_reasoning_translation_list::de_guardrail_automated_reasoning_translation_list(tokens, _value, depth + 1)?
++                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_translation_list::de_guardrail_automated_reasoning_translation_list(tokens, _value, depth + 1)?
                                  );
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

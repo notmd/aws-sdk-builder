@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetPackageVersionAssetOutput`](crate::operation::get_package_version_asset::GetPackageVersionAssetOutput).
 -    pub fn builder() -> crate::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder {
 -        crate::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder {
-+        super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder {
++        super::super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetPackageVersionAssetOutput`](crate::operation::get_package_version_asset::GetPackageVersionAssetOutput).
 -    pub fn build(self) -> crate::operation::get_package_version_asset::GetPackageVersionAssetOutput {
 -        crate::operation::get_package_version_asset::GetPackageVersionAssetOutput {
-+    pub fn build(self) -> super::operation::get_package_version_asset::GetPackageVersionAssetOutput {
-+        super::operation::get_package_version_asset::GetPackageVersionAssetOutput {
++    pub fn build(self) -> super::super::super::operation::get_package_version_asset::GetPackageVersionAssetOutput {
++        super::super::super::operation::get_package_version_asset::GetPackageVersionAssetOutput {
              asset: self.asset.unwrap_or_default(),
              asset_name: self.asset_name,
              package_version: self.package_version,

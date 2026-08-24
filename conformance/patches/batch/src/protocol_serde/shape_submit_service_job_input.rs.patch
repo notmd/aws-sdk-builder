@@ -5,7 +5,7 @@
  pub fn ser_submit_service_job_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::submit_service_job::SubmitServiceJobInput,
-+    input: &super::operation::submit_service_job::SubmitServiceJobInput,
++    input: &super::super::operation::submit_service_job::SubmitServiceJobInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.client_token {
          object.key("clientToken").string(var_1.as_str());
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_5 = object.key("preemptionConfiguration").start_object();
 -        crate::protocol_serde::shape_service_job_preemption_configuration::ser_service_job_preemption_configuration(&mut object_5, var_4)?;
-+        super::protocol_serde::shape_service_job_preemption_configuration::ser_service_job_preemption_configuration(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_service_job_preemption_configuration::ser_service_job_preemption_configuration(&mut object_5, var_4)?;
          object_5.finish();
      }
      if let Some(var_6) = &input.quota_share_name {
@@ -23,7 +23,7 @@
          #[allow(unused_mut)]
          let mut object_8 = object.key("retryStrategy").start_object();
 -        crate::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(&mut object_8, var_7)?;
-+        super::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(&mut object_8, var_7)?;
++        super::super::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(&mut object_8, var_7)?;
          object_8.finish();
      }
      if let Some(var_9) = &input.scheduling_priority {
@@ -32,7 +32,7 @@
          #[allow(unused_mut)]
          let mut object_18 = object.key("timeoutConfig").start_object();
 -        crate::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(&mut object_18, var_17)?;
-+        super::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(&mut object_18, var_17)?;
++        super::super::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(&mut object_18, var_17)?;
          object_18.finish();
      }
      Ok(())

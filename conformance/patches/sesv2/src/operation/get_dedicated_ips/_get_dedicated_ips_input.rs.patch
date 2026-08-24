@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetDedicatedIpsInput`](crate::operation::get_dedicated_ips::GetDedicatedIpsInput).
 -    pub fn builder() -> crate::operation::get_dedicated_ips::builders::GetDedicatedIpsInputBuilder {
 -        crate::operation::get_dedicated_ips::builders::GetDedicatedIpsInputBuilder::default()
-+    pub fn builder() -> super::operation::get_dedicated_ips::builders::GetDedicatedIpsInputBuilder {
-+        super::operation::get_dedicated_ips::builders::GetDedicatedIpsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_dedicated_ips::builders::GetDedicatedIpsInputBuilder {
++        super::super::super::operation::get_dedicated_ips::builders::GetDedicatedIpsInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_dedicated_ips::GetDedicatedIpsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_dedicated_ips::GetDedicatedIpsInput {
-+    ) -> ::std::result::Result<super::operation::get_dedicated_ips::GetDedicatedIpsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_dedicated_ips::GetDedicatedIpsInput {
++    ) -> ::std::result::Result<super::super::super::operation::get_dedicated_ips::GetDedicatedIpsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_dedicated_ips::GetDedicatedIpsInput {
              pool_name: self.pool_name,
              next_token: self.next_token,
              page_size: self.page_size,

@@ -5,12 +5,12 @@
  pub struct CopyValue {
      /// <p>An array of <code>CopyValueEntry</code> objects, where each object contains the information about one field value to copy.</p>
 -    pub entries: ::std::vec::Vec<crate::types::CopyValueEntry>,
-+    pub entries: ::std::vec::Vec<super::types::CopyValueEntry>,
++    pub entries: ::std::vec::Vec<super::super::types::CopyValueEntry>,
  }
  impl CopyValue {
      /// <p>An array of <code>CopyValueEntry</code> objects, where each object contains the information about one field value to copy.</p>
 -    pub fn entries(&self) -> &[crate::types::CopyValueEntry] {
-+    pub fn entries(&self) -> &[super::types::CopyValueEntry] {
++    pub fn entries(&self) -> &[super::super::types::CopyValueEntry] {
          use std::ops::Deref;
          self.entries.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`CopyValue`](crate::types::CopyValue).
 -    pub fn builder() -> crate::types::builders::CopyValueBuilder {
 -        crate::types::builders::CopyValueBuilder::default()
-+    pub fn builder() -> super::types::builders::CopyValueBuilder {
-+        super::types::builders::CopyValueBuilder::default()
++    pub fn builder() -> super::super::types::builders::CopyValueBuilder {
++        super::super::types::builders::CopyValueBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct CopyValueBuilder {
 -    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::CopyValueEntry>>,
-+    pub(crate) entries: ::std::option::Option<::std::vec::Vec<super::types::CopyValueEntry>>,
++    pub(crate) entries: ::std::option::Option<::std::vec::Vec<super::super::types::CopyValueEntry>>,
  }
  impl CopyValueBuilder {
      /// Appends an item to `entries`.
@@ -39,7 +39,7 @@
      ///
      /// <p>An array of <code>CopyValueEntry</code> objects, where each object contains the information about one field value to copy.</p>
 -    pub fn entries(mut self, input: crate::types::CopyValueEntry) -> Self {
-+    pub fn entries(mut self, input: super::types::CopyValueEntry) -> Self {
++    pub fn entries(mut self, input: super::super::types::CopyValueEntry) -> Self {
          let mut v = self.entries.unwrap_or_default();
          v.push(input);
          self.entries = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>An array of <code>CopyValueEntry</code> objects, where each object contains the information about one field value to copy.</p>
 -    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CopyValueEntry>>) -> Self {
-+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::CopyValueEntry>>) -> Self {
++    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::CopyValueEntry>>) -> Self {
          self.entries = input;
          self
      }
      /// <p>An array of <code>CopyValueEntry</code> objects, where each object contains the information about one field value to copy.</p>
 -    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CopyValueEntry>> {
-+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::types::CopyValueEntry>> {
++    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::CopyValueEntry>> {
          &self.entries
      }
      /// Consumes the builder and constructs a [`CopyValue`](crate::types::CopyValue).
@@ -62,8 +62,8 @@
      /// - [`entries`](crate::types::builders::CopyValueBuilder::entries)
 -    pub fn build(self) -> ::std::result::Result<crate::types::CopyValue, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::CopyValue {
-+    pub fn build(self) -> ::std::result::Result<super::types::CopyValue, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::CopyValue {
++    pub fn build(self) -> ::std::result::Result<super::super::types::CopyValue, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::CopyValue {
              entries: self.entries.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "entries",

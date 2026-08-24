@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateKeyDescriptionError>`](crate::operation::update_key_description::UpdateKeyDescriptionError)
 -    pub fn update_key_description(&self) -> crate::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder {
 -        crate::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder::new(self.handle.clone())
-+    pub fn update_key_description(&self) -> super::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder {
-+        super::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder::new(self.handle.clone())
++    pub fn update_key_description(&self) -> super::super::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder {
++        super::super::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder::new(self.handle.clone())
      }
  }

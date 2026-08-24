@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<StartResourceEvaluationError>`](crate::operation::start_resource_evaluation::StartResourceEvaluationError)
 -    pub fn start_resource_evaluation(&self) -> crate::operation::start_resource_evaluation::builders::StartResourceEvaluationFluentBuilder {
 -        crate::operation::start_resource_evaluation::builders::StartResourceEvaluationFluentBuilder::new(self.handle.clone())
-+    pub fn start_resource_evaluation(&self) -> super::operation::start_resource_evaluation::builders::StartResourceEvaluationFluentBuilder {
-+        super::operation::start_resource_evaluation::builders::StartResourceEvaluationFluentBuilder::new(self.handle.clone())
++    pub fn start_resource_evaluation(&self) -> super::super::operation::start_resource_evaluation::builders::StartResourceEvaluationFluentBuilder {
++        super::super::operation::start_resource_evaluation::builders::StartResourceEvaluationFluentBuilder::new(self.handle.clone())
      }
  }

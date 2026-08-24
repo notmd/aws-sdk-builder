@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`FileSystemConfig`](crate::types::FileSystemConfig).
 -    pub fn builder() -> crate::types::builders::FileSystemConfigBuilder {
 -        crate::types::builders::FileSystemConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::FileSystemConfigBuilder {
-+        super::types::builders::FileSystemConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::FileSystemConfigBuilder {
++        super::super::types::builders::FileSystemConfigBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`local_mount_path`](crate::types::builders::FileSystemConfigBuilder::local_mount_path)
 -    pub fn build(self) -> ::std::result::Result<crate::types::FileSystemConfig, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::FileSystemConfig {
-+    pub fn build(self) -> ::std::result::Result<super::types::FileSystemConfig, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::FileSystemConfig {
++    pub fn build(self) -> ::std::result::Result<super::super::types::FileSystemConfig, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::FileSystemConfig {
              arn: self.arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "arn",

@@ -60,20 +60,33 @@ pub fn patch_path(patches_root: &Path, relative: &Path) -> PathBuf {
 /// upstream Rust file fails the update instead of receiving a textual
 /// best-effort rewrite.
 pub fn normalize_reference_source(source: &str, relative: &Path) -> Result<String, String> {
-    let normalized = normalize_crate_paths(source, relative)?;
+    let depth = module_depth(relative);
+    let normalized = normalize_crate_paths(source, depth)?;
     drop_inline_unit_tests(&normalized, relative)
+}
+
+/// Reference patches are checked out per service, while their storage layout
+/// prefixes every service with its manifest key. The Rust module depth starts
+/// at that service's crate root (`src/lib.rs`), not at the aggregate checkout.
+fn module_depth(relative: &Path) -> usize {
+    let components = relative.components().collect::<Vec<_>>();
+    let has_service_prefix = components
+        .get(1)
+        .is_some_and(|component| component.as_os_str() == "src");
+    let module_components = if has_service_prefix {
+        &components[1..]
+    } else {
+        &components[..]
+    };
+    module_components.len().saturating_sub(1)
 }
 
 /// Rewrite every parsed Rust path rooted at `crate` to the relative `super`
 /// path. This transformation is stored in a checked-in patch and applied to
 /// the reference at comparison time.
-pub fn normalize_crate_paths(source: &str, relative: &Path) -> Result<String, String> {
-    let file = syn::parse_file(source).map_err(|error| {
-        format!(
-            "cannot parse reference Rust source {}: {error}",
-            relative.display()
-        )
-    })?;
+pub fn normalize_crate_paths(source: &str, depth: usize) -> Result<String, String> {
+    let file = syn::parse_file(source)
+        .map_err(|error| format!("cannot parse reference Rust source: {error}"))?;
     let mut visitor = CratePathVisitor::default();
     syn::visit::visit_file(&mut visitor, &file);
     if visitor.spans.is_empty() {
@@ -81,33 +94,88 @@ pub fn normalize_crate_paths(source: &str, relative: &Path) -> Result<String, St
     }
 
     let mut normalized = source.to_owned();
-    let mut ranges = visitor
+    let replacement = std::iter::repeat_n("super", depth)
+        .collect::<Vec<_>>()
+        .join("::");
+    let starts = visitor
         .spans
         .into_iter()
-        .map(|span| -> Result<(usize, usize), String> {
+        .map(|span| -> Result<usize, String> {
             let start = source_offset(source, span.start())?;
-            let end = source_offset(source, span.end())?;
-            Ok((start, end))
+            let bound = start.min(source.len().saturating_sub("crate".len()));
+            let relative = source[bound..bound + "crate".len()]
+                .rfind("crate")
+                .ok_or_else(|| "parsed crate path has no crate token".to_owned())?;
+            let start = bound + relative;
+            if !source[start + "crate".len()..].starts_with("::") {
+                return Err("parsed crate token is not a path".to_owned());
+            }
+            Ok(start)
         })
-        .collect::<Result<Vec<_>, _>>()?;
-    ranges.sort_by_key(|(start, _)| std::cmp::Reverse(*start));
-    ranges.dedup();
-    for (start, _end) in ranges {
-        if source.get(start..start + "crate".len()) != Some("crate") {
-            return Err(format!(
-                "parsed crate path has no crate token in {}",
-                relative.display()
-            ));
-        }
-        normalized.replace_range(start..start + "crate".len(), "super");
+        .collect::<Result<std::collections::BTreeSet<_>, _>>()?;
+    for start in starts.into_iter().rev() {
+        normalized.replace_range(start..start + "crate".len(), &replacement);
     }
-    syn::parse_file(&normalized).map_err(|error| {
-        format!(
-            "normalized reference Rust source {} no longer parses: {error}",
-            relative.display()
-        )
-    })?;
+    syn::parse_file(&normalized)
+        .map_err(|error| format!("normalized reference Rust source no longer parses: {error}"))?;
     Ok(normalized)
+}
+
+/// Prepare a canonical projection for rustfmt without changing token widths.
+///
+/// Canonical composition replaces crate-rooted paths with depth-specific
+/// `super` chains. Those longer-looking chains otherwise receive different
+/// line breaks even though `crate` and `super` occupy the same source width.
+/// Temporarily restoring `crate` keeps formatting aligned with the physical
+/// module layout; `restore_canonical_paths` reverses the substitution after
+/// rustfmt.
+pub fn prepare_canonical_projection(source: &str, relative: &Path) -> Result<String, String> {
+    let depth = canonical_module_depth(relative);
+    let needle = std::iter::repeat_n("super::", depth).collect::<String>();
+    let mut prepared = source.to_owned();
+    let mut start = 0;
+    while let Some(offset) = prepared[start..].find(&needle) {
+        let absolute = start + offset;
+        let end = absolute + needle.len();
+        if !starts_token(&prepared, absolute) || !ends_chain(&prepared, end) {
+            start = absolute + "super".len();
+            continue;
+        }
+        prepared.replace_range(absolute..end, "crate::");
+        start = absolute + "crate::".len();
+    }
+    syn::parse_file(&prepared)
+        .map_err(|error| format!("canonical projection no longer parses: {error}"))?;
+    Ok(prepared)
+}
+
+/// Restore the depth-specific `super` chains removed for rustfmt.
+pub fn restore_canonical_paths(source: &str, relative: &Path) -> Result<String, String> {
+    if relative == Path::new("src/lib.rs") {
+        return Ok(source.to_owned());
+    }
+    normalize_crate_paths(source, canonical_module_depth(relative))
+}
+
+fn canonical_module_depth(relative: &Path) -> usize {
+    relative.components().count().saturating_sub(1).max(1)
+}
+
+fn starts_token(source: &str, start: usize) -> bool {
+    start == 0
+        || !source[..start]
+            .chars()
+            .next_back()
+            .is_some_and(|char| char.is_ascii_alphanumeric() || char == '_' || char == ':')
+}
+
+fn ends_chain(source: &str, end: usize) -> bool {
+    let rest = &source[end..];
+    !rest.starts_with("super::")
+        && !rest
+            .chars()
+            .next()
+            .is_some_and(|char| char.is_ascii_alphanumeric() || char == '_')
 }
 
 /// Remove inline `#[cfg(test)] mod ...` units from a Rust source file.
@@ -266,7 +334,14 @@ fn source_offset(source: &str, location: LineColumn) -> Result<usize, String> {
         .take(line)
         .map(str::len)
         .sum::<usize>();
-    let offset = line_start + location.column;
+    let line_end = source[line_start..]
+        .find('\n')
+        .map_or(source.len(), |offset| line_start + offset);
+    let column = source[line_start..line_end]
+        .char_indices()
+        .nth(location.column)
+        .map_or(line_end - line_start, |(offset, _)| offset);
+    let offset = line_start + column;
     if offset > source.len() || !source.is_char_boundary(offset) {
         Err(format!("invalid parsed source location: {location:?}"))
     } else {
@@ -489,7 +564,7 @@ mod tests {
     #[test]
     fn normalizes_all_crate_paths_with_syn() {
         let source = "use crate::types::Thing;\n\nmod nested {\n    use crate::error::Error;\n    fn value() { let _ = crate::runtime::value(); }\n}\n";
-        let normalized = normalize_crate_paths(source, Path::new("src/lib.rs")).unwrap();
+        let normalized = normalize_crate_paths(source, 1).unwrap();
         assert!(normalized.contains("use super::types::Thing;"));
         assert!(normalized.contains("use super::error::Error;"));
         assert!(normalized.contains("super::runtime::value()"));

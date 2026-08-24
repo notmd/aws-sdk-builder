@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::OpenSearchDataSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::OpenSearchDataSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::OpenSearchDataSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::OpenSearchDataSourceBuilder::default();
-+            let mut builder = super::types::builders::OpenSearchDataSourceBuilder::default();
++            let mut builder = super::super::types::builders::OpenSearchDataSourceBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          }
                          "status" => {
 -                            builder = builder.set_status(crate::protocol_serde::shape_open_search_resource_status::de_open_search_resource_status(
-+                            builder = builder.set_status(super::protocol_serde::shape_open_search_resource_status::de_open_search_resource_status(
++                            builder = builder.set_status(super::super::protocol_serde::shape_open_search_resource_status::de_open_search_resource_status(
                                  tokens,
                                  _value,
                                  depth + 1,

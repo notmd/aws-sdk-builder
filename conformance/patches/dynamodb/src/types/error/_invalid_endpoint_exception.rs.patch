@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for InvalidEndpointException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::InvalidEndpointException {
-+impl ::aws_types::request_id::RequestId for super::types::error::InvalidEndpointException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::InvalidEndpointException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`InvalidEndpointException`](crate::types::error::InvalidEndpointException).
 -    pub fn builder() -> crate::types::error::builders::InvalidEndpointExceptionBuilder {
 -        crate::types::error::builders::InvalidEndpointExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::InvalidEndpointExceptionBuilder {
-+        super::types::error::builders::InvalidEndpointExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::InvalidEndpointExceptionBuilder {
++        super::super::super::types::error::builders::InvalidEndpointExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`InvalidEndpointException`](crate::types::error::InvalidEndpointException).
 -    pub fn build(self) -> crate::types::error::InvalidEndpointException {
 -        crate::types::error::InvalidEndpointException {
-+    pub fn build(self) -> super::types::error::InvalidEndpointException {
-+        super::types::error::InvalidEndpointException {
++    pub fn build(self) -> super::super::super::types::error::InvalidEndpointException {
++        super::super::super::types::error::InvalidEndpointException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

@@ -5,12 +5,12 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
      pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
      /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
 -    pub checksum_mode: ::std::option::Option<crate::types::ChecksumMode>,
-+    pub checksum_mode: ::std::option::Option<super::types::ChecksumMode>,
++    pub checksum_mode: ::std::option::Option<super::super::super::types::ChecksumMode>,
  }
  impl GetObjectAnnotationInput {
      /// <p>The name of the bucket that contains the object.</p>
@@ -19,7 +19,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
-+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
++    pub fn request_payer(&self) -> ::std::option::Option<&super::super::super::types::RequestPayer> {
          self.request_payer.as_ref()
      }
      /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
@@ -28,7 +28,7 @@
      }
      /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
 -    pub fn checksum_mode(&self) -> ::std::option::Option<&crate::types::ChecksumMode> {
-+    pub fn checksum_mode(&self) -> ::std::option::Option<&super::types::ChecksumMode> {
++    pub fn checksum_mode(&self) -> ::std::option::Option<&super::super::super::types::ChecksumMode> {
          self.checksum_mode.as_ref()
      }
  }
@@ -36,8 +36,8 @@
      /// Creates a new builder-style object to manufacture [`GetObjectAnnotationInput`](crate::operation::get_object_annotation::GetObjectAnnotationInput).
 -    pub fn builder() -> crate::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder {
 -        crate::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder::default()
-+    pub fn builder() -> super::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder {
-+        super::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder {
++        super::super::super::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder::default()
      }
  }
 
@@ -46,10 +46,10 @@
      pub(crate) annotation_name: ::std::option::Option<::std::string::String>,
      pub(crate) version_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub(crate) request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
 -    pub(crate) checksum_mode: ::std::option::Option<crate::types::ChecksumMode>,
-+    pub(crate) checksum_mode: ::std::option::Option<super::types::ChecksumMode>,
++    pub(crate) checksum_mode: ::std::option::Option<super::super::super::types::ChecksumMode>,
  }
  impl GetObjectAnnotationInputBuilder {
      /// <p>The name of the bucket that contains the object.</p>
@@ -58,7 +58,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
-+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::super::super::types::RequestPayer) -> Self {
          self.request_payer = ::std::option::Option::Some(input);
          self
      }
@@ -67,7 +67,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
-+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::super::super::types::RequestPayer>) -> Self {
          self.request_payer = input;
          self
      }
@@ -76,7 +76,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
-+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::super::super::types::RequestPayer> {
          &self.request_payer
      }
      /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
@@ -85,29 +85,29 @@
      }
      /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
 -    pub fn checksum_mode(mut self, input: crate::types::ChecksumMode) -> Self {
-+    pub fn checksum_mode(mut self, input: super::types::ChecksumMode) -> Self {
++    pub fn checksum_mode(mut self, input: super::super::super::types::ChecksumMode) -> Self {
          self.checksum_mode = ::std::option::Option::Some(input);
          self
      }
      /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
 -    pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
-+    pub fn set_checksum_mode(mut self, input: ::std::option::Option<super::types::ChecksumMode>) -> Self {
++    pub fn set_checksum_mode(mut self, input: ::std::option::Option<super::super::super::types::ChecksumMode>) -> Self {
          self.checksum_mode = input;
          self
      }
      /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
 -    pub fn get_checksum_mode(&self) -> &::std::option::Option<crate::types::ChecksumMode> {
-+    pub fn get_checksum_mode(&self) -> &::std::option::Option<super::types::ChecksumMode> {
++    pub fn get_checksum_mode(&self) -> &::std::option::Option<super::super::super::types::ChecksumMode> {
          &self.checksum_mode
      }
      /// Consumes the builder and constructs a [`GetObjectAnnotationInput`](crate::operation::get_object_annotation::GetObjectAnnotationInput).
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_object_annotation::GetObjectAnnotationInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_object_annotation::GetObjectAnnotationInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_object_annotation::GetObjectAnnotationInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_object_annotation::GetObjectAnnotationInput {
-+        ::std::result::Result::Ok(super::operation::get_object_annotation::GetObjectAnnotationInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_object_annotation::GetObjectAnnotationInput {
              bucket: self.bucket,
              key: self.key,
              annotation_name: self.annotation_name,

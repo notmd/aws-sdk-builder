@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutKeyPolicyInput`](crate::operation::put_key_policy::PutKeyPolicyInput).
 -    pub fn builder() -> crate::operation::put_key_policy::builders::PutKeyPolicyInputBuilder {
 -        crate::operation::put_key_policy::builders::PutKeyPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::put_key_policy::builders::PutKeyPolicyInputBuilder {
-+        super::operation::put_key_policy::builders::PutKeyPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_key_policy::builders::PutKeyPolicyInputBuilder {
++        super::super::super::operation::put_key_policy::builders::PutKeyPolicyInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::put_key_policy::PutKeyPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::put_key_policy::PutKeyPolicyInput {
-+    ) -> ::std::result::Result<super::operation::put_key_policy::PutKeyPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::put_key_policy::PutKeyPolicyInput {
++    ) -> ::std::result::Result<super::super::super::operation::put_key_policy::PutKeyPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::put_key_policy::PutKeyPolicyInput {
              key_id: self.key_id,
              policy_name: self.policy_name,
              policy: self.policy,

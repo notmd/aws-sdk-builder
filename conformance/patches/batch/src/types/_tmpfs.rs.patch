@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Tmpfs`](crate::types::Tmpfs).
 -    pub fn builder() -> crate::types::builders::TmpfsBuilder {
 -        crate::types::builders::TmpfsBuilder::default()
-+    pub fn builder() -> super::types::builders::TmpfsBuilder {
-+        super::types::builders::TmpfsBuilder::default()
++    pub fn builder() -> super::super::types::builders::TmpfsBuilder {
++        super::super::types::builders::TmpfsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Tmpfs`](crate::types::Tmpfs).
 -    pub fn build(self) -> crate::types::Tmpfs {
 -        crate::types::Tmpfs {
-+    pub fn build(self) -> super::types::Tmpfs {
-+        super::types::Tmpfs {
++    pub fn build(self) -> super::super::types::Tmpfs {
++        super::super::types::Tmpfs {
              container_path: self.container_path,
              size: self.size,
              mount_options: self.mount_options,

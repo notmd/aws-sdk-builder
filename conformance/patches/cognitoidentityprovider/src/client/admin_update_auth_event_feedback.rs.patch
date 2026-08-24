@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackFluentBuilder {
 -        crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackFluentBuilder {
-+        super::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackFluentBuilder {
++        super::super::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackFluentBuilder::new(self.handle.clone())
      }
  }

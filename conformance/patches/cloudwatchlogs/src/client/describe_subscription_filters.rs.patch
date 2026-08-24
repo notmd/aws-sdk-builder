@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersFluentBuilder {
 -        crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersFluentBuilder {
-+        super::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersFluentBuilder {
++        super::super::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersFluentBuilder::new(self.handle.clone())
      }
  }

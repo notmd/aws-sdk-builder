@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for InvalidBatchEntryId {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::InvalidBatchEntryId {
-+impl ::aws_types::request_id::RequestId for super::types::error::InvalidBatchEntryId {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::InvalidBatchEntryId {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`InvalidBatchEntryId`](crate::types::error::InvalidBatchEntryId).
 -    pub fn builder() -> crate::types::error::builders::InvalidBatchEntryIdBuilder {
 -        crate::types::error::builders::InvalidBatchEntryIdBuilder::default()
-+    pub fn builder() -> super::types::error::builders::InvalidBatchEntryIdBuilder {
-+        super::types::error::builders::InvalidBatchEntryIdBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::InvalidBatchEntryIdBuilder {
++        super::super::super::types::error::builders::InvalidBatchEntryIdBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`InvalidBatchEntryId`](crate::types::error::InvalidBatchEntryId).
 -    pub fn build(self) -> crate::types::error::InvalidBatchEntryId {
 -        crate::types::error::InvalidBatchEntryId {
-+    pub fn build(self) -> super::types::error::InvalidBatchEntryId {
-+        super::types::error::InvalidBatchEntryId {
++    pub fn build(self) -> super::super::super::types::error::InvalidBatchEntryId {
++        super::super::super::types::error::InvalidBatchEntryId {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

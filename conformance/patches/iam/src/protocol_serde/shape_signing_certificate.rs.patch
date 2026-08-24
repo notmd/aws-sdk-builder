@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::SigningCertificate, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::SigningCertificate, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::SigningCertificate, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::SigningCertificate::builder();
-+    let mut builder = super::types::SigningCertificate::builder();
++    let mut builder = super::super::types::SigningCertificate::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("UserName") /* UserName com.amazonaws.iam#SigningCertificate$UserName */ =>  {
@@ -21,8 +21,8 @@
                      Some(
 -                        Result::<crate::types::StatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::StatusType::from(
-+                        Result::<super::types::StatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::StatusType::from(
++                        Result::<super::super::types::StatusType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::StatusType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -31,7 +31,7 @@
          }
      }
 -    Ok(crate::serde_util::signing_certificate_correct_errors(builder)
-+    Ok(super::serde_util::signing_certificate_correct_errors(builder)
++    Ok(super::super::serde_util::signing_certificate_correct_errors(builder)
          .build()
          .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
  }

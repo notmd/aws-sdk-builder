@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for NoSuchConformancePackException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::NoSuchConformancePackException {
-+impl ::aws_types::request_id::RequestId for super::types::error::NoSuchConformancePackException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::NoSuchConformancePackException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`NoSuchConformancePackException`](crate::types::error::NoSuchConformancePackException).
 -    pub fn builder() -> crate::types::error::builders::NoSuchConformancePackExceptionBuilder {
 -        crate::types::error::builders::NoSuchConformancePackExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::NoSuchConformancePackExceptionBuilder {
-+        super::types::error::builders::NoSuchConformancePackExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::NoSuchConformancePackExceptionBuilder {
++        super::super::super::types::error::builders::NoSuchConformancePackExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`NoSuchConformancePackException`](crate::types::error::NoSuchConformancePackException).
 -    pub fn build(self) -> crate::types::error::NoSuchConformancePackException {
 -        crate::types::error::NoSuchConformancePackException {
-+    pub fn build(self) -> super::types::error::NoSuchConformancePackException {
-+        super::types::error::NoSuchConformancePackException {
++    pub fn build(self) -> super::super::super::types::error::NoSuchConformancePackException {
++        super::super::super::types::error::NoSuchConformancePackException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

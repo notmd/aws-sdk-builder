@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetTransformerInput`](crate::operation::get_transformer::GetTransformerInput).
 -    pub fn builder() -> crate::operation::get_transformer::builders::GetTransformerInputBuilder {
 -        crate::operation::get_transformer::builders::GetTransformerInputBuilder::default()
-+    pub fn builder() -> super::operation::get_transformer::builders::GetTransformerInputBuilder {
-+        super::operation::get_transformer::builders::GetTransformerInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_transformer::builders::GetTransformerInputBuilder {
++        super::super::super::operation::get_transformer::builders::GetTransformerInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_transformer::GetTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_transformer::GetTransformerInput {
-+    ) -> ::std::result::Result<super::operation::get_transformer::GetTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_transformer::GetTransformerInput {
++    ) -> ::std::result::Result<super::super::super::operation::get_transformer::GetTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_transformer::GetTransformerInput {
              log_group_identifier: self.log_group_identifier,
          })
      }

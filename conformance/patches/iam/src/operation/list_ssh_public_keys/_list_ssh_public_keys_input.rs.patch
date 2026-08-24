@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListSshPublicKeysInput`](crate::operation::list_ssh_public_keys::ListSshPublicKeysInput).
 -    pub fn builder() -> crate::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder {
 -        crate::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder::default()
-+    pub fn builder() -> super::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder {
-+        super::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder {
++        super::super::super::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::list_ssh_public_keys::ListSshPublicKeysInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_ssh_public_keys::ListSshPublicKeysInput {
-+    ) -> ::std::result::Result<super::operation::list_ssh_public_keys::ListSshPublicKeysInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_ssh_public_keys::ListSshPublicKeysInput {
++    ) -> ::std::result::Result<super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysInput {
              user_name: self.user_name,
              marker: self.marker,
              max_items: self.max_items,

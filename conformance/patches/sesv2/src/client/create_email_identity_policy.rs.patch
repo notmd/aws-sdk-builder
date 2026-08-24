@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateEmailIdentityPolicyError>`](crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError)
 -    pub fn create_email_identity_policy(&self) -> crate::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder {
 -        crate::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn create_email_identity_policy(&self) -> super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder {
-+        super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder::new(self.handle.clone())
++    pub fn create_email_identity_policy(&self) -> super::super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder {
++        super::super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder::new(self.handle.clone())
      }
  }

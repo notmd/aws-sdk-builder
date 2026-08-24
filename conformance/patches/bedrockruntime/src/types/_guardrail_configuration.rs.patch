@@ -5,7 +5,7 @@
      pub guardrail_version: ::std::string::String,
      /// <p>The trace behavior for the guardrail.</p>
 -    pub trace: crate::types::GuardrailTrace,
-+    pub trace: super::types::GuardrailTrace,
++    pub trace: super::super::types::GuardrailTrace,
  }
  impl GuardrailConfiguration {
      /// <p>The identifier for the guardrail.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The trace behavior for the guardrail.</p>
 -    pub fn trace(&self) -> &crate::types::GuardrailTrace {
-+    pub fn trace(&self) -> &super::types::GuardrailTrace {
++    pub fn trace(&self) -> &super::super::types::GuardrailTrace {
          &self.trace
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailConfiguration`](crate::types::GuardrailConfiguration).
 -    pub fn builder() -> crate::types::builders::GuardrailConfigurationBuilder {
 -        crate::types::builders::GuardrailConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailConfigurationBuilder {
-+        super::types::builders::GuardrailConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailConfigurationBuilder {
++        super::super::types::builders::GuardrailConfigurationBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) guardrail_identifier: ::std::option::Option<::std::string::String>,
      pub(crate) guardrail_version: ::std::option::Option<::std::string::String>,
 -    pub(crate) trace: ::std::option::Option<crate::types::GuardrailTrace>,
-+    pub(crate) trace: ::std::option::Option<super::types::GuardrailTrace>,
++    pub(crate) trace: ::std::option::Option<super::super::types::GuardrailTrace>,
  }
  impl GuardrailConfigurationBuilder {
      /// <p>The identifier for the guardrail.</p>
@@ -41,32 +41,32 @@
      }
      /// <p>The trace behavior for the guardrail.</p>
 -    pub fn trace(mut self, input: crate::types::GuardrailTrace) -> Self {
-+    pub fn trace(mut self, input: super::types::GuardrailTrace) -> Self {
++    pub fn trace(mut self, input: super::super::types::GuardrailTrace) -> Self {
          self.trace = ::std::option::Option::Some(input);
          self
      }
      /// <p>The trace behavior for the guardrail.</p>
 -    pub fn set_trace(mut self, input: ::std::option::Option<crate::types::GuardrailTrace>) -> Self {
-+    pub fn set_trace(mut self, input: ::std::option::Option<super::types::GuardrailTrace>) -> Self {
++    pub fn set_trace(mut self, input: ::std::option::Option<super::super::types::GuardrailTrace>) -> Self {
          self.trace = input;
          self
      }
      /// <p>The trace behavior for the guardrail.</p>
 -    pub fn get_trace(&self) -> &::std::option::Option<crate::types::GuardrailTrace> {
-+    pub fn get_trace(&self) -> &::std::option::Option<super::types::GuardrailTrace> {
++    pub fn get_trace(&self) -> &::std::option::Option<super::super::types::GuardrailTrace> {
          &self.trace
      }
      /// Consumes the builder and constructs a [`GuardrailConfiguration`](crate::types::GuardrailConfiguration).
 -    pub fn build(self) -> crate::types::GuardrailConfiguration {
 -        crate::types::GuardrailConfiguration {
-+    pub fn build(self) -> super::types::GuardrailConfiguration {
-+        super::types::GuardrailConfiguration {
++    pub fn build(self) -> super::super::types::GuardrailConfiguration {
++        super::super::types::GuardrailConfiguration {
              guardrail_identifier: self.guardrail_identifier.unwrap_or_default(),
              guardrail_version: self.guardrail_version.unwrap_or_default(),
              trace: self.trace.unwrap_or(
                  "disabled"
 -                    .parse::<crate::types::GuardrailTrace>()
-+                    .parse::<super::types::GuardrailTrace>()
++                    .parse::<super::super::types::GuardrailTrace>()
                      .expect("static value validated to member"),
              ),
          }

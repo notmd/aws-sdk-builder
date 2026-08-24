@@ -5,7 +5,7 @@
      /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
      /// </note>
 -    pub maximum_execution_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
-+    pub maximum_execution_frequency: ::std::option::Option<super::types::MaximumExecutionFrequency>,
++    pub maximum_execution_frequency: ::std::option::Option<super::super::types::MaximumExecutionFrequency>,
      /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
      pub resource_types_scope: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      /// <p>The ID of the Amazon Web Services resource that was evaluated.</p>
@@ -14,7 +14,7 @@
      /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
      /// </note>
 -    pub fn maximum_execution_frequency(&self) -> ::std::option::Option<&crate::types::MaximumExecutionFrequency> {
-+    pub fn maximum_execution_frequency(&self) -> ::std::option::Option<&super::types::MaximumExecutionFrequency> {
++    pub fn maximum_execution_frequency(&self) -> ::std::option::Option<&super::super::types::MaximumExecutionFrequency> {
          self.maximum_execution_frequency.as_ref()
      }
      /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`OrganizationManagedRuleMetadata`](crate::types::OrganizationManagedRuleMetadata).
 -    pub fn builder() -> crate::types::builders::OrganizationManagedRuleMetadataBuilder {
 -        crate::types::builders::OrganizationManagedRuleMetadataBuilder::default()
-+    pub fn builder() -> super::types::builders::OrganizationManagedRuleMetadataBuilder {
-+        super::types::builders::OrganizationManagedRuleMetadataBuilder::default()
++    pub fn builder() -> super::super::types::builders::OrganizationManagedRuleMetadataBuilder {
++        super::super::types::builders::OrganizationManagedRuleMetadataBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) rule_identifier: ::std::option::Option<::std::string::String>,
      pub(crate) input_parameters: ::std::option::Option<::std::string::String>,
 -    pub(crate) maximum_execution_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
-+    pub(crate) maximum_execution_frequency: ::std::option::Option<super::types::MaximumExecutionFrequency>,
++    pub(crate) maximum_execution_frequency: ::std::option::Option<super::super::types::MaximumExecutionFrequency>,
      pub(crate) resource_types_scope: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) resource_id_scope: ::std::option::Option<::std::string::String>,
      pub(crate) tag_key_scope: ::std::option::Option<::std::string::String>,
@@ -43,7 +43,7 @@
      /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
      /// </note>
 -    pub fn maximum_execution_frequency(mut self, input: crate::types::MaximumExecutionFrequency) -> Self {
-+    pub fn maximum_execution_frequency(mut self, input: super::types::MaximumExecutionFrequency) -> Self {
++    pub fn maximum_execution_frequency(mut self, input: super::super::types::MaximumExecutionFrequency) -> Self {
          self.maximum_execution_frequency = ::std::option::Option::Some(input);
          self
      }
@@ -52,7 +52,7 @@
      /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
      /// </note>
 -    pub fn set_maximum_execution_frequency(mut self, input: ::std::option::Option<crate::types::MaximumExecutionFrequency>) -> Self {
-+    pub fn set_maximum_execution_frequency(mut self, input: ::std::option::Option<super::types::MaximumExecutionFrequency>) -> Self {
++    pub fn set_maximum_execution_frequency(mut self, input: ::std::option::Option<super::super::types::MaximumExecutionFrequency>) -> Self {
          self.maximum_execution_frequency = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
      /// </note>
 -    pub fn get_maximum_execution_frequency(&self) -> &::std::option::Option<crate::types::MaximumExecutionFrequency> {
-+    pub fn get_maximum_execution_frequency(&self) -> &::std::option::Option<super::types::MaximumExecutionFrequency> {
++    pub fn get_maximum_execution_frequency(&self) -> &::std::option::Option<super::super::types::MaximumExecutionFrequency> {
          &self.maximum_execution_frequency
      }
      /// Appends an item to `resource_types_scope`.
@@ -71,8 +71,8 @@
      /// - [`rule_identifier`](crate::types::builders::OrganizationManagedRuleMetadataBuilder::rule_identifier)
 -    pub fn build(self) -> ::std::result::Result<crate::types::OrganizationManagedRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::OrganizationManagedRuleMetadata {
-+    pub fn build(self) -> ::std::result::Result<super::types::OrganizationManagedRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::OrganizationManagedRuleMetadata {
++    pub fn build(self) -> ::std::result::Result<super::super::types::OrganizationManagedRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::OrganizationManagedRuleMetadata {
              description: self.description,
              rule_identifier: self.rule_identifier.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(

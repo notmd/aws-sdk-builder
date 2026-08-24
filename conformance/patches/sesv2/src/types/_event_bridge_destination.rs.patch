@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EventBridgeDestination`](crate::types::EventBridgeDestination).
 -    pub fn builder() -> crate::types::builders::EventBridgeDestinationBuilder {
 -        crate::types::builders::EventBridgeDestinationBuilder::default()
-+    pub fn builder() -> super::types::builders::EventBridgeDestinationBuilder {
-+        super::types::builders::EventBridgeDestinationBuilder::default()
++    pub fn builder() -> super::super::types::builders::EventBridgeDestinationBuilder {
++        super::super::types::builders::EventBridgeDestinationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`event_bus_arn`](crate::types::builders::EventBridgeDestinationBuilder::event_bus_arn)
 -    pub fn build(self) -> ::std::result::Result<crate::types::EventBridgeDestination, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::EventBridgeDestination {
-+    pub fn build(self) -> ::std::result::Result<super::types::EventBridgeDestination, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EventBridgeDestination {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EventBridgeDestination, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EventBridgeDestination {
              event_bus_arn: self.event_bus_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "event_bus_arn",

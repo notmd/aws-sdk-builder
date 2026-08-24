@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<InvokeGuardrailChecksError>`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksError)
 -    pub fn invoke_guardrail_checks(&self) -> crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder {
 -        crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder::new(self.handle.clone())
-+    pub fn invoke_guardrail_checks(&self) -> super::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder {
-+        super::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder::new(self.handle.clone())
++    pub fn invoke_guardrail_checks(&self) -> super::super::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder {
++        super::super::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder::new(self.handle.clone())
      }
  }

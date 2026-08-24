@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListResourceTenantsError>`](crate::operation::list_resource_tenants::ListResourceTenantsError)
 -    pub fn list_resource_tenants(&self) -> crate::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder {
 -        crate::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder::new(self.handle.clone())
-+    pub fn list_resource_tenants(&self) -> super::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder {
-+        super::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder::new(self.handle.clone())
++    pub fn list_resource_tenants(&self) -> super::super::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder {
++        super::super::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder::new(self.handle.clone())
      }
  }

@@ -5,12 +5,12 @@
  pub struct ToolAdditionBlock {
      /// <p>A reference to the tool to add to the available tool set.</p>
 -    pub tool: ::std::option::Option<crate::types::ToolReference>,
-+    pub tool: ::std::option::Option<super::types::ToolReference>,
++    pub tool: ::std::option::Option<super::super::types::ToolReference>,
  }
  impl ToolAdditionBlock {
      /// <p>A reference to the tool to add to the available tool set.</p>
 -    pub fn tool(&self) -> ::std::option::Option<&crate::types::ToolReference> {
-+    pub fn tool(&self) -> ::std::option::Option<&super::types::ToolReference> {
++    pub fn tool(&self) -> ::std::option::Option<&super::super::types::ToolReference> {
          self.tool.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`ToolAdditionBlock`](crate::types::ToolAdditionBlock).
 -    pub fn builder() -> crate::types::builders::ToolAdditionBlockBuilder {
 -        crate::types::builders::ToolAdditionBlockBuilder::default()
-+    pub fn builder() -> super::types::builders::ToolAdditionBlockBuilder {
-+        super::types::builders::ToolAdditionBlockBuilder::default()
++    pub fn builder() -> super::super::types::builders::ToolAdditionBlockBuilder {
++        super::super::types::builders::ToolAdditionBlockBuilder::default()
      }
  }
 
@@ -28,31 +28,31 @@
  #[non_exhaustive]
  pub struct ToolAdditionBlockBuilder {
 -    pub(crate) tool: ::std::option::Option<crate::types::ToolReference>,
-+    pub(crate) tool: ::std::option::Option<super::types::ToolReference>,
++    pub(crate) tool: ::std::option::Option<super::super::types::ToolReference>,
  }
  impl ToolAdditionBlockBuilder {
      /// <p>A reference to the tool to add to the available tool set.</p>
      /// This field is required.
 -    pub fn tool(mut self, input: crate::types::ToolReference) -> Self {
-+    pub fn tool(mut self, input: super::types::ToolReference) -> Self {
++    pub fn tool(mut self, input: super::super::types::ToolReference) -> Self {
          self.tool = ::std::option::Option::Some(input);
          self
      }
      /// <p>A reference to the tool to add to the available tool set.</p>
 -    pub fn set_tool(mut self, input: ::std::option::Option<crate::types::ToolReference>) -> Self {
-+    pub fn set_tool(mut self, input: ::std::option::Option<super::types::ToolReference>) -> Self {
++    pub fn set_tool(mut self, input: ::std::option::Option<super::super::types::ToolReference>) -> Self {
          self.tool = input;
          self
      }
      /// <p>A reference to the tool to add to the available tool set.</p>
 -    pub fn get_tool(&self) -> &::std::option::Option<crate::types::ToolReference> {
-+    pub fn get_tool(&self) -> &::std::option::Option<super::types::ToolReference> {
++    pub fn get_tool(&self) -> &::std::option::Option<super::super::types::ToolReference> {
          &self.tool
      }
      /// Consumes the builder and constructs a [`ToolAdditionBlock`](crate::types::ToolAdditionBlock).
 -    pub fn build(self) -> crate::types::ToolAdditionBlock {
 -        crate::types::ToolAdditionBlock { tool: self.tool }
-+    pub fn build(self) -> super::types::ToolAdditionBlock {
-+        super::types::ToolAdditionBlock { tool: self.tool }
++    pub fn build(self) -> super::super::types::ToolAdditionBlock {
++        super::super::types::ToolAdditionBlock { tool: self.tool }
      }
  }

@@ -5,7 +5,7 @@
      pub locale: ::std::option::Option<::std::string::String>,
      /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
 -    pub summary_state: ::std::option::Option<crate::types::SummaryStateType>,
-+    pub summary_state: ::std::option::Option<super::types::SummaryStateType>,
++    pub summary_state: ::std::option::Option<super::super::super::types::SummaryStateType>,
      _request_id: Option<String>,
  }
  impl GetHumanReadableSummaryOutput {
@@ -14,7 +14,7 @@
      }
      /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
 -    pub fn summary_state(&self) -> ::std::option::Option<&crate::types::SummaryStateType> {
-+    pub fn summary_state(&self) -> ::std::option::Option<&super::types::SummaryStateType> {
++    pub fn summary_state(&self) -> ::std::option::Option<&super::super::super::types::SummaryStateType> {
          self.summary_state.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`GetHumanReadableSummaryOutput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput).
 -    pub fn builder() -> crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryOutputBuilder {
 -        crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_human_readable_summary::builders::GetHumanReadableSummaryOutputBuilder {
-+        super::operation::get_human_readable_summary::builders::GetHumanReadableSummaryOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_human_readable_summary::builders::GetHumanReadableSummaryOutputBuilder {
++        super::super::super::operation::get_human_readable_summary::builders::GetHumanReadableSummaryOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) summary_content: ::std::option::Option<::std::string::String>,
      pub(crate) locale: ::std::option::Option<::std::string::String>,
 -    pub(crate) summary_state: ::std::option::Option<crate::types::SummaryStateType>,
-+    pub(crate) summary_state: ::std::option::Option<super::types::SummaryStateType>,
++    pub(crate) summary_state: ::std::option::Option<super::super::super::types::SummaryStateType>,
      _request_id: Option<String>,
  }
  impl GetHumanReadableSummaryOutputBuilder {
@@ -43,19 +43,19 @@
      }
      /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
 -    pub fn summary_state(mut self, input: crate::types::SummaryStateType) -> Self {
-+    pub fn summary_state(mut self, input: super::types::SummaryStateType) -> Self {
++    pub fn summary_state(mut self, input: super::super::super::types::SummaryStateType) -> Self {
          self.summary_state = ::std::option::Option::Some(input);
          self
      }
      /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
 -    pub fn set_summary_state(mut self, input: ::std::option::Option<crate::types::SummaryStateType>) -> Self {
-+    pub fn set_summary_state(mut self, input: ::std::option::Option<super::types::SummaryStateType>) -> Self {
++    pub fn set_summary_state(mut self, input: ::std::option::Option<super::super::super::types::SummaryStateType>) -> Self {
          self.summary_state = input;
          self
      }
      /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
 -    pub fn get_summary_state(&self) -> &::std::option::Option<crate::types::SummaryStateType> {
-+    pub fn get_summary_state(&self) -> &::std::option::Option<super::types::SummaryStateType> {
++    pub fn get_summary_state(&self) -> &::std::option::Option<super::super::super::types::SummaryStateType> {
          &self.summary_state
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`GetHumanReadableSummaryOutput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput).
 -    pub fn build(self) -> crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
 -        crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
-+    pub fn build(self) -> super::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
-+        super::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
++    pub fn build(self) -> super::super::super::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
++        super::super::super::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
              summary_content: self.summary_content,
              locale: self.locale,
              summary_state: self.summary_state,

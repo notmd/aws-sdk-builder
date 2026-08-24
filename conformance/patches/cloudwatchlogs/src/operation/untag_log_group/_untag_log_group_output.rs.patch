@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UntagLogGroupOutput`](crate::operation::untag_log_group::UntagLogGroupOutput).
 -    pub fn builder() -> crate::operation::untag_log_group::builders::UntagLogGroupOutputBuilder {
 -        crate::operation::untag_log_group::builders::UntagLogGroupOutputBuilder::default()
-+    pub fn builder() -> super::operation::untag_log_group::builders::UntagLogGroupOutputBuilder {
-+        super::operation::untag_log_group::builders::UntagLogGroupOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::untag_log_group::builders::UntagLogGroupOutputBuilder {
++        super::super::super::operation::untag_log_group::builders::UntagLogGroupOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UntagLogGroupOutput`](crate::operation::untag_log_group::UntagLogGroupOutput).
 -    pub fn build(self) -> crate::operation::untag_log_group::UntagLogGroupOutput {
 -        crate::operation::untag_log_group::UntagLogGroupOutput {
-+    pub fn build(self) -> super::operation::untag_log_group::UntagLogGroupOutput {
-+        super::operation::untag_log_group::UntagLogGroupOutput {
++    pub fn build(self) -> super::super::super::operation::untag_log_group::UntagLogGroupOutput {
++        super::super::super::operation::untag_log_group::UntagLogGroupOutput {
              _request_id: self._request_id,
          }
      }

@@ -5,34 +5,34 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::delete_contact_list::DeleteContactListOutput, crate::operation::delete_contact_list::DeleteContactListError>
-+) -> std::result::Result<super::operation::delete_contact_list::DeleteContactListOutput, super::operation::delete_contact_list::DeleteContactListError>
++) -> std::result::Result<super::super::operation::delete_contact_list::DeleteContactListOutput, super::super::operation::delete_contact_list::DeleteContactListError>
  {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::delete_contact_list::DeleteContactListError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::delete_contact_list::DeleteContactListError::unhandled(generic)),
-+        None => return Err(super::operation::delete_contact_list::DeleteContactListError::unhandled(generic)),
++        None => return Err(super::super::operation::delete_contact_list::DeleteContactListError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "BadRequestException" => crate::operation::delete_contact_list::DeleteContactListError::BadRequestException({
-+        "BadRequestException" => super::operation::delete_contact_list::DeleteContactListError::BadRequestException({
++        "BadRequestException" => super::super::operation::delete_contact_list::DeleteContactListError::BadRequestException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_contact_list::DeleteContactListError::unhandled)?;
-+                let mut output = super::types::error::builders::BadRequestExceptionBuilder::default();
-+                output = super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
++                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -41,19 +41,19 @@
              tmp
          }),
 -        "ConcurrentModificationException" => crate::operation::delete_contact_list::DeleteContactListError::ConcurrentModificationException({
-+        "ConcurrentModificationException" => super::operation::delete_contact_list::DeleteContactListError::ConcurrentModificationException({
++        "ConcurrentModificationException" => super::super::operation::delete_contact_list::DeleteContactListError::ConcurrentModificationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
-+                let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
++                let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::delete_contact_list::DeleteContactListError::unhandled)?;
-+                .map_err(super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
++                .map_err(super::super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -62,16 +62,16 @@
              tmp
          }),
 -        "NotFoundException" => crate::operation::delete_contact_list::DeleteContactListError::NotFoundException({
-+        "NotFoundException" => super::operation::delete_contact_list::DeleteContactListError::NotFoundException({
++        "NotFoundException" => super::super::operation::delete_contact_list::DeleteContactListError::NotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_contact_list::DeleteContactListError::unhandled)?;
-+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -80,16 +80,16 @@
              tmp
          }),
 -        "TooManyRequestsException" => crate::operation::delete_contact_list::DeleteContactListError::TooManyRequestsException({
-+        "TooManyRequestsException" => super::operation::delete_contact_list::DeleteContactListError::TooManyRequestsException({
++        "TooManyRequestsException" => super::super::operation::delete_contact_list::DeleteContactListError::TooManyRequestsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_contact_list::DeleteContactListError::unhandled)?;
-+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
++                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -98,7 +98,7 @@
              tmp
          }),
 -        _ => crate::operation::delete_contact_list::DeleteContactListError::generic(generic),
-+        _ => super::operation::delete_contact_list::DeleteContactListError::generic(generic),
++        _ => super::super::operation::delete_contact_list::DeleteContactListError::generic(generic),
      })
  }
 
@@ -107,12 +107,12 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::delete_contact_list::DeleteContactListOutput, crate::operation::delete_contact_list::DeleteContactListError>
-+) -> std::result::Result<super::operation::delete_contact_list::DeleteContactListOutput, super::operation::delete_contact_list::DeleteContactListError>
++) -> std::result::Result<super::super::operation::delete_contact_list::DeleteContactListOutput, super::super::operation::delete_contact_list::DeleteContactListError>
  {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::delete_contact_list::builders::DeleteContactListOutputBuilder::default();
-+        let mut output = super::operation::delete_contact_list::builders::DeleteContactListOutputBuilder::default();
++        let mut output = super::super::operation::delete_contact_list::builders::DeleteContactListOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })

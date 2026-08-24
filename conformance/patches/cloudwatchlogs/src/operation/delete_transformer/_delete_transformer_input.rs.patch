@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteTransformerInput`](crate::operation::delete_transformer::DeleteTransformerInput).
 -    pub fn builder() -> crate::operation::delete_transformer::builders::DeleteTransformerInputBuilder {
 -        crate::operation::delete_transformer::builders::DeleteTransformerInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_transformer::builders::DeleteTransformerInputBuilder {
-+        super::operation::delete_transformer::builders::DeleteTransformerInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_transformer::builders::DeleteTransformerInputBuilder {
++        super::super::super::operation::delete_transformer::builders::DeleteTransformerInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_transformer::DeleteTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::delete_transformer::DeleteTransformerInput {
-+    ) -> ::std::result::Result<super::operation::delete_transformer::DeleteTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::delete_transformer::DeleteTransformerInput {
++    ) -> ::std::result::Result<super::super::super::operation::delete_transformer::DeleteTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::delete_transformer::DeleteTransformerInput {
              log_group_identifier: self.log_group_identifier,
          })
      }

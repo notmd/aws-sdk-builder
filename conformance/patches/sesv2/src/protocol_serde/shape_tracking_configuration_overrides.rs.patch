@@ -5,7 +5,7 @@
  pub fn ser_tracking_configuration_overrides(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::TrackingConfigurationOverrides,
-+    input: &super::types::TrackingConfigurationOverrides,
++    input: &super::super::types::TrackingConfigurationOverrides,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.open_tracking_enabled {
          object.key("OpenTrackingEnabled").string(var_1.as_str());

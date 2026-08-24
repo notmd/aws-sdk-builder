@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchFluentBuilder {
 -        crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchFluentBuilder {
-+        super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchFluentBuilder {
++        super::super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchFluentBuilder::new(self.handle.clone())
      }
  }

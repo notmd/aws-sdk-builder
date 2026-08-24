@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CorsRule`](crate::types::CorsRule).
 -    pub fn builder() -> crate::types::builders::CorsRuleBuilder {
 -        crate::types::builders::CorsRuleBuilder::default()
-+    pub fn builder() -> super::types::builders::CorsRuleBuilder {
-+        super::types::builders::CorsRuleBuilder::default()
++    pub fn builder() -> super::super::types::builders::CorsRuleBuilder {
++        super::super::types::builders::CorsRuleBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`allowed_origins`](crate::types::builders::CorsRuleBuilder::allowed_origins)
 -    pub fn build(self) -> ::std::result::Result<crate::types::CorsRule, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::CorsRule {
-+    pub fn build(self) -> ::std::result::Result<super::types::CorsRule, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::CorsRule {
++    pub fn build(self) -> ::std::result::Result<super::super::types::CorsRule, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::CorsRule {
              id: self.id,
              allowed_headers: self.allowed_headers,
              allowed_methods: self.allowed_methods.ok_or_else(|| {

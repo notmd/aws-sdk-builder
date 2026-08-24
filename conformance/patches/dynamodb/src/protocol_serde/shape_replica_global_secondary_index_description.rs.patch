@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ReplicaGlobalSecondaryIndexDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ReplicaGlobalSecondaryIndexDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ReplicaGlobalSecondaryIndexDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::ReplicaGlobalSecondaryIndexDescriptionBuilder::default();
-+            let mut builder = super::types::builders::ReplicaGlobalSecondaryIndexDescriptionBuilder::default();
++            let mut builder = super::super::types::builders::ReplicaGlobalSecondaryIndexDescriptionBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                          "ProvisionedThroughputOverride" => {
                              builder = builder.set_provisioned_throughput_override(
 -                                crate::protocol_serde::shape_provisioned_throughput_override::de_provisioned_throughput_override(
-+                                super::protocol_serde::shape_provisioned_throughput_override::de_provisioned_throughput_override(
++                                super::super::protocol_serde::shape_provisioned_throughput_override::de_provisioned_throughput_override(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -32,7 +32,7 @@
                          "OnDemandThroughputOverride" => {
                              builder = builder.set_on_demand_throughput_override(
 -                                crate::protocol_serde::shape_on_demand_throughput_override::de_on_demand_throughput_override(
-+                                super::protocol_serde::shape_on_demand_throughput_override::de_on_demand_throughput_override(
++                                super::super::protocol_serde::shape_on_demand_throughput_override::de_on_demand_throughput_override(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -41,7 +41,7 @@
                          "WarmThroughput" => {
                              builder = builder.set_warm_throughput(
 -                                    crate::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?
-+                                    super::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?
++                                    super::super::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?
                                  );
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

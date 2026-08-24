@@ -5,7 +5,7 @@
  pub fn ser_policy_parameter(
      mut writer: ::aws_smithy_query::QueryValueWriter,
 -    input: &crate::types::PolicyParameter,
-+    input: &super::types::PolicyParameter,
++    input: &super::super::types::PolicyParameter,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      #[allow(unused_mut)]
      let mut scope_1 = writer.prefix("Name");
@@ -14,13 +14,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::PolicyParameter, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::PolicyParameter, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::PolicyParameter, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::PolicyParameter::builder();
-+    let mut builder = super::types::PolicyParameter::builder();
++    let mut builder = super::super::types::PolicyParameter::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("Name") /* Name com.amazonaws.iam#PolicyParameter$Name */ =>  {
@@ -29,7 +29,7 @@
                  let var_11 =
                      Some(
 -                        crate::protocol_serde::shape_policy_parameter_values_list_type::de_policy_parameter_values_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_policy_parameter_values_list_type::de_policy_parameter_values_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_policy_parameter_values_list_type::de_policy_parameter_values_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -39,8 +39,8 @@
                      Some(
 -                        Result::<crate::types::PolicyParameterTypeEnum, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::PolicyParameterTypeEnum::from(
-+                        Result::<super::types::PolicyParameterTypeEnum, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::PolicyParameterTypeEnum::from(
++                        Result::<super::super::types::PolicyParameterTypeEnum, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::PolicyParameterTypeEnum::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )

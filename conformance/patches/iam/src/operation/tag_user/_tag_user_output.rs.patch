@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TagUserOutput`](crate::operation::tag_user::TagUserOutput).
 -    pub fn builder() -> crate::operation::tag_user::builders::TagUserOutputBuilder {
 -        crate::operation::tag_user::builders::TagUserOutputBuilder::default()
-+    pub fn builder() -> super::operation::tag_user::builders::TagUserOutputBuilder {
-+        super::operation::tag_user::builders::TagUserOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::tag_user::builders::TagUserOutputBuilder {
++        super::super::super::operation::tag_user::builders::TagUserOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`TagUserOutput`](crate::operation::tag_user::TagUserOutput).
 -    pub fn build(self) -> crate::operation::tag_user::TagUserOutput {
 -        crate::operation::tag_user::TagUserOutput {
-+    pub fn build(self) -> super::operation::tag_user::TagUserOutput {
-+        super::operation::tag_user::TagUserOutput {
++    pub fn build(self) -> super::super::super::operation::tag_user::TagUserOutput {
++        super::super::super::operation::tag_user::TagUserOutput {
              _request_id: self._request_id,
          }
      }

@@ -5,7 +5,7 @@
      /// <p>DELETE_FAILED when a conformance pack deletion failed in your account.</p></li>
      /// </ul>
 -    pub conformance_pack_state: crate::types::ConformancePackState,
-+    pub conformance_pack_state: super::types::ConformancePackState,
++    pub conformance_pack_state: super::super::types::ConformancePackState,
      /// <p>Amazon Resource Name (ARN) of CloudFormation stack.</p>
      pub stack_arn: ::std::string::String,
      /// <p>The reason of conformance pack creation failure.</p>
@@ -14,7 +14,7 @@
      /// <p>DELETE_FAILED when a conformance pack deletion failed in your account.</p></li>
      /// </ul>
 -    pub fn conformance_pack_state(&self) -> &crate::types::ConformancePackState {
-+    pub fn conformance_pack_state(&self) -> &super::types::ConformancePackState {
++    pub fn conformance_pack_state(&self) -> &super::super::types::ConformancePackState {
          &self.conformance_pack_state
      }
      /// <p>Amazon Resource Name (ARN) of CloudFormation stack.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ConformancePackStatusDetail`](crate::types::ConformancePackStatusDetail).
 -    pub fn builder() -> crate::types::builders::ConformancePackStatusDetailBuilder {
 -        crate::types::builders::ConformancePackStatusDetailBuilder::default()
-+    pub fn builder() -> super::types::builders::ConformancePackStatusDetailBuilder {
-+        super::types::builders::ConformancePackStatusDetailBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConformancePackStatusDetailBuilder {
++        super::super::types::builders::ConformancePackStatusDetailBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) conformance_pack_id: ::std::option::Option<::std::string::String>,
      pub(crate) conformance_pack_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) conformance_pack_state: ::std::option::Option<crate::types::ConformancePackState>,
-+    pub(crate) conformance_pack_state: ::std::option::Option<super::types::ConformancePackState>,
++    pub(crate) conformance_pack_state: ::std::option::Option<super::super::types::ConformancePackState>,
      pub(crate) stack_arn: ::std::option::Option<::std::string::String>,
      pub(crate) conformance_pack_status_reason: ::std::option::Option<::std::string::String>,
      pub(crate) last_update_requested_time: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -43,7 +43,7 @@
      /// </ul>
      /// This field is required.
 -    pub fn conformance_pack_state(mut self, input: crate::types::ConformancePackState) -> Self {
-+    pub fn conformance_pack_state(mut self, input: super::types::ConformancePackState) -> Self {
++    pub fn conformance_pack_state(mut self, input: super::super::types::ConformancePackState) -> Self {
          self.conformance_pack_state = ::std::option::Option::Some(input);
          self
      }
@@ -52,7 +52,7 @@
      /// <p>DELETE_FAILED when a conformance pack deletion failed in your account.</p></li>
      /// </ul>
 -    pub fn set_conformance_pack_state(mut self, input: ::std::option::Option<crate::types::ConformancePackState>) -> Self {
-+    pub fn set_conformance_pack_state(mut self, input: ::std::option::Option<super::types::ConformancePackState>) -> Self {
++    pub fn set_conformance_pack_state(mut self, input: ::std::option::Option<super::super::types::ConformancePackState>) -> Self {
          self.conformance_pack_state = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p>DELETE_FAILED when a conformance pack deletion failed in your account.</p></li>
      /// </ul>
 -    pub fn get_conformance_pack_state(&self) -> &::std::option::Option<crate::types::ConformancePackState> {
-+    pub fn get_conformance_pack_state(&self) -> &::std::option::Option<super::types::ConformancePackState> {
++    pub fn get_conformance_pack_state(&self) -> &::std::option::Option<super::super::types::ConformancePackState> {
          &self.conformance_pack_state
      }
      /// <p>Amazon Resource Name (ARN) of CloudFormation stack.</p>
@@ -71,8 +71,8 @@
      /// - [`last_update_requested_time`](crate::types::builders::ConformancePackStatusDetailBuilder::last_update_requested_time)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ConformancePackStatusDetail, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ConformancePackStatusDetail {
-+    pub fn build(self) -> ::std::result::Result<super::types::ConformancePackStatusDetail, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ConformancePackStatusDetail {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ConformancePackStatusDetail, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ConformancePackStatusDetail {
              conformance_pack_name: self.conformance_pack_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "conformance_pack_name",

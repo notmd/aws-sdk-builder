@@ -5,7 +5,7 @@
  pub fn ser_revoke_token_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::revoke_token::RevokeTokenInput,
-+    input: &super::operation::revoke_token::RevokeTokenInput,
++    input: &super::super::operation::revoke_token::RevokeTokenInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.token {
          object.key("Token").string(var_1.as_str());

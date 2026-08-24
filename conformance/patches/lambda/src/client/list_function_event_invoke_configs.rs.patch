@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsFluentBuilder {
 -        crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsFluentBuilder {
-+        super::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsFluentBuilder {
++        super::super::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsFluentBuilder::new(self.handle.clone())
      }
  }

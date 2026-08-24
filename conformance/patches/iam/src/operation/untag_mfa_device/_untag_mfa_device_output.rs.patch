@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UntagMfaDeviceOutput`](crate::operation::untag_mfa_device::UntagMfaDeviceOutput).
 -    pub fn builder() -> crate::operation::untag_mfa_device::builders::UntagMfaDeviceOutputBuilder {
 -        crate::operation::untag_mfa_device::builders::UntagMfaDeviceOutputBuilder::default()
-+    pub fn builder() -> super::operation::untag_mfa_device::builders::UntagMfaDeviceOutputBuilder {
-+        super::operation::untag_mfa_device::builders::UntagMfaDeviceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::untag_mfa_device::builders::UntagMfaDeviceOutputBuilder {
++        super::super::super::operation::untag_mfa_device::builders::UntagMfaDeviceOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UntagMfaDeviceOutput`](crate::operation::untag_mfa_device::UntagMfaDeviceOutput).
 -    pub fn build(self) -> crate::operation::untag_mfa_device::UntagMfaDeviceOutput {
 -        crate::operation::untag_mfa_device::UntagMfaDeviceOutput {
-+    pub fn build(self) -> super::operation::untag_mfa_device::UntagMfaDeviceOutput {
-+        super::operation::untag_mfa_device::UntagMfaDeviceOutput {
++    pub fn build(self) -> super::super::super::operation::untag_mfa_device::UntagMfaDeviceOutput {
++        super::super::super::operation::untag_mfa_device::UntagMfaDeviceOutput {
              _request_id: self._request_id,
          }
      }

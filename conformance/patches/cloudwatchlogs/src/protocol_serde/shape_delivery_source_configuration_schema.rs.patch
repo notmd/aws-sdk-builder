@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::DeliverySourceConfigurationSchema>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::DeliverySourceConfigurationSchema>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::DeliverySourceConfigurationSchema>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::DeliverySourceConfigurationSchemaBuilder::default();
-+            let mut builder = super::types::builders::DeliverySourceConfigurationSchemaBuilder::default();
++            let mut builder = super::super::types::builders::DeliverySourceConfigurationSchemaBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                                      .map(|s| {
                                          s.to_unescaped()
 -                                            .map(|u| crate::types::DeliverySourceConfigurationSchemaValueType::from(u.as_ref()))
-+                                            .map(|u| super::types::DeliverySourceConfigurationSchemaValueType::from(u.as_ref()))
++                                            .map(|u| super::super::types::DeliverySourceConfigurationSchemaValueType::from(u.as_ref()))
                                      })
                                      .transpose()?,
                              );
@@ -32,7 +32,7 @@
                          "supportedValues" => {
                              builder = builder.set_supported_values(
 -                                    crate::protocol_serde::shape_delivery_source_configuration_supported_values::de_delivery_source_configuration_supported_values(tokens, _value, depth + 1)?
-+                                    super::protocol_serde::shape_delivery_source_configuration_supported_values::de_delivery_source_configuration_supported_values(tokens, _value, depth + 1)?
++                                    super::super::protocol_serde::shape_delivery_source_configuration_supported_values::de_delivery_source_configuration_supported_values(tokens, _value, depth + 1)?
                                  );
                          }
                          "minValue" => {
@@ -41,7 +41,7 @@
              }
              Ok(Some(
 -                crate::serde_util::delivery_source_configuration_schema_correct_errors(builder)
-+                super::serde_util::delivery_source_configuration_schema_correct_errors(builder)
++                super::super::serde_util::delivery_source_configuration_schema_correct_errors(builder)
                      .build()
                      .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ParseJson`](crate::types::ParseJson).
 -    pub fn builder() -> crate::types::builders::ParseJsonBuilder {
 -        crate::types::builders::ParseJsonBuilder::default()
-+    pub fn builder() -> super::types::builders::ParseJsonBuilder {
-+        super::types::builders::ParseJsonBuilder::default()
++    pub fn builder() -> super::super::types::builders::ParseJsonBuilder {
++        super::super::types::builders::ParseJsonBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ParseJson`](crate::types::ParseJson).
 -    pub fn build(self) -> crate::types::ParseJson {
 -        crate::types::ParseJson {
-+    pub fn build(self) -> super::types::ParseJson {
-+        super::types::ParseJson {
++    pub fn build(self) -> super::super::types::ParseJson {
++        super::super::types::ParseJson {
              source: self.source,
              destination: self.destination,
          }

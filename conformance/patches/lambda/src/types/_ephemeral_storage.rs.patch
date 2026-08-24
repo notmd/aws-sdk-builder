@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EphemeralStorage`](crate::types::EphemeralStorage).
 -    pub fn builder() -> crate::types::builders::EphemeralStorageBuilder {
 -        crate::types::builders::EphemeralStorageBuilder::default()
-+    pub fn builder() -> super::types::builders::EphemeralStorageBuilder {
-+        super::types::builders::EphemeralStorageBuilder::default()
++    pub fn builder() -> super::super::types::builders::EphemeralStorageBuilder {
++        super::super::types::builders::EphemeralStorageBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`size`](crate::types::builders::EphemeralStorageBuilder::size)
 -    pub fn build(self) -> ::std::result::Result<crate::types::EphemeralStorage, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::EphemeralStorage {
-+    pub fn build(self) -> ::std::result::Result<super::types::EphemeralStorage, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EphemeralStorage {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EphemeralStorage, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EphemeralStorage {
              size: self.size.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "size",

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`FairshareCapacityUsage`](crate::types::FairshareCapacityUsage).
 -    pub fn builder() -> crate::types::builders::FairshareCapacityUsageBuilder {
 -        crate::types::builders::FairshareCapacityUsageBuilder::default()
-+    pub fn builder() -> super::types::builders::FairshareCapacityUsageBuilder {
-+        super::types::builders::FairshareCapacityUsageBuilder::default()
++    pub fn builder() -> super::super::types::builders::FairshareCapacityUsageBuilder {
++        super::super::types::builders::FairshareCapacityUsageBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`FairshareCapacityUsage`](crate::types::FairshareCapacityUsage).
 -    pub fn build(self) -> crate::types::FairshareCapacityUsage {
 -        crate::types::FairshareCapacityUsage {
-+    pub fn build(self) -> super::types::FairshareCapacityUsage {
-+        super::types::FairshareCapacityUsage {
++    pub fn build(self) -> super::super::types::FairshareCapacityUsage {
++        super::super::types::FairshareCapacityUsage {
              capacity_unit: self.capacity_unit,
              quantity: self.quantity,
          }

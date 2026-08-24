@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteServiceEnvironmentInput`](crate::operation::delete_service_environment::DeleteServiceEnvironmentInput).
 -    pub fn builder() -> crate::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder {
 -        crate::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder {
-+        super::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder {
++        super::super::super::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_service_environment::DeleteServiceEnvironmentInput,
-+        super::operation::delete_service_environment::DeleteServiceEnvironmentInput,
++        super::super::super::operation::delete_service_environment::DeleteServiceEnvironmentInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_service_environment::DeleteServiceEnvironmentInput {
-+        ::std::result::Result::Ok(super::operation::delete_service_environment::DeleteServiceEnvironmentInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_service_environment::DeleteServiceEnvironmentInput {
              service_environment: self.service_environment,
          })
      }

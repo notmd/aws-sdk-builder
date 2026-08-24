@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::EnableKinesisStreamingConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::EnableKinesisStreamingConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::EnableKinesisStreamingConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::EnableKinesisStreamingConfigurationBuilder::default();
-+            let mut builder = super::types::builders::EnableKinesisStreamingConfigurationBuilder::default();
++            let mut builder = super::super::types::builders::EnableKinesisStreamingConfigurationBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                                      .map(|s| {
                                          s.to_unescaped()
 -                                            .map(|u| crate::types::ApproximateCreationDateTimePrecision::from(u.as_ref()))
-+                                            .map(|u| super::types::ApproximateCreationDateTimePrecision::from(u.as_ref()))
++                                            .map(|u| super::super::types::ApproximateCreationDateTimePrecision::from(u.as_ref()))
                                      })
                                      .transpose()?,
                              );
@@ -32,7 +32,7 @@
  pub fn ser_enable_kinesis_streaming_configuration(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::EnableKinesisStreamingConfiguration,
-+    input: &super::types::EnableKinesisStreamingConfiguration,
++    input: &super::super::types::EnableKinesisStreamingConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.approximate_creation_date_time_precision {
          object.key("ApproximateCreationDateTimePrecision").string(var_1.as_str());

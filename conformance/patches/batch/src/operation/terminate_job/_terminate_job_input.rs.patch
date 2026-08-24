@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TerminateJobInput`](crate::operation::terminate_job::TerminateJobInput).
 -    pub fn builder() -> crate::operation::terminate_job::builders::TerminateJobInputBuilder {
 -        crate::operation::terminate_job::builders::TerminateJobInputBuilder::default()
-+    pub fn builder() -> super::operation::terminate_job::builders::TerminateJobInputBuilder {
-+        super::operation::terminate_job::builders::TerminateJobInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::terminate_job::builders::TerminateJobInputBuilder {
++        super::super::super::operation::terminate_job::builders::TerminateJobInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::terminate_job::TerminateJobInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::terminate_job::TerminateJobInput {
-+    ) -> ::std::result::Result<super::operation::terminate_job::TerminateJobInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::terminate_job::TerminateJobInput {
++    ) -> ::std::result::Result<super::super::super::operation::terminate_job::TerminateJobInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::terminate_job::TerminateJobInput {
              job_id: self.job_id,
              reason: self.reason,
          })

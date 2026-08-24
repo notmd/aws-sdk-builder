@@ -5,7 +5,7 @@
  pub struct PutEvaluationsInput {
      /// <p>The assessments that the Lambda function performs. Each evaluation identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that invokes the Lambda function.</p>
 -    pub evaluations: ::std::option::Option<::std::vec::Vec<crate::types::Evaluation>>,
-+    pub evaluations: ::std::option::Option<::std::vec::Vec<super::types::Evaluation>>,
++    pub evaluations: ::std::option::Option<::std::vec::Vec<super::super::super::types::Evaluation>>,
      /// <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the evaluation.</p>
      pub result_token: ::std::option::Option<::std::string::String>,
      /// <p>Use this parameter to specify a test run for <code>PutEvaluations</code>. You can verify whether your Lambda function will deliver evaluation results to Config. No updates occur to your existing evaluations, and evaluation results are not sent to Config.</p><note>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.evaluations.is_none()`.
 -    pub fn evaluations(&self) -> &[crate::types::Evaluation] {
-+    pub fn evaluations(&self) -> &[super::types::Evaluation] {
++    pub fn evaluations(&self) -> &[super::super::super::types::Evaluation] {
          self.evaluations.as_deref().unwrap_or_default()
      }
      /// <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the evaluation.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`PutEvaluationsInput`](crate::operation::put_evaluations::PutEvaluationsInput).
 -    pub fn builder() -> crate::operation::put_evaluations::builders::PutEvaluationsInputBuilder {
 -        crate::operation::put_evaluations::builders::PutEvaluationsInputBuilder::default()
-+    pub fn builder() -> super::operation::put_evaluations::builders::PutEvaluationsInputBuilder {
-+        super::operation::put_evaluations::builders::PutEvaluationsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_evaluations::builders::PutEvaluationsInputBuilder {
++        super::super::super::operation::put_evaluations::builders::PutEvaluationsInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct PutEvaluationsInputBuilder {
 -    pub(crate) evaluations: ::std::option::Option<::std::vec::Vec<crate::types::Evaluation>>,
-+    pub(crate) evaluations: ::std::option::Option<::std::vec::Vec<super::types::Evaluation>>,
++    pub(crate) evaluations: ::std::option::Option<::std::vec::Vec<super::super::super::types::Evaluation>>,
      pub(crate) result_token: ::std::option::Option<::std::string::String>,
      pub(crate) test_mode: ::std::option::Option<bool>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The assessments that the Lambda function performs. Each evaluation identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that invokes the Lambda function.</p>
 -    pub fn evaluations(mut self, input: crate::types::Evaluation) -> Self {
-+    pub fn evaluations(mut self, input: super::types::Evaluation) -> Self {
++    pub fn evaluations(mut self, input: super::super::super::types::Evaluation) -> Self {
          let mut v = self.evaluations.unwrap_or_default();
          v.push(input);
          self.evaluations = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The assessments that the Lambda function performs. Each evaluation identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that invokes the Lambda function.</p>
 -    pub fn set_evaluations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Evaluation>>) -> Self {
-+    pub fn set_evaluations(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Evaluation>>) -> Self {
++    pub fn set_evaluations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Evaluation>>) -> Self {
          self.evaluations = input;
          self
      }
      /// <p>The assessments that the Lambda function performs. Each evaluation identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that invokes the Lambda function.</p>
 -    pub fn get_evaluations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Evaluation>> {
-+    pub fn get_evaluations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Evaluation>> {
++    pub fn get_evaluations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Evaluation>> {
          &self.evaluations
      }
      /// <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the evaluation.</p>
@@ -68,8 +68,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::put_evaluations::PutEvaluationsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::put_evaluations::PutEvaluationsInput {
-+    ) -> ::std::result::Result<super::operation::put_evaluations::PutEvaluationsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::put_evaluations::PutEvaluationsInput {
++    ) -> ::std::result::Result<super::super::super::operation::put_evaluations::PutEvaluationsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::put_evaluations::PutEvaluationsInput {
              evaluations: self.evaluations,
              result_token: self.result_token,
              test_mode: self.test_mode,

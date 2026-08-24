@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PlacementStatistics`](crate::types::PlacementStatistics).
 -    pub fn builder() -> crate::types::builders::PlacementStatisticsBuilder {
 -        crate::types::builders::PlacementStatisticsBuilder::default()
-+    pub fn builder() -> super::types::builders::PlacementStatisticsBuilder {
-+        super::types::builders::PlacementStatisticsBuilder::default()
++    pub fn builder() -> super::super::types::builders::PlacementStatisticsBuilder {
++        super::super::types::builders::PlacementStatisticsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PlacementStatistics`](crate::types::PlacementStatistics).
 -    pub fn build(self) -> crate::types::PlacementStatistics {
 -        crate::types::PlacementStatistics {
-+    pub fn build(self) -> super::types::PlacementStatistics {
-+        super::types::PlacementStatistics {
++    pub fn build(self) -> super::super::types::PlacementStatistics {
++        super::super::types::PlacementStatistics {
              inbox_percentage: self.inbox_percentage,
              spam_percentage: self.spam_percentage,
              missing_percentage: self.missing_percentage,

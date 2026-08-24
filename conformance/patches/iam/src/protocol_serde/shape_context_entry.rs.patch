@@ -5,7 +5,7 @@
  pub fn ser_context_entry(
      mut writer: ::aws_smithy_query::QueryValueWriter,
 -    input: &crate::types::ContextEntry,
-+    input: &super::types::ContextEntry,
++    input: &super::super::types::ContextEntry,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      #[allow(unused_mut)]
      let mut scope_1 = writer.prefix("ContextKeyName");

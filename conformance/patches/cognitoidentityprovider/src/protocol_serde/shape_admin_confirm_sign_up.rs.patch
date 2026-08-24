@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput,
 -    crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError,
-+    super::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput,
-+    super::operation::admin_confirm_sign_up::AdminConfirmSignUpError,
++    super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput,
++    super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled(generic)),
-+        None => return Err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled(generic)),
++        None => return Err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InternalErrorException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InternalErrorException({
-+        "InternalErrorException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InternalErrorException({
++        "InternalErrorException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InternalErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,19 +43,19 @@
              tmp
          }),
 -        "InvalidLambdaResponseException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidLambdaResponseException({
-+        "InvalidLambdaResponseException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidLambdaResponseException({
++        "InvalidLambdaResponseException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidLambdaResponseException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
-+                let mut output = super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
++                let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -64,16 +64,16 @@
              tmp
          }),
 -        "InvalidParameterException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidParameterException({
-+        "InvalidParameterException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidParameterException({
++        "InvalidParameterException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidParameterException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -82,16 +82,16 @@
              tmp
          }),
 -        "LimitExceededException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::LimitExceededException({
-+        "LimitExceededException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::LimitExceededException({
++        "LimitExceededException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::LimitExceededException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -100,16 +100,16 @@
              tmp
          }),
 -        "NotAuthorizedException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::NotAuthorizedException({
-+        "NotAuthorizedException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::NotAuthorizedException({
++        "NotAuthorizedException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::NotAuthorizedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -118,17 +118,17 @@
              tmp
          }),
 -        "OperationNotEnabledException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::OperationNotEnabledException({
-+        "OperationNotEnabledException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::OperationNotEnabledException({
++        "OperationNotEnabledException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::OperationNotEnabledException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-+                let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                    super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -137,16 +137,16 @@
              tmp
          }),
 -        "ResourceNotFoundException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::ResourceNotFoundException({
-+        "ResourceNotFoundException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::ResourceNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -155,19 +155,19 @@
              tmp
          }),
 -        "TooManyFailedAttemptsException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::TooManyFailedAttemptsException({
-+        "TooManyFailedAttemptsException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::TooManyFailedAttemptsException({
++        "TooManyFailedAttemptsException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::TooManyFailedAttemptsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TooManyFailedAttemptsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_too_many_failed_attempts_exception::de_too_many_failed_attempts_exception_json_err(
-+                let mut output = super::types::error::builders::TooManyFailedAttemptsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_too_many_failed_attempts_exception::de_too_many_failed_attempts_exception_json_err(
++                let mut output = super::super::types::error::builders::TooManyFailedAttemptsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_too_many_failed_attempts_exception::de_too_many_failed_attempts_exception_json_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -176,16 +176,16 @@
              tmp
          }),
 -        "TooManyRequestsException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::TooManyRequestsException({
-+        "TooManyRequestsException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::TooManyRequestsException({
++        "TooManyRequestsException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::TooManyRequestsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -194,16 +194,16 @@
              tmp
          }),
 -        "UnexpectedLambdaException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UnexpectedLambdaException({
-+        "UnexpectedLambdaException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UnexpectedLambdaException({
++        "UnexpectedLambdaException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UnexpectedLambdaException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                let mut output = super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-+                output = super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -212,19 +212,19 @@
              tmp
          }),
 -        "UserLambdaValidationException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UserLambdaValidationException({
-+        "UserLambdaValidationException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UserLambdaValidationException({
++        "UserLambdaValidationException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UserLambdaValidationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UserLambdaValidationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
-+                let mut output = super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
++                let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -233,16 +233,16 @@
              tmp
          }),
 -        "UserNotFoundException" => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UserNotFoundException({
-+        "UserNotFoundException" => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UserNotFoundException({
++        "UserNotFoundException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UserNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-+                let mut output = super::types::error::builders::UserNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
++                let mut output = super::super::types::error::builders::UserNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -251,7 +251,7 @@
              tmp
          }),
 -        _ => crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::generic(generic),
-+        _ => super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::generic(generic),
++        _ => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::generic(generic),
      })
  }
 
@@ -261,13 +261,13 @@
  ) -> std::result::Result<
 -    crate::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput,
 -    crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError,
-+    super::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput,
-+    super::operation::admin_confirm_sign_up::AdminConfirmSignUpError,
++    super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput,
++    super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder::default();
-+        let mut output = super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder::default();
++        let mut output = super::super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -276,12 +276,12 @@
 
  pub fn ser_admin_confirm_sign_up_input(
 -    input: &crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput,
-+    input: &super::operation::admin_confirm_sign_up::AdminConfirmSignUpInput,
++    input: &super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_admin_confirm_sign_up_input::ser_admin_confirm_sign_up_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_admin_confirm_sign_up_input::ser_admin_confirm_sign_up_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_admin_confirm_sign_up_input::ser_admin_confirm_sign_up_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }

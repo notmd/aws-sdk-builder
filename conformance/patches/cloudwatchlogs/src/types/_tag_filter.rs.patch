@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TagFilter`](crate::types::TagFilter).
 -    pub fn builder() -> crate::types::builders::TagFilterBuilder {
 -        crate::types::builders::TagFilterBuilder::default()
-+    pub fn builder() -> super::types::builders::TagFilterBuilder {
-+        super::types::builders::TagFilterBuilder::default()
++    pub fn builder() -> super::super::types::builders::TagFilterBuilder {
++        super::super::types::builders::TagFilterBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`key`](crate::types::builders::TagFilterBuilder::key)
 -    pub fn build(self) -> ::std::result::Result<crate::types::TagFilter, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::TagFilter {
-+    pub fn build(self) -> ::std::result::Result<super::types::TagFilter, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::TagFilter {
++    pub fn build(self) -> ::std::result::Result<super::super::types::TagFilter, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::TagFilter {
              key: self.key.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "key",

@@ -5,7 +5,7 @@
  pub struct ListSourcesForS3TableIntegrationOutput {
      /// <p>The list of data source associations for the specified S3 Table Integration.</p>
 -    pub sources: ::std::option::Option<::std::vec::Vec<crate::types::S3TableIntegrationSource>>,
-+    pub sources: ::std::option::Option<::std::vec::Vec<super::types::S3TableIntegrationSource>>,
++    pub sources: ::std::option::Option<::std::vec::Vec<super::super::super::types::S3TableIntegrationSource>>,
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.sources.is_none()`.
 -    pub fn sources(&self) -> &[crate::types::S3TableIntegrationSource] {
-+    pub fn sources(&self) -> &[super::types::S3TableIntegrationSource] {
++    pub fn sources(&self) -> &[super::super::super::types::S3TableIntegrationSource] {
          self.sources.as_deref().unwrap_or_default()
      }
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListSourcesForS3TableIntegrationOutput`](crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput).
 -    pub fn builder() -> crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder {
 -        crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder {
-+        super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder {
++        super::super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListSourcesForS3TableIntegrationOutputBuilder {
 -    pub(crate) sources: ::std::option::Option<::std::vec::Vec<crate::types::S3TableIntegrationSource>>,
-+    pub(crate) sources: ::std::option::Option<::std::vec::Vec<super::types::S3TableIntegrationSource>>,
++    pub(crate) sources: ::std::option::Option<::std::vec::Vec<super::super::super::types::S3TableIntegrationSource>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The list of data source associations for the specified S3 Table Integration.</p>
 -    pub fn sources(mut self, input: crate::types::S3TableIntegrationSource) -> Self {
-+    pub fn sources(mut self, input: super::types::S3TableIntegrationSource) -> Self {
++    pub fn sources(mut self, input: super::super::super::types::S3TableIntegrationSource) -> Self {
          let mut v = self.sources.unwrap_or_default();
          v.push(input);
          self.sources = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The list of data source associations for the specified S3 Table Integration.</p>
 -    pub fn set_sources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::S3TableIntegrationSource>>) -> Self {
-+    pub fn set_sources(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::S3TableIntegrationSource>>) -> Self {
++    pub fn set_sources(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::S3TableIntegrationSource>>) -> Self {
          self.sources = input;
          self
      }
      /// <p>The list of data source associations for the specified S3 Table Integration.</p>
 -    pub fn get_sources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::S3TableIntegrationSource>> {
-+    pub fn get_sources(&self) -> &::std::option::Option<::std::vec::Vec<super::types::S3TableIntegrationSource>> {
++    pub fn get_sources(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::S3TableIntegrationSource>> {
          &self.sources
      }
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListSourcesForS3TableIntegrationOutput`](crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput).
 -    pub fn build(self) -> crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput {
 -        crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput {
-+    pub fn build(self) -> super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput {
-+        super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput {
++    pub fn build(self) -> super::super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput {
++        super::super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput {
              sources: self.sources,
              next_token: self.next_token,
              _request_id: self._request_id,

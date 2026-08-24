@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateReplicaAction`](crate::types::CreateReplicaAction).
 -    pub fn builder() -> crate::types::builders::CreateReplicaActionBuilder {
 -        crate::types::builders::CreateReplicaActionBuilder::default()
-+    pub fn builder() -> super::types::builders::CreateReplicaActionBuilder {
-+        super::types::builders::CreateReplicaActionBuilder::default()
++    pub fn builder() -> super::super::types::builders::CreateReplicaActionBuilder {
++        super::super::types::builders::CreateReplicaActionBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`region_name`](crate::types::builders::CreateReplicaActionBuilder::region_name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::CreateReplicaAction, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::CreateReplicaAction {
-+    pub fn build(self) -> ::std::result::Result<super::types::CreateReplicaAction, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::CreateReplicaAction {
++    pub fn build(self) -> ::std::result::Result<super::super::types::CreateReplicaAction, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::CreateReplicaAction {
              region_name: self.region_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "region_name",

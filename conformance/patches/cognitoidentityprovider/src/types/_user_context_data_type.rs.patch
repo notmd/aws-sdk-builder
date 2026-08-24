@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UserContextDataType`](crate::types::UserContextDataType).
 -    pub fn builder() -> crate::types::builders::UserContextDataTypeBuilder {
 -        crate::types::builders::UserContextDataTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::UserContextDataTypeBuilder {
-+        super::types::builders::UserContextDataTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::UserContextDataTypeBuilder {
++        super::super::types::builders::UserContextDataTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`UserContextDataType`](crate::types::UserContextDataType).
 -    pub fn build(self) -> crate::types::UserContextDataType {
 -        crate::types::UserContextDataType {
-+    pub fn build(self) -> super::types::UserContextDataType {
-+        super::types::UserContextDataType {
++    pub fn build(self) -> super::super::types::UserContextDataType {
++        super::super::types::UserContextDataType {
              ip_address: self.ip_address,
              encoded_data: self.encoded_data,
          }

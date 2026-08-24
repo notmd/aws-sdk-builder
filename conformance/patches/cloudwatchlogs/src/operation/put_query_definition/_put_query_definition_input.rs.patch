@@ -5,7 +5,7 @@
  pub struct PutQueryDefinitionInput {
      /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
 -    pub query_language: ::std::option::Option<crate::types::QueryLanguage>,
-+    pub query_language: ::std::option::Option<super::types::QueryLanguage>,
++    pub query_language: ::std::option::Option<super::super::super::types::QueryLanguage>,
      /// <p>A name for the query definition. If you are saving numerous query definitions, we recommend that you name them. This way, you can find the ones you want by using the first part of the name as a filter in the <code>queryDefinitionNamePrefix</code> parameter of <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a>.</p>
      pub name: ::std::option::Option<::std::string::String>,
      /// <p>If you are updating a query definition, use this parameter to specify the ID of the query definition that you want to update. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a> to retrieve the IDs of your saved query definitions.</p>
@@ -14,12 +14,12 @@
      pub client_token: ::std::option::Option<::std::string::String>,
      /// <p>Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the <code>{{parameterName}}</code> syntax in your query string to reference a parameter.</p>
 -    pub parameters: ::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>>,
-+    pub parameters: ::std::option::Option<::std::vec::Vec<super::types::QueryParameter>>,
++    pub parameters: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueryParameter>>,
  }
  impl PutQueryDefinitionInput {
      /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
 -    pub fn query_language(&self) -> ::std::option::Option<&crate::types::QueryLanguage> {
-+    pub fn query_language(&self) -> ::std::option::Option<&super::types::QueryLanguage> {
++    pub fn query_language(&self) -> ::std::option::Option<&super::super::super::types::QueryLanguage> {
          self.query_language.as_ref()
      }
      /// <p>A name for the query definition. If you are saving numerous query definitions, we recommend that you name them. This way, you can find the ones you want by using the first part of the name as a filter in the <code>queryDefinitionNamePrefix</code> parameter of <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a>.</p>
@@ -28,7 +28,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parameters.is_none()`.
 -    pub fn parameters(&self) -> &[crate::types::QueryParameter] {
-+    pub fn parameters(&self) -> &[super::types::QueryParameter] {
++    pub fn parameters(&self) -> &[super::super::super::types::QueryParameter] {
          self.parameters.as_deref().unwrap_or_default()
      }
  }
@@ -36,8 +36,8 @@
      /// Creates a new builder-style object to manufacture [`PutQueryDefinitionInput`](crate::operation::put_query_definition::PutQueryDefinitionInput).
 -    pub fn builder() -> crate::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder {
 -        crate::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder::default()
-+    pub fn builder() -> super::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder {
-+        super::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder {
++        super::super::super::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder::default()
      }
  }
 
@@ -46,31 +46,31 @@
  #[non_exhaustive]
  pub struct PutQueryDefinitionInputBuilder {
 -    pub(crate) query_language: ::std::option::Option<crate::types::QueryLanguage>,
-+    pub(crate) query_language: ::std::option::Option<super::types::QueryLanguage>,
++    pub(crate) query_language: ::std::option::Option<super::super::super::types::QueryLanguage>,
      pub(crate) name: ::std::option::Option<::std::string::String>,
      pub(crate) query_definition_id: ::std::option::Option<::std::string::String>,
      pub(crate) log_group_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) query_string: ::std::option::Option<::std::string::String>,
      pub(crate) client_token: ::std::option::Option<::std::string::String>,
 -    pub(crate) parameters: ::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>>,
-+    pub(crate) parameters: ::std::option::Option<::std::vec::Vec<super::types::QueryParameter>>,
++    pub(crate) parameters: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueryParameter>>,
  }
  impl PutQueryDefinitionInputBuilder {
      /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
 -    pub fn query_language(mut self, input: crate::types::QueryLanguage) -> Self {
-+    pub fn query_language(mut self, input: super::types::QueryLanguage) -> Self {
++    pub fn query_language(mut self, input: super::super::super::types::QueryLanguage) -> Self {
          self.query_language = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
 -    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
-+    pub fn set_query_language(mut self, input: ::std::option::Option<super::types::QueryLanguage>) -> Self {
++    pub fn set_query_language(mut self, input: ::std::option::Option<super::super::super::types::QueryLanguage>) -> Self {
          self.query_language = input;
          self
      }
      /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
 -    pub fn get_query_language(&self) -> &::std::option::Option<crate::types::QueryLanguage> {
-+    pub fn get_query_language(&self) -> &::std::option::Option<super::types::QueryLanguage> {
++    pub fn get_query_language(&self) -> &::std::option::Option<super::super::super::types::QueryLanguage> {
          &self.query_language
      }
      /// <p>A name for the query definition. If you are saving numerous query definitions, we recommend that you name them. This way, you can find the ones you want by using the first part of the name as a filter in the <code>queryDefinitionNamePrefix</code> parameter of <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a>.</p>
@@ -79,7 +79,7 @@
      ///
      /// <p>Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the <code>{{parameterName}}</code> syntax in your query string to reference a parameter.</p>
 -    pub fn parameters(mut self, input: crate::types::QueryParameter) -> Self {
-+    pub fn parameters(mut self, input: super::types::QueryParameter) -> Self {
++    pub fn parameters(mut self, input: super::super::super::types::QueryParameter) -> Self {
          let mut v = self.parameters.unwrap_or_default();
          v.push(input);
          self.parameters = ::std::option::Option::Some(v);
@@ -88,23 +88,23 @@
      }
      /// <p>Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the <code>{{parameterName}}</code> syntax in your query string to reference a parameter.</p>
 -    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>>) -> Self {
-+    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::QueryParameter>>) -> Self {
++    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueryParameter>>) -> Self {
          self.parameters = input;
          self
      }
      /// <p>Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the <code>{{parameterName}}</code> syntax in your query string to reference a parameter.</p>
 -    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>> {
-+    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<super::types::QueryParameter>> {
++    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::QueryParameter>> {
          &self.parameters
      }
      /// Consumes the builder and constructs a [`PutQueryDefinitionInput`](crate::operation::put_query_definition::PutQueryDefinitionInput).
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::put_query_definition::PutQueryDefinitionInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::put_query_definition::PutQueryDefinitionInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::put_query_definition::PutQueryDefinitionInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::put_query_definition::PutQueryDefinitionInput {
-+        ::std::result::Result::Ok(super::operation::put_query_definition::PutQueryDefinitionInput {
++        ::std::result::Result::Ok(super::super::super::operation::put_query_definition::PutQueryDefinitionInput {
              query_language: self.query_language,
              name: self.name,
              query_definition_id: self.query_definition_id,

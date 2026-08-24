@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeOrganizationConformancePacksInput`](crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput).
 -    pub fn builder() -> crate::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder {
 -        crate::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder {
-+        super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder {
++        super::super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput,
-+        super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput,
++        super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput {
-+            super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput {
++            super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput {
                  organization_conformance_pack_names: self.organization_conformance_pack_names,
                  limit: self.limit,
                  next_token: self.next_token,

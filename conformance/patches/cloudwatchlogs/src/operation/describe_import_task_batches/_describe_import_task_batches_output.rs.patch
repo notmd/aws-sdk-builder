@@ -5,7 +5,7 @@
      pub import_id: ::std::option::Option<::std::string::String>,
      /// <p>The list of import batches that match the request filters.</p>
 -    pub import_batches: ::std::option::Option<::std::vec::Vec<crate::types::ImportBatch>>,
-+    pub import_batches: ::std::option::Option<::std::vec::Vec<super::types::ImportBatch>>,
++    pub import_batches: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportBatch>>,
      /// <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.import_batches.is_none()`.
 -    pub fn import_batches(&self) -> &[crate::types::ImportBatch] {
-+    pub fn import_batches(&self) -> &[super::types::ImportBatch] {
++    pub fn import_batches(&self) -> &[super::super::super::types::ImportBatch] {
          self.import_batches.as_deref().unwrap_or_default()
      }
      /// <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeImportTaskBatchesOutput`](crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput).
 -    pub fn builder() -> crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesOutputBuilder {
 -        crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesOutputBuilder {
-+        super::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesOutputBuilder {
++        super::super::super::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) import_source_arn: ::std::option::Option<::std::string::String>,
      pub(crate) import_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) import_batches: ::std::option::Option<::std::vec::Vec<crate::types::ImportBatch>>,
-+    pub(crate) import_batches: ::std::option::Option<::std::vec::Vec<super::types::ImportBatch>>,
++    pub(crate) import_batches: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportBatch>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The list of import batches that match the request filters.</p>
 -    pub fn import_batches(mut self, input: crate::types::ImportBatch) -> Self {
-+    pub fn import_batches(mut self, input: super::types::ImportBatch) -> Self {
++    pub fn import_batches(mut self, input: super::super::super::types::ImportBatch) -> Self {
          let mut v = self.import_batches.unwrap_or_default();
          v.push(input);
          self.import_batches = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The list of import batches that match the request filters.</p>
 -    pub fn set_import_batches(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ImportBatch>>) -> Self {
-+    pub fn set_import_batches(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ImportBatch>>) -> Self {
++    pub fn set_import_batches(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportBatch>>) -> Self {
          self.import_batches = input;
          self
      }
      /// <p>The list of import batches that match the request filters.</p>
 -    pub fn get_import_batches(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportBatch>> {
-+    pub fn get_import_batches(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ImportBatch>> {
++    pub fn get_import_batches(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ImportBatch>> {
          &self.import_batches
      }
      /// <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeImportTaskBatchesOutput`](crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput).
 -    pub fn build(self) -> crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput {
 -        crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput {
-+    pub fn build(self) -> super::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput {
-+        super::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput {
++    pub fn build(self) -> super::super::super::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput {
++        super::super::super::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput {
              import_source_arn: self.import_source_arn,
              import_id: self.import_id,
              import_batches: self.import_batches,

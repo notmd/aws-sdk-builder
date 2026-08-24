@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetFunctionScalingConfigError>`](crate::operation::get_function_scaling_config::GetFunctionScalingConfigError)
 -    pub fn get_function_scaling_config(&self) -> crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigFluentBuilder {
 -        crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigFluentBuilder::new(self.handle.clone())
-+    pub fn get_function_scaling_config(&self) -> super::operation::get_function_scaling_config::builders::GetFunctionScalingConfigFluentBuilder {
-+        super::operation::get_function_scaling_config::builders::GetFunctionScalingConfigFluentBuilder::new(self.handle.clone())
++    pub fn get_function_scaling_config(&self) -> super::super::operation::get_function_scaling_config::builders::GetFunctionScalingConfigFluentBuilder {
++        super::super::operation::get_function_scaling_config::builders::GetFunctionScalingConfigFluentBuilder::new(self.handle.clone())
      }
  }

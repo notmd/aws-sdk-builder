@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Entity`](crate::types::Entity).
 -    pub fn builder() -> crate::types::builders::EntityBuilder {
 -        crate::types::builders::EntityBuilder::default()
-+    pub fn builder() -> super::types::builders::EntityBuilder {
-+        super::types::builders::EntityBuilder::default()
++    pub fn builder() -> super::super::types::builders::EntityBuilder {
++        super::super::types::builders::EntityBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Entity`](crate::types::Entity).
 -    pub fn build(self) -> crate::types::Entity {
 -        crate::types::Entity {
-+    pub fn build(self) -> super::types::Entity {
-+        super::types::Entity {
++    pub fn build(self) -> super::super::types::Entity {
++        super::super::types::Entity {
              key_attributes: self.key_attributes,
              attributes: self.attributes,
          }

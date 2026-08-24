@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder {
 -        crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder {
-+        super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder {
++        super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder::new(self.handle.clone())
      }
  }

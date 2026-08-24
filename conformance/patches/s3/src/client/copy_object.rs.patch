@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CopyObjectError>`](crate::operation::copy_object::CopyObjectError)
 -    pub fn copy_object(&self) -> crate::operation::copy_object::builders::CopyObjectFluentBuilder {
 -        crate::operation::copy_object::builders::CopyObjectFluentBuilder::new(self.handle.clone())
-+    pub fn copy_object(&self) -> super::operation::copy_object::builders::CopyObjectFluentBuilder {
-+        super::operation::copy_object::builders::CopyObjectFluentBuilder::new(self.handle.clone())
++    pub fn copy_object(&self) -> super::super::operation::copy_object::builders::CopyObjectFluentBuilder {
++        super::super::operation::copy_object::builders::CopyObjectFluentBuilder::new(self.handle.clone())
      }
  }

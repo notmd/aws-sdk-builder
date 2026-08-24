@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## batch
-**Progress:** `764/764` files compared · `555` matched · `207` mismatches · `0` missing · `2` extra · `72.64%` match (100.00% means fully matched)
+**Progress:** `764/764` files compared · `423` matched · `339` mismatches · `0` missing · `2` extra · `55.37%` match (100.00% means fully matched)
 
 ### `src/client/cancel_job.rs`
 
@@ -18,7 +18,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`reason(impl Into<String>)`](crate::operation::cancel_job::builders::CancelJobFluentBuilder::reason) / [`set_reason(Option<String>)`](crate::operation::cancel_job::builders::CancelJobFluentBuilder::set_reason):<br>required: **true**<br><p>A message to attach to the job that explains the reason for canceling it. This message is returned by future <a>DescribeJobs</a> operations on the job. It is also recorded in the Batch activity logs.</p> <p>This parameter has as limit of 1024 characters.</p><br>
      /// - On success, responds with [`CancelJobOutput`](crate::operation::cancel_job::CancelJobOutput)
      /// - On failure, responds with [`SdkError<CancelJobError>`](crate::operation::cancel_job::CancelJobError)
-     pub fn cancel_job(&self) -> super::operation::cancel_job::builders::CancelJobFluentBuilder {
+     pub fn cancel_job(&self) -> super::super::operation::cancel_job::builders::CancelJobFluentBuilder {
 ```
 
 ### `src/client/create_compute_environment.rs`
@@ -51,8 +51,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`consumable_resource_name(String)`](crate::operation::create_consumable_resource::CreateConsumableResourceOutput::consumable_resource_name): <p>The name of the consumable resource.</p>
 +    ///   - [`consumable_resource_arn(String)`](crate::operation::create_consumable_resource::CreateConsumableResourceOutput::consumable_resource_arn): <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
      /// - On failure, responds with [`SdkError<CreateConsumableResourceError>`](crate::operation::create_consumable_resource::CreateConsumableResourceError)
-     pub fn create_consumable_resource(&self) -> super::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder {
-         super::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder::new(self.handle.clone())
+     pub fn create_consumable_resource(&self) -> super::super::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder {
+         super::super::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/create_job_queue.rs`
@@ -69,8 +69,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`job_queue_name(String)`](crate::operation::create_job_queue::CreateJobQueueOutput::job_queue_name): <p>The name of the job queue.</p>
 +    ///   - [`job_queue_arn(String)`](crate::operation::create_job_queue::CreateJobQueueOutput::job_queue_arn): <p>The Amazon Resource Name (ARN) of the job queue.</p>
      /// - On failure, responds with [`SdkError<CreateJobQueueError>`](crate::operation::create_job_queue::CreateJobQueueError)
-     pub fn create_job_queue(&self) -> super::operation::create_job_queue::builders::CreateJobQueueFluentBuilder {
-         super::operation::create_job_queue::builders::CreateJobQueueFluentBuilder::new(self.handle.clone())
+     pub fn create_job_queue(&self) -> super::super::operation::create_job_queue::builders::CreateJobQueueFluentBuilder {
+         super::super::operation::create_job_queue::builders::CreateJobQueueFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/create_scheduling_policy.rs`
@@ -87,8 +87,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`name(String)`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyOutput::name): <p>The name of the scheduling policy.</p>
 +    ///   - [`arn(String)`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyOutput::arn): <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
      /// - On failure, responds with [`SdkError<CreateSchedulingPolicyError>`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyError)
-     pub fn create_scheduling_policy(&self) -> super::operation::create_scheduling_policy::builders::CreateSchedulingPolicyFluentBuilder {
-         super::operation::create_scheduling_policy::builders::CreateSchedulingPolicyFluentBuilder::new(self.handle.clone())
+     pub fn create_scheduling_policy(&self) -> super::super::operation::create_scheduling_policy::builders::CreateSchedulingPolicyFluentBuilder {
+         super::super::operation::create_scheduling_policy::builders::CreateSchedulingPolicyFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/create_service_environment.rs`
@@ -105,8 +105,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`service_environment_name(String)`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput::service_environment_name): <p>The name of the service environment.</p>
 +    ///   - [`service_environment_arn(String)`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput::service_environment_arn): <p>The Amazon Resource Name (ARN) of the service environment.</p>
      /// - On failure, responds with [`SdkError<CreateServiceEnvironmentError>`](crate::operation::create_service_environment::CreateServiceEnvironmentError)
-     pub fn create_service_environment(&self) -> super::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder {
-         super::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder::new(self.handle.clone())
+     pub fn create_service_environment(&self) -> super::super::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder {
+         super::super::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/describe_consumable_resource.rs`
@@ -125,6 +125,35 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`total_quantity(Option<i64>)`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput::total_quantity): <p>The total amount of the consumable resource that is available.</p>
      ///   - [`in_use_quantity(Option<i64>)`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput::in_use_quantity): <p>The amount of the consumable resource that is currently in use.</p>
      ///   - [`available_quantity(Option<i64>)`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput::available_quantity): <p>The amount of the consumable resource that is currently available to use.</p>
+@@ -14,7 +14,9 @@
+     ///   - [`created_at(Option<i64>)`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput::created_at): <p>The Unix timestamp (in milliseconds) for when the consumable resource was created.</p>
+     ///   - [`tags(Option<HashMap::<String, String>>)`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput::tags): <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
+     /// - On failure, responds with [`SdkError<DescribeConsumableResourceError>`](crate::operation::describe_consumable_resource::DescribeConsumableResourceError)
+-    pub fn describe_consumable_resource(&self) -> super::super::operation::describe_consumable_resource::builders::DescribeConsumableResourceFluentBuilder {
++    pub fn describe_consumable_resource(
++        &self,
++    ) -> super::super::operation::describe_consumable_resource::builders::DescribeConsumableResourceFluentBuilder {
+         super::super::operation::describe_consumable_resource::builders::DescribeConsumableResourceFluentBuilder::new(self.handle.clone())
+     }
+ }
+```
+
+### `src/client/describe_scheduling_policies.rs`
+
+```diff
+--- reference/src/client/describe_scheduling_policies.rs
++++ generated/src/client/describe_scheduling_policies.rs
+@@ -7,7 +7,9 @@
+     /// - On success, responds with [`DescribeSchedulingPoliciesOutput`](crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesOutput) with field(s):
+     ///   - [`scheduling_policies(Option<Vec::<SchedulingPolicyDetail>>)`](crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesOutput::scheduling_policies): <p>The list of scheduling policies.</p>
+     /// - On failure, responds with [`SdkError<DescribeSchedulingPoliciesError>`](crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError)
+-    pub fn describe_scheduling_policies(&self) -> super::super::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesFluentBuilder {
++    pub fn describe_scheduling_policies(
++        &self,
++    ) -> super::super::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesFluentBuilder {
+         super::super::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesFluentBuilder::new(self.handle.clone())
+     }
+ }
 ```
 
 ### `src/client/describe_service_job.rs`
@@ -175,7 +204,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`consumable_resources(Vec::<ConsumableResourceSummary>)`](crate::operation::list_consumable_resources::ListConsumableResourcesOutput::consumable_resources): <p>A list of consumable resources that match the request.</p>
      ///   - [`next_token(Option<String>)`](crate::operation::list_consumable_resources::ListConsumableResourcesOutput::next_token): <p>The <code>nextToken</code> value to include in a future <code>ListConsumableResources</code> request. When the results of a <code>ListConsumableResources</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      /// - On failure, responds with [`SdkError<ListConsumableResourcesError>`](crate::operation::list_consumable_resources::ListConsumableResourcesError)
-     pub fn list_consumable_resources(&self) -> super::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder {
+     pub fn list_consumable_resources(&self) -> super::super::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder {
 ```
 
 ### `src/client/list_jobs.rs`
@@ -194,7 +223,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`job_summary_list(Vec::<JobSummary>)`](crate::operation::list_jobs::ListJobsOutput::job_summary_list): <p>A list of job summaries that match the request.</p>
      ///   - [`next_token(Option<String>)`](crate::operation::list_jobs::ListJobsOutput::next_token): <p>The <code>nextToken</code> value to include in a future <code>ListJobs</code> request. When the results of a <code>ListJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      /// - On failure, responds with [`SdkError<ListJobsError>`](crate::operation::list_jobs::ListJobsError)
-     pub fn list_jobs(&self) -> super::operation::list_jobs::builders::ListJobsFluentBuilder {
+     pub fn list_jobs(&self) -> super::super::operation::list_jobs::builders::ListJobsFluentBuilder {
 ```
 
 ### `src/client/list_jobs_by_consumable_resource.rs`
@@ -229,7 +258,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`job_summary_list(Vec::<ServiceJobSummary>)`](crate::operation::list_service_jobs::ListServiceJobsOutput::job_summary_list): <p>A list of service job summaries.</p>
      ///   - [`next_token(Option<String>)`](crate::operation::list_service_jobs::ListServiceJobsOutput::next_token): <p>The <code>nextToken</code> value to include in a future <code>ListServiceJobs</code> request. When the results of a <code>ListServiceJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      /// - On failure, responds with [`SdkError<ListServiceJobsError>`](crate::operation::list_service_jobs::ListServiceJobsError)
-     pub fn list_service_jobs(&self) -> super::operation::list_service_jobs::builders::ListServiceJobsFluentBuilder {
+     pub fn list_service_jobs(&self) -> super::super::operation::list_service_jobs::builders::ListServiceJobsFluentBuilder {
 ```
 
 ### `src/client/register_job_definition.rs`
@@ -266,8 +295,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`job_definition_arn(String)`](crate::operation::register_job_definition::RegisterJobDefinitionOutput::job_definition_arn): <p>The Amazon Resource Name (ARN) of the job definition.</p>
 +    ///   - [`revision(i32)`](crate::operation::register_job_definition::RegisterJobDefinitionOutput::revision): <p>The revision of the job definition.</p>
      /// - On failure, responds with [`SdkError<RegisterJobDefinitionError>`](crate::operation::register_job_definition::RegisterJobDefinitionError)
-     pub fn register_job_definition(&self) -> super::operation::register_job_definition::builders::RegisterJobDefinitionFluentBuilder {
-         super::operation::register_job_definition::builders::RegisterJobDefinitionFluentBuilder::new(self.handle.clone())
+     pub fn register_job_definition(&self) -> super::super::operation::register_job_definition::builders::RegisterJobDefinitionFluentBuilder {
+         super::super::operation::register_job_definition::builders::RegisterJobDefinitionFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/submit_job.rs`
@@ -296,8 +325,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`job_name(String)`](crate::operation::submit_job::SubmitJobOutput::job_name): <p>The name of the job.</p>
 +    ///   - [`job_id(String)`](crate::operation::submit_job::SubmitJobOutput::job_id): <p>The unique identifier for the job.</p>
      /// - On failure, responds with [`SdkError<SubmitJobError>`](crate::operation::submit_job::SubmitJobError)
-     pub fn submit_job(&self) -> super::operation::submit_job::builders::SubmitJobFluentBuilder {
-         super::operation::submit_job::builders::SubmitJobFluentBuilder::new(self.handle.clone())
+     pub fn submit_job(&self) -> super::super::operation::submit_job::builders::SubmitJobFluentBuilder {
+         super::super::operation::submit_job::builders::SubmitJobFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/submit_service_job.rs`
@@ -314,8 +343,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`job_name(String)`](crate::operation::submit_service_job::SubmitServiceJobOutput::job_name): <p>The name of the service job.</p>
 +    ///   - [`job_id(String)`](crate::operation::submit_service_job::SubmitServiceJobOutput::job_id): <p>The unique identifier for the service job.</p>
      /// - On failure, responds with [`SdkError<SubmitServiceJobError>`](crate::operation::submit_service_job::SubmitServiceJobError)
-     pub fn submit_service_job(&self) -> super::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder {
-         super::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder::new(self.handle.clone())
+     pub fn submit_service_job(&self) -> super::super::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder {
+         super::super::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/terminate_job.rs`
@@ -331,7 +360,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`reason(impl Into<String>)`](crate::operation::terminate_job::builders::TerminateJobFluentBuilder::reason) / [`set_reason(Option<String>)`](crate::operation::terminate_job::builders::TerminateJobFluentBuilder::set_reason):<br>required: **true**<br><p>A message to attach to the job that explains the reason for canceling it. This message is returned by future <a>DescribeJobs</a> operations on the job. It is also recorded in the Batch activity logs.</p> <p>This parameter has as limit of 1024 characters.</p><br>
      /// - On success, responds with [`TerminateJobOutput`](crate::operation::terminate_job::TerminateJobOutput)
      /// - On failure, responds with [`SdkError<TerminateJobError>`](crate::operation::terminate_job::TerminateJobError)
-     pub fn terminate_job(&self) -> super::operation::terminate_job::builders::TerminateJobFluentBuilder {
+     pub fn terminate_job(&self) -> super::super::operation::terminate_job::builders::TerminateJobFluentBuilder {
 ```
 
 ### `src/client/update_consumable_resource.rs`
@@ -349,7 +378,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`consumable_resource_arn(String)`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput::consumable_resource_arn): <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
      ///   - [`total_quantity(Option<i64>)`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput::total_quantity): <p>The total amount of the consumable resource that is available.</p>
      /// - On failure, responds with [`SdkError<UpdateConsumableResourceError>`](crate::operation::update_consumable_resource::UpdateConsumableResourceError)
-     pub fn update_consumable_resource(&self) -> super::operation::update_consumable_resource::builders::UpdateConsumableResourceFluentBuilder {
+     pub fn update_consumable_resource(&self) -> super::super::operation::update_consumable_resource::builders::UpdateConsumableResourceFluentBuilder {
 ```
 
 ### `src/client/update_service_environment.rs`
@@ -366,8 +395,39 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`service_environment_name(String)`](crate::operation::update_service_environment::UpdateServiceEnvironmentOutput::service_environment_name): <p>The name of the service environment that was updated.</p>
 +    ///   - [`service_environment_arn(String)`](crate::operation::update_service_environment::UpdateServiceEnvironmentOutput::service_environment_arn): <p>The Amazon Resource Name (ARN) of the service environment that was updated.</p>
      /// - On failure, responds with [`SdkError<UpdateServiceEnvironmentError>`](crate::operation::update_service_environment::UpdateServiceEnvironmentError)
-     pub fn update_service_environment(&self) -> super::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder {
-         super::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder::new(self.handle.clone())
+     pub fn update_service_environment(&self) -> super::super::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder {
+         super::super::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder::new(self.handle.clone())
+```
+
+### `src/config/endpoint.rs`
+
+```diff
+--- reference/src/config/endpoint.rs
++++ generated/src/config/endpoint.rs
+@@ -29,7 +29,10 @@
+ /// Endpoint resolver trait specific to AWS Batch
+ pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
+     /// Resolve an endpoint with the given parameters
+-    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
++    fn resolve_endpoint<'a>(
++        &'a self,
++        params: &'a super::super::config::endpoint::Params,
++    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
+
+     /// Convert this service-specific resolver into a `SharedEndpointResolver`
+     ///
+@@ -316,7 +319,10 @@
+ }
+
+ impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
+-    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
++    fn resolve_endpoint<'a>(
++        &'a self,
++        params: &'a super::super::config::endpoint::Params,
++    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
+         // Check single-entry cache (lock-free read via ArcSwap)
+         let cached = self.endpoint_cache.load();
+         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
 ```
 
 ### `src/lens.rs`
@@ -412,6 +472,121 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/cancel_job/_cancel_job_input.rs`
+
+```diff
+--- reference/src/operation/cancel_job/_cancel_job_input.rs
++++ generated/src/operation/cancel_job/_cancel_job_input.rs
+@@ -70,7 +70,9 @@
+         &self.reason
+     }
+     /// Consumes the builder and constructs a [`CancelJobInput`](crate::operation::cancel_job::CancelJobInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::cancel_job::CancelJobInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::cancel_job::CancelJobInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::cancel_job::CancelJobInput {
+             job_id: self.job_id,
+             reason: self.reason,
+```
+
+### `src/operation/cancel_job/builders.rs`
+
+```diff
+--- reference/src/operation/cancel_job/builders.rs
++++ generated/src/operation/cancel_job/builders.rs
+@@ -33,14 +33,20 @@
+     inner: super::super::super::operation::cancel_job::builders::CancelJobInputBuilder,
+     config_override: ::std::option::Option<super::super::super::config::Builder>,
+ }
+-impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::cancel_job::CancelJobOutput, super::super::super::operation::cancel_job::CancelJobError>
+-    for CancelJobFluentBuilder
++impl
++    super::super::super::client::customize::internal::CustomizableSend<
++        super::super::super::operation::cancel_job::CancelJobOutput,
++        super::super::super::operation::cancel_job::CancelJobError,
++    > for CancelJobFluentBuilder
+ {
+     fn send(
+         self,
+         config_override: super::super::super::config::Builder,
+     ) -> super::super::super::client::customize::internal::BoxFuture<
+-        super::super::super::client::customize::internal::SendResult<super::super::super::operation::cancel_job::CancelJobOutput, super::super::super::operation::cancel_job::CancelJobError>,
++        super::super::super::client::customize::internal::SendResult<
++            super::super::super::operation::cancel_job::CancelJobOutput,
++            super::super::super::operation::cancel_job::CancelJobError,
++        >,
+     > {
+         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+     }
+```
+
+### `src/operation/create_compute_environment/_create_compute_environment_input.rs`
+
+```diff
+--- reference/src/operation/create_compute_environment/_create_compute_environment_input.rs
++++ generated/src/operation/create_compute_environment/_create_compute_environment_input.rs
+@@ -330,17 +330,19 @@
+         super::super::super::operation::create_compute_environment::CreateComputeEnvironmentInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::create_compute_environment::CreateComputeEnvironmentInput {
+-            compute_environment_name: self.compute_environment_name,
+-            r#type: self.r#type,
+-            state: self.state,
+-            unmanagedv_cpus: self.unmanagedv_cpus,
+-            compute_resources: self.compute_resources,
+-            service_role: self.service_role,
+-            tags: self.tags,
+-            eks_configuration: self.eks_configuration,
+-            context: self.context,
+-            ecs_settings: self.ecs_settings,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::create_compute_environment::CreateComputeEnvironmentInput {
++                compute_environment_name: self.compute_environment_name,
++                r#type: self.r#type,
++                state: self.state,
++                unmanagedv_cpus: self.unmanagedv_cpus,
++                compute_resources: self.compute_resources,
++                service_role: self.service_role,
++                tags: self.tags,
++                eks_configuration: self.eks_configuration,
++                context: self.context,
++                ecs_settings: self.ecs_settings,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/create_consumable_resource/_create_consumable_resource_input.rs`
+
+```diff
+--- reference/src/operation/create_consumable_resource/_create_consumable_resource_input.rs
++++ generated/src/operation/create_consumable_resource/_create_consumable_resource_input.rs
+@@ -147,11 +147,13 @@
+         super::super::super::operation::create_consumable_resource::CreateConsumableResourceInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::create_consumable_resource::CreateConsumableResourceInput {
+-            consumable_resource_name: self.consumable_resource_name,
+-            total_quantity: self.total_quantity,
+-            resource_type: self.resource_type,
+-            tags: self.tags,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::create_consumable_resource::CreateConsumableResourceInput {
++                consumable_resource_name: self.consumable_resource_name,
++                total_quantity: self.total_quantity,
++                resource_type: self.resource_type,
++                tags: self.tags,
++            },
++        )
+     }
+ }
+```
+
 ### `src/operation/create_consumable_resource/_create_consumable_resource_output.rs`
 
 ```diff
@@ -445,41 +620,97 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl ::aws_types::request_id::RequestId for CreateConsumableResourceOutput {
-@@ -80,11 +82,29 @@
+@@ -80,11 +82,31 @@
          self
      }
      /// Consumes the builder and constructs a [`CreateConsumableResourceOutput`](crate::operation::create_consumable_resource::CreateConsumableResourceOutput).
--    pub fn build(self) -> super::operation::create_consumable_resource::CreateConsumableResourceOutput {
--        super::operation::create_consumable_resource::CreateConsumableResourceOutput {
+-    pub fn build(self) -> super::super::super::operation::create_consumable_resource::CreateConsumableResourceOutput {
+-        super::super::super::operation::create_consumable_resource::CreateConsumableResourceOutput {
 -            consumable_resource_name: self.consumable_resource_name,
 -            consumable_resource_arn: self.consumable_resource_arn,
+-            _request_id: self._request_id,
+-        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`consumable_resource_name`](crate::operation::create_consumable_resource::builders::CreateConsumableResourceOutputBuilder::consumable_resource_name)
 +    /// - [`consumable_resource_arn`](crate::operation::create_consumable_resource::builders::CreateConsumableResourceOutputBuilder::consumable_resource_arn)
 +    pub fn build(
 +        self,
 +    ) -> ::std::result::Result<
-+        super::operation::create_consumable_resource::CreateConsumableResourceOutput,
++        super::super::super::operation::create_consumable_resource::CreateConsumableResourceOutput,
 +        ::aws_smithy_types::error::operation::BuildError,
 +    > {
-+        ::std::result::Result::Ok(super::operation::create_consumable_resource::CreateConsumableResourceOutput {
-+            consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "consumable_resource_name",
-+                    "consumable_resource_name was not specified but it is required when building CreateConsumableResourceOutput",
-+                )
-+            })?,
-+            consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "consumable_resource_arn",
-+                    "consumable_resource_arn was not specified but it is required when building CreateConsumableResourceOutput",
-+                )
-+            })?,
-             _request_id: self._request_id,
--        }
-+        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::create_consumable_resource::CreateConsumableResourceOutput {
++                consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "consumable_resource_name",
++                        "consumable_resource_name was not specified but it is required when building CreateConsumableResourceOutput",
++                    )
++                })?,
++                consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "consumable_resource_arn",
++                        "consumable_resource_arn was not specified but it is required when building CreateConsumableResourceOutput",
++                    )
++                })?,
++                _request_id: self._request_id,
++            },
++        )
      }
  }
+```
+
+### `src/operation/create_job_queue/_create_job_queue_input.rs`
+
+```diff
+--- reference/src/operation/create_job_queue/_create_job_queue_input.rs
++++ generated/src/operation/create_job_queue/_create_job_queue_input.rs
+@@ -182,7 +182,10 @@
+     /// <p>The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the <code>VALID</code> state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>); EC2 and Fargate compute environments can't be mixed.</p><note>
+     /// <p>All compute environments that are associated with a job queue must share the same architecture. Batch doesn't support mixing compute environment architecture types in a single job queue.</p>
+     /// </note>
+-    pub fn set_compute_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentOrder>>) -> Self {
++    pub fn set_compute_environment_order(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentOrder>>,
++    ) -> Self {
+         self.compute_environment_order = input;
+         self
+     }
+@@ -204,7 +207,10 @@
+         self
+     }
+     /// <p>A list of service environments that this job queue can use to allocate jobs. All serviceEnvironments must have the same type. A job queue can't have both a serviceEnvironmentOrder and a computeEnvironmentOrder field.</p>
+-    pub fn set_service_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentOrder>>) -> Self {
++    pub fn set_service_environment_order(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentOrder>>,
++    ) -> Self {
+         self.service_environment_order = input;
+         self
+     }
+@@ -258,7 +264,10 @@
+         self
+     }
+     /// <p>The set of actions that Batch performs on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
+-    pub fn set_job_state_time_limit_actions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobStateTimeLimitAction>>) -> Self {
++    pub fn set_job_state_time_limit_actions(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobStateTimeLimitAction>>,
++    ) -> Self {
+         self.job_state_time_limit_actions = input;
+         self
+     }
+@@ -269,7 +278,8 @@
+     /// Consumes the builder and constructs a [`CreateJobQueueInput`](crate::operation::create_job_queue::CreateJobQueueInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::create_job_queue::CreateJobQueueInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<super::super::super::operation::create_job_queue::CreateJobQueueInput, ::aws_smithy_types::error::operation::BuildError>
++    {
+         ::std::result::Result::Ok(super::super::super::operation::create_job_queue::CreateJobQueueInput {
+             job_queue_name: self.job_queue_name,
+             state: self.state,
 ```
 
 ### `src/operation/create_job_queue/_create_job_queue_output.rs`
@@ -515,12 +746,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl ::aws_types::request_id::RequestId for CreateJobQueueOutput {
-@@ -80,11 +82,26 @@
+@@ -80,11 +82,27 @@
          self
      }
      /// Consumes the builder and constructs a [`CreateJobQueueOutput`](crate::operation::create_job_queue::CreateJobQueueOutput).
--    pub fn build(self) -> super::operation::create_job_queue::CreateJobQueueOutput {
--        super::operation::create_job_queue::CreateJobQueueOutput {
+-    pub fn build(self) -> super::super::super::operation::create_job_queue::CreateJobQueueOutput {
+-        super::super::super::operation::create_job_queue::CreateJobQueueOutput {
 -            job_queue_name: self.job_queue_name,
 -            job_queue_arn: self.job_queue_arn,
 +    /// This method will fail if any of the following fields are not set:
@@ -528,8 +759,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`job_queue_arn`](crate::operation::create_job_queue::builders::CreateJobQueueOutputBuilder::job_queue_arn)
 +    pub fn build(
 +        self,
-+    ) -> ::std::result::Result<super::operation::create_job_queue::CreateJobQueueOutput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::create_job_queue::CreateJobQueueOutput {
++    ) -> ::std::result::Result<super::super::super::operation::create_job_queue::CreateJobQueueOutput, ::aws_smithy_types::error::operation::BuildError>
++    {
++        ::std::result::Result::Ok(super::super::super::operation::create_job_queue::CreateJobQueueOutput {
 +            job_queue_name: self.job_queue_name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "job_queue_name",
@@ -547,6 +779,141 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        })
      }
  }
+```
+
+### `src/operation/create_job_queue/builders.rs`
+
+```diff
+--- reference/src/operation/create_job_queue/builders.rs
++++ generated/src/operation/create_job_queue/builders.rs
+@@ -189,7 +189,10 @@
+     /// <p>The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the <code>VALID</code> state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>); EC2 and Fargate compute environments can't be mixed.</p><note>
+     /// <p>All compute environments that are associated with a job queue must share the same architecture. Batch doesn't support mixing compute environment architecture types in a single job queue.</p>
+     /// </note>
+-    pub fn set_compute_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentOrder>>) -> Self {
++    pub fn set_compute_environment_order(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentOrder>>,
++    ) -> Self {
+         self.inner = self.inner.set_compute_environment_order(input);
+         self
+     }
+@@ -210,7 +213,10 @@
+         self
+     }
+     /// <p>A list of service environments that this job queue can use to allocate jobs. All serviceEnvironments must have the same type. A job queue can't have both a serviceEnvironmentOrder and a computeEnvironmentOrder field.</p>
+-    pub fn set_service_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentOrder>>) -> Self {
++    pub fn set_service_environment_order(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentOrder>>,
++    ) -> Self {
+         self.inner = self.inner.set_service_environment_order(input);
+         self
+     }
+@@ -262,7 +268,10 @@
+         self
+     }
+     /// <p>The set of actions that Batch performs on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
+-    pub fn set_job_state_time_limit_actions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobStateTimeLimitAction>>) -> Self {
++    pub fn set_job_state_time_limit_actions(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobStateTimeLimitAction>>,
++    ) -> Self {
+         self.inner = self.inner.set_job_state_time_limit_actions(input);
+         self
+     }
+```
+
+### `src/operation/create_quota_share/_create_quota_share_input.rs`
+
+```diff
+--- reference/src/operation/create_quota_share/_create_quota_share_input.rs
++++ generated/src/operation/create_quota_share/_create_quota_share_input.rs
+@@ -127,7 +127,10 @@
+         self
+     }
+     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+-    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>) -> Self {
++    pub fn set_resource_sharing_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>,
++    ) -> Self {
+         self.resource_sharing_configuration = input;
+         self
+     }
+@@ -142,7 +145,10 @@
+         self
+     }
+     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
+-    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>) -> Self {
++    pub fn set_preemption_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>,
++    ) -> Self {
+         self.preemption_configuration = input;
+         self
+     }
+@@ -187,7 +193,10 @@
+     /// Consumes the builder and constructs a [`CreateQuotaShareInput`](crate::operation::create_quota_share::CreateQuotaShareInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::create_quota_share::CreateQuotaShareInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::create_quota_share::CreateQuotaShareInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::create_quota_share::CreateQuotaShareInput {
+             quota_share_name: self.quota_share_name,
+             job_queue: self.job_queue,
+```
+
+### `src/operation/create_quota_share/builders.rs`
+
+```diff
+--- reference/src/operation/create_quota_share/builders.rs
++++ generated/src/operation/create_quota_share/builders.rs
+@@ -161,7 +161,10 @@
+         self
+     }
+     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+-    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>) -> Self {
++    pub fn set_resource_sharing_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>,
++    ) -> Self {
+         self.inner = self.inner.set_resource_sharing_configuration(input);
+         self
+     }
+@@ -175,7 +178,10 @@
+         self
+     }
+     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
+-    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>) -> Self {
++    pub fn set_preemption_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>,
++    ) -> Self {
+         self.inner = self.inner.set_preemption_configuration(input);
+         self
+     }
+```
+
+### `src/operation/create_quota_share.rs`
+
+```diff
+--- reference/src/operation/create_quota_share.rs
++++ generated/src/operation/create_quota_share.rs
+@@ -255,7 +255,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_quota_share::ser_create_quota_share_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_quota_share::ser_create_quota_share_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/create_scheduling_policy/_create_scheduling_policy_output.rs`
@@ -586,8 +953,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
      /// Consumes the builder and constructs a [`CreateSchedulingPolicyOutput`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyOutput).
--    pub fn build(self) -> super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
--        super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
+-    pub fn build(self) -> super::super::super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
+-        super::super::super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
 -            name: self.name,
 -            arn: self.arn,
 +    /// This method will fail if any of the following fields are not set:
@@ -596,10 +963,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn build(
 +        self,
 +    ) -> ::std::result::Result<
-+        super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput,
++        super::super::super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput,
 +        ::aws_smithy_types::error::operation::BuildError,
 +    > {
-+        ::std::result::Result::Ok(super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
++        ::std::result::Result::Ok(super::super::super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
 +            name: self.name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "name",
@@ -615,6 +982,35 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              _request_id: self._request_id,
 -        }
 +        })
+     }
+ }
+```
+
+### `src/operation/create_service_environment/_create_service_environment_input.rs`
+
+```diff
+--- reference/src/operation/create_service_environment/_create_service_environment_input.rs
++++ generated/src/operation/create_service_environment/_create_service_environment_input.rs
+@@ -147,12 +147,14 @@
+         super::super::super::operation::create_service_environment::CreateServiceEnvironmentInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::create_service_environment::CreateServiceEnvironmentInput {
+-            service_environment_name: self.service_environment_name,
+-            service_environment_type: self.service_environment_type,
+-            state: self.state,
+-            capacity_limits: self.capacity_limits,
+-            tags: self.tags,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::create_service_environment::CreateServiceEnvironmentInput {
++                service_environment_name: self.service_environment_name,
++                service_environment_type: self.service_environment_type,
++                state: self.state,
++                capacity_limits: self.capacity_limits,
++                tags: self.tags,
++            },
++        )
      }
  }
 ```
@@ -652,39 +1048,207 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl ::aws_types::request_id::RequestId for CreateServiceEnvironmentOutput {
-@@ -80,11 +82,29 @@
+@@ -80,11 +82,31 @@
          self
      }
      /// Consumes the builder and constructs a [`CreateServiceEnvironmentOutput`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput).
--    pub fn build(self) -> super::operation::create_service_environment::CreateServiceEnvironmentOutput {
--        super::operation::create_service_environment::CreateServiceEnvironmentOutput {
+-    pub fn build(self) -> super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput {
+-        super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput {
 -            service_environment_name: self.service_environment_name,
 -            service_environment_arn: self.service_environment_arn,
+-            _request_id: self._request_id,
+-        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`service_environment_name`](crate::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder::service_environment_name)
 +    /// - [`service_environment_arn`](crate::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder::service_environment_arn)
 +    pub fn build(
 +        self,
 +    ) -> ::std::result::Result<
-+        super::operation::create_service_environment::CreateServiceEnvironmentOutput,
++        super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput,
 +        ::aws_smithy_types::error::operation::BuildError,
 +    > {
-+        ::std::result::Result::Ok(super::operation::create_service_environment::CreateServiceEnvironmentOutput {
-+            service_environment_name: self.service_environment_name.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "service_environment_name",
-+                    "service_environment_name was not specified but it is required when building CreateServiceEnvironmentOutput",
-+                )
-+            })?,
-+            service_environment_arn: self.service_environment_arn.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "service_environment_arn",
-+                    "service_environment_arn was not specified but it is required when building CreateServiceEnvironmentOutput",
-+                )
-+            })?,
-             _request_id: self._request_id,
--        }
-+        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput {
++                service_environment_name: self.service_environment_name.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "service_environment_name",
++                        "service_environment_name was not specified but it is required when building CreateServiceEnvironmentOutput",
++                    )
++                })?,
++                service_environment_arn: self.service_environment_arn.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "service_environment_arn",
++                        "service_environment_arn was not specified but it is required when building CreateServiceEnvironmentOutput",
++                    )
++                })?,
++                _request_id: self._request_id,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/delete_compute_environment/_delete_compute_environment_input.rs`
+
+```diff
+--- reference/src/operation/delete_compute_environment/_delete_compute_environment_input.rs
++++ generated/src/operation/delete_compute_environment/_delete_compute_environment_input.rs
+@@ -49,8 +49,10 @@
+         super::super::super::operation::delete_compute_environment::DeleteComputeEnvironmentInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::delete_compute_environment::DeleteComputeEnvironmentInput {
+-            compute_environment: self.compute_environment,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::delete_compute_environment::DeleteComputeEnvironmentInput {
++                compute_environment: self.compute_environment,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/delete_consumable_resource/_delete_consumable_resource_input.rs`
+
+```diff
+--- reference/src/operation/delete_consumable_resource/_delete_consumable_resource_input.rs
++++ generated/src/operation/delete_consumable_resource/_delete_consumable_resource_input.rs
+@@ -48,8 +48,10 @@
+         super::super::super::operation::delete_consumable_resource::DeleteConsumableResourceInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::delete_consumable_resource::DeleteConsumableResourceInput {
+-            consumable_resource: self.consumable_resource,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::delete_consumable_resource::DeleteConsumableResourceInput {
++                consumable_resource: self.consumable_resource,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/delete_quota_share/_delete_quota_share_input.rs`
+
+```diff
+--- reference/src/operation/delete_quota_share/_delete_quota_share_input.rs
++++ generated/src/operation/delete_quota_share/_delete_quota_share_input.rs
+@@ -44,7 +44,10 @@
+     /// Consumes the builder and constructs a [`DeleteQuotaShareInput`](crate::operation::delete_quota_share::DeleteQuotaShareInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::delete_quota_share::DeleteQuotaShareInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::delete_quota_share::DeleteQuotaShareInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::delete_quota_share::DeleteQuotaShareInput {
+             quota_share_arn: self.quota_share_arn,
+         })
+```
+
+### `src/operation/delete_quota_share.rs`
+
+```diff
+--- reference/src/operation/delete_quota_share.rs
++++ generated/src/operation/delete_quota_share.rs
+@@ -250,7 +250,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_quota_share::ser_delete_quota_share_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_quota_share::ser_delete_quota_share_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/delete_service_environment/_delete_service_environment_input.rs`
+
+```diff
+--- reference/src/operation/delete_service_environment/_delete_service_environment_input.rs
++++ generated/src/operation/delete_service_environment/_delete_service_environment_input.rs
+@@ -48,8 +48,10 @@
+         super::super::super::operation::delete_service_environment::DeleteServiceEnvironmentInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::delete_service_environment::DeleteServiceEnvironmentInput {
+-            service_environment: self.service_environment,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::delete_service_environment::DeleteServiceEnvironmentInput {
++                service_environment: self.service_environment,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/describe_compute_environments/_describe_compute_environments_input.rs`
+
+```diff
+--- reference/src/operation/describe_compute_environments/_describe_compute_environments_input.rs
++++ generated/src/operation/describe_compute_environments/_describe_compute_environments_input.rs
+@@ -108,10 +108,12 @@
+         super::super::super::operation::describe_compute_environments::DescribeComputeEnvironmentsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::describe_compute_environments::DescribeComputeEnvironmentsInput {
+-            compute_environments: self.compute_environments,
+-            max_results: self.max_results,
+-            next_token: self.next_token,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::describe_compute_environments::DescribeComputeEnvironmentsInput {
++                compute_environments: self.compute_environments,
++                max_results: self.max_results,
++                next_token: self.next_token,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/describe_compute_environments/_describe_compute_environments_output.rs`
+
+```diff
+--- reference/src/operation/describe_compute_environments/_describe_compute_environments_output.rs
++++ generated/src/operation/describe_compute_environments/_describe_compute_environments_output.rs
+@@ -54,7 +54,10 @@
+         self
+     }
+     /// <p>The list of compute environments.</p>
+-    pub fn set_compute_environments(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentDetail>>) -> Self {
++    pub fn set_compute_environments(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentDetail>>,
++    ) -> Self {
+         self.compute_environments = input;
+         self
+     }
+```
+
+### `src/operation/describe_consumable_resource/_describe_consumable_resource_input.rs`
+
+```diff
+--- reference/src/operation/describe_consumable_resource/_describe_consumable_resource_input.rs
++++ generated/src/operation/describe_consumable_resource/_describe_consumable_resource_input.rs
+@@ -48,8 +48,10 @@
+         super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceInput {
+-            consumable_resource: self.consumable_resource,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceInput {
++                consumable_resource: self.consumable_resource,
++            },
++        )
      }
  }
 ```
@@ -725,45 +1289,265 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      /// <p>The total amount of the consumable resource that is available.</p>
      pub fn total_quantity(&self) -> ::std::option::Option<i64> {
-@@ -242,10 +244,28 @@
+@@ -242,17 +244,37 @@
          self
      }
      /// Consumes the builder and constructs a [`DescribeConsumableResourceOutput`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput).
--    pub fn build(self) -> super::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
--        super::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
+-    pub fn build(self) -> super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
+-        super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
 -            consumable_resource_name: self.consumable_resource_name,
 -            consumable_resource_arn: self.consumable_resource_arn,
+-            total_quantity: self.total_quantity,
+-            in_use_quantity: self.in_use_quantity,
+-            available_quantity: self.available_quantity,
+-            resource_type: self.resource_type,
+-            created_at: self.created_at,
+-            tags: self.tags,
+-            _request_id: self._request_id,
+-        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`consumable_resource_name`](crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder::consumable_resource_name)
 +    /// - [`consumable_resource_arn`](crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder::consumable_resource_arn)
 +    pub fn build(
 +        self,
 +    ) -> ::std::result::Result<
-+        super::operation::describe_consumable_resource::DescribeConsumableResourceOutput,
++        super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceOutput,
 +        ::aws_smithy_types::error::operation::BuildError,
 +    > {
-+        ::std::result::Result::Ok(super::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
-+            consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "consumable_resource_name",
-+                    "consumable_resource_name was not specified but it is required when building DescribeConsumableResourceOutput",
-+                )
-+            })?,
-+            consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "consumable_resource_arn",
-+                    "consumable_resource_arn was not specified but it is required when building DescribeConsumableResourceOutput",
-+                )
-+            })?,
-             total_quantity: self.total_quantity,
-             in_use_quantity: self.in_use_quantity,
-             available_quantity: self.available_quantity,
-@@ -253,6 +273,6 @@
-             created_at: self.created_at,
-             tags: self.tags,
-             _request_id: self._request_id,
--        }
-+        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
++                consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "consumable_resource_name",
++                        "consumable_resource_name was not specified but it is required when building DescribeConsumableResourceOutput",
++                    )
++                })?,
++                consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "consumable_resource_arn",
++                        "consumable_resource_arn was not specified but it is required when building DescribeConsumableResourceOutput",
++                    )
++                })?,
++                total_quantity: self.total_quantity,
++                in_use_quantity: self.in_use_quantity,
++                available_quantity: self.available_quantity,
++                resource_type: self.resource_type,
++                created_at: self.created_at,
++                tags: self.tags,
++                _request_id: self._request_id,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/describe_job_definitions/paginator.rs`
+
+```diff
+--- reference/src/operation/describe_job_definitions/paginator.rs
++++ generated/src/operation/describe_job_definitions/paginator.rs
+@@ -86,8 +86,11 @@
+                         }
+                     };
+                     loop {
+-                        let resp =
+-                            super::super::super::operation::describe_job_definitions::DescribeJobDefinitions::orchestrate(&runtime_plugins, input.clone()).await;
++                        let resp = super::super::super::operation::describe_job_definitions::DescribeJobDefinitions::orchestrate(
++                            &runtime_plugins,
++                            input.clone(),
++                        )
++                        .await;
+                         // If the input member is None or it was an error
+                         let done = match resp {
+                             ::std::result::Result::Ok(ref resp) => {
+```
+
+### `src/operation/describe_job_queues/_describe_job_queues_input.rs`
+
+```diff
+--- reference/src/operation/describe_job_queues/_describe_job_queues_input.rs
++++ generated/src/operation/describe_job_queues/_describe_job_queues_input.rs
+@@ -104,7 +104,10 @@
+     /// Consumes the builder and constructs a [`DescribeJobQueuesInput`](crate::operation::describe_job_queues::DescribeJobQueuesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::describe_job_queues::DescribeJobQueuesInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::describe_job_queues::DescribeJobQueuesInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::describe_job_queues::DescribeJobQueuesInput {
+             job_queues: self.job_queues,
+             max_results: self.max_results,
+```
+
+### `src/operation/describe_job_queues.rs`
+
+```diff
+--- reference/src/operation/describe_job_queues.rs
++++ generated/src/operation/describe_job_queues.rs
+@@ -253,7 +253,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_job_queues::ser_describe_job_queues_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_job_queues::ser_describe_job_queues_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/describe_quota_share/_describe_quota_share_input.rs`
+
+```diff
+--- reference/src/operation/describe_quota_share/_describe_quota_share_input.rs
++++ generated/src/operation/describe_quota_share/_describe_quota_share_input.rs
+@@ -44,8 +44,10 @@
+     /// Consumes the builder and constructs a [`DescribeQuotaShareInput`](crate::operation::describe_quota_share::DescribeQuotaShareInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::describe_quota_share::DescribeQuotaShareInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::describe_quota_share::DescribeQuotaShareInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::describe_quota_share::DescribeQuotaShareInput {
+             quota_share_arn: self.quota_share_arn,
+         })
+```
+
+### `src/operation/describe_quota_share/_describe_quota_share_output.rs`
+
+```diff
+--- reference/src/operation/describe_quota_share/_describe_quota_share_output.rs
++++ generated/src/operation/describe_quota_share/_describe_quota_share_output.rs
+@@ -159,7 +159,10 @@
+         self
+     }
+     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+-    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>) -> Self {
++    pub fn set_resource_sharing_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>,
++    ) -> Self {
+         self.resource_sharing_configuration = input;
+         self
+     }
+@@ -173,7 +176,10 @@
+         self
+     }
+     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
+-    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>) -> Self {
++    pub fn set_preemption_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>,
++    ) -> Self {
+         self.preemption_configuration = input;
+         self
+     }
+```
+
+### `src/operation/describe_quota_share.rs`
+
+```diff
+--- reference/src/operation/describe_quota_share.rs
++++ generated/src/operation/describe_quota_share.rs
+@@ -253,8 +253,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body =
+-            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_quota_share::ser_describe_quota_share_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_quota_share::ser_describe_quota_share_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/describe_scheduling_policies/_describe_scheduling_policies_output.rs`
+
+```diff
+--- reference/src/operation/describe_scheduling_policies/_describe_scheduling_policies_output.rs
++++ generated/src/operation/describe_scheduling_policies/_describe_scheduling_policies_output.rs
+@@ -47,7 +47,10 @@
+         self
+     }
+     /// <p>The list of scheduling policies.</p>
+-    pub fn set_scheduling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyDetail>>) -> Self {
++    pub fn set_scheduling_policies(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyDetail>>,
++    ) -> Self {
+         self.scheduling_policies = input;
+         self
+     }
+```
+
+### `src/operation/describe_service_environments/_describe_service_environments_input.rs`
+
+```diff
+--- reference/src/operation/describe_service_environments/_describe_service_environments_input.rs
++++ generated/src/operation/describe_service_environments/_describe_service_environments_input.rs
+@@ -107,10 +107,12 @@
+         super::super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput {
+-            service_environments: self.service_environments,
+-            max_results: self.max_results,
+-            next_token: self.next_token,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput {
++                service_environments: self.service_environments,
++                max_results: self.max_results,
++                next_token: self.next_token,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/describe_service_environments/_describe_service_environments_output.rs`
+
+```diff
+--- reference/src/operation/describe_service_environments/_describe_service_environments_output.rs
++++ generated/src/operation/describe_service_environments/_describe_service_environments_output.rs
+@@ -54,7 +54,10 @@
+         self
+     }
+     /// <p>The list of service environments that match the request.</p>
+-    pub fn set_service_environments(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentDetail>>) -> Self {
++    pub fn set_service_environments(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentDetail>>,
++    ) -> Self {
+         self.service_environments = input;
+         self
+     }
+```
+
+### `src/operation/describe_service_job/_describe_service_job_input.rs`
+
+```diff
+--- reference/src/operation/describe_service_job/_describe_service_job_input.rs
++++ generated/src/operation/describe_service_job/_describe_service_job_input.rs
+@@ -44,8 +44,10 @@
+     /// Consumes the builder and constructs a [`DescribeServiceJobInput`](crate::operation::describe_service_job::DescribeServiceJobInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::describe_service_job::DescribeServiceJobInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::describe_service_job::DescribeServiceJobInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::describe_service_job::DescribeServiceJobInput { job_id: self.job_id })
      }
  }
 ```
@@ -786,26 +1570,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub job_queue: ::std::option::Option<::std::string::String>,
 +    pub job_queue: ::std::string::String,
      /// <p>The latest attempt associated with the service job.</p>
-     pub latest_attempt: ::std::option::Option<super::types::LatestServiceJobAttempt>,
+     pub latest_attempt: ::std::option::Option<super::super::super::types::LatestServiceJobAttempt>,
      /// <p>The retry strategy to use for failed service jobs that are submitted with this service job.</p>
 @@ -30,7 +30,7 @@
      /// <p>The request, in JSON, for the service that the <code>SubmitServiceJob</code> operation is queueing.</p>
      pub service_request_payload: ::std::option::Option<::std::string::String>,
      /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
--    pub service_job_type: ::std::option::Option<super::types::ServiceJobType>,
-+    pub service_job_type: super::types::ServiceJobType,
+-    pub service_job_type: ::std::option::Option<super::super::super::types::ServiceJobType>,
++    pub service_job_type: super::super::super::types::ServiceJobType,
      /// <p>The share identifier for the service job. This is used for fair-share scheduling.</p>
      pub share_identifier: ::std::option::Option<::std::string::String>,
      /// <p>The name of the quota share that the service job is associated with.</p>
 @@ -40,9 +40,9 @@
      /// <p>Summarizes the preemptions of the service job. This field appears on a service job when it has been preempted.</p>
-     pub preemption_summary: ::std::option::Option<super::types::ServiceJobPreemptionSummary>,
+     pub preemption_summary: ::std::option::Option<super::super::super::types::ServiceJobPreemptionSummary>,
      /// <p>The Unix timestamp (in milliseconds) for when the service job was started.</p>
 -    pub started_at: ::std::option::Option<i64>,
 +    pub started_at: i64,
      /// <p>The current status of the service job.</p>
--    pub status: ::std::option::Option<super::types::ServiceJobStatus>,
-+    pub status: super::types::ServiceJobStatus,
+-    pub status: ::std::option::Option<super::super::super::types::ServiceJobStatus>,
++    pub status: super::super::super::types::ServiceJobStatus,
      /// <p>A short, human-readable string to provide more details for the current status of the service job.</p>
      pub status_reason: ::std::option::Option<::std::string::String>,
      /// <p>The Unix timestamp (in milliseconds) for when the service job stopped running.</p>
@@ -834,14 +1618,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.job_queue.deref()
      }
      /// <p>The latest attempt associated with the service job.</p>
-     pub fn latest_attempt(&self) -> ::std::option::Option<&super::types::LatestServiceJobAttempt> {
+     pub fn latest_attempt(&self) -> ::std::option::Option<&super::super::super::types::LatestServiceJobAttempt> {
 @@ -111,8 +114,8 @@
          self.service_request_payload.as_deref()
      }
      /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
--    pub fn service_job_type(&self) -> ::std::option::Option<&super::types::ServiceJobType> {
+-    pub fn service_job_type(&self) -> ::std::option::Option<&super::super::super::types::ServiceJobType> {
 -        self.service_job_type.as_ref()
-+    pub fn service_job_type(&self) -> &super::types::ServiceJobType {
++    pub fn service_job_type(&self) -> &super::super::super::types::ServiceJobType {
 +        &self.service_job_type
      }
      /// <p>The share identifier for the service job. This is used for fair-share scheduling.</p>
@@ -855,19 +1639,43 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.started_at
      }
      /// <p>The current status of the service job.</p>
--    pub fn status(&self) -> ::std::option::Option<&super::types::ServiceJobStatus> {
+-    pub fn status(&self) -> ::std::option::Option<&super::super::super::types::ServiceJobStatus> {
 -        self.status.as_ref()
-+    pub fn status(&self) -> &super::types::ServiceJobStatus {
++    pub fn status(&self) -> &super::super::super::types::ServiceJobStatus {
 +        &self.status
      }
      /// <p>A short, human-readable string to provide more details for the current status of the service job.</p>
      pub fn status_reason(&self) -> ::std::option::Option<&str> {
-@@ -568,33 +571,73 @@
+@@ -230,7 +233,10 @@
+         self
+     }
+     /// <p>The configured capacity for the service job, such as the number of instances. The number of instances should be the same value as the <code>serviceRequestPayload.InstanceCount</code> field.</p>
+-    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobCapacityUsageDetail>>) -> Self {
++    pub fn set_capacity_usage(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobCapacityUsageDetail>>,
++    ) -> Self {
+         self.capacity_usage = input;
+         self
+     }
+@@ -444,7 +450,10 @@
+         self
+     }
+     /// <p>Specifies the service job behavior when preempted.</p>
+-    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>) -> Self {
++    pub fn set_preemption_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>,
++    ) -> Self {
+         self.preemption_configuration = input;
+         self
+     }
+@@ -568,33 +577,75 @@
          self
      }
      /// Consumes the builder and constructs a [`DescribeServiceJobOutput`](crate::operation::describe_service_job::DescribeServiceJobOutput).
--    pub fn build(self) -> super::operation::describe_service_job::DescribeServiceJobOutput {
--        super::operation::describe_service_job::DescribeServiceJobOutput {
+-    pub fn build(self) -> super::super::super::operation::describe_service_job::DescribeServiceJobOutput {
+-        super::super::super::operation::describe_service_job::DescribeServiceJobOutput {
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`job_id`](crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::job_id)
 +    /// - [`job_name`](crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::job_name)
@@ -877,9 +1685,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`status`](crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::status)
 +    pub fn build(
 +        self,
-+    ) -> ::std::result::Result<super::operation::describe_service_job::DescribeServiceJobOutput, ::aws_smithy_types::error::operation::BuildError>
-+    {
-+        ::std::result::Result::Ok(super::operation::describe_service_job::DescribeServiceJobOutput {
++    ) -> ::std::result::Result<
++        super::super::super::operation::describe_service_job::DescribeServiceJobOutput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
++        ::std::result::Result::Ok(super::super::super::operation::describe_service_job::DescribeServiceJobOutput {
              attempts: self.attempts,
              capacity_usage: self.capacity_usage,
              created_at: self.created_at,
@@ -947,6 +1757,65 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/describe_service_job.rs`
+
+```diff
+--- reference/src/operation/describe_service_job.rs
++++ generated/src/operation/describe_service_job.rs
+@@ -253,8 +253,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body =
+-            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_service_job::ser_describe_service_job_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_service_job::ser_describe_service_job_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/get_job_queue_snapshot/_get_job_queue_snapshot_input.rs`
+
+```diff
+--- reference/src/operation/get_job_queue_snapshot/_get_job_queue_snapshot_input.rs
++++ generated/src/operation/get_job_queue_snapshot/_get_job_queue_snapshot_input.rs
+@@ -44,8 +44,10 @@
+     /// Consumes the builder and constructs a [`GetJobQueueSnapshotInput`](crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput { job_queue: self.job_queue })
+     }
+ }
+```
+
+### `src/operation/get_job_queue_snapshot.rs`
+
+```diff
+--- reference/src/operation/get_job_queue_snapshot.rs
++++ generated/src/operation/get_job_queue_snapshot.rs
+@@ -253,9 +253,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_job_queue_snapshot::ser_get_job_queue_snapshot_input(
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_get_job_queue_snapshot::ser_get_job_queue_snapshot_input(&input)?,
++        );
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
 ### `src/operation/list_consumable_resources/_list_consumable_resources_output.rs`
 
 ```diff
@@ -956,8 +1825,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ListConsumableResourcesOutput {
      /// <p>A list of consumable resources that match the request.</p>
--    pub consumable_resources: ::std::option::Option<::std::vec::Vec<super::types::ConsumableResourceSummary>>,
-+    pub consumable_resources: ::std::vec::Vec<super::types::ConsumableResourceSummary>,
+-    pub consumable_resources: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumableResourceSummary>>,
++    pub consumable_resources: ::std::vec::Vec<super::super::super::types::ConsumableResourceSummary>,
      /// <p>The <code>nextToken</code> value to include in a future <code>ListConsumableResources</code> request. When the results of a <code>ListConsumableResources</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -967,29 +1836,41 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>A list of consumable resources that match the request.</p>
 -    ///
 -    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.consumable_resources.is_none()`.
-     pub fn consumable_resources(&self) -> &[super::types::ConsumableResourceSummary] {
+     pub fn consumable_resources(&self) -> &[super::super::super::types::ConsumableResourceSummary] {
 -        self.consumable_resources.as_deref().unwrap_or_default()
 +        use std::ops::Deref;
 +        self.consumable_resources.deref()
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>ListConsumableResources</code> request. When the results of a <code>ListConsumableResources</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub fn next_token(&self) -> ::std::option::Option<&str> {
-@@ -86,11 +85,23 @@
+@@ -54,7 +53,10 @@
+         self
+     }
+     /// <p>A list of consumable resources that match the request.</p>
+-    pub fn set_consumable_resources(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumableResourceSummary>>) -> Self {
++    pub fn set_consumable_resources(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumableResourceSummary>>,
++    ) -> Self {
+         self.consumable_resources = input;
+         self
+     }
+@@ -86,11 +88,23 @@
          self
      }
      /// Consumes the builder and constructs a [`ListConsumableResourcesOutput`](crate::operation::list_consumable_resources::ListConsumableResourcesOutput).
--    pub fn build(self) -> super::operation::list_consumable_resources::ListConsumableResourcesOutput {
--        super::operation::list_consumable_resources::ListConsumableResourcesOutput {
+-    pub fn build(self) -> super::super::super::operation::list_consumable_resources::ListConsumableResourcesOutput {
+-        super::super::super::operation::list_consumable_resources::ListConsumableResourcesOutput {
 -            consumable_resources: self.consumable_resources,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`consumable_resources`](crate::operation::list_consumable_resources::builders::ListConsumableResourcesOutputBuilder::consumable_resources)
 +    pub fn build(
 +        self,
 +    ) -> ::std::result::Result<
-+        super::operation::list_consumable_resources::ListConsumableResourcesOutput,
++        super::super::super::operation::list_consumable_resources::ListConsumableResourcesOutput,
 +        ::aws_smithy_types::error::operation::BuildError,
 +    > {
-+        ::std::result::Result::Ok(super::operation::list_consumable_resources::ListConsumableResourcesOutput {
++        ::std::result::Result::Ok(super::super::super::operation::list_consumable_resources::ListConsumableResourcesOutput {
 +            consumable_resources: self.consumable_resources.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "consumable_resources",
@@ -1004,6 +1885,45 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/list_consumable_resources/paginator.rs`
+
+```diff
+--- reference/src/operation/list_consumable_resources/paginator.rs
++++ generated/src/operation/list_consumable_resources/paginator.rs
+@@ -86,8 +86,11 @@
+                         }
+                     };
+                     loop {
+-                        let resp =
+-                            super::super::super::operation::list_consumable_resources::ListConsumableResources::orchestrate(&runtime_plugins, input.clone()).await;
++                        let resp = super::super::super::operation::list_consumable_resources::ListConsumableResources::orchestrate(
++                            &runtime_plugins,
++                            input.clone(),
++                        )
++                        .await;
+                         // If the input member is None or it was an error
+                         let done = match resp {
+                             ::std::result::Result::Ok(ref resp) => {
+```
+
+### `src/operation/list_jobs/_list_jobs_input.rs`
+
+```diff
+--- reference/src/operation/list_jobs/_list_jobs_input.rs
++++ generated/src/operation/list_jobs/_list_jobs_input.rs
+@@ -421,7 +421,9 @@
+         &self.filters
+     }
+     /// Consumes the builder and constructs a [`ListJobsInput`](crate::operation::list_jobs::ListJobsInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_jobs::ListJobsInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::list_jobs::ListJobsInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::list_jobs::ListJobsInput {
+             job_queue: self.job_queue,
+             array_job_id: self.array_job_id,
+```
+
 ### `src/operation/list_jobs/_list_jobs_output.rs`
 
 ```diff
@@ -1013,8 +1933,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ListJobsOutput {
      /// <p>A list of job summaries that match the request.</p>
--    pub job_summary_list: ::std::option::Option<::std::vec::Vec<super::types::JobSummary>>,
-+    pub job_summary_list: ::std::vec::Vec<super::types::JobSummary>,
+-    pub job_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobSummary>>,
++    pub job_summary_list: ::std::vec::Vec<super::super::super::types::JobSummary>,
      /// <p>The <code>nextToken</code> value to include in a future <code>ListJobs</code> request. When the results of a <code>ListJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -1024,24 +1944,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>A list of job summaries that match the request.</p>
 -    ///
 -    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.job_summary_list.is_none()`.
-     pub fn job_summary_list(&self) -> &[super::types::JobSummary] {
+     pub fn job_summary_list(&self) -> &[super::super::super::types::JobSummary] {
 -        self.job_summary_list.as_deref().unwrap_or_default()
 +        use std::ops::Deref;
 +        self.job_summary_list.deref()
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>ListJobs</code> request. When the results of a <code>ListJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub fn next_token(&self) -> ::std::option::Option<&str> {
-@@ -86,11 +85,18 @@
+@@ -86,11 +85,20 @@
          self
      }
      /// Consumes the builder and constructs a [`ListJobsOutput`](crate::operation::list_jobs::ListJobsOutput).
--    pub fn build(self) -> super::operation::list_jobs::ListJobsOutput {
--        super::operation::list_jobs::ListJobsOutput {
+-    pub fn build(self) -> super::super::super::operation::list_jobs::ListJobsOutput {
+-        super::super::super::operation::list_jobs::ListJobsOutput {
 -            job_summary_list: self.job_summary_list,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`job_summary_list`](crate::operation::list_jobs::builders::ListJobsOutputBuilder::job_summary_list)
-+    pub fn build(self) -> ::std::result::Result<super::operation::list_jobs::ListJobsOutput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_jobs::ListJobsOutput {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::list_jobs::ListJobsOutput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_jobs::ListJobsOutput {
 +            job_summary_list: self.job_summary_list.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "job_summary_list",
@@ -1056,6 +1978,136 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/operation/list_jobs/builders.rs`
+
+```diff
+--- reference/src/operation/list_jobs/builders.rs
++++ generated/src/operation/list_jobs/builders.rs
+@@ -38,14 +38,20 @@
+     inner: super::super::super::operation::list_jobs::builders::ListJobsInputBuilder,
+     config_override: ::std::option::Option<super::super::super::config::Builder>,
+ }
+-impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::list_jobs::ListJobsOutput, super::super::super::operation::list_jobs::ListJobsError>
+-    for ListJobsFluentBuilder
++impl
++    super::super::super::client::customize::internal::CustomizableSend<
++        super::super::super::operation::list_jobs::ListJobsOutput,
++        super::super::super::operation::list_jobs::ListJobsError,
++    > for ListJobsFluentBuilder
+ {
+     fn send(
+         self,
+         config_override: super::super::super::config::Builder,
+     ) -> super::super::super::client::customize::internal::BoxFuture<
+-        super::super::super::client::customize::internal::SendResult<super::super::super::operation::list_jobs::ListJobsOutput, super::super::super::operation::list_jobs::ListJobsError>,
++        super::super::super::client::customize::internal::SendResult<
++            super::super::super::operation::list_jobs::ListJobsOutput,
++            super::super::super::operation::list_jobs::ListJobsError,
++        >,
+     > {
+         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+     }
+@@ -95,8 +101,11 @@
+     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+     pub fn customize(
+         self,
+-    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::list_jobs::ListJobsOutput, super::super::super::operation::list_jobs::ListJobsError, Self>
+-    {
++    ) -> super::super::super::client::customize::CustomizableOperation<
++        super::super::super::operation::list_jobs::ListJobsOutput,
++        super::super::super::operation::list_jobs::ListJobsError,
++        Self,
++    > {
+         super::super::super::client::customize::CustomizableOperation::new(self)
+     }
+     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
+```
+
+### `src/operation/list_jobs/paginator.rs`
+
+```diff
+--- reference/src/operation/list_jobs/paginator.rs
++++ generated/src/operation/list_jobs/paginator.rs
+@@ -8,7 +8,10 @@
+
+ impl ListJobsPaginator {
+     /// Create a new paginator-wrapper
+-    pub(crate) fn new(handle: std::sync::Arc<super::super::super::client::Handle>, builder: super::super::super::operation::list_jobs::builders::ListJobsInputBuilder) -> Self {
++    pub(crate) fn new(
++        handle: std::sync::Arc<super::super::super::client::Handle>,
++        builder: super::super::super::operation::list_jobs::builders::ListJobsInputBuilder,
++    ) -> Self {
+         Self {
+             handle,
+             builder,
+```
+
+### `src/operation/list_jobs.rs`
+
+```diff
+--- reference/src/operation/list_jobs.rs
++++ generated/src/operation/list_jobs.rs
+@@ -18,11 +18,15 @@
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >,
+     > {
+-        let map_err =
+-            |err: ::aws_smithy_runtime_api::client::result::SdkError<
+-                ::aws_smithy_runtime_api::client::interceptors::context::Error,
+-                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+-            >| { err.map_service_error(|err| err.downcast::<super::super::operation::list_jobs::ListJobsError>().expect("correct error type")) };
++        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
++            ::aws_smithy_runtime_api::client::interceptors::context::Error,
++            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
++        >| {
++            err.map_service_error(|err| {
++                err.downcast::<super::super::operation::list_jobs::ListJobsError>()
++                    .expect("correct error type")
++            })
++        };
+         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
+             .await
+             .map_err(map_err)?;
+@@ -231,7 +235,9 @@
+         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+-        let input = input.downcast::<super::super::operation::list_jobs::ListJobsInput>().expect("correct type");
++        let input = input
++            .downcast::<super::super::operation::list_jobs::ListJobsInput>()
++            .expect("correct type");
+         let _header_serialization_settings = _cfg
+             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
+```
+
+### `src/operation/list_jobs_by_consumable_resource/_list_jobs_by_consumable_resource_input.rs`
+
+```diff
+--- reference/src/operation/list_jobs_by_consumable_resource/_list_jobs_by_consumable_resource_input.rs
++++ generated/src/operation/list_jobs_by_consumable_resource/_list_jobs_by_consumable_resource_input.rs
+@@ -169,11 +169,13 @@
+         super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput {
+-            consumable_resource: self.consumable_resource,
+-            filters: self.filters,
+-            max_results: self.max_results,
+-            next_token: self.next_token,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput {
++                consumable_resource: self.consumable_resource,
++                filters: self.filters,
++                max_results: self.max_results,
++                next_token: self.next_token,
++            },
++        )
+     }
+ }
+```
+
 ### `src/operation/list_jobs_by_consumable_resource/_list_jobs_by_consumable_resource_output.rs`
 
 ```diff
@@ -1065,8 +2117,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ListJobsByConsumableResourceOutput {
      /// <p>The list of jobs that require the specified consumable resources.</p>
--    pub jobs: ::std::option::Option<::std::vec::Vec<super::types::ListJobsByConsumableResourceSummary>>,
-+    pub jobs: ::std::vec::Vec<super::types::ListJobsByConsumableResourceSummary>,
+-    pub jobs: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListJobsByConsumableResourceSummary>>,
++    pub jobs: ::std::vec::Vec<super::super::super::types::ListJobsByConsumableResourceSummary>,
      /// <p>The <code>nextToken</code> value to include in a future <code>ListJobsByConsumableResource</code> request. When the results of a <code>ListJobsByConsumableResource</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -1076,41 +2128,217 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The list of jobs that require the specified consumable resources.</p>
 -    ///
 -    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.jobs.is_none()`.
-     pub fn jobs(&self) -> &[super::types::ListJobsByConsumableResourceSummary] {
+     pub fn jobs(&self) -> &[super::super::super::types::ListJobsByConsumableResourceSummary] {
 -        self.jobs.as_deref().unwrap_or_default()
 +        use std::ops::Deref;
 +        self.jobs.deref()
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>ListJobsByConsumableResource</code> request. When the results of a <code>ListJobsByConsumableResource</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub fn next_token(&self) -> ::std::option::Option<&str> {
-@@ -86,11 +85,23 @@
+@@ -54,7 +53,10 @@
+         self
+     }
+     /// <p>The list of jobs that require the specified consumable resources.</p>
+-    pub fn set_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListJobsByConsumableResourceSummary>>) -> Self {
++    pub fn set_jobs(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListJobsByConsumableResourceSummary>>,
++    ) -> Self {
+         self.jobs = input;
+         self
+     }
+@@ -86,11 +88,25 @@
          self
      }
      /// Consumes the builder and constructs a [`ListJobsByConsumableResourceOutput`](crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput).
--    pub fn build(self) -> super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
--        super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
+-    pub fn build(self) -> super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
+-        super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
 -            jobs: self.jobs,
+-            next_token: self.next_token,
+-            _request_id: self._request_id,
+-        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`jobs`](crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder::jobs)
 +    pub fn build(
 +        self,
 +    ) -> ::std::result::Result<
-+        super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput,
++        super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput,
 +        ::aws_smithy_types::error::operation::BuildError,
 +    > {
-+        ::std::result::Result::Ok(super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
-+            jobs: self.jobs.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "jobs",
-+                    "jobs was not specified but it is required when building ListJobsByConsumableResourceOutput",
-+                )
-+            })?,
-             next_token: self.next_token,
-             _request_id: self._request_id,
--        }
-+        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
++                jobs: self.jobs.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "jobs",
++                        "jobs was not specified but it is required when building ListJobsByConsumableResourceOutput",
++                    )
++                })?,
++                next_token: self.next_token,
++                _request_id: self._request_id,
++            },
++        )
      }
  }
+```
+
+### `src/operation/list_jobs_by_consumable_resource/builders.rs`
+
+```diff
+--- reference/src/operation/list_jobs_by_consumable_resource/builders.rs
++++ generated/src/operation/list_jobs_by_consumable_resource/builders.rs
+@@ -81,11 +81,12 @@
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+-        let runtime_plugins = super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResource::operation_runtime_plugins(
+-            self.handle.runtime_plugins.clone(),
+-            &self.handle.conf,
+-            self.config_override,
+-        );
++        let runtime_plugins =
++            super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResource::operation_runtime_plugins(
++                self.handle.runtime_plugins.clone(),
++                &self.handle.conf,
++                self.config_override,
++            );
+         super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResource::orchestrate(&runtime_plugins, input).await
+     }
+
+@@ -111,8 +112,13 @@
+     /// Create a paginator for this request
+     ///
+     /// Paginators are used by calling [`send().await`](crate::operation::list_jobs_by_consumable_resource::paginator::ListJobsByConsumableResourcePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+-    pub fn into_paginator(self) -> super::super::super::operation::list_jobs_by_consumable_resource::paginator::ListJobsByConsumableResourcePaginator {
+-        super::super::super::operation::list_jobs_by_consumable_resource::paginator::ListJobsByConsumableResourcePaginator::new(self.handle, self.inner)
++    pub fn into_paginator(
++        self,
++    ) -> super::super::super::operation::list_jobs_by_consumable_resource::paginator::ListJobsByConsumableResourcePaginator {
++        super::super::super::operation::list_jobs_by_consumable_resource::paginator::ListJobsByConsumableResourcePaginator::new(
++            self.handle,
++            self.inner,
++        )
+     }
+     /// <p>The name or ARN of the consumable resource.</p>
+     pub fn consumable_resource(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+```
+
+### `src/operation/list_jobs_by_consumable_resource.rs`
+
+```diff
+--- reference/src/operation/list_jobs_by_consumable_resource.rs
++++ generated/src/operation/list_jobs_by_consumable_resource.rs
+@@ -218,9 +218,13 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            super::super::protocol_serde::shape_list_jobs_by_consumable_resource::de_list_jobs_by_consumable_resource_http_error(status, headers, body)
++            super::super::protocol_serde::shape_list_jobs_by_consumable_resource::de_list_jobs_by_consumable_resource_http_error(
++                status, headers, body,
++            )
+         } else {
+-            super::super::protocol_serde::shape_list_jobs_by_consumable_resource::de_list_jobs_by_consumable_resource_http_response(status, headers, body)
++            super::super::protocol_serde::shape_list_jobs_by_consumable_resource::de_list_jobs_by_consumable_resource_http_response(
++                status, headers, body,
++            )
+         };
+         super::super::protocol_serde::type_erase_result(parse_result)
+     }
+```
+
+### `src/operation/list_quota_shares/_list_quota_shares_input.rs`
+
+```diff
+--- reference/src/operation/list_quota_shares/_list_quota_shares_input.rs
++++ generated/src/operation/list_quota_shares/_list_quota_shares_input.rs
+@@ -96,7 +96,10 @@
+     /// Consumes the builder and constructs a [`ListQuotaSharesInput`](crate::operation::list_quota_shares::ListQuotaSharesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::list_quota_shares::ListQuotaSharesInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::list_quota_shares::ListQuotaSharesInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::list_quota_shares::ListQuotaSharesInput {
+             job_queue: self.job_queue,
+             max_results: self.max_results,
+```
+
+### `src/operation/list_quota_shares.rs`
+
+```diff
+--- reference/src/operation/list_quota_shares.rs
++++ generated/src/operation/list_quota_shares.rs
+@@ -255,7 +255,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_quota_shares::ser_list_quota_shares_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_quota_shares::ser_list_quota_shares_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/list_scheduling_policies/_list_scheduling_policies_output.rs`
+
+```diff
+--- reference/src/operation/list_scheduling_policies/_list_scheduling_policies_output.rs
++++ generated/src/operation/list_scheduling_policies/_list_scheduling_policies_output.rs
+@@ -54,7 +54,10 @@
+         self
+     }
+     /// <p>A list of scheduling policies that match the request.</p>
+-    pub fn set_scheduling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyListingDetail>>) -> Self {
++    pub fn set_scheduling_policies(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyListingDetail>>,
++    ) -> Self {
+         self.scheduling_policies = input;
+         self
+     }
+```
+
+### `src/operation/list_scheduling_policies/paginator.rs`
+
+```diff
+--- reference/src/operation/list_scheduling_policies/paginator.rs
++++ generated/src/operation/list_scheduling_policies/paginator.rs
+@@ -86,8 +86,11 @@
+                         }
+                     };
+                     loop {
+-                        let resp =
+-                            super::super::super::operation::list_scheduling_policies::ListSchedulingPolicies::orchestrate(&runtime_plugins, input.clone()).await;
++                        let resp = super::super::super::operation::list_scheduling_policies::ListSchedulingPolicies::orchestrate(
++                            &runtime_plugins,
++                            input.clone(),
++                        )
++                        .await;
+                         // If the input member is None or it was an error
+                         let done = match resp {
+                             ::std::result::Result::Ok(ref resp) => {
+```
+
+### `src/operation/list_service_jobs/_list_service_jobs_input.rs`
+
+```diff
+--- reference/src/operation/list_service_jobs/_list_service_jobs_input.rs
++++ generated/src/operation/list_service_jobs/_list_service_jobs_input.rs
+@@ -325,7 +325,10 @@
+     /// Consumes the builder and constructs a [`ListServiceJobsInput`](crate::operation::list_service_jobs::ListServiceJobsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::list_service_jobs::ListServiceJobsInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::list_service_jobs::ListServiceJobsInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::list_service_jobs::ListServiceJobsInput {
+             job_queue: self.job_queue,
+             job_status: self.job_status,
 ```
 
 ### `src/operation/list_service_jobs/_list_service_jobs_output.rs`
@@ -1122,8 +2350,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ListServiceJobsOutput {
      /// <p>A list of service job summaries.</p>
--    pub job_summary_list: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobSummary>>,
-+    pub job_summary_list: ::std::vec::Vec<super::types::ServiceJobSummary>,
+-    pub job_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobSummary>>,
++    pub job_summary_list: ::std::vec::Vec<super::super::super::types::ServiceJobSummary>,
      /// <p>The <code>nextToken</code> value to include in a future <code>ListServiceJobs</code> request. When the results of a <code>ListServiceJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -1133,26 +2361,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>A list of service job summaries.</p>
 -    ///
 -    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.job_summary_list.is_none()`.
-     pub fn job_summary_list(&self) -> &[super::types::ServiceJobSummary] {
+     pub fn job_summary_list(&self) -> &[super::super::super::types::ServiceJobSummary] {
 -        self.job_summary_list.as_deref().unwrap_or_default()
 +        use std::ops::Deref;
 +        self.job_summary_list.deref()
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>ListServiceJobs</code> request. When the results of a <code>ListServiceJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub fn next_token(&self) -> ::std::option::Option<&str> {
-@@ -86,11 +85,20 @@
+@@ -86,11 +85,23 @@
          self
      }
      /// Consumes the builder and constructs a [`ListServiceJobsOutput`](crate::operation::list_service_jobs::ListServiceJobsOutput).
--    pub fn build(self) -> super::operation::list_service_jobs::ListServiceJobsOutput {
--        super::operation::list_service_jobs::ListServiceJobsOutput {
+-    pub fn build(self) -> super::super::super::operation::list_service_jobs::ListServiceJobsOutput {
+-        super::super::super::operation::list_service_jobs::ListServiceJobsOutput {
 -            job_summary_list: self.job_summary_list,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`job_summary_list`](crate::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder::job_summary_list)
 +    pub fn build(
 +        self,
-+    ) -> ::std::result::Result<super::operation::list_service_jobs::ListServiceJobsOutput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_service_jobs::ListServiceJobsOutput {
++    ) -> ::std::result::Result<
++        super::super::super::operation::list_service_jobs::ListServiceJobsOutput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
++        ::std::result::Result::Ok(super::super::super::operation::list_service_jobs::ListServiceJobsOutput {
 +            job_summary_list: self.job_summary_list.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "job_summary_list",
@@ -1165,6 +2396,44 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        })
      }
  }
+```
+
+### `src/operation/list_service_jobs.rs`
+
+```diff
+--- reference/src/operation/list_service_jobs.rs
++++ generated/src/operation/list_service_jobs.rs
+@@ -255,7 +255,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_service_jobs::ser_list_service_jobs_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_service_jobs::ser_list_service_jobs_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
+
+```diff
+--- reference/src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs
++++ generated/src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs
+@@ -45,8 +45,10 @@
+     /// Consumes the builder and constructs a [`ListTagsForResourceInput`](crate::operation::list_tags_for_resource::ListTagsForResourceInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput {
+             resource_arn: self.resource_arn,
+         })
 ```
 
 ### `src/operation/list_tags_for_resource.rs`
@@ -1181,9 +2450,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_tags_for_resource::ser_list_tags_for_resource_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_list_tags_for_resource::ser_list_tags_for_resource_input(&input)?,
++        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1191,6 +2460,50 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
+```
+
+### `src/operation/register_job_definition/_register_job_definition_input.rs`
+
+```diff
+--- reference/src/operation/register_job_definition/_register_job_definition_input.rs
++++ generated/src/operation/register_job_definition/_register_job_definition_input.rs
+@@ -383,7 +383,10 @@
+     /// <p>Jobs with the <code>MANAGED_INSTANCES</code> platform capability must use <code>ecsProperties</code> (not <code>containerProperties</code>) and do not support multi-node parallel jobs.</p><note>
+     /// <p>If the job runs on Amazon EKS resources, then you must not specify <code>platformCapabilities</code>.</p>
+     /// </note>
+-    pub fn set_platform_capabilities(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformCapability>>) -> Self {
++    pub fn set_platform_capabilities(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformCapability>>,
++    ) -> Self {
+         self.platform_capabilities = input;
+         self
+     }
+@@ -428,7 +431,10 @@
+         self
+     }
+     /// <p>Contains a list of consumable resources required by the job.</p>
+-    pub fn set_consumable_resource_properties(mut self, input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>) -> Self {
++    pub fn set_consumable_resource_properties(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>,
++    ) -> Self {
+         self.consumable_resource_properties = input;
+         self
+     }
+@@ -439,8 +445,10 @@
+     /// Consumes the builder and constructs a [`RegisterJobDefinitionInput`](crate::operation::register_job_definition::RegisterJobDefinitionInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::register_job_definition::RegisterJobDefinitionInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::register_job_definition::RegisterJobDefinitionInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::register_job_definition::RegisterJobDefinitionInput {
+             job_definition_name: self.job_definition_name,
+             r#type: self.r#type,
 ```
 
 ### `src/operation/register_job_definition/_register_job_definition_output.rs`
@@ -1233,12 +2546,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.revision
      }
  }
-@@ -102,12 +104,34 @@
+@@ -102,12 +104,36 @@
          self
      }
      /// Consumes the builder and constructs a [`RegisterJobDefinitionOutput`](crate::operation::register_job_definition::RegisterJobDefinitionOutput).
--    pub fn build(self) -> super::operation::register_job_definition::RegisterJobDefinitionOutput {
--        super::operation::register_job_definition::RegisterJobDefinitionOutput {
+-    pub fn build(self) -> super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput {
+-        super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput {
 -            job_definition_name: self.job_definition_name,
 -            job_definition_arn: self.job_definition_arn,
 -            revision: self.revision,
@@ -1248,9 +2561,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`revision`](crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::revision)
 +    pub fn build(
 +        self,
-+    ) -> ::std::result::Result<super::operation::register_job_definition::RegisterJobDefinitionOutput, ::aws_smithy_types::error::operation::BuildError>
-+    {
-+        ::std::result::Result::Ok(super::operation::register_job_definition::RegisterJobDefinitionOutput {
++    ) -> ::std::result::Result<
++        super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
++        ::std::result::Result::Ok(super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput {
 +            job_definition_name: self.job_definition_name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "job_definition_name",
@@ -1274,6 +2589,87 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        })
      }
  }
+```
+
+### `src/operation/register_job_definition/builders.rs`
+
+```diff
+--- reference/src/operation/register_job_definition/builders.rs
++++ generated/src/operation/register_job_definition/builders.rs
+@@ -326,7 +326,10 @@
+     /// <p>Jobs with the <code>MANAGED_INSTANCES</code> platform capability must use <code>ecsProperties</code> (not <code>containerProperties</code>) and do not support multi-node parallel jobs.</p><note>
+     /// <p>If the job runs on Amazon EKS resources, then you must not specify <code>platformCapabilities</code>.</p>
+     /// </note>
+-    pub fn set_platform_capabilities(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformCapability>>) -> Self {
++    pub fn set_platform_capabilities(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformCapability>>,
++    ) -> Self {
+         self.inner = self.inner.set_platform_capabilities(input);
+         self
+     }
+@@ -371,7 +374,10 @@
+         self
+     }
+     /// <p>Contains a list of consumable resources required by the job.</p>
+-    pub fn set_consumable_resource_properties(mut self, input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>) -> Self {
++    pub fn set_consumable_resource_properties(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>,
++    ) -> Self {
+         self.inner = self.inner.set_consumable_resource_properties(input);
+         self
+     }
+```
+
+### `src/operation/register_job_definition.rs`
+
+```diff
+--- reference/src/operation/register_job_definition.rs
++++ generated/src/operation/register_job_definition.rs
+@@ -253,9 +253,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_register_job_definition::ser_register_job_definition_input(
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_register_job_definition::ser_register_job_definition_input(&input)?,
++        );
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/submit_job/_submit_job_input.rs`
+
+```diff
+--- reference/src/operation/submit_job/_submit_job_input.rs
++++ generated/src/operation/submit_job/_submit_job_input.rs
+@@ -417,7 +417,10 @@
+         self
+     }
+     /// <p>An object that contains overrides for the consumable resources of a job.</p>
+-    pub fn set_consumable_resource_properties_override(mut self, input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>) -> Self {
++    pub fn set_consumable_resource_properties_override(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>,
++    ) -> Self {
+         self.consumable_resource_properties_override = input;
+         self
+     }
+@@ -426,7 +429,9 @@
+         &self.consumable_resource_properties_override
+     }
+     /// Consumes the builder and constructs a [`SubmitJobInput`](crate::operation::submit_job::SubmitJobInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::submit_job::SubmitJobInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::submit_job::SubmitJobInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::submit_job::SubmitJobInput {
+             job_name: self.job_name,
+             job_queue: self.job_queue,
 ```
 
 ### `src/operation/submit_job/_submit_job_output.rs`
@@ -1312,17 +2708,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl ::aws_types::request_id::RequestId for SubmitJobOutput {
-@@ -101,12 +103,25 @@
+@@ -101,12 +103,27 @@
          self
      }
      /// Consumes the builder and constructs a [`SubmitJobOutput`](crate::operation::submit_job::SubmitJobOutput).
--    pub fn build(self) -> super::operation::submit_job::SubmitJobOutput {
--        super::operation::submit_job::SubmitJobOutput {
+-    pub fn build(self) -> super::super::super::operation::submit_job::SubmitJobOutput {
+-        super::super::super::operation::submit_job::SubmitJobOutput {
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`job_name`](crate::operation::submit_job::builders::SubmitJobOutputBuilder::job_name)
 +    /// - [`job_id`](crate::operation::submit_job::builders::SubmitJobOutputBuilder::job_id)
-+    pub fn build(self) -> ::std::result::Result<super::operation::submit_job::SubmitJobOutput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::submit_job::SubmitJobOutput {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::submit_job::SubmitJobOutput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::submit_job::SubmitJobOutput {
              job_arn: self.job_arn,
 -            job_name: self.job_name,
 -            job_id: self.job_id,
@@ -1343,6 +2741,80 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        })
      }
  }
+```
+
+### `src/operation/submit_job/builders.rs`
+
+```diff
+--- reference/src/operation/submit_job/builders.rs
++++ generated/src/operation/submit_job/builders.rs
+@@ -33,14 +33,20 @@
+     inner: super::super::super::operation::submit_job::builders::SubmitJobInputBuilder,
+     config_override: ::std::option::Option<super::super::super::config::Builder>,
+ }
+-impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::submit_job::SubmitJobOutput, super::super::super::operation::submit_job::SubmitJobError>
+-    for SubmitJobFluentBuilder
++impl
++    super::super::super::client::customize::internal::CustomizableSend<
++        super::super::super::operation::submit_job::SubmitJobOutput,
++        super::super::super::operation::submit_job::SubmitJobError,
++    > for SubmitJobFluentBuilder
+ {
+     fn send(
+         self,
+         config_override: super::super::super::config::Builder,
+     ) -> super::super::super::client::customize::internal::BoxFuture<
+-        super::super::super::client::customize::internal::SendResult<super::super::super::operation::submit_job::SubmitJobOutput, super::super::super::operation::submit_job::SubmitJobError>,
++        super::super::super::client::customize::internal::SendResult<
++            super::super::super::operation::submit_job::SubmitJobOutput,
++            super::super::super::operation::submit_job::SubmitJobError,
++        >,
+     > {
+         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+     }
+@@ -366,7 +372,10 @@
+         self
+     }
+     /// <p>An object that contains overrides for the consumable resources of a job.</p>
+-    pub fn set_consumable_resource_properties_override(mut self, input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>) -> Self {
++    pub fn set_consumable_resource_properties_override(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>,
++    ) -> Self {
+         self.inner = self.inner.set_consumable_resource_properties_override(input);
+         self
+     }
+```
+
+### `src/operation/submit_service_job/_submit_service_job_input.rs`
+
+```diff
+--- reference/src/operation/submit_service_job/_submit_service_job_input.rs
++++ generated/src/operation/submit_service_job/_submit_service_job_input.rs
+@@ -225,7 +225,10 @@
+         self
+     }
+     /// <p>Specifies the service job behavior when preempted.</p>
+-    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>) -> Self {
++    pub fn set_preemption_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>,
++    ) -> Self {
+         self.preemption_configuration = input;
+         self
+     }
+@@ -284,7 +287,10 @@
+     /// Consumes the builder and constructs a [`SubmitServiceJobInput`](crate::operation::submit_service_job::SubmitServiceJobInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::submit_service_job::SubmitServiceJobInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::submit_service_job::SubmitServiceJobInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::submit_service_job::SubmitServiceJobInput {
+             job_name: self.job_name,
+             job_queue: self.job_queue,
 ```
 
 ### `src/operation/submit_service_job/_submit_service_job_output.rs`
@@ -1381,19 +2853,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl ::aws_types::request_id::RequestId for SubmitServiceJobOutput {
-@@ -101,12 +103,27 @@
+@@ -101,12 +103,30 @@
          self
      }
      /// Consumes the builder and constructs a [`SubmitServiceJobOutput`](crate::operation::submit_service_job::SubmitServiceJobOutput).
--    pub fn build(self) -> super::operation::submit_service_job::SubmitServiceJobOutput {
--        super::operation::submit_service_job::SubmitServiceJobOutput {
+-    pub fn build(self) -> super::super::super::operation::submit_service_job::SubmitServiceJobOutput {
+-        super::super::super::operation::submit_service_job::SubmitServiceJobOutput {
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`job_name`](crate::operation::submit_service_job::builders::SubmitServiceJobOutputBuilder::job_name)
 +    /// - [`job_id`](crate::operation::submit_service_job::builders::SubmitServiceJobOutputBuilder::job_id)
 +    pub fn build(
 +        self,
-+    ) -> ::std::result::Result<super::operation::submit_service_job::SubmitServiceJobOutput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::submit_service_job::SubmitServiceJobOutput {
++    ) -> ::std::result::Result<
++        super::super::super::operation::submit_service_job::SubmitServiceJobOutput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
++        ::std::result::Result::Ok(super::super::super::operation::submit_service_job::SubmitServiceJobOutput {
              job_arn: self.job_arn,
 -            job_name: self.job_name,
 -            job_id: self.job_id,
@@ -1414,6 +2889,101 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        })
      }
  }
+```
+
+### `src/operation/submit_service_job/builders.rs`
+
+```diff
+--- reference/src/operation/submit_service_job/builders.rs
++++ generated/src/operation/submit_service_job/builders.rs
+@@ -226,7 +226,10 @@
+         self
+     }
+     /// <p>Specifies the service job behavior when preempted.</p>
+-    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>) -> Self {
++    pub fn set_preemption_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>,
++    ) -> Self {
+         self.inner = self.inner.set_preemption_configuration(input);
+         self
+     }
+```
+
+### `src/operation/submit_service_job.rs`
+
+```diff
+--- reference/src/operation/submit_service_job.rs
++++ generated/src/operation/submit_service_job.rs
+@@ -282,7 +282,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_submit_service_job::ser_submit_service_job_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_submit_service_job::ser_submit_service_job_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/tag_resource/_tag_resource_input.rs`
+
+```diff
+--- reference/src/operation/tag_resource/_tag_resource_input.rs
++++ generated/src/operation/tag_resource/_tag_resource_input.rs
+@@ -70,7 +70,9 @@
+         &self.tags
+     }
+     /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::tag_resource::TagResourceInput {
+             resource_arn: self.resource_arn,
+             tags: self.tags,
+```
+
+### `src/operation/terminate_service_job/_terminate_service_job_input.rs`
+
+```diff
+--- reference/src/operation/terminate_service_job/_terminate_service_job_input.rs
++++ generated/src/operation/terminate_service_job/_terminate_service_job_input.rs
+@@ -66,8 +66,10 @@
+     /// Consumes the builder and constructs a [`TerminateServiceJobInput`](crate::operation::terminate_service_job::TerminateServiceJobInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::terminate_service_job::TerminateServiceJobInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::terminate_service_job::TerminateServiceJobInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::terminate_service_job::TerminateServiceJobInput {
+             job_id: self.job_id,
+             reason: self.reason,
+```
+
+### `src/operation/terminate_service_job.rs`
+
+```diff
+--- reference/src/operation/terminate_service_job.rs
++++ generated/src/operation/terminate_service_job.rs
+@@ -258,9 +258,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_terminate_service_job::ser_terminate_service_job_input(
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_terminate_service_job::ser_terminate_service_job_input(&input)?,
++        );
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/untag_resource.rs`
@@ -1441,12 +3011,74 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_resource::ser_untag_resource_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource::ser_untag_resource_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 +        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+     }
+ }
+```
+
+### `src/operation/update_compute_environment/_update_compute_environment_input.rs`
+
+```diff
+--- reference/src/operation/update_compute_environment/_update_compute_environment_input.rs
++++ generated/src/operation/update_compute_environment/_update_compute_environment_input.rs
+@@ -246,15 +246,17 @@
+         super::super::super::operation::update_compute_environment::UpdateComputeEnvironmentInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::update_compute_environment::UpdateComputeEnvironmentInput {
+-            compute_environment: self.compute_environment,
+-            state: self.state,
+-            unmanagedv_cpus: self.unmanagedv_cpus,
+-            compute_resources: self.compute_resources,
+-            service_role: self.service_role,
+-            update_policy: self.update_policy,
+-            context: self.context,
+-            ecs_settings: self.ecs_settings,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::update_compute_environment::UpdateComputeEnvironmentInput {
++                compute_environment: self.compute_environment,
++                state: self.state,
++                unmanagedv_cpus: self.unmanagedv_cpus,
++                compute_resources: self.compute_resources,
++                service_role: self.service_role,
++                update_policy: self.update_policy,
++                context: self.context,
++                ecs_settings: self.ecs_settings,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/update_consumable_resource/_update_consumable_resource_input.rs`
+
+```diff
+--- reference/src/operation/update_consumable_resource/_update_consumable_resource_input.rs
++++ generated/src/operation/update_consumable_resource/_update_consumable_resource_input.rs
+@@ -166,11 +166,13 @@
+         super::super::super::operation::update_consumable_resource::UpdateConsumableResourceInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::update_consumable_resource::UpdateConsumableResourceInput {
+-            consumable_resource: self.consumable_resource,
+-            operation: self.operation,
+-            quantity: self.quantity,
+-            client_token: self.client_token,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::update_consumable_resource::UpdateConsumableResourceInput {
++                consumable_resource: self.consumable_resource,
++                operation: self.operation,
++                quantity: self.quantity,
++                client_token: self.client_token,
++            },
++        )
      }
  }
 ```
@@ -1487,40 +3119,257 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      /// <p>The total amount of the consumable resource that is available.</p>
      pub fn total_quantity(&self) -> ::std::option::Option<i64> {
-@@ -101,12 +103,30 @@
+@@ -101,12 +103,32 @@
          self
      }
      /// Consumes the builder and constructs a [`UpdateConsumableResourceOutput`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput).
--    pub fn build(self) -> super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
--        super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
+-    pub fn build(self) -> super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
+-        super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
 -            consumable_resource_name: self.consumable_resource_name,
 -            consumable_resource_arn: self.consumable_resource_arn,
+-            total_quantity: self.total_quantity,
+-            _request_id: self._request_id,
+-        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`consumable_resource_name`](crate::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder::consumable_resource_name)
 +    /// - [`consumable_resource_arn`](crate::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder::consumable_resource_arn)
 +    pub fn build(
 +        self,
 +    ) -> ::std::result::Result<
-+        super::operation::update_consumable_resource::UpdateConsumableResourceOutput,
++        super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput,
 +        ::aws_smithy_types::error::operation::BuildError,
 +    > {
-+        ::std::result::Result::Ok(super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
-+            consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "consumable_resource_name",
-+                    "consumable_resource_name was not specified but it is required when building UpdateConsumableResourceOutput",
-+                )
-+            })?,
-+            consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "consumable_resource_arn",
-+                    "consumable_resource_arn was not specified but it is required when building UpdateConsumableResourceOutput",
-+                )
-+            })?,
-             total_quantity: self.total_quantity,
-             _request_id: self._request_id,
--        }
-+        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
++                consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "consumable_resource_name",
++                        "consumable_resource_name was not specified but it is required when building UpdateConsumableResourceOutput",
++                    )
++                })?,
++                consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "consumable_resource_arn",
++                        "consumable_resource_arn was not specified but it is required when building UpdateConsumableResourceOutput",
++                    )
++                })?,
++                total_quantity: self.total_quantity,
++                _request_id: self._request_id,
++            },
++        )
+     }
+ }
+```
+
+### `src/operation/update_job_queue/_update_job_queue_input.rs`
+
+```diff
+--- reference/src/operation/update_job_queue/_update_job_queue_input.rs
++++ generated/src/operation/update_job_queue/_update_job_queue_input.rs
+@@ -152,7 +152,10 @@
+     /// <p>Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment runs a given job. Compute environments must be in the <code>VALID</code> state before you can associate them with a job queue. All of the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). EC2 and Fargate compute environments can't be mixed.</p><note>
+     /// <p>All compute environments that are associated with a job queue must share the same architecture. Batch doesn't support mixing compute environment architecture types in a single job queue.</p>
+     /// </note>
+-    pub fn set_compute_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentOrder>>) -> Self {
++    pub fn set_compute_environment_order(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentOrder>>,
++    ) -> Self {
+         self.compute_environment_order = input;
+         self
+     }
+@@ -174,7 +177,10 @@
+         self
+     }
+     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
+-    pub fn set_service_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentOrder>>) -> Self {
++    pub fn set_service_environment_order(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentOrder>>,
++    ) -> Self {
+         self.service_environment_order = input;
+         self
+     }
+@@ -194,7 +200,10 @@
+         self
+     }
+     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
+-    pub fn set_job_state_time_limit_actions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobStateTimeLimitAction>>) -> Self {
++    pub fn set_job_state_time_limit_actions(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobStateTimeLimitAction>>,
++    ) -> Self {
+         self.job_state_time_limit_actions = input;
+         self
+     }
+@@ -205,7 +214,8 @@
+     /// Consumes the builder and constructs a [`UpdateJobQueueInput`](crate::operation::update_job_queue::UpdateJobQueueInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::update_job_queue::UpdateJobQueueInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<super::super::super::operation::update_job_queue::UpdateJobQueueInput, ::aws_smithy_types::error::operation::BuildError>
++    {
+         ::std::result::Result::Ok(super::super::super::operation::update_job_queue::UpdateJobQueueInput {
+             job_queue: self.job_queue,
+             state: self.state,
+```
+
+### `src/operation/update_job_queue/builders.rs`
+
+```diff
+--- reference/src/operation/update_job_queue/builders.rs
++++ generated/src/operation/update_job_queue/builders.rs
+@@ -179,7 +179,10 @@
+     /// <p>Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment runs a given job. Compute environments must be in the <code>VALID</code> state before you can associate them with a job queue. All of the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). EC2 and Fargate compute environments can't be mixed.</p><note>
+     /// <p>All compute environments that are associated with a job queue must share the same architecture. Batch doesn't support mixing compute environment architecture types in a single job queue.</p>
+     /// </note>
+-    pub fn set_compute_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentOrder>>) -> Self {
++    pub fn set_compute_environment_order(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentOrder>>,
++    ) -> Self {
+         self.inner = self.inner.set_compute_environment_order(input);
+         self
+     }
+@@ -200,7 +203,10 @@
+         self
+     }
+     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
+-    pub fn set_service_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentOrder>>) -> Self {
++    pub fn set_service_environment_order(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentOrder>>,
++    ) -> Self {
+         self.inner = self.inner.set_service_environment_order(input);
+         self
+     }
+@@ -219,7 +225,10 @@
+         self
+     }
+     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
+-    pub fn set_job_state_time_limit_actions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobStateTimeLimitAction>>) -> Self {
++    pub fn set_job_state_time_limit_actions(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobStateTimeLimitAction>>,
++    ) -> Self {
+         self.inner = self.inner.set_job_state_time_limit_actions(input);
+         self
+     }
+```
+
+### `src/operation/update_quota_share/_update_quota_share_input.rs`
+
+```diff
+--- reference/src/operation/update_quota_share/_update_quota_share_input.rs
++++ generated/src/operation/update_quota_share/_update_quota_share_input.rs
+@@ -97,7 +97,10 @@
+         self
+     }
+     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+-    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>) -> Self {
++    pub fn set_resource_sharing_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>,
++    ) -> Self {
+         self.resource_sharing_configuration = input;
+         self
+     }
+@@ -111,7 +114,10 @@
+         self
+     }
+     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
+-    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>) -> Self {
++    pub fn set_preemption_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>,
++    ) -> Self {
+         self.preemption_configuration = input;
+         self
+     }
+@@ -136,7 +142,10 @@
+     /// Consumes the builder and constructs a [`UpdateQuotaShareInput`](crate::operation::update_quota_share::UpdateQuotaShareInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::update_quota_share::UpdateQuotaShareInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::update_quota_share::UpdateQuotaShareInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::update_quota_share::UpdateQuotaShareInput {
+             quota_share_arn: self.quota_share_arn,
+             capacity_limits: self.capacity_limits,
+```
+
+### `src/operation/update_quota_share/builders.rs`
+
+```diff
+--- reference/src/operation/update_quota_share/builders.rs
++++ generated/src/operation/update_quota_share/builders.rs
+@@ -147,7 +147,10 @@
+         self
+     }
+     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+-    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>) -> Self {
++    pub fn set_resource_sharing_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>,
++    ) -> Self {
+         self.inner = self.inner.set_resource_sharing_configuration(input);
+         self
+     }
+@@ -161,7 +164,10 @@
+         self
+     }
+     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
+-    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>) -> Self {
++    pub fn set_preemption_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>,
++    ) -> Self {
+         self.inner = self.inner.set_preemption_configuration(input);
+         self
+     }
+```
+
+### `src/operation/update_quota_share.rs`
+
+```diff
+--- reference/src/operation/update_quota_share.rs
++++ generated/src/operation/update_quota_share.rs
+@@ -250,7 +250,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_quota_share::ser_update_quota_share_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_quota_share::ser_update_quota_share_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/update_service_environment/_update_service_environment_input.rs`
+
+```diff
+--- reference/src/operation/update_service_environment/_update_service_environment_input.rs
++++ generated/src/operation/update_service_environment/_update_service_environment_input.rs
+@@ -98,10 +98,12 @@
+         super::super::super::operation::update_service_environment::UpdateServiceEnvironmentInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::update_service_environment::UpdateServiceEnvironmentInput {
+-            service_environment: self.service_environment,
+-            state: self.state,
+-            capacity_limits: self.capacity_limits,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::update_service_environment::UpdateServiceEnvironmentInput {
++                service_environment: self.service_environment,
++                state: self.state,
++                capacity_limits: self.capacity_limits,
++            },
++        )
      }
  }
 ```
@@ -1558,41 +3407,437 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl ::aws_types::request_id::RequestId for UpdateServiceEnvironmentOutput {
-@@ -80,11 +82,29 @@
+@@ -80,11 +82,31 @@
          self
      }
      /// Consumes the builder and constructs a [`UpdateServiceEnvironmentOutput`](crate::operation::update_service_environment::UpdateServiceEnvironmentOutput).
--    pub fn build(self) -> super::operation::update_service_environment::UpdateServiceEnvironmentOutput {
--        super::operation::update_service_environment::UpdateServiceEnvironmentOutput {
+-    pub fn build(self) -> super::super::super::operation::update_service_environment::UpdateServiceEnvironmentOutput {
+-        super::super::super::operation::update_service_environment::UpdateServiceEnvironmentOutput {
 -            service_environment_name: self.service_environment_name,
 -            service_environment_arn: self.service_environment_arn,
+-            _request_id: self._request_id,
+-        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`service_environment_name`](crate::operation::update_service_environment::builders::UpdateServiceEnvironmentOutputBuilder::service_environment_name)
 +    /// - [`service_environment_arn`](crate::operation::update_service_environment::builders::UpdateServiceEnvironmentOutputBuilder::service_environment_arn)
 +    pub fn build(
 +        self,
 +    ) -> ::std::result::Result<
-+        super::operation::update_service_environment::UpdateServiceEnvironmentOutput,
++        super::super::super::operation::update_service_environment::UpdateServiceEnvironmentOutput,
 +        ::aws_smithy_types::error::operation::BuildError,
 +    > {
-+        ::std::result::Result::Ok(super::operation::update_service_environment::UpdateServiceEnvironmentOutput {
-+            service_environment_name: self.service_environment_name.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "service_environment_name",
-+                    "service_environment_name was not specified but it is required when building UpdateServiceEnvironmentOutput",
-+                )
-+            })?,
-+            service_environment_arn: self.service_environment_arn.ok_or_else(|| {
-+                ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                    "service_environment_arn",
-+                    "service_environment_arn was not specified but it is required when building UpdateServiceEnvironmentOutput",
-+                )
-+            })?,
-             _request_id: self._request_id,
--        }
-+        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::update_service_environment::UpdateServiceEnvironmentOutput {
++                service_environment_name: self.service_environment_name.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "service_environment_name",
++                        "service_environment_name was not specified but it is required when building UpdateServiceEnvironmentOutput",
++                    )
++                })?,
++                service_environment_arn: self.service_environment_arn.ok_or_else(|| {
++                    ::aws_smithy_types::error::operation::BuildError::missing_field(
++                        "service_environment_arn",
++                        "service_environment_arn was not specified but it is required when building UpdateServiceEnvironmentOutput",
++                    )
++                })?,
++                _request_id: self._request_id,
++            },
++        )
      }
  }
+```
+
+### `src/operation/update_service_job/_update_service_job_input.rs`
+
+```diff
+--- reference/src/operation/update_service_job/_update_service_job_input.rs
++++ generated/src/operation/update_service_job/_update_service_job_input.rs
+@@ -71,7 +71,10 @@
+     /// Consumes the builder and constructs a [`UpdateServiceJobInput`](crate::operation::update_service_job::UpdateServiceJobInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::update_service_job::UpdateServiceJobInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::update_service_job::UpdateServiceJobInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::update_service_job::UpdateServiceJobInput {
+             job_id: self.job_id,
+             scheduling_priority: self.scheduling_priority,
+```
+
+### `src/operation/update_service_job.rs`
+
+```diff
+--- reference/src/operation/update_service_job.rs
++++ generated/src/operation/update_service_job.rs
+@@ -250,7 +250,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_service_job::ser_update_service_job_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_service_job::ser_update_service_job_input(
++            &input,
++        )?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/protocol_serde/shape_array_properties_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_array_properties_detail.rs
++++ generated/src/protocol_serde/shape_array_properties_detail.rs
+@@ -20,37 +20,35 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "statusSummary" => {
+-                                builder = builder.set_status_summary(
+-                                    super::super::protocol_serde::shape_array_job_status_summary::de_array_job_status_summary(tokens, _value, depth + 1)?,
+-                                );
+-                            }
+-                            "statusSummaryLastUpdatedAt" => {
+-                                builder = builder.set_status_summary_last_updated_at(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i64::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "size" => {
+-                                builder = builder.set_size(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i32::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "index" => {
+-                                builder = builder.set_index(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i32::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "statusSummary" => {
++                            builder = builder.set_status_summary(
++                                super::super::protocol_serde::shape_array_job_status_summary::de_array_job_status_summary(tokens, _value, depth + 1)?,
++                            );
++                        }
++                        "statusSummaryLastUpdatedAt" => {
++                            builder = builder.set_status_summary_last_updated_at(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i64::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "size" => {
++                            builder = builder.set_size(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i32::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "index" => {
++                            builder = builder.set_index(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i32::try_from)
++                                    .transpose()?,
++                            );
+                         }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+```
+
+### `src/protocol_serde/shape_array_properties_summary.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_array_properties_summary.rs
++++ generated/src/protocol_serde/shape_array_properties_summary.rs
+@@ -20,37 +20,35 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "size" => {
+-                                builder = builder.set_size(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i32::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "index" => {
+-                                builder = builder.set_index(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i32::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "statusSummary" => {
+-                                builder = builder.set_status_summary(
+-                                    super::super::protocol_serde::shape_array_job_status_summary::de_array_job_status_summary(tokens, _value, depth + 1)?,
+-                                );
+-                            }
+-                            "statusSummaryLastUpdatedAt" => {
+-                                builder = builder.set_status_summary_last_updated_at(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i64::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "size" => {
++                            builder = builder.set_size(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i32::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "index" => {
++                            builder = builder.set_index(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i32::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "statusSummary" => {
++                            builder = builder.set_status_summary(
++                                super::super::protocol_serde::shape_array_job_status_summary::de_array_job_status_summary(tokens, _value, depth + 1)?,
++                            );
++                        }
++                        "statusSummaryLastUpdatedAt" => {
++                            builder = builder.set_status_summary_last_updated_at(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i64::try_from)
++                                    .transpose()?,
++                            );
+                         }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+```
+
+### `src/protocol_serde/shape_attempt_container_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_attempt_container_detail.rs
++++ generated/src/protocol_serde/shape_attempt_container_detail.rs
+@@ -20,51 +20,49 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "containerInstanceArn" => {
+-                                builder = builder.set_container_instance_arn(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "taskArn" => {
+-                                builder = builder.set_task_arn(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "exitCode" => {
+-                                builder = builder.set_exit_code(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i32::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "reason" => {
+-                                builder = builder.set_reason(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "logStreamName" => {
+-                                builder = builder.set_log_stream_name(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "networkInterfaces" => {
+-                                builder = builder.set_network_interfaces(
+-                                    super::super::protocol_serde::shape_network_interface_list::de_network_interface_list(tokens, _value, depth + 1)?,
+-                                );
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "containerInstanceArn" => {
++                            builder = builder.set_container_instance_arn(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "taskArn" => {
++                            builder = builder.set_task_arn(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "exitCode" => {
++                            builder = builder.set_exit_code(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i32::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "reason" => {
++                            builder = builder.set_reason(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "logStreamName" => {
++                            builder = builder.set_log_stream_name(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "networkInterfaces" => {
++                            builder = builder.set_network_interfaces(
++                                super::super::protocol_serde::shape_network_interface_list::de_network_interface_list(tokens, _value, depth + 1)?,
++                            );
+                         }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+```
+
+### `src/protocol_serde/shape_attempt_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_attempt_detail.rs
++++ generated/src/protocol_serde/shape_attempt_detail.rs
+@@ -22,11 +22,9 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "container" => {
+-                            builder = builder.set_container(super::super::protocol_serde::shape_attempt_container_detail::de_attempt_container_detail(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_container(
++                                super::super::protocol_serde::shape_attempt_container_detail::de_attempt_container_detail(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         "startedAt" => {
+                             builder = builder.set_started_at(
+```
+
+### `src/protocol_serde/shape_attempt_task_container_details.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_attempt_task_container_details.rs
++++ generated/src/protocol_serde/shape_attempt_task_container_details.rs
+@@ -20,44 +20,42 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "exitCode" => {
+-                                builder = builder.set_exit_code(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i32::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "name" => {
+-                                builder = builder.set_name(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "reason" => {
+-                                builder = builder.set_reason(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "logStreamName" => {
+-                                builder = builder.set_log_stream_name(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "networkInterfaces" => {
+-                                builder = builder.set_network_interfaces(
+-                                    super::super::protocol_serde::shape_network_interface_list::de_network_interface_list(tokens, _value, depth + 1)?,
+-                                );
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "exitCode" => {
++                            builder = builder.set_exit_code(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i32::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "name" => {
++                            builder = builder.set_name(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "reason" => {
++                            builder = builder.set_reason(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "logStreamName" => {
++                            builder = builder.set_log_stream_name(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "networkInterfaces" => {
++                            builder = builder.set_network_interfaces(
++                                super::super::protocol_serde::shape_network_interface_list::de_network_interface_list(tokens, _value, depth + 1)?,
++                            );
+                         }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_cancel_job.rs`
@@ -1600,16 +3845,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_cancel_job.rs
 +++ generated/src/protocol_serde/shape_cancel_job.rs
-@@ -74,3 +74,33 @@
+@@ -74,3 +74,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_cancel_job(
 +    _value: &[u8],
-+    mut builder: super::operation::cancel_job::builders::CancelJobOutputBuilder,
-+) -> ::std::result::Result<super::operation::cancel_job::builders::CancelJobOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    mut builder: super::super::operation::cancel_job::builders::CancelJobOutputBuilder,
++) -> ::std::result::Result<
++    super::super::operation::cancel_job::builders::CancelJobOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1641,19 +3889,66 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_compute_environment_detail.rs
 +++ generated/src/protocol_serde/shape_compute_environment_detail.rs
-@@ -143,7 +143,11 @@
+@@ -99,8 +99,11 @@
+                             );
+                         }
+                         "updatePolicy" => {
+-                            builder =
+-                                builder.set_update_policy(super::super::protocol_serde::shape_update_policy::de_update_policy(tokens, _value, depth + 1)?);
++                            builder = builder.set_update_policy(super::super::protocol_serde::shape_update_policy::de_update_policy(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "eksConfiguration" => {
+                             builder = builder.set_eks_configuration(super::super::protocol_serde::shape_eks_configuration::de_eks_configuration(
+@@ -131,8 +134,11 @@
+                             );
+                         }
+                         "ecsSettings" => {
+-                            builder =
+-                                builder.set_ecs_settings(super::super::protocol_serde::shape_ecs_settings::de_ecs_settings(tokens, _value, depth + 1)?);
++                            builder = builder.set_ecs_settings(super::super::protocol_serde::shape_ecs_settings::de_ecs_settings(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+@@ -143,7 +149,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::compute_environment_detail_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::compute_environment_detail_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::compute_environment_detail_correct_errors(builder)
++                super::super::serde_util::compute_environment_detail_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_compute_environment_detail_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_compute_environment_detail_list.rs
++++ generated/src/protocol_serde/shape_compute_environment_detail_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ComputeEnvironmentDetail>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::ComputeEnvironmentDetail>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
 ```
 
 ### `src/protocol_serde/shape_compute_environment_order.rs`
@@ -1663,7 +3958,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_compute_environment_order.rs
 @@ -3,14 +3,14 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ComputeEnvironmentOrder,
+     input: &super::super::types::ComputeEnvironmentOrder,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.order {
 +    {
@@ -1684,15 +3979,44 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::compute_environment_order_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::compute_environment_order_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::compute_environment_order_correct_errors(builder)
++                super::super::serde_util::compute_environment_order_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_compute_environment_orders.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_compute_environment_orders.rs
++++ generated/src/protocol_serde/shape_compute_environment_orders.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ComputeEnvironmentOrder>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::ComputeEnvironmentOrder>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +26,8 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = super::super::protocol_serde::shape_compute_environment_order::de_compute_environment_order(tokens, _value, depth + 1)?;
++                        let value =
++                            super::super::protocol_serde::shape_compute_environment_order::de_compute_environment_order(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_compute_resource.rs`
@@ -1702,7 +4026,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_compute_resource.rs
 @@ -3,127 +3,127 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ComputeResource,
+     input: &super::super::types::ComputeResource,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.r#type {
 -        object.key("type").string(var_1.as_str());
@@ -1832,10 +4156,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_23) = &input.launch_template {
          #[allow(unused_mut)]
 -        let mut object_26 = object.key("launchTemplate").start_object();
--        super::protocol_serde::shape_launch_template_specification::ser_launch_template_specification(&mut object_26, var_25)?;
+-        super::super::protocol_serde::shape_launch_template_specification::ser_launch_template_specification(&mut object_26, var_25)?;
 -        object_26.finish();
 +        let mut object_24 = object.key("launchTemplate").start_object();
-+        super::protocol_serde::shape_launch_template_specification::ser_launch_template_specification(&mut object_24, var_23)?;
++        super::super::protocol_serde::shape_launch_template_specification::ser_launch_template_specification(&mut object_24, var_23)?;
 +        object_24.finish();
      }
 -    if let Some(var_27) = &input.ec2_configuration {
@@ -1847,10 +4171,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_30 = array_28.value().start_object();
--                super::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(&mut object_30, item_29)?;
+-                super::super::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(&mut object_30, item_29)?;
 -                object_30.finish();
 +                let mut object_28 = array_26.value().start_object();
-+                super::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(&mut object_28, item_27)?;
++                super::super::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(&mut object_28, item_27)?;
 +                object_28.finish();
              }
          }
@@ -1861,20 +4185,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_29) = &input.scaling_policy {
          #[allow(unused_mut)]
 -        let mut object_32 = object.key("scalingPolicy").start_object();
--        super::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(&mut object_32, var_31)?;
+-        super::super::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(&mut object_32, var_31)?;
 -        object_32.finish();
 +        let mut object_30 = object.key("scalingPolicy").start_object();
-+        super::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(&mut object_30, var_29)?;
++        super::super::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(&mut object_30, var_29)?;
 +        object_30.finish();
      }
 -    if let Some(var_33) = &input.managed_instances_provider {
 +    if let Some(var_31) = &input.managed_instances_provider {
          #[allow(unused_mut)]
 -        let mut object_34 = object.key("managedInstancesProvider").start_object();
--        super::protocol_serde::shape_managed_instances_provider::ser_managed_instances_provider(&mut object_34, var_33)?;
+-        super::super::protocol_serde::shape_managed_instances_provider::ser_managed_instances_provider(&mut object_34, var_33)?;
 -        object_34.finish();
 +        let mut object_32 = object.key("managedInstancesProvider").start_object();
-+        super::protocol_serde::shape_managed_instances_provider::ser_managed_instances_provider(&mut object_32, var_31)?;
++        super::super::protocol_serde::shape_managed_instances_provider::ser_managed_instances_provider(&mut object_32, var_31)?;
 +        object_32.finish();
      }
 -    if let Some(var_35) = &input.capacity_tags {
@@ -1894,12 +4218,82 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -285,7 +285,9 @@
+@@ -186,8 +186,11 @@
+                             );
+                         }
+                         "instanceTypes" => {
+-                            builder =
+-                                builder.set_instance_types(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_instance_types(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "imageId" => {
+                             builder = builder.set_image_id(
+@@ -197,11 +200,18 @@
+                             );
+                         }
+                         "subnets" => {
+-                            builder = builder.set_subnets(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_subnets(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "securityGroupIds" => {
+-                            builder =
+-                                builder.set_security_group_ids(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_security_group_ids(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "ec2KeyPair" => {
+                             builder = builder.set_ec2_key_pair(
+@@ -251,22 +261,22 @@
+                             );
+                         }
+                         "ec2Configuration" => {
+-                            builder = builder.set_ec2_configuration(super::super::protocol_serde::shape_ec2_configuration_list::de_ec2_configuration_list(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_ec2_configuration(
++                                super::super::protocol_serde::shape_ec2_configuration_list::de_ec2_configuration_list(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         "scalingPolicy" => {
+-                            builder = builder.set_scaling_policy(super::super::protocol_serde::shape_compute_scaling_policy::de_compute_scaling_policy(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_scaling_policy(
++                                super::super::protocol_serde::shape_compute_scaling_policy::de_compute_scaling_policy(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         "managedInstancesProvider" => {
+                             builder = builder.set_managed_instances_provider(
+-                                super::super::protocol_serde::shape_managed_instances_provider::de_managed_instances_provider(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_managed_instances_provider::de_managed_instances_provider(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         "capacityTags" => {
+@@ -285,7 +295,9 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::compute_resource_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::compute_resource_correct_errors(builder).build().map_err(
+-            Ok(Some(super::super::serde_util::compute_resource_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::compute_resource_correct_errors(builder).build().map_err(
 +                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
 +            )?))
          }
@@ -1916,9 +4310,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::consumable_resource_summary_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::consumable_resource_summary_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::consumable_resource_summary_correct_errors(builder)
++                super::super::serde_util::consumable_resource_summary_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
@@ -1927,12 +4321,167 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              "expected start object or null",
 ```
 
+### `src/protocol_serde/shape_consumable_resource_summary_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_consumable_resource_summary_list.rs
++++ generated/src/protocol_serde/shape_consumable_resource_summary_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ConsumableResourceSummary>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::ConsumableResourceSummary>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,8 +26,11 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_consumable_resource_summary::de_consumable_resource_summary(tokens, _value, depth + 1)?;
++                        let value = super::super::protocol_serde::shape_consumable_resource_summary::de_consumable_resource_summary(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
+```
+
+### `src/protocol_serde/shape_container_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_container_detail.rs
++++ generated/src/protocol_serde/shape_container_detail.rs
+@@ -43,7 +43,11 @@
+                             );
+                         }
+                         "command" => {
+-                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "jobRoleArn" => {
+                             builder = builder.set_job_role_arn(
+@@ -70,8 +74,11 @@
+                             )?);
+                         }
+                         "mountPoints" => {
+-                            builder =
+-                                builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(tokens, _value, depth + 1)?);
++                            builder = builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "readonlyRootFilesystem" => {
+                             builder =
+@@ -133,11 +140,9 @@
+                             );
+                         }
+                         "networkInterfaces" => {
+-                            builder = builder.set_network_interfaces(super::super::protocol_serde::shape_network_interface_list::de_network_interface_list(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_network_interfaces(
++                                super::super::protocol_serde::shape_network_interface_list::de_network_interface_list(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         "resourceRequirements" => {
+                             builder = builder.set_resource_requirements(
+@@ -159,7 +164,11 @@
+                             )?);
+                         }
+                         "secrets" => {
+-                            builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "networkConfiguration" => {
+                             builder = builder.set_network_configuration(
+```
+
+### `src/protocol_serde/shape_container_properties.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_container_properties.rs
++++ generated/src/protocol_serde/shape_container_properties.rs
+@@ -209,7 +209,11 @@
+                             );
+                         }
+                         "command" => {
+-                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "jobRoleArn" => {
+                             builder = builder.set_job_role_arn(
+@@ -236,8 +240,11 @@
+                             )?);
+                         }
+                         "mountPoints" => {
+-                            builder =
+-                                builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(tokens, _value, depth + 1)?);
++                            builder = builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "readonlyRootFilesystem" => {
+                             builder =
+@@ -283,7 +290,11 @@
+                             )?);
+                         }
+                         "secrets" => {
+-                            builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "networkConfiguration" => {
+                             builder = builder.set_network_configuration(
+```
+
 ### `src/protocol_serde/shape_create_compute_environment.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_create_compute_environment.rs
 +++ generated/src/protocol_serde/shape_create_compute_environment.rs
-@@ -103,15 +103,15 @@
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::create_compute_environment::CreateComputeEnvironmentError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::create_compute_environment::CreateComputeEnvironmentError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -103,15 +99,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -1966,7 +4515,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_2) = &input.compute_resources {
 -        #[allow(unused_mut)]
 -        let mut object_3 = object.key("computeResources").start_object();
--        super::protocol_serde::shape_compute_resource::ser_compute_resource(&mut object_3, var_2)?;
+-        super::super::protocol_serde::shape_compute_resource::ser_compute_resource(&mut object_3, var_2)?;
 -        object_3.finish();
 +    if let Some(var_2) = &input.r#type {
 +        object.key("type").string(var_2.as_str());
@@ -1986,15 +4535,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.compute_resources {
          #[allow(unused_mut)]
 -        let mut object_6 = object.key("ecsSettings").start_object();
--        super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_6, var_5)?;
+-        super::super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_6, var_5)?;
 +        let mut object_6 = object.key("computeResources").start_object();
-+        super::protocol_serde::shape_compute_resource::ser_compute_resource(&mut object_6, var_5)?;
++        super::super::protocol_serde::shape_compute_resource::ser_compute_resource(&mut object_6, var_5)?;
          object_6.finish();
      }
 -    if let Some(var_7) = &input.eks_configuration {
 -        #[allow(unused_mut)]
 -        let mut object_8 = object.key("eksConfiguration").start_object();
--        super::protocol_serde::shape_eks_configuration::ser_eks_configuration(&mut object_8, var_7)?;
+-        super::super::protocol_serde::shape_eks_configuration::ser_eks_configuration(&mut object_8, var_7)?;
 -        object_8.finish();
 +    if let Some(var_7) = &input.service_role {
 +        object.key("serviceRole").string(var_7.as_str());
@@ -2025,7 +4574,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_12) = &input.eks_configuration {
 +        #[allow(unused_mut)]
 +        let mut object_13 = object.key("eksConfiguration").start_object();
-+        super::protocol_serde::shape_eks_configuration::ser_eks_configuration(&mut object_13, var_12)?;
++        super::super::protocol_serde::shape_eks_configuration::ser_eks_configuration(&mut object_13, var_12)?;
 +        object_13.finish();
 +    }
 +    if let Some(var_14) = &input.context {
@@ -2039,7 +4588,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_15) = &input.ecs_settings {
 +        #[allow(unused_mut)]
 +        let mut object_16 = object.key("ecsSettings").start_object();
-+        super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_16, var_15)?;
++        super::super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_16, var_15)?;
 +        object_16.finish();
      }
      Ok(())
@@ -2051,18 +4600,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_consumable_resource.rs
 +++ generated/src/protocol_serde/shape_create_consumable_resource.rs
-@@ -73,7 +73,9 @@
-         output = super::protocol_serde::shape_create_consumable_resource::de_create_consumable_resource(_response_body, output)
-             .map_err(super::operation::create_consumable_resource::CreateConsumableResourceError::unhandled)?;
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::create_consumable_resource::CreateConsumableResourceError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::create_consumable_resource::CreateConsumableResourceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -73,7 +69,9 @@
+         output = super::super::protocol_serde::shape_create_consumable_resource::de_create_consumable_resource(_response_body, output)
+             .map_err(super::super::operation::create_consumable_resource::CreateConsumableResourceError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::create_consumable_resource_output_output_correct_errors(output).build()
-+        super::serde_util::create_consumable_resource_output_output_correct_errors(output)
+-        super::super::serde_util::create_consumable_resource_output_output_correct_errors(output).build()
++        super::super::serde_util::create_consumable_resource_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::create_consumable_resource::CreateConsumableResourceError::unhandled)?
++            .map_err(super::super::operation::create_consumable_resource::CreateConsumableResourceError::unhandled)?
      })
  }
 
-@@ -103,15 +105,15 @@
+@@ -103,15 +101,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -2134,18 +4696,42 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_job_queue.rs
 +++ generated/src/protocol_serde/shape_create_job_queue.rs
-@@ -63,7 +63,9 @@
-         output = super::protocol_serde::shape_create_job_queue::de_create_job_queue(_response_body, output)
-             .map_err(super::operation::create_job_queue::CreateJobQueueError::unhandled)?;
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::create_job_queue::CreateJobQueueOutput, super::super::operation::create_job_queue::CreateJobQueueError> {
++) -> std::result::Result<
++    super::super::operation::create_job_queue::CreateJobQueueOutput,
++    super::super::operation::create_job_queue::CreateJobQueueError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::create_job_queue::CreateJobQueueError::unhandled)?;
+@@ -56,7 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::create_job_queue::CreateJobQueueOutput, super::super::operation::create_job_queue::CreateJobQueueError> {
++) -> std::result::Result<
++    super::super::operation::create_job_queue::CreateJobQueueOutput,
++    super::super::operation::create_job_queue::CreateJobQueueError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::create_job_queue::builders::CreateJobQueueOutputBuilder::default();
+@@ -63,7 +69,9 @@
+         output = super::super::protocol_serde::shape_create_job_queue::de_create_job_queue(_response_body, output)
+             .map_err(super::super::operation::create_job_queue::CreateJobQueueError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::create_job_queue_output_output_correct_errors(output).build()
-+        super::serde_util::create_job_queue_output_output_correct_errors(output)
+-        super::super::serde_util::create_job_queue_output_output_correct_errors(output).build()
++        super::super::serde_util::create_job_queue_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::create_job_queue::CreateJobQueueError::unhandled)?
++            .map_err(super::super::operation::create_job_queue::CreateJobQueueError::unhandled)?
      })
  }
 
-@@ -93,15 +95,15 @@
+@@ -93,15 +101,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -2174,7 +4760,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_job_queue_input.rs
 @@ -3,69 +3,69 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::create_job_queue::CreateJobQueueInput,
+     input: &super::super::operation::create_job_queue::CreateJobQueueInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.compute_environment_order {
 -        let mut array_2 = object.key("computeEnvironmentOrder").start_array();
@@ -2200,10 +4786,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
 -                object_4.finish();
 +                let mut object_8 = array_6.value().start_object();
-+                super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_8, item_7)?;
++                super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_8, item_7)?;
 +                object_8.finish();
              }
          }
@@ -2225,10 +4811,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_10 = array_8.value().start_object();
--                super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_10, item_9)?;
+-                super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_10, item_9)?;
 -                object_10.finish();
 +                let mut object_12 = array_10.value().start_object();
-+                super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_12, item_11)?;
++                super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_12, item_11)?;
 +                object_12.finish();
              }
          }
@@ -2256,7 +4842,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
 -                #[allow(unused_mut)]
 -                let mut object_16 = array_14.value().start_object();
--                super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_16, item_15)?;
+-                super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_16, item_15)?;
 -                object_16.finish();
 +                object_15.key(key_16.as_str()).string(value_17.as_str());
              }
@@ -2278,7 +4864,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                object_19.key(key_20.as_str()).string(value_21.as_str());
 +                #[allow(unused_mut)]
 +                let mut object_21 = array_19.value().start_object();
-+                super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_21, item_20)?;
++                super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_21, item_20)?;
 +                object_21.finish();
              }
          }
@@ -2294,7 +4880,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_quota_share.rs
 +++ generated/src/protocol_serde/shape_create_quota_share.rs
-@@ -93,15 +93,15 @@
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::create_quota_share::CreateQuotaShareOutput, super::super::operation::create_quota_share::CreateQuotaShareError> {
++) -> std::result::Result<
++    super::super::operation::create_quota_share::CreateQuotaShareOutput,
++    super::super::operation::create_quota_share::CreateQuotaShareError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::create_quota_share::CreateQuotaShareError::unhandled)?;
+@@ -56,7 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::create_quota_share::CreateQuotaShareOutput, super::super::operation::create_quota_share::CreateQuotaShareError> {
++) -> std::result::Result<
++    super::super::operation::create_quota_share::CreateQuotaShareOutput,
++    super::super::operation::create_quota_share::CreateQuotaShareError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::create_quota_share::builders::CreateQuotaShareOutputBuilder::default();
+@@ -93,15 +99,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -2323,7 +4933,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_quota_share_input.rs
 @@ -3,37 +3,37 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::create_quota_share::CreateQuotaShareInput,
+     input: &super::super::operation::create_quota_share::CreateQuotaShareInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.capacity_limits {
 -        let mut array_2 = object.key("capacityLimits").start_array();
@@ -2340,10 +4950,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_4, item_3)?;
 -                object_4.finish();
 +                let mut object_6 = array_4.value().start_object();
-+                super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_6, item_5)?;
++                super::super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_6, item_5)?;
 +                object_6.finish();
              }
          }
@@ -2356,7 +4966,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_6) = &input.preemption_configuration {
 -        #[allow(unused_mut)]
 -        let mut object_7 = object.key("preemptionConfiguration").start_object();
--        super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_7, var_6)?;
+-        super::super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_7, var_6)?;
 -        object_7.finish();
 -    }
 -    if let Some(var_8) = &input.quota_share_name {
@@ -2367,7 +4977,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          #[allow(unused_mut)]
 -        let mut object_10 = object.key("resourceSharingConfiguration").start_object();
 +        let mut object_8 = object.key("resourceSharingConfiguration").start_object();
-         super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(
+         super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(
 -            &mut object_10,
 -            var_9,
 +            &mut object_8,
@@ -2378,7 +4988,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_9) = &input.preemption_configuration {
 +        #[allow(unused_mut)]
 +        let mut object_10 = object.key("preemptionConfiguration").start_object();
-+        super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_10, var_9)?;
++        super::super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_10, var_9)?;
          object_10.finish();
      }
      if let Some(var_11) = &input.state {
@@ -2390,13 +5000,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_create_scheduling_policy.rs
 +++ generated/src/protocol_serde/shape_create_scheduling_policy.rs
 @@ -73,7 +73,9 @@
-         output = super::protocol_serde::shape_create_scheduling_policy::de_create_scheduling_policy(_response_body, output)
-             .map_err(super::operation::create_scheduling_policy::CreateSchedulingPolicyError::unhandled)?;
+         output = super::super::protocol_serde::shape_create_scheduling_policy::de_create_scheduling_policy(_response_body, output)
+             .map_err(super::super::operation::create_scheduling_policy::CreateSchedulingPolicyError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::create_scheduling_policy_output_output_correct_errors(output).build()
-+        super::serde_util::create_scheduling_policy_output_output_correct_errors(output)
+-        super::super::serde_util::create_scheduling_policy_output_output_correct_errors(output).build()
++        super::super::serde_util::create_scheduling_policy_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::create_scheduling_policy::CreateSchedulingPolicyError::unhandled)?
++            .map_err(super::super::operation::create_scheduling_policy::CreateSchedulingPolicyError::unhandled)?
      })
  }
 
@@ -2429,7 +5039,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_scheduling_policy_input.rs
 @@ -3,19 +3,19 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::create_scheduling_policy::CreateSchedulingPolicyInput,
+     input: &super::super::operation::create_scheduling_policy::CreateSchedulingPolicyInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.fairshare_policy {
 +    if let Some(var_1) = &input.name {
@@ -2438,10 +5048,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.quota_share_policy {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("fairsharePolicy").start_object();
--        super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_3 = object.key("quotaSharePolicy").start_object();
-+        super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_3, var_2)?;
 +        object_3.finish();
      }
 -    if let Some(var_3) = &input.name {
@@ -2451,9 +5061,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_4) = &input.fairshare_policy {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("quotaSharePolicy").start_object();
--        super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
+-        super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
 +        let mut object_5 = object.key("fairsharePolicy").start_object();
-+        super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_5, var_4)?;
          object_5.finish();
      }
      if let Some(var_6) = &input.tags {
@@ -2464,18 +5074,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_service_environment.rs
 +++ generated/src/protocol_serde/shape_create_service_environment.rs
-@@ -73,7 +73,9 @@
-         output = super::protocol_serde::shape_create_service_environment::de_create_service_environment(_response_body, output)
-             .map_err(super::operation::create_service_environment::CreateServiceEnvironmentError::unhandled)?;
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::create_service_environment::CreateServiceEnvironmentError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::create_service_environment::CreateServiceEnvironmentError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -73,7 +69,9 @@
+         output = super::super::protocol_serde::shape_create_service_environment::de_create_service_environment(_response_body, output)
+             .map_err(super::super::operation::create_service_environment::CreateServiceEnvironmentError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::create_service_environment_output_output_correct_errors(output).build()
-+        super::serde_util::create_service_environment_output_output_correct_errors(output)
+-        super::super::serde_util::create_service_environment_output_output_correct_errors(output).build()
++        super::super::serde_util::create_service_environment_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::create_service_environment::CreateServiceEnvironmentError::unhandled)?
++            .map_err(super::super::operation::create_service_environment::CreateServiceEnvironmentError::unhandled)?
      })
  }
 
-@@ -103,15 +105,15 @@
+@@ -103,15 +101,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -2504,7 +5127,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_service_environment_input.rs
 @@ -3,26 +3,26 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::create_service_environment::CreateServiceEnvironmentInput,
+     input: &super::super::operation::create_service_environment::CreateServiceEnvironmentInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.capacity_limits {
 -        let mut array_2 = object.key("capacityLimits").start_array();
@@ -2524,10 +5147,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_4, item_3)?;
 -                object_4.finish();
 +                let mut object_7 = array_5.value().start_object();
-+                super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_7, item_6)?;
++                super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_7, item_6)?;
 +                object_7.finish();
              }
          }
@@ -2552,19 +5175,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_compute_environment.rs
 +++ generated/src/protocol_serde/shape_delete_compute_environment.rs
-@@ -84,3 +84,36 @@
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::delete_compute_environment::DeleteComputeEnvironmentError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::delete_compute_environment::DeleteComputeEnvironmentError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -84,3 +80,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_delete_compute_environment(
 +    _value: &[u8],
-+    mut builder: super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentOutputBuilder,
++    mut builder: super::super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentOutputBuilder,
++    super::super::operation::delete_compute_environment::builders::DeleteComputeEnvironmentOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2596,19 +5232,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_consumable_resource.rs
 +++ generated/src/protocol_serde/shape_delete_consumable_resource.rs
-@@ -84,3 +84,36 @@
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::delete_consumable_resource::DeleteConsumableResourceError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::delete_consumable_resource::DeleteConsumableResourceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -84,3 +80,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_delete_consumable_resource(
 +    _value: &[u8],
-+    mut builder: super::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder,
++    mut builder: super::super::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder,
++    super::super::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2640,19 +5289,43 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_job_queue.rs
 +++ generated/src/protocol_serde/shape_delete_job_queue.rs
-@@ -74,3 +74,36 @@
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::delete_job_queue::DeleteJobQueueOutput, super::super::operation::delete_job_queue::DeleteJobQueueError> {
++) -> std::result::Result<
++    super::super::operation::delete_job_queue::DeleteJobQueueOutput,
++    super::super::operation::delete_job_queue::DeleteJobQueueError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::delete_job_queue::DeleteJobQueueError::unhandled)?;
+@@ -56,7 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::delete_job_queue::DeleteJobQueueOutput, super::super::operation::delete_job_queue::DeleteJobQueueError> {
++) -> std::result::Result<
++    super::super::operation::delete_job_queue::DeleteJobQueueOutput,
++    super::super::operation::delete_job_queue::DeleteJobQueueError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::delete_job_queue::builders::DeleteJobQueueOutputBuilder::default();
+@@ -74,3 +80,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_delete_job_queue(
 +    _value: &[u8],
-+    mut builder: super::operation::delete_job_queue::builders::DeleteJobQueueOutputBuilder,
++    mut builder: super::super::operation::delete_job_queue::builders::DeleteJobQueueOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::delete_job_queue::builders::DeleteJobQueueOutputBuilder,
++    super::super::operation::delete_job_queue::builders::DeleteJobQueueOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2684,19 +5357,43 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_quota_share.rs
 +++ generated/src/protocol_serde/shape_delete_quota_share.rs
-@@ -74,3 +74,36 @@
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::delete_quota_share::DeleteQuotaShareOutput, super::super::operation::delete_quota_share::DeleteQuotaShareError> {
++) -> std::result::Result<
++    super::super::operation::delete_quota_share::DeleteQuotaShareOutput,
++    super::super::operation::delete_quota_share::DeleteQuotaShareError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::delete_quota_share::DeleteQuotaShareError::unhandled)?;
+@@ -56,7 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::delete_quota_share::DeleteQuotaShareOutput, super::super::operation::delete_quota_share::DeleteQuotaShareError> {
++) -> std::result::Result<
++    super::super::operation::delete_quota_share::DeleteQuotaShareOutput,
++    super::super::operation::delete_quota_share::DeleteQuotaShareError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::delete_quota_share::builders::DeleteQuotaShareOutputBuilder::default();
+@@ -74,3 +80,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_delete_quota_share(
 +    _value: &[u8],
-+    mut builder: super::operation::delete_quota_share::builders::DeleteQuotaShareOutputBuilder,
++    mut builder: super::super::operation::delete_quota_share::builders::DeleteQuotaShareOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::delete_quota_share::builders::DeleteQuotaShareOutputBuilder,
++    super::super::operation::delete_quota_share::builders::DeleteQuotaShareOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2735,12 +5432,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_delete_scheduling_policy(
 +    _value: &[u8],
-+    mut builder: super::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyOutputBuilder,
++    mut builder: super::super::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyOutputBuilder,
++    super::super::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2772,19 +5469,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_service_environment.rs
 +++ generated/src/protocol_serde/shape_delete_service_environment.rs
-@@ -84,3 +84,36 @@
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::delete_service_environment::DeleteServiceEnvironmentError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::delete_service_environment::DeleteServiceEnvironmentError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -84,3 +80,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_delete_service_environment(
 +    _value: &[u8],
-+    mut builder: super::operation::delete_service_environment::builders::DeleteServiceEnvironmentOutputBuilder,
++    mut builder: super::super::operation::delete_service_environment::builders::DeleteServiceEnvironmentOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::delete_service_environment::builders::DeleteServiceEnvironmentOutputBuilder,
++    super::super::operation::delete_service_environment::builders::DeleteServiceEnvironmentOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2816,19 +5526,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_deregister_job_definition.rs
 +++ generated/src/protocol_serde/shape_deregister_job_definition.rs
-@@ -84,3 +84,36 @@
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::deregister_job_definition::DeregisterJobDefinitionError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::deregister_job_definition::DeregisterJobDefinitionError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -84,3 +80,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_deregister_job_definition(
 +    _value: &[u8],
-+    mut builder: super::operation::deregister_job_definition::builders::DeregisterJobDefinitionOutputBuilder,
++    mut builder: super::super::operation::deregister_job_definition::builders::DeregisterJobDefinitionOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::deregister_job_definition::builders::DeregisterJobDefinitionOutputBuilder,
++    super::super::operation::deregister_job_definition::builders::DeregisterJobDefinitionOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2855,19 +5578,39 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
+### `src/protocol_serde/shape_describe_compute_environments.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_describe_compute_environments.rs
++++ generated/src/protocol_serde/shape_describe_compute_environments.rs
+@@ -101,7 +101,11 @@
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "computeEnvironments" => {
+                     builder = builder.set_compute_environments(
+-                        super::super::protocol_serde::shape_compute_environment_detail_list::de_compute_environment_detail_list(tokens, _value, depth + 1)?,
++                        super::super::protocol_serde::shape_compute_environment_detail_list::de_compute_environment_detail_list(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?,
+                     );
+                 }
+                 "nextToken" => {
+```
+
 ### `src/protocol_serde/shape_describe_consumable_resource.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_describe_consumable_resource.rs
 +++ generated/src/protocol_serde/shape_describe_consumable_resource.rs
 @@ -69,7 +69,9 @@
-         output = super::protocol_serde::shape_describe_consumable_resource::de_describe_consumable_resource(_response_body, output)
-             .map_err(super::operation::describe_consumable_resource::DescribeConsumableResourceError::unhandled)?;
+         output = super::super::protocol_serde::shape_describe_consumable_resource::de_describe_consumable_resource(_response_body, output)
+             .map_err(super::super::operation::describe_consumable_resource::DescribeConsumableResourceError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::describe_consumable_resource_output_output_correct_errors(output).build()
-+        super::serde_util::describe_consumable_resource_output_output_correct_errors(output)
+-        super::super::serde_util::describe_consumable_resource_output_output_correct_errors(output).build()
++        super::super::serde_util::describe_consumable_resource_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::describe_consumable_resource::DescribeConsumableResourceError::unhandled)?
++            .map_err(super::super::operation::describe_consumable_resource::DescribeConsumableResourceError::unhandled)?
      })
  }
 
@@ -2929,7 +5672,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
 +                }
                  "tags" => {
-                     builder = builder.set_tags(super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
+                     builder = builder.set_tags(super::super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
                          tokens,
 @@ -148,13 +157,6 @@
                          depth + 1,
@@ -2954,7 +5697,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_describe_job_definitions_input.rs
 @@ -3,29 +3,29 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::describe_job_definitions::DescribeJobDefinitionsInput,
+     input: &super::super::operation::describe_job_definitions::DescribeJobDefinitionsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.job_definition_name {
 -        object.key("jobDefinitionName").string(var_1.as_str());
@@ -2998,78 +5741,199 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/protocol_serde/shape_describe_job_queues.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_describe_job_queues.rs
++++ generated/src/protocol_serde/shape_describe_job_queues.rs
+@@ -4,8 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::describe_job_queues::DescribeJobQueuesOutput, super::super::operation::describe_job_queues::DescribeJobQueuesError>
+-{
++) -> std::result::Result<
++    super::super::operation::describe_job_queues::DescribeJobQueuesOutput,
++    super::super::operation::describe_job_queues::DescribeJobQueuesError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::describe_job_queues::DescribeJobQueuesError::unhandled)?;
+@@ -57,8 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::describe_job_queues::DescribeJobQueuesOutput, super::super::operation::describe_job_queues::DescribeJobQueuesError>
+-{
++) -> std::result::Result<
++    super::super::operation::describe_job_queues::DescribeJobQueuesOutput,
++    super::super::operation::describe_job_queues::DescribeJobQueuesError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::describe_job_queues::builders::DescribeJobQueuesOutputBuilder::default();
+```
+
 ### `src/protocol_serde/shape_describe_quota_share.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_describe_quota_share.rs
 +++ generated/src/protocol_serde/shape_describe_quota_share.rs
-@@ -100,27 +100,13 @@
+@@ -98,76 +98,68 @@
+     loop {
+         match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                 match key.to_unescaped()?.as_ref() {
+-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                match key.to_unescaped()?.as_ref() {
 -                    "capacityLimits" => {
 -                        builder = builder.set_capacity_limits(
--                            super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?,
+-                            super::super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?,
 -                        );
 -                    }
 -                    "jobQueueArn" => {
 -                        builder = builder.set_job_queue_arn(
-+                    "quotaShareName" => {
-+                        builder = builder.set_quota_share_name(
-                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                 .transpose()?,
-                         );
-                     }
+-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                .transpose()?,
+-                        );
+-                    }
 -                    "preemptionConfiguration" => {
 -                        builder = builder.set_preemption_configuration(
--                            super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(
+-                            super::super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(
 -                                tokens,
 -                                _value,
 -                                depth + 1,
 -                            )?,
 -                        );
 -                    }
-                     "quotaShareArn" => {
-                         builder = builder.set_quota_share_arn(
-                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -128,13 +114,18 @@
-                                 .transpose()?,
-                         );
-                     }
+-                    "quotaShareArn" => {
+-                        builder = builder.set_quota_share_arn(
+-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                .transpose()?,
+-                        );
+-                    }
 -                    "quotaShareName" => {
 -                        builder = builder.set_quota_share_name(
-+                    "jobQueueArn" => {
-+                        builder = builder.set_job_queue_arn(
-                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                 .transpose()?,
-                         );
-                     }
-+                    "capacityLimits" => {
-+                        builder = builder.set_capacity_limits(
-+                            super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?,
-+                        );
-+                    }
-                     "resourceSharingConfiguration" => {
-                         builder = builder.set_resource_sharing_configuration(
-                             super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(
-@@ -144,6 +135,15 @@
-                             )?,
-                         );
-                     }
-+                    "preemptionConfiguration" => {
-+                        builder = builder.set_preemption_configuration(
-+                            super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(
-+                                tokens,
-+                                _value,
-+                                depth + 1,
-+                            )?,
-+                        );
-+                    }
-                     "state" => {
-                         builder = builder.set_state(
-                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                .transpose()?,
+-                        );
+-                    }
+-                    "resourceSharingConfiguration" => {
+-                        builder = builder.set_resource_sharing_configuration(
+-                            super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?,
+-                        );
+-                    }
+-                    "state" => {
+-                        builder = builder.set_state(
+-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                .map(|s| s.to_unescaped().map(|u| super::super::types::QuotaShareState::from(u.as_ref())))
+-                                .transpose()?,
+-                        );
+-                    }
+-                    "status" => {
+-                        builder = builder.set_status(
+-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                .map(|s| s.to_unescaped().map(|u| super::super::types::QuotaShareStatus::from(u.as_ref())))
+-                                .transpose()?,
+-                        );
+-                    }
+-                    "tags" => {
+-                        builder = builder.set_tags(super::super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                "quotaShareName" => {
++                    builder = builder.set_quota_share_name(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "quotaShareArn" => {
++                    builder = builder.set_quota_share_arn(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "jobQueueArn" => {
++                    builder = builder.set_job_queue_arn(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "capacityLimits" => {
++                    builder = builder.set_capacity_limits(
++                        super::super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?,
++                    );
++                }
++                "resourceSharingConfiguration" => {
++                    builder = builder.set_resource_sharing_configuration(super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(tokens, _value, depth + 1)?);
++                }
++                "preemptionConfiguration" => {
++                    builder = builder.set_preemption_configuration(
++                        super::super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(
+                             tokens,
+                             _value,
+                             depth + 1,
+-                        )?);
+-                    }
+-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                        )?,
++                    );
++                }
++                "state" => {
++                    builder = builder.set_state(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::QuotaShareState::from(u.as_ref())))
++                            .transpose()?,
++                    );
+                 }
+-            }
++                "status" => {
++                    builder = builder.set_status(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::QuotaShareStatus::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                "tags" => {
++                    builder = builder.set_tags(super::super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
++                }
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
+             other => {
+                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                     "expected object key or end object, found: {other:?}"
+```
+
+### `src/protocol_serde/shape_describe_scheduling_policies.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_describe_scheduling_policies.rs
++++ generated/src/protocol_serde/shape_describe_scheduling_policies.rs
+@@ -101,7 +101,11 @@
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "schedulingPolicies" => {
+                     builder = builder.set_scheduling_policies(
+-                        super::super::protocol_serde::shape_scheduling_policy_detail_list::de_scheduling_policy_detail_list(tokens, _value, depth + 1)?,
++                        super::super::protocol_serde::shape_scheduling_policy_detail_list::de_scheduling_policy_detail_list(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?,
+                     );
+                 }
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
 ```
 
 ### `src/protocol_serde/shape_describe_service_environments.rs`
@@ -3077,25 +5941,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_describe_service_environments.rs
 +++ generated/src/protocol_serde/shape_describe_service_environments.rs
-@@ -99,6 +99,11 @@
+@@ -99,6 +99,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 +                "serviceEnvironments" => {
 +                    builder = builder.set_service_environments(
-+                        super::protocol_serde::shape_service_environment_detail_list::de_service_environment_detail_list(tokens, _value, depth + 1)?,
++                        super::super::protocol_serde::shape_service_environment_detail_list::de_service_environment_detail_list(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?,
 +                    );
 +                }
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -106,11 +111,6 @@
+@@ -106,11 +115,6 @@
                              .transpose()?,
                      );
                  }
 -                "serviceEnvironments" => {
 -                    builder = builder.set_service_environments(
--                        super::protocol_serde::shape_service_environment_detail_list::de_service_environment_detail_list(tokens, _value, depth + 1)?,
+-                        super::super::protocol_serde::shape_service_environment_detail_list::de_service_environment_detail_list(tokens, _value, depth + 1)?,
 -                    );
 -                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -3110,7 +5978,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_describe_service_environments_input.rs
 @@ -3,23 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::describe_service_environments::DescribeServiceEnvironmentsInput,
+     input: &super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.max_results {
 +    if let Some(var_1) = &input.service_environments {
@@ -3153,32 +6021,55 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_describe_service_job.rs
 +++ generated/src/protocol_serde/shape_describe_service_job.rs
 @@ -69,7 +69,9 @@
-         output = super::protocol_serde::shape_describe_service_job::de_describe_service_job(_response_body, output)
-             .map_err(super::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
+         output = super::super::protocol_serde::shape_describe_service_job::de_describe_service_job(_response_body, output)
+             .map_err(super::super::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::describe_service_job_output_output_correct_errors(output).build()
-+        super::serde_util::describe_service_job_output_output_correct_errors(output)
+-        super::super::serde_util::describe_service_job_output_output_correct_errors(output).build()
++        super::super::serde_util::describe_service_job_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::describe_service_job::DescribeServiceJobError::unhandled)?
++            .map_err(super::super::operation::describe_service_job::DescribeServiceJobError::unhandled)?
      })
  }
 
-@@ -160,27 +162,6 @@
-                         depth + 1,
-                     )?);
+@@ -100,11 +102,9 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "attempts" => {
+-                    builder = builder.set_attempts(super::super::protocol_serde::shape_service_job_attempt_details::de_service_job_attempt_details(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
++                    builder = builder.set_attempts(
++                        super::super::protocol_serde::shape_service_job_attempt_details::de_service_job_attempt_details(tokens, _value, depth + 1)?,
++                    );
                  }
+                 "capacityUsage" => {
+                     builder = builder.set_capacity_usage(
+@@ -154,40 +154,15 @@
+                     );
+                 }
+                 "latestAttempt" => {
+-                    builder = builder.set_latest_attempt(super::super::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
+-                }
 -                "preemptionConfiguration" => {
 -                    builder = builder.set_preemption_configuration(
--                        super::protocol_serde::shape_service_job_preemption_configuration::de_service_job_preemption_configuration(
+-                        super::super::protocol_serde::shape_service_job_preemption_configuration::de_service_job_preemption_configuration(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
 -                        )?,
--                    );
--                }
++                    builder = builder.set_latest_attempt(
++                        super::super::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(tokens, _value, depth + 1)?,
+                     );
+                 }
 -                "preemptionSummary" => {
 -                    builder = builder.set_preemption_summary(
--                        super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(tokens, _value, depth + 1)?,
+-                        super::super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(tokens, _value, depth + 1)?,
 -                    );
 -                }
 -                "quotaShareName" => {
@@ -3186,12 +6077,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
--                    );
++                "retryStrategy" => {
++                    builder = builder.set_retry_strategy(
++                        super::super::protocol_serde::shape_service_job_retry_strategy::de_service_job_retry_strategy(tokens, _value, depth + 1)?,
+                     );
+                 }
+-                "retryStrategy" => {
+-                    builder = builder.set_retry_strategy(super::super::protocol_serde::shape_service_job_retry_strategy::de_service_job_retry_strategy(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
 -                }
-                 "retryStrategy" => {
-                     builder = builder.set_retry_strategy(super::protocol_serde::shape_service_job_retry_strategy::de_service_job_retry_strategy(
-                         tokens,
-@@ -202,6 +183,13 @@
+                 "scheduledAt" => {
+                     builder = builder.set_scheduled_at(
+                         ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+@@ -202,6 +177,13 @@
                              .transpose()?,
                      );
                  }
@@ -3205,7 +6106,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "serviceJobType" => {
                      builder = builder.set_service_job_type(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -209,20 +197,34 @@
+@@ -209,20 +191,38 @@
                              .transpose()?,
                      );
                  }
@@ -3229,7 +6130,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 +                "preemptionConfiguration" => {
 +                    builder = builder.set_preemption_configuration(
-+                        super::protocol_serde::shape_service_job_preemption_configuration::de_service_job_preemption_configuration(
++                        super::super::protocol_serde::shape_service_job_preemption_configuration::de_service_job_preemption_configuration(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -3238,7 +6139,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                }
 +                "preemptionSummary" => {
 +                    builder = builder.set_preemption_summary(
-+                        super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(tokens, _value, depth + 1)?,
++                        super::super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?,
 +                    );
 +                }
                  "startedAt" => {
@@ -3253,7 +6158,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_device.rs
 @@ -3,20 +3,20 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::Device,
+     input: &super::super::types::Device,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.host_path {
 -        object.key("hostPath").string(var_1.as_str());
@@ -3281,17 +6186,92 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -73,7 +73,9 @@
+@@ -42,30 +42,32 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "hostPath" => {
+-                                builder = builder.set_host_path(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "containerPath" => {
+-                                builder = builder.set_container_path(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "permissions" => {
+-                                builder = builder.set_permissions(
+-                                    super::super::protocol_serde::shape_device_cgroup_permissions::de_device_cgroup_permissions(tokens, _value, depth + 1)?,
+-                                );
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "hostPath" => {
++                            builder = builder.set_host_path(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "containerPath" => {
++                            builder = builder.set_container_path(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "permissions" => {
++                            builder = builder.set_permissions(
++                                super::super::protocol_serde::shape_device_cgroup_permissions::de_device_cgroup_permissions(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
++                            );
+                         }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+@@ -73,7 +75,9 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::device_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::device_correct_errors(builder).build().map_err(|err| {
+-            Ok(Some(super::super::serde_util::device_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::device_correct_errors(builder).build().map_err(|err| {
 +                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
 +            })?))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_device_cgroup_permissions.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_device_cgroup_permissions.rs
++++ generated/src/protocol_serde/shape_device_cgroup_permissions.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::DeviceCgroupPermission>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::DeviceCgroupPermission>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
 ```
 
 ### `src/protocol_serde/shape_ec2_configuration.rs`
@@ -3301,7 +6281,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_ec2_configuration.rs
 @@ -3,17 +3,17 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::Ec2Configuration,
+     input: &super::super::types::Ec2Configuration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.image_type {
 -        object.key("imageType").string(var_1.as_str());
@@ -3325,14 +6305,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -77,7 +77,9 @@
+@@ -77,7 +77,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::ec2_configuration_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::ec2_configuration_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::ec2_configuration_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::ec2_configuration_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -3345,7 +6327,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_ecs_properties.rs
 @@ -3,17 +3,17 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::EcsProperties,
+     input: &super::super::types::EcsProperties,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.task_properties {
 -        let mut array_2 = object.key("taskProperties").start_array();
@@ -3356,10 +6338,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_ecs_task_properties::ser_ecs_task_properties(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_ecs_task_properties::ser_ecs_task_properties(&mut object_4, item_3)?;
 -                object_4.finish();
 +                let mut object_3 = array_1.value().start_object();
-+                super::protocol_serde::shape_ecs_task_properties::ser_ecs_task_properties(&mut object_3, item_2)?;
++                super::super::protocol_serde::shape_ecs_task_properties::ser_ecs_task_properties(&mut object_3, item_2)?;
 +                object_3.finish();
              }
          }
@@ -3372,13 +6354,55 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::ecs_properties_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::ecs_properties_correct_errors(builder).build().map_err(
+-            Ok(Some(super::super::serde_util::ecs_properties_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::ecs_properties_correct_errors(builder).build().map_err(
 +                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
 +            )?))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_ecs_properties_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_ecs_properties_detail.rs
++++ generated/src/protocol_serde/shape_ecs_properties_detail.rs
+@@ -22,11 +22,9 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "taskProperties" => {
+-                            builder = builder.set_task_properties(super::super::protocol_serde::shape_list_ecs_task_details::de_list_ecs_task_details(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_task_properties(
++                                super::super::protocol_serde::shape_list_ecs_task_details::de_list_ecs_task_details(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+```
+
+### `src/protocol_serde/shape_ecs_task_details.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_ecs_task_details.rs
++++ generated/src/protocol_serde/shape_ecs_task_details.rs
+@@ -23,7 +23,11 @@
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "containers" => {
+                             builder = builder.set_containers(
+-                                super::super::protocol_serde::shape_list_task_container_details::de_list_task_container_details(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_list_task_container_details::de_list_task_container_details(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         "containerInstanceArn" => {
 ```
 
 ### `src/protocol_serde/shape_ecs_task_properties.rs`
@@ -3388,7 +6412,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_ecs_task_properties.rs
 @@ -3,68 +3,68 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::EcsTaskProperties,
+     input: &super::super::types::EcsTaskProperties,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.containers {
 -        let mut array_2 = object.key("containers").start_array();
@@ -3399,10 +6423,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_task_container_properties::ser_task_container_properties(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_task_container_properties::ser_task_container_properties(&mut object_4, item_3)?;
 -                object_4.finish();
 +                let mut object_3 = array_1.value().start_object();
-+                super::protocol_serde::shape_task_container_properties::ser_task_container_properties(&mut object_3, item_2)?;
++                super::super::protocol_serde::shape_task_container_properties::ser_task_container_properties(&mut object_3, item_2)?;
 +                object_3.finish();
              }
          }
@@ -3413,10 +6437,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_4) = &input.ephemeral_storage {
          #[allow(unused_mut)]
 -        let mut object_6 = object.key("ephemeralStorage").start_object();
--        super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_6, var_5)?;
+-        super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_6, var_5)?;
 -        object_6.finish();
 +        let mut object_5 = object.key("ephemeralStorage").start_object();
-+        super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_5, var_4)?;
 +        object_5.finish();
      }
 -    if let Some(var_7) = &input.execution_role_arn {
@@ -3448,20 +6472,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_11) = &input.network_configuration {
          #[allow(unused_mut)]
 -        let mut object_13 = object.key("networkConfiguration").start_object();
--        super::protocol_serde::shape_network_configuration::ser_network_configuration(&mut object_13, var_12)?;
+-        super::super::protocol_serde::shape_network_configuration::ser_network_configuration(&mut object_13, var_12)?;
 -        object_13.finish();
 +        let mut object_12 = object.key("networkConfiguration").start_object();
-+        super::protocol_serde::shape_network_configuration::ser_network_configuration(&mut object_12, var_11)?;
++        super::super::protocol_serde::shape_network_configuration::ser_network_configuration(&mut object_12, var_11)?;
 +        object_12.finish();
      }
 -    if let Some(var_14) = &input.runtime_platform {
 +    if let Some(var_13) = &input.runtime_platform {
          #[allow(unused_mut)]
 -        let mut object_15 = object.key("runtimePlatform").start_object();
--        super::protocol_serde::shape_runtime_platform::ser_runtime_platform(&mut object_15, var_14)?;
+-        super::super::protocol_serde::shape_runtime_platform::ser_runtime_platform(&mut object_15, var_14)?;
 -        object_15.finish();
 +        let mut object_14 = object.key("runtimePlatform").start_object();
-+        super::protocol_serde::shape_runtime_platform::ser_runtime_platform(&mut object_14, var_13)?;
++        super::super::protocol_serde::shape_runtime_platform::ser_runtime_platform(&mut object_14, var_13)?;
 +        object_14.finish();
      }
 -    if let Some(var_16) = &input.volumes {
@@ -3473,10 +6497,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_19 = array_17.value().start_object();
--                super::protocol_serde::shape_volume::ser_volume(&mut object_19, item_18)?;
+-                super::super::protocol_serde::shape_volume::ser_volume(&mut object_19, item_18)?;
 -                object_19.finish();
 +                let mut object_18 = array_16.value().start_object();
-+                super::protocol_serde::shape_volume::ser_volume(&mut object_18, item_17)?;
++                super::super::protocol_serde::shape_volume::ser_volume(&mut object_18, item_17)?;
 +                object_18.finish();
              }
          }
@@ -3495,14 +6519,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -176,7 +176,9 @@
+@@ -176,7 +176,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::ecs_task_properties_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::ecs_task_properties_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::ecs_task_properties_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::ecs_task_properties_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -3515,7 +6541,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_efs_volume_configuration.rs
 @@ -3,26 +3,26 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::EfsVolumeConfiguration,
+     input: &super::super::types::EfsVolumeConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.file_system_id {
 -        object.key("fileSystemId").string(var_1.as_str());
@@ -3544,10 +6570,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_4) = &input.authorization_config {
          #[allow(unused_mut)]
 -        let mut object_6 = object.key("authorizationConfig").start_object();
--        super::protocol_serde::shape_efs_authorization_config::ser_efs_authorization_config(&mut object_6, var_5)?;
+-        super::super::protocol_serde::shape_efs_authorization_config::ser_efs_authorization_config(&mut object_6, var_5)?;
 -        object_6.finish();
 +        let mut object_5 = object.key("authorizationConfig").start_object();
-+        super::protocol_serde::shape_efs_authorization_config::ser_efs_authorization_config(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_efs_authorization_config::ser_efs_authorization_config(&mut object_5, var_4)?;
 +        object_5.finish();
      }
      Ok(())
@@ -3556,15 +6582,48 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::efs_volume_configuration_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::efs_volume_configuration_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::efs_volume_configuration_correct_errors(builder)
++                super::super::serde_util::efs_volume_configuration_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_eks_attempt_container_details.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_eks_attempt_container_details.rs
++++ generated/src/protocol_serde/shape_eks_attempt_container_details.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::EksAttemptContainerDetail>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::EksAttemptContainerDetail>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,8 +26,11 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_eks_attempt_container_detail::de_eks_attempt_container_detail(tokens, _value, depth + 1)?;
++                        let value = super::super::protocol_serde::shape_eks_attempt_container_detail::de_eks_attempt_container_detail(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_eks_configuration.rs`
@@ -3574,7 +6633,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_eks_configuration.rs
 @@ -3,11 +3,11 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::EksConfiguration,
+     input: &super::super::types::EksConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.eks_cluster_arn {
 -        object.key("eksClusterArn").string(var_1.as_str());
@@ -3588,14 +6647,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -57,7 +57,9 @@
+@@ -57,7 +57,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::eks_configuration_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::eks_configuration_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::eks_configuration_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::eks_configuration_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -3606,7 +6667,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_eks_container.rs
 +++ generated/src/protocol_serde/shape_eks_container.rs
-@@ -6,65 +6,65 @@
+@@ -6,65 +6,68 @@
      if let Some(var_1) = &input.name {
          object.key("name").string(var_1.as_str());
      }
@@ -3657,10 +6718,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_13 = array_11.value().start_object();
--                super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(&mut object_13, item_12)?;
+-                super::super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(&mut object_13, item_12)?;
 -                object_13.finish();
 +                let mut object_12 = array_10.value().start_object();
-+                super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(&mut object_12, item_11)?;
++                super::super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(
++                    &mut object_12,
++                    item_11,
++                )?;
 +                object_12.finish();
              }
          }
@@ -3671,10 +6735,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_13) = &input.resources {
          #[allow(unused_mut)]
 -        let mut object_15 = object.key("resources").start_object();
--        super::protocol_serde::shape_eks_container_resource_requirements::ser_eks_container_resource_requirements(&mut object_15, var_14)?;
+-        super::super::protocol_serde::shape_eks_container_resource_requirements::ser_eks_container_resource_requirements(&mut object_15, var_14)?;
 -        object_15.finish();
 +        let mut object_14 = object.key("resources").start_object();
-+        super::protocol_serde::shape_eks_container_resource_requirements::ser_eks_container_resource_requirements(&mut object_14, var_13)?;
++        super::super::protocol_serde::shape_eks_container_resource_requirements::ser_eks_container_resource_requirements(&mut object_14, var_13)?;
 +        object_14.finish();
      }
 -    if let Some(var_16) = &input.volume_mounts {
@@ -3686,10 +6750,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_19 = array_17.value().start_object();
--                super::protocol_serde::shape_eks_container_volume_mount::ser_eks_container_volume_mount(&mut object_19, item_18)?;
+-                super::super::protocol_serde::shape_eks_container_volume_mount::ser_eks_container_volume_mount(&mut object_19, item_18)?;
 -                object_19.finish();
 +                let mut object_18 = array_16.value().start_object();
-+                super::protocol_serde::shape_eks_container_volume_mount::ser_eks_container_volume_mount(&mut object_18, item_17)?;
++                super::super::protocol_serde::shape_eks_container_volume_mount::ser_eks_container_volume_mount(&mut object_18, item_17)?;
 +                object_18.finish();
              }
          }
@@ -3700,25 +6764,100 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_19) = &input.security_context {
          #[allow(unused_mut)]
 -        let mut object_21 = object.key("securityContext").start_object();
--        super::protocol_serde::shape_eks_container_security_context::ser_eks_container_security_context(&mut object_21, var_20)?;
+-        super::super::protocol_serde::shape_eks_container_security_context::ser_eks_container_security_context(&mut object_21, var_20)?;
 -        object_21.finish();
 +        let mut object_20 = object.key("securityContext").start_object();
-+        super::protocol_serde::shape_eks_container_security_context::ser_eks_container_security_context(&mut object_20, var_19)?;
++        super::super::protocol_serde::shape_eks_container_security_context::ser_eks_container_security_context(&mut object_20, var_19)?;
 +        object_20.finish();
      }
      Ok(())
  }
-@@ -159,7 +159,9 @@
+@@ -113,10 +116,18 @@
+                             );
+                         }
+                         "command" => {
+-                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "args" => {
+-                            builder = builder.set_args(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_args(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "env" => {
+                             builder = builder.set_env(
+@@ -138,7 +149,11 @@
+                         }
+                         "volumeMounts" => {
+                             builder = builder.set_volume_mounts(
+-                                super::super::protocol_serde::shape_eks_container_volume_mounts::de_eks_container_volume_mounts(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_eks_container_volume_mounts::de_eks_container_volume_mounts(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         "securityContext" => {
+@@ -159,7 +174,9 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::eks_container_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::eks_container_correct_errors(builder).build().map_err(|err| {
-+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-+            })?))
+-            Ok(Some(super::super::serde_util::eks_container_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::eks_container_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_eks_container_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_eks_container_detail.rs
++++ generated/src/protocol_serde/shape_eks_container_detail.rs
+@@ -43,10 +43,18 @@
+                             );
+                         }
+                         "command" => {
+-                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "args" => {
+-                            builder = builder.set_args(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_args(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "env" => {
+                             builder = builder.set_env(
+@@ -82,7 +90,11 @@
+                         }
+                         "volumeMounts" => {
+                             builder = builder.set_volume_mounts(
+-                                super::super::protocol_serde::shape_eks_container_volume_mounts::de_eks_container_volume_mounts(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_eks_container_volume_mounts::de_eks_container_volume_mounts(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         "securityContext" => {
 ```
 
 ### `src/protocol_serde/shape_eks_container_environment_variable.rs`
@@ -3728,7 +6867,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_eks_container_environment_variable.rs
 @@ -3,11 +3,11 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::EksContainerEnvironmentVariable,
+     input: &super::super::types::EksContainerEnvironmentVariable,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.name {
 -        object.key("name").string(var_1.as_str());
@@ -3746,13 +6885,91 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
              }
              Ok(Some(
--                super::serde_util::eks_container_environment_variable_correct_errors(builder).build(),
-+                super::serde_util::eks_container_environment_variable_correct_errors(builder)
+-                super::super::serde_util::eks_container_environment_variable_correct_errors(builder).build(),
++                super::super::serde_util::eks_container_environment_variable_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+```
+
+### `src/protocol_serde/shape_eks_container_override.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_eks_container_override.rs
++++ generated/src/protocol_serde/shape_eks_container_override.rs
+@@ -33,7 +33,10 @@
+             {
+                 #[allow(unused_mut)]
+                 let mut object_12 = array_10.value().start_object();
+-                super::super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(&mut object_12, item_11)?;
++                super::super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(
++                    &mut object_12,
++                    item_11,
++                )?;
+                 object_12.finish();
+             }
+         }
+```
+
+### `src/protocol_serde/shape_eks_container_resource_requirements.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_eks_container_resource_requirements.rs
++++ generated/src/protocol_serde/shape_eks_container_resource_requirements.rs
+@@ -52,7 +52,11 @@
+                             builder = builder.set_limits(super::super::protocol_serde::shape_eks_limits::de_eks_limits(tokens, _value, depth + 1)?);
+                         }
+                         "requests" => {
+-                            builder = builder.set_requests(super::super::protocol_serde::shape_eks_requests::de_eks_requests(tokens, _value, depth + 1)?);
++                            builder = builder.set_requests(super::super::protocol_serde::shape_eks_requests::de_eks_requests(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+```
+
+### `src/protocol_serde/shape_eks_container_volume_mounts.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_eks_container_volume_mounts.rs
++++ generated/src/protocol_serde/shape_eks_container_volume_mounts.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::EksContainerVolumeMount>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::EksContainerVolumeMount>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+```
+
+### `src/protocol_serde/shape_eks_metadata.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_eks_metadata.rs
++++ generated/src/protocol_serde/shape_eks_metadata.rs
+@@ -52,7 +52,11 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "labels" => {
+-                            builder = builder.set_labels(super::super::protocol_serde::shape_eks_labels_map::de_eks_labels_map(tokens, _value, depth + 1)?);
++                            builder = builder.set_labels(super::super::protocol_serde::shape_eks_labels_map::de_eks_labels_map(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "annotations" => {
+                             builder = builder.set_annotations(super::super::protocol_serde::shape_eks_annotations_map::de_eks_annotations_map(
 ```
 
 ### `src/protocol_serde/shape_eks_persistent_volume_claim.rs`
@@ -3762,7 +6979,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_eks_persistent_volume_claim.rs
 @@ -3,11 +3,11 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::EksPersistentVolumeClaim,
+     input: &super::super::types::EksPersistentVolumeClaim,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.claim_name {
 -        object.key("claimName").string(var_1.as_str());
@@ -3780,15 +6997,223 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::eks_persistent_volume_claim_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::eks_persistent_volume_claim_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::eks_persistent_volume_claim_correct_errors(builder)
++                super::super::serde_util::eks_persistent_volume_claim_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_eks_pod_properties.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_eks_pod_properties.rs
++++ generated/src/protocol_serde/shape_eks_pod_properties.rs
+@@ -119,8 +119,11 @@
+                             )?);
+                         }
+                         "containers" => {
+-                            builder =
+-                                builder.set_containers(super::super::protocol_serde::shape_eks_containers::de_eks_containers(tokens, _value, depth + 1)?);
++                            builder = builder.set_containers(super::super::protocol_serde::shape_eks_containers::de_eks_containers(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "initContainers" => {
+                             builder = builder.set_init_containers(super::super::protocol_serde::shape_eks_containers::de_eks_containers(
+@@ -130,10 +133,18 @@
+                             )?);
+                         }
+                         "volumes" => {
+-                            builder = builder.set_volumes(super::super::protocol_serde::shape_eks_volumes::de_eks_volumes(tokens, _value, depth + 1)?);
++                            builder = builder.set_volumes(super::super::protocol_serde::shape_eks_volumes::de_eks_volumes(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "metadata" => {
+-                            builder = builder.set_metadata(super::super::protocol_serde::shape_eks_metadata::de_eks_metadata(tokens, _value, depth + 1)?);
++                            builder = builder.set_metadata(super::super::protocol_serde::shape_eks_metadata::de_eks_metadata(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "shareProcessNamespace" => {
+                             builder = builder.set_share_process_namespace(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+```
+
+### `src/protocol_serde/shape_eks_pod_properties_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_eks_pod_properties_detail.rs
++++ generated/src/protocol_serde/shape_eks_pod_properties_detail.rs
+@@ -20,70 +20,75 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                        "serviceAccountName" => {
+-                            builder = builder.set_service_account_name(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "hostNetwork" => {
+-                            builder = builder.set_host_network(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+-                        }
+-                        "dnsPolicy" => {
+-                            builder = builder.set_dns_policy(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "imagePullSecrets" => {
+-                            builder = builder.set_image_pull_secrets(super::super::protocol_serde::shape_image_pull_secrets::de_image_pull_secrets(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        "containers" => {
+-                            builder = builder.set_containers(super::super::protocol_serde::shape_eks_container_details::de_eks_container_details(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        "initContainers" => {
+-                            builder = builder.set_init_containers(super::super::protocol_serde::shape_eks_container_details::de_eks_container_details(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        "volumes" => {
+-                            builder = builder.set_volumes(super::super::protocol_serde::shape_eks_volumes::de_eks_volumes(tokens, _value, depth + 1)?);
+-                        }
+-                        "podName" => {
+-                            builder = builder.set_pod_name(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "nodeName" => {
+-                            builder = builder.set_node_name(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "metadata" => {
+-                            builder = builder.set_metadata(super::super::protocol_serde::shape_eks_metadata::de_eks_metadata(tokens, _value, depth + 1)?);
+-                        }
+-                        "shareProcessNamespace" => {
+-                            builder = builder.set_share_process_namespace(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                        match key.to_unescaped()?.as_ref() {
++                            "serviceAccountName" => {
++                                builder = builder.set_service_account_name(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "hostNetwork" => {
++                                builder = builder.set_host_network(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
++                            }
++                            "dnsPolicy" => {
++                                builder = builder.set_dns_policy(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "imagePullSecrets" => {
++                                builder = builder.set_image_pull_secrets(
++                                    super::super::protocol_serde::shape_image_pull_secrets::de_image_pull_secrets(tokens, _value, depth + 1)?,
++                                );
++                            }
++                            "containers" => {
++                                builder = builder.set_containers(
++                                    super::super::protocol_serde::shape_eks_container_details::de_eks_container_details(tokens, _value, depth + 1)?,
++                                );
++                            }
++                            "initContainers" => {
++                                builder = builder.set_init_containers(
++                                    super::super::protocol_serde::shape_eks_container_details::de_eks_container_details(tokens, _value, depth + 1)?,
++                                );
++                            }
++                            "volumes" => {
++                                builder = builder.set_volumes(super::super::protocol_serde::shape_eks_volumes::de_eks_volumes(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
++                            }
++                            "podName" => {
++                                builder = builder.set_pod_name(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "nodeName" => {
++                                builder = builder.set_node_name(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "metadata" => {
++                                builder = builder.set_metadata(super::super::protocol_serde::shape_eks_metadata::de_eks_metadata(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
++                            }
++                            "shareProcessNamespace" => {
++                                builder =
++                                    builder.set_share_process_namespace(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
++                            }
++                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                         }
+-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    },
++                    }
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+```
+
+### `src/protocol_serde/shape_eks_properties_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_eks_properties_detail.rs
++++ generated/src/protocol_serde/shape_eks_properties_detail.rs
+@@ -23,7 +23,11 @@
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "podProperties" => {
+                             builder = builder.set_pod_properties(
+-                                super::super::protocol_serde::shape_eks_pod_properties_detail::de_eks_pod_properties_detail(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_eks_pod_properties_detail::de_eks_pod_properties_detail(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
 ```
 
 ### `src/protocol_serde/shape_eks_secret.rs`
@@ -3798,7 +7223,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_eks_secret.rs
 @@ -3,11 +3,11 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::EksSecret,
+     input: &super::super::types::EksSecret,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.secret_name {
 -        object.key("secretName").string(var_1.as_str());
@@ -3816,10 +7241,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::eks_secret_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::eks_secret_correct_errors(builder).build().map_err(|err| {
-+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-+            })?))
+-            Ok(Some(super::super::serde_util::eks_secret_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::eks_secret_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -3832,7 +7257,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_eks_volume.rs
 @@ -3,32 +3,32 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::EksVolume,
+     input: &super::super::types::EksVolume,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.name {
 -        object.key("name").string(var_1.as_str());
@@ -3843,52 +7268,86 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_1) = &input.host_path {
          #[allow(unused_mut)]
 -        let mut object_3 = object.key("hostPath").start_object();
--        super::protocol_serde::shape_eks_host_path::ser_eks_host_path(&mut object_3, var_2)?;
+-        super::super::protocol_serde::shape_eks_host_path::ser_eks_host_path(&mut object_3, var_2)?;
 -        object_3.finish();
 +        let mut object_2 = object.key("hostPath").start_object();
-+        super::protocol_serde::shape_eks_host_path::ser_eks_host_path(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_eks_host_path::ser_eks_host_path(&mut object_2, var_1)?;
 +        object_2.finish();
      }
 -    if let Some(var_4) = &input.empty_dir {
 +    if let Some(var_3) = &input.empty_dir {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("emptyDir").start_object();
--        super::protocol_serde::shape_eks_empty_dir::ser_eks_empty_dir(&mut object_5, var_4)?;
+-        super::super::protocol_serde::shape_eks_empty_dir::ser_eks_empty_dir(&mut object_5, var_4)?;
 -        object_5.finish();
 +        let mut object_4 = object.key("emptyDir").start_object();
-+        super::protocol_serde::shape_eks_empty_dir::ser_eks_empty_dir(&mut object_4, var_3)?;
++        super::super::protocol_serde::shape_eks_empty_dir::ser_eks_empty_dir(&mut object_4, var_3)?;
 +        object_4.finish();
      }
 -    if let Some(var_6) = &input.secret {
 +    if let Some(var_5) = &input.secret {
          #[allow(unused_mut)]
 -        let mut object_7 = object.key("secret").start_object();
--        super::protocol_serde::shape_eks_secret::ser_eks_secret(&mut object_7, var_6)?;
+-        super::super::protocol_serde::shape_eks_secret::ser_eks_secret(&mut object_7, var_6)?;
 -        object_7.finish();
 +        let mut object_6 = object.key("secret").start_object();
-+        super::protocol_serde::shape_eks_secret::ser_eks_secret(&mut object_6, var_5)?;
++        super::super::protocol_serde::shape_eks_secret::ser_eks_secret(&mut object_6, var_5)?;
 +        object_6.finish();
      }
 -    if let Some(var_8) = &input.persistent_volume_claim {
 +    if let Some(var_7) = &input.persistent_volume_claim {
          #[allow(unused_mut)]
 -        let mut object_9 = object.key("persistentVolumeClaim").start_object();
--        super::protocol_serde::shape_eks_persistent_volume_claim::ser_eks_persistent_volume_claim(&mut object_9, var_8)?;
+-        super::super::protocol_serde::shape_eks_persistent_volume_claim::ser_eks_persistent_volume_claim(&mut object_9, var_8)?;
 -        object_9.finish();
 +        let mut object_8 = object.key("persistentVolumeClaim").start_object();
-+        super::protocol_serde::shape_eks_persistent_volume_claim::ser_eks_persistent_volume_claim(&mut object_8, var_7)?;
++        super::super::protocol_serde::shape_eks_persistent_volume_claim::ser_eks_persistent_volume_claim(&mut object_8, var_7)?;
 +        object_8.finish();
      }
      Ok(())
  }
-@@ -85,7 +85,9 @@
+@@ -63,10 +63,18 @@
+                             );
+                         }
+                         "hostPath" => {
+-                            builder = builder.set_host_path(super::super::protocol_serde::shape_eks_host_path::de_eks_host_path(tokens, _value, depth + 1)?);
++                            builder = builder.set_host_path(super::super::protocol_serde::shape_eks_host_path::de_eks_host_path(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "emptyDir" => {
+-                            builder = builder.set_empty_dir(super::super::protocol_serde::shape_eks_empty_dir::de_eks_empty_dir(tokens, _value, depth + 1)?);
++                            builder = builder.set_empty_dir(super::super::protocol_serde::shape_eks_empty_dir::de_eks_empty_dir(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "secret" => {
+                             builder = builder.set_secret(super::super::protocol_serde::shape_eks_secret::de_eks_secret(tokens, _value, depth + 1)?);
+@@ -73,7 +81,11 @@
+                         }
+                         "persistentVolumeClaim" => {
+                             builder = builder.set_persistent_volume_claim(
+-                                super::super::protocol_serde::shape_eks_persistent_volume_claim::de_eks_persistent_volume_claim(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_eks_persistent_volume_claim::de_eks_persistent_volume_claim(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+@@ -85,7 +97,9 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::eks_volume_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::eks_volume_correct_errors(builder).build().map_err(|err| {
-+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-+            })?))
+-            Ok(Some(super::super::serde_util::eks_volume_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::eks_volume_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -3901,7 +7360,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_ephemeral_storage.rs
 @@ -3,10 +3,10 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::EphemeralStorage,
+     input: &super::super::types::EphemeralStorage,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.size_in_gib {
 +    {
@@ -3921,14 +7380,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                                      .map(i32::try_from)
                                      .transpose()?,
-@@ -50,7 +50,9 @@
+@@ -50,7 +50,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::ephemeral_storage_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::ephemeral_storage_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::ephemeral_storage_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::ephemeral_storage_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -3954,13 +7415,120 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::evaluate_on_exit_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::evaluate_on_exit_correct_errors(builder).build().map_err(
+-            Ok(Some(super::super::serde_util::evaluate_on_exit_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::evaluate_on_exit_correct_errors(builder).build().map_err(
 +                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
 +            )?))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_fairshare_capacity_usage_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_fairshare_capacity_usage_list.rs
++++ generated/src/protocol_serde/shape_fairshare_capacity_usage_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::FairshareCapacityUsage>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::FairshareCapacityUsage>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +26,8 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = super::super::protocol_serde::shape_fairshare_capacity_usage::de_fairshare_capacity_usage(tokens, _value, depth + 1)?;
++                        let value =
++                            super::super::protocol_serde::shape_fairshare_capacity_usage::de_fairshare_capacity_usage(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
+```
+
+### `src/protocol_serde/shape_fairshare_capacity_utilization_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_fairshare_capacity_utilization_list.rs
++++ generated/src/protocol_serde/shape_fairshare_capacity_utilization_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::FairshareCapacityUtilization>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::FairshareCapacityUtilization>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+```
+
+### `src/protocol_serde/shape_fairshare_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_fairshare_policy.rs
++++ generated/src/protocol_serde/shape_fairshare_policy.rs
+@@ -51,30 +51,28 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "shareDecaySeconds" => {
+-                                builder = builder.set_share_decay_seconds(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i32::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "computeReservation" => {
+-                                builder = builder.set_compute_reservation(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i32::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "shareDistribution" => {
+-                                builder = builder.set_share_distribution(
+-                                    super::super::protocol_serde::shape_share_attributes_list::de_share_attributes_list(tokens, _value, depth + 1)?,
+-                                );
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "shareDecaySeconds" => {
++                            builder = builder.set_share_decay_seconds(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i32::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "computeReservation" => {
++                            builder = builder.set_compute_reservation(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i32::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "shareDistribution" => {
++                            builder = builder.set_share_distribution(
++                                super::super::protocol_serde::shape_share_attributes_list::de_share_attributes_list(tokens, _value, depth + 1)?,
++                            );
+                         }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_firelens_configuration.rs`
@@ -3970,7 +7538,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_firelens_configuration.rs
 @@ -3,18 +3,18 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::FirelensConfiguration,
+     input: &super::super::types::FirelensConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.r#type {
 -        object.key("type").string(var_1.as_str());
@@ -3994,17 +7562,124 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -66,7 +66,9 @@
+@@ -66,7 +66,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::firelens_configuration_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::firelens_configuration_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::firelens_configuration_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::firelens_configuration_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_front_of_queue_job_summary_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_front_of_queue_job_summary_list.rs
++++ generated/src/protocol_serde/shape_front_of_queue_job_summary_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::FrontOfQueueJobSummary>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::FrontOfQueueJobSummary>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+```
+
+### `src/protocol_serde/shape_front_of_quota_share_job_summary_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_front_of_quota_share_job_summary_list.rs
++++ generated/src/protocol_serde/shape_front_of_quota_share_job_summary_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+```
+
+### `src/protocol_serde/shape_front_of_quota_shares_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_front_of_quota_shares_detail.rs
++++ generated/src/protocol_serde/shape_front_of_quota_shares_detail.rs
+@@ -20,25 +20,21 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                        "quotaShares" => {
+-                            builder = builder.set_quota_shares(
+-                                super::super::protocol_serde::shape_front_of_quota_shares_job_summary_map::de_front_of_quota_shares_job_summary_map(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?,
+-                            );
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                        match key.to_unescaped()?.as_ref() {
++                            "quotaShares" => {
++                                builder = builder.set_quota_shares(super::super::protocol_serde::shape_front_of_quota_shares_job_summary_map::de_front_of_quota_shares_job_summary_map(tokens, _value, depth + 1)?);
++                            }
++                            "lastUpdatedAt" => {
++                                builder = builder.set_last_updated_at(
++                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                        .map(i64::try_from)
++                                        .transpose()?,
++                                );
++                            }
++                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                         }
+-                        "lastUpdatedAt" => {
+-                            builder = builder.set_last_updated_at(
+-                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                    .map(i64::try_from)
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    },
++                    }
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+```
+
+### `src/protocol_serde/shape_get_job_queue_snapshot.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_job_queue_snapshot.rs
++++ generated/src/protocol_serde/shape_get_job_queue_snapshot.rs
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
 ```
 
 ### `src/protocol_serde/shape_image_pull_secret.rs`
@@ -4014,7 +7689,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_image_pull_secret.rs
 @@ -3,8 +3,8 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ImagePullSecret,
+     input: &super::super::types::ImagePullSecret,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.name {
 -        object.key("name").string(var_1.as_str());
@@ -4023,14 +7698,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -47,7 +47,9 @@
+@@ -47,7 +47,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::image_pull_secret_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::image_pull_secret_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::image_pull_secret_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::image_pull_secret_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -4041,9 +7718,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_instance_launch_template.rs
 +++ generated/src/protocol_serde/shape_instance_launch_template.rs
-@@ -3,53 +3,53 @@
+@@ -3,53 +3,59 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::InstanceLaunchTemplate,
+     input: &super::super::types::InstanceLaunchTemplate,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.ec2_instance_profile_arn {
 -        object.key("ec2InstanceProfileArn").string(var_1.as_str());
@@ -4054,20 +7731,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_1) = &input.network_configuration {
          #[allow(unused_mut)]
 -        let mut object_3 = object.key("networkConfiguration").start_object();
--        super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(&mut object_3, var_2)?;
+-        super::super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(&mut object_3, var_2)?;
 -        object_3.finish();
 +        let mut object_2 = object.key("networkConfiguration").start_object();
-+        super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(
++            &mut object_2,
++            var_1,
++        )?;
 +        object_2.finish();
      }
 -    if let Some(var_4) = &input.instance_requirements {
 +    if let Some(var_3) = &input.instance_requirements {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("instanceRequirements").start_object();
--        super::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(&mut object_5, var_4)?;
+-        super::super::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(&mut object_5, var_4)?;
 -        object_5.finish();
 +        let mut object_4 = object.key("instanceRequirements").start_object();
-+        super::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(&mut object_4, var_3)?;
++        super::super::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(&mut object_4, var_3)?;
 +        object_4.finish();
      }
 -    if let Some(var_6) = &input.capacity_option_type {
@@ -4079,10 +7759,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_6) = &input.storage_configuration {
          #[allow(unused_mut)]
 -        let mut object_8 = object.key("storageConfiguration").start_object();
--        super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(&mut object_8, var_7)?;
+-        super::super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(&mut object_8, var_7)?;
 -        object_8.finish();
 +        let mut object_7 = object.key("storageConfiguration").start_object();
-+        super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(&mut object_7, var_6)?;
++        super::super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(
++            &mut object_7,
++            var_6,
++        )?;
 +        object_7.finish();
      }
 -    if let Some(var_9) = &input.monitoring {
@@ -4099,10 +7782,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_10) = &input.capacity_reservations {
          #[allow(unused_mut)]
 -        let mut object_12 = object.key("capacityReservations").start_object();
--        super::protocol_serde::shape_capacity_reservation_request::ser_capacity_reservation_request(&mut object_12, var_11)?;
+-        super::super::protocol_serde::shape_capacity_reservation_request::ser_capacity_reservation_request(&mut object_12, var_11)?;
 -        object_12.finish();
 +        let mut object_11 = object.key("capacityReservations").start_object();
-+        super::protocol_serde::shape_capacity_reservation_request::ser_capacity_reservation_request(&mut object_11, var_10)?;
++        super::super::protocol_serde::shape_capacity_reservation_request::ser_capacity_reservation_request(&mut object_11, var_10)?;
 +        object_11.finish();
      }
 -    if let Some(var_13) = &input.instance_metadata_tags_propagation {
@@ -4115,7 +7798,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          #[allow(unused_mut)]
 -        let mut object_15 = object.key("localStorageConfiguration").start_object();
 +        let mut object_14 = object.key("localStorageConfiguration").start_object();
-         super::protocol_serde::shape_managed_instances_local_storage_configuration::ser_managed_instances_local_storage_configuration(
+         super::super::protocol_serde::shape_managed_instances_local_storage_configuration::ser_managed_instances_local_storage_configuration(
 -            &mut object_15,
 -            var_14,
 +            &mut object_14,
@@ -4126,24 +7809,54 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -141,9 +141,7 @@
+@@ -84,13 +90,7 @@
+                             );
+                         }
+                         "networkConfiguration" => {
+-                            builder = builder.set_network_configuration(
+-                                super::super::protocol_serde::shape_managed_instances_network_configuration::de_managed_instances_network_configuration(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?,
+-                            );
++                            builder = builder.set_network_configuration(super::super::protocol_serde::shape_managed_instances_network_configuration::de_managed_instances_network_configuration(tokens, _value, depth + 1)?);
+                         }
+                         "instanceRequirements" => {
+                             builder = builder.set_instance_requirements(
+@@ -109,13 +109,7 @@
+                             );
+                         }
+                         "storageConfiguration" => {
+-                            builder = builder.set_storage_configuration(
+-                                super::super::protocol_serde::shape_managed_instances_storage_configuration::de_managed_instances_storage_configuration(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?,
+-                            );
++                            builder = builder.set_storage_configuration(super::super::protocol_serde::shape_managed_instances_storage_configuration::de_managed_instances_storage_configuration(tokens, _value, depth + 1)?);
+                         }
+                         "monitoring" => {
+                             builder = builder.set_monitoring(
+@@ -141,9 +135,7 @@
                                  .set_instance_metadata_tags_propagation(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                          }
                          "localStorageConfiguration" => {
 -                            builder = builder.set_local_storage_configuration(
--                                    super::protocol_serde::shape_managed_instances_local_storage_configuration::de_managed_instances_local_storage_configuration(tokens, _value, depth + 1)?
+-                                    super::super::protocol_serde::shape_managed_instances_local_storage_configuration::de_managed_instances_local_storage_configuration(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_local_storage_configuration(super::protocol_serde::shape_managed_instances_local_storage_configuration::de_managed_instances_local_storage_configuration(tokens, _value, depth + 1)?);
++                            builder = builder.set_local_storage_configuration(super::super::protocol_serde::shape_managed_instances_local_storage_configuration::de_managed_instances_local_storage_configuration(tokens, _value, depth + 1)?);
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
-@@ -154,7 +152,11 @@
+@@ -154,7 +146,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::instance_launch_template_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::instance_launch_template_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::instance_launch_template_correct_errors(builder)
++                super::super::serde_util::instance_launch_template_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
@@ -4152,17 +7865,103 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              "expected start object or null",
 ```
 
+### `src/protocol_serde/shape_instance_launch_template_update.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_instance_launch_template_update.rs
++++ generated/src/protocol_serde/shape_instance_launch_template_update.rs
+@@ -9,7 +9,10 @@
+     if let Some(var_2) = &input.network_configuration {
+         #[allow(unused_mut)]
+         let mut object_3 = object.key("networkConfiguration").start_object();
+-        super::super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(
++            &mut object_3,
++            var_2,
++        )?;
+         object_3.finish();
+     }
+     if let Some(var_4) = &input.instance_requirements {
+@@ -21,7 +24,10 @@
+     if let Some(var_6) = &input.storage_configuration {
+         #[allow(unused_mut)]
+         let mut object_7 = object.key("storageConfiguration").start_object();
+-        super::super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(&mut object_7, var_6)?;
++        super::super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(
++            &mut object_7,
++            var_6,
++        )?;
+         object_7.finish();
+     }
+     if let Some(var_8) = &input.monitoring {
+```
+
+### `src/protocol_serde/shape_job_capacity_usage_summary_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_job_capacity_usage_summary_list.rs
++++ generated/src/protocol_serde/shape_job_capacity_usage_summary_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::JobCapacityUsageSummary>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::JobCapacityUsageSummary>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+```
+
 ### `src/protocol_serde/shape_job_definition.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_job_definition.rs
 +++ generated/src/protocol_serde/shape_job_definition.rs
-@@ -145,7 +145,9 @@
+@@ -64,8 +64,11 @@
+                             );
+                         }
+                         "parameters" => {
+-                            builder =
+-                                builder.set_parameters(super::super::protocol_serde::shape_parameters_map::de_parameters_map(tokens, _value, depth + 1)?);
++                            builder = builder.set_parameters(super::super::protocol_serde::shape_parameters_map::de_parameters_map(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "retryStrategy" => {
+                             builder = builder.set_retry_strategy(super::super::protocol_serde::shape_retry_strategy::de_retry_strategy(
+@@ -75,15 +78,17 @@
+                             )?);
+                         }
+                         "containerProperties" => {
+-                            builder = builder.set_container_properties(super::super::protocol_serde::shape_container_properties::de_container_properties(
++                            builder = builder.set_container_properties(
++                                super::super::protocol_serde::shape_container_properties::de_container_properties(tokens, _value, depth + 1)?,
++                            );
++                        }
++                        "timeout" => {
++                            builder = builder.set_timeout(super::super::protocol_serde::shape_job_timeout::de_job_timeout(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+                             )?);
+                         }
+-                        "timeout" => {
+-                            builder = builder.set_timeout(super::super::protocol_serde::shape_job_timeout::de_job_timeout(tokens, _value, depth + 1)?);
+-                        }
+                         "nodeProperties" => {
+                             builder = builder.set_node_properties(super::super::protocol_serde::shape_node_properties::de_node_properties(
+                                 tokens,
+@@ -145,7 +150,9 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::job_definition_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::job_definition_correct_errors(builder).build().map_err(
+-            Ok(Some(super::super::serde_util::job_definition_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::job_definition_correct_errors(builder).build().map_err(
 +                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
 +            )?))
          }
@@ -4175,14 +7974,94 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_job_detail.rs
 +++ generated/src/protocol_serde/shape_job_detail.rs
-@@ -218,7 +218,9 @@
+@@ -127,8 +127,11 @@
+                             );
+                         }
+                         "parameters" => {
+-                            builder =
+-                                builder.set_parameters(super::super::protocol_serde::shape_parameters_map::de_parameters_map(tokens, _value, depth + 1)?);
++                            builder = builder.set_parameters(super::super::protocol_serde::shape_parameters_map::de_parameters_map(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "container" => {
+                             builder = builder.set_container(super::super::protocol_serde::shape_container_detail::de_container_detail(
+@@ -138,8 +141,11 @@
+                             )?);
+                         }
+                         "nodeDetails" => {
+-                            builder =
+-                                builder.set_node_details(super::super::protocol_serde::shape_node_details::de_node_details(tokens, _value, depth + 1)?);
++                            builder = builder.set_node_details(super::super::protocol_serde::shape_node_details::de_node_details(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "nodeProperties" => {
+                             builder = builder.set_node_properties(super::super::protocol_serde::shape_node_properties::de_node_properties(
+@@ -149,15 +155,17 @@
+                             )?);
+                         }
+                         "arrayProperties" => {
+-                            builder = builder.set_array_properties(super::super::protocol_serde::shape_array_properties_detail::de_array_properties_detail(
++                            builder = builder.set_array_properties(
++                                super::super::protocol_serde::shape_array_properties_detail::de_array_properties_detail(tokens, _value, depth + 1)?,
++                            );
++                        }
++                        "timeout" => {
++                            builder = builder.set_timeout(super::super::protocol_serde::shape_job_timeout::de_job_timeout(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+                             )?);
+                         }
+-                        "timeout" => {
+-                            builder = builder.set_timeout(super::super::protocol_serde::shape_job_timeout::de_job_timeout(tokens, _value, depth + 1)?);
+-                        }
+                         "tags" => {
+                             builder = builder.set_tags(super::super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
+                                 tokens,
+@@ -174,11 +182,9 @@
+                             );
+                         }
+                         "eksProperties" => {
+-                            builder = builder.set_eks_properties(super::super::protocol_serde::shape_eks_properties_detail::de_eks_properties_detail(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_eks_properties(
++                                super::super::protocol_serde::shape_eks_properties_detail::de_eks_properties_detail(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         "eksAttempts" => {
+                             builder = builder.set_eks_attempts(super::super::protocol_serde::shape_eks_attempt_details::de_eks_attempt_details(
+@@ -188,11 +194,9 @@
+                             )?);
+                         }
+                         "ecsProperties" => {
+-                            builder = builder.set_ecs_properties(super::super::protocol_serde::shape_ecs_properties_detail::de_ecs_properties_detail(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_ecs_properties(
++                                super::super::protocol_serde::shape_ecs_properties_detail::de_ecs_properties_detail(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         "isCancelled" => {
+                             builder = builder.set_is_cancelled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+@@ -218,7 +222,9 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::job_detail_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::job_detail_correct_errors(builder).build().map_err(|err| {
-+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-+            })?))
+-            Ok(Some(super::super::serde_util::job_detail_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::job_detail_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -4193,12 +8072,35 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_job_queue_detail.rs
 +++ generated/src/protocol_serde/shape_job_queue_detail.rs
-@@ -112,7 +112,9 @@
+@@ -72,12 +72,20 @@
+                         }
+                         "computeEnvironmentOrder" => {
+                             builder = builder.set_compute_environment_order(
+-                                super::super::protocol_serde::shape_compute_environment_orders::de_compute_environment_orders(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_compute_environment_orders::de_compute_environment_orders(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         "serviceEnvironmentOrder" => {
+                             builder = builder.set_service_environment_order(
+-                                super::super::protocol_serde::shape_service_environment_orders::de_service_environment_orders(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_service_environment_orders::de_service_environment_orders(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         "jobQueueType" => {
+@@ -112,7 +120,9 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::job_queue_detail_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::job_queue_detail_correct_errors(builder).build().map_err(
+-            Ok(Some(super::super::serde_util::job_queue_detail_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::job_queue_detail_correct_errors(builder).build().map_err(
 +                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
 +            )?))
          }
@@ -4213,7 +8115,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_job_state_time_limit_action.rs
 @@ -3,20 +3,20 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::JobStateTimeLimitAction,
+     input: &super::super::types::JobStateTimeLimitAction,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.reason {
 -        object.key("reason").string(var_1.as_str());
@@ -4240,13 +8142,37 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -80,7 +80,11 @@
+@@ -53,7 +53,10 @@
+                         "state" => {
+                             builder = builder.set_state(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::JobStateTimeLimitActionsState::from(u.as_ref())))
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::JobStateTimeLimitActionsState::from(u.as_ref()))
++                                    })
+                                     .transpose()?,
+                             );
+                         }
+@@ -67,7 +70,10 @@
+                         "action" => {
+                             builder = builder.set_action(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::JobStateTimeLimitActionsAction::from(u.as_ref())))
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::JobStateTimeLimitActionsAction::from(u.as_ref()))
++                                    })
+                                     .transpose()?,
+                             );
+                         }
+@@ -80,7 +86,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::job_state_time_limit_action_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::job_state_time_limit_action_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::job_state_time_limit_action_correct_errors(builder)
++                super::super::serde_util::job_state_time_limit_action_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
@@ -4255,40 +8181,333 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              "expected start object or null",
 ```
 
+### `src/protocol_serde/shape_job_state_time_limit_actions.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_job_state_time_limit_actions.rs
++++ generated/src/protocol_serde/shape_job_state_time_limit_actions.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::JobStateTimeLimitAction>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::JobStateTimeLimitAction>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,8 +26,11 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_job_state_time_limit_action::de_job_state_time_limit_action(tokens, _value, depth + 1)?;
++                        let value = super::super::protocol_serde::shape_job_state_time_limit_action::de_job_state_time_limit_action(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
+```
+
 ### `src/protocol_serde/shape_job_summary.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_job_summary.rs
 +++ generated/src/protocol_serde/shape_job_summary.rs
-@@ -135,7 +135,9 @@
+@@ -20,114 +20,112 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "jobArn" => {
+-                                builder = builder.set_job_arn(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "jobId" => {
+-                                builder = builder.set_job_id(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "jobName" => {
+-                                builder = builder.set_job_name(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "capacityUsage" => {
+-                                builder = builder.set_capacity_usage(
+-                                    super::super::protocol_serde::shape_job_capacity_usage_summary_list::de_job_capacity_usage_summary_list(
+-                                        tokens,
+-                                        _value,
+-                                        depth + 1,
+-                                    )?,
+-                                );
+-                            }
+-                            "createdAt" => {
+-                                builder = builder.set_created_at(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i64::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "scheduledAt" => {
+-                                builder = builder.set_scheduled_at(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i64::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "shareIdentifier" => {
+-                                builder = builder.set_share_identifier(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "status" => {
+-                                builder = builder.set_status(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| super::super::types::JobStatus::from(u.as_ref())))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "statusReason" => {
+-                                builder = builder.set_status_reason(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "startedAt" => {
+-                                builder = builder.set_started_at(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i64::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "stoppedAt" => {
+-                                builder = builder.set_stopped_at(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i64::try_from)
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            "container" => {
+-                                builder = builder.set_container(super::super::protocol_serde::shape_container_summary::de_container_summary(
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "jobArn" => {
++                            builder = builder.set_job_arn(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "jobId" => {
++                            builder = builder.set_job_id(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "jobName" => {
++                            builder = builder.set_job_name(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "capacityUsage" => {
++                            builder = builder.set_capacity_usage(
++                                super::super::protocol_serde::shape_job_capacity_usage_summary_list::de_job_capacity_usage_summary_list(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+-                                )?);
+-                            }
+-                            "arrayProperties" => {
+-                                builder = builder.set_array_properties(
+-                                    super::super::protocol_serde::shape_array_properties_summary::de_array_properties_summary(tokens, _value, depth + 1)?,
+-                                );
+-                            }
+-                            "nodeProperties" => {
+-                                builder = builder.set_node_properties(
+-                                    super::super::protocol_serde::shape_node_properties_summary::de_node_properties_summary(tokens, _value, depth + 1)?,
+-                                );
+-                            }
+-                            "jobDefinition" => {
+-                                builder = builder.set_job_definition(
+-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                        .transpose()?,
+-                                );
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                                )?,
++                            );
+                         }
+-                    }
++                        "createdAt" => {
++                            builder = builder.set_created_at(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i64::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "scheduledAt" => {
++                            builder = builder.set_scheduled_at(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i64::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "shareIdentifier" => {
++                            builder = builder.set_share_identifier(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "status" => {
++                            builder = builder.set_status(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::JobStatus::from(u.as_ref())))
++                                    .transpose()?,
++                            );
++                        }
++                        "statusReason" => {
++                            builder = builder.set_status_reason(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        "startedAt" => {
++                            builder = builder.set_started_at(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i64::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "stoppedAt" => {
++                            builder = builder.set_stopped_at(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i64::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "container" => {
++                            builder = builder.set_container(super::super::protocol_serde::shape_container_summary::de_container_summary(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
++                        }
++                        "arrayProperties" => {
++                            builder = builder.set_array_properties(
++                                super::super::protocol_serde::shape_array_properties_summary::de_array_properties_summary(tokens, _value, depth + 1)?,
++                            );
++                        }
++                        "nodeProperties" => {
++                            builder = builder.set_node_properties(
++                                super::super::protocol_serde::shape_node_properties_summary::de_node_properties_summary(tokens, _value, depth + 1)?,
++                            );
++                        }
++                        "jobDefinition" => {
++                            builder = builder.set_job_definition(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+@@ -135,7 +133,9 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::job_summary_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::job_summary_correct_errors(builder).build().map_err(|err| {
-+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-+            })?))
+-            Ok(Some(super::super::serde_util::job_summary_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::job_summary_correct_errors(builder).build().map_err(
++                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
++            )?))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
 ```
 
-### `src/protocol_serde/shape_launch_template_specification.rs`
+### `src/protocol_serde/shape_latest_service_job_attempt.rs`
 
 ```diff
---- reference/src/protocol_serde/shape_launch_template_specification.rs
-+++ generated/src/protocol_serde/shape_launch_template_specification.rs
-@@ -77,9 +77,7 @@
-                             );
+--- reference/src/protocol_serde/shape_latest_service_job_attempt.rs
++++ generated/src/protocol_serde/shape_latest_service_job_attempt.rs
+@@ -22,11 +22,9 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "serviceResourceId" => {
+-                            builder = builder.set_service_resource_id(super::super::protocol_serde::shape_service_resource_id::de_service_resource_id(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_service_resource_id(
++                                super::super::protocol_serde::shape_service_resource_id::de_service_resource_id(tokens, _value, depth + 1)?,
++                            );
                          }
-                         "overrides" => {
--                            builder = builder.set_overrides(
--                                    super::protocol_serde::shape_launch_template_specification_override_list::de_launch_template_specification_override_list(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_overrides(super::protocol_serde::shape_launch_template_specification_override_list::de_launch_template_specification_override_list(tokens, _value, depth + 1)?);
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+```
+
+### `src/protocol_serde/shape_linux_parameters.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_linux_parameters.rs
++++ generated/src/protocol_serde/shape_linux_parameters.rs
+@@ -74,7 +74,11 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "devices" => {
+-                            builder = builder.set_devices(super::super::protocol_serde::shape_devices_list::de_devices_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_devices(super::super::protocol_serde::shape_devices_list::de_devices_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
                          }
-                         "userdataType" => {
-                             builder = builder.set_userdata_type(
+                         "initProcessEnabled" => {
+                             builder = builder.set_init_process_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+```
+
+### `src/protocol_serde/shape_list_attempt_task_container_details.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_attempt_task_container_details.rs
++++ generated/src/protocol_serde/shape_list_attempt_task_container_details.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::AttemptTaskContainerDetails>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::AttemptTaskContainerDetails>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
 ```
 
 ### `src/protocol_serde/shape_list_consumable_resources.rs`
@@ -4296,14 +8515,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_consumable_resources.rs
 +++ generated/src/protocol_serde/shape_list_consumable_resources.rs
-@@ -73,7 +73,9 @@
-         output = super::protocol_serde::shape_list_consumable_resources::de_list_consumable_resources(_response_body, output)
-             .map_err(super::operation::list_consumable_resources::ListConsumableResourcesError::unhandled)?;
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::list_consumable_resources::ListConsumableResourcesError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::list_consumable_resources::ListConsumableResourcesError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -73,7 +69,9 @@
+         output = super::super::protocol_serde::shape_list_consumable_resources::de_list_consumable_resources(_response_body, output)
+             .map_err(super::super::operation::list_consumable_resources::ListConsumableResourcesError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::list_consumable_resources_output_output_correct_errors(output).build()
-+        super::serde_util::list_consumable_resources_output_output_correct_errors(output)
+-        super::super::serde_util::list_consumable_resources_output_output_correct_errors(output).build()
++        super::super::serde_util::list_consumable_resources_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::list_consumable_resources::ListConsumableResourcesError::unhandled)?
++            .map_err(super::super::operation::list_consumable_resources::ListConsumableResourcesError::unhandled)?
      })
  }
 
@@ -4315,16 +8547,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_jobs.rs
 +++ generated/src/protocol_serde/shape_list_jobs.rs
 @@ -63,7 +63,9 @@
-         output = super::protocol_serde::shape_list_jobs::de_list_jobs(_response_body, output)
-             .map_err(super::operation::list_jobs::ListJobsError::unhandled)?;
+         output = super::super::protocol_serde::shape_list_jobs::de_list_jobs(_response_body, output)
+             .map_err(super::super::operation::list_jobs::ListJobsError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::list_jobs_output_output_correct_errors(output).build()
-+        super::serde_util::list_jobs_output_output_correct_errors(output)
+-        super::super::serde_util::list_jobs_output_output_correct_errors(output).build()
++        super::super::serde_util::list_jobs_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::list_jobs::ListJobsError::unhandled)?
++            .map_err(super::super::operation::list_jobs::ListJobsError::unhandled)?
      })
  }
 
+@@ -80,7 +82,8 @@
+ pub(crate) fn de_list_jobs(
+     _value: &[u8],
+     mut builder: super::super::operation::list_jobs::builders::ListJobsOutputBuilder,
+-) -> ::std::result::Result<super::super::operation::list_jobs::builders::ListJobsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++) -> ::std::result::Result<super::super::operation::list_jobs::builders::ListJobsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
 ```
 
 ### `src/protocol_serde/shape_list_jobs_by_consumable_resource.rs`
@@ -4333,27 +8575,52 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_jobs_by_consumable_resource.rs
 +++ generated/src/protocol_serde/shape_list_jobs_by_consumable_resource.rs
 @@ -69,7 +69,9 @@
-         output = super::protocol_serde::shape_list_jobs_by_consumable_resource::de_list_jobs_by_consumable_resource(_response_body, output)
-             .map_err(super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError::unhandled)?;
+         output = super::super::protocol_serde::shape_list_jobs_by_consumable_resource::de_list_jobs_by_consumable_resource(_response_body, output)
+             .map_err(super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::list_jobs_by_consumable_resource_output_output_correct_errors(output).build()
-+        super::serde_util::list_jobs_by_consumable_resource_output_output_correct_errors(output)
+-        super::super::serde_util::list_jobs_by_consumable_resource_output_output_correct_errors(output).build()
++        super::super::serde_util::list_jobs_by_consumable_resource_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError::unhandled)?
++            .map_err(super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError::unhandled)?
      })
  }
 
-@@ -101,9 +103,7 @@
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                 match key.to_unescaped()?.as_ref() {
-                     "jobs" => {
+@@ -98,23 +100,19 @@
+     loop {
+         match tokens.next().transpose()? {
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                match key.to_unescaped()?.as_ref() {
+-                    "jobs" => {
 -                        builder = builder.set_jobs(
--                            super::protocol_serde::shape_list_jobs_by_consumable_resource_summary_list::de_list_jobs_by_consumable_resource_summary_list(tokens, _value, depth + 1)?
+-                            super::super::protocol_serde::shape_list_jobs_by_consumable_resource_summary_list::de_list_jobs_by_consumable_resource_summary_list(tokens, _value, depth + 1)?
 -                        );
-+                        builder = builder.set_jobs(super::protocol_serde::shape_list_jobs_by_consumable_resource_summary_list::de_list_jobs_by_consumable_resource_summary_list(tokens, _value, depth + 1)?);
-                     }
-                     "nextToken" => {
-                         builder = builder.set_next_token(
+-                    }
+-                    "nextToken" => {
+-                        builder = builder.set_next_token(
+-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                .transpose()?,
+-                        );
+-                    }
+-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                "jobs" => {
++                    builder = builder.set_jobs(super::super::protocol_serde::shape_list_jobs_by_consumable_resource_summary_list::de_list_jobs_by_consumable_resource_summary_list(tokens, _value, depth + 1)?);
++                }
++                "nextToken" => {
++                    builder = builder.set_next_token(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
+                 }
+-            }
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
+             other => {
+                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                     "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_list_jobs_by_consumable_resource_summary.rs`
@@ -4365,13 +8632,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
              }
              Ok(Some(
--                super::serde_util::list_jobs_by_consumable_resource_summary_correct_errors(builder).build(),
-+                super::serde_util::list_jobs_by_consumable_resource_summary_correct_errors(builder)
+-                super::super::serde_util::list_jobs_by_consumable_resource_summary_correct_errors(builder).build(),
++                super::super::serde_util::list_jobs_by_consumable_resource_summary_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+```
+
+### `src/protocol_serde/shape_list_jobs_by_consumable_resource_summary_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_jobs_by_consumable_resource_summary_list.rs
++++ generated/src/protocol_serde/shape_list_jobs_by_consumable_resource_summary_list.rs
+@@ -26,12 +26,7 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_list_jobs_by_consumable_resource_summary::de_list_jobs_by_consumable_resource_summary(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?;
++                        let value = super::super::protocol_serde::shape_list_jobs_by_consumable_resource_summary::de_list_jobs_by_consumable_resource_summary(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_list_jobs_input.rs`
@@ -4381,7 +8669,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_list_jobs_input.rs
 @@ -3,38 +3,38 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::list_jobs::ListJobsInput,
+     input: &super::super::operation::list_jobs::ListJobsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.array_job_id {
 -        object.key("arrayJobId").string(var_1.as_str());
@@ -4394,7 +8682,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            {
 -                #[allow(unused_mut)]
 -                let mut object_5 = array_3.value().start_object();
--                super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_5, item_4)?;
+-                super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_5, item_4)?;
 -                object_5.finish();
 -            }
 -        }
@@ -4433,7 +8721,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            {
 +                #[allow(unused_mut)]
 +                let mut object_10 = array_8.value().start_object();
-+                super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_10, item_9)?;
++                super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_10, item_9)?;
 +                object_10.finish();
 +            }
 +        }
@@ -4448,12 +8736,36 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_quota_shares.rs
 +++ generated/src/protocol_serde/shape_list_quota_shares.rs
-@@ -93,6 +93,13 @@
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_quota_shares::ListQuotaSharesOutput, super::super::operation::list_quota_shares::ListQuotaSharesError> {
++) -> std::result::Result<
++    super::super::operation::list_quota_shares::ListQuotaSharesOutput,
++    super::super::operation::list_quota_shares::ListQuotaSharesError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::list_quota_shares::ListQuotaSharesError::unhandled)?;
+@@ -56,7 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_quota_shares::ListQuotaSharesOutput, super::super::operation::list_quota_shares::ListQuotaSharesError> {
++) -> std::result::Result<
++    super::super::operation::list_quota_shares::ListQuotaSharesOutput,
++    super::super::operation::list_quota_shares::ListQuotaSharesError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder::default();
+@@ -93,6 +99,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 +                "quotaShares" => {
-+                    builder = builder.set_quota_shares(super::protocol_serde::shape_quota_share_list::de_quota_share_list(
++                    builder = builder.set_quota_shares(super::super::protocol_serde::shape_quota_share_list::de_quota_share_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -4462,12 +8774,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -100,13 +107,6 @@
+@@ -100,13 +113,6 @@
                              .transpose()?,
                      );
                  }
 -                "quotaShares" => {
--                    builder = builder.set_quota_shares(super::protocol_serde::shape_quota_share_list::de_quota_share_list(
+-                    builder = builder.set_quota_shares(super::super::protocol_serde::shape_quota_share_list::de_quota_share_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -4496,7 +8808,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
                  "schedulingPolicies" => {
                      builder = builder.set_scheduling_policies(
-                         super::protocol_serde::shape_scheduling_policy_listing_detail_list::de_scheduling_policy_listing_detail_list(
+                         super::super::protocol_serde::shape_scheduling_policy_listing_detail_list::de_scheduling_policy_listing_detail_list(
 @@ -119,6 +112,13 @@
                          )?,
                      );
@@ -4518,17 +8830,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_service_jobs.rs
 +++ generated/src/protocol_serde/shape_list_service_jobs.rs
-@@ -63,7 +63,9 @@
-         output = super::protocol_serde::shape_list_service_jobs::de_list_service_jobs(_response_body, output)
-             .map_err(super::operation::list_service_jobs::ListServiceJobsError::unhandled)?;
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_service_jobs::ListServiceJobsOutput, super::super::operation::list_service_jobs::ListServiceJobsError> {
++) -> std::result::Result<
++    super::super::operation::list_service_jobs::ListServiceJobsOutput,
++    super::super::operation::list_service_jobs::ListServiceJobsError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::list_service_jobs::ListServiceJobsError::unhandled)?;
+@@ -56,7 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_service_jobs::ListServiceJobsOutput, super::super::operation::list_service_jobs::ListServiceJobsError> {
++) -> std::result::Result<
++    super::super::operation::list_service_jobs::ListServiceJobsOutput,
++    super::super::operation::list_service_jobs::ListServiceJobsError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder::default();
+@@ -63,7 +69,9 @@
+         output = super::super::protocol_serde::shape_list_service_jobs::de_list_service_jobs(_response_body, output)
+             .map_err(super::super::operation::list_service_jobs::ListServiceJobsError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::list_service_jobs_output_output_correct_errors(output).build()
-+        super::serde_util::list_service_jobs_output_output_correct_errors(output)
+-        super::super::serde_util::list_service_jobs_output_output_correct_errors(output).build()
++        super::super::serde_util::list_service_jobs_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::list_service_jobs::ListServiceJobsError::unhandled)?
++            .map_err(super::super::operation::list_service_jobs::ListServiceJobsError::unhandled)?
      })
  }
 
+@@ -94,11 +102,9 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "jobSummaryList" => {
+-                    builder = builder.set_job_summary_list(super::super::protocol_serde::shape_service_job_summary_list::de_service_job_summary_list(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
++                    builder = builder.set_job_summary_list(
++                        super::super::protocol_serde::shape_service_job_summary_list::de_service_job_summary_list(tokens, _value, depth + 1)?,
++                    );
+                 }
+                 "nextToken" => {
+                     builder = builder.set_next_token(
 ```
 
 ### `src/protocol_serde/shape_list_service_jobs_input.rs`
@@ -4538,7 +8889,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_list_service_jobs_input.rs
 @@ -3,32 +3,32 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::list_service_jobs::ListServiceJobsInput,
+     input: &super::super::operation::list_service_jobs::ListServiceJobsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.filters {
 -        let mut array_2 = object.key("filters").start_array();
@@ -4546,7 +8897,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            {
 -                #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_4, item_3)?;
 -                object_4.finish();
 -            }
 -        }
@@ -4581,7 +8932,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            {
 +                #[allow(unused_mut)]
 +                let mut object_8 = array_6.value().start_object();
-+                super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_8, item_7)?;
++                super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_8, item_7)?;
 +                object_8.finish();
 +            }
 +        }
@@ -4596,23 +8947,65 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_tags_for_resource.rs
 +++ generated/src/protocol_serde/shape_list_tags_for_resource.rs
-@@ -73,6 +73,16 @@
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -73,6 +77,16 @@
      })
  }
 
 +pub fn ser_list_tags_for_resource_input(
-+    input: &super::operation::list_tags_for_resource::ListTagsForResourceInput,
++    input: &super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_tags_for_resource(
      _value: &[u8],
-     mut builder: super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,
+     mut builder: super::super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,
+```
+
+### `src/protocol_serde/shape_list_task_container_properties.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_task_container_properties.rs
++++ generated/src/protocol_serde/shape_list_task_container_properties.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::TaskContainerProperties>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::TaskContainerProperties>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +26,8 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = super::super::protocol_serde::shape_task_container_properties::de_task_container_properties(tokens, _value, depth + 1)?;
++                        let value =
++                            super::super::protocol_serde::shape_task_container_properties::de_task_container_properties(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_log_configuration.rs`
@@ -4622,7 +9015,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_log_configuration.rs
 @@ -3,30 +3,30 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::LogConfiguration,
+     input: &super::super::types::LogConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.log_driver {
 -        object.key("logDriver").string(var_1.as_str());
@@ -4653,10 +9046,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_9 = array_7.value().start_object();
--                super::protocol_serde::shape_secret::ser_secret(&mut object_9, item_8)?;
+-                super::super::protocol_serde::shape_secret::ser_secret(&mut object_9, item_8)?;
 -                object_9.finish();
 +                let mut object_8 = array_6.value().start_object();
-+                super::protocol_serde::shape_secret::ser_secret(&mut object_8, item_7)?;
++                super::super::protocol_serde::shape_secret::ser_secret(&mut object_8, item_7)?;
 +                object_8.finish();
              }
          }
@@ -4665,17 +9058,52 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -82,7 +82,9 @@
+@@ -70,8 +70,11 @@
+                             );
+                         }
+                         "secretOptions" => {
+-                            builder =
+-                                builder.set_secret_options(super::super::protocol_serde::shape_secret_list::de_secret_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_secret_options(super::super::protocol_serde::shape_secret_list::de_secret_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+@@ -82,7 +85,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::log_configuration_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::log_configuration_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::log_configuration_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::log_configuration_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_managed_instances_local_storage_configuration.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_managed_instances_local_storage_configuration.rs
++++ generated/src/protocol_serde/shape_managed_instances_local_storage_configuration.rs
+@@ -13,7 +13,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::ManagedInstancesLocalStorageConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::ManagedInstancesLocalStorageConfiguration>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
 ```
 
 ### `src/protocol_serde/shape_managed_instances_network_configuration.rs`
@@ -4685,7 +9113,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_managed_instances_network_configuration.rs
 @@ -3,23 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ManagedInstancesNetworkConfiguration,
+     input: &super::super::types::ManagedInstancesNetworkConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.subnets {
 -        let mut array_2 = object.key("subnets").start_array();
@@ -4717,12 +9145,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -63,7 +63,9 @@
+@@ -47,11 +47,18 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "subnets" => {
+-                            builder = builder.set_subnets(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_subnets(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "securityGroups" => {
+-                            builder =
+-                                builder.set_security_groups(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_security_groups(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+@@ -63,7 +70,9 @@
                  }
              }
              Ok(Some(
--                super::serde_util::managed_instances_network_configuration_correct_errors(builder).build(),
-+                super::serde_util::managed_instances_network_configuration_correct_errors(builder)
+-                super::super::serde_util::managed_instances_network_configuration_correct_errors(builder).build(),
++                super::super::serde_util::managed_instances_network_configuration_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))
@@ -4748,31 +9198,44 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.instance_launch_template {
          #[allow(unused_mut)]
 -        let mut object_4 = object.key("instanceLaunchTemplate").start_object();
--        super::protocol_serde::shape_instance_launch_template::ser_instance_launch_template(&mut object_4, var_3)?;
+-        super::super::protocol_serde::shape_instance_launch_template::ser_instance_launch_template(&mut object_4, var_3)?;
 -        object_4.finish();
 +        let mut object_3 = object.key("instanceLaunchTemplate").start_object();
-+        super::protocol_serde::shape_instance_launch_template::ser_instance_launch_template(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_instance_launch_template::ser_instance_launch_template(&mut object_3, var_2)?;
 +        object_3.finish();
      }
 -    if let Some(var_5) = &input.infrastructure_optimization {
 +    if let Some(var_4) = &input.infrastructure_optimization {
          #[allow(unused_mut)]
 -        let mut object_6 = object.key("infrastructureOptimization").start_object();
--        super::protocol_serde::shape_infrastructure_optimization::ser_infrastructure_optimization(&mut object_6, var_5)?;
+-        super::super::protocol_serde::shape_infrastructure_optimization::ser_infrastructure_optimization(&mut object_6, var_5)?;
 -        object_6.finish();
 +        let mut object_5 = object.key("infrastructureOptimization").start_object();
-+        super::protocol_serde::shape_infrastructure_optimization::ser_infrastructure_optimization(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_infrastructure_optimization::ser_infrastructure_optimization(&mut object_5, var_4)?;
 +        object_5.finish();
      }
      Ok(())
  }
-@@ -79,7 +79,11 @@
+@@ -67,7 +67,11 @@
+                         }
+                         "infrastructureOptimization" => {
+                             builder = builder.set_infrastructure_optimization(
+-                                super::super::protocol_serde::shape_infrastructure_optimization::de_infrastructure_optimization(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_infrastructure_optimization::de_infrastructure_optimization(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?,
+                             );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+@@ -79,7 +83,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::managed_instances_provider_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::managed_instances_provider_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::managed_instances_provider_correct_errors(builder)
++                super::super::serde_util::managed_instances_provider_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
@@ -4788,7 +9251,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_managed_instances_storage_configuration.rs
 @@ -3,7 +3,7 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ManagedInstancesStorageConfiguration,
+     input: &super::super::types::ManagedInstancesStorageConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.storage_size_gib {
 +    if let Some(var_1) = &input.storage_size_gi_b {
@@ -4813,7 +9276,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_node_properties.rs
 @@ -3,29 +3,29 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::NodeProperties,
+     input: &super::super::types::NodeProperties,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.num_nodes {
 +    {
@@ -4840,10 +9303,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_6 = array_4.value().start_object();
--                super::protocol_serde::shape_node_range_property::ser_node_range_property(&mut object_6, item_5)?;
+-                super::super::protocol_serde::shape_node_range_property::ser_node_range_property(&mut object_6, item_5)?;
 -                object_6.finish();
 +                let mut object_3 = array_1.value().start_object();
-+                super::protocol_serde::shape_node_range_property::ser_node_range_property(&mut object_3, item_2)?;
++                super::super::protocol_serde::shape_node_range_property::ser_node_range_property(&mut object_3, item_2)?;
 +                object_3.finish();
              }
          }
@@ -4856,8 +9319,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::node_properties_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::node_properties_correct_errors(builder).build().map_err(
+-            Ok(Some(super::super::serde_util::node_properties_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::node_properties_correct_errors(builder).build().map_err(
 +                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
 +            )?))
          }
@@ -4872,7 +9335,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_node_property_override.rs
 @@ -3,41 +3,41 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::NodePropertyOverride,
+     input: &super::super::types::NodePropertyOverride,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.target_nodes {
 -        object.key("targetNodes").string(var_1.as_str());
@@ -4883,20 +9346,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_1) = &input.container_overrides {
          #[allow(unused_mut)]
 -        let mut object_3 = object.key("containerOverrides").start_object();
--        super::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_3, var_2)?;
+-        super::super::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_3, var_2)?;
 -        object_3.finish();
 +        let mut object_2 = object.key("containerOverrides").start_object();
-+        super::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_2, var_1)?;
 +        object_2.finish();
      }
 -    if let Some(var_4) = &input.ecs_properties_override {
 +    if let Some(var_3) = &input.ecs_properties_override {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("ecsPropertiesOverride").start_object();
--        super::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_5, var_4)?;
+-        super::super::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_5, var_4)?;
 -        object_5.finish();
 +        let mut object_4 = object.key("ecsPropertiesOverride").start_object();
-+        super::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_4, var_3)?;
++        super::super::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_4, var_3)?;
 +        object_4.finish();
      }
 -    if let Some(var_6) = &input.instance_types {
@@ -4917,20 +9380,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_8) = &input.eks_properties_override {
          #[allow(unused_mut)]
 -        let mut object_10 = object.key("eksPropertiesOverride").start_object();
--        super::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_10, var_9)?;
+-        super::super::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_10, var_9)?;
 -        object_10.finish();
 +        let mut object_9 = object.key("eksPropertiesOverride").start_object();
-+        super::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_9, var_8)?;
++        super::super::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_9, var_8)?;
 +        object_9.finish();
      }
 -    if let Some(var_11) = &input.consumable_resource_properties_override {
 +    if let Some(var_10) = &input.consumable_resource_properties_override {
          #[allow(unused_mut)]
 -        let mut object_12 = object.key("consumableResourcePropertiesOverride").start_object();
--        super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_12, var_11)?;
+-        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_12, var_11)?;
 -        object_12.finish();
 +        let mut object_11 = object.key("consumableResourcePropertiesOverride").start_object();
-+        super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_11, var_10)?;
++        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_11, var_10)?;
 +        object_11.finish();
      }
      Ok(())
@@ -4944,7 +9407,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_node_range_property.rs
 @@ -3,41 +3,41 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::NodeRangeProperty,
+     input: &super::super::types::NodeRangeProperty,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.target_nodes {
 -        object.key("targetNodes").string(var_1.as_str());
@@ -4955,10 +9418,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_1) = &input.container {
          #[allow(unused_mut)]
 -        let mut object_3 = object.key("container").start_object();
--        super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_3, var_2)?;
+-        super::super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_3, var_2)?;
 -        object_3.finish();
 +        let mut object_2 = object.key("container").start_object();
-+        super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_2, var_1)?;
 +        object_2.finish();
      }
 -    if let Some(var_4) = &input.instance_types {
@@ -4979,45 +9442,94 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_6) = &input.ecs_properties {
          #[allow(unused_mut)]
 -        let mut object_8 = object.key("ecsProperties").start_object();
--        super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_8, var_7)?;
+-        super::super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_8, var_7)?;
 -        object_8.finish();
 +        let mut object_7 = object.key("ecsProperties").start_object();
-+        super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_7, var_6)?;
++        super::super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_7, var_6)?;
 +        object_7.finish();
      }
 -    if let Some(var_9) = &input.eks_properties {
 +    if let Some(var_8) = &input.eks_properties {
          #[allow(unused_mut)]
 -        let mut object_10 = object.key("eksProperties").start_object();
--        super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_10, var_9)?;
+-        super::super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_10, var_9)?;
 -        object_10.finish();
 +        let mut object_9 = object.key("eksProperties").start_object();
-+        super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_9, var_8)?;
++        super::super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_9, var_8)?;
 +        object_9.finish();
      }
 -    if let Some(var_11) = &input.consumable_resource_properties {
 +    if let Some(var_10) = &input.consumable_resource_properties {
          #[allow(unused_mut)]
 -        let mut object_12 = object.key("consumableResourceProperties").start_object();
--        super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_12, var_11)?;
+-        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_12, var_11)?;
 -        object_12.finish();
 +        let mut object_11 = object.key("consumableResourceProperties").start_object();
-+        super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_11, var_10)?;
++        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_11, var_10)?;
 +        object_11.finish();
      }
      Ok(())
  }
-@@ -114,7 +114,9 @@
+@@ -79,8 +79,11 @@
+                             )?);
+                         }
+                         "instanceTypes" => {
+-                            builder =
+-                                builder.set_instance_types(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_instance_types(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         "ecsProperties" => {
+                             builder = builder.set_ecs_properties(super::super::protocol_serde::shape_ecs_properties::de_ecs_properties(
+@@ -114,7 +117,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::node_range_property_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::node_range_property_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::node_range_property_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::node_range_property_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_queue_snapshot_capacity_usage_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_queue_snapshot_capacity_usage_list.rs
++++ generated/src/protocol_serde/shape_queue_snapshot_capacity_usage_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::QueueSnapshotCapacityUsage>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::QueueSnapshotCapacityUsage>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,8 +26,11 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_queue_snapshot_capacity_usage::de_queue_snapshot_capacity_usage(tokens, _value, depth + 1)?;
++                        let value = super::super::protocol_serde::shape_queue_snapshot_capacity_usage::de_queue_snapshot_capacity_usage(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_quota_share_capacity_limit.rs`
@@ -5027,7 +9539,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_quota_share_capacity_limit.rs
 @@ -3,14 +3,14 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::QuotaShareCapacityLimit,
+     input: &super::super::types::QuotaShareCapacityLimit,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.max_capacity {
 +    {
@@ -5048,9 +9560,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::quota_share_capacity_limit_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::quota_share_capacity_limit_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::quota_share_capacity_limit_correct_errors(builder)
++                super::super::serde_util::quota_share_capacity_limit_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
@@ -5059,22 +9571,166 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              "expected start object or null",
 ```
 
+### `src/protocol_serde/shape_quota_share_capacity_limits.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_quota_share_capacity_limits.rs
++++ generated/src/protocol_serde/shape_quota_share_capacity_limits.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::QuotaShareCapacityLimit>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::QuotaShareCapacityLimit>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+```
+
+### `src/protocol_serde/shape_quota_share_capacity_usage_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_quota_share_capacity_usage_list.rs
++++ generated/src/protocol_serde/shape_quota_share_capacity_usage_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::QuotaShareCapacityUsage>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::QuotaShareCapacityUsage>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+```
+
 ### `src/protocol_serde/shape_quota_share_detail.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_quota_share_detail.rs
 +++ generated/src/protocol_serde/shape_quota_share_detail.rs
-@@ -48,9 +48,7 @@
-                             );
-                         }
-                         "resourceSharingConfiguration" => {
+@@ -20,63 +20,61 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                        "quotaShareName" => {
+-                            builder = builder.set_quota_share_name(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "quotaShareArn" => {
+-                            builder = builder.set_quota_share_arn(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "jobQueueArn" => {
+-                            builder = builder.set_job_queue_arn(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "capacityLimits" => {
+-                            builder = builder.set_capacity_limits(
+-                                super::super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?,
+-                            );
+-                        }
+-                        "resourceSharingConfiguration" => {
 -                            builder = builder.set_resource_sharing_configuration(
--                                    super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(tokens, _value, depth + 1)?
--                                );
-+                            builder = builder.set_resource_sharing_configuration(super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(tokens, _value, depth + 1)?);
+-                                    super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(tokens, _value, depth + 1)?
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                        match key.to_unescaped()?.as_ref() {
++                            "quotaShareName" => {
++                                builder = builder.set_quota_share_name(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "quotaShareArn" => {
++                                builder = builder.set_quota_share_arn(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "jobQueueArn" => {
++                                builder = builder.set_job_queue_arn(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "capacityLimits" => {
++                                builder = builder.set_capacity_limits(
++                                    super::super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(
++                                        tokens,
++                                        _value,
++                                        depth + 1,
++                                    )?,
++                                );
++                            }
++                            "resourceSharingConfiguration" => {
++                                builder = builder.set_resource_sharing_configuration(super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(tokens, _value, depth + 1)?);
++                            }
++                            "preemptionConfiguration" => {
++                                builder = builder.set_preemption_configuration(super::super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(tokens, _value, depth + 1)?);
++                            }
++                            "state" => {
++                                builder = builder.set_state(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| super::super::types::QuotaShareState::from(u.as_ref())))
++                                        .transpose()?,
++                                );
++                            }
++                            "status" => {
++                                builder = builder.set_status(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| super::super::types::QuotaShareStatus::from(u.as_ref())))
++                                        .transpose()?,
+                                 );
++                            }
++                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                          }
-                         "preemptionConfiguration" => {
-                             builder = builder.set_preemption_configuration(
+-                        "preemptionConfiguration" => {
+-                            builder = builder.set_preemption_configuration(
+-                                super::super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?,
+-                            );
+-                        }
+-                        "state" => {
+-                            builder = builder.set_state(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::QuotaShareState::from(u.as_ref())))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "status" => {
+-                            builder = builder.set_status(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::QuotaShareStatus::from(u.as_ref())))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    },
++                    }
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_quota_share_policy.rs`
@@ -5084,7 +9740,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_quota_share_policy.rs
 @@ -3,8 +3,10 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::QuotaSharePolicy,
+     input: &super::super::types::QuotaSharePolicy,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.idle_resource_assignment_strategy {
 -        object.key("idleResourceAssignmentStrategy").string(var_1.as_str());
@@ -5095,14 +9751,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -50,7 +52,9 @@
+@@ -50,7 +52,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::quota_share_policy_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::quota_share_policy_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::quota_share_policy_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::quota_share_policy_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -5115,7 +9773,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_quota_share_preemption_configuration.rs
 @@ -3,8 +3,8 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::QuotaSharePreemptionConfiguration,
+     input: &super::super::types::QuotaSharePreemptionConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.in_share_preemption {
 -        object.key("inSharePreemption").string(var_1.as_str());
@@ -5124,12 +9782,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -48,7 +48,9 @@
+@@ -34,7 +34,10 @@
+                         "inSharePreemption" => {
+                             builder = builder.set_in_share_preemption(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::QuotaShareInSharePreemptionState::from(u.as_ref())))
++                                    .map(|s| {
++                                        s.to_unescaped()
++                                            .map(|u| super::super::types::QuotaShareInSharePreemptionState::from(u.as_ref()))
++                                    })
+                                     .transpose()?,
+                             );
+                         }
+@@ -48,7 +51,9 @@
                  }
              }
              Ok(Some(
--                super::serde_util::quota_share_preemption_configuration_correct_errors(builder).build(),
-+                super::serde_util::quota_share_preemption_configuration_correct_errors(builder)
+-                super::super::serde_util::quota_share_preemption_configuration_correct_errors(builder).build(),
++                super::super::serde_util::quota_share_preemption_configuration_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))
@@ -5144,7 +9814,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_quota_share_resource_sharing_configuration.rs
 @@ -3,13 +3,13 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::QuotaShareResourceSharingConfiguration,
+     input: &super::super::types::QuotaShareResourceSharingConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.strategy {
 -        object.key("strategy").string(var_1.as_str());
@@ -5164,8 +9834,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
              }
              Ok(Some(
--                super::serde_util::quota_share_resource_sharing_configuration_correct_errors(builder).build(),
-+                super::serde_util::quota_share_resource_sharing_configuration_correct_errors(builder)
+-                super::super::serde_util::quota_share_resource_sharing_configuration_correct_errors(builder).build(),
++                super::super::serde_util::quota_share_resource_sharing_configuration_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))
@@ -5173,23 +9843,69 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
 ```
 
+### `src/protocol_serde/shape_quota_share_utilization_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_quota_share_utilization_detail.rs
++++ generated/src/protocol_serde/shape_quota_share_utilization_detail.rs
+@@ -20,18 +20,14 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                        "topCapacityUtilization" => {
+-                            builder = builder.set_top_capacity_utilization(
+-                                super::super::protocol_serde::shape_quota_share_capacity_utilization_list::de_quota_share_capacity_utilization_list(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?,
+-                            );
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                        match key.to_unescaped()?.as_ref() {
++                            "topCapacityUtilization" => {
++                                builder = builder.set_top_capacity_utilization(super::super::protocol_serde::shape_quota_share_capacity_utilization_list::de_quota_share_capacity_utilization_list(tokens, _value, depth + 1)?);
++                            }
++                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                         }
+-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    },
++                    }
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+```
+
 ### `src/protocol_serde/shape_register_job_definition.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_register_job_definition.rs
 +++ generated/src/protocol_serde/shape_register_job_definition.rs
-@@ -69,7 +69,9 @@
-         output = super::protocol_serde::shape_register_job_definition::de_register_job_definition(_response_body, output)
-             .map_err(super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -69,7 +73,9 @@
+         output = super::super::protocol_serde::shape_register_job_definition::de_register_job_definition(_response_body, output)
+             .map_err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::register_job_definition_output_output_correct_errors(output).build()
-+        super::serde_util::register_job_definition_output_output_correct_errors(output)
+-        super::super::serde_util::register_job_definition_output_output_correct_errors(output).build()
++        super::super::serde_util::register_job_definition_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?
++            .map_err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?
      })
  }
 
-@@ -99,15 +101,15 @@
+@@ -99,15 +105,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5218,12 +9934,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_register_job_definition_input.rs
 @@ -3,32 +3,33 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::register_job_definition::RegisterJobDefinitionInput,
+     input: &super::super::operation::register_job_definition::RegisterJobDefinitionInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.consumable_resource_properties {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("consumableResourceProperties").start_object();
--        super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_2, var_1)?;
 -        object_2.finish();
 +    if let Some(var_1) = &input.job_definition_name {
 +        object.key("jobDefinitionName").string(var_1.as_str());
@@ -5235,7 +9951,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_3) = &input.parameters {
          #[allow(unused_mut)]
 -        let mut object_4 = object.key("containerProperties").start_object();
--        super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_4, var_3)?;
+-        super::super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_4, var_3)?;
 +        let mut object_4 = object.key("parameters").start_object();
 +        for (key_5, value_6) in var_3 {
 +            {
@@ -5247,7 +9963,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_5) = &input.ecs_properties {
 -        #[allow(unused_mut)]
 -        let mut object_6 = object.key("ecsProperties").start_object();
--        super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_6, var_5)?;
+-        super::super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_6, var_5)?;
 -        object_6.finish();
 +    if let Some(var_7) = &input.scheduling_priority {
 +        object.key("schedulingPriority").number(
@@ -5259,26 +9975,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_8) = &input.container_properties {
          #[allow(unused_mut)]
 -        let mut object_8 = object.key("eksProperties").start_object();
--        super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_8, var_7)?;
+-        super::super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_8, var_7)?;
 -        object_8.finish();
 -    }
 -    if let Some(var_9) = &input.job_definition_name {
 -        object.key("jobDefinitionName").string(var_9.as_str());
 +        let mut object_9 = object.key("containerProperties").start_object();
-+        super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_9, var_8)?;
++        super::super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_9, var_8)?;
 +        object_9.finish();
      }
      if let Some(var_10) = &input.node_properties {
          #[allow(unused_mut)]
 @@ -36,58 +37,57 @@
-         super::protocol_serde::shape_node_properties::ser_node_properties(&mut object_11, var_10)?;
+         super::super::protocol_serde::shape_node_properties::ser_node_properties(&mut object_11, var_10)?;
          object_11.finish();
      }
 -    if let Some(var_12) = &input.parameters {
 +    if let Some(var_12) = &input.retry_strategy {
 +        #[allow(unused_mut)]
 +        let mut object_13 = object.key("retryStrategy").start_object();
-+        super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_13, var_12)?;
++        super::super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_13, var_12)?;
 +        object_13.finish();
 +    }
 +    if let Some(var_14) = &input.propagate_tags {
@@ -5287,7 +10003,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_15) = &input.timeout {
 +        #[allow(unused_mut)]
 +        let mut object_16 = object.key("timeout").start_object();
-+        super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_16, var_15)?;
++        super::super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_16, var_15)?;
 +        object_16.finish();
 +    }
 +    if let Some(var_17) = &input.tags {
@@ -5325,10 +10041,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_24) = &input.eks_properties {
          #[allow(unused_mut)]
 -        let mut object_21 = object.key("retryStrategy").start_object();
--        super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_21, var_20)?;
+-        super::super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_21, var_20)?;
 -        object_21.finish();
 +        let mut object_25 = object.key("eksProperties").start_object();
-+        super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_25, var_24)?;
++        super::super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_25, var_24)?;
 +        object_25.finish();
      }
 -    if let Some(var_22) = &input.scheduling_priority {
@@ -5348,20 +10064,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        }
 -        object_24.finish();
 +        let mut object_27 = object.key("ecsProperties").start_object();
-+        super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_27, var_26)?;
++        super::super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_27, var_26)?;
 +        object_27.finish();
      }
 -    if let Some(var_27) = &input.timeout {
 +    if let Some(var_28) = &input.consumable_resource_properties {
          #[allow(unused_mut)]
 -        let mut object_28 = object.key("timeout").start_object();
--        super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_28, var_27)?;
+-        super::super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_28, var_27)?;
 -        object_28.finish();
 -    }
 -    if let Some(var_29) = &input.r#type {
 -        object.key("type").string(var_29.as_str());
 +        let mut object_29 = object.key("consumableResourceProperties").start_object();
-+        super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_29, var_28)?;
++        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_29, var_28)?;
 +        object_29.finish();
      }
      Ok(())
@@ -5375,7 +10091,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_repository_credentials.rs
 @@ -3,8 +3,8 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::RepositoryCredentials,
+     input: &super::super::types::RepositoryCredentials,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.credentials_parameter {
 -        object.key("credentialsParameter").string(var_1.as_str());
@@ -5384,14 +10100,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -47,7 +47,9 @@
+@@ -47,7 +47,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::repository_credentials_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::repository_credentials_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::repository_credentials_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::repository_credentials_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -5404,7 +10122,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_resource_requirement.rs
 @@ -3,11 +3,11 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ResourceRequirement,
+     input: &super::super::types::ResourceRequirement,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.value {
 -        object.key("value").string(var_1.as_str());
@@ -5418,17 +10136,41 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -57,7 +57,9 @@
+@@ -57,7 +57,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::resource_requirement_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::resource_requirement_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::resource_requirement_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::resource_requirement_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_retry_strategy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_retry_strategy.rs
++++ generated/src/protocol_serde/shape_retry_strategy.rs
+@@ -54,11 +54,9 @@
+                             );
+                         }
+                         "evaluateOnExit" => {
+-                            builder = builder.set_evaluate_on_exit(super::super::protocol_serde::shape_evaluate_on_exit_list::de_evaluate_on_exit_list(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_evaluate_on_exit(
++                                super::super::protocol_serde::shape_evaluate_on_exit_list::de_evaluate_on_exit_list(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
 ```
 
 ### `src/protocol_serde/shape_s3_files_volume_configuration.rs`
@@ -5438,7 +10180,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_s3_files_volume_configuration.rs
 @@ -3,20 +3,20 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::S3FilesVolumeConfiguration,
+     input: &super::super::types::S3FilesVolumeConfiguration,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.file_system_arn {
 -        object.key("fileSystemArn").string(var_1.as_str());
@@ -5469,9 +10211,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::s3_files_volume_configuration_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::s3_files_volume_configuration_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::s3_files_volume_configuration_correct_errors(builder)
++                super::super::serde_util::s3_files_volume_configuration_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
@@ -5485,19 +10227,130 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_scheduling_policy_detail.rs
 +++ generated/src/protocol_serde/shape_scheduling_policy_detail.rs
+@@ -20,44 +20,44 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                        "name" => {
+-                            builder = builder.set_name(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                        match key.to_unescaped()?.as_ref() {
++                            "name" => {
++                                builder = builder.set_name(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "arn" => {
++                                builder = builder.set_arn(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "quotaSharePolicy" => {
++                                builder = builder.set_quota_share_policy(
++                                    super::super::protocol_serde::shape_quota_share_policy::de_quota_share_policy(tokens, _value, depth + 1)?,
++                                );
++                            }
++                            "fairsharePolicy" => {
++                                builder = builder.set_fairshare_policy(super::super::protocol_serde::shape_fairshare_policy::de_fairshare_policy(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
++                            }
++                            "tags" => {
++                                builder = builder.set_tags(super::super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
++                            }
++                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                         }
+-                        "arn" => {
+-                            builder = builder.set_arn(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "quotaSharePolicy" => {
+-                            builder = builder.set_quota_share_policy(super::super::protocol_serde::shape_quota_share_policy::de_quota_share_policy(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        "fairsharePolicy" => {
+-                            builder = builder.set_fairshare_policy(super::super::protocol_serde::shape_fairshare_policy::de_fairshare_policy(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        "tags" => {
+-                            builder = builder.set_tags(super::super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    },
++                    }
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
 @@ -65,7 +65,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::scheduling_policy_detail_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::scheduling_policy_detail_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::scheduling_policy_detail_correct_errors(builder)
++                super::super::serde_util::scheduling_policy_detail_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_scheduling_policy_detail_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_scheduling_policy_detail_list.rs
++++ generated/src/protocol_serde/shape_scheduling_policy_detail_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::SchedulingPolicyDetail>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::SchedulingPolicyDetail>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +26,8 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = super::super::protocol_serde::shape_scheduling_policy_detail::de_scheduling_policy_detail(tokens, _value, depth + 1)?;
++                        let value =
++                            super::super::protocol_serde::shape_scheduling_policy_detail::de_scheduling_policy_detail(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_scheduling_policy_listing_detail.rs`
@@ -5509,9 +10362,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::scheduling_policy_listing_detail_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::scheduling_policy_listing_detail_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::scheduling_policy_listing_detail_correct_errors(builder)
++                super::super::serde_util::scheduling_policy_listing_detail_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
@@ -5527,7 +10380,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_secret.rs
 @@ -3,11 +3,11 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::Secret,
+     input: &super::super::types::Secret,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.name {
 -        object.key("name").string(var_1.as_str());
@@ -5545,8 +10398,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::secret_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::secret_correct_errors(builder).build().map_err(|err| {
+-            Ok(Some(super::super::serde_util::secret_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::secret_correct_errors(builder).build().map_err(|err| {
 +                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
 +            })?))
          }
@@ -5563,15 +10416,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::service_environment_detail_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::service_environment_detail_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::service_environment_detail_correct_errors(builder)
++                super::super::serde_util::service_environment_detail_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_service_environment_detail_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_service_environment_detail_list.rs
++++ generated/src/protocol_serde/shape_service_environment_detail_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ServiceEnvironmentDetail>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::ServiceEnvironmentDetail>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
 ```
 
 ### `src/protocol_serde/shape_service_environment_order.rs`
@@ -5581,7 +10453,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_service_environment_order.rs
 @@ -3,14 +3,14 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ServiceEnvironmentOrder,
+     input: &super::super::types::ServiceEnvironmentOrder,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.order {
 +    {
@@ -5602,15 +10474,140 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::service_environment_order_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::service_environment_order_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::service_environment_order_correct_errors(builder)
++                super::super::serde_util::service_environment_order_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
+```
+
+### `src/protocol_serde/shape_service_environment_orders.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_service_environment_orders.rs
++++ generated/src/protocol_serde/shape_service_environment_orders.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ServiceEnvironmentOrder>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::ServiceEnvironmentOrder>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +26,8 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = super::super::protocol_serde::shape_service_environment_order::de_service_environment_order(tokens, _value, depth + 1)?;
++                        let value =
++                            super::super::protocol_serde::shape_service_environment_order::de_service_environment_order(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
+```
+
+### `src/protocol_serde/shape_service_job_attempt_detail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_service_job_attempt_detail.rs
++++ generated/src/protocol_serde/shape_service_job_attempt_detail.rs
+@@ -22,11 +22,9 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "serviceResourceId" => {
+-                            builder = builder.set_service_resource_id(super::super::protocol_serde::shape_service_resource_id::de_service_resource_id(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_service_resource_id(
++                                super::super::protocol_serde::shape_service_resource_id::de_service_resource_id(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         "startedAt" => {
+                             builder = builder.set_started_at(
+```
+
+### `src/protocol_serde/shape_service_job_attempt_details.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_service_job_attempt_details.rs
++++ generated/src/protocol_serde/shape_service_job_attempt_details.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ServiceJobAttemptDetail>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::ServiceJobAttemptDetail>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+```
+
+### `src/protocol_serde/shape_service_job_evaluate_on_exit_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_service_job_evaluate_on_exit_list.rs
++++ generated/src/protocol_serde/shape_service_job_evaluate_on_exit_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ServiceJobEvaluateOnExit>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::ServiceJobEvaluateOnExit>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,8 +26,11 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_service_job_evaluate_on_exit::de_service_job_evaluate_on_exit(tokens, _value, depth + 1)?;
++                        let value = super::super::protocol_serde::shape_service_job_evaluate_on_exit::de_service_job_evaluate_on_exit(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
+```
+
+### `src/protocol_serde/shape_service_job_preempted_attempt.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_service_job_preempted_attempt.rs
++++ generated/src/protocol_serde/shape_service_job_preempted_attempt.rs
+@@ -22,11 +22,9 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "serviceResourceId" => {
+-                            builder = builder.set_service_resource_id(super::super::protocol_serde::shape_service_resource_id::de_service_resource_id(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
++                            builder = builder.set_service_resource_id(
++                                super::super::protocol_serde::shape_service_resource_id::de_service_resource_id(tokens, _value, depth + 1)?,
++                            );
+                         }
+                         "startedAt" => {
+                             builder = builder.set_started_at(
 ```
 
 ### `src/protocol_serde/shape_service_job_preemption_configuration.rs`
@@ -5622,7 +10619,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_service_job_preemption_configuration(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::types::ServiceJobPreemptionConfiguration,
++    input: &super::super::types::ServiceJobPreemptionConfiguration,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.preemption_retries_before_termination {
 +        object.key("preemptionRetriesBeforeTermination").number(
@@ -5643,7 +10640,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_service_job_preemption_configuration(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &super::types::ServiceJobPreemptionConfiguration,
+-    input: &super::super::types::ServiceJobPreemptionConfiguration,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.preemption_retries_before_termination {
 -        object.key("preemptionRetriesBeforeTermination").number(
@@ -5660,17 +10657,75 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_service_job_preemption_summary.rs
 +++ generated/src/protocol_serde/shape_service_job_preemption_summary.rs
-@@ -30,9 +30,7 @@
-                                 );
-                             }
-                             "recentPreemptedAttempts" => {
--                                builder = builder.set_recent_preempted_attempts(
--                                    super::protocol_serde::shape_service_job_recent_preempted_attempt_list::de_service_job_recent_preempted_attempt_list(tokens, _value, depth + 1)?
+@@ -20,23 +20,19 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        match key.to_unescaped()?.as_ref() {
+-                            "preemptedAttemptCount" => {
+-                                builder = builder.set_preempted_attempt_count(
+-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                        .map(i32::try_from)
+-                                        .transpose()?,
 -                                );
-+                                builder = builder.set_recent_preempted_attempts(super::protocol_serde::shape_service_job_recent_preempted_attempt_list::de_service_job_recent_preempted_attempt_list(tokens, _value, depth + 1)?);
-                             }
-                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                            }
+-                            "recentPreemptedAttempts" => {
+-                                builder = builder.set_recent_preempted_attempts(
+-                                    super::super::protocol_serde::shape_service_job_recent_preempted_attempt_list::de_service_job_recent_preempted_attempt_list(tokens, _value, depth + 1)?
+-                                );
+-                            }
+-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "preemptedAttemptCount" => {
++                            builder = builder.set_preempted_attempt_count(
++                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                    .map(i32::try_from)
++                                    .transpose()?,
++                            );
++                        }
++                        "recentPreemptedAttempts" => {
++                            builder = builder.set_recent_preempted_attempts(super::super::protocol_serde::shape_service_job_recent_preempted_attempt_list::de_service_job_recent_preempted_attempt_list(tokens, _value, depth + 1)?);
                          }
+-                    }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+```
+
+### `src/protocol_serde/shape_service_job_recent_preempted_attempt_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_service_job_recent_preempted_attempt_list.rs
++++ generated/src/protocol_serde/shape_service_job_recent_preempted_attempt_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ServiceJobPreemptedAttempt>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::ServiceJobPreemptedAttempt>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,8 +26,11 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            super::super::protocol_serde::shape_service_job_preempted_attempt::de_service_job_preempted_attempt(tokens, _value, depth + 1)?;
++                        let value = super::super::protocol_serde::shape_service_job_preempted_attempt::de_service_job_preempted_attempt(
++                            tokens,
++                            _value,
++                            depth + 1,
++                        )?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
 ```
 
 ### `src/protocol_serde/shape_service_job_retry_strategy.rs`
@@ -5682,7 +10737,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_service_job_retry_strategy(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::types::ServiceJobRetryStrategy,
++    input: &super::super::types::ServiceJobRetryStrategy,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    {
 +        object.key("attempts").number(
@@ -5696,7 +10751,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            {
 +                #[allow(unused_mut)]
 +                let mut object_4 = array_2.value().start_object();
-+                super::protocol_serde::shape_service_job_evaluate_on_exit::ser_service_job_evaluate_on_exit(&mut object_4, item_3)?;
++                super::super::protocol_serde::shape_service_job_evaluate_on_exit::ser_service_job_evaluate_on_exit(&mut object_4, item_3)?;
 +                object_4.finish();
 +            }
 +        }
@@ -5712,9 +10767,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::service_job_retry_strategy_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::service_job_retry_strategy_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::service_job_retry_strategy_correct_errors(builder)
++                super::super::serde_util::service_job_retry_strategy_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
@@ -5728,7 +10783,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_service_job_retry_strategy(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &super::types::ServiceJobRetryStrategy,
+-    input: &super::super::types::ServiceJobRetryStrategy,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.attempts {
 -        object.key("attempts").number(
@@ -5742,7 +10797,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            {
 -                #[allow(unused_mut)]
 -                let mut object_5 = array_3.value().start_object();
--                super::protocol_serde::shape_service_job_evaluate_on_exit::ser_service_job_evaluate_on_exit(&mut object_5, item_4)?;
+-                super::super::protocol_serde::shape_service_job_evaluate_on_exit::ser_service_job_evaluate_on_exit(&mut object_5, item_4)?;
 -                object_5.finish();
 -            }
 -        }
@@ -5757,14 +10812,40 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_service_job_summary.rs
 +++ generated/src/protocol_serde/shape_service_job_summary.rs
-@@ -128,7 +128,9 @@
+@@ -23,12 +23,7 @@
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "latestAttempt" => {
+                             builder = builder.set_latest_attempt(
+-                                super::super::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(tokens, _value, depth + 1)?,
+-                            );
+-                        }
+-                        "capacityUsage" => {
+-                            builder = builder.set_capacity_usage(
+-                                super::super::protocol_serde::shape_service_job_capacity_usage_summary_list::de_service_job_capacity_usage_summary_list(
++                                super::super::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -35,6 +30,9 @@
+                                 )?,
+                             );
+                         }
++                        "capacityUsage" => {
++                            builder = builder.set_capacity_usage(super::super::protocol_serde::shape_service_job_capacity_usage_summary_list::de_service_job_capacity_usage_summary_list(tokens, _value, depth + 1)?);
++                        }
+                         "createdAt" => {
+                             builder = builder.set_created_at(
+                                 ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+@@ -128,7 +126,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::service_job_summary_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::service_job_summary_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::service_job_summary_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::service_job_summary_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -5779,7 +10860,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_service_job_timeout(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::types::ServiceJobTimeout,
++    input: &super::super::types::ServiceJobTimeout,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.attempt_duration_seconds {
 +        object.key("attemptDurationSeconds").number(
@@ -5800,7 +10881,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_service_job_timeout(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &super::types::ServiceJobTimeout,
+-    input: &super::super::types::ServiceJobTimeout,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.attempt_duration_seconds {
 -        object.key("attemptDurationSeconds").number(
@@ -5817,14 +10898,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_service_resource_id.rs
 +++ generated/src/protocol_serde/shape_service_resource_id.rs
-@@ -44,7 +44,9 @@
+@@ -44,7 +44,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::service_resource_id_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::service_resource_id_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
+-            Ok(Some(super::super::serde_util::service_resource_id_correct_errors(builder).build()))
++            Ok(Some(
++                super::super::serde_util::service_resource_id_correct_errors(builder)
++                    .build()
++                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
++            ))
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
@@ -5837,7 +10920,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_share_attributes.rs
 @@ -3,13 +3,13 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::ShareAttributes,
+     input: &super::super::types::ShareAttributes,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.share_identifier {
 -        object.key("shareIdentifier").string(var_1.as_str());
@@ -5857,8 +10940,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::share_attributes_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::share_attributes_correct_errors(builder).build().map_err(
+-            Ok(Some(super::super::serde_util::share_attributes_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::share_attributes_correct_errors(builder).build().map_err(
 +                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
 +            )?))
          }
@@ -5872,17 +10955,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_submit_job.rs
 +++ generated/src/protocol_serde/shape_submit_job.rs
 @@ -63,7 +63,9 @@
-         output = super::protocol_serde::shape_submit_job::de_submit_job(_response_body, output)
-             .map_err(super::operation::submit_job::SubmitJobError::unhandled)?;
+         output = super::super::protocol_serde::shape_submit_job::de_submit_job(_response_body, output)
+             .map_err(super::super::operation::submit_job::SubmitJobError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::submit_job_output_output_correct_errors(output).build()
-+        super::serde_util::submit_job_output_output_correct_errors(output)
+-        super::super::serde_util::submit_job_output_output_correct_errors(output).build()
++        super::super::serde_util::submit_job_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::submit_job::SubmitJobError::unhandled)?
++            .map_err(super::super::operation::submit_job::SubmitJobError::unhandled)?
      })
  }
 
-@@ -97,15 +99,15 @@
+@@ -80,7 +82,10 @@
+ pub(crate) fn de_submit_job(
+     _value: &[u8],
+     mut builder: super::super::operation::submit_job::builders::SubmitJobOutputBuilder,
+-) -> ::std::result::Result<super::super::operation::submit_job::builders::SubmitJobOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++) -> ::std::result::Result<
++    super::super::operation::submit_job::builders::SubmitJobOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
+     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+@@ -97,15 +102,15 @@
                              .transpose()?,
                      );
                  }
@@ -5911,12 +11006,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_submit_job_input.rs
 @@ -3,22 +3,25 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::submit_job::SubmitJobInput,
+     input: &super::super::operation::submit_job::SubmitJobInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.array_properties {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("arrayProperties").start_object();
--        super::protocol_serde::shape_array_properties::ser_array_properties(&mut object_2, var_1)?;
+-        super::super::protocol_serde::shape_array_properties::ser_array_properties(&mut object_2, var_1)?;
 -        object_2.finish();
 +    if let Some(var_1) = &input.job_name {
 +        object.key("jobName").string(var_1.as_str());
@@ -5924,7 +11019,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_3) = &input.consumable_resource_properties_override {
 -        #[allow(unused_mut)]
 -        let mut object_4 = object.key("consumableResourcePropertiesOverride").start_object();
--        super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_4, var_3)?;
+-        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_4, var_3)?;
 -        object_4.finish();
 +    if let Some(var_2) = &input.job_queue {
 +        object.key("jobQueue").string(var_2.as_str());
@@ -5942,9 +11037,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.array_properties {
          #[allow(unused_mut)]
 -        let mut object_6 = object.key("containerOverrides").start_object();
--        super::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_6, var_5)?;
+-        super::super::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_6, var_5)?;
 +        let mut object_6 = object.key("arrayProperties").start_object();
-+        super::protocol_serde::shape_array_properties::ser_array_properties(&mut object_6, var_5)?;
++        super::super::protocol_serde::shape_array_properties::ser_array_properties(&mut object_6, var_5)?;
          object_6.finish();
      }
      if let Some(var_7) = &input.depends_on {
@@ -5955,7 +11050,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_11) = &input.ecs_properties_override {
 -        #[allow(unused_mut)]
 -        let mut object_12 = object.key("ecsPropertiesOverride").start_object();
--        super::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_12, var_11)?;
+-        super::super::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_12, var_11)?;
 -        object_12.finish();
 +    if let Some(var_11) = &input.job_definition {
 +        object.key("jobDefinition").string(var_11.as_str());
@@ -5964,7 +11059,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_12) = &input.parameters {
          #[allow(unused_mut)]
 -        let mut object_14 = object.key("eksPropertiesOverride").start_object();
--        super::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_14, var_13)?;
+-        super::super::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_14, var_13)?;
 -        object_14.finish();
 -    }
 -    if let Some(var_15) = &input.job_definition {
@@ -5985,13 +11080,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_16) = &input.container_overrides {
 +        #[allow(unused_mut)]
 +        let mut object_17 = object.key("containerOverrides").start_object();
-+        super::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_17, var_16)?;
++        super::super::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_17, var_16)?;
 +        object_17.finish();
      }
      if let Some(var_18) = &input.node_overrides {
          #[allow(unused_mut)]
 @@ -60,48 +61,47 @@
-         super::protocol_serde::shape_node_overrides::ser_node_overrides(&mut object_19, var_18)?;
+         super::super::protocol_serde::shape_node_overrides::ser_node_overrides(&mut object_19, var_18)?;
          object_19.finish();
      }
 -    if let Some(var_20) = &input.parameters {
@@ -6004,7 +11099,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            }
 -        }
 +        let mut object_21 = object.key("retryStrategy").start_object();
-+        super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_21, var_20)?;
++        super::super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_21, var_20)?;
          object_21.finish();
      }
 -    if let Some(var_24) = &input.propagate_tags {
@@ -6016,7 +11111,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_23) = &input.timeout {
          #[allow(unused_mut)]
 -        let mut object_26 = object.key("retryStrategy").start_object();
--        super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_26, var_25)?;
+-        super::super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_26, var_25)?;
 -        object_26.finish();
 -    }
 -    if let Some(var_27) = &input.scheduling_priority_override {
@@ -6028,7 +11123,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_28) = &input.share_identifier {
 -        object.key("shareIdentifier").string(var_28.as_str());
 +        let mut object_24 = object.key("timeout").start_object();
-+        super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_24, var_23)?;
++        super::super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_24, var_23)?;
 +        object_24.finish();
      }
 -    if let Some(var_29) = &input.tags {
@@ -6048,22 +11143,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_29) = &input.eks_properties_override {
 +        #[allow(unused_mut)]
 +        let mut object_30 = object.key("eksPropertiesOverride").start_object();
-+        super::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_30, var_29)?;
++        super::super::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_30, var_29)?;
          object_30.finish();
      }
 -    if let Some(var_33) = &input.timeout {
 +    if let Some(var_31) = &input.ecs_properties_override {
 +        #[allow(unused_mut)]
 +        let mut object_32 = object.key("ecsPropertiesOverride").start_object();
-+        super::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_32, var_31)?;
++        super::super::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_32, var_31)?;
 +        object_32.finish();
 +    }
 +    if let Some(var_33) = &input.consumable_resource_properties_override {
          #[allow(unused_mut)]
 -        let mut object_34 = object.key("timeout").start_object();
--        super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_34, var_33)?;
+-        super::super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_34, var_33)?;
 +        let mut object_34 = object.key("consumableResourcePropertiesOverride").start_object();
-+        super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_34, var_33)?;
++        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_34, var_33)?;
          object_34.finish();
      }
      Ok(())
@@ -6074,18 +11169,42 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_submit_service_job.rs
 +++ generated/src/protocol_serde/shape_submit_service_job.rs
-@@ -63,7 +63,9 @@
-         output = super::protocol_serde::shape_submit_service_job::de_submit_service_job(_response_body, output)
-             .map_err(super::operation::submit_service_job::SubmitServiceJobError::unhandled)?;
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::submit_service_job::SubmitServiceJobOutput, super::super::operation::submit_service_job::SubmitServiceJobError> {
++) -> std::result::Result<
++    super::super::operation::submit_service_job::SubmitServiceJobOutput,
++    super::super::operation::submit_service_job::SubmitServiceJobError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::submit_service_job::SubmitServiceJobError::unhandled)?;
+@@ -56,7 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::submit_service_job::SubmitServiceJobOutput, super::super::operation::submit_service_job::SubmitServiceJobError> {
++) -> std::result::Result<
++    super::super::operation::submit_service_job::SubmitServiceJobOutput,
++    super::super::operation::submit_service_job::SubmitServiceJobError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::submit_service_job::builders::SubmitServiceJobOutputBuilder::default();
+@@ -63,7 +69,9 @@
+         output = super::super::protocol_serde::shape_submit_service_job::de_submit_service_job(_response_body, output)
+             .map_err(super::super::operation::submit_service_job::SubmitServiceJobError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::submit_service_job_output_output_correct_errors(output).build()
-+        super::serde_util::submit_service_job_output_output_correct_errors(output)
+-        super::super::serde_util::submit_service_job_output_output_correct_errors(output).build()
++        super::super::serde_util::submit_service_job_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::submit_service_job::SubmitServiceJobError::unhandled)?
++            .map_err(super::super::operation::submit_service_job::SubmitServiceJobError::unhandled)?
      })
  }
 
-@@ -100,15 +102,15 @@
+@@ -100,15 +108,15 @@
                              .transpose()?,
                      );
                  }
@@ -6114,7 +11233,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_submit_service_job_input.rs
 @@ -3,60 +3,60 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::submit_service_job::SubmitServiceJobInput,
+     input: &super::super::operation::submit_service_job::SubmitServiceJobInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.client_token {
 -        object.key("clientToken").string(var_1.as_str());
@@ -6133,10 +11252,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_3) = &input.retry_strategy {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("preemptionConfiguration").start_object();
--        super::protocol_serde::shape_service_job_preemption_configuration::ser_service_job_preemption_configuration(&mut object_5, var_4)?;
+-        super::super::protocol_serde::shape_service_job_preemption_configuration::ser_service_job_preemption_configuration(&mut object_5, var_4)?;
 -        object_5.finish();
 +        let mut object_4 = object.key("retryStrategy").start_object();
-+        super::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(&mut object_4, var_3)?;
++        super::super::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(&mut object_4, var_3)?;
 +        object_4.finish();
      }
 -    if let Some(var_6) = &input.quota_share_name {
@@ -6145,7 +11264,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_7) = &input.retry_strategy {
 -        #[allow(unused_mut)]
 -        let mut object_8 = object.key("retryStrategy").start_object();
--        super::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(&mut object_8, var_7)?;
+-        super::super::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(&mut object_8, var_7)?;
 -        object_8.finish();
 -    }
 -    if let Some(var_9) = &input.scheduling_priority {
@@ -6177,13 +11296,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_10) = &input.preemption_configuration {
 +        #[allow(unused_mut)]
 +        let mut object_11 = object.key("preemptionConfiguration").start_object();
-+        super::protocol_serde::shape_service_job_preemption_configuration::ser_service_job_preemption_configuration(&mut object_11, var_10)?;
++        super::super::protocol_serde::shape_service_job_preemption_configuration::ser_service_job_preemption_configuration(&mut object_11, var_10)?;
 +        object_11.finish();
 +    }
 +    if let Some(var_12) = &input.timeout_config {
 +        #[allow(unused_mut)]
 +        let mut object_13 = object.key("timeoutConfig").start_object();
-+        super::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(&mut object_13, var_12)?;
++        super::super::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(&mut object_13, var_12)?;
 +        object_13.finish();
      }
 -    if let Some(var_13) = &input.tags {
@@ -6204,7 +11323,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_17) = &input.timeout_config {
 -        #[allow(unused_mut)]
 -        let mut object_18 = object.key("timeoutConfig").start_object();
--        super::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(&mut object_18, var_17)?;
+-        super::super::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(&mut object_18, var_17)?;
 -        object_18.finish();
 +    if let Some(var_18) = &input.client_token {
 +        object.key("clientToken").string(var_18.as_str());
@@ -6218,17 +11337,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_tag_resource.rs
 +++ generated/src/protocol_serde/shape_tag_resource.rs
-@@ -74,3 +74,34 @@
+@@ -74,3 +74,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_tag_resource(
 +    _value: &[u8],
-+    mut builder: super::operation::tag_resource::builders::TagResourceOutputBuilder,
-+) -> ::std::result::Result<super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    mut builder: super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
++) -> ::std::result::Result<
++    super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -6262,7 +11383,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_tag_resource_input.rs
 @@ -3,15 +3,18 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::tag_resource::TagResourceInput,
+     input: &super::super::operation::tag_resource::TagResourceInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.tags {
 +    if let Some(var_1) = &input.resource_arn {
@@ -6286,13 +11407,104 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/protocol_serde/shape_task_container_dependency_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_task_container_dependency_list.rs
++++ generated/src/protocol_serde/shape_task_container_dependency_list.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::TaskContainerDependency>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<::std::vec::Vec<super::super::types::TaskContainerDependency>>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +26,8 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = super::super::protocol_serde::shape_task_container_dependency::de_task_container_dependency(tokens, _value, depth + 1)?;
++                        let value =
++                            super::super::protocol_serde::shape_task_container_dependency::de_task_container_dependency(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
+```
+
+### `src/protocol_serde/shape_task_container_details.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_task_container_details.rs
++++ generated/src/protocol_serde/shape_task_container_details.rs
+@@ -23,7 +23,11 @@
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                         match key.to_unescaped()?.as_ref() {
+                             "command" => {
+-                                builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                                builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
+                             }
+                             "dependsOn" => {
+                                 builder = builder.set_depends_on(
+@@ -35,11 +39,9 @@
+                                 );
+                             }
+                             "environment" => {
+-                                builder = builder.set_environment(super::super::protocol_serde::shape_environment_variables::de_environment_variables(
+-                                    tokens,
+-                                    _value,
+-                                    depth + 1,
+-                                )?);
++                                builder = builder.set_environment(
++                                    super::super::protocol_serde::shape_environment_variables::de_environment_variables(tokens, _value, depth + 1)?,
++                                );
+                             }
+                             "essential" => {
+                                 builder = builder.set_essential(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+@@ -71,8 +73,11 @@
+                                 )?);
+                             }
+                             "mountPoints" => {
+-                                builder =
+-                                    builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(tokens, _value, depth + 1)?);
++                                builder = builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
+                             }
+                             "name" => {
+                                 builder = builder.set_name(
+@@ -99,7 +104,11 @@
+                                 );
+                             }
+                             "secrets" => {
+-                                builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(tokens, _value, depth + 1)?);
++                                builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
+                             }
+                             "ulimits" => {
+                                 builder = builder.set_ulimits(super::super::protocol_serde::shape_ulimits::de_ulimits(tokens, _value, depth + 1)?);
+```
+
 ### `src/protocol_serde/shape_task_container_properties.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_task_container_properties.rs
 +++ generated/src/protocol_serde/shape_task_container_properties.rs
 @@ -45,97 +45,97 @@
-         super::protocol_serde::shape_firelens_configuration::ser_firelens_configuration(&mut object_14, var_13)?;
+         super::super::protocol_serde::shape_firelens_configuration::ser_firelens_configuration(&mut object_14, var_13)?;
          object_14.finish();
      }
 -    if let Some(var_15) = &input.image {
@@ -6304,20 +11516,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_15) = &input.linux_parameters {
          #[allow(unused_mut)]
 -        let mut object_17 = object.key("linuxParameters").start_object();
--        super::protocol_serde::shape_linux_parameters::ser_linux_parameters(&mut object_17, var_16)?;
+-        super::super::protocol_serde::shape_linux_parameters::ser_linux_parameters(&mut object_17, var_16)?;
 -        object_17.finish();
 +        let mut object_16 = object.key("linuxParameters").start_object();
-+        super::protocol_serde::shape_linux_parameters::ser_linux_parameters(&mut object_16, var_15)?;
++        super::super::protocol_serde::shape_linux_parameters::ser_linux_parameters(&mut object_16, var_15)?;
 +        object_16.finish();
      }
 -    if let Some(var_18) = &input.log_configuration {
 +    if let Some(var_17) = &input.log_configuration {
          #[allow(unused_mut)]
 -        let mut object_19 = object.key("logConfiguration").start_object();
--        super::protocol_serde::shape_log_configuration::ser_log_configuration(&mut object_19, var_18)?;
+-        super::super::protocol_serde::shape_log_configuration::ser_log_configuration(&mut object_19, var_18)?;
 -        object_19.finish();
 +        let mut object_18 = object.key("logConfiguration").start_object();
-+        super::protocol_serde::shape_log_configuration::ser_log_configuration(&mut object_18, var_17)?;
++        super::super::protocol_serde::shape_log_configuration::ser_log_configuration(&mut object_18, var_17)?;
 +        object_18.finish();
      }
 -    if let Some(var_20) = &input.mount_points {
@@ -6329,10 +11541,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_23 = array_21.value().start_object();
--                super::protocol_serde::shape_mount_point::ser_mount_point(&mut object_23, item_22)?;
+-                super::super::protocol_serde::shape_mount_point::ser_mount_point(&mut object_23, item_22)?;
 -                object_23.finish();
 +                let mut object_22 = array_20.value().start_object();
-+                super::protocol_serde::shape_mount_point::ser_mount_point(&mut object_22, item_21)?;
++                super::super::protocol_serde::shape_mount_point::ser_mount_point(&mut object_22, item_21)?;
 +                object_22.finish();
              }
          }
@@ -6358,10 +11570,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_26) = &input.repository_credentials {
          #[allow(unused_mut)]
 -        let mut object_28 = object.key("repositoryCredentials").start_object();
--        super::protocol_serde::shape_repository_credentials::ser_repository_credentials(&mut object_28, var_27)?;
+-        super::super::protocol_serde::shape_repository_credentials::ser_repository_credentials(&mut object_28, var_27)?;
 -        object_28.finish();
 +        let mut object_27 = object.key("repositoryCredentials").start_object();
-+        super::protocol_serde::shape_repository_credentials::ser_repository_credentials(&mut object_27, var_26)?;
++        super::super::protocol_serde::shape_repository_credentials::ser_repository_credentials(&mut object_27, var_26)?;
 +        object_27.finish();
      }
 -    if let Some(var_29) = &input.resource_requirements {
@@ -6373,10 +11585,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_32 = array_30.value().start_object();
--                super::protocol_serde::shape_resource_requirement::ser_resource_requirement(&mut object_32, item_31)?;
+-                super::super::protocol_serde::shape_resource_requirement::ser_resource_requirement(&mut object_32, item_31)?;
 -                object_32.finish();
 +                let mut object_31 = array_29.value().start_object();
-+                super::protocol_serde::shape_resource_requirement::ser_resource_requirement(&mut object_31, item_30)?;
++                super::super::protocol_serde::shape_resource_requirement::ser_resource_requirement(&mut object_31, item_30)?;
 +                object_31.finish();
              }
          }
@@ -6392,10 +11604,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_36 = array_34.value().start_object();
--                super::protocol_serde::shape_secret::ser_secret(&mut object_36, item_35)?;
+-                super::super::protocol_serde::shape_secret::ser_secret(&mut object_36, item_35)?;
 -                object_36.finish();
 +                let mut object_35 = array_33.value().start_object();
-+                super::protocol_serde::shape_secret::ser_secret(&mut object_35, item_34)?;
++                super::super::protocol_serde::shape_secret::ser_secret(&mut object_35, item_34)?;
 +                object_35.finish();
              }
          }
@@ -6411,10 +11623,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_40 = array_38.value().start_object();
--                super::protocol_serde::shape_ulimit::ser_ulimit(&mut object_40, item_39)?;
+-                super::super::protocol_serde::shape_ulimit::ser_ulimit(&mut object_40, item_39)?;
 -                object_40.finish();
 +                let mut object_39 = array_37.value().start_object();
-+                super::protocol_serde::shape_ulimit::ser_ulimit(&mut object_39, item_38)?;
++                super::super::protocol_serde::shape_ulimit::ser_ulimit(&mut object_39, item_38)?;
 +                object_39.finish();
              }
          }
@@ -6443,13 +11655,239 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
      }
      Ok(())
-@@ -275,7 +275,11 @@
+@@ -162,112 +162,123 @@
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                        "command" => {
+-                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
+-                        }
+-                        "dependsOn" => {
+-                            builder = builder.set_depends_on(
+-                                super::super::protocol_serde::shape_task_container_dependency_list::de_task_container_dependency_list(
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
++                        match key.to_unescaped()?.as_ref() {
++                            "command" => {
++                                builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+-                                )?,
+-                            );
+-                        }
+-                        "environment" => {
+-                            builder = builder.set_environment(super::super::protocol_serde::shape_environment_variables::de_environment_variables(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        "essential" => {
+-                            builder = builder.set_essential(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+-                        }
+-                        "firelensConfiguration" => {
+-                            builder = builder.set_firelens_configuration(
+-                                super::super::protocol_serde::shape_firelens_configuration::de_firelens_configuration(tokens, _value, depth + 1)?,
+-                            );
+-                        }
+-                        "image" => {
+-                            builder = builder.set_image(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "linuxParameters" => {
+-                            builder = builder.set_linux_parameters(super::super::protocol_serde::shape_linux_parameters::de_linux_parameters(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        "logConfiguration" => {
+-                            builder = builder.set_log_configuration(super::super::protocol_serde::shape_log_configuration::de_log_configuration(
+-                                tokens,
+-                                _value,
+-                                depth + 1,
+-                            )?);
+-                        }
+-                        "mountPoints" => {
+-                            builder =
+-                                builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(tokens, _value, depth + 1)?);
+-                        }
+-                        "name" => {
+-                            builder = builder.set_name(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "privileged" => {
+-                            builder = builder.set_privileged(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+-                        }
+-                        "readonlyRootFilesystem" => {
+-                            builder =
+-                                builder.set_readonly_root_filesystem(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
++                                )?);
++                            }
++                            "dependsOn" => {
++                                builder = builder.set_depends_on(
++                                    super::super::protocol_serde::shape_task_container_dependency_list::de_task_container_dependency_list(
++                                        tokens,
++                                        _value,
++                                        depth + 1,
++                                    )?,
++                                );
++                            }
++                            "environment" => {
++                                builder = builder.set_environment(
++                                    super::super::protocol_serde::shape_environment_variables::de_environment_variables(tokens, _value, depth + 1)?,
++                                );
++                            }
++                            "essential" => {
++                                builder = builder.set_essential(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
++                            }
++                            "firelensConfiguration" => {
++                                builder = builder.set_firelens_configuration(
++                                    super::super::protocol_serde::shape_firelens_configuration::de_firelens_configuration(tokens, _value, depth + 1)?,
++                                );
++                            }
++                            "image" => {
++                                builder = builder.set_image(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "linuxParameters" => {
++                                builder = builder.set_linux_parameters(super::super::protocol_serde::shape_linux_parameters::de_linux_parameters(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
++                            }
++                            "logConfiguration" => {
++                                builder = builder.set_log_configuration(super::super::protocol_serde::shape_log_configuration::de_log_configuration(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
++                            }
++                            "mountPoints" => {
++                                builder = builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
++                            }
++                            "name" => {
++                                builder = builder.set_name(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "privileged" => {
++                                builder = builder.set_privileged(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
++                            }
++                            "readonlyRootFilesystem" => {
++                                builder =
++                                    builder.set_readonly_root_filesystem(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
++                            }
++                            "repositoryCredentials" => {
++                                builder = builder.set_repository_credentials(
++                                    super::super::protocol_serde::shape_repository_credentials::de_repository_credentials(tokens, _value, depth + 1)?,
++                                );
++                            }
++                            "resourceRequirements" => {
++                                builder = builder.set_resource_requirements(
++                                    super::super::protocol_serde::shape_resource_requirements::de_resource_requirements(tokens, _value, depth + 1)?,
++                                );
++                            }
++                            "secrets" => {
++                                builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(
++                                    tokens,
++                                    _value,
++                                    depth + 1,
++                                )?);
++                            }
++                            "ulimits" => {
++                                builder = builder.set_ulimits(super::super::protocol_serde::shape_ulimits::de_ulimits(tokens, _value, depth + 1)?);
++                            }
++                            "user" => {
++                                builder = builder.set_user(
++                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                        .transpose()?,
++                                );
++                            }
++                            "startTimeout" => {
++                                builder = builder.set_start_timeout(
++                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                        .map(i32::try_from)
++                                        .transpose()?,
++                                );
++                            }
++                            "stopTimeout" => {
++                                builder = builder.set_stop_timeout(
++                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                                        .map(i32::try_from)
++                                        .transpose()?,
++                                );
++                            }
++                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                         }
+-                        "repositoryCredentials" => {
+-                            builder = builder.set_repository_credentials(
+-                                super::super::protocol_serde::shape_repository_credentials::de_repository_credentials(tokens, _value, depth + 1)?,
+-                            );
+-                        }
+-                        "resourceRequirements" => {
+-                            builder = builder.set_resource_requirements(
+-                                super::super::protocol_serde::shape_resource_requirements::de_resource_requirements(tokens, _value, depth + 1)?,
+-                            );
+-                        }
+-                        "secrets" => {
+-                            builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(tokens, _value, depth + 1)?);
+-                        }
+-                        "ulimits" => {
+-                            builder = builder.set_ulimits(super::super::protocol_serde::shape_ulimits::de_ulimits(tokens, _value, depth + 1)?);
+-                        }
+-                        "user" => {
+-                            builder = builder.set_user(
+-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "startTimeout" => {
+-                            builder = builder.set_start_timeout(
+-                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                    .map(i32::try_from)
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        "stopTimeout" => {
+-                            builder = builder.set_stop_timeout(
+-                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                                    .map(i32::try_from)
+-                                    .transpose()?,
+-                            );
+-                        }
+-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-                    },
++                    }
+                     other => {
+                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                             "expected object key or end object, found: {other:?}"
+@@ -275,7 +286,11 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::task_container_properties_correct_errors(builder).build()))
+-            Ok(Some(super::super::serde_util::task_container_properties_correct_errors(builder).build()))
 +            Ok(Some(
-+                super::serde_util::task_container_properties_correct_errors(builder)
++                super::super::serde_util::task_container_properties_correct_errors(builder)
 +                    .build()
 +                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
 +            ))
@@ -6470,12 +11908,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_terminate_job(
 +    _value: &[u8],
-+    mut builder: super::operation::terminate_job::builders::TerminateJobOutputBuilder,
++    mut builder: super::super::operation::terminate_job::builders::TerminateJobOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::terminate_job::builders::TerminateJobOutputBuilder,
++    super::super::operation::terminate_job::builders::TerminateJobOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -6507,19 +11945,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_terminate_service_job.rs
 +++ generated/src/protocol_serde/shape_terminate_service_job.rs
-@@ -80,3 +80,36 @@
+@@ -15,7 +15,11 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::terminate_service_job::TerminateServiceJobError::unhandled(generic)),
++        None => {
++            return Err(super::super::operation::terminate_service_job::TerminateServiceJobError::unhandled(
++                generic,
++            ))
++        }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -80,3 +84,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
 +
 +pub(crate) fn de_terminate_service_job(
 +    _value: &[u8],
-+    mut builder: super::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder,
++    mut builder: super::super::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder,
++    super::super::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -6553,7 +12004,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_tmpfs.rs
 @@ -3,23 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::Tmpfs,
+     input: &super::super::types::Tmpfs,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.container_path {
 -        object.key("containerPath").string(var_1.as_str());
@@ -6584,12 +12035,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -72,7 +72,9 @@
+@@ -61,7 +61,11 @@
+                             );
+                         }
+                         "mountOptions" => {
+-                            builder = builder.set_mount_options(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_mount_options(super::super::protocol_serde::shape_string_list::de_string_list(
++                                tokens,
++                                _value,
++                                depth + 1,
++                            )?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },
+@@ -72,7 +76,9 @@
                      }
                  }
              }
--            Ok(Some(super::serde_util::tmpfs_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::tmpfs_correct_errors(builder).build().map_err(|err| {
+-            Ok(Some(super::super::serde_util::tmpfs_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::tmpfs_correct_errors(builder).build().map_err(|err| {
 +                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
 +            })?))
          }
@@ -6604,7 +12068,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_ulimit.rs
 @@ -3,19 +3,19 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::types::Ulimit,
+     input: &super::super::types::Ulimit,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.hard_limit {
 +    {
@@ -6632,8 +12096,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
              }
--            Ok(Some(super::serde_util::ulimit_correct_errors(builder).build()))
-+            Ok(Some(super::serde_util::ulimit_correct_errors(builder).build().map_err(|err| {
+-            Ok(Some(super::super::serde_util::ulimit_correct_errors(builder).build()))
++            Ok(Some(super::super::serde_util::ulimit_correct_errors(builder).build().map_err(|err| {
 +                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
 +            })?))
          }
@@ -6652,23 +12116,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_untag_resource_input(
-+    input: &super::operation::untag_resource::UntagResourceInput,
++    input: &super::super::operation::untag_resource::UntagResourceInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_untag_resource(
 +    _value: &[u8],
-+    mut builder: super::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    mut builder: super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -6700,7 +12164,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_compute_environment.rs
 +++ generated/src/protocol_serde/shape_update_compute_environment.rs
-@@ -103,15 +103,15 @@
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::update_compute_environment::UpdateComputeEnvironmentError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::update_compute_environment::UpdateComputeEnvironmentError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -103,15 +99,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6734,7 +12211,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_2) = &input.compute_resources {
 -        #[allow(unused_mut)]
 -        let mut object_3 = object.key("computeResources").start_object();
--        super::protocol_serde::shape_compute_resource_update::ser_compute_resource_update(&mut object_3, var_2)?;
+-        super::super::protocol_serde::shape_compute_resource_update::ser_compute_resource_update(&mut object_3, var_2)?;
 -        object_3.finish();
 +    if let Some(var_2) = &input.state {
 +        object.key("state").string(var_2.as_str());
@@ -6751,10 +12228,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_4) = &input.compute_resources {
          #[allow(unused_mut)]
 -        let mut object_6 = object.key("ecsSettings").start_object();
--        super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_6, var_5)?;
+-        super::super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_6, var_5)?;
 -        object_6.finish();
 +        let mut object_5 = object.key("computeResources").start_object();
-+        super::protocol_serde::shape_compute_resource_update::ser_compute_resource_update(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_compute_resource_update::ser_compute_resource_update(&mut object_5, var_4)?;
 +        object_5.finish();
      }
 -    if let Some(var_7) = &input.service_role {
@@ -6767,7 +12244,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_7) = &input.update_policy {
 +        #[allow(unused_mut)]
 +        let mut object_8 = object.key("updatePolicy").start_object();
-+        super::protocol_serde::shape_update_policy::ser_update_policy(&mut object_8, var_7)?;
++        super::super::protocol_serde::shape_update_policy::ser_update_policy(&mut object_8, var_7)?;
 +        object_8.finish();
      }
 -    if let Some(var_9) = &input.unmanagedv_cpus {
@@ -6782,9 +12259,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_10) = &input.ecs_settings {
          #[allow(unused_mut)]
 -        let mut object_11 = object.key("updatePolicy").start_object();
--        super::protocol_serde::shape_update_policy::ser_update_policy(&mut object_11, var_10)?;
+-        super::super::protocol_serde::shape_update_policy::ser_update_policy(&mut object_11, var_10)?;
 +        let mut object_11 = object.key("ecsSettings").start_object();
-+        super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_11, var_10)?;
++        super::super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_11, var_10)?;
          object_11.finish();
      }
      Ok(())
@@ -6795,18 +12272,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_consumable_resource.rs
 +++ generated/src/protocol_serde/shape_update_consumable_resource.rs
-@@ -73,7 +73,9 @@
-         output = super::protocol_serde::shape_update_consumable_resource::de_update_consumable_resource(_response_body, output)
-             .map_err(super::operation::update_consumable_resource::UpdateConsumableResourceError::unhandled)?;
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::update_consumable_resource::UpdateConsumableResourceError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::update_consumable_resource::UpdateConsumableResourceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -73,7 +69,9 @@
+         output = super::super::protocol_serde::shape_update_consumable_resource::de_update_consumable_resource(_response_body, output)
+             .map_err(super::super::operation::update_consumable_resource::UpdateConsumableResourceError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::update_consumable_resource_output_output_correct_errors(output).build()
-+        super::serde_util::update_consumable_resource_output_output_correct_errors(output)
+-        super::super::serde_util::update_consumable_resource_output_output_correct_errors(output).build()
++        super::super::serde_util::update_consumable_resource_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::update_consumable_resource::UpdateConsumableResourceError::unhandled)?
++            .map_err(super::super::operation::update_consumable_resource::UpdateConsumableResourceError::unhandled)?
      })
  }
 
-@@ -103,15 +105,15 @@
+@@ -103,15 +101,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6835,7 +12325,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_consumable_resource_input.rs
 @@ -3,20 +3,20 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::update_consumable_resource::UpdateConsumableResourceInput,
+     input: &super::super::operation::update_consumable_resource::UpdateConsumableResourceInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.client_token {
 -        object.key("clientToken").string(var_1.as_str());
@@ -6870,7 +12360,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_job_queue.rs
 +++ generated/src/protocol_serde/shape_update_job_queue.rs
-@@ -93,15 +93,15 @@
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::update_job_queue::UpdateJobQueueOutput, super::super::operation::update_job_queue::UpdateJobQueueError> {
++) -> std::result::Result<
++    super::super::operation::update_job_queue::UpdateJobQueueOutput,
++    super::super::operation::update_job_queue::UpdateJobQueueError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::update_job_queue::UpdateJobQueueError::unhandled)?;
+@@ -56,7 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::update_job_queue::UpdateJobQueueOutput, super::super::operation::update_job_queue::UpdateJobQueueError> {
++) -> std::result::Result<
++    super::super::operation::update_job_queue::UpdateJobQueueOutput,
++    super::super::operation::update_job_queue::UpdateJobQueueError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::update_job_queue::builders::UpdateJobQueueOutputBuilder::default();
+@@ -93,15 +99,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6899,7 +12413,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_job_queue_input.rs
 @@ -3,56 +3,56 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::update_job_queue::UpdateJobQueueInput,
+     input: &super::super::operation::update_job_queue::UpdateJobQueueInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.compute_environment_order {
 -        let mut array_2 = object.key("computeEnvironmentOrder").start_array();
@@ -6925,10 +12439,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
 -                object_4.finish();
 +                let mut object_8 = array_6.value().start_object();
-+                super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_8, item_7)?;
++                super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_8, item_7)?;
 +                object_8.finish();
              }
          }
@@ -6947,10 +12461,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_9 = array_7.value().start_object();
--                super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_9, item_8)?;
+-                super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_9, item_8)?;
 -                object_9.finish();
 +                let mut object_12 = array_10.value().start_object();
-+                super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_12, item_11)?;
++                super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_12, item_11)?;
 +                object_12.finish();
              }
          }
@@ -6975,10 +12489,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_15 = array_13.value().start_object();
--                super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_15, item_14)?;
+-                super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_15, item_14)?;
 -                object_15.finish();
 +                let mut object_16 = array_14.value().start_object();
-+                super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_16, item_15)?;
++                super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_16, item_15)?;
 +                object_16.finish();
              }
          }
@@ -6997,7 +12511,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_quota_share.rs
 +++ generated/src/protocol_serde/shape_update_quota_share.rs
-@@ -93,15 +93,15 @@
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::update_quota_share::UpdateQuotaShareOutput, super::super::operation::update_quota_share::UpdateQuotaShareError> {
++) -> std::result::Result<
++    super::super::operation::update_quota_share::UpdateQuotaShareOutput,
++    super::super::operation::update_quota_share::UpdateQuotaShareError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::update_quota_share::UpdateQuotaShareError::unhandled)?;
+@@ -56,7 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::update_quota_share::UpdateQuotaShareOutput, super::super::operation::update_quota_share::UpdateQuotaShareError> {
++) -> std::result::Result<
++    super::super::operation::update_quota_share::UpdateQuotaShareOutput,
++    super::super::operation::update_quota_share::UpdateQuotaShareError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::update_quota_share::builders::UpdateQuotaShareOutputBuilder::default();
+@@ -93,15 +99,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -7026,7 +12564,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_quota_share_input.rs
 @@ -3,34 +3,34 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::update_quota_share::UpdateQuotaShareInput,
+     input: &super::super::operation::update_quota_share::UpdateQuotaShareInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.capacity_limits {
 -        let mut array_2 = object.key("capacityLimits").start_array();
@@ -7040,10 +12578,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_4, item_3)?;
 -                object_4.finish();
 +                let mut object_5 = array_3.value().start_object();
-+                super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_5, item_4)?;
++                super::super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_5, item_4)?;
 +                object_5.finish();
              }
          }
@@ -7054,10 +12592,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_6) = &input.resource_sharing_configuration {
          #[allow(unused_mut)]
 -        let mut object_6 = object.key("preemptionConfiguration").start_object();
--        super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_6, var_5)?;
+-        super::super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_6, var_5)?;
 -        object_6.finish();
 +        let mut object_7 = object.key("resourceSharingConfiguration").start_object();
-+        super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(
++        super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(
 +            &mut object_7,
 +            var_6,
 +        )?;
@@ -7070,12 +12608,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_8) = &input.preemption_configuration {
          #[allow(unused_mut)]
 -        let mut object_9 = object.key("resourceSharingConfiguration").start_object();
--        super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(
+-        super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(
 -            &mut object_9,
 -            var_8,
 -        )?;
 +        let mut object_9 = object.key("preemptionConfiguration").start_object();
-+        super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_9, var_8)?;
++        super::super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_9, var_8)?;
          object_9.finish();
      }
      if let Some(var_10) = &input.state {
@@ -7093,12 +12631,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_update_scheduling_policy(
 +    _value: &[u8],
-+    mut builder: super::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyOutputBuilder,
++    mut builder: super::super::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyOutputBuilder,
 +) -> ::std::result::Result<
-+    super::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyOutputBuilder,
++    super::super::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -7138,18 +12676,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.quota_share_policy {
          #[allow(unused_mut)]
 -        let mut object_3 = object.key("fairsharePolicy").start_object();
--        super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_3, var_2)?;
+-        super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_3, var_2)?;
 +        let mut object_3 = object.key("quotaSharePolicy").start_object();
-+        super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_3, var_2)?;
          object_3.finish();
      }
 -    if let Some(var_4) = &input.quota_share_policy {
 +    if let Some(var_4) = &input.fairshare_policy {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("quotaSharePolicy").start_object();
--        super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
+-        super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
 +        let mut object_5 = object.key("fairsharePolicy").start_object();
-+        super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_5, var_4)?;
          object_5.finish();
      }
      Ok(())
@@ -7160,18 +12698,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_service_environment.rs
 +++ generated/src/protocol_serde/shape_update_service_environment.rs
-@@ -73,7 +73,9 @@
-         output = super::protocol_serde::shape_update_service_environment::de_update_service_environment(_response_body, output)
-             .map_err(super::operation::update_service_environment::UpdateServiceEnvironmentError::unhandled)?;
+@@ -15,11 +15,7 @@
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => {
+-            return Err(super::super::operation::update_service_environment::UpdateServiceEnvironmentError::unhandled(
+-                generic,
+-            ))
+-        }
++        None => return Err(super::super::operation::update_service_environment::UpdateServiceEnvironmentError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -73,7 +69,9 @@
+         output = super::super::protocol_serde::shape_update_service_environment::de_update_service_environment(_response_body, output)
+             .map_err(super::super::operation::update_service_environment::UpdateServiceEnvironmentError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::serde_util::update_service_environment_output_output_correct_errors(output).build()
-+        super::serde_util::update_service_environment_output_output_correct_errors(output)
+-        super::super::serde_util::update_service_environment_output_output_correct_errors(output).build()
++        super::super::serde_util::update_service_environment_output_output_correct_errors(output)
 +            .build()
-+            .map_err(super::operation::update_service_environment::UpdateServiceEnvironmentError::unhandled)?
++            .map_err(super::super::operation::update_service_environment::UpdateServiceEnvironmentError::unhandled)?
      })
  }
 
-@@ -103,15 +105,15 @@
+@@ -103,15 +101,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -7200,7 +12751,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_service_environment_input.rs
 @@ -3,23 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::operation::update_service_environment::UpdateServiceEnvironmentInput,
+     input: &super::super::operation::update_service_environment::UpdateServiceEnvironmentInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.capacity_limits {
 -        let mut array_2 = object.key("capacityLimits").start_array();
@@ -7217,10 +12768,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_4, item_3)?;
+-                super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_4, item_3)?;
 -                object_4.finish();
 +                let mut object_6 = array_4.value().start_object();
-+                super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_6, item_5)?;
++                super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_6, item_5)?;
 +                object_6.finish();
              }
          }
@@ -7242,7 +12793,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_service_job.rs
 +++ generated/src/protocol_serde/shape_update_service_job.rs
-@@ -100,15 +100,15 @@
+@@ -4,7 +4,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::update_service_job::UpdateServiceJobOutput, super::super::operation::update_service_job::UpdateServiceJobError> {
++) -> std::result::Result<
++    super::super::operation::update_service_job::UpdateServiceJobOutput,
++    super::super::operation::update_service_job::UpdateServiceJobError,
++> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+         .map_err(super::super::operation::update_service_job::UpdateServiceJobError::unhandled)?;
+@@ -56,7 +59,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::update_service_job::UpdateServiceJobOutput, super::super::operation::update_service_job::UpdateServiceJobError> {
++) -> std::result::Result<
++    super::super::operation::update_service_job::UpdateServiceJobOutput,
++    super::super::operation::update_service_job::UpdateServiceJobError,
++> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::update_service_job::builders::UpdateServiceJobOutputBuilder::default();
+@@ -100,15 +106,15 @@
                              .transpose()?,
                      );
                  }
@@ -7385,15 +12960,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.ecs_settings
      }
      /// Consumes the builder and constructs a [`ComputeEnvironmentDetail`](crate::types::ComputeEnvironmentDetail).
--    pub fn build(self) -> super::types::ComputeEnvironmentDetail {
--        super::types::ComputeEnvironmentDetail {
+-    pub fn build(self) -> super::super::types::ComputeEnvironmentDetail {
+-        super::super::types::ComputeEnvironmentDetail {
 -            compute_environment_name: self.compute_environment_name,
 -            compute_environment_arn: self.compute_environment_arn,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`compute_environment_name`](crate::types::builders::ComputeEnvironmentDetailBuilder::compute_environment_name)
 +    /// - [`compute_environment_arn`](crate::types::builders::ComputeEnvironmentDetailBuilder::compute_environment_arn)
-+    pub fn build(self) -> ::std::result::Result<super::types::ComputeEnvironmentDetail, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ComputeEnvironmentDetail {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ComputeEnvironmentDetail, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ComputeEnvironmentDetail {
 +            compute_environment_name: self.compute_environment_name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "compute_environment_name",
@@ -7453,16 +13028,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.compute_environment
      }
      /// Consumes the builder and constructs a [`ComputeEnvironmentOrder`](crate::types::ComputeEnvironmentOrder).
--    pub fn build(self) -> super::types::ComputeEnvironmentOrder {
--        super::types::ComputeEnvironmentOrder {
+-    pub fn build(self) -> super::super::types::ComputeEnvironmentOrder {
+-        super::super::types::ComputeEnvironmentOrder {
 -            order: self.order,
 -            compute_environment: self.compute_environment,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`order`](crate::types::builders::ComputeEnvironmentOrderBuilder::order)
 +    /// - [`compute_environment`](crate::types::builders::ComputeEnvironmentOrderBuilder::compute_environment)
-+    pub fn build(self) -> ::std::result::Result<super::types::ComputeEnvironmentOrder, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ComputeEnvironmentOrder {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ComputeEnvironmentOrder, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ComputeEnvironmentOrder {
 +            order: self.order.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "order",
@@ -7489,8 +13064,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>If you choose <code>ECS_MANAGED_INSTANCES</code>, you must also specify a <code>managedInstancesProvider</code> configuration. To use Spot capacity, set <code>capacityOptionType</code> to <code>SPOT</code> in the <code>managedInstancesProvider.instanceLaunchTemplate</code> configuration. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/ecs_managed_instances.html">Amazon ECS Managed Instances compute environments</a> in the <i>Batch User Guide</i>.</p><note>
      /// <p>Multi-node parallel jobs aren't supported on Spot Instances or Amazon ECS Managed Instances.</p>
      /// </note>
--    pub r#type: ::std::option::Option<super::types::CrType>,
-+    pub r#type: super::types::CrType,
+-    pub r#type: ::std::option::Option<super::super::types::CrType>,
++    pub r#type: super::super::types::CrType,
      /// <p>The allocation strategy to use for the compute resource if not enough instances of the best fitting instance type can be allocated. This might be because of availability of the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 service limits</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation strategies</a> in the <i>Batch User Guide</i>.</p><note>
      /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
      /// </note> <note>
@@ -7507,9 +13082,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>If you choose <code>ECS_MANAGED_INSTANCES</code>, you must also specify a <code>managedInstancesProvider</code> configuration. To use Spot capacity, set <code>capacityOptionType</code> to <code>SPOT</code> in the <code>managedInstancesProvider.instanceLaunchTemplate</code> configuration. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/ecs_managed_instances.html">Amazon ECS Managed Instances compute environments</a> in the <i>Batch User Guide</i>.</p><note>
      /// <p>Multi-node parallel jobs aren't supported on Spot Instances or Amazon ECS Managed Instances.</p>
      /// </note>
--    pub fn r#type(&self) -> ::std::option::Option<&super::types::CrType> {
+-    pub fn r#type(&self) -> ::std::option::Option<&super::super::types::CrType> {
 -        self.r#type.as_ref()
-+    pub fn r#type(&self) -> &super::types::CrType {
++    pub fn r#type(&self) -> &super::super::types::CrType {
 +        &self.r#type
      }
      /// <p>The allocation strategy to use for the compute resource if not enough instances of the best fitting instance type can be allocated. This might be because of availability of the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 service limits</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation strategies</a> in the <i>Batch User Guide</i>.</p><note>
@@ -7527,14 +13102,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.capacity_tags
      }
      /// Consumes the builder and constructs a [`ComputeResource`](crate::types::ComputeResource).
--    pub fn build(self) -> super::types::ComputeResource {
--        super::types::ComputeResource {
+-    pub fn build(self) -> super::super::types::ComputeResource {
+-        super::super::types::ComputeResource {
 -            r#type: self.r#type,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`r#type`](crate::types::builders::ComputeResourceBuilder::type)
 +    /// - [`maxv_cpus`](crate::types::builders::ComputeResourceBuilder::maxv_cpus)
-+    pub fn build(self) -> ::std::result::Result<super::types::ComputeResource, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ComputeResource {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ComputeResource, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ComputeResource {
 +            r#type: self.r#type.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "r#type",
@@ -7561,6 +13136,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        })
      }
  }
+```
+
+### `src/types/_compute_resource_update.rs`
+
+```diff
+--- reference/src/types/_compute_resource_update.rs
++++ generated/src/types/_compute_resource_update.rs
+@@ -1031,7 +1031,10 @@
+         self
+     }
+     /// <p>The updated configuration for the Amazon ECS Managed Instances capacity provider. This parameter is only valid when the compute environment type is <code>ECS_MANAGED_INSTANCES</code>. You cannot change <code>capacityOptionType</code> or <code>fipsEnabled</code> on update.</p>
+-    pub fn set_managed_instances_provider(mut self, input: ::std::option::Option<super::super::types::UpdateManagedInstancesProviderConfiguration>) -> Self {
++    pub fn set_managed_instances_provider(
++        mut self,
++        input: ::std::option::Option<super::super::types::UpdateManagedInstancesProviderConfiguration>,
++    ) -> Self {
+         self.managed_instances_provider = input;
+         self
+     }
 ```
 
 ### `src/types/_consumable_resource_summary.rs`
@@ -7603,15 +13197,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.resource_type
      }
      /// Consumes the builder and constructs a [`ConsumableResourceSummary`](crate::types::ConsumableResourceSummary).
--    pub fn build(self) -> super::types::ConsumableResourceSummary {
--        super::types::ConsumableResourceSummary {
+-    pub fn build(self) -> super::super::types::ConsumableResourceSummary {
+-        super::super::types::ConsumableResourceSummary {
 -            consumable_resource_arn: self.consumable_resource_arn,
 -            consumable_resource_name: self.consumable_resource_name,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`consumable_resource_arn`](crate::types::builders::ConsumableResourceSummaryBuilder::consumable_resource_arn)
 +    /// - [`consumable_resource_name`](crate::types::builders::ConsumableResourceSummaryBuilder::consumable_resource_name)
-+    pub fn build(self) -> ::std::result::Result<super::types::ConsumableResourceSummary, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ConsumableResourceSummary {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ConsumableResourceSummary, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ConsumableResourceSummary {
 +            consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "consumable_resource_arn",
@@ -7663,13 +13257,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.permissions
      }
      /// Consumes the builder and constructs a [`Device`](crate::types::Device).
--    pub fn build(self) -> super::types::Device {
--        super::types::Device {
+-    pub fn build(self) -> super::super::types::Device {
+-        super::super::types::Device {
 -            host_path: self.host_path,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`host_path`](crate::types::builders::DeviceBuilder::host_path)
-+    pub fn build(self) -> ::std::result::Result<super::types::Device, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Device {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Device, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Device {
 +            host_path: self.host_path.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "host_path",
@@ -7714,13 +13308,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.image_kubernetes_version
      }
      /// Consumes the builder and constructs a [`Ec2Configuration`](crate::types::Ec2Configuration).
--    pub fn build(self) -> super::types::Ec2Configuration {
--        super::types::Ec2Configuration {
+-    pub fn build(self) -> super::super::types::Ec2Configuration {
+-        super::super::types::Ec2Configuration {
 -            image_type: self.image_type,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`image_type`](crate::types::builders::Ec2ConfigurationBuilder::image_type)
-+    pub fn build(self) -> ::std::result::Result<super::types::Ec2Configuration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Ec2Configuration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Ec2Configuration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Ec2Configuration {
 +            image_type: self.image_type.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "image_type",
@@ -7745,8 +13339,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>An object that contains the properties for the Amazon ECS task definition of a job.</p><note>
      /// <p>This object is currently limited to one task element. However, the task element can run up to 10 containers.</p>
      /// </note>
--    pub task_properties: ::std::option::Option<::std::vec::Vec<super::types::EcsTaskProperties>>,
-+    pub task_properties: ::std::vec::Vec<super::types::EcsTaskProperties>,
+-    pub task_properties: ::std::option::Option<::std::vec::Vec<super::super::types::EcsTaskProperties>>,
++    pub task_properties: ::std::vec::Vec<super::super::types::EcsTaskProperties>,
  }
  impl EcsProperties {
      /// <p>An object that contains the properties for the Amazon ECS task definition of a job.</p><note>
@@ -7754,7 +13348,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// </note>
 -    ///
 -    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.task_properties.is_none()`.
-     pub fn task_properties(&self) -> &[super::types::EcsTaskProperties] {
+     pub fn task_properties(&self) -> &[super::super::types::EcsTaskProperties] {
 -        self.task_properties.as_deref().unwrap_or_default()
 +        use std::ops::Deref;
 +        self.task_properties.deref()
@@ -7765,14 +13359,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.task_properties
      }
      /// Consumes the builder and constructs a [`EcsProperties`](crate::types::EcsProperties).
--    pub fn build(self) -> super::types::EcsProperties {
--        super::types::EcsProperties {
+-    pub fn build(self) -> super::super::types::EcsProperties {
+-        super::super::types::EcsProperties {
 -            task_properties: self.task_properties,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`task_properties`](crate::types::builders::EcsPropertiesBuilder::task_properties)
-+    pub fn build(self) -> ::std::result::Result<super::types::EcsProperties, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EcsProperties {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EcsProperties, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EcsProperties {
 +            task_properties: self.task_properties.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "task_properties",
@@ -7793,10 +13387,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct EcsTaskProperties {
      /// <p>This object is a list of containers.</p>
--    pub containers: ::std::option::Option<::std::vec::Vec<super::types::TaskContainerProperties>>,
-+    pub containers: ::std::vec::Vec<super::types::TaskContainerProperties>,
+-    pub containers: ::std::option::Option<::std::vec::Vec<super::super::types::TaskContainerProperties>>,
++    pub containers: ::std::vec::Vec<super::super::types::TaskContainerProperties>,
      /// <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
-     pub ephemeral_storage: ::std::option::Option<super::types::EphemeralStorage>,
+     pub ephemeral_storage: ::std::option::Option<super::super::types::EphemeralStorage>,
      /// <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>
 @@ -45,10 +45,9 @@
  }
@@ -7804,24 +13398,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>This object is a list of containers.</p>
 -    ///
 -    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.containers.is_none()`.
-     pub fn containers(&self) -> &[super::types::TaskContainerProperties] {
+     pub fn containers(&self) -> &[super::super::types::TaskContainerProperties] {
 -        self.containers.as_deref().unwrap_or_default()
 +        use std::ops::Deref;
 +        self.containers.deref()
      }
      /// <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
-     pub fn ephemeral_storage(&self) -> ::std::option::Option<&super::types::EphemeralStorage> {
+     pub fn ephemeral_storage(&self) -> ::std::option::Option<&super::super::types::EphemeralStorage> {
 @@ -359,9 +358,16 @@
          &self.network_mode
      }
      /// Consumes the builder and constructs a [`EcsTaskProperties`](crate::types::EcsTaskProperties).
--    pub fn build(self) -> super::types::EcsTaskProperties {
--        super::types::EcsTaskProperties {
+-    pub fn build(self) -> super::super::types::EcsTaskProperties {
+-        super::super::types::EcsTaskProperties {
 -            containers: self.containers,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`containers`](crate::types::builders::EcsTaskPropertiesBuilder::containers)
-+    pub fn build(self) -> ::std::result::Result<super::types::EcsTaskProperties, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EcsTaskProperties {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EcsTaskProperties, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EcsTaskProperties {
 +            containers: self.containers.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "containers",
@@ -7871,13 +13465,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.authorization_config
      }
      /// Consumes the builder and constructs a [`EfsVolumeConfiguration`](crate::types::EfsVolumeConfiguration).
--    pub fn build(self) -> super::types::EfsVolumeConfiguration {
--        super::types::EfsVolumeConfiguration {
+-    pub fn build(self) -> super::super::types::EfsVolumeConfiguration {
+-        super::super::types::EfsVolumeConfiguration {
 -            file_system_id: self.file_system_id,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`file_system_id`](crate::types::builders::EfsVolumeConfigurationBuilder::file_system_id)
-+    pub fn build(self) -> ::std::result::Result<super::types::EfsVolumeConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EfsVolumeConfiguration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EfsVolumeConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EfsVolumeConfiguration {
 +            file_system_id: self.file_system_id.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "file_system_id",
@@ -7930,16 +13524,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.kubernetes_namespace
      }
      /// Consumes the builder and constructs a [`EksConfiguration`](crate::types::EksConfiguration).
--    pub fn build(self) -> super::types::EksConfiguration {
--        super::types::EksConfiguration {
+-    pub fn build(self) -> super::super::types::EksConfiguration {
+-        super::super::types::EksConfiguration {
 -            eks_cluster_arn: self.eks_cluster_arn,
 -            kubernetes_namespace: self.kubernetes_namespace,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`eks_cluster_arn`](crate::types::builders::EksConfigurationBuilder::eks_cluster_arn)
 +    /// - [`kubernetes_namespace`](crate::types::builders::EksConfigurationBuilder::kubernetes_namespace)
-+    pub fn build(self) -> ::std::result::Result<super::types::EksConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EksConfiguration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EksConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EksConfiguration {
 +            eks_cluster_arn: self.eks_cluster_arn.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "eks_cluster_arn",
@@ -7987,12 +13581,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.security_context
      }
      /// Consumes the builder and constructs a [`EksContainer`](crate::types::EksContainer).
--    pub fn build(self) -> super::types::EksContainer {
--        super::types::EksContainer {
+-    pub fn build(self) -> super::super::types::EksContainer {
+-        super::super::types::EksContainer {
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`image`](crate::types::builders::EksContainerBuilder::image)
-+    pub fn build(self) -> ::std::result::Result<super::types::EksContainer, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EksContainer {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EksContainer, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EksContainer {
              name: self.name,
 -            image: self.image,
 +            image: self.image.ok_or_else(|| {
@@ -8038,17 +13632,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      /// <p>The value of the environment variable.</p>
      pub fn value(&self) -> ::std::option::Option<&str> {
-@@ -64,10 +65,17 @@
+@@ -64,10 +65,19 @@
          &self.value
      }
      /// Consumes the builder and constructs a [`EksContainerEnvironmentVariable`](crate::types::EksContainerEnvironmentVariable).
--    pub fn build(self) -> super::types::EksContainerEnvironmentVariable {
--        super::types::EksContainerEnvironmentVariable {
+-    pub fn build(self) -> super::super::types::EksContainerEnvironmentVariable {
+-        super::super::types::EksContainerEnvironmentVariable {
 -            name: self.name,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`name`](crate::types::builders::EksContainerEnvironmentVariableBuilder::name)
-+    pub fn build(self) -> ::std::result::Result<super::types::EksContainerEnvironmentVariable, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EksContainerEnvironmentVariable {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::EksContainerEnvironmentVariable, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EksContainerEnvironmentVariable {
 +            name: self.name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "name",
@@ -8090,13 +13686,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.read_only
      }
      /// Consumes the builder and constructs a [`EksPersistentVolumeClaim`](crate::types::EksPersistentVolumeClaim).
--    pub fn build(self) -> super::types::EksPersistentVolumeClaim {
--        super::types::EksPersistentVolumeClaim {
+-    pub fn build(self) -> super::super::types::EksPersistentVolumeClaim {
+-        super::super::types::EksPersistentVolumeClaim {
 -            claim_name: self.claim_name,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`claim_name`](crate::types::builders::EksPersistentVolumeClaimBuilder::claim_name)
-+    pub fn build(self) -> ::std::result::Result<super::types::EksPersistentVolumeClaim, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EksPersistentVolumeClaim {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EksPersistentVolumeClaim, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EksPersistentVolumeClaim {
 +            claim_name: self.claim_name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "claim_name",
@@ -8138,13 +13734,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.optional
      }
      /// Consumes the builder and constructs a [`EksSecret`](crate::types::EksSecret).
--    pub fn build(self) -> super::types::EksSecret {
--        super::types::EksSecret {
+-    pub fn build(self) -> super::super::types::EksSecret {
+-        super::super::types::EksSecret {
 -            secret_name: self.secret_name,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`secret_name`](crate::types::builders::EksSecretBuilder::secret_name)
-+    pub fn build(self) -> ::std::result::Result<super::types::EksSecret, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EksSecret {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EksSecret, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EksSecret {
 +            secret_name: self.secret_name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "secret_name",
@@ -8170,7 +13766,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub name: ::std::option::Option<::std::string::String>,
 +    pub name: ::std::string::String,
      /// <p>Specifies the configuration of a Kubernetes <code>hostPath</code> volume. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPath</a> in the <i>Kubernetes documentation</i>.</p>
-     pub host_path: ::std::option::Option<super::types::EksHostPath>,
+     pub host_path: ::std::option::Option<super::super::types::EksHostPath>,
      /// <p>Specifies the configuration of a Kubernetes <code>emptyDir</code> volume. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/#emptydir">emptyDir</a> in the <i>Kubernetes documentation</i>.</p>
 @@ -17,8 +17,9 @@
  }
@@ -8183,18 +13779,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.name.deref()
      }
      /// <p>Specifies the configuration of a Kubernetes <code>hostPath</code> volume. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPath</a> in the <i>Kubernetes documentation</i>.</p>
-     pub fn host_path(&self) -> ::std::option::Option<&super::types::EksHostPath> {
+     pub fn host_path(&self) -> ::std::option::Option<&super::super::types::EksHostPath> {
 @@ -127,13 +128,20 @@
          &self.persistent_volume_claim
      }
      /// Consumes the builder and constructs a [`EksVolume`](crate::types::EksVolume).
--    pub fn build(self) -> super::types::EksVolume {
--        super::types::EksVolume {
+-    pub fn build(self) -> super::super::types::EksVolume {
+-        super::super::types::EksVolume {
 -            name: self.name,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`name`](crate::types::builders::EksVolumeBuilder::name)
-+    pub fn build(self) -> ::std::result::Result<super::types::EksVolume, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EksVolume {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EksVolume, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EksVolume {
 +            name: self.name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "name",
@@ -8262,14 +13858,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        &self.size_in_gi_b
      }
      /// Consumes the builder and constructs a [`EphemeralStorage`](crate::types::EphemeralStorage).
--    pub fn build(self) -> super::types::EphemeralStorage {
--        super::types::EphemeralStorage {
+-    pub fn build(self) -> super::super::types::EphemeralStorage {
+-        super::super::types::EphemeralStorage {
 -            size_in_gib: self.size_in_gib,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`size_in_gi_b`](crate::types::builders::EphemeralStorageBuilder::size_in_gi_b)
-+    pub fn build(self) -> ::std::result::Result<super::types::EphemeralStorage, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EphemeralStorage {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EphemeralStorage, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EphemeralStorage {
 +            size_in_gi_b: self.size_in_gi_b.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "size_in_gi_b",
@@ -8290,8 +13886,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The string can contain up to 512 characters.</p>
      pub on_exit_code: ::std::option::Option<::std::string::String>,
      /// <p>Specifies the action to take if all of the specified conditions (<code>onStatusReason</code>, <code>onReason</code>, and <code>onExitCode</code>) are met. The values aren't case sensitive.</p>
--    pub action: ::std::option::Option<super::types::RetryAction>,
-+    pub action: super::types::RetryAction,
+-    pub action: ::std::option::Option<super::super::types::RetryAction>,
++    pub action: super::super::types::RetryAction,
  }
  impl EvaluateOnExit {
      /// <p>Contains a glob pattern to match against the <code>StatusReason</code> returned for a job. The pattern can contain up to 512 characters. It can contain letters, numbers, periods (.), colons (:), and white spaces (including spaces or tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.</p>
@@ -8299,9 +13895,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.on_exit_code.as_deref()
      }
      /// <p>Specifies the action to take if all of the specified conditions (<code>onStatusReason</code>, <code>onReason</code>, and <code>onExitCode</code>) are met. The values aren't case sensitive.</p>
--    pub fn action(&self) -> ::std::option::Option<&super::types::RetryAction> {
+-    pub fn action(&self) -> ::std::option::Option<&super::super::types::RetryAction> {
 -        self.action.as_ref()
-+    pub fn action(&self) -> &super::types::RetryAction {
++    pub fn action(&self) -> &super::super::types::RetryAction {
 +        &self.action
      }
  }
@@ -8310,12 +13906,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.action
      }
      /// Consumes the builder and constructs a [`EvaluateOnExit`](crate::types::EvaluateOnExit).
--    pub fn build(self) -> super::types::EvaluateOnExit {
--        super::types::EvaluateOnExit {
+-    pub fn build(self) -> super::super::types::EvaluateOnExit {
+-        super::super::types::EvaluateOnExit {
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`action`](crate::types::builders::EvaluateOnExitBuilder::action)
-+    pub fn build(self) -> ::std::result::Result<super::types::EvaluateOnExit, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::EvaluateOnExit {
++    pub fn build(self) -> ::std::result::Result<super::super::types::EvaluateOnExit, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::EvaluateOnExit {
              on_status_reason: self.on_status_reason,
              on_reason: self.on_reason,
              on_exit_code: self.on_exit_code,
@@ -8332,6 +13928,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/types/_fairshare_utilization_detail.rs`
+
+```diff
+--- reference/src/types/_fairshare_utilization_detail.rs
++++ generated/src/types/_fairshare_utilization_detail.rs
+@@ -62,7 +62,10 @@
+         self
+     }
+     /// <p>A list of the top 20 shares with the highest capacity utilization, ordered by usage amount.</p>
+-    pub fn set_top_capacity_utilization(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::FairshareCapacityUtilization>>) -> Self {
++    pub fn set_top_capacity_utilization(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::FairshareCapacityUtilization>>,
++    ) -> Self {
+         self.top_capacity_utilization = input;
+         self
+     }
+```
+
 ### `src/types/_firelens_configuration.rs`
 
 ```diff
@@ -8341,16 +13956,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct FirelensConfiguration {
      /// <p>The log router to use. The valid values are <code>fluentd</code> or <code>fluentbit</code>.</p>
--    pub r#type: ::std::option::Option<super::types::FirelensConfigurationType>,
-+    pub r#type: super::types::FirelensConfigurationType,
+-    pub r#type: ::std::option::Option<super::super::types::FirelensConfigurationType>,
++    pub r#type: super::super::types::FirelensConfigurationType,
      /// <p>The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is <code>"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef">Creating a task definition that uses a FireLens configuration</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
      pub options: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
  }
  impl FirelensConfiguration {
      /// <p>The log router to use. The valid values are <code>fluentd</code> or <code>fluentbit</code>.</p>
--    pub fn r#type(&self) -> ::std::option::Option<&super::types::FirelensConfigurationType> {
+-    pub fn r#type(&self) -> ::std::option::Option<&super::super::types::FirelensConfigurationType> {
 -        self.r#type.as_ref()
-+    pub fn r#type(&self) -> &super::types::FirelensConfigurationType {
++    pub fn r#type(&self) -> &super::super::types::FirelensConfigurationType {
 +        &self.r#type
      }
      /// <p>The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is <code>"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef">Creating a task definition that uses a FireLens configuration</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -8359,13 +13974,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.options
      }
      /// Consumes the builder and constructs a [`FirelensConfiguration`](crate::types::FirelensConfiguration).
--    pub fn build(self) -> super::types::FirelensConfiguration {
--        super::types::FirelensConfiguration {
+-    pub fn build(self) -> super::super::types::FirelensConfiguration {
+-        super::super::types::FirelensConfiguration {
 -            r#type: self.r#type,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`r#type`](crate::types::builders::FirelensConfigurationBuilder::type)
-+    pub fn build(self) -> ::std::result::Result<super::types::FirelensConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::FirelensConfiguration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::FirelensConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::FirelensConfiguration {
 +            r#type: self.r#type.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "r#type",
@@ -8377,6 +13992,44 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        })
      }
  }
+```
+
+### `src/types/_front_of_quota_shares_detail.rs`
+
+```diff
+--- reference/src/types/_front_of_quota_shares_detail.rs
++++ generated/src/types/_front_of_quota_shares_detail.rs
+@@ -14,7 +14,8 @@
+     /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
+     pub fn quota_shares(
+         &self,
+-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>> {
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>>
++    {
+         self.quota_shares.as_ref()
+     }
+     /// <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>
+@@ -56,7 +57,9 @@
+     /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
+     pub fn set_quota_shares(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>>,
++        input: ::std::option::Option<
++            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>,
++        >,
+     ) -> Self {
+         self.quota_shares = input;
+         self
+@@ -64,7 +67,8 @@
+     /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
+     pub fn get_quota_shares(
+         &self,
+-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>>
++    {
+         &self.quota_shares
+     }
+     /// <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>
 ```
 
 ### `src/types/_image_pull_secret.rs`
@@ -8405,12 +14058,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.name
      }
      /// Consumes the builder and constructs a [`ImagePullSecret`](crate::types::ImagePullSecret).
--    pub fn build(self) -> super::types::ImagePullSecret {
--        super::types::ImagePullSecret { name: self.name }
+-    pub fn build(self) -> super::super::types::ImagePullSecret {
+-        super::super::types::ImagePullSecret { name: self.name }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`name`](crate::types::builders::ImagePullSecretBuilder::name)
-+    pub fn build(self) -> ::std::result::Result<super::types::ImagePullSecret, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ImagePullSecret {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ImagePullSecret, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ImagePullSecret {
 +            name: self.name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "name",
@@ -8434,7 +14087,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub ec2_instance_profile_arn: ::std::option::Option<::std::string::String>,
 +    pub ec2_instance_profile_arn: ::std::string::String,
      /// <p>The network configuration for the managed instances. Specifies the VPC subnets and security groups where instances are launched.</p>
-     pub network_configuration: ::std::option::Option<super::types::ManagedInstancesNetworkConfiguration>,
+     pub network_configuration: ::std::option::Option<super::super::types::ManagedInstancesNetworkConfiguration>,
      /// <p>The instance type requirements for the capacity provider. Use this to constrain which Amazon EC2 instance types Amazon ECS can launch. If not specified, all available instance types are eligible.</p>
 @@ -33,8 +33,9 @@
  }
@@ -8447,18 +14100,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.ec2_instance_profile_arn.deref()
      }
      /// <p>The network configuration for the managed instances. Specifies the VPC subnets and security groups where instances are launched.</p>
-     pub fn network_configuration(&self) -> ::std::option::Option<&super::types::ManagedInstancesNetworkConfiguration> {
-@@ -263,9 +264,16 @@
+     pub fn network_configuration(&self) -> ::std::option::Option<&super::super::types::ManagedInstancesNetworkConfiguration> {
+@@ -254,7 +255,10 @@
+         self
+     }
+     /// <p>The local storage configuration for the managed instances. If not specified, instance store volumes are not available to containers.</p>
+-    pub fn set_local_storage_configuration(mut self, input: ::std::option::Option<super::super::types::ManagedInstancesLocalStorageConfiguration>) -> Self {
++    pub fn set_local_storage_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::types::ManagedInstancesLocalStorageConfiguration>,
++    ) -> Self {
+         self.local_storage_configuration = input;
+         self
+     }
+@@ -263,9 +267,16 @@
          &self.local_storage_configuration
      }
      /// Consumes the builder and constructs a [`InstanceLaunchTemplate`](crate::types::InstanceLaunchTemplate).
--    pub fn build(self) -> super::types::InstanceLaunchTemplate {
--        super::types::InstanceLaunchTemplate {
+-    pub fn build(self) -> super::super::types::InstanceLaunchTemplate {
+-        super::super::types::InstanceLaunchTemplate {
 -            ec2_instance_profile_arn: self.ec2_instance_profile_arn,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`ec2_instance_profile_arn`](crate::types::builders::InstanceLaunchTemplateBuilder::ec2_instance_profile_arn)
-+    pub fn build(self) -> ::std::result::Result<super::types::InstanceLaunchTemplate, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::InstanceLaunchTemplate {
++    pub fn build(self) -> ::std::result::Result<super::super::types::InstanceLaunchTemplate, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::InstanceLaunchTemplate {
 +            ec2_instance_profile_arn: self.ec2_instance_profile_arn.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "ec2_instance_profile_arn",
@@ -8468,7 +14133,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              network_configuration: self.network_configuration,
              instance_requirements: self.instance_requirements,
              capacity_option_type: self.capacity_option_type,
-@@ -275,6 +283,6 @@
+@@ -275,6 +286,6 @@
              capacity_reservations: self.capacity_reservations,
              instance_metadata_tags_propagation: self.instance_metadata_tags_propagation,
              local_storage_configuration: self.local_storage_configuration,
@@ -8476,6 +14141,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        })
      }
  }
+```
+
+### `src/types/_instance_launch_template_update.rs`
+
+```diff
+--- reference/src/types/_instance_launch_template_update.rs
++++ generated/src/types/_instance_launch_template_update.rs
+@@ -180,7 +180,10 @@
+         self
+     }
+     /// <p>The updated local storage configuration.</p>
+-    pub fn set_local_storage_configuration(mut self, input: ::std::option::Option<super::super::types::ManagedInstancesLocalStorageConfiguration>) -> Self {
++    pub fn set_local_storage_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::types::ManagedInstancesLocalStorageConfiguration>,
++    ) -> Self {
+         self.local_storage_configuration = input;
+         self
+     }
 ```
 
 ### `src/types/_job_definition.rs`
@@ -8542,8 +14226,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.consumable_resource_properties
      }
      /// Consumes the builder and constructs a [`JobDefinition`](crate::types::JobDefinition).
--    pub fn build(self) -> super::types::JobDefinition {
--        super::types::JobDefinition {
+-    pub fn build(self) -> super::super::types::JobDefinition {
+-        super::super::types::JobDefinition {
 -            job_definition_name: self.job_definition_name,
 -            job_definition_arn: self.job_definition_arn,
 -            revision: self.revision,
@@ -8552,8 +14236,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`job_definition_arn`](crate::types::builders::JobDefinitionBuilder::job_definition_arn)
 +    /// - [`revision`](crate::types::builders::JobDefinitionBuilder::revision)
 +    /// - [`r#type`](crate::types::builders::JobDefinitionBuilder::type)
-+    pub fn build(self) -> ::std::result::Result<super::types::JobDefinition, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::JobDefinition {
++    pub fn build(self) -> ::std::result::Result<super::super::types::JobDefinition, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::JobDefinition {
 +            job_definition_name: self.job_definition_name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "job_definition_name",
@@ -8613,21 +14297,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The current status for the job.</p><note>
      /// <p>If your jobs don't progress to <code>STARTING</code>, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable">Jobs stuck in RUNNABLE status</a> in the troubleshooting section of the <i>Batch User Guide</i>.</p>
      /// </note>
--    pub status: ::std::option::Option<super::types::JobStatus>,
-+    pub status: super::types::JobStatus,
+-    pub status: ::std::option::Option<super::super::types::JobStatus>,
++    pub status: super::super::types::JobStatus,
      /// <p>The share identifier for the job.</p>
      pub share_identifier: ::std::option::Option<::std::string::String>,
      /// <p>The scheduling policy of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.</p>
 @@ -39,13 +39,13 @@
      /// <p>The retry strategy to use for this job if an attempt fails.</p>
-     pub retry_strategy: ::std::option::Option<super::types::RetryStrategy>,
+     pub retry_strategy: ::std::option::Option<super::super::types::RetryStrategy>,
      /// <p>The Unix timestamp (in milliseconds) for when the job was started. More specifically, it's when the job transitioned from the <code>STARTING</code> state to the <code>RUNNING</code> state.</p>
 -    pub started_at: ::std::option::Option<i64>,
 +    pub started_at: i64,
      /// <p>The Unix timestamp (in milliseconds) for when the job was stopped. More specifically, it's when the job transitioned from the <code>RUNNING</code> state to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>.</p>
      pub stopped_at: ::std::option::Option<i64>,
      /// <p>A list of job IDs that this job depends on.</p>
-     pub depends_on: ::std::option::Option<::std::vec::Vec<super::types::JobDependency>>,
+     pub depends_on: ::std::option::Option<::std::vec::Vec<super::super::types::JobDependency>>,
      /// <p>The Amazon Resource Name (ARN) of the job definition that this job uses.</p>
 -    pub job_definition: ::std::option::Option<::std::string::String>,
 +    pub job_definition: ::std::string::String,
@@ -8661,9 +14345,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The current status for the job.</p><note>
      /// <p>If your jobs don't progress to <code>STARTING</code>, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable">Jobs stuck in RUNNABLE status</a> in the troubleshooting section of the <i>Batch User Guide</i>.</p>
      /// </note>
--    pub fn status(&self) -> ::std::option::Option<&super::types::JobStatus> {
+-    pub fn status(&self) -> ::std::option::Option<&super::super::types::JobStatus> {
 -        self.status.as_ref()
-+    pub fn status(&self) -> &super::types::JobStatus {
++    pub fn status(&self) -> &super::super::types::JobStatus {
 +        &self.status
      }
      /// <p>The share identifier for the job.</p>
@@ -8693,8 +14377,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.consumable_resource_properties
      }
      /// Consumes the builder and constructs a [`JobDetail`](crate::types::JobDetail).
--    pub fn build(self) -> super::types::JobDetail {
--        super::types::JobDetail {
+-    pub fn build(self) -> super::super::types::JobDetail {
+-        super::super::types::JobDetail {
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`job_name`](crate::types::builders::JobDetailBuilder::job_name)
 +    /// - [`job_id`](crate::types::builders::JobDetailBuilder::job_id)
@@ -8702,8 +14386,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`status`](crate::types::builders::JobDetailBuilder::status)
 +    /// - [`started_at`](crate::types::builders::JobDetailBuilder::started_at)
 +    /// - [`job_definition`](crate::types::builders::JobDetailBuilder::job_definition)
-+    pub fn build(self) -> ::std::result::Result<super::types::JobDetail, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::JobDetail {
++    pub fn build(self) -> ::std::result::Result<super::super::types::JobDetail, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::JobDetail {
              job_arn: self.job_arn,
 -            job_name: self.job_name,
 -            job_id: self.job_id,
@@ -8784,8 +14468,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub job_queue_arn: ::std::option::Option<::std::string::String>,
 +    pub job_queue_arn: ::std::string::String,
      /// <p>Describes the ability of the queue to accept new jobs. If the job queue state is <code>ENABLED</code>, it can accept jobs. If the job queue state is <code>DISABLED</code>, new jobs can't be added to the queue, but jobs already in the queue can finish.</p>
--    pub state: ::std::option::Option<super::types::JqState>,
-+    pub state: super::types::JqState,
+-    pub state: ::std::option::Option<super::super::types::JqState>,
++    pub state: super::super::types::JqState,
      /// <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
      pub scheduling_policy_arn: ::std::option::Option<::std::string::String>,
      /// <p>The status of the job queue (for example, <code>CREATING</code> or <code>VALID</code>).</p>
@@ -8796,10 +14480,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub priority: ::std::option::Option<i32>,
 +    pub priority: i32,
      /// <p>The compute environments that are attached to the job queue and the order that job placement is preferred. Compute environments are selected for job placement in ascending order.</p>
--    pub compute_environment_order: ::std::option::Option<::std::vec::Vec<super::types::ComputeEnvironmentOrder>>,
-+    pub compute_environment_order: ::std::vec::Vec<super::types::ComputeEnvironmentOrder>,
+-    pub compute_environment_order: ::std::option::Option<::std::vec::Vec<super::super::types::ComputeEnvironmentOrder>>,
++    pub compute_environment_order: ::std::vec::Vec<super::super::types::ComputeEnvironmentOrder>,
      /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
-     pub service_environment_order: ::std::option::Option<::std::vec::Vec<super::types::ServiceEnvironmentOrder>>,
+     pub service_environment_order: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceEnvironmentOrder>>,
      /// <p>The type of job queue. For service jobs that run on SageMaker Training, this value is <code>SAGEMAKER_TRAINING</code>. For regular container jobs, this value is <code>EKS</code>, <code>ECS</code>, or <code>ECS_FARGATE</code> depending on the compute environment.</p>
 @@ -33,16 +33,18 @@
  }
@@ -8819,9 +14503,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.job_queue_arn.deref()
      }
      /// <p>Describes the ability of the queue to accept new jobs. If the job queue state is <code>ENABLED</code>, it can accept jobs. If the job queue state is <code>DISABLED</code>, new jobs can't be added to the queue, but jobs already in the queue can finish.</p>
--    pub fn state(&self) -> ::std::option::Option<&super::types::JqState> {
+-    pub fn state(&self) -> ::std::option::Option<&super::super::types::JqState> {
 -        self.state.as_ref()
-+    pub fn state(&self) -> &super::types::JqState {
++    pub fn state(&self) -> &super::super::types::JqState {
 +        &self.state
      }
      /// <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
@@ -8837,19 +14521,55 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The compute environments that are attached to the job queue and the order that job placement is preferred. Compute environments are selected for job placement in ascending order.</p>
 -    ///
 -    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.compute_environment_order.is_none()`.
-     pub fn compute_environment_order(&self) -> &[super::types::ComputeEnvironmentOrder] {
+     pub fn compute_environment_order(&self) -> &[super::super::types::ComputeEnvironmentOrder] {
 -        self.compute_environment_order.as_deref().unwrap_or_default()
 +        use std::ops::Deref;
 +        self.compute_environment_order.deref()
      }
      /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
      ///
-@@ -317,20 +318,51 @@
+@@ -234,7 +235,10 @@
+         self
+     }
+     /// <p>The compute environments that are attached to the job queue and the order that job placement is preferred. Compute environments are selected for job placement in ascending order.</p>
+-    pub fn set_compute_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ComputeEnvironmentOrder>>) -> Self {
++    pub fn set_compute_environment_order(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::ComputeEnvironmentOrder>>,
++    ) -> Self {
+         self.compute_environment_order = input;
+         self
+     }
+@@ -254,7 +258,10 @@
+         self
+     }
+     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
+-    pub fn set_service_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceEnvironmentOrder>>) -> Self {
++    pub fn set_service_environment_order(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceEnvironmentOrder>>,
++    ) -> Self {
+         self.service_environment_order = input;
+         self
+     }
+@@ -308,7 +315,10 @@
+         self
+     }
+     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
+-    pub fn set_job_state_time_limit_actions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::JobStateTimeLimitAction>>) -> Self {
++    pub fn set_job_state_time_limit_actions(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::JobStateTimeLimitAction>>,
++    ) -> Self {
+         self.job_state_time_limit_actions = input;
+         self
+     }
+@@ -317,20 +327,51 @@
          &self.job_state_time_limit_actions
      }
      /// Consumes the builder and constructs a [`JobQueueDetail`](crate::types::JobQueueDetail).
--    pub fn build(self) -> super::types::JobQueueDetail {
--        super::types::JobQueueDetail {
+-    pub fn build(self) -> super::super::types::JobQueueDetail {
+-        super::super::types::JobQueueDetail {
 -            job_queue_name: self.job_queue_name,
 -            job_queue_arn: self.job_queue_arn,
 -            state: self.state,
@@ -8859,8 +14579,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`state`](crate::types::builders::JobQueueDetailBuilder::state)
 +    /// - [`priority`](crate::types::builders::JobQueueDetailBuilder::priority)
 +    /// - [`compute_environment_order`](crate::types::builders::JobQueueDetailBuilder::compute_environment_order)
-+    pub fn build(self) -> ::std::result::Result<super::types::JobQueueDetail, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::JobQueueDetail {
++    pub fn build(self) -> ::std::result::Result<super::super::types::JobQueueDetail, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::JobQueueDetail {
 +            job_queue_name: self.job_queue_name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "job_queue_name",
@@ -8918,14 +14638,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub reason: ::std::option::Option<::std::string::String>,
 +    pub reason: ::std::string::String,
      /// <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
--    pub state: ::std::option::Option<super::types::JobStateTimeLimitActionsState>,
-+    pub state: super::types::JobStateTimeLimitActionsState,
+-    pub state: ::std::option::Option<super::super::types::JobStateTimeLimitActionsState>,
++    pub state: super::super::types::JobStateTimeLimitActionsState,
      /// <p>The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. The minimum value is 600 (10 minutes) and the maximum value is 86,400 (24 hours).</p>
 -    pub max_time_seconds: ::std::option::Option<i32>,
 +    pub max_time_seconds: i32,
      /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
--    pub action: ::std::option::Option<super::types::JobStateTimeLimitActionsAction>,
-+    pub action: super::types::JobStateTimeLimitActionsAction,
+-    pub action: ::std::option::Option<super::super::types::JobStateTimeLimitActionsAction>,
++    pub action: super::super::types::JobStateTimeLimitActionsAction,
  }
  impl JobStateTimeLimitAction {
      /// <p>The reason to log for the action being taken.</p>
@@ -8936,9 +14656,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.reason.deref()
      }
      /// <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
--    pub fn state(&self) -> ::std::option::Option<&super::types::JobStateTimeLimitActionsState> {
+-    pub fn state(&self) -> ::std::option::Option<&super::super::types::JobStateTimeLimitActionsState> {
 -        self.state.as_ref()
-+    pub fn state(&self) -> &super::types::JobStateTimeLimitActionsState {
++    pub fn state(&self) -> &super::super::types::JobStateTimeLimitActionsState {
 +        &self.state
      }
      /// <p>The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. The minimum value is 600 (10 minutes) and the maximum value is 86,400 (24 hours).</p>
@@ -8947,9 +14667,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.max_time_seconds
      }
      /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
--    pub fn action(&self) -> ::std::option::Option<&super::types::JobStateTimeLimitActionsAction> {
+-    pub fn action(&self) -> ::std::option::Option<&super::super::types::JobStateTimeLimitActionsAction> {
 -        self.action.as_ref()
-+    pub fn action(&self) -> &super::types::JobStateTimeLimitActionsAction {
++    pub fn action(&self) -> &super::super::types::JobStateTimeLimitActionsAction {
 +        &self.action
      }
  }
@@ -8958,8 +14678,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.action
      }
      /// Consumes the builder and constructs a [`JobStateTimeLimitAction`](crate::types::JobStateTimeLimitAction).
--    pub fn build(self) -> super::types::JobStateTimeLimitAction {
--        super::types::JobStateTimeLimitAction {
+-    pub fn build(self) -> super::super::types::JobStateTimeLimitAction {
+-        super::super::types::JobStateTimeLimitAction {
 -            reason: self.reason,
 -            state: self.state,
 -            max_time_seconds: self.max_time_seconds,
@@ -8970,8 +14690,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`state`](crate::types::builders::JobStateTimeLimitActionBuilder::state)
 +    /// - [`max_time_seconds`](crate::types::builders::JobStateTimeLimitActionBuilder::max_time_seconds)
 +    /// - [`action`](crate::types::builders::JobStateTimeLimitActionBuilder::action)
-+    pub fn build(self) -> ::std::result::Result<super::types::JobStateTimeLimitAction, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::JobStateTimeLimitAction {
++    pub fn build(self) -> ::std::result::Result<super::super::types::JobStateTimeLimitAction, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::JobStateTimeLimitAction {
 +            reason: self.reason.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "reason",
@@ -9016,7 +14736,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub job_name: ::std::option::Option<::std::string::String>,
 +    pub job_name: ::std::string::String,
      /// <p>The configured capacity usage information for this job, including the unit of measure and quantity of resources.</p>
-     pub capacity_usage: ::std::option::Option<::std::vec::Vec<super::types::JobCapacityUsageSummary>>,
+     pub capacity_usage: ::std::option::Option<::std::vec::Vec<super::super::types::JobCapacityUsageSummary>>,
      /// <p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the <code>SUBMITTED</code> state (at the time <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html">SubmitJob</a> was called). For array child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>
 @@ -43,12 +43,14 @@
          self.job_arn.as_deref()
@@ -9041,13 +14761,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.job_definition
      }
      /// Consumes the builder and constructs a [`JobSummary`](crate::types::JobSummary).
--    pub fn build(self) -> super::types::JobSummary {
--        super::types::JobSummary {
+-    pub fn build(self) -> super::super::types::JobSummary {
+-        super::super::types::JobSummary {
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`job_id`](crate::types::builders::JobSummaryBuilder::job_id)
 +    /// - [`job_name`](crate::types::builders::JobSummaryBuilder::job_name)
-+    pub fn build(self) -> ::std::result::Result<super::types::JobSummary, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::JobSummary {
++    pub fn build(self) -> ::std::result::Result<super::super::types::JobSummary, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::JobSummary {
              job_arn: self.job_arn,
 -            job_id: self.job_id,
 -            job_name: self.job_name,
@@ -9113,7 +14833,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub created_at: ::std::option::Option<i64>,
 +    pub created_at: i64,
      /// <p>Contains a list of consumable resources required by the job.</p>
-     pub consumable_resource_properties: ::std::option::Option<super::types::ConsumableResourceProperties>,
+     pub consumable_resource_properties: ::std::option::Option<super::super::types::ConsumableResourceProperties>,
  }
  impl ListJobsByConsumableResourceSummary {
      /// <p>The Amazon Resource Name (ARN) of the job.</p>
@@ -9164,12 +14884,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.created_at
      }
      /// <p>Contains a list of consumable resources required by the job.</p>
-@@ -339,19 +343,56 @@
+@@ -339,19 +343,58 @@
          &self.consumable_resource_properties
      }
      /// Consumes the builder and constructs a [`ListJobsByConsumableResourceSummary`](crate::types::ListJobsByConsumableResourceSummary).
--    pub fn build(self) -> super::types::ListJobsByConsumableResourceSummary {
--        super::types::ListJobsByConsumableResourceSummary {
+-    pub fn build(self) -> super::super::types::ListJobsByConsumableResourceSummary {
+-        super::super::types::ListJobsByConsumableResourceSummary {
 -            job_arn: self.job_arn,
 -            job_queue_arn: self.job_queue_arn,
 -            job_name: self.job_name,
@@ -9180,8 +14900,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`job_status`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::job_status)
 +    /// - [`quantity`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::quantity)
 +    /// - [`created_at`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::created_at)
-+    pub fn build(self) -> ::std::result::Result<super::types::ListJobsByConsumableResourceSummary, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ListJobsByConsumableResourceSummary {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::ListJobsByConsumableResourceSummary, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ListJobsByConsumableResourceSummary {
 +            job_arn: self.job_arn.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "job_arn",
@@ -9241,8 +14963,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>If you have a custom driver that's not listed earlier that you want to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that's <a href="https://github.com/aws/amazon-ecs-agent">available on GitHub</a> and customize it to work with that driver. We encourage you to submit pull requests for changes that you want to have included. However, Amazon Web Services doesn't currently support running modified copies of this software.</p>
      /// </note>
      /// <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version | grep "Server API version"</code></p>
--    pub log_driver: ::std::option::Option<super::types::LogDriver>,
-+    pub log_driver: super::types::LogDriver,
+-    pub log_driver: ::std::option::Option<super::super::types::LogDriver>,
++    pub log_driver: super::super::types::LogDriver,
      /// <p>The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version | grep "Server API version"</code></p>
      pub options: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      /// <p>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying sensitive data</a> in the <i>Batch User Guide</i>.</p>
@@ -9250,9 +14972,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>If you have a custom driver that's not listed earlier that you want to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that's <a href="https://github.com/aws/amazon-ecs-agent">available on GitHub</a> and customize it to work with that driver. We encourage you to submit pull requests for changes that you want to have included. However, Amazon Web Services doesn't currently support running modified copies of this software.</p>
      /// </note>
      /// <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version | grep "Server API version"</code></p>
--    pub fn log_driver(&self) -> ::std::option::Option<&super::types::LogDriver> {
+-    pub fn log_driver(&self) -> ::std::option::Option<&super::super::types::LogDriver> {
 -        self.log_driver.as_ref()
-+    pub fn log_driver(&self) -> &super::types::LogDriver {
++    pub fn log_driver(&self) -> &super::super::types::LogDriver {
 +        &self.log_driver
      }
      /// <p>The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version | grep "Server API version"</code></p>
@@ -9261,13 +14983,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.secret_options
      }
      /// Consumes the builder and constructs a [`LogConfiguration`](crate::types::LogConfiguration).
--    pub fn build(self) -> super::types::LogConfiguration {
--        super::types::LogConfiguration {
+-    pub fn build(self) -> super::super::types::LogConfiguration {
+-        super::super::types::LogConfiguration {
 -            log_driver: self.log_driver,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`log_driver`](crate::types::builders::LogConfigurationBuilder::log_driver)
-+    pub fn build(self) -> ::std::result::Result<super::types::LogConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::LogConfiguration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::LogConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::LogConfiguration {
 +            log_driver: self.log_driver.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "log_driver",
@@ -9320,8 +15042,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.security_groups
      }
      /// Consumes the builder and constructs a [`ManagedInstancesNetworkConfiguration`](crate::types::ManagedInstancesNetworkConfiguration).
--    pub fn build(self) -> super::types::ManagedInstancesNetworkConfiguration {
--        super::types::ManagedInstancesNetworkConfiguration {
+-    pub fn build(self) -> super::super::types::ManagedInstancesNetworkConfiguration {
+-        super::super::types::ManagedInstancesNetworkConfiguration {
 -            subnets: self.subnets,
 -            security_groups: self.security_groups,
 -        }
@@ -9330,8 +15052,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`security_groups`](crate::types::builders::ManagedInstancesNetworkConfigurationBuilder::security_groups)
 +    pub fn build(
 +        self,
-+    ) -> ::std::result::Result<super::types::ManagedInstancesNetworkConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ManagedInstancesNetworkConfiguration {
++    ) -> ::std::result::Result<super::super::types::ManagedInstancesNetworkConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ManagedInstancesNetworkConfiguration {
 +            subnets: self.subnets.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "subnets",
@@ -9361,7 +15083,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub infrastructure_role_arn: ::std::option::Option<::std::string::String>,
 +    pub infrastructure_role_arn: ::std::string::String,
      /// <p>The instance launch configuration for the Amazon ECS Managed Instances capacity provider. Contains networking, instance profile, instance requirements, capacity type, storage, and monitoring configuration.</p>
-     pub instance_launch_template: ::std::option::Option<super::types::InstanceLaunchTemplate>,
+     pub instance_launch_template: ::std::option::Option<super::super::types::InstanceLaunchTemplate>,
      /// <p>The infrastructure optimization configuration for the capacity provider. Specifies the idle-instance scale-in behavior.</p>
 @@ -31,8 +31,9 @@
          self.propagate_tags.as_deref()
@@ -9374,17 +15096,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.infrastructure_role_arn.deref()
      }
      /// <p>The instance launch configuration for the Amazon ECS Managed Instances capacity provider. Contains networking, instance profile, instance requirements, capacity type, storage, and monitoring configuration.</p>
-     pub fn instance_launch_template(&self) -> ::std::option::Option<&super::types::InstanceLaunchTemplate> {
+     pub fn instance_launch_template(&self) -> ::std::option::Option<&super::super::types::InstanceLaunchTemplate> {
 @@ -137,12 +138,19 @@
          &self.infrastructure_optimization
      }
      /// Consumes the builder and constructs a [`ManagedInstancesProvider`](crate::types::ManagedInstancesProvider).
--    pub fn build(self) -> super::types::ManagedInstancesProvider {
--        super::types::ManagedInstancesProvider {
+-    pub fn build(self) -> super::super::types::ManagedInstancesProvider {
+-        super::super::types::ManagedInstancesProvider {
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`infrastructure_role_arn`](crate::types::builders::ManagedInstancesProviderBuilder::infrastructure_role_arn)
-+    pub fn build(self) -> ::std::result::Result<super::types::ManagedInstancesProvider, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ManagedInstancesProvider {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ManagedInstancesProvider, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ManagedInstancesProvider {
              propagate_tags: self.propagate_tags,
 -            infrastructure_role_arn: self.infrastructure_role_arn,
 +            infrastructure_role_arn: self.infrastructure_role_arn.ok_or_else(|| {
@@ -9451,8 +15173,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        &self.storage_size_gi_b
      }
      /// Consumes the builder and constructs a [`ManagedInstancesStorageConfiguration`](crate::types::ManagedInstancesStorageConfiguration).
-     pub fn build(self) -> super::types::ManagedInstancesStorageConfiguration {
-         super::types::ManagedInstancesStorageConfiguration {
+     pub fn build(self) -> super::super::types::ManagedInstancesStorageConfiguration {
+         super::super::types::ManagedInstancesStorageConfiguration {
 -            storage_size_gib: self.storage_size_gib,
 +            storage_size_gi_b: self.storage_size_gi_b,
          }
@@ -9475,8 +15197,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub main_node: ::std::option::Option<i32>,
 +    pub main_node: i32,
      /// <p>A list of node ranges and their properties that are associated with a multi-node parallel job.</p>
--    pub node_range_properties: ::std::option::Option<::std::vec::Vec<super::types::NodeRangeProperty>>,
-+    pub node_range_properties: ::std::vec::Vec<super::types::NodeRangeProperty>,
+-    pub node_range_properties: ::std::option::Option<::std::vec::Vec<super::super::types::NodeRangeProperty>>,
++    pub node_range_properties: ::std::vec::Vec<super::super::types::NodeRangeProperty>,
  }
  impl NodeProperties {
      /// <p>The number of nodes that are associated with a multi-node parallel job.</p>
@@ -9492,7 +15214,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>A list of node ranges and their properties that are associated with a multi-node parallel job.</p>
 -    ///
 -    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.node_range_properties.is_none()`.
-     pub fn node_range_properties(&self) -> &[super::types::NodeRangeProperty] {
+     pub fn node_range_properties(&self) -> &[super::super::types::NodeRangeProperty] {
 -        self.node_range_properties.as_deref().unwrap_or_default()
 +        use std::ops::Deref;
 +        self.node_range_properties.deref()
@@ -9503,8 +15225,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.node_range_properties
      }
      /// Consumes the builder and constructs a [`NodeProperties`](crate::types::NodeProperties).
--    pub fn build(self) -> super::types::NodeProperties {
--        super::types::NodeProperties {
+-    pub fn build(self) -> super::super::types::NodeProperties {
+-        super::super::types::NodeProperties {
 -            num_nodes: self.num_nodes,
 -            main_node: self.main_node,
 -            node_range_properties: self.node_range_properties,
@@ -9513,8 +15235,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`num_nodes`](crate::types::builders::NodePropertiesBuilder::num_nodes)
 +    /// - [`main_node`](crate::types::builders::NodePropertiesBuilder::main_node)
 +    /// - [`node_range_properties`](crate::types::builders::NodePropertiesBuilder::node_range_properties)
-+    pub fn build(self) -> ::std::result::Result<super::types::NodeProperties, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::NodeProperties {
++    pub fn build(self) -> ::std::result::Result<super::super::types::NodeProperties, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::NodeProperties {
 +            num_nodes: self.num_nodes.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "num_nodes",
@@ -9550,7 +15272,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub target_nodes: ::std::option::Option<::std::string::String>,
 +    pub target_nodes: ::std::string::String,
      /// <p>The overrides that are sent to a node range.</p>
-     pub container_overrides: ::std::option::Option<super::types::ContainerOverrides>,
+     pub container_overrides: ::std::option::Option<super::super::types::ContainerOverrides>,
      /// <p>An object that contains the properties that you want to replace for the existing Amazon ECS resources of a job.</p>
 @@ -19,8 +19,9 @@
  }
@@ -9563,18 +15285,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.target_nodes.deref()
      }
      /// <p>The overrides that are sent to a node range.</p>
-     pub fn container_overrides(&self) -> ::std::option::Option<&super::types::ContainerOverrides> {
-@@ -156,14 +157,21 @@
+     pub fn container_overrides(&self) -> ::std::option::Option<&super::super::types::ContainerOverrides> {
+@@ -147,7 +148,10 @@
+         self
+     }
+     /// <p>An object that contains overrides for the consumable resources of a job.</p>
+-    pub fn set_consumable_resource_properties_override(mut self, input: ::std::option::Option<super::super::types::ConsumableResourceProperties>) -> Self {
++    pub fn set_consumable_resource_properties_override(
++        mut self,
++        input: ::std::option::Option<super::super::types::ConsumableResourceProperties>,
++    ) -> Self {
+         self.consumable_resource_properties_override = input;
+         self
+     }
+@@ -156,14 +160,21 @@
          &self.consumable_resource_properties_override
      }
      /// Consumes the builder and constructs a [`NodePropertyOverride`](crate::types::NodePropertyOverride).
--    pub fn build(self) -> super::types::NodePropertyOverride {
--        super::types::NodePropertyOverride {
+-    pub fn build(self) -> super::super::types::NodePropertyOverride {
+-        super::super::types::NodePropertyOverride {
 -            target_nodes: self.target_nodes,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`target_nodes`](crate::types::builders::NodePropertyOverrideBuilder::target_nodes)
-+    pub fn build(self) -> ::std::result::Result<super::types::NodePropertyOverride, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::NodePropertyOverride {
++    pub fn build(self) -> ::std::result::Result<super::super::types::NodePropertyOverride, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::NodePropertyOverride {
 +            target_nodes: self.target_nodes.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "target_nodes",
@@ -9604,7 +15338,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub target_nodes: ::std::option::Option<::std::string::String>,
 +    pub target_nodes: ::std::string::String,
      /// <p>The container details for the node range.</p>
-     pub container: ::std::option::Option<super::types::ContainerProperties>,
+     pub container: ::std::option::Option<super::super::types::ContainerProperties>,
      /// <p>The instance types of the underlying host infrastructure of a multi-node parallel job.</p><note>
 @@ -22,8 +22,9 @@
  }
@@ -9617,18 +15351,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.target_nodes.deref()
      }
      /// <p>The container details for the node range.</p>
-     pub fn container(&self) -> ::std::option::Option<&super::types::ContainerProperties> {
+     pub fn container(&self) -> ::std::option::Option<&super::super::types::ContainerProperties> {
 @@ -171,14 +172,21 @@
          &self.consumable_resource_properties
      }
      /// Consumes the builder and constructs a [`NodeRangeProperty`](crate::types::NodeRangeProperty).
--    pub fn build(self) -> super::types::NodeRangeProperty {
--        super::types::NodeRangeProperty {
+-    pub fn build(self) -> super::super::types::NodeRangeProperty {
+-        super::super::types::NodeRangeProperty {
 -            target_nodes: self.target_nodes,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`target_nodes`](crate::types::builders::NodeRangePropertyBuilder::target_nodes)
-+    pub fn build(self) -> ::std::result::Result<super::types::NodeRangeProperty, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::NodeRangeProperty {
++    pub fn build(self) -> ::std::result::Result<super::super::types::NodeRangeProperty, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::NodeRangeProperty {
 +            target_nodes: self.target_nodes.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "target_nodes",
@@ -9644,6 +15378,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        })
      }
  }
+```
+
+### `src/types/_queue_snapshot_utilization_detail.rs`
+
+```diff
+--- reference/src/types/_queue_snapshot_utilization_detail.rs
++++ generated/src/types/_queue_snapshot_utilization_detail.rs
+@@ -62,7 +62,10 @@
+         self
+     }
+     /// <p>The total capacity usage for the entire job queue.</p>
+-    pub fn set_total_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::QueueSnapshotCapacityUsage>>) -> Self {
++    pub fn set_total_capacity_usage(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::QueueSnapshotCapacityUsage>>,
++    ) -> Self {
+         self.total_capacity_usage = input;
+         self
+     }
 ```
 
 ### `src/types/_quota_share_capacity_limit.rs`
@@ -9680,16 +15433,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.capacity_unit
      }
      /// Consumes the builder and constructs a [`QuotaShareCapacityLimit`](crate::types::QuotaShareCapacityLimit).
--    pub fn build(self) -> super::types::QuotaShareCapacityLimit {
--        super::types::QuotaShareCapacityLimit {
+-    pub fn build(self) -> super::super::types::QuotaShareCapacityLimit {
+-        super::super::types::QuotaShareCapacityLimit {
 -            max_capacity: self.max_capacity,
 -            capacity_unit: self.capacity_unit,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`max_capacity`](crate::types::builders::QuotaShareCapacityLimitBuilder::max_capacity)
 +    /// - [`capacity_unit`](crate::types::builders::QuotaShareCapacityLimitBuilder::capacity_unit)
-+    pub fn build(self) -> ::std::result::Result<super::types::QuotaShareCapacityLimit, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::QuotaShareCapacityLimit {
++    pub fn build(self) -> ::std::result::Result<super::super::types::QuotaShareCapacityLimit, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::QuotaShareCapacityLimit {
 +            max_capacity: self.max_capacity.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "max_capacity",
@@ -9707,6 +15460,43 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/types/_quota_share_detail.rs`
+
+```diff
+--- reference/src/types/_quota_share_detail.rs
++++ generated/src/types/_quota_share_detail.rs
+@@ -146,7 +146,10 @@
+         self
+     }
+     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
+-    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<super::super::types::QuotaShareResourceSharingConfiguration>) -> Self {
++    pub fn set_resource_sharing_configuration(
++        mut self,
++        input: ::std::option::Option<super::super::types::QuotaShareResourceSharingConfiguration>,
++    ) -> Self {
+         self.resource_sharing_configuration = input;
+         self
+     }
+```
+
+### `src/types/_quota_share_idle_resource_assignment_strategy.rs`
+
+```diff
+--- reference/src/types/_quota_share_idle_resource_assignment_strategy.rs
++++ generated/src/types/_quota_share_idle_resource_assignment_strategy.rs
+@@ -51,7 +51,9 @@
+     fn from(s: &str) -> Self {
+         match s {
+             "FIFO" => QuotaShareIdleResourceAssignmentStrategy::Fifo,
+-            other => QuotaShareIdleResourceAssignmentStrategy::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
++            other => QuotaShareIdleResourceAssignmentStrategy::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
++                other.to_owned(),
++            )),
+         }
+     }
+ }
+```
+
 ### `src/types/_quota_share_policy.rs`
 
 ```diff
@@ -9716,14 +15506,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct QuotaSharePolicy {
      /// <p>The strategy that determines how idle resources are assigned to quota shares that are borrowing capacity. Currently, only <code>FIFO</code> is supported.</p>
--    pub idle_resource_assignment_strategy: ::std::option::Option<super::types::QuotaShareIdleResourceAssignmentStrategy>,
-+    pub idle_resource_assignment_strategy: super::types::QuotaShareIdleResourceAssignmentStrategy,
+-    pub idle_resource_assignment_strategy: ::std::option::Option<super::super::types::QuotaShareIdleResourceAssignmentStrategy>,
++    pub idle_resource_assignment_strategy: super::super::types::QuotaShareIdleResourceAssignmentStrategy,
  }
  impl QuotaSharePolicy {
      /// <p>The strategy that determines how idle resources are assigned to quota shares that are borrowing capacity. Currently, only <code>FIFO</code> is supported.</p>
--    pub fn idle_resource_assignment_strategy(&self) -> ::std::option::Option<&super::types::QuotaShareIdleResourceAssignmentStrategy> {
+-    pub fn idle_resource_assignment_strategy(&self) -> ::std::option::Option<&super::super::types::QuotaShareIdleResourceAssignmentStrategy> {
 -        self.idle_resource_assignment_strategy.as_ref()
-+    pub fn idle_resource_assignment_strategy(&self) -> &super::types::QuotaShareIdleResourceAssignmentStrategy {
++    pub fn idle_resource_assignment_strategy(&self) -> &super::super::types::QuotaShareIdleResourceAssignmentStrategy {
 +        &self.idle_resource_assignment_strategy
      }
  }
@@ -9732,14 +15522,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.idle_resource_assignment_strategy
      }
      /// Consumes the builder and constructs a [`QuotaSharePolicy`](crate::types::QuotaSharePolicy).
--    pub fn build(self) -> super::types::QuotaSharePolicy {
--        super::types::QuotaSharePolicy {
+-    pub fn build(self) -> super::super::types::QuotaSharePolicy {
+-        super::super::types::QuotaSharePolicy {
 -            idle_resource_assignment_strategy: self.idle_resource_assignment_strategy,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`idle_resource_assignment_strategy`](crate::types::builders::QuotaSharePolicyBuilder::idle_resource_assignment_strategy)
-+    pub fn build(self) -> ::std::result::Result<super::types::QuotaSharePolicy, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::QuotaSharePolicy {
++    pub fn build(self) -> ::std::result::Result<super::super::types::QuotaSharePolicy, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::QuotaSharePolicy {
 +            idle_resource_assignment_strategy: self.idle_resource_assignment_strategy.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "idle_resource_assignment_strategy",
@@ -9760,30 +15550,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct QuotaSharePreemptionConfiguration {
      /// <p>Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.</p>
--    pub in_share_preemption: ::std::option::Option<super::types::QuotaShareInSharePreemptionState>,
-+    pub in_share_preemption: super::types::QuotaShareInSharePreemptionState,
+-    pub in_share_preemption: ::std::option::Option<super::super::types::QuotaShareInSharePreemptionState>,
++    pub in_share_preemption: super::super::types::QuotaShareInSharePreemptionState,
  }
  impl QuotaSharePreemptionConfiguration {
      /// <p>Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.</p>
--    pub fn in_share_preemption(&self) -> ::std::option::Option<&super::types::QuotaShareInSharePreemptionState> {
+-    pub fn in_share_preemption(&self) -> ::std::option::Option<&super::super::types::QuotaShareInSharePreemptionState> {
 -        self.in_share_preemption.as_ref()
-+    pub fn in_share_preemption(&self) -> &super::types::QuotaShareInSharePreemptionState {
++    pub fn in_share_preemption(&self) -> &super::super::types::QuotaShareInSharePreemptionState {
 +        &self.in_share_preemption
      }
  }
  impl QuotaSharePreemptionConfiguration {
-@@ -43,9 +43,16 @@
+@@ -43,9 +43,18 @@
          &self.in_share_preemption
      }
      /// Consumes the builder and constructs a [`QuotaSharePreemptionConfiguration`](crate::types::QuotaSharePreemptionConfiguration).
--    pub fn build(self) -> super::types::QuotaSharePreemptionConfiguration {
--        super::types::QuotaSharePreemptionConfiguration {
+-    pub fn build(self) -> super::super::types::QuotaSharePreemptionConfiguration {
+-        super::super::types::QuotaSharePreemptionConfiguration {
 -            in_share_preemption: self.in_share_preemption,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`in_share_preemption`](crate::types::builders::QuotaSharePreemptionConfigurationBuilder::in_share_preemption)
-+    pub fn build(self) -> ::std::result::Result<super::types::QuotaSharePreemptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::QuotaSharePreemptionConfiguration {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::QuotaSharePreemptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::QuotaSharePreemptionConfiguration {
 +            in_share_preemption: self.in_share_preemption.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "in_share_preemption",
@@ -9804,8 +15596,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct QuotaShareResourceSharingConfiguration {
      /// <p>The resource sharing strategy for the quota share. The <code>RESERVE</code> strategy allows a quota share to reserve idle capacity for itself. <code>LEND</code> configures the share to lend its idle capacity to another share in need of capacity. The <code>LEND_AND_BORROW</code> strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.</p>
--    pub strategy: ::std::option::Option<super::types::QuotaShareResourceSharingStrategy>,
-+    pub strategy: super::types::QuotaShareResourceSharingStrategy,
+-    pub strategy: ::std::option::Option<super::super::types::QuotaShareResourceSharingStrategy>,
++    pub strategy: super::super::types::QuotaShareResourceSharingStrategy,
      /// <p>The maximum percentage of additional capacity that the quota share can borrow from other shares. <code>borrowLimit</code> can only be applied to quota shares with a strategy of <code>LEND_AND_BORROW</code>. This value is expressed as a percentage of the quota share's configured <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_QuotaShareCapacityLimit.html">CapacityLimits</a>.</p>
      /// <p>The <code>borrowLimit</code> is applied uniformly across all capacity units. For example, if the <code>borrowLimit</code> is 200, the quota share can borrow up to 200% of its configured <code>maxCapacity</code> for each capacity unit. The default <code>borrowLimit</code> is -1, which indicates unlimited borrowing.</p>
      pub borrow_limit: ::std::option::Option<i32>,
@@ -9813,9 +15605,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl QuotaShareResourceSharingConfiguration {
      /// <p>The resource sharing strategy for the quota share. The <code>RESERVE</code> strategy allows a quota share to reserve idle capacity for itself. <code>LEND</code> configures the share to lend its idle capacity to another share in need of capacity. The <code>LEND_AND_BORROW</code> strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.</p>
--    pub fn strategy(&self) -> ::std::option::Option<&super::types::QuotaShareResourceSharingStrategy> {
+-    pub fn strategy(&self) -> ::std::option::Option<&super::super::types::QuotaShareResourceSharingStrategy> {
 -        self.strategy.as_ref()
-+    pub fn strategy(&self) -> &super::types::QuotaShareResourceSharingStrategy {
++    pub fn strategy(&self) -> &super::super::types::QuotaShareResourceSharingStrategy {
 +        &self.strategy
      }
      /// <p>The maximum percentage of additional capacity that the quota share can borrow from other shares. <code>borrowLimit</code> can only be applied to quota shares with a strategy of <code>LEND_AND_BORROW</code>. This value is expressed as a percentage of the quota share's configured <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_QuotaShareCapacityLimit.html">CapacityLimits</a>.</p>
@@ -9824,15 +15616,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.borrow_limit
      }
      /// Consumes the builder and constructs a [`QuotaShareResourceSharingConfiguration`](crate::types::QuotaShareResourceSharingConfiguration).
--    pub fn build(self) -> super::types::QuotaShareResourceSharingConfiguration {
--        super::types::QuotaShareResourceSharingConfiguration {
+-    pub fn build(self) -> super::super::types::QuotaShareResourceSharingConfiguration {
+-        super::super::types::QuotaShareResourceSharingConfiguration {
 -            strategy: self.strategy,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`strategy`](crate::types::builders::QuotaShareResourceSharingConfigurationBuilder::strategy)
 +    pub fn build(
 +        self,
-+    ) -> ::std::result::Result<super::types::QuotaShareResourceSharingConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::QuotaShareResourceSharingConfiguration {
++    ) -> ::std::result::Result<super::super::types::QuotaShareResourceSharingConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::QuotaShareResourceSharingConfiguration {
 +            strategy: self.strategy.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "strategy",
@@ -9872,14 +15664,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.credentials_parameter
      }
      /// Consumes the builder and constructs a [`RepositoryCredentials`](crate::types::RepositoryCredentials).
--    pub fn build(self) -> super::types::RepositoryCredentials {
--        super::types::RepositoryCredentials {
+-    pub fn build(self) -> super::super::types::RepositoryCredentials {
+-        super::super::types::RepositoryCredentials {
 -            credentials_parameter: self.credentials_parameter,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`credentials_parameter`](crate::types::builders::RepositoryCredentialsBuilder::credentials_parameter)
-+    pub fn build(self) -> ::std::result::Result<super::types::RepositoryCredentials, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::RepositoryCredentials {
++    pub fn build(self) -> ::std::result::Result<super::super::types::RepositoryCredentials, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::RepositoryCredentials {
 +            credentials_parameter: self.credentials_parameter.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "credentials_parameter",
@@ -9903,8 +15695,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub value: ::std::option::Option<::std::string::String>,
 +    pub value: ::std::string::String,
      /// <p>The type of resource to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
--    pub r#type: ::std::option::Option<super::types::ResourceType>,
-+    pub r#type: super::types::ResourceType,
+-    pub r#type: ::std::option::Option<super::super::types::ResourceType>,
++    pub r#type: super::super::types::ResourceType,
  }
  impl ResourceRequirement {
      /// <p>The quantity of the specified resource to reserve for the container. The values vary based on the <code>type</code> specified.</p>
@@ -9919,9 +15711,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.value.deref()
      }
      /// <p>The type of resource to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
--    pub fn r#type(&self) -> ::std::option::Option<&super::types::ResourceType> {
+-    pub fn r#type(&self) -> ::std::option::Option<&super::super::types::ResourceType> {
 -        self.r#type.as_ref()
-+    pub fn r#type(&self) -> &super::types::ResourceType {
++    pub fn r#type(&self) -> &super::super::types::ResourceType {
 +        &self.r#type
      }
  }
@@ -9930,16 +15722,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.r#type
      }
      /// Consumes the builder and constructs a [`ResourceRequirement`](crate::types::ResourceRequirement).
--    pub fn build(self) -> super::types::ResourceRequirement {
--        super::types::ResourceRequirement {
+-    pub fn build(self) -> super::super::types::ResourceRequirement {
+-        super::super::types::ResourceRequirement {
 -            value: self.value,
 -            r#type: self.r#type,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`value`](crate::types::builders::ResourceRequirementBuilder::value)
 +    /// - [`r#type`](crate::types::builders::ResourceRequirementBuilder::type)
-+    pub fn build(self) -> ::std::result::Result<super::types::ResourceRequirement, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ResourceRequirement {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ResourceRequirement, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ResourceRequirement {
 +            value: self.value.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "value",
@@ -9987,13 +15779,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.access_point_arn
      }
      /// Consumes the builder and constructs a [`S3FilesVolumeConfiguration`](crate::types::S3FilesVolumeConfiguration).
--    pub fn build(self) -> super::types::S3FilesVolumeConfiguration {
--        super::types::S3FilesVolumeConfiguration {
+-    pub fn build(self) -> super::super::types::S3FilesVolumeConfiguration {
+-        super::super::types::S3FilesVolumeConfiguration {
 -            file_system_arn: self.file_system_arn,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`file_system_arn`](crate::types::builders::S3FilesVolumeConfigurationBuilder::file_system_arn)
-+    pub fn build(self) -> ::std::result::Result<super::types::S3FilesVolumeConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::S3FilesVolumeConfiguration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::S3FilesVolumeConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::S3FilesVolumeConfiguration {
 +            file_system_arn: self.file_system_arn.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "file_system_arn",
@@ -10024,7 +15816,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub arn: ::std::option::Option<::std::string::String>,
 +    pub arn: ::std::string::String,
      /// <p>The quota share scheduling policy details.</p>
-     pub quota_share_policy: ::std::option::Option<super::types::QuotaSharePolicy>,
+     pub quota_share_policy: ::std::option::Option<super::super::types::QuotaSharePolicy>,
      /// <p>The fair-share scheduling policy details.</p>
 @@ -17,12 +17,14 @@
  }
@@ -10044,20 +15836,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.arn.deref()
      }
      /// <p>The quota share scheduling policy details.</p>
-     pub fn quota_share_policy(&self) -> ::std::option::Option<&super::types::QuotaSharePolicy> {
+     pub fn quota_share_policy(&self) -> ::std::option::Option<&super::super::types::QuotaSharePolicy> {
 @@ -134,13 +136,26 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`SchedulingPolicyDetail`](crate::types::SchedulingPolicyDetail).
--    pub fn build(self) -> super::types::SchedulingPolicyDetail {
--        super::types::SchedulingPolicyDetail {
+-    pub fn build(self) -> super::super::types::SchedulingPolicyDetail {
+-        super::super::types::SchedulingPolicyDetail {
 -            name: self.name,
 -            arn: self.arn,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`name`](crate::types::builders::SchedulingPolicyDetailBuilder::name)
 +    /// - [`arn`](crate::types::builders::SchedulingPolicyDetailBuilder::arn)
-+    pub fn build(self) -> ::std::result::Result<super::types::SchedulingPolicyDetail, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::SchedulingPolicyDetail {
++    pub fn build(self) -> ::std::result::Result<super::super::types::SchedulingPolicyDetail, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::SchedulingPolicyDetail {
 +            name: self.name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "name",
@@ -10101,16 +15893,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl SchedulingPolicyListingDetail {
-@@ -43,7 +44,16 @@
+@@ -43,7 +44,18 @@
          &self.arn
      }
      /// Consumes the builder and constructs a [`SchedulingPolicyListingDetail`](crate::types::SchedulingPolicyListingDetail).
--    pub fn build(self) -> super::types::SchedulingPolicyListingDetail {
--        super::types::SchedulingPolicyListingDetail { arn: self.arn }
+-    pub fn build(self) -> super::super::types::SchedulingPolicyListingDetail {
+-        super::super::types::SchedulingPolicyListingDetail { arn: self.arn }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`arn`](crate::types::builders::SchedulingPolicyListingDetailBuilder::arn)
-+    pub fn build(self) -> ::std::result::Result<super::types::SchedulingPolicyListingDetail, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::SchedulingPolicyListingDetail {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::types::SchedulingPolicyListingDetail, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::SchedulingPolicyListingDetail {
 +            arn: self.arn.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "arn",
@@ -10162,16 +15956,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.value_from
      }
      /// Consumes the builder and constructs a [`Secret`](crate::types::Secret).
--    pub fn build(self) -> super::types::Secret {
--        super::types::Secret {
+-    pub fn build(self) -> super::super::types::Secret {
+-        super::super::types::Secret {
 -            name: self.name,
 -            value_from: self.value_from,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`name`](crate::types::builders::SecretBuilder::name)
 +    /// - [`value_from`](crate::types::builders::SecretBuilder::value_from)
-+    pub fn build(self) -> ::std::result::Result<super::types::Secret, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Secret {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Secret, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Secret {
 +            name: self.name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "name",
@@ -10204,15 +15998,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub service_environment_arn: ::std::option::Option<::std::string::String>,
 +    pub service_environment_arn: ::std::string::String,
      /// <p>The type of service environment. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
--    pub service_environment_type: ::std::option::Option<super::types::ServiceEnvironmentType>,
-+    pub service_environment_type: super::types::ServiceEnvironmentType,
+-    pub service_environment_type: ::std::option::Option<super::super::types::ServiceEnvironmentType>,
++    pub service_environment_type: super::super::types::ServiceEnvironmentType,
      /// <p>The state of the service environment. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
-     pub state: ::std::option::Option<super::types::ServiceEnvironmentState>,
+     pub state: ::std::option::Option<super::super::types::ServiceEnvironmentState>,
      /// <p>The current status of the service environment.</p>
-     pub status: ::std::option::Option<super::types::ServiceEnvironmentStatus>,
+     pub status: ::std::option::Option<super::super::types::ServiceEnvironmentStatus>,
      /// <p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>
--    pub capacity_limits: ::std::option::Option<::std::vec::Vec<super::types::CapacityLimit>>,
-+    pub capacity_limits: ::std::vec::Vec<super::types::CapacityLimit>,
+-    pub capacity_limits: ::std::option::Option<::std::vec::Vec<super::super::types::CapacityLimit>>,
++    pub capacity_limits: ::std::vec::Vec<super::super::types::CapacityLimit>,
      /// <p>The tags associated with the service environment. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
      pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
  }
@@ -10232,20 +16026,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.service_environment_arn.deref()
      }
      /// <p>The type of service environment. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
--    pub fn service_environment_type(&self) -> ::std::option::Option<&super::types::ServiceEnvironmentType> {
+-    pub fn service_environment_type(&self) -> ::std::option::Option<&super::super::types::ServiceEnvironmentType> {
 -        self.service_environment_type.as_ref()
-+    pub fn service_environment_type(&self) -> &super::types::ServiceEnvironmentType {
++    pub fn service_environment_type(&self) -> &super::super::types::ServiceEnvironmentType {
 +        &self.service_environment_type
      }
      /// <p>The state of the service environment. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
-     pub fn state(&self) -> ::std::option::Option<&super::types::ServiceEnvironmentState> {
+     pub fn state(&self) -> ::std::option::Option<&super::super::types::ServiceEnvironmentState> {
 @@ -41,10 +43,9 @@
          self.status.as_ref()
      }
      /// <p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>
 -    ///
 -    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.capacity_limits.is_none()`.
-     pub fn capacity_limits(&self) -> &[super::types::CapacityLimit] {
+     pub fn capacity_limits(&self) -> &[super::super::types::CapacityLimit] {
 -        self.capacity_limits.as_deref().unwrap_or_default()
 +        use std::ops::Deref;
 +        self.capacity_limits.deref()
@@ -10256,8 +16050,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.tags
      }
      /// Consumes the builder and constructs a [`ServiceEnvironmentDetail`](crate::types::ServiceEnvironmentDetail).
--    pub fn build(self) -> super::types::ServiceEnvironmentDetail {
--        super::types::ServiceEnvironmentDetail {
+-    pub fn build(self) -> super::super::types::ServiceEnvironmentDetail {
+-        super::super::types::ServiceEnvironmentDetail {
 -            service_environment_name: self.service_environment_name,
 -            service_environment_arn: self.service_environment_arn,
 -            service_environment_type: self.service_environment_type,
@@ -10266,8 +16060,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`service_environment_arn`](crate::types::builders::ServiceEnvironmentDetailBuilder::service_environment_arn)
 +    /// - [`service_environment_type`](crate::types::builders::ServiceEnvironmentDetailBuilder::service_environment_type)
 +    /// - [`capacity_limits`](crate::types::builders::ServiceEnvironmentDetailBuilder::capacity_limits)
-+    pub fn build(self) -> ::std::result::Result<super::types::ServiceEnvironmentDetail, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ServiceEnvironmentDetail {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceEnvironmentDetail, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ServiceEnvironmentDetail {
 +            service_environment_name: self.service_environment_name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "service_environment_name",
@@ -10336,16 +16130,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.service_environment
      }
      /// Consumes the builder and constructs a [`ServiceEnvironmentOrder`](crate::types::ServiceEnvironmentOrder).
--    pub fn build(self) -> super::types::ServiceEnvironmentOrder {
--        super::types::ServiceEnvironmentOrder {
+-    pub fn build(self) -> super::super::types::ServiceEnvironmentOrder {
+-        super::super::types::ServiceEnvironmentOrder {
 -            order: self.order,
 -            service_environment: self.service_environment,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`order`](crate::types::builders::ServiceEnvironmentOrderBuilder::order)
 +    /// - [`service_environment`](crate::types::builders::ServiceEnvironmentOrderBuilder::service_environment)
-+    pub fn build(self) -> ::std::result::Result<super::types::ServiceEnvironmentOrder, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ServiceEnvironmentOrder {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceEnvironmentOrder, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ServiceEnvironmentOrder {
 +            order: self.order.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "order",
@@ -10363,6 +16157,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
+### `src/types/_service_job_preemption_summary.rs`
+
+```diff
+--- reference/src/types/_service_job_preemption_summary.rs
++++ generated/src/types/_service_job_preemption_summary.rs
+@@ -62,7 +62,10 @@
+         self
+     }
+     /// <p>A list of the most recent preemption attempts for the service job.</p>
+-    pub fn set_recent_preempted_attempts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceJobPreemptedAttempt>>) -> Self {
++    pub fn set_recent_preempted_attempts(
++        mut self,
++        input: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceJobPreemptedAttempt>>,
++    ) -> Self {
+         self.recent_preempted_attempts = input;
+         self
+     }
+```
+
 ### `src/types/_service_job_retry_strategy.rs`
 
 ```diff
@@ -10375,7 +16188,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub attempts: ::std::option::Option<i32>,
 +    pub attempts: i32,
      /// <p>Array of <code>ServiceJobEvaluateOnExit</code> objects that specify conditions under which the service job should be retried or failed.</p>
-     pub evaluate_on_exit: ::std::option::Option<::std::vec::Vec<super::types::ServiceJobEvaluateOnExit>>,
+     pub evaluate_on_exit: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceJobEvaluateOnExit>>,
  }
  impl ServiceJobRetryStrategy {
      /// <p>The number of times to move a service job to <code>RUNNABLE</code> status. You can specify between 1 and 10 attempts.</p>
@@ -10388,13 +16201,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.evaluate_on_exit
      }
      /// Consumes the builder and constructs a [`ServiceJobRetryStrategy`](crate::types::ServiceJobRetryStrategy).
--    pub fn build(self) -> super::types::ServiceJobRetryStrategy {
--        super::types::ServiceJobRetryStrategy {
+-    pub fn build(self) -> super::super::types::ServiceJobRetryStrategy {
+-        super::super::types::ServiceJobRetryStrategy {
 -            attempts: self.attempts,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`attempts`](crate::types::builders::ServiceJobRetryStrategyBuilder::attempts)
-+    pub fn build(self) -> ::std::result::Result<super::types::ServiceJobRetryStrategy, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ServiceJobRetryStrategy {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceJobRetryStrategy, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ServiceJobRetryStrategy {
 +            attempts: self.attempts.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "attempts",
@@ -10425,8 +16238,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The Unix timestamp (in milliseconds) for when the service job was scheduled for execution.</p>
      pub scheduled_at: ::std::option::Option<i64>,
      /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
--    pub service_job_type: ::std::option::Option<super::types::ServiceJobType>,
-+    pub service_job_type: super::types::ServiceJobType,
+-    pub service_job_type: ::std::option::Option<super::super::types::ServiceJobType>,
++    pub service_job_type: super::super::types::ServiceJobType,
      /// <p>The share identifier for the job.</p>
      pub share_identifier: ::std::option::Option<::std::string::String>,
      /// <p>The quota share for the service job.</p>
@@ -10453,9 +16266,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.scheduled_at
      }
      /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
--    pub fn service_job_type(&self) -> ::std::option::Option<&super::types::ServiceJobType> {
+-    pub fn service_job_type(&self) -> ::std::option::Option<&super::super::types::ServiceJobType> {
 -        self.service_job_type.as_ref()
-+    pub fn service_job_type(&self) -> &super::types::ServiceJobType {
++    pub fn service_job_type(&self) -> &super::super::types::ServiceJobType {
 +        &self.service_job_type
      }
      /// <p>The share identifier for the job.</p>
@@ -10464,14 +16277,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.stopped_at
      }
      /// Consumes the builder and constructs a [`ServiceJobSummary`](crate::types::ServiceJobSummary).
--    pub fn build(self) -> super::types::ServiceJobSummary {
--        super::types::ServiceJobSummary {
+-    pub fn build(self) -> super::super::types::ServiceJobSummary {
+-        super::super::types::ServiceJobSummary {
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`job_id`](crate::types::builders::ServiceJobSummaryBuilder::job_id)
 +    /// - [`job_name`](crate::types::builders::ServiceJobSummaryBuilder::job_name)
 +    /// - [`service_job_type`](crate::types::builders::ServiceJobSummaryBuilder::service_job_type)
-+    pub fn build(self) -> ::std::result::Result<super::types::ServiceJobSummary, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ServiceJobSummary {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceJobSummary, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ServiceJobSummary {
              latest_attempt: self.latest_attempt,
              capacity_usage: self.capacity_usage,
              created_at: self.created_at,
@@ -10520,17 +16333,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ServiceResourceId {
      /// <p>The name of the resource identifier.</p>
--    pub name: ::std::option::Option<super::types::ServiceResourceIdName>,
-+    pub name: super::types::ServiceResourceIdName,
+-    pub name: ::std::option::Option<super::super::types::ServiceResourceIdName>,
++    pub name: super::super::types::ServiceResourceIdName,
      /// <p>The value of the resource identifier.</p>
 -    pub value: ::std::option::Option<::std::string::String>,
 +    pub value: ::std::string::String,
  }
  impl ServiceResourceId {
      /// <p>The name of the resource identifier.</p>
--    pub fn name(&self) -> ::std::option::Option<&super::types::ServiceResourceIdName> {
+-    pub fn name(&self) -> ::std::option::Option<&super::super::types::ServiceResourceIdName> {
 -        self.name.as_ref()
-+    pub fn name(&self) -> &super::types::ServiceResourceIdName {
++    pub fn name(&self) -> &super::super::types::ServiceResourceIdName {
 +        &self.name
      }
      /// <p>The value of the resource identifier.</p>
@@ -10546,16 +16359,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.value
      }
      /// Consumes the builder and constructs a [`ServiceResourceId`](crate::types::ServiceResourceId).
--    pub fn build(self) -> super::types::ServiceResourceId {
--        super::types::ServiceResourceId {
+-    pub fn build(self) -> super::super::types::ServiceResourceId {
+-        super::super::types::ServiceResourceId {
 -            name: self.name,
 -            value: self.value,
 -        }
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`name`](crate::types::builders::ServiceResourceIdBuilder::name)
 +    /// - [`value`](crate::types::builders::ServiceResourceIdBuilder::value)
-+    pub fn build(self) -> ::std::result::Result<super::types::ServiceResourceId, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ServiceResourceId {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceResourceId, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ServiceResourceId {
 +            name: self.name.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "name",
@@ -10603,13 +16416,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.weight_factor
      }
      /// Consumes the builder and constructs a [`ShareAttributes`](crate::types::ShareAttributes).
--    pub fn build(self) -> super::types::ShareAttributes {
--        super::types::ShareAttributes {
+-    pub fn build(self) -> super::super::types::ShareAttributes {
+-        super::super::types::ShareAttributes {
 -            share_identifier: self.share_identifier,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`share_identifier`](crate::types::builders::ShareAttributesBuilder::share_identifier)
-+    pub fn build(self) -> ::std::result::Result<super::types::ShareAttributes, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ShareAttributes {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ShareAttributes, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ShareAttributes {
 +            share_identifier: self.share_identifier.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "share_identifier",
@@ -10630,12 +16443,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_task_container_details.rs
 @@ -33,7 +33,7 @@
      /// </note>
-     pub log_configuration: ::std::option::Option<super::types::LogConfiguration>,
+     pub log_configuration: ::std::option::Option<super::super::types::LogConfiguration>,
      /// <p>The mount points for data volumes in your container.</p>
 -    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
 +    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <a href="">--volume</a> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
      /// <p>Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>. Windows containers can't mount directories on a different drive, and mount point can't be across drives.</p>
-     pub mount_points: ::std::option::Option<::std::vec::Vec<super::types::MountPoint>>,
+     pub mount_points: ::std::option::Option<::std::vec::Vec<super::super::types::MountPoint>>,
      /// <p>The name of a container.</p>
 @@ -146,7 +146,7 @@
          self.log_configuration.as_ref()
@@ -10653,7 +16466,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
 +    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <a href="">--volume</a> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
      /// <p>Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>. Windows containers can't mount directories on a different drive, and mount point can't be across drives.</p>
-     pub fn mount_points(mut self, input: super::types::MountPoint) -> Self {
+     pub fn mount_points(mut self, input: super::super::types::MountPoint) -> Self {
          let mut v = self.mount_points.unwrap_or_default();
 @@ -463,7 +463,7 @@
          self
@@ -10662,7 +16475,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
 +    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <a href="">--volume</a> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
      /// <p>Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>. Windows containers can't mount directories on a different drive, and mount point can't be across drives.</p>
-     pub fn set_mount_points(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MountPoint>>) -> Self {
+     pub fn set_mount_points(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::MountPoint>>) -> Self {
          self.mount_points = input;
 @@ -470,7 +470,7 @@
          self
@@ -10671,7 +16484,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
 +    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <a href="">--volume</a> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
      /// <p>Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>. Windows containers can't mount directories on a different drive, and mount point can't be across drives.</p>
-     pub fn get_mount_points(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MountPoint>> {
+     pub fn get_mount_points(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::MountPoint>> {
          &self.mount_points
 ```
 
@@ -10682,21 +16495,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/_task_container_properties.rs
 @@ -20,7 +20,7 @@
      /// <p>The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom log</a> routing in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-     pub firelens_configuration: ::std::option::Option<super::types::FirelensConfiguration>,
+     pub firelens_configuration: ::std::option::Option<super::super::types::FirelensConfiguration>,
      /// <p>The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either <code>repository-url/image:tag</code> or <code>repository-url/image@digest</code>. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>IMAGE</code> parameter of the <a href="https://docs.docker.com/engine/reference/run/#security-configuration"> <i>docker run</i> </a>.</p>
 -    pub image: ::std::option::Option<::std::string::String>,
 +    pub image: ::std::string::String,
      /// <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p>
-     pub linux_parameters: ::std::option::Option<super::types::LinuxParameters>,
+     pub linux_parameters: ::std::option::Option<super::super::types::LinuxParameters>,
      /// <p>The log configuration specification for the container.</p>
 @@ -33,7 +33,7 @@
      /// </note>
-     pub log_configuration: ::std::option::Option<super::types::LogConfiguration>,
+     pub log_configuration: ::std::option::Option<super::super::types::LogConfiguration>,
      /// <p>The mount points for data volumes in your container.</p>
 -    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
 +    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <a href="">--volume</a> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
      /// <p>Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>. Windows containers can't mount directories on a different drive, and mount point can't be across drives.</p>
-     pub mount_points: ::std::option::Option<::std::vec::Vec<super::types::MountPoint>>,
+     pub mount_points: ::std::option::Option<::std::vec::Vec<super::super::types::MountPoint>>,
      /// <p>The name of a container. The name can be used as a unique identifier to target your <code>dependsOn</code> and <code>Overrides</code> objects.</p>
 @@ -117,8 +117,9 @@
          self.firelens_configuration.as_ref()
@@ -10709,7 +16522,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.image.deref()
      }
      /// <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p>
-     pub fn linux_parameters(&self) -> ::std::option::Option<&super::types::LinuxParameters> {
+     pub fn linux_parameters(&self) -> ::std::option::Option<&super::super::types::LinuxParameters> {
 @@ -136,7 +137,7 @@
          self.log_configuration.as_ref()
      }
@@ -10726,7 +16539,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
 +    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <a href="">--volume</a> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
      /// <p>Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>. Windows containers can't mount directories on a different drive, and mount point can't be across drives.</p>
-     pub fn mount_points(mut self, input: super::types::MountPoint) -> Self {
+     pub fn mount_points(mut self, input: super::super::types::MountPoint) -> Self {
          let mut v = self.mount_points.unwrap_or_default();
 @@ -430,7 +431,7 @@
          self
@@ -10735,7 +16548,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
 +    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <a href="">--volume</a> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
      /// <p>Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>. Windows containers can't mount directories on a different drive, and mount point can't be across drives.</p>
-     pub fn set_mount_points(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MountPoint>>) -> Self {
+     pub fn set_mount_points(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::MountPoint>>) -> Self {
          self.mount_points = input;
 @@ -437,7 +438,7 @@
          self
@@ -10744,18 +16557,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
 +    /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <a href="">--volume</a> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
      /// <p>Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>. Windows containers can't mount directories on a different drive, and mount point can't be across drives.</p>
-     pub fn get_mount_points(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MountPoint>> {
+     pub fn get_mount_points(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::MountPoint>> {
          &self.mount_points
 @@ -682,14 +683,21 @@
          &self.stop_timeout
      }
      /// Consumes the builder and constructs a [`TaskContainerProperties`](crate::types::TaskContainerProperties).
--    pub fn build(self) -> super::types::TaskContainerProperties {
--        super::types::TaskContainerProperties {
+-    pub fn build(self) -> super::super::types::TaskContainerProperties {
+-        super::super::types::TaskContainerProperties {
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`image`](crate::types::builders::TaskContainerPropertiesBuilder::image)
-+    pub fn build(self) -> ::std::result::Result<super::types::TaskContainerProperties, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::TaskContainerProperties {
++    pub fn build(self) -> ::std::result::Result<super::super::types::TaskContainerProperties, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::TaskContainerProperties {
              command: self.command,
              depends_on: self.depends_on,
              environment: self.environment,
@@ -10818,15 +16631,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.mount_options
      }
      /// Consumes the builder and constructs a [`Tmpfs`](crate::types::Tmpfs).
--    pub fn build(self) -> super::types::Tmpfs {
--        super::types::Tmpfs {
+-    pub fn build(self) -> super::super::types::Tmpfs {
+-        super::super::types::Tmpfs {
 -            container_path: self.container_path,
 -            size: self.size,
 +    /// This method will fail if any of the following fields are not set:
 +    /// - [`container_path`](crate::types::builders::TmpfsBuilder::container_path)
 +    /// - [`size`](crate::types::builders::TmpfsBuilder::size)
-+    pub fn build(self) -> ::std::result::Result<super::types::Tmpfs, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Tmpfs {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Tmpfs, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Tmpfs {
 +            container_path: self.container_path.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "container_path",
@@ -10887,8 +16700,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.soft_limit
      }
      /// Consumes the builder and constructs a [`Ulimit`](crate::types::Ulimit).
--    pub fn build(self) -> super::types::Ulimit {
--        super::types::Ulimit {
+-    pub fn build(self) -> super::super::types::Ulimit {
+-        super::super::types::Ulimit {
 -            hard_limit: self.hard_limit,
 -            name: self.name,
 -            soft_limit: self.soft_limit,
@@ -10897,8 +16710,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// - [`hard_limit`](crate::types::builders::UlimitBuilder::hard_limit)
 +    /// - [`name`](crate::types::builders::UlimitBuilder::name)
 +    /// - [`soft_limit`](crate::types::builders::UlimitBuilder::soft_limit)
-+    pub fn build(self) -> ::std::result::Result<super::types::Ulimit, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::Ulimit {
++    pub fn build(self) -> ::std::result::Result<super::super::types::Ulimit, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::Ulimit {
 +            hard_limit: self.hard_limit.ok_or_else(|| {
 +                ::aws_smithy_types::error::operation::BuildError::missing_field(
 +                    "hard_limit",

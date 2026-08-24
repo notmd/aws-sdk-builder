@@ -5,7 +5,7 @@
  pub enum ConverseOutput {
      /// <p>The message that the model generates.</p>
 -    Message(crate::types::Message),
-+    Message(super::types::Message),
++    Message(super::super::types::Message),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -14,7 +14,7 @@
      /// Tries to convert the enum instance into [`Message`](crate::types::ConverseOutput::Message), extracting the inner [`Message`](crate::types::Message).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_message(&self) -> ::std::result::Result<&crate::types::Message, &Self> {
-+    pub fn as_message(&self) -> ::std::result::Result<&super::types::Message, &Self> {
++    pub fn as_message(&self) -> ::std::result::Result<&super::super::types::Message, &Self> {
          if let ConverseOutput::Message(val) = &self {
              ::std::result::Result::Ok(val)
          } else {

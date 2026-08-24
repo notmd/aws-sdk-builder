@@ -5,7 +5,7 @@
      pub log_stream_name: ::std::option::Option<::std::string::String>,
      /// <p>The network interfaces that are associated with the job attempt.</p>
 -    pub network_interfaces: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
-+    pub network_interfaces: ::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>>,
++    pub network_interfaces: ::std::option::Option<::std::vec::Vec<super::super::types::NetworkInterface>>,
  }
  impl AttemptTaskContainerDetails {
      /// <p>The exit code for the container’s attempt. A non-zero exit code is considered failed.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.network_interfaces.is_none()`.
 -    pub fn network_interfaces(&self) -> &[crate::types::NetworkInterface] {
-+    pub fn network_interfaces(&self) -> &[super::types::NetworkInterface] {
++    pub fn network_interfaces(&self) -> &[super::super::types::NetworkInterface] {
          self.network_interfaces.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`AttemptTaskContainerDetails`](crate::types::AttemptTaskContainerDetails).
 -    pub fn builder() -> crate::types::builders::AttemptTaskContainerDetailsBuilder {
 -        crate::types::builders::AttemptTaskContainerDetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::AttemptTaskContainerDetailsBuilder {
-+        super::types::builders::AttemptTaskContainerDetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::AttemptTaskContainerDetailsBuilder {
++        super::super::types::builders::AttemptTaskContainerDetailsBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) reason: ::std::option::Option<::std::string::String>,
      pub(crate) log_stream_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) network_interfaces: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
-+    pub(crate) network_interfaces: ::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>>,
++    pub(crate) network_interfaces: ::std::option::Option<::std::vec::Vec<super::super::types::NetworkInterface>>,
  }
  impl AttemptTaskContainerDetailsBuilder {
      /// <p>The exit code for the container’s attempt. A non-zero exit code is considered failed.</p>
@@ -41,7 +41,7 @@
      ///
      /// <p>The network interfaces that are associated with the job attempt.</p>
 -    pub fn network_interfaces(mut self, input: crate::types::NetworkInterface) -> Self {
-+    pub fn network_interfaces(mut self, input: super::types::NetworkInterface) -> Self {
++    pub fn network_interfaces(mut self, input: super::super::types::NetworkInterface) -> Self {
          let mut v = self.network_interfaces.unwrap_or_default();
          v.push(input);
          self.network_interfaces = ::std::option::Option::Some(v);
@@ -50,20 +50,20 @@
      }
      /// <p>The network interfaces that are associated with the job attempt.</p>
 -    pub fn set_network_interfaces(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>) -> Self {
-+    pub fn set_network_interfaces(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>>) -> Self {
++    pub fn set_network_interfaces(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::NetworkInterface>>) -> Self {
          self.network_interfaces = input;
          self
      }
      /// <p>The network interfaces that are associated with the job attempt.</p>
 -    pub fn get_network_interfaces(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>> {
-+    pub fn get_network_interfaces(&self) -> &::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>> {
++    pub fn get_network_interfaces(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::NetworkInterface>> {
          &self.network_interfaces
      }
      /// Consumes the builder and constructs a [`AttemptTaskContainerDetails`](crate::types::AttemptTaskContainerDetails).
 -    pub fn build(self) -> crate::types::AttemptTaskContainerDetails {
 -        crate::types::AttemptTaskContainerDetails {
-+    pub fn build(self) -> super::types::AttemptTaskContainerDetails {
-+        super::types::AttemptTaskContainerDetails {
++    pub fn build(self) -> super::super::types::AttemptTaskContainerDetails {
++        super::super::types::AttemptTaskContainerDetails {
              exit_code: self.exit_code,
              name: self.name,
              reason: self.reason,

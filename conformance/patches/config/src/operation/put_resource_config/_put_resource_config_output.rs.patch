@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutResourceConfigOutput`](crate::operation::put_resource_config::PutResourceConfigOutput).
 -    pub fn builder() -> crate::operation::put_resource_config::builders::PutResourceConfigOutputBuilder {
 -        crate::operation::put_resource_config::builders::PutResourceConfigOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_resource_config::builders::PutResourceConfigOutputBuilder {
-+        super::operation::put_resource_config::builders::PutResourceConfigOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_resource_config::builders::PutResourceConfigOutputBuilder {
++        super::super::super::operation::put_resource_config::builders::PutResourceConfigOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutResourceConfigOutput`](crate::operation::put_resource_config::PutResourceConfigOutput).
 -    pub fn build(self) -> crate::operation::put_resource_config::PutResourceConfigOutput {
 -        crate::operation::put_resource_config::PutResourceConfigOutput {
-+    pub fn build(self) -> super::operation::put_resource_config::PutResourceConfigOutput {
-+        super::operation::put_resource_config::PutResourceConfigOutput {
++    pub fn build(self) -> super::super::super::operation::put_resource_config::PutResourceConfigOutput {
++        super::super::super::operation::put_resource_config::PutResourceConfigOutput {
              _request_id: self._request_id,
          }
      }

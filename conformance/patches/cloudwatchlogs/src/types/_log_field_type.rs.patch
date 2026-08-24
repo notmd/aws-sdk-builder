@@ -5,10 +5,10 @@
      pub r#type: ::std::option::Option<::std::string::String>,
      /// <p>For array or collection types, specifies the element type information.</p>
 -    pub element: ::std::option::Option<::std::boxed::Box<crate::types::LogFieldType>>,
-+    pub element: ::std::option::Option<::std::boxed::Box<super::types::LogFieldType>>,
++    pub element: ::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>>,
      /// <p>For complex types, contains the nested field definitions.</p>
 -    pub fields: ::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>>,
-+    pub fields: ::std::option::Option<::std::vec::Vec<super::types::LogFieldsListItem>>,
++    pub fields: ::std::option::Option<::std::vec::Vec<super::super::types::LogFieldsListItem>>,
  }
  impl LogFieldType {
      /// <p>The data type of the log field.</p>
@@ -17,14 +17,14 @@
      }
      /// <p>For array or collection types, specifies the element type information.</p>
 -    pub fn element(&self) -> ::std::option::Option<&crate::types::LogFieldType> {
-+    pub fn element(&self) -> ::std::option::Option<&super::types::LogFieldType> {
++    pub fn element(&self) -> ::std::option::Option<&super::super::types::LogFieldType> {
          self.element.as_deref()
      }
      /// <p>For complex types, contains the nested field definitions.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.fields.is_none()`.
 -    pub fn fields(&self) -> &[crate::types::LogFieldsListItem] {
-+    pub fn fields(&self) -> &[super::types::LogFieldsListItem] {
++    pub fn fields(&self) -> &[super::super::types::LogFieldsListItem] {
          self.fields.as_deref().unwrap_or_default()
      }
  }
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`LogFieldType`](crate::types::LogFieldType).
 -    pub fn builder() -> crate::types::builders::LogFieldTypeBuilder {
 -        crate::types::builders::LogFieldTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::LogFieldTypeBuilder {
-+        super::types::builders::LogFieldTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::LogFieldTypeBuilder {
++        super::super::types::builders::LogFieldTypeBuilder::default()
      }
  }
 
@@ -43,8 +43,8 @@
      pub(crate) r#type: ::std::option::Option<::std::string::String>,
 -    pub(crate) element: ::std::option::Option<::std::boxed::Box<crate::types::LogFieldType>>,
 -    pub(crate) fields: ::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>>,
-+    pub(crate) element: ::std::option::Option<::std::boxed::Box<super::types::LogFieldType>>,
-+    pub(crate) fields: ::std::option::Option<::std::vec::Vec<super::types::LogFieldsListItem>>,
++    pub(crate) element: ::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>>,
++    pub(crate) fields: ::std::option::Option<::std::vec::Vec<super::super::types::LogFieldsListItem>>,
  }
  impl LogFieldTypeBuilder {
      /// <p>The data type of the log field.</p>
@@ -53,19 +53,19 @@
      }
      /// <p>For array or collection types, specifies the element type information.</p>
 -    pub fn element(mut self, input: impl ::std::convert::Into<::std::boxed::Box<crate::types::LogFieldType>>) -> Self {
-+    pub fn element(mut self, input: impl ::std::convert::Into<::std::boxed::Box<super::types::LogFieldType>>) -> Self {
++    pub fn element(mut self, input: impl ::std::convert::Into<::std::boxed::Box<super::super::types::LogFieldType>>) -> Self {
          self.element = ::std::option::Option::Some(input.into());
          self
      }
      /// <p>For array or collection types, specifies the element type information.</p>
 -    pub fn set_element(mut self, input: ::std::option::Option<::std::boxed::Box<crate::types::LogFieldType>>) -> Self {
-+    pub fn set_element(mut self, input: ::std::option::Option<::std::boxed::Box<super::types::LogFieldType>>) -> Self {
++    pub fn set_element(mut self, input: ::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>>) -> Self {
          self.element = input;
          self
      }
      /// <p>For array or collection types, specifies the element type information.</p>
 -    pub fn get_element(&self) -> &::std::option::Option<::std::boxed::Box<crate::types::LogFieldType>> {
-+    pub fn get_element(&self) -> &::std::option::Option<::std::boxed::Box<super::types::LogFieldType>> {
++    pub fn get_element(&self) -> &::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>> {
          &self.element
      }
      /// Appends an item to `fields`.
@@ -74,7 +74,7 @@
      ///
      /// <p>For complex types, contains the nested field definitions.</p>
 -    pub fn fields(mut self, input: crate::types::LogFieldsListItem) -> Self {
-+    pub fn fields(mut self, input: super::types::LogFieldsListItem) -> Self {
++    pub fn fields(mut self, input: super::super::types::LogFieldsListItem) -> Self {
          let mut v = self.fields.unwrap_or_default();
          v.push(input);
          self.fields = ::std::option::Option::Some(v);
@@ -83,20 +83,20 @@
      }
      /// <p>For complex types, contains the nested field definitions.</p>
 -    pub fn set_fields(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>>) -> Self {
-+    pub fn set_fields(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::LogFieldsListItem>>) -> Self {
++    pub fn set_fields(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::LogFieldsListItem>>) -> Self {
          self.fields = input;
          self
      }
      /// <p>For complex types, contains the nested field definitions.</p>
 -    pub fn get_fields(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>> {
-+    pub fn get_fields(&self) -> &::std::option::Option<::std::vec::Vec<super::types::LogFieldsListItem>> {
++    pub fn get_fields(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::LogFieldsListItem>> {
          &self.fields
      }
      /// Consumes the builder and constructs a [`LogFieldType`](crate::types::LogFieldType).
 -    pub fn build(self) -> crate::types::LogFieldType {
 -        crate::types::LogFieldType {
-+    pub fn build(self) -> super::types::LogFieldType {
-+        super::types::LogFieldType {
++    pub fn build(self) -> super::super::types::LogFieldType {
++        super::super::types::LogFieldType {
              r#type: self.r#type,
              element: self.element,
              fields: self.fields,

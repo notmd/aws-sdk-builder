@@ -5,20 +5,20 @@
  pub fn ser_user_pool_policy_type(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::UserPoolPolicyType,
-+    input: &super::types::UserPoolPolicyType,
++    input: &super::super::types::UserPoolPolicyType,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.password_policy {
          #[allow(unused_mut)]
          let mut object_2 = object.key("PasswordPolicy").start_object();
 -        crate::protocol_serde::shape_password_policy_type::ser_password_policy_type(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_password_policy_type::ser_password_policy_type(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_password_policy_type::ser_password_policy_type(&mut object_2, var_1)?;
          object_2.finish();
      }
      if let Some(var_3) = &input.sign_in_policy {
          #[allow(unused_mut)]
          let mut object_4 = object.key("SignInPolicy").start_object();
 -        crate::protocol_serde::shape_sign_in_policy_type::ser_sign_in_policy_type(&mut object_4, var_3)?;
-+        super::protocol_serde::shape_sign_in_policy_type::ser_sign_in_policy_type(&mut object_4, var_3)?;
++        super::super::protocol_serde::shape_sign_in_policy_type::ser_sign_in_policy_type(&mut object_4, var_3)?;
          object_4.finish();
      }
      Ok(())
@@ -27,7 +27,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::UserPoolPolicyType>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::UserPoolPolicyType>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::UserPoolPolicyType>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -36,14 +36,14 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::UserPoolPolicyTypeBuilder::default();
-+            let mut builder = super::types::builders::UserPoolPolicyTypeBuilder::default();
++            let mut builder = super::super::types::builders::UserPoolPolicyTypeBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "PasswordPolicy" => {
 -                            builder = builder.set_password_policy(crate::protocol_serde::shape_password_policy_type::de_password_policy_type(
-+                            builder = builder.set_password_policy(super::protocol_serde::shape_password_policy_type::de_password_policy_type(
++                            builder = builder.set_password_policy(super::super::protocol_serde::shape_password_policy_type::de_password_policy_type(
                                  tokens,
                                  _value,
                                  depth + 1,
@@ -52,7 +52,7 @@
                          }
                          "SignInPolicy" => {
 -                            builder = builder.set_sign_in_policy(crate::protocol_serde::shape_sign_in_policy_type::de_sign_in_policy_type(
-+                            builder = builder.set_sign_in_policy(super::protocol_serde::shape_sign_in_policy_type::de_sign_in_policy_type(
++                            builder = builder.set_sign_in_policy(super::super::protocol_serde::shape_sign_in_policy_type::de_sign_in_policy_type(
                                  tokens,
                                  _value,
                                  depth + 1,

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AccessDetail`](crate::types::AccessDetail).
 -    pub fn builder() -> crate::types::builders::AccessDetailBuilder {
 -        crate::types::builders::AccessDetailBuilder::default()
-+    pub fn builder() -> super::types::builders::AccessDetailBuilder {
-+        super::types::builders::AccessDetailBuilder::default()
++    pub fn builder() -> super::super::types::builders::AccessDetailBuilder {
++        super::super::types::builders::AccessDetailBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`service_namespace`](crate::types::builders::AccessDetailBuilder::service_namespace)
 -    pub fn build(self) -> ::std::result::Result<crate::types::AccessDetail, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::AccessDetail {
-+    pub fn build(self) -> ::std::result::Result<super::types::AccessDetail, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::AccessDetail {
++    pub fn build(self) -> ::std::result::Result<super::super::types::AccessDetail, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::AccessDetail {
              service_name: self.service_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "service_name",

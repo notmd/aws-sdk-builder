@@ -5,7 +5,7 @@
  pub struct ListUsersOutput {
      /// <p>An array of user pool users who match your query, and their attributes. Between different requests, you might observe variations in the sequence that users in this response object are sorted into. The sort order of users isn't guaranteed to follow a single pattern, but the paginated list from a single chain of requests won't return duplicates.</p>
 -    pub users: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>,
-+    pub users: ::std::option::Option<::std::vec::Vec<super::types::UserType>>,
++    pub users: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserType>>,
      /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
      pub pagination_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.users.is_none()`.
 -    pub fn users(&self) -> &[crate::types::UserType] {
-+    pub fn users(&self) -> &[super::types::UserType] {
++    pub fn users(&self) -> &[super::super::super::types::UserType] {
          self.users.as_deref().unwrap_or_default()
      }
      /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
 -    pub fn builder() -> crate::operation::list_users::builders::ListUsersOutputBuilder {
 -        crate::operation::list_users::builders::ListUsersOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_users::builders::ListUsersOutputBuilder {
-+        super::operation::list_users::builders::ListUsersOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_users::builders::ListUsersOutputBuilder {
++        super::super::super::operation::list_users::builders::ListUsersOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListUsersOutputBuilder {
 -    pub(crate) users: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>,
-+    pub(crate) users: ::std::option::Option<::std::vec::Vec<super::types::UserType>>,
++    pub(crate) users: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserType>>,
      pub(crate) pagination_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>An array of user pool users who match your query, and their attributes. Between different requests, you might observe variations in the sequence that users in this response object are sorted into. The sort order of users isn't guaranteed to follow a single pattern, but the paginated list from a single chain of requests won't return duplicates.</p>
 -    pub fn users(mut self, input: crate::types::UserType) -> Self {
-+    pub fn users(mut self, input: super::types::UserType) -> Self {
++    pub fn users(mut self, input: super::super::super::types::UserType) -> Self {
          let mut v = self.users.unwrap_or_default();
          v.push(input);
          self.users = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>An array of user pool users who match your query, and their attributes. Between different requests, you might observe variations in the sequence that users in this response object are sorted into. The sort order of users isn't guaranteed to follow a single pattern, but the paginated list from a single chain of requests won't return duplicates.</p>
 -    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>) -> Self {
-+    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::UserType>>) -> Self {
++    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserType>>) -> Self {
          self.users = input;
          self
      }
      /// <p>An array of user pool users who match your query, and their attributes. Between different requests, you might observe variations in the sequence that users in this response object are sorted into. The sort order of users isn't guaranteed to follow a single pattern, but the paginated list from a single chain of requests won't return duplicates.</p>
 -    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UserType>> {
-+    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<super::types::UserType>> {
++    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::UserType>> {
          &self.users
      }
      /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
 -    pub fn build(self) -> crate::operation::list_users::ListUsersOutput {
 -        crate::operation::list_users::ListUsersOutput {
-+    pub fn build(self) -> super::operation::list_users::ListUsersOutput {
-+        super::operation::list_users::ListUsersOutput {
++    pub fn build(self) -> super::super::super::operation::list_users::ListUsersOutput {
++        super::super::super::operation::list_users::ListUsersOutput {
              users: self.users,
              pagination_token: self.pagination_token,
              _request_id: self._request_id,

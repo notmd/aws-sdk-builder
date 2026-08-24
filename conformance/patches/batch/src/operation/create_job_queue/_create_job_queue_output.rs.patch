@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateJobQueueOutput`](crate::operation::create_job_queue::CreateJobQueueOutput).
 -    pub fn builder() -> crate::operation::create_job_queue::builders::CreateJobQueueOutputBuilder {
 -        crate::operation::create_job_queue::builders::CreateJobQueueOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_job_queue::builders::CreateJobQueueOutputBuilder {
-+        super::operation::create_job_queue::builders::CreateJobQueueOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_job_queue::builders::CreateJobQueueOutputBuilder {
++        super::super::super::operation::create_job_queue::builders::CreateJobQueueOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateJobQueueOutput`](crate::operation::create_job_queue::CreateJobQueueOutput).
 -    pub fn build(self) -> crate::operation::create_job_queue::CreateJobQueueOutput {
 -        crate::operation::create_job_queue::CreateJobQueueOutput {
-+    pub fn build(self) -> super::operation::create_job_queue::CreateJobQueueOutput {
-+        super::operation::create_job_queue::CreateJobQueueOutput {
++    pub fn build(self) -> super::super::super::operation::create_job_queue::CreateJobQueueOutput {
++        super::super::super::operation::create_job_queue::CreateJobQueueOutput {
              job_queue_name: self.job_queue_name,
              job_queue_arn: self.job_queue_arn,
              _request_id: self._request_id,

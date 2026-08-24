@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`WebLocation`](crate::types::WebLocation).
 -    pub fn builder() -> crate::types::builders::WebLocationBuilder {
 -        crate::types::builders::WebLocationBuilder::default()
-+    pub fn builder() -> super::types::builders::WebLocationBuilder {
-+        super::types::builders::WebLocationBuilder::default()
++    pub fn builder() -> super::super::types::builders::WebLocationBuilder {
++        super::super::types::builders::WebLocationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`WebLocation`](crate::types::WebLocation).
 -    pub fn build(self) -> crate::types::WebLocation {
 -        crate::types::WebLocation {
-+    pub fn build(self) -> super::types::WebLocation {
-+        super::types::WebLocation {
++    pub fn build(self) -> super::super::types::WebLocation {
++        super::super::types::WebLocation {
              url: self.url,
              domain: self.domain,
          }

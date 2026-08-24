@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigFluentBuilder {
 -        crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigFluentBuilder {
-+        super::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigFluentBuilder {
++        super::super::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigFluentBuilder::new(self.handle.clone())
      }
  }

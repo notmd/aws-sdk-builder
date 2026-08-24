@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteDeliveryDestinationError>`](crate::operation::delete_delivery_destination::DeleteDeliveryDestinationError)
 -    pub fn delete_delivery_destination(&self) -> crate::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationFluentBuilder {
 -        crate::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationFluentBuilder::new(self.handle.clone())
-+    pub fn delete_delivery_destination(&self) -> super::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationFluentBuilder {
-+        super::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationFluentBuilder::new(self.handle.clone())
++    pub fn delete_delivery_destination(&self) -> super::super::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationFluentBuilder {
++        super::super::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationFluentBuilder::new(self.handle.clone())
      }
  }

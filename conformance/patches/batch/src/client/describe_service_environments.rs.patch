@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsFluentBuilder {
 -        crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsFluentBuilder {
-+        super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsFluentBuilder {
++        super::super::operation::describe_service_environments::builders::DescribeServiceEnvironmentsFluentBuilder::new(self.handle.clone())
      }
  }

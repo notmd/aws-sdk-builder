@@ -5,7 +5,7 @@
      pub repository: ::std::option::Option<::std::string::String>,
      /// <p>The format used to filter requested packages. Only packages from the provided format will be returned.</p>
 -    pub format: ::std::option::Option<crate::types::PackageFormat>,
-+    pub format: ::std::option::Option<super::types::PackageFormat>,
++    pub format: ::std::option::Option<super::super::super::types::PackageFormat>,
      /// <p>The namespace prefix used to filter requested packages. Only packages with a namespace that starts with the provided string value are returned. Note that although this option is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has prefix-matching behavior.</p>
      /// <p>Each package format uses namespace as follows:</p>
      /// <ul>
@@ -14,10 +14,10 @@
      pub next_token: ::std::option::Option<::std::string::String>,
      /// <p>The value of the <code>Publish</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
 -    pub publish: ::std::option::Option<crate::types::AllowPublish>,
-+    pub publish: ::std::option::Option<super::types::AllowPublish>,
++    pub publish: ::std::option::Option<super::super::super::types::AllowPublish>,
      /// <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
 -    pub upstream: ::std::option::Option<crate::types::AllowUpstream>,
-+    pub upstream: ::std::option::Option<super::types::AllowUpstream>,
++    pub upstream: ::std::option::Option<super::super::super::types::AllowUpstream>,
  }
  impl ListPackagesInput {
      /// <p>The name of the domain that contains the repository that contains the requested packages.</p>
@@ -26,7 +26,7 @@
      }
      /// <p>The format used to filter requested packages. Only packages from the provided format will be returned.</p>
 -    pub fn format(&self) -> ::std::option::Option<&crate::types::PackageFormat> {
-+    pub fn format(&self) -> ::std::option::Option<&super::types::PackageFormat> {
++    pub fn format(&self) -> ::std::option::Option<&super::super::super::types::PackageFormat> {
          self.format.as_ref()
      }
      /// <p>The namespace prefix used to filter requested packages. Only packages with a namespace that starts with the provided string value are returned. Note that although this option is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has prefix-matching behavior.</p>
@@ -35,12 +35,12 @@
      }
      /// <p>The value of the <code>Publish</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
 -    pub fn publish(&self) -> ::std::option::Option<&crate::types::AllowPublish> {
-+    pub fn publish(&self) -> ::std::option::Option<&super::types::AllowPublish> {
++    pub fn publish(&self) -> ::std::option::Option<&super::super::super::types::AllowPublish> {
          self.publish.as_ref()
      }
      /// <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
 -    pub fn upstream(&self) -> ::std::option::Option<&crate::types::AllowUpstream> {
-+    pub fn upstream(&self) -> ::std::option::Option<&super::types::AllowUpstream> {
++    pub fn upstream(&self) -> ::std::option::Option<&super::super::super::types::AllowUpstream> {
          self.upstream.as_ref()
      }
  }
@@ -48,8 +48,8 @@
      /// Creates a new builder-style object to manufacture [`ListPackagesInput`](crate::operation::list_packages::ListPackagesInput).
 -    pub fn builder() -> crate::operation::list_packages::builders::ListPackagesInputBuilder {
 -        crate::operation::list_packages::builders::ListPackagesInputBuilder::default()
-+    pub fn builder() -> super::operation::list_packages::builders::ListPackagesInputBuilder {
-+        super::operation::list_packages::builders::ListPackagesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_packages::builders::ListPackagesInputBuilder {
++        super::super::super::operation::list_packages::builders::ListPackagesInputBuilder::default()
      }
  }
 
@@ -58,15 +58,15 @@
      pub(crate) domain_owner: ::std::option::Option<::std::string::String>,
      pub(crate) repository: ::std::option::Option<::std::string::String>,
 -    pub(crate) format: ::std::option::Option<crate::types::PackageFormat>,
-+    pub(crate) format: ::std::option::Option<super::types::PackageFormat>,
++    pub(crate) format: ::std::option::Option<super::super::super::types::PackageFormat>,
      pub(crate) namespace: ::std::option::Option<::std::string::String>,
      pub(crate) package_prefix: ::std::option::Option<::std::string::String>,
      pub(crate) max_results: ::std::option::Option<i32>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    pub(crate) publish: ::std::option::Option<crate::types::AllowPublish>,
 -    pub(crate) upstream: ::std::option::Option<crate::types::AllowUpstream>,
-+    pub(crate) publish: ::std::option::Option<super::types::AllowPublish>,
-+    pub(crate) upstream: ::std::option::Option<super::types::AllowUpstream>,
++    pub(crate) publish: ::std::option::Option<super::super::super::types::AllowPublish>,
++    pub(crate) upstream: ::std::option::Option<super::super::super::types::AllowUpstream>,
  }
  impl ListPackagesInputBuilder {
      /// <p>The name of the domain that contains the repository that contains the requested packages.</p>
@@ -75,19 +75,19 @@
      }
      /// <p>The format used to filter requested packages. Only packages from the provided format will be returned.</p>
 -    pub fn format(mut self, input: crate::types::PackageFormat) -> Self {
-+    pub fn format(mut self, input: super::types::PackageFormat) -> Self {
++    pub fn format(mut self, input: super::super::super::types::PackageFormat) -> Self {
          self.format = ::std::option::Option::Some(input);
          self
      }
      /// <p>The format used to filter requested packages. Only packages from the provided format will be returned.</p>
 -    pub fn set_format(mut self, input: ::std::option::Option<crate::types::PackageFormat>) -> Self {
-+    pub fn set_format(mut self, input: ::std::option::Option<super::types::PackageFormat>) -> Self {
++    pub fn set_format(mut self, input: ::std::option::Option<super::super::super::types::PackageFormat>) -> Self {
          self.format = input;
          self
      }
      /// <p>The format used to filter requested packages. Only packages from the provided format will be returned.</p>
 -    pub fn get_format(&self) -> &::std::option::Option<crate::types::PackageFormat> {
-+    pub fn get_format(&self) -> &::std::option::Option<super::types::PackageFormat> {
++    pub fn get_format(&self) -> &::std::option::Option<super::super::super::types::PackageFormat> {
          &self.format
      }
      /// <p>The namespace prefix used to filter requested packages. Only packages with a namespace that starts with the provided string value are returned. Note that although this option is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has prefix-matching behavior.</p>
@@ -96,36 +96,36 @@
      }
      /// <p>The value of the <code>Publish</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
 -    pub fn publish(mut self, input: crate::types::AllowPublish) -> Self {
-+    pub fn publish(mut self, input: super::types::AllowPublish) -> Self {
++    pub fn publish(mut self, input: super::super::super::types::AllowPublish) -> Self {
          self.publish = ::std::option::Option::Some(input);
          self
      }
      /// <p>The value of the <code>Publish</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
 -    pub fn set_publish(mut self, input: ::std::option::Option<crate::types::AllowPublish>) -> Self {
-+    pub fn set_publish(mut self, input: ::std::option::Option<super::types::AllowPublish>) -> Self {
++    pub fn set_publish(mut self, input: ::std::option::Option<super::super::super::types::AllowPublish>) -> Self {
          self.publish = input;
          self
      }
      /// <p>The value of the <code>Publish</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
 -    pub fn get_publish(&self) -> &::std::option::Option<crate::types::AllowPublish> {
-+    pub fn get_publish(&self) -> &::std::option::Option<super::types::AllowPublish> {
++    pub fn get_publish(&self) -> &::std::option::Option<super::super::super::types::AllowPublish> {
          &self.publish
      }
      /// <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
 -    pub fn upstream(mut self, input: crate::types::AllowUpstream) -> Self {
-+    pub fn upstream(mut self, input: super::types::AllowUpstream) -> Self {
++    pub fn upstream(mut self, input: super::super::super::types::AllowUpstream) -> Self {
          self.upstream = ::std::option::Option::Some(input);
          self
      }
      /// <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
 -    pub fn set_upstream(mut self, input: ::std::option::Option<crate::types::AllowUpstream>) -> Self {
-+    pub fn set_upstream(mut self, input: ::std::option::Option<super::types::AllowUpstream>) -> Self {
++    pub fn set_upstream(mut self, input: ::std::option::Option<super::super::super::types::AllowUpstream>) -> Self {
          self.upstream = input;
          self
      }
      /// <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
 -    pub fn get_upstream(&self) -> &::std::option::Option<crate::types::AllowUpstream> {
-+    pub fn get_upstream(&self) -> &::std::option::Option<super::types::AllowUpstream> {
++    pub fn get_upstream(&self) -> &::std::option::Option<super::super::super::types::AllowUpstream> {
          &self.upstream
      }
      /// Consumes the builder and constructs a [`ListPackagesInput`](crate::operation::list_packages::ListPackagesInput).
@@ -133,8 +133,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::list_packages::ListPackagesInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_packages::ListPackagesInput {
-+    ) -> ::std::result::Result<super::operation::list_packages::ListPackagesInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_packages::ListPackagesInput {
++    ) -> ::std::result::Result<super::super::super::operation::list_packages::ListPackagesInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_packages::ListPackagesInput {
              domain: self.domain,
              domain_owner: self.domain_owner,
              repository: self.repository,

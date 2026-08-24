@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for InvalidOperationException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::InvalidOperationException {
-+impl ::aws_types::request_id::RequestId for super::types::error::InvalidOperationException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::InvalidOperationException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`InvalidOperationException`](crate::types::error::InvalidOperationException).
 -    pub fn builder() -> crate::types::error::builders::InvalidOperationExceptionBuilder {
 -        crate::types::error::builders::InvalidOperationExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::InvalidOperationExceptionBuilder {
-+        super::types::error::builders::InvalidOperationExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::InvalidOperationExceptionBuilder {
++        super::super::super::types::error::builders::InvalidOperationExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`InvalidOperationException`](crate::types::error::InvalidOperationException).
 -    pub fn build(self) -> crate::types::error::InvalidOperationException {
 -        crate::types::error::InvalidOperationException {
-+    pub fn build(self) -> super::types::error::InvalidOperationException {
-+        super::types::error::InvalidOperationException {
++    pub fn build(self) -> super::super::super::types::error::InvalidOperationException {
++        super::super::super::types::error::InvalidOperationException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

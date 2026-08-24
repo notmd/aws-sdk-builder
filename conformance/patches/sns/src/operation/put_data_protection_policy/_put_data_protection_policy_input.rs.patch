@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutDataProtectionPolicyInput`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput).
 -    pub fn builder() -> crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder {
 -        crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder {
-+        super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder {
++        super::super::super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput,
-+        super::operation::put_data_protection_policy::PutDataProtectionPolicyInput,
++        super::super::super::operation::put_data_protection_policy::PutDataProtectionPolicyInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput {
-+        ::std::result::Result::Ok(super::operation::put_data_protection_policy::PutDataProtectionPolicyInput {
++        ::std::result::Result::Ok(super::super::super::operation::put_data_protection_policy::PutDataProtectionPolicyInput {
              resource_arn: self.resource_arn,
              data_protection_policy: self.data_protection_policy,
          })

@@ -5,7 +5,7 @@
      pub contact_list_name: ::std::option::Option<::std::string::String>,
      /// <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
 -    pub topics: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>,
-+    pub topics: ::std::option::Option<::std::vec::Vec<super::types::Topic>>,
++    pub topics: ::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>>,
      /// <p>A description of what the contact list is about.</p>
      pub description: ::std::option::Option<::std::string::String>,
  }
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.topics.is_none()`.
 -    pub fn topics(&self) -> &[crate::types::Topic] {
-+    pub fn topics(&self) -> &[super::types::Topic] {
++    pub fn topics(&self) -> &[super::super::super::types::Topic] {
          self.topics.as_deref().unwrap_or_default()
      }
      /// <p>A description of what the contact list is about.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateContactListInput`](crate::operation::update_contact_list::UpdateContactListInput).
 -    pub fn builder() -> crate::operation::update_contact_list::builders::UpdateContactListInputBuilder {
 -        crate::operation::update_contact_list::builders::UpdateContactListInputBuilder::default()
-+    pub fn builder() -> super::operation::update_contact_list::builders::UpdateContactListInputBuilder {
-+        super::operation::update_contact_list::builders::UpdateContactListInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_contact_list::builders::UpdateContactListInputBuilder {
++        super::super::super::operation::update_contact_list::builders::UpdateContactListInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct UpdateContactListInputBuilder {
      pub(crate) contact_list_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) topics: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>,
-+    pub(crate) topics: ::std::option::Option<::std::vec::Vec<super::types::Topic>>,
++    pub(crate) topics: ::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>>,
      pub(crate) description: ::std::option::Option<::std::string::String>,
  }
  impl UpdateContactListInputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
 -    pub fn topics(mut self, input: crate::types::Topic) -> Self {
-+    pub fn topics(mut self, input: super::types::Topic) -> Self {
++    pub fn topics(mut self, input: super::super::super::types::Topic) -> Self {
          let mut v = self.topics.unwrap_or_default();
          v.push(input);
          self.topics = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
 -    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>) -> Self {
-+    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Topic>>) -> Self {
++    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>>) -> Self {
          self.topics = input;
          self
      }
      /// <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
 -    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Topic>> {
-+    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Topic>> {
++    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>> {
          &self.topics
      }
      /// <p>A description of what the contact list is about.</p>
@@ -68,8 +68,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::update_contact_list::UpdateContactListInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::update_contact_list::UpdateContactListInput {
-+    ) -> ::std::result::Result<super::operation::update_contact_list::UpdateContactListInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::update_contact_list::UpdateContactListInput {
++    ) -> ::std::result::Result<super::super::super::operation::update_contact_list::UpdateContactListInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::update_contact_list::UpdateContactListInput {
              contact_list_name: self.contact_list_name,
              topics: self.topics,
              description: self.description,

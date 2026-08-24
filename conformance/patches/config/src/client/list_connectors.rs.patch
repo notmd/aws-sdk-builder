@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListConnectorsError>`](crate::operation::list_connectors::ListConnectorsError)
 -    pub fn list_connectors(&self) -> crate::operation::list_connectors::builders::ListConnectorsFluentBuilder {
 -        crate::operation::list_connectors::builders::ListConnectorsFluentBuilder::new(self.handle.clone())
-+    pub fn list_connectors(&self) -> super::operation::list_connectors::builders::ListConnectorsFluentBuilder {
-+        super::operation::list_connectors::builders::ListConnectorsFluentBuilder::new(self.handle.clone())
++    pub fn list_connectors(&self) -> super::super::operation::list_connectors::builders::ListConnectorsFluentBuilder {
++        super::super::operation::list_connectors::builders::ListConnectorsFluentBuilder::new(self.handle.clone())
      }
  }

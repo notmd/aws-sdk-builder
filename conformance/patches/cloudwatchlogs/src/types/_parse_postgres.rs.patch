@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ParsePostgres`](crate::types::ParsePostgres).
 -    pub fn builder() -> crate::types::builders::ParsePostgresBuilder {
 -        crate::types::builders::ParsePostgresBuilder::default()
-+    pub fn builder() -> super::types::builders::ParsePostgresBuilder {
-+        super::types::builders::ParsePostgresBuilder::default()
++    pub fn builder() -> super::super::types::builders::ParsePostgresBuilder {
++        super::super::types::builders::ParsePostgresBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`ParsePostgres`](crate::types::ParsePostgres).
 -    pub fn build(self) -> crate::types::ParsePostgres {
 -        crate::types::ParsePostgres { source: self.source }
-+    pub fn build(self) -> super::types::ParsePostgres {
-+        super::types::ParsePostgres { source: self.source }
++    pub fn build(self) -> super::super::types::ParsePostgres {
++        super::super::types::ParsePostgres { source: self.source }
      }
  }

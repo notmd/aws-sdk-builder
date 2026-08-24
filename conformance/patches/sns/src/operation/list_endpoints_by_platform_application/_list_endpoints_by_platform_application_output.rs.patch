@@ -5,7 +5,7 @@
  pub struct ListEndpointsByPlatformApplicationOutput {
      /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
 -    pub endpoints: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
-+    pub endpoints: ::std::option::Option<::std::vec::Vec<super::types::Endpoint>>,
++    pub endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>,
      /// <p><code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.endpoints.is_none()`.
 -    pub fn endpoints(&self) -> &[crate::types::Endpoint] {
-+    pub fn endpoints(&self) -> &[super::types::Endpoint] {
++    pub fn endpoints(&self) -> &[super::super::super::types::Endpoint] {
          self.endpoints.as_deref().unwrap_or_default()
      }
      /// <p><code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListEndpointsByPlatformApplicationOutput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput).
 -    pub fn builder() -> crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder {
 -        crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder {
-+        super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder {
++        super::super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListEndpointsByPlatformApplicationOutputBuilder {
 -    pub(crate) endpoints: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
-+    pub(crate) endpoints: ::std::option::Option<::std::vec::Vec<super::types::Endpoint>>,
++    pub(crate) endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
 -    pub fn endpoints(mut self, input: crate::types::Endpoint) -> Self {
-+    pub fn endpoints(mut self, input: super::types::Endpoint) -> Self {
++    pub fn endpoints(mut self, input: super::super::super::types::Endpoint) -> Self {
          let mut v = self.endpoints.unwrap_or_default();
          v.push(input);
          self.endpoints = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
 -    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>) -> Self {
-+    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Endpoint>>) -> Self {
++    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>) -> Self {
          self.endpoints = input;
          self
      }
      /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
 -    pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Endpoint>> {
-+    pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Endpoint>> {
++    pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>> {
          &self.endpoints
      }
      /// <p><code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListEndpointsByPlatformApplicationOutput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput).
 -    pub fn build(self) -> crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput {
 -        crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput {
-+    pub fn build(self) -> super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput {
-+        super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput {
++    pub fn build(self) -> super::super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput {
++        super::super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput {
              endpoints: self.endpoints,
              next_token: self.next_token,
              _request_id: self._request_id,

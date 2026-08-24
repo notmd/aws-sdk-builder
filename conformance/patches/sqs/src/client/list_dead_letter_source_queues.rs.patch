@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesFluentBuilder {
 -        crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesFluentBuilder {
-+        super::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesFluentBuilder {
++        super::super::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesFluentBuilder::new(self.handle.clone())
      }
  }

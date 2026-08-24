@@ -5,7 +5,7 @@
      /// </dl>
      /// <p>If you don't specify a value, the default is <code>DISABLED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights.html">Container Insights</a> in the <i>Batch User Guide</i>.</p>
 -    pub container_insights: ::std::option::Option<crate::types::ContainerInsights>,
-+    pub container_insights: ::std::option::Option<super::types::ContainerInsights>,
++    pub container_insights: ::std::option::Option<super::super::types::ContainerInsights>,
  }
  impl EcsSettings {
      /// <p>Specifies the CloudWatch Container Insights mode for the compute environment. Valid values are:</p>
@@ -14,7 +14,7 @@
      /// </dl>
      /// <p>If you don't specify a value, the default is <code>DISABLED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights.html">Container Insights</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn container_insights(&self) -> ::std::option::Option<&crate::types::ContainerInsights> {
-+    pub fn container_insights(&self) -> ::std::option::Option<&super::types::ContainerInsights> {
++    pub fn container_insights(&self) -> ::std::option::Option<&super::super::types::ContainerInsights> {
          self.container_insights.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`EcsSettings`](crate::types::EcsSettings).
 -    pub fn builder() -> crate::types::builders::EcsSettingsBuilder {
 -        crate::types::builders::EcsSettingsBuilder::default()
-+    pub fn builder() -> super::types::builders::EcsSettingsBuilder {
-+        super::types::builders::EcsSettingsBuilder::default()
++    pub fn builder() -> super::super::types::builders::EcsSettingsBuilder {
++        super::super::types::builders::EcsSettingsBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  #[non_exhaustive]
  pub struct EcsSettingsBuilder {
 -    pub(crate) container_insights: ::std::option::Option<crate::types::ContainerInsights>,
-+    pub(crate) container_insights: ::std::option::Option<super::types::ContainerInsights>,
++    pub(crate) container_insights: ::std::option::Option<super::super::types::ContainerInsights>,
  }
  impl EcsSettingsBuilder {
      /// <p>Specifies the CloudWatch Container Insights mode for the compute environment. Valid values are:</p>
@@ -41,7 +41,7 @@
      /// </dl>
      /// <p>If you don't specify a value, the default is <code>DISABLED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights.html">Container Insights</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn container_insights(mut self, input: crate::types::ContainerInsights) -> Self {
-+    pub fn container_insights(mut self, input: super::types::ContainerInsights) -> Self {
++    pub fn container_insights(mut self, input: super::super::types::ContainerInsights) -> Self {
          self.container_insights = ::std::option::Option::Some(input);
          self
      }
@@ -50,7 +50,7 @@
      /// </dl>
      /// <p>If you don't specify a value, the default is <code>DISABLED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights.html">Container Insights</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn set_container_insights(mut self, input: ::std::option::Option<crate::types::ContainerInsights>) -> Self {
-+    pub fn set_container_insights(mut self, input: ::std::option::Option<super::types::ContainerInsights>) -> Self {
++    pub fn set_container_insights(mut self, input: ::std::option::Option<super::super::types::ContainerInsights>) -> Self {
          self.container_insights = input;
          self
      }
@@ -59,14 +59,14 @@
      /// </dl>
      /// <p>If you don't specify a value, the default is <code>DISABLED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights.html">Container Insights</a> in the <i>Batch User Guide</i>.</p>
 -    pub fn get_container_insights(&self) -> &::std::option::Option<crate::types::ContainerInsights> {
-+    pub fn get_container_insights(&self) -> &::std::option::Option<super::types::ContainerInsights> {
++    pub fn get_container_insights(&self) -> &::std::option::Option<super::super::types::ContainerInsights> {
          &self.container_insights
      }
      /// Consumes the builder and constructs a [`EcsSettings`](crate::types::EcsSettings).
 -    pub fn build(self) -> crate::types::EcsSettings {
 -        crate::types::EcsSettings {
-+    pub fn build(self) -> super::types::EcsSettings {
-+        super::types::EcsSettings {
++    pub fn build(self) -> super::super::types::EcsSettings {
++        super::super::types::EcsSettings {
              container_insights: self.container_insights,
          }
      }

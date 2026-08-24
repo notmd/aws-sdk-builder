@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteBackupError>`](crate::operation::delete_backup::DeleteBackupError)
 -    pub fn delete_backup(&self) -> crate::operation::delete_backup::builders::DeleteBackupFluentBuilder {
 -        crate::operation::delete_backup::builders::DeleteBackupFluentBuilder::new(self.handle.clone())
-+    pub fn delete_backup(&self) -> super::operation::delete_backup::builders::DeleteBackupFluentBuilder {
-+        super::operation::delete_backup::builders::DeleteBackupFluentBuilder::new(self.handle.clone())
++    pub fn delete_backup(&self) -> super::super::operation::delete_backup::builders::DeleteBackupFluentBuilder {
++        super::super::operation::delete_backup::builders::DeleteBackupFluentBuilder::new(self.handle.clone())
      }
  }

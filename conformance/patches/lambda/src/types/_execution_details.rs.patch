@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ExecutionDetails`](crate::types::ExecutionDetails).
 -    pub fn builder() -> crate::types::builders::ExecutionDetailsBuilder {
 -        crate::types::builders::ExecutionDetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::ExecutionDetailsBuilder {
-+        super::types::builders::ExecutionDetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::ExecutionDetailsBuilder {
++        super::super::types::builders::ExecutionDetailsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ExecutionDetails`](crate::types::ExecutionDetails).
 -    pub fn build(self) -> crate::types::ExecutionDetails {
 -        crate::types::ExecutionDetails {
-+    pub fn build(self) -> super::types::ExecutionDetails {
-+        super::types::ExecutionDetails {
++    pub fn build(self) -> super::super::types::ExecutionDetails {
++        super::super::types::ExecutionDetails {
              input_payload: self.input_payload,
          }
      }

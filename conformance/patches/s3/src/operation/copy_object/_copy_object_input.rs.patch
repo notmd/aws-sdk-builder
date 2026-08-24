@@ -5,7 +5,7 @@
      /// </ul>
      /// </note>
 -    pub acl: ::std::option::Option<crate::types::ObjectCannedAcl>,
-+    pub acl: ::std::option::Option<super::types::ObjectCannedAcl>,
++    pub acl: ::std::option::Option<super::super::super::types::ObjectCannedAcl>,
      /// <p>The name of the destination bucket.</p>
      /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code> <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p><note>
      /// <p>Copying objects across different Amazon Web Services Regions isn't supported when the source or destination bucket is in Amazon Web Services Local Zones. The source and destination buckets must have the same parent Amazon Web Services Region. Otherwise, you get an HTTP <code>400 Bad Request</code> error with the error code <code>InvalidRequest</code>.</p>
@@ -14,7 +14,7 @@
      /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
      /// </note>
 -    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-+    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
++    pub checksum_algorithm: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>,
      /// <p>Specifies presentational information for the object. Indicates whether an object should be displayed in a web browser or downloaded as a file. It allows specifying the desired filename for the downloaded file.</p>
      pub content_disposition: ::std::option::Option<::std::string::String>,
      /// <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p><note>
@@ -23,7 +23,7 @@
      /// <p><code>x-amz-website-redirect-location</code> is unique to each object and is not copied when using the <code>x-amz-metadata-directive</code> header. To copy the value, you must specify <code>x-amz-website-redirect-location</code> in the request header.</p>
      /// </note>
 -    pub metadata_directive: ::std::option::Option<crate::types::MetadataDirective>,
-+    pub metadata_directive: ::std::option::Option<super::types::MetadataDirective>,
++    pub metadata_directive: ::std::option::Option<super::super::super::types::MetadataDirective>,
      /// <p>Specifies whether the object tag-set is copied from the source object or replaced with the tag-set that's provided in the request.</p>
      /// <p>The default value is <code>COPY</code>.</p><note>
      /// <p><b>Directory buckets</b> - For directory buckets in a <code>CopyObject</code> operation, only the empty tag-set is supported. Any requests that attempt to write non-empty tags into directory buckets will receive a <code>501 Not Implemented</code> status code. When the destination bucket is a directory bucket, you will receive a <code>501 Not Implemented</code> response in any of the following situations:</p>
@@ -32,7 +32,7 @@
      /// </ul>
      /// </note>
 -    pub tagging_directive: ::std::option::Option<crate::types::TaggingDirective>,
-+    pub tagging_directive: ::std::option::Option<super::types::TaggingDirective>,
++    pub tagging_directive: ::std::option::Option<super::super::super::types::TaggingDirective>,
      /// <p>Specifies whether you want to copy annotations from the source object or exclude them. If this header isn't specified, <code>COPY</code> is the default behavior.</p>
      /// <p>Valid Values: <code>COPY | EXCLUDE</code></p>
      /// <p>You can specify this directive as either an HTTP header (<code>x-amz-object-annotation-directive</code>) or as a query string parameter. Use the query string form when generating presigned URLs that need to control annotation copy behavior.</p>
@@ -41,7 +41,7 @@
      /// <p>When you copy objects using multipart upload (for example, when the Amazon Web Services CLI or Amazon Web Services SDKs use Transfer Manager for objects larger than approximately 8 MB), annotations are not copied by default. To include annotations, specify <code>--copy-props default</code> in the Amazon Web Services CLI or the equivalent SDK configuration. With this opt-in, the SDK reads source annotations, completes the multipart upload, and then writes each annotation to the destination. Between the upload completion and the last annotation write, the destination object exists without all its annotations.</p>
      /// </note>
 -    pub annotation_directive: ::std::option::Option<crate::types::AnnotationDirective>,
-+    pub annotation_directive: ::std::option::Option<super::types::AnnotationDirective>,
++    pub annotation_directive: ::std::option::Option<super::super::super::types::AnnotationDirective>,
      /// <p>The server-side encryption algorithm used when storing this object in Amazon S3. Unrecognized or unsupported values won’t write a destination object and will receive a <code>400 Bad Request</code> response.</p>
      /// <p>Amazon S3 automatically encrypts all new objects that are copied to an S3 bucket. When copying an object, if you don't specify encryption information in your copy request, the encryption setting of the target object is set to the default encryption configuration of the destination bucket. By default, all buckets have a base level of encryption configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). If the destination bucket has a different default encryption configuration, Amazon S3 uses the corresponding encryption key to encrypt the target object copy.</p>
      /// <p>With server-side encryption, Amazon S3 encrypts your data as it writes your data to disks in its data centers and decrypts the data when you access it. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using Server-Side Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -50,7 +50,7 @@
      /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li>
      /// </ul>
 -    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
-+    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
++    pub server_side_encryption: ::std::option::Option<super::super::super::types::ServerSideEncryption>,
      /// <p>If the <code>x-amz-storage-class</code> header is not used, the copied object will be stored in the <code>STANDARD</code> Storage Class by default. The <code>STANDARD</code> storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class.</p><note>
      /// <ul>
      /// <li>
@@ -59,7 +59,7 @@
      /// </ul>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
 -    pub storage_class: ::std::option::Option<crate::types::StorageClass>,
-+    pub storage_class: ::std::option::Option<super::types::StorageClass>,
++    pub storage_class: ::std::option::Option<super::super::super::types::StorageClass>,
      /// <p>If the destination bucket is configured as a website, redirects requests for this object copy to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. This value is unique to each object and is not copied when using the <code>x-amz-metadata-directive</code> header. Instead, you may opt to provide this header in combination with the <code>x-amz-metadata-directive</code> header.</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
@@ -68,7 +68,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      /// <p>The tag-set for the object copy in the destination bucket. This value must be used in conjunction with the <code>x-amz-tagging-directive</code> if you choose <code>REPLACE</code> for the <code>x-amz-tagging-directive</code>. If you choose <code>COPY</code> for the <code>x-amz-tagging-directive</code>, you don't need to set the <code>x-amz-tagging</code> header, because the tag-set will be copied from the source object directly. The tag-set must be encoded as URL Query parameters.</p>
      /// <p>The default value is the empty value.</p><note>
      /// <p><b>Directory buckets</b> - For directory buckets in a <code>CopyObject</code> operation, only the empty tag-set is supported. Any requests that attempt to write non-empty tags into directory buckets will receive a <code>501 Not Implemented</code> status code. When the destination bucket is a directory bucket, you will receive a <code>501 Not Implemented</code> response in any of the following situations:</p>
@@ -77,7 +77,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub object_lock_mode: ::std::option::Option<crate::types::ObjectLockMode>,
-+    pub object_lock_mode: ::std::option::Option<super::types::ObjectLockMode>,
++    pub object_lock_mode: ::std::option::Option<super::super::super::types::ObjectLockMode>,
      /// <p>The date and time when you want the Object Lock of the object copy to expire.</p><note>
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
@@ -86,7 +86,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub object_lock_legal_hold_status: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>,
-+    pub object_lock_legal_hold_status: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>,
++    pub object_lock_legal_hold_status: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>,
      /// <p>The account ID of the expected destination bucket owner. If the account ID that you provide does not match the actual owner of the destination bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
      pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
      /// <p>The account ID of the expected source bucket owner. If the account ID that you provide does not match the actual owner of the source bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -95,7 +95,7 @@
      /// </ul>
      /// </note>
 -    pub fn acl(&self) -> ::std::option::Option<&crate::types::ObjectCannedAcl> {
-+    pub fn acl(&self) -> ::std::option::Option<&super::types::ObjectCannedAcl> {
++    pub fn acl(&self) -> ::std::option::Option<&super::super::super::types::ObjectCannedAcl> {
          self.acl.as_ref()
      }
      /// <p>The name of the destination bucket.</p>
@@ -104,7 +104,7 @@
      /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
      /// </note>
 -    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
-+    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
++    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::super::super::types::ChecksumAlgorithm> {
          self.checksum_algorithm.as_ref()
      }
      /// <p>Specifies presentational information for the object. Indicates whether an object should be displayed in a web browser or downloaded as a file. It allows specifying the desired filename for the downloaded file.</p>
@@ -113,7 +113,7 @@
      /// <p><code>x-amz-website-redirect-location</code> is unique to each object and is not copied when using the <code>x-amz-metadata-directive</code> header. To copy the value, you must specify <code>x-amz-website-redirect-location</code> in the request header.</p>
      /// </note>
 -    pub fn metadata_directive(&self) -> ::std::option::Option<&crate::types::MetadataDirective> {
-+    pub fn metadata_directive(&self) -> ::std::option::Option<&super::types::MetadataDirective> {
++    pub fn metadata_directive(&self) -> ::std::option::Option<&super::super::super::types::MetadataDirective> {
          self.metadata_directive.as_ref()
      }
      /// <p>Specifies whether the object tag-set is copied from the source object or replaced with the tag-set that's provided in the request.</p>
@@ -122,7 +122,7 @@
      /// </ul>
      /// </note>
 -    pub fn tagging_directive(&self) -> ::std::option::Option<&crate::types::TaggingDirective> {
-+    pub fn tagging_directive(&self) -> ::std::option::Option<&super::types::TaggingDirective> {
++    pub fn tagging_directive(&self) -> ::std::option::Option<&super::super::super::types::TaggingDirective> {
          self.tagging_directive.as_ref()
      }
      /// <p>Specifies whether you want to copy annotations from the source object or exclude them. If this header isn't specified, <code>COPY</code> is the default behavior.</p>
@@ -131,7 +131,7 @@
      /// <p>When you copy objects using multipart upload (for example, when the Amazon Web Services CLI or Amazon Web Services SDKs use Transfer Manager for objects larger than approximately 8 MB), annotations are not copied by default. To include annotations, specify <code>--copy-props default</code> in the Amazon Web Services CLI or the equivalent SDK configuration. With this opt-in, the SDK reads source annotations, completes the multipart upload, and then writes each annotation to the destination. Between the upload completion and the last annotation write, the destination object exists without all its annotations.</p>
      /// </note>
 -    pub fn annotation_directive(&self) -> ::std::option::Option<&crate::types::AnnotationDirective> {
-+    pub fn annotation_directive(&self) -> ::std::option::Option<&super::types::AnnotationDirective> {
++    pub fn annotation_directive(&self) -> ::std::option::Option<&super::super::super::types::AnnotationDirective> {
          self.annotation_directive.as_ref()
      }
      /// <p>The server-side encryption algorithm used when storing this object in Amazon S3. Unrecognized or unsupported values won’t write a destination object and will receive a <code>400 Bad Request</code> response.</p>
@@ -140,7 +140,7 @@
      /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li>
      /// </ul>
 -    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
-+    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
++    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::super::super::types::ServerSideEncryption> {
          self.server_side_encryption.as_ref()
      }
      /// <p>If the <code>x-amz-storage-class</code> header is not used, the copied object will be stored in the <code>STANDARD</code> Storage Class by default. The <code>STANDARD</code> storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class.</p><note>
@@ -149,7 +149,7 @@
      /// </ul>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
 -    pub fn storage_class(&self) -> ::std::option::Option<&crate::types::StorageClass> {
-+    pub fn storage_class(&self) -> ::std::option::Option<&super::types::StorageClass> {
++    pub fn storage_class(&self) -> ::std::option::Option<&super::super::super::types::StorageClass> {
          self.storage_class.as_ref()
      }
      /// <p>If the destination bucket is configured as a website, redirects requests for this object copy to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. This value is unique to each object and is not copied when using the <code>x-amz-metadata-directive</code> header. Instead, you may opt to provide this header in combination with the <code>x-amz-metadata-directive</code> header.</p><note>
@@ -158,7 +158,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
-+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
++    pub fn request_payer(&self) -> ::std::option::Option<&super::super::super::types::RequestPayer> {
          self.request_payer.as_ref()
      }
      /// <p>The tag-set for the object copy in the destination bucket. This value must be used in conjunction with the <code>x-amz-tagging-directive</code> if you choose <code>REPLACE</code> for the <code>x-amz-tagging-directive</code>. If you choose <code>COPY</code> for the <code>x-amz-tagging-directive</code>, you don't need to set the <code>x-amz-tagging</code> header, because the tag-set will be copied from the source object directly. The tag-set must be encoded as URL Query parameters.</p>
@@ -167,7 +167,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn object_lock_mode(&self) -> ::std::option::Option<&crate::types::ObjectLockMode> {
-+    pub fn object_lock_mode(&self) -> ::std::option::Option<&super::types::ObjectLockMode> {
++    pub fn object_lock_mode(&self) -> ::std::option::Option<&super::super::super::types::ObjectLockMode> {
          self.object_lock_mode.as_ref()
      }
      /// <p>The date and time when you want the Object Lock of the object copy to expire.</p><note>
@@ -176,7 +176,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&crate::types::ObjectLockLegalHoldStatus> {
-+    pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&super::types::ObjectLockLegalHoldStatus> {
++    pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&super::super::super::types::ObjectLockLegalHoldStatus> {
          self.object_lock_legal_hold_status.as_ref()
      }
      /// <p>The account ID of the expected destination bucket owner. If the account ID that you provide does not match the actual owner of the destination bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -186,8 +186,8 @@
      /// Creates a new builder-style object to manufacture [`CopyObjectInput`](crate::operation::copy_object::CopyObjectInput).
 -    pub fn builder() -> crate::operation::copy_object::builders::CopyObjectInputBuilder {
 -        crate::operation::copy_object::builders::CopyObjectInputBuilder::default()
-+    pub fn builder() -> super::operation::copy_object::builders::CopyObjectInputBuilder {
-+        super::operation::copy_object::builders::CopyObjectInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::copy_object::builders::CopyObjectInputBuilder {
++        super::super::super::operation::copy_object::builders::CopyObjectInputBuilder::default()
      }
  }
 
@@ -196,11 +196,11 @@
  #[non_exhaustive]
  pub struct CopyObjectInputBuilder {
 -    pub(crate) acl: ::std::option::Option<crate::types::ObjectCannedAcl>,
-+    pub(crate) acl: ::std::option::Option<super::types::ObjectCannedAcl>,
++    pub(crate) acl: ::std::option::Option<super::super::super::types::ObjectCannedAcl>,
      pub(crate) bucket: ::std::option::Option<::std::string::String>,
      pub(crate) cache_control: ::std::option::Option<::std::string::String>,
 -    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-+    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
++    pub(crate) checksum_algorithm: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>,
      pub(crate) content_disposition: ::std::option::Option<::std::string::String>,
      pub(crate) content_encoding: ::std::option::Option<::std::string::String>,
      pub(crate) content_language: ::std::option::Option<::std::string::String>,
@@ -213,11 +213,11 @@
 -    pub(crate) annotation_directive: ::std::option::Option<crate::types::AnnotationDirective>,
 -    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
 -    pub(crate) storage_class: ::std::option::Option<crate::types::StorageClass>,
-+    pub(crate) metadata_directive: ::std::option::Option<super::types::MetadataDirective>,
-+    pub(crate) tagging_directive: ::std::option::Option<super::types::TaggingDirective>,
-+    pub(crate) annotation_directive: ::std::option::Option<super::types::AnnotationDirective>,
-+    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
-+    pub(crate) storage_class: ::std::option::Option<super::types::StorageClass>,
++    pub(crate) metadata_directive: ::std::option::Option<super::super::super::types::MetadataDirective>,
++    pub(crate) tagging_directive: ::std::option::Option<super::super::super::types::TaggingDirective>,
++    pub(crate) annotation_directive: ::std::option::Option<super::super::super::types::AnnotationDirective>,
++    pub(crate) server_side_encryption: ::std::option::Option<super::super::super::types::ServerSideEncryption>,
++    pub(crate) storage_class: ::std::option::Option<super::super::super::types::StorageClass>,
      pub(crate) website_redirect_location: ::std::option::Option<::std::string::String>,
      pub(crate) sse_customer_algorithm: ::std::option::Option<::std::string::String>,
      pub(crate) sse_customer_key: ::std::option::Option<::std::string::String>,
@@ -226,13 +226,13 @@
      pub(crate) copy_source_sse_customer_key: ::std::option::Option<::std::string::String>,
      pub(crate) copy_source_sse_customer_key_md5: ::std::option::Option<::std::string::String>,
 -    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
-+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
++    pub(crate) request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
      pub(crate) tagging: ::std::option::Option<::std::string::String>,
 -    pub(crate) object_lock_mode: ::std::option::Option<crate::types::ObjectLockMode>,
-+    pub(crate) object_lock_mode: ::std::option::Option<super::types::ObjectLockMode>,
++    pub(crate) object_lock_mode: ::std::option::Option<super::super::super::types::ObjectLockMode>,
      pub(crate) object_lock_retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) object_lock_legal_hold_status: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>,
-+    pub(crate) object_lock_legal_hold_status: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>,
++    pub(crate) object_lock_legal_hold_status: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>,
      pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
      pub(crate) expected_source_bucket_owner: ::std::option::Option<::std::string::String>,
  }
@@ -241,7 +241,7 @@
      /// </ul>
      /// </note>
 -    pub fn acl(mut self, input: crate::types::ObjectCannedAcl) -> Self {
-+    pub fn acl(mut self, input: super::types::ObjectCannedAcl) -> Self {
++    pub fn acl(mut self, input: super::super::super::types::ObjectCannedAcl) -> Self {
          self.acl = ::std::option::Option::Some(input);
          self
      }
@@ -250,7 +250,7 @@
      /// </ul>
      /// </note>
 -    pub fn set_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self {
-+    pub fn set_acl(mut self, input: ::std::option::Option<super::types::ObjectCannedAcl>) -> Self {
++    pub fn set_acl(mut self, input: ::std::option::Option<super::super::super::types::ObjectCannedAcl>) -> Self {
          self.acl = input;
          self
      }
@@ -259,7 +259,7 @@
      /// </ul>
      /// </note>
 -    pub fn get_acl(&self) -> &::std::option::Option<crate::types::ObjectCannedAcl> {
-+    pub fn get_acl(&self) -> &::std::option::Option<super::types::ObjectCannedAcl> {
++    pub fn get_acl(&self) -> &::std::option::Option<super::super::super::types::ObjectCannedAcl> {
          &self.acl
      }
      /// <p>The name of the destination bucket.</p>
@@ -268,7 +268,7 @@
      /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
      /// </note>
 -    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
-+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
++    pub fn checksum_algorithm(mut self, input: super::super::super::types::ChecksumAlgorithm) -> Self {
          self.checksum_algorithm = ::std::option::Option::Some(input);
          self
      }
@@ -277,7 +277,7 @@
      /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
      /// </note>
 -    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
-+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
++    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::super::super::types::ChecksumAlgorithm>) -> Self {
          self.checksum_algorithm = input;
          self
      }
@@ -286,7 +286,7 @@
      /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
      /// </note>
 -    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
-+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
++    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::super::super::types::ChecksumAlgorithm> {
          &self.checksum_algorithm
      }
      /// <p>Specifies presentational information for the object. Indicates whether an object should be displayed in a web browser or downloaded as a file. It allows specifying the desired filename for the downloaded file.</p>
@@ -295,7 +295,7 @@
      /// <p><code>x-amz-website-redirect-location</code> is unique to each object and is not copied when using the <code>x-amz-metadata-directive</code> header. To copy the value, you must specify <code>x-amz-website-redirect-location</code> in the request header.</p>
      /// </note>
 -    pub fn metadata_directive(mut self, input: crate::types::MetadataDirective) -> Self {
-+    pub fn metadata_directive(mut self, input: super::types::MetadataDirective) -> Self {
++    pub fn metadata_directive(mut self, input: super::super::super::types::MetadataDirective) -> Self {
          self.metadata_directive = ::std::option::Option::Some(input);
          self
      }
@@ -304,7 +304,7 @@
      /// <p><code>x-amz-website-redirect-location</code> is unique to each object and is not copied when using the <code>x-amz-metadata-directive</code> header. To copy the value, you must specify <code>x-amz-website-redirect-location</code> in the request header.</p>
      /// </note>
 -    pub fn set_metadata_directive(mut self, input: ::std::option::Option<crate::types::MetadataDirective>) -> Self {
-+    pub fn set_metadata_directive(mut self, input: ::std::option::Option<super::types::MetadataDirective>) -> Self {
++    pub fn set_metadata_directive(mut self, input: ::std::option::Option<super::super::super::types::MetadataDirective>) -> Self {
          self.metadata_directive = input;
          self
      }
@@ -313,7 +313,7 @@
      /// <p><code>x-amz-website-redirect-location</code> is unique to each object and is not copied when using the <code>x-amz-metadata-directive</code> header. To copy the value, you must specify <code>x-amz-website-redirect-location</code> in the request header.</p>
      /// </note>
 -    pub fn get_metadata_directive(&self) -> &::std::option::Option<crate::types::MetadataDirective> {
-+    pub fn get_metadata_directive(&self) -> &::std::option::Option<super::types::MetadataDirective> {
++    pub fn get_metadata_directive(&self) -> &::std::option::Option<super::super::super::types::MetadataDirective> {
          &self.metadata_directive
      }
      /// <p>Specifies whether the object tag-set is copied from the source object or replaced with the tag-set that's provided in the request.</p>
@@ -322,7 +322,7 @@
      /// </ul>
      /// </note>
 -    pub fn tagging_directive(mut self, input: crate::types::TaggingDirective) -> Self {
-+    pub fn tagging_directive(mut self, input: super::types::TaggingDirective) -> Self {
++    pub fn tagging_directive(mut self, input: super::super::super::types::TaggingDirective) -> Self {
          self.tagging_directive = ::std::option::Option::Some(input);
          self
      }
@@ -331,7 +331,7 @@
      /// </ul>
      /// </note>
 -    pub fn set_tagging_directive(mut self, input: ::std::option::Option<crate::types::TaggingDirective>) -> Self {
-+    pub fn set_tagging_directive(mut self, input: ::std::option::Option<super::types::TaggingDirective>) -> Self {
++    pub fn set_tagging_directive(mut self, input: ::std::option::Option<super::super::super::types::TaggingDirective>) -> Self {
          self.tagging_directive = input;
          self
      }
@@ -340,7 +340,7 @@
      /// </ul>
      /// </note>
 -    pub fn get_tagging_directive(&self) -> &::std::option::Option<crate::types::TaggingDirective> {
-+    pub fn get_tagging_directive(&self) -> &::std::option::Option<super::types::TaggingDirective> {
++    pub fn get_tagging_directive(&self) -> &::std::option::Option<super::super::super::types::TaggingDirective> {
          &self.tagging_directive
      }
      /// <p>Specifies whether you want to copy annotations from the source object or exclude them. If this header isn't specified, <code>COPY</code> is the default behavior.</p>
@@ -349,7 +349,7 @@
      /// <p>When you copy objects using multipart upload (for example, when the Amazon Web Services CLI or Amazon Web Services SDKs use Transfer Manager for objects larger than approximately 8 MB), annotations are not copied by default. To include annotations, specify <code>--copy-props default</code> in the Amazon Web Services CLI or the equivalent SDK configuration. With this opt-in, the SDK reads source annotations, completes the multipart upload, and then writes each annotation to the destination. Between the upload completion and the last annotation write, the destination object exists without all its annotations.</p>
      /// </note>
 -    pub fn annotation_directive(mut self, input: crate::types::AnnotationDirective) -> Self {
-+    pub fn annotation_directive(mut self, input: super::types::AnnotationDirective) -> Self {
++    pub fn annotation_directive(mut self, input: super::super::super::types::AnnotationDirective) -> Self {
          self.annotation_directive = ::std::option::Option::Some(input);
          self
      }
@@ -358,7 +358,7 @@
      /// <p>When you copy objects using multipart upload (for example, when the Amazon Web Services CLI or Amazon Web Services SDKs use Transfer Manager for objects larger than approximately 8 MB), annotations are not copied by default. To include annotations, specify <code>--copy-props default</code> in the Amazon Web Services CLI or the equivalent SDK configuration. With this opt-in, the SDK reads source annotations, completes the multipart upload, and then writes each annotation to the destination. Between the upload completion and the last annotation write, the destination object exists without all its annotations.</p>
      /// </note>
 -    pub fn set_annotation_directive(mut self, input: ::std::option::Option<crate::types::AnnotationDirective>) -> Self {
-+    pub fn set_annotation_directive(mut self, input: ::std::option::Option<super::types::AnnotationDirective>) -> Self {
++    pub fn set_annotation_directive(mut self, input: ::std::option::Option<super::super::super::types::AnnotationDirective>) -> Self {
          self.annotation_directive = input;
          self
      }
@@ -367,7 +367,7 @@
      /// <p>When you copy objects using multipart upload (for example, when the Amazon Web Services CLI or Amazon Web Services SDKs use Transfer Manager for objects larger than approximately 8 MB), annotations are not copied by default. To include annotations, specify <code>--copy-props default</code> in the Amazon Web Services CLI or the equivalent SDK configuration. With this opt-in, the SDK reads source annotations, completes the multipart upload, and then writes each annotation to the destination. Between the upload completion and the last annotation write, the destination object exists without all its annotations.</p>
      /// </note>
 -    pub fn get_annotation_directive(&self) -> &::std::option::Option<crate::types::AnnotationDirective> {
-+    pub fn get_annotation_directive(&self) -> &::std::option::Option<super::types::AnnotationDirective> {
++    pub fn get_annotation_directive(&self) -> &::std::option::Option<super::super::super::types::AnnotationDirective> {
          &self.annotation_directive
      }
      /// <p>The server-side encryption algorithm used when storing this object in Amazon S3. Unrecognized or unsupported values won’t write a destination object and will receive a <code>400 Bad Request</code> response.</p>
@@ -376,7 +376,7 @@
      /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li>
      /// </ul>
 -    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
-+    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
++    pub fn server_side_encryption(mut self, input: super::super::super::types::ServerSideEncryption) -> Self {
          self.server_side_encryption = ::std::option::Option::Some(input);
          self
      }
@@ -385,7 +385,7 @@
      /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li>
      /// </ul>
 -    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
-+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
++    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::super::super::types::ServerSideEncryption>) -> Self {
          self.server_side_encryption = input;
          self
      }
@@ -394,7 +394,7 @@
      /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li>
      /// </ul>
 -    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
-+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
++    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::super::super::types::ServerSideEncryption> {
          &self.server_side_encryption
      }
      /// <p>If the <code>x-amz-storage-class</code> header is not used, the copied object will be stored in the <code>STANDARD</code> Storage Class by default. The <code>STANDARD</code> storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class.</p><note>
@@ -403,7 +403,7 @@
      /// </ul>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
 -    pub fn storage_class(mut self, input: crate::types::StorageClass) -> Self {
-+    pub fn storage_class(mut self, input: super::types::StorageClass) -> Self {
++    pub fn storage_class(mut self, input: super::super::super::types::StorageClass) -> Self {
          self.storage_class = ::std::option::Option::Some(input);
          self
      }
@@ -412,7 +412,7 @@
      /// </ul>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
 -    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
-+    pub fn set_storage_class(mut self, input: ::std::option::Option<super::types::StorageClass>) -> Self {
++    pub fn set_storage_class(mut self, input: ::std::option::Option<super::super::super::types::StorageClass>) -> Self {
          self.storage_class = input;
          self
      }
@@ -421,7 +421,7 @@
      /// </ul>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
 -    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
-+    pub fn get_storage_class(&self) -> &::std::option::Option<super::types::StorageClass> {
++    pub fn get_storage_class(&self) -> &::std::option::Option<super::super::super::types::StorageClass> {
          &self.storage_class
      }
      /// <p>If the destination bucket is configured as a website, redirects requests for this object copy to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. This value is unique to each object and is not copied when using the <code>x-amz-metadata-directive</code> header. Instead, you may opt to provide this header in combination with the <code>x-amz-metadata-directive</code> header.</p><note>
@@ -430,7 +430,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
-+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::super::super::types::RequestPayer) -> Self {
          self.request_payer = ::std::option::Option::Some(input);
          self
      }
@@ -439,7 +439,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
-+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::super::super::types::RequestPayer>) -> Self {
          self.request_payer = input;
          self
      }
@@ -448,7 +448,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
-+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::super::super::types::RequestPayer> {
          &self.request_payer
      }
      /// <p>The tag-set for the object copy in the destination bucket. This value must be used in conjunction with the <code>x-amz-tagging-directive</code> if you choose <code>REPLACE</code> for the <code>x-amz-tagging-directive</code>. If you choose <code>COPY</code> for the <code>x-amz-tagging-directive</code>, you don't need to set the <code>x-amz-tagging</code> header, because the tag-set will be copied from the source object directly. The tag-set must be encoded as URL Query parameters.</p>
@@ -457,7 +457,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn object_lock_mode(mut self, input: crate::types::ObjectLockMode) -> Self {
-+    pub fn object_lock_mode(mut self, input: super::types::ObjectLockMode) -> Self {
++    pub fn object_lock_mode(mut self, input: super::super::super::types::ObjectLockMode) -> Self {
          self.object_lock_mode = ::std::option::Option::Some(input);
          self
      }
@@ -466,7 +466,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockMode>) -> Self {
-+    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<super::types::ObjectLockMode>) -> Self {
++    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<super::super::super::types::ObjectLockMode>) -> Self {
          self.object_lock_mode = input;
          self
      }
@@ -475,7 +475,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_object_lock_mode(&self) -> &::std::option::Option<crate::types::ObjectLockMode> {
-+    pub fn get_object_lock_mode(&self) -> &::std::option::Option<super::types::ObjectLockMode> {
++    pub fn get_object_lock_mode(&self) -> &::std::option::Option<super::super::super::types::ObjectLockMode> {
          &self.object_lock_mode
      }
      /// <p>The date and time when you want the Object Lock of the object copy to expire.</p><note>
@@ -484,7 +484,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn object_lock_legal_hold_status(mut self, input: crate::types::ObjectLockLegalHoldStatus) -> Self {
-+    pub fn object_lock_legal_hold_status(mut self, input: super::types::ObjectLockLegalHoldStatus) -> Self {
++    pub fn object_lock_legal_hold_status(mut self, input: super::super::super::types::ObjectLockLegalHoldStatus) -> Self {
          self.object_lock_legal_hold_status = ::std::option::Option::Some(input);
          self
      }
@@ -493,7 +493,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>) -> Self {
-+    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>) -> Self {
++    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>) -> Self {
          self.object_lock_legal_hold_status = input;
          self
      }
@@ -502,7 +502,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHoldStatus> {
-+    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<super::types::ObjectLockLegalHoldStatus> {
++    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus> {
          &self.object_lock_legal_hold_status
      }
      /// <p>The account ID of the expected destination bucket owner. If the account ID that you provide does not match the actual owner of the destination bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -512,8 +512,8 @@
      /// Consumes the builder and constructs a [`CopyObjectInput`](crate::operation::copy_object::CopyObjectInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::copy_object::CopyObjectInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::copy_object::CopyObjectInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::copy_object::CopyObjectInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::copy_object::CopyObjectInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::copy_object::CopyObjectInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::copy_object::CopyObjectInput {
              acl: self.acl,
              bucket: self.bucket,
              cache_control: self.cache_control,

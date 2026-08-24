@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for UnmodifiableEntityException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::UnmodifiableEntityException {
-+impl ::aws_types::request_id::RequestId for super::types::error::UnmodifiableEntityException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::UnmodifiableEntityException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`UnmodifiableEntityException`](crate::types::error::UnmodifiableEntityException).
 -    pub fn builder() -> crate::types::error::builders::UnmodifiableEntityExceptionBuilder {
 -        crate::types::error::builders::UnmodifiableEntityExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::UnmodifiableEntityExceptionBuilder {
-+        super::types::error::builders::UnmodifiableEntityExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::UnmodifiableEntityExceptionBuilder {
++        super::super::super::types::error::builders::UnmodifiableEntityExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`UnmodifiableEntityException`](crate::types::error::UnmodifiableEntityException).
 -    pub fn build(self) -> crate::types::error::UnmodifiableEntityException {
 -        crate::types::error::UnmodifiableEntityException {
-+    pub fn build(self) -> super::types::error::UnmodifiableEntityException {
-+        super::types::error::UnmodifiableEntityException {
++    pub fn build(self) -> super::super::super::types::error::UnmodifiableEntityException {
++        super::super::super::types::error::UnmodifiableEntityException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

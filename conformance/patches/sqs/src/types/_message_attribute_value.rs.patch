@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`MessageAttributeValue`](crate::types::MessageAttributeValue).
 -    pub fn builder() -> crate::types::builders::MessageAttributeValueBuilder {
 -        crate::types::builders::MessageAttributeValueBuilder::default()
-+    pub fn builder() -> super::types::builders::MessageAttributeValueBuilder {
-+        super::types::builders::MessageAttributeValueBuilder::default()
++    pub fn builder() -> super::super::types::builders::MessageAttributeValueBuilder {
++        super::super::types::builders::MessageAttributeValueBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`data_type`](crate::types::builders::MessageAttributeValueBuilder::data_type)
 -    pub fn build(self) -> ::std::result::Result<crate::types::MessageAttributeValue, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::MessageAttributeValue {
-+    pub fn build(self) -> ::std::result::Result<super::types::MessageAttributeValue, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::MessageAttributeValue {
++    pub fn build(self) -> ::std::result::Result<super::super::types::MessageAttributeValue, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::MessageAttributeValue {
              string_value: self.string_value,
              binary_value: self.binary_value,
              string_list_values: self.string_list_values,

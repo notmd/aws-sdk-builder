@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TaskContainerDependency`](crate::types::TaskContainerDependency).
 -    pub fn builder() -> crate::types::builders::TaskContainerDependencyBuilder {
 -        crate::types::builders::TaskContainerDependencyBuilder::default()
-+    pub fn builder() -> super::types::builders::TaskContainerDependencyBuilder {
-+        super::types::builders::TaskContainerDependencyBuilder::default()
++    pub fn builder() -> super::super::types::builders::TaskContainerDependencyBuilder {
++        super::super::types::builders::TaskContainerDependencyBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`TaskContainerDependency`](crate::types::TaskContainerDependency).
 -    pub fn build(self) -> crate::types::TaskContainerDependency {
 -        crate::types::TaskContainerDependency {
-+    pub fn build(self) -> super::types::TaskContainerDependency {
-+        super::types::TaskContainerDependency {
++    pub fn build(self) -> super::super::types::TaskContainerDependency {
++        super::super::types::TaskContainerDependency {
              container_name: self.container_name,
              condition: self.condition,
          }

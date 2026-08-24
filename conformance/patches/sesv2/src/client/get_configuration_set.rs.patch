@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetConfigurationSetError>`](crate::operation::get_configuration_set::GetConfigurationSetError)
 -    pub fn get_configuration_set(&self) -> crate::operation::get_configuration_set::builders::GetConfigurationSetFluentBuilder {
 -        crate::operation::get_configuration_set::builders::GetConfigurationSetFluentBuilder::new(self.handle.clone())
-+    pub fn get_configuration_set(&self) -> super::operation::get_configuration_set::builders::GetConfigurationSetFluentBuilder {
-+        super::operation::get_configuration_set::builders::GetConfigurationSetFluentBuilder::new(self.handle.clone())
++    pub fn get_configuration_set(&self) -> super::super::operation::get_configuration_set::builders::GetConfigurationSetFluentBuilder {
++        super::super::operation::get_configuration_set::builders::GetConfigurationSetFluentBuilder::new(self.handle.clone())
      }
  }

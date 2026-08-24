@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`JobTimeout`](crate::types::JobTimeout).
 -    pub fn builder() -> crate::types::builders::JobTimeoutBuilder {
 -        crate::types::builders::JobTimeoutBuilder::default()
-+    pub fn builder() -> super::types::builders::JobTimeoutBuilder {
-+        super::types::builders::JobTimeoutBuilder::default()
++    pub fn builder() -> super::super::types::builders::JobTimeoutBuilder {
++        super::super::types::builders::JobTimeoutBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`JobTimeout`](crate::types::JobTimeout).
 -    pub fn build(self) -> crate::types::JobTimeout {
 -        crate::types::JobTimeout {
-+    pub fn build(self) -> super::types::JobTimeout {
-+        super::types::JobTimeout {
++    pub fn build(self) -> super::super::types::JobTimeout {
++        super::super::types::JobTimeout {
              attempt_duration_seconds: self.attempt_duration_seconds,
          }
      }

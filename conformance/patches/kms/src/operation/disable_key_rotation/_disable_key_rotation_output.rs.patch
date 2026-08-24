@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DisableKeyRotationOutput`](crate::operation::disable_key_rotation::DisableKeyRotationOutput).
 -    pub fn builder() -> crate::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder {
 -        crate::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder::default()
-+    pub fn builder() -> super::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder {
-+        super::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder {
++        super::super::super::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DisableKeyRotationOutput`](crate::operation::disable_key_rotation::DisableKeyRotationOutput).
 -    pub fn build(self) -> crate::operation::disable_key_rotation::DisableKeyRotationOutput {
 -        crate::operation::disable_key_rotation::DisableKeyRotationOutput {
-+    pub fn build(self) -> super::operation::disable_key_rotation::DisableKeyRotationOutput {
-+        super::operation::disable_key_rotation::DisableKeyRotationOutput {
++    pub fn build(self) -> super::super::super::operation::disable_key_rotation::DisableKeyRotationOutput {
++        super::super::super::operation::disable_key_rotation::DisableKeyRotationOutput {
              _request_id: self._request_id,
          }
      }

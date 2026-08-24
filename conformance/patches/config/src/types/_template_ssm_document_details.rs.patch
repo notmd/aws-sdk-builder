@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TemplateSsmDocumentDetails`](crate::types::TemplateSsmDocumentDetails).
 -    pub fn builder() -> crate::types::builders::TemplateSsmDocumentDetailsBuilder {
 -        crate::types::builders::TemplateSsmDocumentDetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::TemplateSsmDocumentDetailsBuilder {
-+        super::types::builders::TemplateSsmDocumentDetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::TemplateSsmDocumentDetailsBuilder {
++        super::super::types::builders::TemplateSsmDocumentDetailsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`document_name`](crate::types::builders::TemplateSsmDocumentDetailsBuilder::document_name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::TemplateSsmDocumentDetails, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::TemplateSsmDocumentDetails {
-+    pub fn build(self) -> ::std::result::Result<super::types::TemplateSsmDocumentDetails, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::TemplateSsmDocumentDetails {
++    pub fn build(self) -> ::std::result::Result<super::super::types::TemplateSsmDocumentDetails, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::TemplateSsmDocumentDetails {
              document_name: self.document_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "document_name",

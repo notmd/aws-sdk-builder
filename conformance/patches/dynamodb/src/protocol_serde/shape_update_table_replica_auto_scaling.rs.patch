@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput,
 -    crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
-+    super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput,
-+    super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
++    super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput,
++    super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled(generic)),
-+        None => return Err(super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled(generic)),
++        None => return Err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InternalServerError" => crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::InternalServerError({
-+        "InternalServerError" => super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::InternalServerError({
++        "InternalServerError" => super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::InternalServerError({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalServerErrorBuilder::default();
 -                output = crate::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
 -                    .map_err(crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalServerErrorBuilder::default();
-+                output = super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
-+                    .map_err(super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalServerErrorBuilder::default();
++                output = super::super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
++                    .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
          }),
          "LimitExceededException" => {
 -            crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::LimitExceededException({
-+            super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::LimitExceededException({
++            super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::LimitExceededException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
-+                    let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
++                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -61,16 +61,16 @@
          }
          "ResourceInUseException" => {
 -            crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::ResourceInUseException({
-+            super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::ResourceInUseException({
++            super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::ResourceInUseException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ResourceInUseExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
-+                    let mut output = super::types::error::builders::ResourceInUseExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
++                    let mut output = super::super::types::error::builders::ResourceInUseExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -79,17 +79,17 @@
          }
          "ResourceNotFoundException" => {
 -            crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::ResourceNotFoundException({
-+            super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::ResourceNotFoundException({
++            super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::ResourceNotFoundException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
-+                        super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
++                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -98,7 +98,7 @@
              })
          }
 -        _ => crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::generic(generic),
-+        _ => super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::generic(generic),
++        _ => super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::generic(generic),
      })
  }
 
@@ -108,17 +108,17 @@
  ) -> std::result::Result<
 -    crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput,
 -    crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
-+    super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput,
-+    super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
++    super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput,
++    super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingOutputBuilder::default();
 -        output = crate::protocol_serde::shape_update_table_replica_auto_scaling::de_update_table_replica_auto_scaling(_response_body, output)
 -            .map_err(crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
-+        let mut output = super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingOutputBuilder::default();
-+        output = super::protocol_serde::shape_update_table_replica_auto_scaling::de_update_table_replica_auto_scaling(_response_body, output)
-+            .map_err(super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
++        let mut output = super::super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingOutputBuilder::default();
++        output = super::super::protocol_serde::shape_update_table_replica_auto_scaling::de_update_table_replica_auto_scaling(_response_body, output)
++            .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -127,12 +127,12 @@
 
  pub fn ser_update_table_replica_auto_scaling_input(
 -    input: &crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
-+    input: &super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
++    input: &super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_update_table_replica_auto_scaling_input::ser_update_table_replica_auto_scaling_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_update_table_replica_auto_scaling_input::ser_update_table_replica_auto_scaling_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_update_table_replica_auto_scaling_input::ser_update_table_replica_auto_scaling_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -141,14 +141,14 @@
  pub(crate) fn de_update_table_replica_auto_scaling(
      _value: &[u8],
 -    mut builder: crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingOutputBuilder,
-+    mut builder: super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingOutputBuilder,
++    mut builder: super::super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingOutputBuilder,
-+    super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingOutputBuilder,
++    super::super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -157,7 +157,7 @@
                  "TableAutoScalingDescription" => {
                      builder = builder.set_table_auto_scaling_description(
 -                        crate::protocol_serde::shape_table_auto_scaling_description::de_table_auto_scaling_description(tokens, _value, depth + 1)?,
-+                        super::protocol_serde::shape_table_auto_scaling_description::de_table_auto_scaling_description(tokens, _value, depth + 1)?,
++                        super::super::protocol_serde::shape_table_auto_scaling_description::de_table_auto_scaling_description(tokens, _value, depth + 1)?,
                      );
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

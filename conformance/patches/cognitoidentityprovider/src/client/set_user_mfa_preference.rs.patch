@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SetUserMFAPreferenceError>`](crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError)
 -    pub fn set_user_mfa_preference(&self) -> crate::operation::set_user_mfa_preference::builders::SetUserMFAPreferenceFluentBuilder {
 -        crate::operation::set_user_mfa_preference::builders::SetUserMFAPreferenceFluentBuilder::new(self.handle.clone())
-+    pub fn set_user_mfa_preference(&self) -> super::operation::set_user_mfa_preference::builders::SetUserMFAPreferenceFluentBuilder {
-+        super::operation::set_user_mfa_preference::builders::SetUserMFAPreferenceFluentBuilder::new(self.handle.clone())
++    pub fn set_user_mfa_preference(&self) -> super::super::operation::set_user_mfa_preference::builders::SetUserMFAPreferenceFluentBuilder {
++        super::super::operation::set_user_mfa_preference::builders::SetUserMFAPreferenceFluentBuilder::new(self.handle.clone())
      }
  }

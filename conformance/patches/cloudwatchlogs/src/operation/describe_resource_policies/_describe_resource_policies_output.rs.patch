@@ -5,7 +5,7 @@
  pub struct DescribeResourcePoliciesOutput {
      /// <p>The resource policies that exist in this account.</p>
 -    pub resource_policies: ::std::option::Option<::std::vec::Vec<crate::types::ResourcePolicy>>,
-+    pub resource_policies: ::std::option::Option<::std::vec::Vec<super::types::ResourcePolicy>>,
++    pub resource_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourcePolicy>>,
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.resource_policies.is_none()`.
 -    pub fn resource_policies(&self) -> &[crate::types::ResourcePolicy] {
-+    pub fn resource_policies(&self) -> &[super::types::ResourcePolicy] {
++    pub fn resource_policies(&self) -> &[super::super::super::types::ResourcePolicy] {
          self.resource_policies.as_deref().unwrap_or_default()
      }
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeResourcePoliciesOutput`](crate::operation::describe_resource_policies::DescribeResourcePoliciesOutput).
 -    pub fn builder() -> crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesOutputBuilder {
 -        crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_resource_policies::builders::DescribeResourcePoliciesOutputBuilder {
-+        super::operation::describe_resource_policies::builders::DescribeResourcePoliciesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_resource_policies::builders::DescribeResourcePoliciesOutputBuilder {
++        super::super::super::operation::describe_resource_policies::builders::DescribeResourcePoliciesOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeResourcePoliciesOutputBuilder {
 -    pub(crate) resource_policies: ::std::option::Option<::std::vec::Vec<crate::types::ResourcePolicy>>,
-+    pub(crate) resource_policies: ::std::option::Option<::std::vec::Vec<super::types::ResourcePolicy>>,
++    pub(crate) resource_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourcePolicy>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The resource policies that exist in this account.</p>
 -    pub fn resource_policies(mut self, input: crate::types::ResourcePolicy) -> Self {
-+    pub fn resource_policies(mut self, input: super::types::ResourcePolicy) -> Self {
++    pub fn resource_policies(mut self, input: super::super::super::types::ResourcePolicy) -> Self {
          let mut v = self.resource_policies.unwrap_or_default();
          v.push(input);
          self.resource_policies = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The resource policies that exist in this account.</p>
 -    pub fn set_resource_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourcePolicy>>) -> Self {
-+    pub fn set_resource_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ResourcePolicy>>) -> Self {
++    pub fn set_resource_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourcePolicy>>) -> Self {
          self.resource_policies = input;
          self
      }
      /// <p>The resource policies that exist in this account.</p>
 -    pub fn get_resource_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourcePolicy>> {
-+    pub fn get_resource_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ResourcePolicy>> {
++    pub fn get_resource_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ResourcePolicy>> {
          &self.resource_policies
      }
      /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeResourcePoliciesOutput`](crate::operation::describe_resource_policies::DescribeResourcePoliciesOutput).
 -    pub fn build(self) -> crate::operation::describe_resource_policies::DescribeResourcePoliciesOutput {
 -        crate::operation::describe_resource_policies::DescribeResourcePoliciesOutput {
-+    pub fn build(self) -> super::operation::describe_resource_policies::DescribeResourcePoliciesOutput {
-+        super::operation::describe_resource_policies::DescribeResourcePoliciesOutput {
++    pub fn build(self) -> super::super::super::operation::describe_resource_policies::DescribeResourcePoliciesOutput {
++        super::super::super::operation::describe_resource_policies::DescribeResourcePoliciesOutput {
              resource_policies: self.resource_policies,
              next_token: self.next_token,
              _request_id: self._request_id,

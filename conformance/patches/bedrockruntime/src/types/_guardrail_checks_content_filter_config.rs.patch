@@ -5,12 +5,12 @@
  pub struct GuardrailChecksContentFilterConfig {
      /// <p>The content filter categories to evaluate.</p>
 -    pub categories: ::std::vec::Vec<crate::types::GuardrailChecksContentFilterCategoryConfig>,
-+    pub categories: ::std::vec::Vec<super::types::GuardrailChecksContentFilterCategoryConfig>,
++    pub categories: ::std::vec::Vec<super::super::types::GuardrailChecksContentFilterCategoryConfig>,
  }
  impl GuardrailChecksContentFilterConfig {
      /// <p>The content filter categories to evaluate.</p>
 -    pub fn categories(&self) -> &[crate::types::GuardrailChecksContentFilterCategoryConfig] {
-+    pub fn categories(&self) -> &[super::types::GuardrailChecksContentFilterCategoryConfig] {
++    pub fn categories(&self) -> &[super::super::types::GuardrailChecksContentFilterCategoryConfig] {
          use std::ops::Deref;
          self.categories.deref()
      }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailChecksContentFilterConfig`](crate::types::GuardrailChecksContentFilterConfig).
 -    pub fn builder() -> crate::types::builders::GuardrailChecksContentFilterConfigBuilder {
 -        crate::types::builders::GuardrailChecksContentFilterConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailChecksContentFilterConfigBuilder {
-+        super::types::builders::GuardrailChecksContentFilterConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailChecksContentFilterConfigBuilder {
++        super::super::types::builders::GuardrailChecksContentFilterConfigBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct GuardrailChecksContentFilterConfigBuilder {
 -    pub(crate) categories: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterCategoryConfig>>,
-+    pub(crate) categories: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksContentFilterCategoryConfig>>,
++    pub(crate) categories: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterCategoryConfig>>,
  }
  impl GuardrailChecksContentFilterConfigBuilder {
      /// Appends an item to `categories`.
@@ -39,7 +39,7 @@
      ///
      /// <p>The content filter categories to evaluate.</p>
 -    pub fn categories(mut self, input: crate::types::GuardrailChecksContentFilterCategoryConfig) -> Self {
-+    pub fn categories(mut self, input: super::types::GuardrailChecksContentFilterCategoryConfig) -> Self {
++    pub fn categories(mut self, input: super::super::types::GuardrailChecksContentFilterCategoryConfig) -> Self {
          let mut v = self.categories.unwrap_or_default();
          v.push(input);
          self.categories = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>The content filter categories to evaluate.</p>
 -    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterCategoryConfig>>) -> Self {
-+    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksContentFilterCategoryConfig>>) -> Self {
++    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterCategoryConfig>>) -> Self {
          self.categories = input;
          self
      }
      /// <p>The content filter categories to evaluate.</p>
 -    pub fn get_categories(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterCategoryConfig>> {
-+    pub fn get_categories(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailChecksContentFilterCategoryConfig>> {
++    pub fn get_categories(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterCategoryConfig>> {
          &self.categories
      }
      /// Consumes the builder and constructs a [`GuardrailChecksContentFilterConfig`](crate::types::GuardrailChecksContentFilterConfig).
@@ -62,8 +62,8 @@
      /// - [`categories`](crate::types::builders::GuardrailChecksContentFilterConfigBuilder::categories)
 -    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailChecksContentFilterConfig, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::GuardrailChecksContentFilterConfig {
-+    pub fn build(self) -> ::std::result::Result<super::types::GuardrailChecksContentFilterConfig, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::GuardrailChecksContentFilterConfig {
++    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterConfig, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::GuardrailChecksContentFilterConfig {
              categories: self.categories.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "categories",

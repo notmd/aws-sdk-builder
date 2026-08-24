@@ -5,7 +5,7 @@
      /// <p><code>NOT_APPLICABLE</code> – The warm-up status doesn't apply to this IP address. This status is used for IP addresses in managed dedicated IP pools, where Amazon SES automatically handles the warm-up process.</p></li>
      /// </ul>
 -    pub warmup_status: crate::types::WarmupStatus,
-+    pub warmup_status: super::types::WarmupStatus,
++    pub warmup_status: super::super::types::WarmupStatus,
      /// <p>Indicates the progress of your dedicated IP warm-up:</p>
      /// <ul>
      /// <li>
@@ -14,7 +14,7 @@
      /// <p><code>NOT_APPLICABLE</code> – The warm-up status doesn't apply to this IP address. This status is used for IP addresses in managed dedicated IP pools, where Amazon SES automatically handles the warm-up process.</p></li>
      /// </ul>
 -    pub fn warmup_status(&self) -> &crate::types::WarmupStatus {
-+    pub fn warmup_status(&self) -> &super::types::WarmupStatus {
++    pub fn warmup_status(&self) -> &super::super::types::WarmupStatus {
          &self.warmup_status
      }
      /// <p>Indicates the progress of your dedicated IP warm-up:</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DedicatedIp`](crate::types::DedicatedIp).
 -    pub fn builder() -> crate::types::builders::DedicatedIpBuilder {
 -        crate::types::builders::DedicatedIpBuilder::default()
-+    pub fn builder() -> super::types::builders::DedicatedIpBuilder {
-+        super::types::builders::DedicatedIpBuilder::default()
++    pub fn builder() -> super::super::types::builders::DedicatedIpBuilder {
++        super::super::types::builders::DedicatedIpBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct DedicatedIpBuilder {
      pub(crate) ip: ::std::option::Option<::std::string::String>,
 -    pub(crate) warmup_status: ::std::option::Option<crate::types::WarmupStatus>,
-+    pub(crate) warmup_status: ::std::option::Option<super::types::WarmupStatus>,
++    pub(crate) warmup_status: ::std::option::Option<super::super::types::WarmupStatus>,
      pub(crate) warmup_percentage: ::std::option::Option<i32>,
      pub(crate) pool_name: ::std::option::Option<::std::string::String>,
  }
@@ -43,7 +43,7 @@
      /// </ul>
      /// This field is required.
 -    pub fn warmup_status(mut self, input: crate::types::WarmupStatus) -> Self {
-+    pub fn warmup_status(mut self, input: super::types::WarmupStatus) -> Self {
++    pub fn warmup_status(mut self, input: super::super::types::WarmupStatus) -> Self {
          self.warmup_status = ::std::option::Option::Some(input);
          self
      }
@@ -52,7 +52,7 @@
      /// <p><code>NOT_APPLICABLE</code> – The warm-up status doesn't apply to this IP address. This status is used for IP addresses in managed dedicated IP pools, where Amazon SES automatically handles the warm-up process.</p></li>
      /// </ul>
 -    pub fn set_warmup_status(mut self, input: ::std::option::Option<crate::types::WarmupStatus>) -> Self {
-+    pub fn set_warmup_status(mut self, input: ::std::option::Option<super::types::WarmupStatus>) -> Self {
++    pub fn set_warmup_status(mut self, input: ::std::option::Option<super::super::types::WarmupStatus>) -> Self {
          self.warmup_status = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p><code>NOT_APPLICABLE</code> – The warm-up status doesn't apply to this IP address. This status is used for IP addresses in managed dedicated IP pools, where Amazon SES automatically handles the warm-up process.</p></li>
      /// </ul>
 -    pub fn get_warmup_status(&self) -> &::std::option::Option<crate::types::WarmupStatus> {
-+    pub fn get_warmup_status(&self) -> &::std::option::Option<super::types::WarmupStatus> {
++    pub fn get_warmup_status(&self) -> &::std::option::Option<super::super::types::WarmupStatus> {
          &self.warmup_status
      }
      /// <p>Indicates the progress of your dedicated IP warm-up:</p>
@@ -71,8 +71,8 @@
      /// - [`warmup_percentage`](crate::types::builders::DedicatedIpBuilder::warmup_percentage)
 -    pub fn build(self) -> ::std::result::Result<crate::types::DedicatedIp, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::DedicatedIp {
-+    pub fn build(self) -> ::std::result::Result<super::types::DedicatedIp, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::DedicatedIp {
++    pub fn build(self) -> ::std::result::Result<super::super::types::DedicatedIp, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::DedicatedIp {
              ip: self.ip.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "ip",

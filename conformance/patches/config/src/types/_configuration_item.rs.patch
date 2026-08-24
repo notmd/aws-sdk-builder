@@ -5,7 +5,7 @@
      /// <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder doesn't record resources of this type</p></li>
      /// </ul>
 -    pub configuration_item_status: ::std::option::Option<crate::types::ConfigurationItemStatus>,
-+    pub configuration_item_status: ::std::option::Option<super::types::ConfigurationItemStatus>,
++    pub configuration_item_status: ::std::option::Option<super::super::types::ConfigurationItemStatus>,
      /// <p>An identifier that indicates the ordering of the configuration items of a resource.</p>
      pub configuration_state_id: ::std::option::Option<::std::string::String>,
      /// <p>Unique MD5 hash that represents the configuration item's state.</p>
@@ -14,7 +14,7 @@
      pub arn: ::std::option::Option<::std::string::String>,
      /// <p>The type of Amazon Web Services resource.</p>
 -    pub resource_type: ::std::option::Option<crate::types::ResourceType>,
-+    pub resource_type: ::std::option::Option<super::types::ResourceType>,
++    pub resource_type: ::std::option::Option<super::super::types::ResourceType>,
      /// <p>The ID of the resource (for example, <code>sg-xxxxxx</code>).</p>
      pub resource_id: ::std::option::Option<::std::string::String>,
      /// <p>The custom name of the resource, if available.</p>
@@ -23,7 +23,7 @@
      pub related_events: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      /// <p>A list of related Amazon Web Services resources.</p>
 -    pub relationships: ::std::option::Option<::std::vec::Vec<crate::types::Relationship>>,
-+    pub relationships: ::std::option::Option<::std::vec::Vec<super::types::Relationship>>,
++    pub relationships: ::std::option::Option<::std::vec::Vec<super::super::types::Relationship>>,
      /// <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
      pub configuration: ::std::option::Option<::std::string::String>,
      /// <p>A string to string map that contains additional contents for the resource configuration.Config returns this field for certain resource types to supplement the information returned for the <code>configuration</code> field.</p>
@@ -32,7 +32,7 @@
      /// <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type. If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
      /// </note>
 -    pub recording_frequency: ::std::option::Option<crate::types::RecordingFrequency>,
-+    pub recording_frequency: ::std::option::Option<super::types::RecordingFrequency>,
++    pub recording_frequency: ::std::option::Option<super::super::types::RecordingFrequency>,
      /// <p>The time when configuration changes for the resource were delivered.</p><note>
      /// <p>This field is optional and is not guaranteed to be present in a configuration item (CI). If you are using daily recording, this field will be populated. However, if you are using continuous recording, this field will be omitted since the delivery time is instantaneous as the CI is available right away.</p>
      /// <p>For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
@@ -41,7 +41,7 @@
      /// <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder doesn't record resources of this type</p></li>
      /// </ul>
 -    pub fn configuration_item_status(&self) -> ::std::option::Option<&crate::types::ConfigurationItemStatus> {
-+    pub fn configuration_item_status(&self) -> ::std::option::Option<&super::types::ConfigurationItemStatus> {
++    pub fn configuration_item_status(&self) -> ::std::option::Option<&super::super::types::ConfigurationItemStatus> {
          self.configuration_item_status.as_ref()
      }
      /// <p>An identifier that indicates the ordering of the configuration items of a resource.</p>
@@ -50,7 +50,7 @@
      }
      /// <p>The type of Amazon Web Services resource.</p>
 -    pub fn resource_type(&self) -> ::std::option::Option<&crate::types::ResourceType> {
-+    pub fn resource_type(&self) -> ::std::option::Option<&super::types::ResourceType> {
++    pub fn resource_type(&self) -> ::std::option::Option<&super::super::types::ResourceType> {
          self.resource_type.as_ref()
      }
      /// <p>The ID of the resource (for example, <code>sg-xxxxxx</code>).</p>
@@ -59,7 +59,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.relationships.is_none()`.
 -    pub fn relationships(&self) -> &[crate::types::Relationship] {
-+    pub fn relationships(&self) -> &[super::types::Relationship] {
++    pub fn relationships(&self) -> &[super::super::types::Relationship] {
          self.relationships.as_deref().unwrap_or_default()
      }
      /// <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
@@ -68,7 +68,7 @@
      /// <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type. If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
      /// </note>
 -    pub fn recording_frequency(&self) -> ::std::option::Option<&crate::types::RecordingFrequency> {
-+    pub fn recording_frequency(&self) -> ::std::option::Option<&super::types::RecordingFrequency> {
++    pub fn recording_frequency(&self) -> ::std::option::Option<&super::super::types::RecordingFrequency> {
          self.recording_frequency.as_ref()
      }
      /// <p>The time when configuration changes for the resource were delivered.</p><note>
@@ -78,8 +78,8 @@
      /// Creates a new builder-style object to manufacture [`ConfigurationItem`](crate::types::ConfigurationItem).
 -    pub fn builder() -> crate::types::builders::ConfigurationItemBuilder {
 -        crate::types::builders::ConfigurationItemBuilder::default()
-+    pub fn builder() -> super::types::builders::ConfigurationItemBuilder {
-+        super::types::builders::ConfigurationItemBuilder::default()
++    pub fn builder() -> super::super::types::builders::ConfigurationItemBuilder {
++        super::super::types::builders::ConfigurationItemBuilder::default()
      }
  }
 
@@ -88,12 +88,12 @@
      pub(crate) account_id: ::std::option::Option<::std::string::String>,
      pub(crate) configuration_item_capture_time: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) configuration_item_status: ::std::option::Option<crate::types::ConfigurationItemStatus>,
-+    pub(crate) configuration_item_status: ::std::option::Option<super::types::ConfigurationItemStatus>,
++    pub(crate) configuration_item_status: ::std::option::Option<super::super::types::ConfigurationItemStatus>,
      pub(crate) configuration_state_id: ::std::option::Option<::std::string::String>,
      pub(crate) configuration_item_md5_hash: ::std::option::Option<::std::string::String>,
      pub(crate) arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) resource_type: ::std::option::Option<crate::types::ResourceType>,
-+    pub(crate) resource_type: ::std::option::Option<super::types::ResourceType>,
++    pub(crate) resource_type: ::std::option::Option<super::super::types::ResourceType>,
      pub(crate) resource_id: ::std::option::Option<::std::string::String>,
      pub(crate) resource_name: ::std::option::Option<::std::string::String>,
      pub(crate) aws_region: ::std::option::Option<::std::string::String>,
@@ -102,11 +102,11 @@
      pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      pub(crate) related_events: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) relationships: ::std::option::Option<::std::vec::Vec<crate::types::Relationship>>,
-+    pub(crate) relationships: ::std::option::Option<::std::vec::Vec<super::types::Relationship>>,
++    pub(crate) relationships: ::std::option::Option<::std::vec::Vec<super::super::types::Relationship>>,
      pub(crate) configuration: ::std::option::Option<::std::string::String>,
      pub(crate) supplementary_configuration: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) recording_frequency: ::std::option::Option<crate::types::RecordingFrequency>,
-+    pub(crate) recording_frequency: ::std::option::Option<super::types::RecordingFrequency>,
++    pub(crate) recording_frequency: ::std::option::Option<super::super::types::RecordingFrequency>,
      pub(crate) configuration_item_delivery_time: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
  impl ConfigurationItemBuilder {
@@ -115,7 +115,7 @@
      /// <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder doesn't record resources of this type</p></li>
      /// </ul>
 -    pub fn configuration_item_status(mut self, input: crate::types::ConfigurationItemStatus) -> Self {
-+    pub fn configuration_item_status(mut self, input: super::types::ConfigurationItemStatus) -> Self {
++    pub fn configuration_item_status(mut self, input: super::super::types::ConfigurationItemStatus) -> Self {
          self.configuration_item_status = ::std::option::Option::Some(input);
          self
      }
@@ -124,7 +124,7 @@
      /// <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder doesn't record resources of this type</p></li>
      /// </ul>
 -    pub fn set_configuration_item_status(mut self, input: ::std::option::Option<crate::types::ConfigurationItemStatus>) -> Self {
-+    pub fn set_configuration_item_status(mut self, input: ::std::option::Option<super::types::ConfigurationItemStatus>) -> Self {
++    pub fn set_configuration_item_status(mut self, input: ::std::option::Option<super::super::types::ConfigurationItemStatus>) -> Self {
          self.configuration_item_status = input;
          self
      }
@@ -133,7 +133,7 @@
      /// <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder doesn't record resources of this type</p></li>
      /// </ul>
 -    pub fn get_configuration_item_status(&self) -> &::std::option::Option<crate::types::ConfigurationItemStatus> {
-+    pub fn get_configuration_item_status(&self) -> &::std::option::Option<super::types::ConfigurationItemStatus> {
++    pub fn get_configuration_item_status(&self) -> &::std::option::Option<super::super::types::ConfigurationItemStatus> {
          &self.configuration_item_status
      }
      /// <p>An identifier that indicates the ordering of the configuration items of a resource.</p>
@@ -142,19 +142,19 @@
      }
      /// <p>The type of Amazon Web Services resource.</p>
 -    pub fn resource_type(mut self, input: crate::types::ResourceType) -> Self {
-+    pub fn resource_type(mut self, input: super::types::ResourceType) -> Self {
++    pub fn resource_type(mut self, input: super::super::types::ResourceType) -> Self {
          self.resource_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of Amazon Web Services resource.</p>
 -    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
-+    pub fn set_resource_type(mut self, input: ::std::option::Option<super::types::ResourceType>) -> Self {
++    pub fn set_resource_type(mut self, input: ::std::option::Option<super::super::types::ResourceType>) -> Self {
          self.resource_type = input;
          self
      }
      /// <p>The type of Amazon Web Services resource.</p>
 -    pub fn get_resource_type(&self) -> &::std::option::Option<crate::types::ResourceType> {
-+    pub fn get_resource_type(&self) -> &::std::option::Option<super::types::ResourceType> {
++    pub fn get_resource_type(&self) -> &::std::option::Option<super::super::types::ResourceType> {
          &self.resource_type
      }
      /// <p>The ID of the resource (for example, <code>sg-xxxxxx</code>).</p>
@@ -163,7 +163,7 @@
      ///
      /// <p>A list of related Amazon Web Services resources.</p>
 -    pub fn relationships(mut self, input: crate::types::Relationship) -> Self {
-+    pub fn relationships(mut self, input: super::types::Relationship) -> Self {
++    pub fn relationships(mut self, input: super::super::types::Relationship) -> Self {
          let mut v = self.relationships.unwrap_or_default();
          v.push(input);
          self.relationships = ::std::option::Option::Some(v);
@@ -172,13 +172,13 @@
      }
      /// <p>A list of related Amazon Web Services resources.</p>
 -    pub fn set_relationships(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Relationship>>) -> Self {
-+    pub fn set_relationships(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Relationship>>) -> Self {
++    pub fn set_relationships(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::Relationship>>) -> Self {
          self.relationships = input;
          self
      }
      /// <p>A list of related Amazon Web Services resources.</p>
 -    pub fn get_relationships(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Relationship>> {
-+    pub fn get_relationships(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Relationship>> {
++    pub fn get_relationships(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::Relationship>> {
          &self.relationships
      }
      /// <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
@@ -187,7 +187,7 @@
      /// <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type. If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
      /// </note>
 -    pub fn recording_frequency(mut self, input: crate::types::RecordingFrequency) -> Self {
-+    pub fn recording_frequency(mut self, input: super::types::RecordingFrequency) -> Self {
++    pub fn recording_frequency(mut self, input: super::super::types::RecordingFrequency) -> Self {
          self.recording_frequency = ::std::option::Option::Some(input);
          self
      }
@@ -196,7 +196,7 @@
      /// <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type. If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
      /// </note>
 -    pub fn set_recording_frequency(mut self, input: ::std::option::Option<crate::types::RecordingFrequency>) -> Self {
-+    pub fn set_recording_frequency(mut self, input: ::std::option::Option<super::types::RecordingFrequency>) -> Self {
++    pub fn set_recording_frequency(mut self, input: ::std::option::Option<super::super::types::RecordingFrequency>) -> Self {
          self.recording_frequency = input;
          self
      }
@@ -205,7 +205,7 @@
      /// <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type. If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
      /// </note>
 -    pub fn get_recording_frequency(&self) -> &::std::option::Option<crate::types::RecordingFrequency> {
-+    pub fn get_recording_frequency(&self) -> &::std::option::Option<super::types::RecordingFrequency> {
++    pub fn get_recording_frequency(&self) -> &::std::option::Option<super::super::types::RecordingFrequency> {
          &self.recording_frequency
      }
      /// <p>The time when configuration changes for the resource were delivered.</p><note>
@@ -215,8 +215,8 @@
      /// Consumes the builder and constructs a [`ConfigurationItem`](crate::types::ConfigurationItem).
 -    pub fn build(self) -> crate::types::ConfigurationItem {
 -        crate::types::ConfigurationItem {
-+    pub fn build(self) -> super::types::ConfigurationItem {
-+        super::types::ConfigurationItem {
++    pub fn build(self) -> super::super::types::ConfigurationItem {
++        super::super::types::ConfigurationItem {
              version: self.version,
              account_id: self.account_id,
              configuration_item_capture_time: self.configuration_item_capture_time,

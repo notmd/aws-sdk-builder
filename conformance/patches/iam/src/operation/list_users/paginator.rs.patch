@@ -6,15 +6,15 @@
  pub struct ListUsersPaginator {
 -    handle: std::sync::Arc<crate::client::Handle>,
 -    builder: crate::operation::list_users::builders::ListUsersInputBuilder,
-+    handle: std::sync::Arc<super::client::Handle>,
-+    builder: super::operation::list_users::builders::ListUsersInputBuilder,
++    handle: std::sync::Arc<super::super::super::client::Handle>,
++    builder: super::super::super::operation::list_users::builders::ListUsersInputBuilder,
      stop_on_duplicate_token: bool,
  }
 
  impl ListUsersPaginator {
      /// Create a new paginator-wrapper
 -    pub(crate) fn new(handle: std::sync::Arc<crate::client::Handle>, builder: crate::operation::list_users::builders::ListUsersInputBuilder) -> Self {
-+    pub(crate) fn new(handle: std::sync::Arc<super::client::Handle>, builder: super::operation::list_users::builders::ListUsersInputBuilder) -> Self {
++    pub(crate) fn new(handle: std::sync::Arc<super::super::super::client::Handle>, builder: super::super::super::operation::list_users::builders::ListUsersInputBuilder) -> Self {
          Self {
              handle,
              builder,
@@ -24,8 +24,8 @@
      /// are dispatched lazily.
 -    pub fn items(self) -> crate::operation::list_users::paginator::ListUsersPaginatorItems {
 -        crate::operation::list_users::paginator::ListUsersPaginatorItems(self)
-+    pub fn items(self) -> super::operation::list_users::paginator::ListUsersPaginatorItems {
-+        super::operation::list_users::paginator::ListUsersPaginatorItems(self)
++    pub fn items(self) -> super::super::super::operation::list_users::paginator::ListUsersPaginatorItems {
++        super::super::super::operation::list_users::paginator::ListUsersPaginatorItems(self)
      }
 
      /// Stop paginating when the service returns the same pagination token twice in a row.
@@ -34,10 +34,10 @@
      ) -> ::aws_smithy_async::future::pagination_stream::PaginationStream<
          ::std::result::Result<
 -            crate::operation::list_users::ListUsersOutput,
-+            super::operation::list_users::ListUsersOutput,
++            super::super::super::operation::list_users::ListUsersOutput,
              ::aws_smithy_runtime_api::client::result::SdkError<
 -                crate::operation::list_users::ListUsersError,
-+                super::operation::list_users::ListUsersError,
++                super::super::super::operation::list_users::ListUsersError,
                  ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
              >,
          >,
@@ -46,13 +46,13 @@
          let builder = self.builder;
          let handle = self.handle;
 -        let runtime_plugins = crate::operation::list_users::ListUsers::operation_runtime_plugins(
-+        let runtime_plugins = super::operation::list_users::ListUsers::operation_runtime_plugins(
++        let runtime_plugins = super::super::super::operation::list_users::ListUsers::operation_runtime_plugins(
              handle.runtime_plugins.clone(),
              &handle.conf,
              ::std::option::Option::None,
          )
 -        .with_operation_plugin(crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
-+        .with_operation_plugin(super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
++        .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
          ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
              move |tx| {
                  ::std::boxed::Box::pin(async move {
@@ -61,12 +61,12 @@
                      };
                      loop {
 -                        let resp = crate::operation::list_users::ListUsers::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::operation::list_users::ListUsers::orchestrate(&runtime_plugins, input.clone()).await;
++                        let resp = super::super::super::operation::list_users::ListUsers::orchestrate(&runtime_plugins, input.clone()).await;
                          // If the input member is None or it was an error
                          let done = match resp {
                              ::std::result::Result::Ok(ref resp) => {
 -                                let new_token = crate::lens::reflens_list_users_output_output_marker(resp);
-+                                let new_token = super::lens::reflens_list_users_output_output_marker(resp);
++                                let new_token = super::super::super::lens::reflens_list_users_output_output_marker(resp);
                                  // Pagination is exhausted when the next token is an empty string
                                  let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                  if !is_empty && new_token == input.marker.as_ref() && self.stop_on_duplicate_token {
@@ -75,16 +75,16 @@
      ) -> ::aws_smithy_async::future::pagination_stream::PaginationStream<
          ::std::result::Result<
 -            crate::types::User,
-+            super::types::User,
++            super::super::super::types::User,
              ::aws_smithy_runtime_api::client::result::SdkError<
 -                crate::operation::list_users::ListUsersError,
-+                super::operation::list_users::ListUsersError,
++                super::super::super::operation::list_users::ListUsersError,
                  ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
              >,
          >,
      > {
          ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
 -            .flat_map(|page| crate::lens::lens_list_users_output_output_users(page).unwrap_or_default().into_iter())
-+            .flat_map(|page| super::lens::lens_list_users_output_output_users(page).unwrap_or_default().into_iter())
++            .flat_map(|page| super::super::super::lens::lens_list_users_output_output_users(page).unwrap_or_default().into_iter())
      }
  }

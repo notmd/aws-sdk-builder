@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceFluentBuilder {
 -        crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceFluentBuilder {
-+        super::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceFluentBuilder {
++        super::super::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceFluentBuilder::new(self.handle.clone())
      }
  }

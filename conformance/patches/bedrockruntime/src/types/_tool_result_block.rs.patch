@@ -5,12 +5,12 @@
      pub tool_use_id: ::std::string::String,
      /// <p>The content for tool result content block.</p>
 -    pub content: ::std::vec::Vec<crate::types::ToolResultContentBlock>,
-+    pub content: ::std::vec::Vec<super::types::ToolResultContentBlock>,
++    pub content: ::std::vec::Vec<super::super::types::ToolResultContentBlock>,
      /// <p>The status for the tool result content block.</p><note>
      /// <p>This field is only supported by Amazon Nova and Anthropic Claude 3 and 4 models.</p>
      /// </note>
 -    pub status: ::std::option::Option<crate::types::ToolResultStatus>,
-+    pub status: ::std::option::Option<super::types::ToolResultStatus>,
++    pub status: ::std::option::Option<super::super::types::ToolResultStatus>,
      /// <p>The type for the tool result content block.</p>
      pub r#type: ::std::option::Option<::std::string::String>,
  }
@@ -19,7 +19,7 @@
      }
      /// <p>The content for tool result content block.</p>
 -    pub fn content(&self) -> &[crate::types::ToolResultContentBlock] {
-+    pub fn content(&self) -> &[super::types::ToolResultContentBlock] {
++    pub fn content(&self) -> &[super::super::types::ToolResultContentBlock] {
          use std::ops::Deref;
          self.content.deref()
      }
@@ -28,7 +28,7 @@
      /// <p>This field is only supported by Amazon Nova and Anthropic Claude 3 and 4 models.</p>
      /// </note>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::ToolResultStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::ToolResultStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::ToolResultStatus> {
          self.status.as_ref()
      }
      /// <p>The type for the tool result content block.</p>
@@ -38,8 +38,8 @@
      /// Creates a new builder-style object to manufacture [`ToolResultBlock`](crate::types::ToolResultBlock).
 -    pub fn builder() -> crate::types::builders::ToolResultBlockBuilder {
 -        crate::types::builders::ToolResultBlockBuilder::default()
-+    pub fn builder() -> super::types::builders::ToolResultBlockBuilder {
-+        super::types::builders::ToolResultBlockBuilder::default()
++    pub fn builder() -> super::super::types::builders::ToolResultBlockBuilder {
++        super::super::types::builders::ToolResultBlockBuilder::default()
      }
  }
 
@@ -49,8 +49,8 @@
      pub(crate) tool_use_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) content: ::std::option::Option<::std::vec::Vec<crate::types::ToolResultContentBlock>>,
 -    pub(crate) status: ::std::option::Option<crate::types::ToolResultStatus>,
-+    pub(crate) content: ::std::option::Option<::std::vec::Vec<super::types::ToolResultContentBlock>>,
-+    pub(crate) status: ::std::option::Option<super::types::ToolResultStatus>,
++    pub(crate) content: ::std::option::Option<::std::vec::Vec<super::super::types::ToolResultContentBlock>>,
++    pub(crate) status: ::std::option::Option<super::super::types::ToolResultStatus>,
      pub(crate) r#type: ::std::option::Option<::std::string::String>,
  }
  impl ToolResultBlockBuilder {
@@ -59,7 +59,7 @@
      ///
      /// <p>The content for tool result content block.</p>
 -    pub fn content(mut self, input: crate::types::ToolResultContentBlock) -> Self {
-+    pub fn content(mut self, input: super::types::ToolResultContentBlock) -> Self {
++    pub fn content(mut self, input: super::super::types::ToolResultContentBlock) -> Self {
          let mut v = self.content.unwrap_or_default();
          v.push(input);
          self.content = ::std::option::Option::Some(v);
@@ -68,20 +68,20 @@
      }
      /// <p>The content for tool result content block.</p>
 -    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ToolResultContentBlock>>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ToolResultContentBlock>>) -> Self {
++    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ToolResultContentBlock>>) -> Self {
          self.content = input;
          self
      }
      /// <p>The content for tool result content block.</p>
 -    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ToolResultContentBlock>> {
-+    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ToolResultContentBlock>> {
++    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ToolResultContentBlock>> {
          &self.content
      }
      /// <p>The status for the tool result content block.</p><note>
      /// <p>This field is only supported by Amazon Nova and Anthropic Claude 3 and 4 models.</p>
      /// </note>
 -    pub fn status(mut self, input: crate::types::ToolResultStatus) -> Self {
-+    pub fn status(mut self, input: super::types::ToolResultStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::ToolResultStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
@@ -90,7 +90,7 @@
      /// <p>This field is only supported by Amazon Nova and Anthropic Claude 3 and 4 models.</p>
      /// </note>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ToolResultStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::ToolResultStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::ToolResultStatus>) -> Self {
          self.status = input;
          self
      }
@@ -99,7 +99,7 @@
      /// <p>This field is only supported by Amazon Nova and Anthropic Claude 3 and 4 models.</p>
      /// </note>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::ToolResultStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::ToolResultStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::ToolResultStatus> {
          &self.status
      }
      /// <p>The type for the tool result content block.</p>
@@ -109,8 +109,8 @@
      /// - [`content`](crate::types::builders::ToolResultBlockBuilder::content)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ToolResultBlock, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ToolResultBlock {
-+    pub fn build(self) -> ::std::result::Result<super::types::ToolResultBlock, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ToolResultBlock {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ToolResultBlock, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ToolResultBlock {
              tool_use_id: self.tool_use_id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "tool_use_id",

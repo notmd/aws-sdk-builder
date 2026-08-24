@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteEmailIdentityPolicyError>`](crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError)
 -    pub fn delete_email_identity_policy(&self) -> crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder {
 -        crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn delete_email_identity_policy(&self) -> super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder {
-+        super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder::new(self.handle.clone())
++    pub fn delete_email_identity_policy(&self) -> super::super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder {
++        super::super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder::new(self.handle.clone())
      }
  }

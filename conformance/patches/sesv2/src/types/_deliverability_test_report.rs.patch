@@ -5,7 +5,7 @@
      pub create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
 -    pub deliverability_test_status: ::std::option::Option<crate::types::DeliverabilityTestStatus>,
-+    pub deliverability_test_status: ::std::option::Option<super::types::DeliverabilityTestStatus>,
++    pub deliverability_test_status: ::std::option::Option<super::super::types::DeliverabilityTestStatus>,
  }
  impl DeliverabilityTestReport {
      /// <p>A unique string that identifies the predictive inbox placement test.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
 -    pub fn deliverability_test_status(&self) -> ::std::option::Option<&crate::types::DeliverabilityTestStatus> {
-+    pub fn deliverability_test_status(&self) -> ::std::option::Option<&super::types::DeliverabilityTestStatus> {
++    pub fn deliverability_test_status(&self) -> ::std::option::Option<&super::super::types::DeliverabilityTestStatus> {
          self.deliverability_test_status.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`DeliverabilityTestReport`](crate::types::DeliverabilityTestReport).
 -    pub fn builder() -> crate::types::builders::DeliverabilityTestReportBuilder {
 -        crate::types::builders::DeliverabilityTestReportBuilder::default()
-+    pub fn builder() -> super::types::builders::DeliverabilityTestReportBuilder {
-+        super::types::builders::DeliverabilityTestReportBuilder::default()
++    pub fn builder() -> super::super::types::builders::DeliverabilityTestReportBuilder {
++        super::super::types::builders::DeliverabilityTestReportBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) from_email_address: ::std::option::Option<::std::string::String>,
      pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) deliverability_test_status: ::std::option::Option<crate::types::DeliverabilityTestStatus>,
-+    pub(crate) deliverability_test_status: ::std::option::Option<super::types::DeliverabilityTestStatus>,
++    pub(crate) deliverability_test_status: ::std::option::Option<super::super::types::DeliverabilityTestStatus>,
  }
  impl DeliverabilityTestReportBuilder {
      /// <p>A unique string that identifies the predictive inbox placement test.</p>
@@ -41,26 +41,26 @@
      }
      /// <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
 -    pub fn deliverability_test_status(mut self, input: crate::types::DeliverabilityTestStatus) -> Self {
-+    pub fn deliverability_test_status(mut self, input: super::types::DeliverabilityTestStatus) -> Self {
++    pub fn deliverability_test_status(mut self, input: super::super::types::DeliverabilityTestStatus) -> Self {
          self.deliverability_test_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
 -    pub fn set_deliverability_test_status(mut self, input: ::std::option::Option<crate::types::DeliverabilityTestStatus>) -> Self {
-+    pub fn set_deliverability_test_status(mut self, input: ::std::option::Option<super::types::DeliverabilityTestStatus>) -> Self {
++    pub fn set_deliverability_test_status(mut self, input: ::std::option::Option<super::super::types::DeliverabilityTestStatus>) -> Self {
          self.deliverability_test_status = input;
          self
      }
      /// <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
 -    pub fn get_deliverability_test_status(&self) -> &::std::option::Option<crate::types::DeliverabilityTestStatus> {
-+    pub fn get_deliverability_test_status(&self) -> &::std::option::Option<super::types::DeliverabilityTestStatus> {
++    pub fn get_deliverability_test_status(&self) -> &::std::option::Option<super::super::types::DeliverabilityTestStatus> {
          &self.deliverability_test_status
      }
      /// Consumes the builder and constructs a [`DeliverabilityTestReport`](crate::types::DeliverabilityTestReport).
 -    pub fn build(self) -> crate::types::DeliverabilityTestReport {
 -        crate::types::DeliverabilityTestReport {
-+    pub fn build(self) -> super::types::DeliverabilityTestReport {
-+        super::types::DeliverabilityTestReport {
++    pub fn build(self) -> super::super::types::DeliverabilityTestReport {
++        super::super::types::DeliverabilityTestReport {
              report_id: self.report_id,
              report_name: self.report_name,
              subject: self.subject,

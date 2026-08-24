@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteBucketPolicyError>`](crate::operation::delete_bucket_policy::DeleteBucketPolicyError)
 -    pub fn delete_bucket_policy(&self) -> crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder {
 -        crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn delete_bucket_policy(&self) -> super::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder {
-+        super::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder::new(self.handle.clone())
++    pub fn delete_bucket_policy(&self) -> super::super::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder {
++        super::super::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder::new(self.handle.clone())
      }
  }

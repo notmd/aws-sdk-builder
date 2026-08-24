@@ -5,7 +5,7 @@
      pub share_identifier: ::std::option::Option<::std::string::String>,
      /// <p>The capacity usage information for this share, including the unit of measure and quantity being used. This is <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS.</p>
 -    pub capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::FairshareCapacityUsage>>,
-+    pub capacity_usage: ::std::option::Option<::std::vec::Vec<super::types::FairshareCapacityUsage>>,
++    pub capacity_usage: ::std::option::Option<::std::vec::Vec<super::super::types::FairshareCapacityUsage>>,
  }
  impl FairshareCapacityUtilization {
      /// <p>The share identifier for the fairshare scheduling job queue.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.capacity_usage.is_none()`.
 -    pub fn capacity_usage(&self) -> &[crate::types::FairshareCapacityUsage] {
-+    pub fn capacity_usage(&self) -> &[super::types::FairshareCapacityUsage] {
++    pub fn capacity_usage(&self) -> &[super::super::types::FairshareCapacityUsage] {
          self.capacity_usage.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`FairshareCapacityUtilization`](crate::types::FairshareCapacityUtilization).
 -    pub fn builder() -> crate::types::builders::FairshareCapacityUtilizationBuilder {
 -        crate::types::builders::FairshareCapacityUtilizationBuilder::default()
-+    pub fn builder() -> super::types::builders::FairshareCapacityUtilizationBuilder {
-+        super::types::builders::FairshareCapacityUtilizationBuilder::default()
++    pub fn builder() -> super::super::types::builders::FairshareCapacityUtilizationBuilder {
++        super::super::types::builders::FairshareCapacityUtilizationBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct FairshareCapacityUtilizationBuilder {
      pub(crate) share_identifier: ::std::option::Option<::std::string::String>,
 -    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::FairshareCapacityUsage>>,
-+    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<super::types::FairshareCapacityUsage>>,
++    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<super::super::types::FairshareCapacityUsage>>,
  }
  impl FairshareCapacityUtilizationBuilder {
      /// <p>The share identifier for the fairshare scheduling job queue.</p>
@@ -41,7 +41,7 @@
      ///
      /// <p>The capacity usage information for this share, including the unit of measure and quantity being used. This is <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS.</p>
 -    pub fn capacity_usage(mut self, input: crate::types::FairshareCapacityUsage) -> Self {
-+    pub fn capacity_usage(mut self, input: super::types::FairshareCapacityUsage) -> Self {
++    pub fn capacity_usage(mut self, input: super::super::types::FairshareCapacityUsage) -> Self {
          let mut v = self.capacity_usage.unwrap_or_default();
          v.push(input);
          self.capacity_usage = ::std::option::Option::Some(v);
@@ -50,20 +50,20 @@
      }
      /// <p>The capacity usage information for this share, including the unit of measure and quantity being used. This is <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS.</p>
 -    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FairshareCapacityUsage>>) -> Self {
-+    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FairshareCapacityUsage>>) -> Self {
++    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::FairshareCapacityUsage>>) -> Self {
          self.capacity_usage = input;
          self
      }
      /// <p>The capacity usage information for this share, including the unit of measure and quantity being used. This is <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS.</p>
 -    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FairshareCapacityUsage>> {
-+    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FairshareCapacityUsage>> {
++    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::FairshareCapacityUsage>> {
          &self.capacity_usage
      }
      /// Consumes the builder and constructs a [`FairshareCapacityUtilization`](crate::types::FairshareCapacityUtilization).
 -    pub fn build(self) -> crate::types::FairshareCapacityUtilization {
 -        crate::types::FairshareCapacityUtilization {
-+    pub fn build(self) -> super::types::FairshareCapacityUtilization {
-+        super::types::FairshareCapacityUtilization {
++    pub fn build(self) -> super::super::types::FairshareCapacityUtilization {
++        super::super::types::FairshareCapacityUtilization {
              share_identifier: self.share_identifier,
              capacity_usage: self.capacity_usage,
          }

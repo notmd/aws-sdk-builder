@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutBucketWebsiteError>`](crate::operation::put_bucket_website::PutBucketWebsiteError)
 -    pub fn put_bucket_website(&self) -> crate::operation::put_bucket_website::builders::PutBucketWebsiteFluentBuilder {
 -        crate::operation::put_bucket_website::builders::PutBucketWebsiteFluentBuilder::new(self.handle.clone())
-+    pub fn put_bucket_website(&self) -> super::operation::put_bucket_website::builders::PutBucketWebsiteFluentBuilder {
-+        super::operation::put_bucket_website::builders::PutBucketWebsiteFluentBuilder::new(self.handle.clone())
++    pub fn put_bucket_website(&self) -> super::super::operation::put_bucket_website::builders::PutBucketWebsiteFluentBuilder {
++        super::super::operation::put_bucket_website::builders::PutBucketWebsiteFluentBuilder::new(self.handle.clone())
      }
  }

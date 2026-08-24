@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::LatestServiceJobAttempt>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::LatestServiceJobAttempt>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::LatestServiceJobAttempt>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,14 +14,14 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::LatestServiceJobAttemptBuilder::default();
-+            let mut builder = super::types::builders::LatestServiceJobAttemptBuilder::default();
++            let mut builder = super::super::types::builders::LatestServiceJobAttemptBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "serviceResourceId" => {
 -                            builder = builder.set_service_resource_id(crate::protocol_serde::shape_service_resource_id::de_service_resource_id(
-+                            builder = builder.set_service_resource_id(super::protocol_serde::shape_service_resource_id::de_service_resource_id(
++                            builder = builder.set_service_resource_id(super::super::protocol_serde::shape_service_resource_id::de_service_resource_id(
                                  tokens,
                                  _value,
                                  depth + 1,

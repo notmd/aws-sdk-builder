@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteDeliveryChannelOutput`](crate::operation::delete_delivery_channel::DeleteDeliveryChannelOutput).
 -    pub fn builder() -> crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelOutputBuilder {
 -        crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_delivery_channel::builders::DeleteDeliveryChannelOutputBuilder {
-+        super::operation::delete_delivery_channel::builders::DeleteDeliveryChannelOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_delivery_channel::builders::DeleteDeliveryChannelOutputBuilder {
++        super::super::super::operation::delete_delivery_channel::builders::DeleteDeliveryChannelOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteDeliveryChannelOutput`](crate::operation::delete_delivery_channel::DeleteDeliveryChannelOutput).
 -    pub fn build(self) -> crate::operation::delete_delivery_channel::DeleteDeliveryChannelOutput {
 -        crate::operation::delete_delivery_channel::DeleteDeliveryChannelOutput {
-+    pub fn build(self) -> super::operation::delete_delivery_channel::DeleteDeliveryChannelOutput {
-+        super::operation::delete_delivery_channel::DeleteDeliveryChannelOutput {
++    pub fn build(self) -> super::super::super::operation::delete_delivery_channel::DeleteDeliveryChannelOutput {
++        super::super::super::operation::delete_delivery_channel::DeleteDeliveryChannelOutput {
              _request_id: self._request_id,
          }
      }

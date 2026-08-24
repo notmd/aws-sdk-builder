@@ -5,7 +5,7 @@
  pub fn ser_user_attribute_update_settings_type(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::UserAttributeUpdateSettingsType,
-+    input: &super::types::UserAttributeUpdateSettingsType,
++    input: &super::super::types::UserAttributeUpdateSettingsType,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.attributes_require_verification_before_update {
          let mut array_2 = object.key("AttributesRequireVerificationBeforeUpdate").start_array();
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::UserAttributeUpdateSettingsType>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::UserAttributeUpdateSettingsType>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::UserAttributeUpdateSettingsType>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,7 +23,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::UserAttributeUpdateSettingsTypeBuilder::default();
-+            let mut builder = super::types::builders::UserAttributeUpdateSettingsTypeBuilder::default();
++            let mut builder = super::super::types::builders::UserAttributeUpdateSettingsTypeBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -32,7 +32,7 @@
                          "AttributesRequireVerificationBeforeUpdate" => {
                              builder = builder.set_attributes_require_verification_before_update(
 -                                    crate::protocol_serde::shape_attributes_require_verification_before_update_type::de_attributes_require_verification_before_update_type(tokens, _value, depth + 1)?
-+                                    super::protocol_serde::shape_attributes_require_verification_before_update_type::de_attributes_require_verification_before_update_type(tokens, _value, depth + 1)?
++                                    super::super::protocol_serde::shape_attributes_require_verification_before_update_type::de_attributes_require_verification_before_update_type(tokens, _value, depth + 1)?
                                  );
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

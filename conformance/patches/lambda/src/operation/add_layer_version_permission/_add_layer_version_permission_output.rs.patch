@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AddLayerVersionPermissionOutput`](crate::operation::add_layer_version_permission::AddLayerVersionPermissionOutput).
 -    pub fn builder() -> crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionOutputBuilder {
 -        crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionOutputBuilder::default()
-+    pub fn builder() -> super::operation::add_layer_version_permission::builders::AddLayerVersionPermissionOutputBuilder {
-+        super::operation::add_layer_version_permission::builders::AddLayerVersionPermissionOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::add_layer_version_permission::builders::AddLayerVersionPermissionOutputBuilder {
++        super::super::super::operation::add_layer_version_permission::builders::AddLayerVersionPermissionOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AddLayerVersionPermissionOutput`](crate::operation::add_layer_version_permission::AddLayerVersionPermissionOutput).
 -    pub fn build(self) -> crate::operation::add_layer_version_permission::AddLayerVersionPermissionOutput {
 -        crate::operation::add_layer_version_permission::AddLayerVersionPermissionOutput {
-+    pub fn build(self) -> super::operation::add_layer_version_permission::AddLayerVersionPermissionOutput {
-+        super::operation::add_layer_version_permission::AddLayerVersionPermissionOutput {
++    pub fn build(self) -> super::super::super::operation::add_layer_version_permission::AddLayerVersionPermissionOutput {
++        super::super::super::operation::add_layer_version_permission::AddLayerVersionPermissionOutput {
              statement: self.statement,
              revision_id: self.revision_id,
              _request_id: self._request_id,

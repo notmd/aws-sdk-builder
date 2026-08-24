@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeLookupTablesInput`](crate::operation::describe_lookup_tables::DescribeLookupTablesInput).
 -    pub fn builder() -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesInputBuilder {
 -        crate::operation::describe_lookup_tables::builders::DescribeLookupTablesInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_lookup_tables::builders::DescribeLookupTablesInputBuilder {
-+        super::operation::describe_lookup_tables::builders::DescribeLookupTablesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_lookup_tables::builders::DescribeLookupTablesInputBuilder {
++        super::super::super::operation::describe_lookup_tables::builders::DescribeLookupTablesInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_lookup_tables::DescribeLookupTablesInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::describe_lookup_tables::DescribeLookupTablesInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::describe_lookup_tables::DescribeLookupTablesInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::describe_lookup_tables::DescribeLookupTablesInput {
-+        ::std::result::Result::Ok(super::operation::describe_lookup_tables::DescribeLookupTablesInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_lookup_tables::DescribeLookupTablesInput {
              lookup_table_name_prefix: self.lookup_table_name_prefix,
              max_results: self.max_results,
              next_token: self.next_token,

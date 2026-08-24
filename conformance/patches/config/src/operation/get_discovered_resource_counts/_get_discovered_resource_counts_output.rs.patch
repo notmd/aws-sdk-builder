@@ -5,7 +5,7 @@
      pub total_discovered_resources: i64,
      /// <p>The list of <code>ResourceCount</code> objects. Each object is listed in descending order by the number of resources.</p>
 -    pub resource_counts: ::std::option::Option<::std::vec::Vec<crate::types::ResourceCount>>,
-+    pub resource_counts: ::std::option::Option<::std::vec::Vec<super::types::ResourceCount>>,
++    pub resource_counts: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceCount>>,
      /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.resource_counts.is_none()`.
 -    pub fn resource_counts(&self) -> &[crate::types::ResourceCount] {
-+    pub fn resource_counts(&self) -> &[super::types::ResourceCount] {
++    pub fn resource_counts(&self) -> &[super::super::super::types::ResourceCount] {
          self.resource_counts.as_deref().unwrap_or_default()
      }
      /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`GetDiscoveredResourceCountsOutput`](crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsOutput).
 -    pub fn builder() -> crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsOutputBuilder {
 -        crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsOutputBuilder {
-+        super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsOutputBuilder {
++        super::super::super::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct GetDiscoveredResourceCountsOutputBuilder {
      pub(crate) total_discovered_resources: ::std::option::Option<i64>,
 -    pub(crate) resource_counts: ::std::option::Option<::std::vec::Vec<crate::types::ResourceCount>>,
-+    pub(crate) resource_counts: ::std::option::Option<::std::vec::Vec<super::types::ResourceCount>>,
++    pub(crate) resource_counts: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceCount>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The list of <code>ResourceCount</code> objects. Each object is listed in descending order by the number of resources.</p>
 -    pub fn resource_counts(mut self, input: crate::types::ResourceCount) -> Self {
-+    pub fn resource_counts(mut self, input: super::types::ResourceCount) -> Self {
++    pub fn resource_counts(mut self, input: super::super::super::types::ResourceCount) -> Self {
          let mut v = self.resource_counts.unwrap_or_default();
          v.push(input);
          self.resource_counts = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The list of <code>ResourceCount</code> objects. Each object is listed in descending order by the number of resources.</p>
 -    pub fn set_resource_counts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceCount>>) -> Self {
-+    pub fn set_resource_counts(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ResourceCount>>) -> Self {
++    pub fn set_resource_counts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceCount>>) -> Self {
          self.resource_counts = input;
          self
      }
      /// <p>The list of <code>ResourceCount</code> objects. Each object is listed in descending order by the number of resources.</p>
 -    pub fn get_resource_counts(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceCount>> {
-+    pub fn get_resource_counts(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ResourceCount>> {
++    pub fn get_resource_counts(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceCount>> {
          &self.resource_counts
      }
      /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`GetDiscoveredResourceCountsOutput`](crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsOutput).
 -    pub fn build(self) -> crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsOutput {
 -        crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsOutput {
-+    pub fn build(self) -> super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsOutput {
-+        super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsOutput {
++    pub fn build(self) -> super::super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsOutput {
++        super::super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsOutput {
              total_discovered_resources: self.total_discovered_resources.unwrap_or_default(),
              resource_counts: self.resource_counts,
              next_token: self.next_token,

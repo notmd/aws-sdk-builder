@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeFieldIndexesError>`](crate::operation::describe_field_indexes::DescribeFieldIndexesError)
 -    pub fn describe_field_indexes(&self) -> crate::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder {
 -        crate::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder::new(self.handle.clone())
-+    pub fn describe_field_indexes(&self) -> super::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder {
-+        super::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder::new(self.handle.clone())
++    pub fn describe_field_indexes(&self) -> super::super::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder {
++        super::super::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder::new(self.handle.clone())
      }
  }

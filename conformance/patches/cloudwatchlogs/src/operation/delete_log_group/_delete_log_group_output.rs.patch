@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteLogGroupOutput`](crate::operation::delete_log_group::DeleteLogGroupOutput).
 -    pub fn builder() -> crate::operation::delete_log_group::builders::DeleteLogGroupOutputBuilder {
 -        crate::operation::delete_log_group::builders::DeleteLogGroupOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_log_group::builders::DeleteLogGroupOutputBuilder {
-+        super::operation::delete_log_group::builders::DeleteLogGroupOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_log_group::builders::DeleteLogGroupOutputBuilder {
++        super::super::super::operation::delete_log_group::builders::DeleteLogGroupOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteLogGroupOutput`](crate::operation::delete_log_group::DeleteLogGroupOutput).
 -    pub fn build(self) -> crate::operation::delete_log_group::DeleteLogGroupOutput {
 -        crate::operation::delete_log_group::DeleteLogGroupOutput {
-+    pub fn build(self) -> super::operation::delete_log_group::DeleteLogGroupOutput {
-+        super::operation::delete_log_group::DeleteLogGroupOutput {
++    pub fn build(self) -> super::super::super::operation::delete_log_group::DeleteLogGroupOutput {
++        super::super::super::operation::delete_log_group::DeleteLogGroupOutput {
              _request_id: self._request_id,
          }
      }

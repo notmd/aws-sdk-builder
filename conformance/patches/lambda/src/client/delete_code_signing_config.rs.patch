@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteCodeSigningConfigError>`](crate::operation::delete_code_signing_config::DeleteCodeSigningConfigError)
 -    pub fn delete_code_signing_config(&self) -> crate::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigFluentBuilder {
 -        crate::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigFluentBuilder::new(self.handle.clone())
-+    pub fn delete_code_signing_config(&self) -> super::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigFluentBuilder {
-+        super::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigFluentBuilder::new(self.handle.clone())
++    pub fn delete_code_signing_config(&self) -> super::super::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigFluentBuilder {
++        super::super::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigFluentBuilder::new(self.handle.clone())
      }
  }

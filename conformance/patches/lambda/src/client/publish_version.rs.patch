@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PublishVersionError>`](crate::operation::publish_version::PublishVersionError)
 -    pub fn publish_version(&self) -> crate::operation::publish_version::builders::PublishVersionFluentBuilder {
 -        crate::operation::publish_version::builders::PublishVersionFluentBuilder::new(self.handle.clone())
-+    pub fn publish_version(&self) -> super::operation::publish_version::builders::PublishVersionFluentBuilder {
-+        super::operation::publish_version::builders::PublishVersionFluentBuilder::new(self.handle.clone())
++    pub fn publish_version(&self) -> super::super::operation::publish_version::builders::PublishVersionFluentBuilder {
++        super::super::operation::publish_version::builders::PublishVersionFluentBuilder::new(self.handle.clone())
      }
  }

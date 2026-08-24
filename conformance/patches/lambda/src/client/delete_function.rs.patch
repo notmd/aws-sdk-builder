@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteFunctionError>`](crate::operation::delete_function::DeleteFunctionError)
 -    pub fn delete_function(&self) -> crate::operation::delete_function::builders::DeleteFunctionFluentBuilder {
 -        crate::operation::delete_function::builders::DeleteFunctionFluentBuilder::new(self.handle.clone())
-+    pub fn delete_function(&self) -> super::operation::delete_function::builders::DeleteFunctionFluentBuilder {
-+        super::operation::delete_function::builders::DeleteFunctionFluentBuilder::new(self.handle.clone())
++    pub fn delete_function(&self) -> super::super::operation::delete_function::builders::DeleteFunctionFluentBuilder {
++        super::super::operation::delete_function::builders::DeleteFunctionFluentBuilder::new(self.handle.clone())
      }
  }

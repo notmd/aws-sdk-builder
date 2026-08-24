@@ -5,7 +5,7 @@
  pub struct ListReputationEntitiesOutput {
      /// <p>An array that contains information about the reputation entities in your account.</p>
 -    pub reputation_entities: ::std::option::Option<::std::vec::Vec<crate::types::ReputationEntity>>,
-+    pub reputation_entities: ::std::option::Option<::std::vec::Vec<super::types::ReputationEntity>>,
++    pub reputation_entities: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReputationEntity>>,
      /// <p>A token that indicates that there are additional reputation entities to list. To view additional reputation entities, issue another request to <code>ListReputationEntities</code>, and pass this token in the <code>NextToken</code> parameter.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.reputation_entities.is_none()`.
 -    pub fn reputation_entities(&self) -> &[crate::types::ReputationEntity] {
-+    pub fn reputation_entities(&self) -> &[super::types::ReputationEntity] {
++    pub fn reputation_entities(&self) -> &[super::super::super::types::ReputationEntity] {
          self.reputation_entities.as_deref().unwrap_or_default()
      }
      /// <p>A token that indicates that there are additional reputation entities to list. To view additional reputation entities, issue another request to <code>ListReputationEntities</code>, and pass this token in the <code>NextToken</code> parameter.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListReputationEntitiesOutput`](crate::operation::list_reputation_entities::ListReputationEntitiesOutput).
 -    pub fn builder() -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesOutputBuilder {
 -        crate::operation::list_reputation_entities::builders::ListReputationEntitiesOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_reputation_entities::builders::ListReputationEntitiesOutputBuilder {
-+        super::operation::list_reputation_entities::builders::ListReputationEntitiesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_reputation_entities::builders::ListReputationEntitiesOutputBuilder {
++        super::super::super::operation::list_reputation_entities::builders::ListReputationEntitiesOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListReputationEntitiesOutputBuilder {
 -    pub(crate) reputation_entities: ::std::option::Option<::std::vec::Vec<crate::types::ReputationEntity>>,
-+    pub(crate) reputation_entities: ::std::option::Option<::std::vec::Vec<super::types::ReputationEntity>>,
++    pub(crate) reputation_entities: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReputationEntity>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>An array that contains information about the reputation entities in your account.</p>
 -    pub fn reputation_entities(mut self, input: crate::types::ReputationEntity) -> Self {
-+    pub fn reputation_entities(mut self, input: super::types::ReputationEntity) -> Self {
++    pub fn reputation_entities(mut self, input: super::super::super::types::ReputationEntity) -> Self {
          let mut v = self.reputation_entities.unwrap_or_default();
          v.push(input);
          self.reputation_entities = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>An array that contains information about the reputation entities in your account.</p>
 -    pub fn set_reputation_entities(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReputationEntity>>) -> Self {
-+    pub fn set_reputation_entities(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ReputationEntity>>) -> Self {
++    pub fn set_reputation_entities(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReputationEntity>>) -> Self {
          self.reputation_entities = input;
          self
      }
      /// <p>An array that contains information about the reputation entities in your account.</p>
 -    pub fn get_reputation_entities(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReputationEntity>> {
-+    pub fn get_reputation_entities(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ReputationEntity>> {
++    pub fn get_reputation_entities(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReputationEntity>> {
          &self.reputation_entities
      }
      /// <p>A token that indicates that there are additional reputation entities to list. To view additional reputation entities, issue another request to <code>ListReputationEntities</code>, and pass this token in the <code>NextToken</code> parameter.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListReputationEntitiesOutput`](crate::operation::list_reputation_entities::ListReputationEntitiesOutput).
 -    pub fn build(self) -> crate::operation::list_reputation_entities::ListReputationEntitiesOutput {
 -        crate::operation::list_reputation_entities::ListReputationEntitiesOutput {
-+    pub fn build(self) -> super::operation::list_reputation_entities::ListReputationEntitiesOutput {
-+        super::operation::list_reputation_entities::ListReputationEntitiesOutput {
++    pub fn build(self) -> super::super::super::operation::list_reputation_entities::ListReputationEntitiesOutput {
++        super::super::super::operation::list_reputation_entities::ListReputationEntitiesOutput {
              reputation_entities: self.reputation_entities,
              next_token: self.next_token,
              _request_id: self._request_id,

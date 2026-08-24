@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AssumeRoleWithSAMLError>`](crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError)
 -    pub fn assume_role_with_saml(&self) -> crate::operation::assume_role_with_saml::builders::AssumeRoleWithSAMLFluentBuilder {
 -        crate::operation::assume_role_with_saml::builders::AssumeRoleWithSAMLFluentBuilder::new(self.handle.clone())
-+    pub fn assume_role_with_saml(&self) -> super::operation::assume_role_with_saml::builders::AssumeRoleWithSAMLFluentBuilder {
-+        super::operation::assume_role_with_saml::builders::AssumeRoleWithSAMLFluentBuilder::new(self.handle.clone())
++    pub fn assume_role_with_saml(&self) -> super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSAMLFluentBuilder {
++        super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSAMLFluentBuilder::new(self.handle.clone())
      }
  }

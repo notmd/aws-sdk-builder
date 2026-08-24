@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SimulateCustomPolicyError>`](crate::operation::simulate_custom_policy::SimulateCustomPolicyError)
 -    pub fn simulate_custom_policy(&self) -> crate::operation::simulate_custom_policy::builders::SimulateCustomPolicyFluentBuilder {
 -        crate::operation::simulate_custom_policy::builders::SimulateCustomPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn simulate_custom_policy(&self) -> super::operation::simulate_custom_policy::builders::SimulateCustomPolicyFluentBuilder {
-+        super::operation::simulate_custom_policy::builders::SimulateCustomPolicyFluentBuilder::new(self.handle.clone())
++    pub fn simulate_custom_policy(&self) -> super::super::operation::simulate_custom_policy::builders::SimulateCustomPolicyFluentBuilder {
++        super::super::operation::simulate_custom_policy::builders::SimulateCustomPolicyFluentBuilder::new(self.handle.clone())
      }
  }

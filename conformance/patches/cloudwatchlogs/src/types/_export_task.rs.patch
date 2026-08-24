@@ -5,10 +5,10 @@
      pub destination_prefix: ::std::option::Option<::std::string::String>,
      /// <p>The status of the export task.</p>
 -    pub status: ::std::option::Option<crate::types::ExportTaskStatus>,
-+    pub status: ::std::option::Option<super::types::ExportTaskStatus>,
++    pub status: ::std::option::Option<super::super::types::ExportTaskStatus>,
      /// <p>Execution information about the export task.</p>
 -    pub execution_info: ::std::option::Option<crate::types::ExportTaskExecutionInfo>,
-+    pub execution_info: ::std::option::Option<super::types::ExportTaskExecutionInfo>,
++    pub execution_info: ::std::option::Option<super::super::types::ExportTaskExecutionInfo>,
  }
  impl ExportTask {
      /// <p>The ID of the export task.</p>
@@ -17,12 +17,12 @@
      }
      /// <p>The status of the export task.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::ExportTaskStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::ExportTaskStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::ExportTaskStatus> {
          self.status.as_ref()
      }
      /// <p>Execution information about the export task.</p>
 -    pub fn execution_info(&self) -> ::std::option::Option<&crate::types::ExportTaskExecutionInfo> {
-+    pub fn execution_info(&self) -> ::std::option::Option<&super::types::ExportTaskExecutionInfo> {
++    pub fn execution_info(&self) -> ::std::option::Option<&super::super::types::ExportTaskExecutionInfo> {
          self.execution_info.as_ref()
      }
  }
@@ -30,8 +30,8 @@
      /// Creates a new builder-style object to manufacture [`ExportTask`](crate::types::ExportTask).
 -    pub fn builder() -> crate::types::builders::ExportTaskBuilder {
 -        crate::types::builders::ExportTaskBuilder::default()
-+    pub fn builder() -> super::types::builders::ExportTaskBuilder {
-+        super::types::builders::ExportTaskBuilder::default()
++    pub fn builder() -> super::super::types::builders::ExportTaskBuilder {
++        super::super::types::builders::ExportTaskBuilder::default()
      }
  }
 
@@ -41,8 +41,8 @@
      pub(crate) destination_prefix: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::ExportTaskStatus>,
 -    pub(crate) execution_info: ::std::option::Option<crate::types::ExportTaskExecutionInfo>,
-+    pub(crate) status: ::std::option::Option<super::types::ExportTaskStatus>,
-+    pub(crate) execution_info: ::std::option::Option<super::types::ExportTaskExecutionInfo>,
++    pub(crate) status: ::std::option::Option<super::super::types::ExportTaskStatus>,
++    pub(crate) execution_info: ::std::option::Option<super::super::types::ExportTaskExecutionInfo>,
  }
  impl ExportTaskBuilder {
      /// <p>The ID of the export task.</p>
@@ -51,43 +51,43 @@
      }
      /// <p>The status of the export task.</p>
 -    pub fn status(mut self, input: crate::types::ExportTaskStatus) -> Self {
-+    pub fn status(mut self, input: super::types::ExportTaskStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::ExportTaskStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status of the export task.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExportTaskStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::ExportTaskStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::ExportTaskStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>The status of the export task.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExportTaskStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::ExportTaskStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::ExportTaskStatus> {
          &self.status
      }
      /// <p>Execution information about the export task.</p>
 -    pub fn execution_info(mut self, input: crate::types::ExportTaskExecutionInfo) -> Self {
-+    pub fn execution_info(mut self, input: super::types::ExportTaskExecutionInfo) -> Self {
++    pub fn execution_info(mut self, input: super::super::types::ExportTaskExecutionInfo) -> Self {
          self.execution_info = ::std::option::Option::Some(input);
          self
      }
      /// <p>Execution information about the export task.</p>
 -    pub fn set_execution_info(mut self, input: ::std::option::Option<crate::types::ExportTaskExecutionInfo>) -> Self {
-+    pub fn set_execution_info(mut self, input: ::std::option::Option<super::types::ExportTaskExecutionInfo>) -> Self {
++    pub fn set_execution_info(mut self, input: ::std::option::Option<super::super::types::ExportTaskExecutionInfo>) -> Self {
          self.execution_info = input;
          self
      }
      /// <p>Execution information about the export task.</p>
 -    pub fn get_execution_info(&self) -> &::std::option::Option<crate::types::ExportTaskExecutionInfo> {
-+    pub fn get_execution_info(&self) -> &::std::option::Option<super::types::ExportTaskExecutionInfo> {
++    pub fn get_execution_info(&self) -> &::std::option::Option<super::super::types::ExportTaskExecutionInfo> {
          &self.execution_info
      }
      /// Consumes the builder and constructs a [`ExportTask`](crate::types::ExportTask).
 -    pub fn build(self) -> crate::types::ExportTask {
 -        crate::types::ExportTask {
-+    pub fn build(self) -> super::types::ExportTask {
-+        super::types::ExportTask {
++    pub fn build(self) -> super::super::types::ExportTask {
++        super::super::types::ExportTask {
              task_id: self.task_id,
              task_name: self.task_name,
              log_group_name: self.log_group_name,

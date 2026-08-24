@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::VerificationInfo>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::VerificationInfo>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::VerificationInfo>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::VerificationInfoBuilder::default();
-+            let mut builder = super::types::builders::VerificationInfoBuilder::default();
++            let mut builder = super::super::types::builders::VerificationInfoBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,13 +23,13 @@
                              builder = builder.set_error_type(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::VerificationError::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::VerificationError::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::VerificationError::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
                          "SOARecord" => {
 -                            builder = builder.set_soa_record(crate::protocol_serde::shape_soa_record::de_soa_record(tokens, _value, depth + 1)?);
-+                            builder = builder.set_soa_record(super::protocol_serde::shape_soa_record::de_soa_record(tokens, _value, depth + 1)?);
++                            builder = builder.set_soa_record(super::super::protocol_serde::shape_soa_record::de_soa_record(tokens, _value, depth + 1)?);
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },

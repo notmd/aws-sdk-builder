@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningInputTextReference`](crate::types::GuardrailAutomatedReasoningInputTextReference).
 -    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningInputTextReferenceBuilder {
 -        crate::types::builders::GuardrailAutomatedReasoningInputTextReferenceBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailAutomatedReasoningInputTextReferenceBuilder {
-+        super::types::builders::GuardrailAutomatedReasoningInputTextReferenceBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailAutomatedReasoningInputTextReferenceBuilder {
++        super::super::types::builders::GuardrailAutomatedReasoningInputTextReferenceBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningInputTextReference`](crate::types::GuardrailAutomatedReasoningInputTextReference).
 -    pub fn build(self) -> crate::types::GuardrailAutomatedReasoningInputTextReference {
 -        crate::types::GuardrailAutomatedReasoningInputTextReference { text: self.text }
-+    pub fn build(self) -> super::types::GuardrailAutomatedReasoningInputTextReference {
-+        super::types::GuardrailAutomatedReasoningInputTextReference { text: self.text }
++    pub fn build(self) -> super::super::types::GuardrailAutomatedReasoningInputTextReference {
++        super::super::types::GuardrailAutomatedReasoningInputTextReference { text: self.text }
      }
  }
  impl ::std::fmt::Debug for GuardrailAutomatedReasoningInputTextReferenceBuilder {

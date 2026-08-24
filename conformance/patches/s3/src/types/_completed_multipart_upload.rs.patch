@@ -5,7 +5,7 @@
      /// <p>Array of CompletedPart data types.</p>
      /// <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP 400 response.</p>
 -    pub parts: ::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>>,
-+    pub parts: ::std::option::Option<::std::vec::Vec<super::types::CompletedPart>>,
++    pub parts: ::std::option::Option<::std::vec::Vec<super::super::types::CompletedPart>>,
  }
  impl CompletedMultipartUpload {
      /// <p>Array of CompletedPart data types.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parts.is_none()`.
 -    pub fn parts(&self) -> &[crate::types::CompletedPart] {
-+    pub fn parts(&self) -> &[super::types::CompletedPart] {
++    pub fn parts(&self) -> &[super::super::types::CompletedPart] {
          self.parts.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`CompletedMultipartUpload`](crate::types::CompletedMultipartUpload).
 -    pub fn builder() -> crate::types::builders::CompletedMultipartUploadBuilder {
 -        crate::types::builders::CompletedMultipartUploadBuilder::default()
-+    pub fn builder() -> super::types::builders::CompletedMultipartUploadBuilder {
-+        super::types::builders::CompletedMultipartUploadBuilder::default()
++    pub fn builder() -> super::super::types::builders::CompletedMultipartUploadBuilder {
++        super::super::types::builders::CompletedMultipartUploadBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  #[non_exhaustive]
  pub struct CompletedMultipartUploadBuilder {
 -    pub(crate) parts: ::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>>,
-+    pub(crate) parts: ::std::option::Option<::std::vec::Vec<super::types::CompletedPart>>,
++    pub(crate) parts: ::std::option::Option<::std::vec::Vec<super::super::types::CompletedPart>>,
  }
  impl CompletedMultipartUploadBuilder {
      /// Appends an item to `parts`.
@@ -41,7 +41,7 @@
      /// <p>Array of CompletedPart data types.</p>
      /// <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP 400 response.</p>
 -    pub fn parts(mut self, input: crate::types::CompletedPart) -> Self {
-+    pub fn parts(mut self, input: super::types::CompletedPart) -> Self {
++    pub fn parts(mut self, input: super::super::types::CompletedPart) -> Self {
          let mut v = self.parts.unwrap_or_default();
          v.push(input);
          self.parts = ::std::option::Option::Some(v);
@@ -50,20 +50,20 @@
      /// <p>Array of CompletedPart data types.</p>
      /// <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP 400 response.</p>
 -    pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>>) -> Self {
-+    pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::CompletedPart>>) -> Self {
++    pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::CompletedPart>>) -> Self {
          self.parts = input;
          self
      }
      /// <p>Array of CompletedPart data types.</p>
      /// <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP 400 response.</p>
 -    pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>> {
-+    pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec<super::types::CompletedPart>> {
++    pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::CompletedPart>> {
          &self.parts
      }
      /// Consumes the builder and constructs a [`CompletedMultipartUpload`](crate::types::CompletedMultipartUpload).
 -    pub fn build(self) -> crate::types::CompletedMultipartUpload {
 -        crate::types::CompletedMultipartUpload { parts: self.parts }
-+    pub fn build(self) -> super::types::CompletedMultipartUpload {
-+        super::types::CompletedMultipartUpload { parts: self.parts }
++    pub fn build(self) -> super::super::types::CompletedMultipartUpload {
++        super::super::types::CompletedMultipartUpload { parts: self.parts }
      }
  }

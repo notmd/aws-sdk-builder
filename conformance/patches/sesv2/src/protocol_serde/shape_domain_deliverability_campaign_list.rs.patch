@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<::std::vec::Vec<crate::types::DomainDeliverabilityCampaign>>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<::std::vec::Vec<super::types::DomainDeliverabilityCampaign>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::DomainDeliverabilityCampaign>>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
                      }
                      _ => {
 -                        let value = crate::protocol_serde::shape_domain_deliverability_campaign::de_domain_deliverability_campaign(
-+                        let value = super::protocol_serde::shape_domain_deliverability_campaign::de_domain_deliverability_campaign(
++                        let value = super::super::protocol_serde::shape_domain_deliverability_campaign::de_domain_deliverability_campaign(
                              tokens,
                              _value,
                              depth + 1,

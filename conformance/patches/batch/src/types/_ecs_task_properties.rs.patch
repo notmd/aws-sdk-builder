@@ -5,10 +5,10 @@
  pub struct EcsTaskProperties {
      /// <p>This object is a list of containers.</p>
 -    pub containers: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerProperties>>,
-+    pub containers: ::std::option::Option<::std::vec::Vec<super::types::TaskContainerProperties>>,
++    pub containers: ::std::option::Option<::std::vec::Vec<super::super::types::TaskContainerProperties>>,
      /// <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
 -    pub ephemeral_storage: ::std::option::Option<crate::types::EphemeralStorage>,
-+    pub ephemeral_storage: ::std::option::Option<super::types::EphemeralStorage>,
++    pub ephemeral_storage: ::std::option::Option<super::super::types::EphemeralStorage>,
      /// <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>
      pub execution_role_arn: ::std::option::Option<::std::string::String>,
      /// <p>The Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the <code>LATEST</code> platform version is used by default. This uses a recent, approved version of the Fargate platform for compute resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -17,14 +17,14 @@
      pub pid_mode: ::std::option::Option<::std::string::String>,
      /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources or Amazon ECS Managed Instances must not specify this parameter.</p>
 -    pub network_configuration: ::std::option::Option<crate::types::NetworkConfiguration>,
-+    pub network_configuration: ::std::option::Option<super::types::NetworkConfiguration>,
++    pub network_configuration: ::std::option::Option<super::super::types::NetworkConfiguration>,
      /// <p>An object that represents the compute environment architecture for Batch jobs on Fargate or Amazon ECS Managed Instances. Use this to specify the operating system family (<code>operatingSystemFamily</code>) and CPU architecture (<code>cpuArchitecture</code>).</p>
      /// <p>For Amazon ECS Managed Instances, the valid value for <code>operatingSystemFamily</code> is <code>LINUX</code> (default). The valid values for <code>cpuArchitecture</code> are <code>X86_64</code> and <code>ARM64</code>.</p>
 -    pub runtime_platform: ::std::option::Option<crate::types::RuntimePlatform>,
-+    pub runtime_platform: ::std::option::Option<super::types::RuntimePlatform>,
++    pub runtime_platform: ::std::option::Option<super::super::types::RuntimePlatform>,
      /// <p>A list of volumes that are associated with the job.</p>
 -    pub volumes: ::std::option::Option<::std::vec::Vec<crate::types::Volume>>,
-+    pub volumes: ::std::option::Option<::std::vec::Vec<super::types::Volume>>,
++    pub volumes: ::std::option::Option<::std::vec::Vec<super::super::types::Volume>>,
      /// <p>Determines whether execute command functionality is turned on for this task. If <code>true</code>, execute command functionality is turned on all the containers in the task.</p>
      pub enable_execute_command: ::std::option::Option<bool>,
      /// <p>The network mode to use for the task. Valid values: <code>host</code>. When not specified, the default is <code>host</code>.</p>
@@ -33,12 +33,12 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.containers.is_none()`.
 -    pub fn containers(&self) -> &[crate::types::TaskContainerProperties] {
-+    pub fn containers(&self) -> &[super::types::TaskContainerProperties] {
++    pub fn containers(&self) -> &[super::super::types::TaskContainerProperties] {
          self.containers.as_deref().unwrap_or_default()
      }
      /// <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
 -    pub fn ephemeral_storage(&self) -> ::std::option::Option<&crate::types::EphemeralStorage> {
-+    pub fn ephemeral_storage(&self) -> ::std::option::Option<&super::types::EphemeralStorage> {
++    pub fn ephemeral_storage(&self) -> ::std::option::Option<&super::super::types::EphemeralStorage> {
          self.ephemeral_storage.as_ref()
      }
      /// <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>
@@ -47,20 +47,20 @@
      }
      /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources or Amazon ECS Managed Instances must not specify this parameter.</p>
 -    pub fn network_configuration(&self) -> ::std::option::Option<&crate::types::NetworkConfiguration> {
-+    pub fn network_configuration(&self) -> ::std::option::Option<&super::types::NetworkConfiguration> {
++    pub fn network_configuration(&self) -> ::std::option::Option<&super::super::types::NetworkConfiguration> {
          self.network_configuration.as_ref()
      }
      /// <p>An object that represents the compute environment architecture for Batch jobs on Fargate or Amazon ECS Managed Instances. Use this to specify the operating system family (<code>operatingSystemFamily</code>) and CPU architecture (<code>cpuArchitecture</code>).</p>
      /// <p>For Amazon ECS Managed Instances, the valid value for <code>operatingSystemFamily</code> is <code>LINUX</code> (default). The valid values for <code>cpuArchitecture</code> are <code>X86_64</code> and <code>ARM64</code>.</p>
 -    pub fn runtime_platform(&self) -> ::std::option::Option<&crate::types::RuntimePlatform> {
-+    pub fn runtime_platform(&self) -> ::std::option::Option<&super::types::RuntimePlatform> {
++    pub fn runtime_platform(&self) -> ::std::option::Option<&super::super::types::RuntimePlatform> {
          self.runtime_platform.as_ref()
      }
      /// <p>A list of volumes that are associated with the job.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.volumes.is_none()`.
 -    pub fn volumes(&self) -> &[crate::types::Volume] {
-+    pub fn volumes(&self) -> &[super::types::Volume] {
++    pub fn volumes(&self) -> &[super::super::types::Volume] {
          self.volumes.as_deref().unwrap_or_default()
      }
      /// <p>Determines whether execute command functionality is turned on for this task. If <code>true</code>, execute command functionality is turned on all the containers in the task.</p>
@@ -70,8 +70,8 @@
      /// Creates a new builder-style object to manufacture [`EcsTaskProperties`](crate::types::EcsTaskProperties).
 -    pub fn builder() -> crate::types::builders::EcsTaskPropertiesBuilder {
 -        crate::types::builders::EcsTaskPropertiesBuilder::default()
-+    pub fn builder() -> super::types::builders::EcsTaskPropertiesBuilder {
-+        super::types::builders::EcsTaskPropertiesBuilder::default()
++    pub fn builder() -> super::super::types::builders::EcsTaskPropertiesBuilder {
++        super::super::types::builders::EcsTaskPropertiesBuilder::default()
      }
  }
 
@@ -81,8 +81,8 @@
  pub struct EcsTaskPropertiesBuilder {
 -    pub(crate) containers: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerProperties>>,
 -    pub(crate) ephemeral_storage: ::std::option::Option<crate::types::EphemeralStorage>,
-+    pub(crate) containers: ::std::option::Option<::std::vec::Vec<super::types::TaskContainerProperties>>,
-+    pub(crate) ephemeral_storage: ::std::option::Option<super::types::EphemeralStorage>,
++    pub(crate) containers: ::std::option::Option<::std::vec::Vec<super::super::types::TaskContainerProperties>>,
++    pub(crate) ephemeral_storage: ::std::option::Option<super::super::types::EphemeralStorage>,
      pub(crate) execution_role_arn: ::std::option::Option<::std::string::String>,
      pub(crate) platform_version: ::std::option::Option<::std::string::String>,
      pub(crate) ipc_mode: ::std::option::Option<::std::string::String>,
@@ -91,9 +91,9 @@
 -    pub(crate) network_configuration: ::std::option::Option<crate::types::NetworkConfiguration>,
 -    pub(crate) runtime_platform: ::std::option::Option<crate::types::RuntimePlatform>,
 -    pub(crate) volumes: ::std::option::Option<::std::vec::Vec<crate::types::Volume>>,
-+    pub(crate) network_configuration: ::std::option::Option<super::types::NetworkConfiguration>,
-+    pub(crate) runtime_platform: ::std::option::Option<super::types::RuntimePlatform>,
-+    pub(crate) volumes: ::std::option::Option<::std::vec::Vec<super::types::Volume>>,
++    pub(crate) network_configuration: ::std::option::Option<super::super::types::NetworkConfiguration>,
++    pub(crate) runtime_platform: ::std::option::Option<super::super::types::RuntimePlatform>,
++    pub(crate) volumes: ::std::option::Option<::std::vec::Vec<super::super::types::Volume>>,
      pub(crate) enable_execute_command: ::std::option::Option<bool>,
      pub(crate) network_mode: ::std::option::Option<::std::string::String>,
  }
@@ -102,7 +102,7 @@
      ///
      /// <p>This object is a list of containers.</p>
 -    pub fn containers(mut self, input: crate::types::TaskContainerProperties) -> Self {
-+    pub fn containers(mut self, input: super::types::TaskContainerProperties) -> Self {
++    pub fn containers(mut self, input: super::super::types::TaskContainerProperties) -> Self {
          let mut v = self.containers.unwrap_or_default();
          v.push(input);
          self.containers = ::std::option::Option::Some(v);
@@ -111,30 +111,30 @@
      }
      /// <p>This object is a list of containers.</p>
 -    pub fn set_containers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerProperties>>) -> Self {
-+    pub fn set_containers(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::TaskContainerProperties>>) -> Self {
++    pub fn set_containers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::TaskContainerProperties>>) -> Self {
          self.containers = input;
          self
      }
      /// <p>This object is a list of containers.</p>
 -    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TaskContainerProperties>> {
-+    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<super::types::TaskContainerProperties>> {
++    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::TaskContainerProperties>> {
          &self.containers
      }
      /// <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
 -    pub fn ephemeral_storage(mut self, input: crate::types::EphemeralStorage) -> Self {
-+    pub fn ephemeral_storage(mut self, input: super::types::EphemeralStorage) -> Self {
++    pub fn ephemeral_storage(mut self, input: super::super::types::EphemeralStorage) -> Self {
          self.ephemeral_storage = ::std::option::Option::Some(input);
          self
      }
      /// <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
 -    pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<crate::types::EphemeralStorage>) -> Self {
-+    pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<super::types::EphemeralStorage>) -> Self {
++    pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<super::super::types::EphemeralStorage>) -> Self {
          self.ephemeral_storage = input;
          self
      }
      /// <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
 -    pub fn get_ephemeral_storage(&self) -> &::std::option::Option<crate::types::EphemeralStorage> {
-+    pub fn get_ephemeral_storage(&self) -> &::std::option::Option<super::types::EphemeralStorage> {
++    pub fn get_ephemeral_storage(&self) -> &::std::option::Option<super::super::types::EphemeralStorage> {
          &self.ephemeral_storage
      }
      /// <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>
@@ -143,39 +143,39 @@
      }
      /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources or Amazon ECS Managed Instances must not specify this parameter.</p>
 -    pub fn network_configuration(mut self, input: crate::types::NetworkConfiguration) -> Self {
-+    pub fn network_configuration(mut self, input: super::types::NetworkConfiguration) -> Self {
++    pub fn network_configuration(mut self, input: super::super::types::NetworkConfiguration) -> Self {
          self.network_configuration = ::std::option::Option::Some(input);
          self
      }
      /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources or Amazon ECS Managed Instances must not specify this parameter.</p>
 -    pub fn set_network_configuration(mut self, input: ::std::option::Option<crate::types::NetworkConfiguration>) -> Self {
-+    pub fn set_network_configuration(mut self, input: ::std::option::Option<super::types::NetworkConfiguration>) -> Self {
++    pub fn set_network_configuration(mut self, input: ::std::option::Option<super::super::types::NetworkConfiguration>) -> Self {
          self.network_configuration = input;
          self
      }
      /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources or Amazon ECS Managed Instances must not specify this parameter.</p>
 -    pub fn get_network_configuration(&self) -> &::std::option::Option<crate::types::NetworkConfiguration> {
-+    pub fn get_network_configuration(&self) -> &::std::option::Option<super::types::NetworkConfiguration> {
++    pub fn get_network_configuration(&self) -> &::std::option::Option<super::super::types::NetworkConfiguration> {
          &self.network_configuration
      }
      /// <p>An object that represents the compute environment architecture for Batch jobs on Fargate or Amazon ECS Managed Instances. Use this to specify the operating system family (<code>operatingSystemFamily</code>) and CPU architecture (<code>cpuArchitecture</code>).</p>
      /// <p>For Amazon ECS Managed Instances, the valid value for <code>operatingSystemFamily</code> is <code>LINUX</code> (default). The valid values for <code>cpuArchitecture</code> are <code>X86_64</code> and <code>ARM64</code>.</p>
 -    pub fn runtime_platform(mut self, input: crate::types::RuntimePlatform) -> Self {
-+    pub fn runtime_platform(mut self, input: super::types::RuntimePlatform) -> Self {
++    pub fn runtime_platform(mut self, input: super::super::types::RuntimePlatform) -> Self {
          self.runtime_platform = ::std::option::Option::Some(input);
          self
      }
      /// <p>An object that represents the compute environment architecture for Batch jobs on Fargate or Amazon ECS Managed Instances. Use this to specify the operating system family (<code>operatingSystemFamily</code>) and CPU architecture (<code>cpuArchitecture</code>).</p>
      /// <p>For Amazon ECS Managed Instances, the valid value for <code>operatingSystemFamily</code> is <code>LINUX</code> (default). The valid values for <code>cpuArchitecture</code> are <code>X86_64</code> and <code>ARM64</code>.</p>
 -    pub fn set_runtime_platform(mut self, input: ::std::option::Option<crate::types::RuntimePlatform>) -> Self {
-+    pub fn set_runtime_platform(mut self, input: ::std::option::Option<super::types::RuntimePlatform>) -> Self {
++    pub fn set_runtime_platform(mut self, input: ::std::option::Option<super::super::types::RuntimePlatform>) -> Self {
          self.runtime_platform = input;
          self
      }
      /// <p>An object that represents the compute environment architecture for Batch jobs on Fargate or Amazon ECS Managed Instances. Use this to specify the operating system family (<code>operatingSystemFamily</code>) and CPU architecture (<code>cpuArchitecture</code>).</p>
      /// <p>For Amazon ECS Managed Instances, the valid value for <code>operatingSystemFamily</code> is <code>LINUX</code> (default). The valid values for <code>cpuArchitecture</code> are <code>X86_64</code> and <code>ARM64</code>.</p>
 -    pub fn get_runtime_platform(&self) -> &::std::option::Option<crate::types::RuntimePlatform> {
-+    pub fn get_runtime_platform(&self) -> &::std::option::Option<super::types::RuntimePlatform> {
++    pub fn get_runtime_platform(&self) -> &::std::option::Option<super::super::types::RuntimePlatform> {
          &self.runtime_platform
      }
      /// Appends an item to `volumes`.
@@ -184,7 +184,7 @@
      ///
      /// <p>A list of volumes that are associated with the job.</p>
 -    pub fn volumes(mut self, input: crate::types::Volume) -> Self {
-+    pub fn volumes(mut self, input: super::types::Volume) -> Self {
++    pub fn volumes(mut self, input: super::super::types::Volume) -> Self {
          let mut v = self.volumes.unwrap_or_default();
          v.push(input);
          self.volumes = ::std::option::Option::Some(v);
@@ -193,13 +193,13 @@
      }
      /// <p>A list of volumes that are associated with the job.</p>
 -    pub fn set_volumes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Volume>>) -> Self {
-+    pub fn set_volumes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Volume>>) -> Self {
++    pub fn set_volumes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::Volume>>) -> Self {
          self.volumes = input;
          self
      }
      /// <p>A list of volumes that are associated with the job.</p>
 -    pub fn get_volumes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Volume>> {
-+    pub fn get_volumes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Volume>> {
++    pub fn get_volumes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::Volume>> {
          &self.volumes
      }
      /// <p>Determines whether execute command functionality is turned on for this task. If <code>true</code>, execute command functionality is turned on all the containers in the task.</p>
@@ -209,8 +209,8 @@
      /// Consumes the builder and constructs a [`EcsTaskProperties`](crate::types::EcsTaskProperties).
 -    pub fn build(self) -> crate::types::EcsTaskProperties {
 -        crate::types::EcsTaskProperties {
-+    pub fn build(self) -> super::types::EcsTaskProperties {
-+        super::types::EcsTaskProperties {
++    pub fn build(self) -> super::super::types::EcsTaskProperties {
++        super::super::types::EcsTaskProperties {
              containers: self.containers,
              ephemeral_storage: self.ephemeral_storage,
              execution_role_arn: self.execution_role_arn,

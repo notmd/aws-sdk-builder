@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AutoToolChoice`](crate::types::AutoToolChoice).
 -    pub fn builder() -> crate::types::builders::AutoToolChoiceBuilder {
 -        crate::types::builders::AutoToolChoiceBuilder::default()
-+    pub fn builder() -> super::types::builders::AutoToolChoiceBuilder {
-+        super::types::builders::AutoToolChoiceBuilder::default()
++    pub fn builder() -> super::super::types::builders::AutoToolChoiceBuilder {
++        super::super::types::builders::AutoToolChoiceBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`AutoToolChoice`](crate::types::AutoToolChoice).
 -    pub fn build(self) -> crate::types::AutoToolChoice {
 -        crate::types::AutoToolChoice {}
-+    pub fn build(self) -> super::types::AutoToolChoice {
-+        super::types::AutoToolChoice {}
++    pub fn build(self) -> super::super::types::AutoToolChoice {
++        super::super::types::AutoToolChoice {}
      }
  }

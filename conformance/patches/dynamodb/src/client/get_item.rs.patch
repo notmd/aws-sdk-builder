@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetItemError>`](crate::operation::get_item::GetItemError)
 -    pub fn get_item(&self) -> crate::operation::get_item::builders::GetItemFluentBuilder {
 -        crate::operation::get_item::builders::GetItemFluentBuilder::new(self.handle.clone())
-+    pub fn get_item(&self) -> super::operation::get_item::builders::GetItemFluentBuilder {
-+        super::operation::get_item::builders::GetItemFluentBuilder::new(self.handle.clone())
++    pub fn get_item(&self) -> super::super::operation::get_item::builders::GetItemFluentBuilder {
++        super::super::operation::get_item::builders::GetItemFluentBuilder::new(self.handle.clone())
      }
  }

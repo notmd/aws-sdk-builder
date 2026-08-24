@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateFunctionCodeError>`](crate::operation::update_function_code::UpdateFunctionCodeError)
 -    pub fn update_function_code(&self) -> crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder {
 -        crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::new(self.handle.clone())
-+    pub fn update_function_code(&self) -> super::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder {
-+        super::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::new(self.handle.clone())
++    pub fn update_function_code(&self) -> super::super::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder {
++        super::super::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::new(self.handle.clone())
      }
  }

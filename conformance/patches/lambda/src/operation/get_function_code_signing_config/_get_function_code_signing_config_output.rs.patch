@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetFunctionCodeSigningConfigOutput`](crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigOutput).
 -    pub fn builder() -> crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder {
 -        crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder {
-+        super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder {
++        super::super::super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigOutput,
-+        super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigOutput,
++        super::super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigOutput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigOutput {
-+        ::std::result::Result::Ok(super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigOutput {
++        ::std::result::Result::Ok(super::super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigOutput {
              code_signing_config_arn: self.code_signing_config_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "code_signing_config_arn",

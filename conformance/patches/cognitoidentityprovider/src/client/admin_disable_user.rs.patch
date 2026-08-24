@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AdminDisableUserError>`](crate::operation::admin_disable_user::AdminDisableUserError)
 -    pub fn admin_disable_user(&self) -> crate::operation::admin_disable_user::builders::AdminDisableUserFluentBuilder {
 -        crate::operation::admin_disable_user::builders::AdminDisableUserFluentBuilder::new(self.handle.clone())
-+    pub fn admin_disable_user(&self) -> super::operation::admin_disable_user::builders::AdminDisableUserFluentBuilder {
-+        super::operation::admin_disable_user::builders::AdminDisableUserFluentBuilder::new(self.handle.clone())
++    pub fn admin_disable_user(&self) -> super::super::operation::admin_disable_user::builders::AdminDisableUserFluentBuilder {
++        super::super::operation::admin_disable_user::builders::AdminDisableUserFluentBuilder::new(self.handle.clone())
      }
  }

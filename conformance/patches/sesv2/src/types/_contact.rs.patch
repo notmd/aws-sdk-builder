@@ -5,10 +5,10 @@
      pub email_address: ::std::option::Option<::std::string::String>,
      /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
 -    pub topic_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
-+    pub topic_preferences: ::std::option::Option<::std::vec::Vec<super::types::TopicPreference>>,
++    pub topic_preferences: ::std::option::Option<::std::vec::Vec<super::super::types::TopicPreference>>,
      /// <p>The default topic preferences applied to the contact.</p>
 -    pub topic_default_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
-+    pub topic_default_preferences: ::std::option::Option<::std::vec::Vec<super::types::TopicPreference>>,
++    pub topic_default_preferences: ::std::option::Option<::std::vec::Vec<super::super::types::TopicPreference>>,
      /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
      pub unsubscribe_all: bool,
      /// <p>A timestamp noting the last time the contact's information was updated.</p>
@@ -17,14 +17,14 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.topic_preferences.is_none()`.
 -    pub fn topic_preferences(&self) -> &[crate::types::TopicPreference] {
-+    pub fn topic_preferences(&self) -> &[super::types::TopicPreference] {
++    pub fn topic_preferences(&self) -> &[super::super::types::TopicPreference] {
          self.topic_preferences.as_deref().unwrap_or_default()
      }
      /// <p>The default topic preferences applied to the contact.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.topic_default_preferences.is_none()`.
 -    pub fn topic_default_preferences(&self) -> &[crate::types::TopicPreference] {
-+    pub fn topic_default_preferences(&self) -> &[super::types::TopicPreference] {
++    pub fn topic_default_preferences(&self) -> &[super::super::types::TopicPreference] {
          self.topic_default_preferences.as_deref().unwrap_or_default()
      }
      /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
@@ -34,8 +34,8 @@
      /// Creates a new builder-style object to manufacture [`Contact`](crate::types::Contact).
 -    pub fn builder() -> crate::types::builders::ContactBuilder {
 -        crate::types::builders::ContactBuilder::default()
-+    pub fn builder() -> super::types::builders::ContactBuilder {
-+        super::types::builders::ContactBuilder::default()
++    pub fn builder() -> super::super::types::builders::ContactBuilder {
++        super::super::types::builders::ContactBuilder::default()
      }
  }
 
@@ -45,8 +45,8 @@
      pub(crate) email_address: ::std::option::Option<::std::string::String>,
 -    pub(crate) topic_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
 -    pub(crate) topic_default_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
-+    pub(crate) topic_preferences: ::std::option::Option<::std::vec::Vec<super::types::TopicPreference>>,
-+    pub(crate) topic_default_preferences: ::std::option::Option<::std::vec::Vec<super::types::TopicPreference>>,
++    pub(crate) topic_preferences: ::std::option::Option<::std::vec::Vec<super::super::types::TopicPreference>>,
++    pub(crate) topic_default_preferences: ::std::option::Option<::std::vec::Vec<super::super::types::TopicPreference>>,
      pub(crate) unsubscribe_all: ::std::option::Option<bool>,
      pub(crate) last_updated_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
@@ -55,7 +55,7 @@
      ///
      /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
 -    pub fn topic_preferences(mut self, input: crate::types::TopicPreference) -> Self {
-+    pub fn topic_preferences(mut self, input: super::types::TopicPreference) -> Self {
++    pub fn topic_preferences(mut self, input: super::super::types::TopicPreference) -> Self {
          let mut v = self.topic_preferences.unwrap_or_default();
          v.push(input);
          self.topic_preferences = ::std::option::Option::Some(v);
@@ -64,13 +64,13 @@
      }
      /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
 -    pub fn set_topic_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>) -> Self {
-+    pub fn set_topic_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::TopicPreference>>) -> Self {
++    pub fn set_topic_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::TopicPreference>>) -> Self {
          self.topic_preferences = input;
          self
      }
      /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
 -    pub fn get_topic_preferences(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
-+    pub fn get_topic_preferences(&self) -> &::std::option::Option<::std::vec::Vec<super::types::TopicPreference>> {
++    pub fn get_topic_preferences(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::TopicPreference>> {
          &self.topic_preferences
      }
      /// Appends an item to `topic_default_preferences`.
@@ -79,7 +79,7 @@
      ///
      /// <p>The default topic preferences applied to the contact.</p>
 -    pub fn topic_default_preferences(mut self, input: crate::types::TopicPreference) -> Self {
-+    pub fn topic_default_preferences(mut self, input: super::types::TopicPreference) -> Self {
++    pub fn topic_default_preferences(mut self, input: super::super::types::TopicPreference) -> Self {
          let mut v = self.topic_default_preferences.unwrap_or_default();
          v.push(input);
          self.topic_default_preferences = ::std::option::Option::Some(v);
@@ -88,13 +88,13 @@
      }
      /// <p>The default topic preferences applied to the contact.</p>
 -    pub fn set_topic_default_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>) -> Self {
-+    pub fn set_topic_default_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::TopicPreference>>) -> Self {
++    pub fn set_topic_default_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::TopicPreference>>) -> Self {
          self.topic_default_preferences = input;
          self
      }
      /// <p>The default topic preferences applied to the contact.</p>
 -    pub fn get_topic_default_preferences(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
-+    pub fn get_topic_default_preferences(&self) -> &::std::option::Option<::std::vec::Vec<super::types::TopicPreference>> {
++    pub fn get_topic_default_preferences(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::TopicPreference>> {
          &self.topic_default_preferences
      }
      /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
@@ -104,8 +104,8 @@
      /// Consumes the builder and constructs a [`Contact`](crate::types::Contact).
 -    pub fn build(self) -> crate::types::Contact {
 -        crate::types::Contact {
-+    pub fn build(self) -> super::types::Contact {
-+        super::types::Contact {
++    pub fn build(self) -> super::super::types::Contact {
++        super::super::types::Contact {
              email_address: self.email_address,
              topic_preferences: self.topic_preferences,
              topic_default_preferences: self.topic_default_preferences,

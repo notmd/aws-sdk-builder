@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetCSVHeaderError>`](crate::operation::get_csv_header::GetCSVHeaderError)
 -    pub fn get_csv_header(&self) -> crate::operation::get_csv_header::builders::GetCSVHeaderFluentBuilder {
 -        crate::operation::get_csv_header::builders::GetCSVHeaderFluentBuilder::new(self.handle.clone())
-+    pub fn get_csv_header(&self) -> super::operation::get_csv_header::builders::GetCSVHeaderFluentBuilder {
-+        super::operation::get_csv_header::builders::GetCSVHeaderFluentBuilder::new(self.handle.clone())
++    pub fn get_csv_header(&self) -> super::super::operation::get_csv_header::builders::GetCSVHeaderFluentBuilder {
++        super::super::operation::get_csv_header::builders::GetCSVHeaderFluentBuilder::new(self.handle.clone())
      }
  }

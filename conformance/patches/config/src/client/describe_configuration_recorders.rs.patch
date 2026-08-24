@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersFluentBuilder {
 -        crate::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersFluentBuilder {
-+        super::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersFluentBuilder {
++        super::super::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetServiceLastAccessedDetailsInput`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput).
 -    pub fn builder() -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
 -        crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder::default()
-+    pub fn builder() -> super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
-+        super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
++        super::super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput,
-+        super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput,
++        super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput {
-+        ::std::result::Result::Ok(super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput {
              job_id: self.job_id,
              max_items: self.max_items,
              marker: self.marker,

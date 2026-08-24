@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`FargatePlatformConfiguration`](crate::types::FargatePlatformConfiguration).
 -    pub fn builder() -> crate::types::builders::FargatePlatformConfigurationBuilder {
 -        crate::types::builders::FargatePlatformConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::FargatePlatformConfigurationBuilder {
-+        super::types::builders::FargatePlatformConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::FargatePlatformConfigurationBuilder {
++        super::super::types::builders::FargatePlatformConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`FargatePlatformConfiguration`](crate::types::FargatePlatformConfiguration).
 -    pub fn build(self) -> crate::types::FargatePlatformConfiguration {
 -        crate::types::FargatePlatformConfiguration {
-+    pub fn build(self) -> super::types::FargatePlatformConfiguration {
-+        super::types::FargatePlatformConfiguration {
++    pub fn build(self) -> super::super::types::FargatePlatformConfiguration {
++        super::super::types::FargatePlatformConfiguration {
              platform_version: self.platform_version,
          }
      }

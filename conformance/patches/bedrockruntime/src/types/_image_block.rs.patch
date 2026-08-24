@@ -5,28 +5,28 @@
  pub struct ImageBlock {
      /// <p>The format of the image.</p>
 -    pub format: crate::types::ImageFormat,
-+    pub format: super::types::ImageFormat,
++    pub format: super::super::types::ImageFormat,
      /// <p>The source for the image.</p>
 -    pub source: ::std::option::Option<crate::types::ImageSource>,
-+    pub source: ::std::option::Option<super::types::ImageSource>,
++    pub source: ::std::option::Option<super::super::types::ImageSource>,
      /// <p>Error information if the image block could not be processed or contains invalid data.</p>
 -    pub error: ::std::option::Option<crate::types::ErrorBlock>,
-+    pub error: ::std::option::Option<super::types::ErrorBlock>,
++    pub error: ::std::option::Option<super::super::types::ErrorBlock>,
  }
  impl ImageBlock {
      /// <p>The format of the image.</p>
 -    pub fn format(&self) -> &crate::types::ImageFormat {
-+    pub fn format(&self) -> &super::types::ImageFormat {
++    pub fn format(&self) -> &super::super::types::ImageFormat {
          &self.format
      }
      /// <p>The source for the image.</p>
 -    pub fn source(&self) -> ::std::option::Option<&crate::types::ImageSource> {
-+    pub fn source(&self) -> ::std::option::Option<&super::types::ImageSource> {
++    pub fn source(&self) -> ::std::option::Option<&super::super::types::ImageSource> {
          self.source.as_ref()
      }
      /// <p>Error information if the image block could not be processed or contains invalid data.</p>
 -    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorBlock> {
-+    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorBlock> {
++    pub fn error(&self) -> ::std::option::Option<&super::super::types::ErrorBlock> {
          self.error.as_ref()
      }
  }
@@ -36,8 +36,8 @@
      /// Creates a new builder-style object to manufacture [`ImageBlock`](crate::types::ImageBlock).
 -    pub fn builder() -> crate::types::builders::ImageBlockBuilder {
 -        crate::types::builders::ImageBlockBuilder::default()
-+    pub fn builder() -> super::types::builders::ImageBlockBuilder {
-+        super::types::builders::ImageBlockBuilder::default()
++    pub fn builder() -> super::super::types::builders::ImageBlockBuilder {
++        super::super::types::builders::ImageBlockBuilder::default()
      }
  }
 
@@ -48,62 +48,62 @@
 -    pub(crate) format: ::std::option::Option<crate::types::ImageFormat>,
 -    pub(crate) source: ::std::option::Option<crate::types::ImageSource>,
 -    pub(crate) error: ::std::option::Option<crate::types::ErrorBlock>,
-+    pub(crate) format: ::std::option::Option<super::types::ImageFormat>,
-+    pub(crate) source: ::std::option::Option<super::types::ImageSource>,
-+    pub(crate) error: ::std::option::Option<super::types::ErrorBlock>,
++    pub(crate) format: ::std::option::Option<super::super::types::ImageFormat>,
++    pub(crate) source: ::std::option::Option<super::super::types::ImageSource>,
++    pub(crate) error: ::std::option::Option<super::super::types::ErrorBlock>,
  }
  impl ImageBlockBuilder {
      /// <p>The format of the image.</p>
      /// This field is required.
 -    pub fn format(mut self, input: crate::types::ImageFormat) -> Self {
-+    pub fn format(mut self, input: super::types::ImageFormat) -> Self {
++    pub fn format(mut self, input: super::super::types::ImageFormat) -> Self {
          self.format = ::std::option::Option::Some(input);
          self
      }
      /// <p>The format of the image.</p>
 -    pub fn set_format(mut self, input: ::std::option::Option<crate::types::ImageFormat>) -> Self {
-+    pub fn set_format(mut self, input: ::std::option::Option<super::types::ImageFormat>) -> Self {
++    pub fn set_format(mut self, input: ::std::option::Option<super::super::types::ImageFormat>) -> Self {
          self.format = input;
          self
      }
      /// <p>The format of the image.</p>
 -    pub fn get_format(&self) -> &::std::option::Option<crate::types::ImageFormat> {
-+    pub fn get_format(&self) -> &::std::option::Option<super::types::ImageFormat> {
++    pub fn get_format(&self) -> &::std::option::Option<super::super::types::ImageFormat> {
          &self.format
      }
      /// <p>The source for the image.</p>
      /// This field is required.
 -    pub fn source(mut self, input: crate::types::ImageSource) -> Self {
-+    pub fn source(mut self, input: super::types::ImageSource) -> Self {
++    pub fn source(mut self, input: super::super::types::ImageSource) -> Self {
          self.source = ::std::option::Option::Some(input);
          self
      }
      /// <p>The source for the image.</p>
 -    pub fn set_source(mut self, input: ::std::option::Option<crate::types::ImageSource>) -> Self {
-+    pub fn set_source(mut self, input: ::std::option::Option<super::types::ImageSource>) -> Self {
++    pub fn set_source(mut self, input: ::std::option::Option<super::super::types::ImageSource>) -> Self {
          self.source = input;
          self
      }
      /// <p>The source for the image.</p>
 -    pub fn get_source(&self) -> &::std::option::Option<crate::types::ImageSource> {
-+    pub fn get_source(&self) -> &::std::option::Option<super::types::ImageSource> {
++    pub fn get_source(&self) -> &::std::option::Option<super::super::types::ImageSource> {
          &self.source
      }
      /// <p>Error information if the image block could not be processed or contains invalid data.</p>
 -    pub fn error(mut self, input: crate::types::ErrorBlock) -> Self {
-+    pub fn error(mut self, input: super::types::ErrorBlock) -> Self {
++    pub fn error(mut self, input: super::super::types::ErrorBlock) -> Self {
          self.error = ::std::option::Option::Some(input);
          self
      }
      /// <p>Error information if the image block could not be processed or contains invalid data.</p>
 -    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorBlock>) -> Self {
-+    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorBlock>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::super::types::ErrorBlock>) -> Self {
          self.error = input;
          self
      }
      /// <p>Error information if the image block could not be processed or contains invalid data.</p>
 -    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorBlock> {
-+    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorBlock> {
++    pub fn get_error(&self) -> &::std::option::Option<super::super::types::ErrorBlock> {
          &self.error
      }
      /// Consumes the builder and constructs a [`ImageBlock`](crate::types::ImageBlock).
@@ -111,8 +111,8 @@
      /// - [`format`](crate::types::builders::ImageBlockBuilder::format)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ImageBlock, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ImageBlock {
-+    pub fn build(self) -> ::std::result::Result<super::types::ImageBlock, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ImageBlock {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ImageBlock, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ImageBlock {
              format: self.format.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "format",

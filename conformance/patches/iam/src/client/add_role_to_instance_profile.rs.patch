@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AddRoleToInstanceProfileError>`](crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError)
 -    pub fn add_role_to_instance_profile(&self) -> crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder {
 -        crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder::new(self.handle.clone())
-+    pub fn add_role_to_instance_profile(&self) -> super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder {
-+        super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder::new(self.handle.clone())
++    pub fn add_role_to_instance_profile(&self) -> super::super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder {
++        super::super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder::new(self.handle.clone())
      }
  }

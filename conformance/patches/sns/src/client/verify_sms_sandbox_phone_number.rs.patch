@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::verify_sms_sandbox_phone_number::builders::VerifySMSSandboxPhoneNumberFluentBuilder {
 -        crate::operation::verify_sms_sandbox_phone_number::builders::VerifySMSSandboxPhoneNumberFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::verify_sms_sandbox_phone_number::builders::VerifySMSSandboxPhoneNumberFluentBuilder {
-+        super::operation::verify_sms_sandbox_phone_number::builders::VerifySMSSandboxPhoneNumberFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::verify_sms_sandbox_phone_number::builders::VerifySMSSandboxPhoneNumberFluentBuilder {
++        super::super::operation::verify_sms_sandbox_phone_number::builders::VerifySMSSandboxPhoneNumberFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RecordsEvent`](crate::types::RecordsEvent).
 -    pub fn builder() -> crate::types::builders::RecordsEventBuilder {
 -        crate::types::builders::RecordsEventBuilder::default()
-+    pub fn builder() -> super::types::builders::RecordsEventBuilder {
-+        super::types::builders::RecordsEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::RecordsEventBuilder {
++        super::super::types::builders::RecordsEventBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`RecordsEvent`](crate::types::RecordsEvent).
 -    pub fn build(self) -> crate::types::RecordsEvent {
 -        crate::types::RecordsEvent { payload: self.payload }
-+    pub fn build(self) -> super::types::RecordsEvent {
-+        super::types::RecordsEvent { payload: self.payload }
++    pub fn build(self) -> super::super::types::RecordsEvent {
++        super::super::types::RecordsEvent { payload: self.payload }
      }
  }

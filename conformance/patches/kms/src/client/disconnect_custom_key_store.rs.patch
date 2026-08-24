@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DisconnectCustomKeyStoreError>`](crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError)
 -    pub fn disconnect_custom_key_store(&self) -> crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreFluentBuilder {
 -        crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreFluentBuilder::new(self.handle.clone())
-+    pub fn disconnect_custom_key_store(&self) -> super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreFluentBuilder {
-+        super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreFluentBuilder::new(self.handle.clone())
++    pub fn disconnect_custom_key_store(&self) -> super::super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreFluentBuilder {
++        super::super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreFluentBuilder::new(self.handle.clone())
      }
  }

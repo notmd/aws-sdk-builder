@@ -5,7 +5,7 @@
  pub struct PreTokenGenerationVersionConfigType {
      /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
 -    pub lambda_version: crate::types::PreTokenGenerationLambdaVersionType,
-+    pub lambda_version: super::types::PreTokenGenerationLambdaVersionType,
++    pub lambda_version: super::super::types::PreTokenGenerationLambdaVersionType,
      /// <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
      /// <p>This parameter and the <code>PreTokenGeneration</code> property of <code>LambdaConfig</code> have the same value. For new instances of pre token generation triggers, set <code>LambdaArn</code>.</p>
      pub lambda_arn: ::std::string::String,
@@ -14,7 +14,7 @@
  impl PreTokenGenerationVersionConfigType {
      /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
 -    pub fn lambda_version(&self) -> &crate::types::PreTokenGenerationLambdaVersionType {
-+    pub fn lambda_version(&self) -> &super::types::PreTokenGenerationLambdaVersionType {
++    pub fn lambda_version(&self) -> &super::super::types::PreTokenGenerationLambdaVersionType {
          &self.lambda_version
      }
      /// <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`PreTokenGenerationVersionConfigType`](crate::types::PreTokenGenerationVersionConfigType).
 -    pub fn builder() -> crate::types::builders::PreTokenGenerationVersionConfigTypeBuilder {
 -        crate::types::builders::PreTokenGenerationVersionConfigTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::PreTokenGenerationVersionConfigTypeBuilder {
-+        super::types::builders::PreTokenGenerationVersionConfigTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::PreTokenGenerationVersionConfigTypeBuilder {
++        super::super::types::builders::PreTokenGenerationVersionConfigTypeBuilder::default()
      }
  }
 
@@ -34,26 +34,26 @@
  #[non_exhaustive]
  pub struct PreTokenGenerationVersionConfigTypeBuilder {
 -    pub(crate) lambda_version: ::std::option::Option<crate::types::PreTokenGenerationLambdaVersionType>,
-+    pub(crate) lambda_version: ::std::option::Option<super::types::PreTokenGenerationLambdaVersionType>,
++    pub(crate) lambda_version: ::std::option::Option<super::super::types::PreTokenGenerationLambdaVersionType>,
      pub(crate) lambda_arn: ::std::option::Option<::std::string::String>,
  }
  impl PreTokenGenerationVersionConfigTypeBuilder {
      /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
      /// This field is required.
 -    pub fn lambda_version(mut self, input: crate::types::PreTokenGenerationLambdaVersionType) -> Self {
-+    pub fn lambda_version(mut self, input: super::types::PreTokenGenerationLambdaVersionType) -> Self {
++    pub fn lambda_version(mut self, input: super::super::types::PreTokenGenerationLambdaVersionType) -> Self {
          self.lambda_version = ::std::option::Option::Some(input);
          self
      }
      /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
 -    pub fn set_lambda_version(mut self, input: ::std::option::Option<crate::types::PreTokenGenerationLambdaVersionType>) -> Self {
-+    pub fn set_lambda_version(mut self, input: ::std::option::Option<super::types::PreTokenGenerationLambdaVersionType>) -> Self {
++    pub fn set_lambda_version(mut self, input: ::std::option::Option<super::super::types::PreTokenGenerationLambdaVersionType>) -> Self {
          self.lambda_version = input;
          self
      }
      /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
 -    pub fn get_lambda_version(&self) -> &::std::option::Option<crate::types::PreTokenGenerationLambdaVersionType> {
-+    pub fn get_lambda_version(&self) -> &::std::option::Option<super::types::PreTokenGenerationLambdaVersionType> {
++    pub fn get_lambda_version(&self) -> &::std::option::Option<super::super::types::PreTokenGenerationLambdaVersionType> {
          &self.lambda_version
      }
      /// <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
@@ -63,8 +63,8 @@
      /// - [`lambda_arn`](crate::types::builders::PreTokenGenerationVersionConfigTypeBuilder::lambda_arn)
 -    pub fn build(self) -> ::std::result::Result<crate::types::PreTokenGenerationVersionConfigType, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::PreTokenGenerationVersionConfigType {
-+    pub fn build(self) -> ::std::result::Result<super::types::PreTokenGenerationVersionConfigType, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::PreTokenGenerationVersionConfigType {
++    pub fn build(self) -> ::std::result::Result<super::super::types::PreTokenGenerationVersionConfigType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::PreTokenGenerationVersionConfigType {
              lambda_version: self.lambda_version.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "lambda_version",

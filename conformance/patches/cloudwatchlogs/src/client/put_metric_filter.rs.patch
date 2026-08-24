@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutMetricFilterError>`](crate::operation::put_metric_filter::PutMetricFilterError)
 -    pub fn put_metric_filter(&self) -> crate::operation::put_metric_filter::builders::PutMetricFilterFluentBuilder {
 -        crate::operation::put_metric_filter::builders::PutMetricFilterFluentBuilder::new(self.handle.clone())
-+    pub fn put_metric_filter(&self) -> super::operation::put_metric_filter::builders::PutMetricFilterFluentBuilder {
-+        super::operation::put_metric_filter::builders::PutMetricFilterFluentBuilder::new(self.handle.clone())
++    pub fn put_metric_filter(&self) -> super::super::operation::put_metric_filter::builders::PutMetricFilterFluentBuilder {
++        super::super::operation::put_metric_filter::builders::PutMetricFilterFluentBuilder::new(self.handle.clone())
      }
  }

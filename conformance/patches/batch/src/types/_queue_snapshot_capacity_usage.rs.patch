@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`QueueSnapshotCapacityUsage`](crate::types::QueueSnapshotCapacityUsage).
 -    pub fn builder() -> crate::types::builders::QueueSnapshotCapacityUsageBuilder {
 -        crate::types::builders::QueueSnapshotCapacityUsageBuilder::default()
-+    pub fn builder() -> super::types::builders::QueueSnapshotCapacityUsageBuilder {
-+        super::types::builders::QueueSnapshotCapacityUsageBuilder::default()
++    pub fn builder() -> super::super::types::builders::QueueSnapshotCapacityUsageBuilder {
++        super::super::types::builders::QueueSnapshotCapacityUsageBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`QueueSnapshotCapacityUsage`](crate::types::QueueSnapshotCapacityUsage).
 -    pub fn build(self) -> crate::types::QueueSnapshotCapacityUsage {
 -        crate::types::QueueSnapshotCapacityUsage {
-+    pub fn build(self) -> super::types::QueueSnapshotCapacityUsage {
-+        super::types::QueueSnapshotCapacityUsage {
++    pub fn build(self) -> super::super::types::QueueSnapshotCapacityUsage {
++        super::super::types::QueueSnapshotCapacityUsage {
              capacity_unit: self.capacity_unit,
              quantity: self.quantity,
          }

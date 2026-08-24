@@ -5,13 +5,13 @@
  pub struct DescribeTermsOutput {
      /// <p>A summary of the requested terms documents. Includes a unique identifier for later changes to the terms documents.</p>
 -    pub terms: ::std::option::Option<crate::types::TermsType>,
-+    pub terms: ::std::option::Option<super::types::TermsType>,
++    pub terms: ::std::option::Option<super::super::super::types::TermsType>,
      _request_id: Option<String>,
  }
  impl DescribeTermsOutput {
      /// <p>A summary of the requested terms documents. Includes a unique identifier for later changes to the terms documents.</p>
 -    pub fn terms(&self) -> ::std::option::Option<&crate::types::TermsType> {
-+    pub fn terms(&self) -> ::std::option::Option<&super::types::TermsType> {
++    pub fn terms(&self) -> ::std::option::Option<&super::super::super::types::TermsType> {
          self.terms.as_ref()
      }
  }
@@ -21,8 +21,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeTermsOutput`](crate::operation::describe_terms::DescribeTermsOutput).
 -    pub fn builder() -> crate::operation::describe_terms::builders::DescribeTermsOutputBuilder {
 -        crate::operation::describe_terms::builders::DescribeTermsOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_terms::builders::DescribeTermsOutputBuilder {
-+        super::operation::describe_terms::builders::DescribeTermsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_terms::builders::DescribeTermsOutputBuilder {
++        super::super::super::operation::describe_terms::builders::DescribeTermsOutputBuilder::default()
      }
  }
 
@@ -31,25 +31,25 @@
  #[non_exhaustive]
  pub struct DescribeTermsOutputBuilder {
 -    pub(crate) terms: ::std::option::Option<crate::types::TermsType>,
-+    pub(crate) terms: ::std::option::Option<super::types::TermsType>,
++    pub(crate) terms: ::std::option::Option<super::super::super::types::TermsType>,
      _request_id: Option<String>,
  }
  impl DescribeTermsOutputBuilder {
      /// <p>A summary of the requested terms documents. Includes a unique identifier for later changes to the terms documents.</p>
 -    pub fn terms(mut self, input: crate::types::TermsType) -> Self {
-+    pub fn terms(mut self, input: super::types::TermsType) -> Self {
++    pub fn terms(mut self, input: super::super::super::types::TermsType) -> Self {
          self.terms = ::std::option::Option::Some(input);
          self
      }
      /// <p>A summary of the requested terms documents. Includes a unique identifier for later changes to the terms documents.</p>
 -    pub fn set_terms(mut self, input: ::std::option::Option<crate::types::TermsType>) -> Self {
-+    pub fn set_terms(mut self, input: ::std::option::Option<super::types::TermsType>) -> Self {
++    pub fn set_terms(mut self, input: ::std::option::Option<super::super::super::types::TermsType>) -> Self {
          self.terms = input;
          self
      }
      /// <p>A summary of the requested terms documents. Includes a unique identifier for later changes to the terms documents.</p>
 -    pub fn get_terms(&self) -> &::std::option::Option<crate::types::TermsType> {
-+    pub fn get_terms(&self) -> &::std::option::Option<super::types::TermsType> {
++    pub fn get_terms(&self) -> &::std::option::Option<super::super::super::types::TermsType> {
          &self.terms
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -59,8 +59,8 @@
      /// Consumes the builder and constructs a [`DescribeTermsOutput`](crate::operation::describe_terms::DescribeTermsOutput).
 -    pub fn build(self) -> crate::operation::describe_terms::DescribeTermsOutput {
 -        crate::operation::describe_terms::DescribeTermsOutput {
-+    pub fn build(self) -> super::operation::describe_terms::DescribeTermsOutput {
-+        super::operation::describe_terms::DescribeTermsOutput {
++    pub fn build(self) -> super::super::super::operation::describe_terms::DescribeTermsOutput {
++        super::super::super::operation::describe_terms::DescribeTermsOutput {
              terms: self.terms,
              _request_id: self._request_id,
          }

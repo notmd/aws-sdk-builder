@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetFederationTokenError>`](crate::operation::get_federation_token::GetFederationTokenError)
 -    pub fn get_federation_token(&self) -> crate::operation::get_federation_token::builders::GetFederationTokenFluentBuilder {
 -        crate::operation::get_federation_token::builders::GetFederationTokenFluentBuilder::new(self.handle.clone())
-+    pub fn get_federation_token(&self) -> super::operation::get_federation_token::builders::GetFederationTokenFluentBuilder {
-+        super::operation::get_federation_token::builders::GetFederationTokenFluentBuilder::new(self.handle.clone())
++    pub fn get_federation_token(&self) -> super::super::operation::get_federation_token::builders::GetFederationTokenFluentBuilder {
++        super::super::operation::get_federation_token::builders::GetFederationTokenFluentBuilder::new(self.handle.clone())
      }
  }

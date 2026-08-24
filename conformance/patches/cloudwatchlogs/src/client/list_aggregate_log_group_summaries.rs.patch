@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesFluentBuilder {
 -        crate::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesFluentBuilder {
-+        super::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesFluentBuilder {
++        super::super::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesFluentBuilder::new(self.handle.clone())
      }
  }

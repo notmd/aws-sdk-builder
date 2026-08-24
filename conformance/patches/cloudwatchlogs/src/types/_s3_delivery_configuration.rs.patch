@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`S3DeliveryConfiguration`](crate::types::S3DeliveryConfiguration).
 -    pub fn builder() -> crate::types::builders::S3DeliveryConfigurationBuilder {
 -        crate::types::builders::S3DeliveryConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::S3DeliveryConfigurationBuilder {
-+        super::types::builders::S3DeliveryConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::S3DeliveryConfigurationBuilder {
++        super::super::types::builders::S3DeliveryConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`S3DeliveryConfiguration`](crate::types::S3DeliveryConfiguration).
 -    pub fn build(self) -> crate::types::S3DeliveryConfiguration {
 -        crate::types::S3DeliveryConfiguration {
-+    pub fn build(self) -> super::types::S3DeliveryConfiguration {
-+        super::types::S3DeliveryConfiguration {
++    pub fn build(self) -> super::super::types::S3DeliveryConfiguration {
++        super::super::types::S3DeliveryConfiguration {
              suffix_path: self.suffix_path,
              enable_hive_compatible_path: self.enable_hive_compatible_path,
          }

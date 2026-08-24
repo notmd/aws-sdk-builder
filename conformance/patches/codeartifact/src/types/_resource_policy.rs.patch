@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ResourcePolicy`](crate::types::ResourcePolicy).
 -    pub fn builder() -> crate::types::builders::ResourcePolicyBuilder {
 -        crate::types::builders::ResourcePolicyBuilder::default()
-+    pub fn builder() -> super::types::builders::ResourcePolicyBuilder {
-+        super::types::builders::ResourcePolicyBuilder::default()
++    pub fn builder() -> super::super::types::builders::ResourcePolicyBuilder {
++        super::super::types::builders::ResourcePolicyBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ResourcePolicy`](crate::types::ResourcePolicy).
 -    pub fn build(self) -> crate::types::ResourcePolicy {
 -        crate::types::ResourcePolicy {
-+    pub fn build(self) -> super::types::ResourcePolicy {
-+        super::types::ResourcePolicy {
++    pub fn build(self) -> super::super::types::ResourcePolicy {
++        super::super::types::ResourcePolicy {
              resource_arn: self.resource_arn,
              revision: self.revision,
              document: self.document,

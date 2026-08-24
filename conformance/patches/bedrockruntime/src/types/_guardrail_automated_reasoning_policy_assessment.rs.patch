@@ -5,14 +5,14 @@
  pub struct GuardrailAutomatedReasoningPolicyAssessment {
      /// <p>List of logical validation results produced by evaluating the input content against automated reasoning policies.</p>
 -    pub findings: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>>,
-+    pub findings: ::std::option::Option<::std::vec::Vec<super::types::GuardrailAutomatedReasoningFinding>>,
++    pub findings: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningFinding>>,
  }
  impl GuardrailAutomatedReasoningPolicyAssessment {
      /// <p>List of logical validation results produced by evaluating the input content against automated reasoning policies.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.findings.is_none()`.
 -    pub fn findings(&self) -> &[crate::types::GuardrailAutomatedReasoningFinding] {
-+    pub fn findings(&self) -> &[super::types::GuardrailAutomatedReasoningFinding] {
++    pub fn findings(&self) -> &[super::super::types::GuardrailAutomatedReasoningFinding] {
          self.findings.as_deref().unwrap_or_default()
      }
  }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningPolicyAssessment`](crate::types::GuardrailAutomatedReasoningPolicyAssessment).
 -    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningPolicyAssessmentBuilder {
 -        crate::types::builders::GuardrailAutomatedReasoningPolicyAssessmentBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailAutomatedReasoningPolicyAssessmentBuilder {
-+        super::types::builders::GuardrailAutomatedReasoningPolicyAssessmentBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailAutomatedReasoningPolicyAssessmentBuilder {
++        super::super::types::builders::GuardrailAutomatedReasoningPolicyAssessmentBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct GuardrailAutomatedReasoningPolicyAssessmentBuilder {
 -    pub(crate) findings: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>>,
-+    pub(crate) findings: ::std::option::Option<::std::vec::Vec<super::types::GuardrailAutomatedReasoningFinding>>,
++    pub(crate) findings: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningFinding>>,
  }
  impl GuardrailAutomatedReasoningPolicyAssessmentBuilder {
      /// Appends an item to `findings`.
@@ -39,7 +39,7 @@
      ///
      /// <p>List of logical validation results produced by evaluating the input content against automated reasoning policies.</p>
 -    pub fn findings(mut self, input: crate::types::GuardrailAutomatedReasoningFinding) -> Self {
-+    pub fn findings(mut self, input: super::types::GuardrailAutomatedReasoningFinding) -> Self {
++    pub fn findings(mut self, input: super::super::types::GuardrailAutomatedReasoningFinding) -> Self {
          let mut v = self.findings.unwrap_or_default();
          v.push(input);
          self.findings = ::std::option::Option::Some(v);
@@ -48,19 +48,19 @@
      }
      /// <p>List of logical validation results produced by evaluating the input content against automated reasoning policies.</p>
 -    pub fn set_findings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>>) -> Self {
-+    pub fn set_findings(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailAutomatedReasoningFinding>>) -> Self {
++    pub fn set_findings(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningFinding>>) -> Self {
          self.findings = input;
          self
      }
      /// <p>List of logical validation results produced by evaluating the input content against automated reasoning policies.</p>
 -    pub fn get_findings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>> {
-+    pub fn get_findings(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailAutomatedReasoningFinding>> {
++    pub fn get_findings(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningFinding>> {
          &self.findings
      }
      /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningPolicyAssessment`](crate::types::GuardrailAutomatedReasoningPolicyAssessment).
 -    pub fn build(self) -> crate::types::GuardrailAutomatedReasoningPolicyAssessment {
 -        crate::types::GuardrailAutomatedReasoningPolicyAssessment { findings: self.findings }
-+    pub fn build(self) -> super::types::GuardrailAutomatedReasoningPolicyAssessment {
-+        super::types::GuardrailAutomatedReasoningPolicyAssessment { findings: self.findings }
++    pub fn build(self) -> super::super::types::GuardrailAutomatedReasoningPolicyAssessment {
++        super::super::types::GuardrailAutomatedReasoningPolicyAssessment { findings: self.findings }
      }
  }

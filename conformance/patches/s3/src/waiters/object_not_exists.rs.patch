@@ -6,13 +6,13 @@
  pub struct ObjectNotExistsFluentBuilder {
 -    handle: ::std::sync::Arc<crate::client::Handle>,
 -    inner: crate::operation::head_object::builders::HeadObjectInputBuilder,
-+    handle: ::std::sync::Arc<super::client::Handle>,
-+    inner: super::operation::head_object::builders::HeadObjectInputBuilder,
++    handle: ::std::sync::Arc<super::super::client::Handle>,
++    inner: super::super::operation::head_object::builders::HeadObjectInputBuilder,
  }
  impl ObjectNotExistsFluentBuilder {
      /// Creates a new `ObjectNotExistsFluentBuilder`.
 -    pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
-+    pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
++    pub(crate) fn new(handle: ::std::sync::Arc<super::super::client::Handle>) -> Self {
          Self {
              handle,
              inner: ::std::default::Default::default(),
@@ -21,7 +21,7 @@
      }
      /// Access the HeadObject as a reference.
 -    pub fn as_input(&self) -> &crate::operation::head_object::builders::HeadObjectInputBuilder {
-+    pub fn as_input(&self) -> &super::operation::head_object::builders::HeadObjectInputBuilder {
++    pub fn as_input(&self) -> &super::super::operation::head_object::builders::HeadObjectInputBuilder {
          &self.inner
      }
      /// Wait for `object_not_exists`
@@ -31,21 +31,21 @@
      ) -> ::std::result::Result<
 -        crate::waiters::object_not_exists::ObjectNotExistsFinalPoll,
 -        crate::waiters::object_not_exists::WaitUntilObjectNotExistsError,
-+        super::waiters::object_not_exists::ObjectNotExistsFinalPoll,
-+        super::waiters::object_not_exists::WaitUntilObjectNotExistsError,
++        super::super::waiters::object_not_exists::ObjectNotExistsFinalPoll,
++        super::super::waiters::object_not_exists::WaitUntilObjectNotExistsError,
      > {
          let input = self
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
 -        let runtime_plugins = crate::operation::head_object::HeadObject::operation_runtime_plugins(
-+        let runtime_plugins = super::operation::head_object::HeadObject::operation_runtime_plugins(
++        let runtime_plugins = super::super::operation::head_object::HeadObject::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              ::std::option::Option::None,
          )
 -        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
-+        .with_operation_plugin(super::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
++        .with_operation_plugin(super::super::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
          let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
          let runtime_components_builder = runtime_plugins
              .apply_client_configuration(&mut cfg)
@@ -55,12 +55,12 @@
          let acceptor = move |result: ::std::result::Result<
 -            &crate::operation::head_object::HeadObjectOutput,
 -            &crate::operation::head_object::HeadObjectError,
-+            &super::operation::head_object::HeadObjectOutput,
-+            &super::operation::head_object::HeadObjectError,
++            &super::super::operation::head_object::HeadObjectOutput,
++            &super::super::operation::head_object::HeadObjectError,
          >| {
              // Matches: {"errorType":"NotFound"}
 -            if crate::waiters::matchers::match_head_object_01223db2f9ae15f05(result) {
-+            if super::waiters::matchers::match_head_object_01223db2f9ae15f05(result) {
++            if super::super::waiters::matchers::match_head_object_01223db2f9ae15f05(result) {
                  return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
              }
              ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
@@ -69,7 +69,7 @@
              let input = input.clone();
              let runtime_plugins = runtime_plugins.clone();
 -            async move { crate::operation::head_object::HeadObject::orchestrate(&runtime_plugins, input).await }
-+            async move { super::operation::head_object::HeadObject::orchestrate(&runtime_plugins, input).await }
++            async move { super::super::operation::head_object::HeadObject::orchestrate(&runtime_plugins, input).await }
          };
          let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
              .min_delay(::std::time::Duration::from_secs(5))
@@ -78,7 +78,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
-+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::super::types::RequestPayer) -> Self {
          self.inner = self.inner.request_payer(input);
          self
      }
@@ -87,7 +87,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
-+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::super::types::RequestPayer>) -> Self {
          self.inner = self.inner.set_request_payer(input);
          self
      }
@@ -96,7 +96,7 @@
      /// <p>This functionality is not supported for directory buckets.</p>
      /// </note>
 -    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
-+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::super::types::RequestPayer> {
          self.inner.get_request_payer()
      }
      /// <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</p>
@@ -105,7 +105,7 @@
      /// <p><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> and encrypted with an Key Management Service (KMS) key, you must have permission to use the <code>kms:Decrypt</code> action to retrieve the checksum.</p>
      /// <p><b>Directory buckets</b> - If you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
 -    pub fn checksum_mode(mut self, input: crate::types::ChecksumMode) -> Self {
-+    pub fn checksum_mode(mut self, input: super::types::ChecksumMode) -> Self {
++    pub fn checksum_mode(mut self, input: super::super::types::ChecksumMode) -> Self {
          self.inner = self.inner.checksum_mode(input);
          self
      }
@@ -114,7 +114,7 @@
      /// <p><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> and encrypted with an Key Management Service (KMS) key, you must have permission to use the <code>kms:Decrypt</code> action to retrieve the checksum.</p>
      /// <p><b>Directory buckets</b> - If you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
 -    pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
-+    pub fn set_checksum_mode(mut self, input: ::std::option::Option<super::types::ChecksumMode>) -> Self {
++    pub fn set_checksum_mode(mut self, input: ::std::option::Option<super::super::types::ChecksumMode>) -> Self {
          self.inner = self.inner.set_checksum_mode(input);
          self
      }
@@ -123,7 +123,7 @@
      /// <p><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> and encrypted with an Key Management Service (KMS) key, you must have permission to use the <code>kms:Decrypt</code> action to retrieve the checksum.</p>
      /// <p><b>Directory buckets</b> - If you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
 -    pub fn get_checksum_mode(&self) -> &::std::option::Option<crate::types::ChecksumMode> {
-+    pub fn get_checksum_mode(&self) -> &::std::option::Option<super::types::ChecksumMode> {
++    pub fn get_checksum_mode(&self) -> &::std::option::Option<super::super::types::ChecksumMode> {
          self.inner.get_checksum_mode()
      }
  }
@@ -132,10 +132,10 @@
  /// Successful return type for the `object_not_exists` waiter.
  pub type ObjectNotExistsFinalPoll = ::aws_smithy_runtime_api::client::waiters::FinalPoll<
 -    crate::operation::head_object::HeadObjectOutput,
-+    super::operation::head_object::HeadObjectOutput,
++    super::super::operation::head_object::HeadObjectOutput,
      ::aws_smithy_runtime_api::client::result::SdkError<
 -        crate::operation::head_object::HeadObjectError,
-+        super::operation::head_object::HeadObjectError,
++        super::super::operation::head_object::HeadObjectError,
          ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
      >,
  >;
@@ -145,6 +145,6 @@
  pub type WaitUntilObjectNotExistsError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
 -    crate::operation::head_object::HeadObjectOutput,
 -    crate::operation::head_object::HeadObjectError,
-+    super::operation::head_object::HeadObjectOutput,
-+    super::operation::head_object::HeadObjectError,
++    super::super::operation::head_object::HeadObjectOutput,
++    super::super::operation::head_object::HeadObjectError,
  >;

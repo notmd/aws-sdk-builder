@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetAliasInput`](crate::operation::get_alias::GetAliasInput).
 -    pub fn builder() -> crate::operation::get_alias::builders::GetAliasInputBuilder {
 -        crate::operation::get_alias::builders::GetAliasInputBuilder::default()
-+    pub fn builder() -> super::operation::get_alias::builders::GetAliasInputBuilder {
-+        super::operation::get_alias::builders::GetAliasInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_alias::builders::GetAliasInputBuilder {
++        super::super::super::operation::get_alias::builders::GetAliasInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetAliasInput`](crate::operation::get_alias::GetAliasInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::get_alias::GetAliasInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_alias::GetAliasInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::get_alias::GetAliasInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_alias::GetAliasInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_alias::GetAliasInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_alias::GetAliasInput {
              function_name: self.function_name,
              name: self.name,
          })

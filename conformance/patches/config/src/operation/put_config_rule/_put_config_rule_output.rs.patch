@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutConfigRuleOutput`](crate::operation::put_config_rule::PutConfigRuleOutput).
 -    pub fn builder() -> crate::operation::put_config_rule::builders::PutConfigRuleOutputBuilder {
 -        crate::operation::put_config_rule::builders::PutConfigRuleOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_config_rule::builders::PutConfigRuleOutputBuilder {
-+        super::operation::put_config_rule::builders::PutConfigRuleOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_config_rule::builders::PutConfigRuleOutputBuilder {
++        super::super::super::operation::put_config_rule::builders::PutConfigRuleOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutConfigRuleOutput`](crate::operation::put_config_rule::PutConfigRuleOutput).
 -    pub fn build(self) -> crate::operation::put_config_rule::PutConfigRuleOutput {
 -        crate::operation::put_config_rule::PutConfigRuleOutput {
-+    pub fn build(self) -> super::operation::put_config_rule::PutConfigRuleOutput {
-+        super::operation::put_config_rule::PutConfigRuleOutput {
++    pub fn build(self) -> super::super::super::operation::put_config_rule::PutConfigRuleOutput {
++        super::super::super::operation::put_config_rule::PutConfigRuleOutput {
              _request_id: self._request_id,
          }
      }

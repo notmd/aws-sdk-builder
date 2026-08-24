@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AssociateSourceToS3TableIntegrationOutput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput).
 -    pub fn builder() -> crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder {
 -        crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder::default()
-+    pub fn builder() -> super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder {
-+        super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder {
++        super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AssociateSourceToS3TableIntegrationOutput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput).
 -    pub fn build(self) -> crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput {
 -        crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput {
-+    pub fn build(self) -> super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput {
-+        super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput {
++    pub fn build(self) -> super::super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput {
++        super::super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput {
              identifier: self.identifier,
              _request_id: self._request_id,
          }

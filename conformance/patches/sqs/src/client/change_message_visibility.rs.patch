@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ChangeMessageVisibilityError>`](crate::operation::change_message_visibility::ChangeMessageVisibilityError)
 -    pub fn change_message_visibility(&self) -> crate::operation::change_message_visibility::builders::ChangeMessageVisibilityFluentBuilder {
 -        crate::operation::change_message_visibility::builders::ChangeMessageVisibilityFluentBuilder::new(self.handle.clone())
-+    pub fn change_message_visibility(&self) -> super::operation::change_message_visibility::builders::ChangeMessageVisibilityFluentBuilder {
-+        super::operation::change_message_visibility::builders::ChangeMessageVisibilityFluentBuilder::new(self.handle.clone())
++    pub fn change_message_visibility(&self) -> super::super::operation::change_message_visibility::builders::ChangeMessageVisibilityFluentBuilder {
++        super::super::operation::change_message_visibility::builders::ChangeMessageVisibilityFluentBuilder::new(self.handle.clone())
      }
  }

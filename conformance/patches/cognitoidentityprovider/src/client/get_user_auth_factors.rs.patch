@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetUserAuthFactorsError>`](crate::operation::get_user_auth_factors::GetUserAuthFactorsError)
 -    pub fn get_user_auth_factors(&self) -> crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsFluentBuilder {
 -        crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsFluentBuilder::new(self.handle.clone())
-+    pub fn get_user_auth_factors(&self) -> super::operation::get_user_auth_factors::builders::GetUserAuthFactorsFluentBuilder {
-+        super::operation::get_user_auth_factors::builders::GetUserAuthFactorsFluentBuilder::new(self.handle.clone())
++    pub fn get_user_auth_factors(&self) -> super::super::operation::get_user_auth_factors::builders::GetUserAuthFactorsFluentBuilder {
++        super::super::operation::get_user_auth_factors::builders::GetUserAuthFactorsFluentBuilder::new(self.handle.clone())
      }
  }

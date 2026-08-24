@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AdminListDevicesError>`](crate::operation::admin_list_devices::AdminListDevicesError)
 -    pub fn admin_list_devices(&self) -> crate::operation::admin_list_devices::builders::AdminListDevicesFluentBuilder {
 -        crate::operation::admin_list_devices::builders::AdminListDevicesFluentBuilder::new(self.handle.clone())
-+    pub fn admin_list_devices(&self) -> super::operation::admin_list_devices::builders::AdminListDevicesFluentBuilder {
-+        super::operation::admin_list_devices::builders::AdminListDevicesFluentBuilder::new(self.handle.clone())
++    pub fn admin_list_devices(&self) -> super::super::operation::admin_list_devices::builders::AdminListDevicesFluentBuilder {
++        super::super::operation::admin_list_devices::builders::AdminListDevicesFluentBuilder::new(self.handle.clone())
      }
  }

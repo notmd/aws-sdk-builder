@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::MailFromAttributes>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::MailFromAttributes>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::MailFromAttributes>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::MailFromAttributesBuilder::default();
-+            let mut builder = super::types::builders::MailFromAttributesBuilder::default();
++            let mut builder = super::super::types::builders::MailFromAttributesBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                              builder = builder.set_mail_from_domain_status(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::MailFromDomainStatus::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::MailFromDomainStatus::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::MailFromDomainStatus::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -32,7 +32,7 @@
                              builder = builder.set_behavior_on_mx_failure(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::BehaviorOnMxFailure::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::BehaviorOnMxFailure::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::BehaviorOnMxFailure::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
@@ -41,7 +41,7 @@
                  }
              }
 -            Ok(Some(crate::serde_util::mail_from_attributes_correct_errors(builder).build().map_err(
-+            Ok(Some(super::serde_util::mail_from_attributes_correct_errors(builder).build().map_err(
++            Ok(Some(super::super::serde_util::mail_from_attributes_correct_errors(builder).build().map_err(
                  |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
              )?))
          }

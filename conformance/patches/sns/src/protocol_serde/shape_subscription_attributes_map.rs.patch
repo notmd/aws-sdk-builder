@@ -5,7 +5,7 @@
          match tag.start_el() {
              s if s.matches("entry") => {
 -                crate::protocol_serde::shape_subscription_attributes_map::de_subscription_attributes_map_entry(&mut tag, &mut out, depth)?;
-+                super::protocol_serde::shape_subscription_attributes_map::de_subscription_attributes_map_entry(&mut tag, &mut out, depth)?;
++                super::super::protocol_serde::shape_subscription_attributes_map::de_subscription_attributes_map_entry(&mut tag, &mut out, depth)?;
              }
              _ => {}
          }

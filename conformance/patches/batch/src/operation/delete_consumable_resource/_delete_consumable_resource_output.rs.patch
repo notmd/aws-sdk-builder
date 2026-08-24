@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteConsumableResourceOutput`](crate::operation::delete_consumable_resource::DeleteConsumableResourceOutput).
 -    pub fn builder() -> crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder {
 -        crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder {
-+        super::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder {
++        super::super::super::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteConsumableResourceOutput`](crate::operation::delete_consumable_resource::DeleteConsumableResourceOutput).
 -    pub fn build(self) -> crate::operation::delete_consumable_resource::DeleteConsumableResourceOutput {
 -        crate::operation::delete_consumable_resource::DeleteConsumableResourceOutput {
-+    pub fn build(self) -> super::operation::delete_consumable_resource::DeleteConsumableResourceOutput {
-+        super::operation::delete_consumable_resource::DeleteConsumableResourceOutput {
++    pub fn build(self) -> super::super::super::operation::delete_consumable_resource::DeleteConsumableResourceOutput {
++        super::super::super::operation::delete_consumable_resource::DeleteConsumableResourceOutput {
              _request_id: self._request_id,
          }
      }

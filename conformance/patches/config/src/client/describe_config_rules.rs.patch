@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeConfigRulesError>`](crate::operation::describe_config_rules::DescribeConfigRulesError)
 -    pub fn describe_config_rules(&self) -> crate::operation::describe_config_rules::builders::DescribeConfigRulesFluentBuilder {
 -        crate::operation::describe_config_rules::builders::DescribeConfigRulesFluentBuilder::new(self.handle.clone())
-+    pub fn describe_config_rules(&self) -> super::operation::describe_config_rules::builders::DescribeConfigRulesFluentBuilder {
-+        super::operation::describe_config_rules::builders::DescribeConfigRulesFluentBuilder::new(self.handle.clone())
++    pub fn describe_config_rules(&self) -> super::super::operation::describe_config_rules::builders::DescribeConfigRulesFluentBuilder {
++        super::super::operation::describe_config_rules::builders::DescribeConfigRulesFluentBuilder::new(self.handle.clone())
      }
  }

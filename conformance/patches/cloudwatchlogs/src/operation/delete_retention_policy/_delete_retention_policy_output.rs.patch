@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteRetentionPolicyOutput`](crate::operation::delete_retention_policy::DeleteRetentionPolicyOutput).
 -    pub fn builder() -> crate::operation::delete_retention_policy::builders::DeleteRetentionPolicyOutputBuilder {
 -        crate::operation::delete_retention_policy::builders::DeleteRetentionPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_retention_policy::builders::DeleteRetentionPolicyOutputBuilder {
-+        super::operation::delete_retention_policy::builders::DeleteRetentionPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_retention_policy::builders::DeleteRetentionPolicyOutputBuilder {
++        super::super::super::operation::delete_retention_policy::builders::DeleteRetentionPolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteRetentionPolicyOutput`](crate::operation::delete_retention_policy::DeleteRetentionPolicyOutput).
 -    pub fn build(self) -> crate::operation::delete_retention_policy::DeleteRetentionPolicyOutput {
 -        crate::operation::delete_retention_policy::DeleteRetentionPolicyOutput {
-+    pub fn build(self) -> super::operation::delete_retention_policy::DeleteRetentionPolicyOutput {
-+        super::operation::delete_retention_policy::DeleteRetentionPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::delete_retention_policy::DeleteRetentionPolicyOutput {
++        super::super::super::operation::delete_retention_policy::DeleteRetentionPolicyOutput {
              _request_id: self._request_id,
          }
      }

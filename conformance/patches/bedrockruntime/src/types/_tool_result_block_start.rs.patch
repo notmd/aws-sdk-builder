@@ -5,7 +5,7 @@
      pub r#type: ::std::option::Option<::std::string::String>,
      /// <p>The status of the tool result block.</p>
 -    pub status: ::std::option::Option<crate::types::ToolResultStatus>,
-+    pub status: ::std::option::Option<super::types::ToolResultStatus>,
++    pub status: ::std::option::Option<super::super::types::ToolResultStatus>,
  }
  impl ToolResultBlockStart {
      /// <p>The ID of the tool that was used to generate this tool result block.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The status of the tool result block.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::ToolResultStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::ToolResultStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::ToolResultStatus> {
          self.status.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ToolResultBlockStart`](crate::types::ToolResultBlockStart).
 -    pub fn builder() -> crate::types::builders::ToolResultBlockStartBuilder {
 -        crate::types::builders::ToolResultBlockStartBuilder::default()
-+    pub fn builder() -> super::types::builders::ToolResultBlockStartBuilder {
-+        super::types::builders::ToolResultBlockStartBuilder::default()
++    pub fn builder() -> super::super::types::builders::ToolResultBlockStartBuilder {
++        super::super::types::builders::ToolResultBlockStartBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) tool_use_id: ::std::option::Option<::std::string::String>,
      pub(crate) r#type: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::ToolResultStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::ToolResultStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::ToolResultStatus>,
  }
  impl ToolResultBlockStartBuilder {
      /// <p>The ID of the tool that was used to generate this tool result block.</p>
@@ -41,19 +41,19 @@
      }
      /// <p>The status of the tool result block.</p>
 -    pub fn status(mut self, input: crate::types::ToolResultStatus) -> Self {
-+    pub fn status(mut self, input: super::types::ToolResultStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::ToolResultStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status of the tool result block.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ToolResultStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::ToolResultStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::ToolResultStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>The status of the tool result block.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::ToolResultStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::ToolResultStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::ToolResultStatus> {
          &self.status
      }
      /// Consumes the builder and constructs a [`ToolResultBlockStart`](crate::types::ToolResultBlockStart).
@@ -61,8 +61,8 @@
      /// - [`tool_use_id`](crate::types::builders::ToolResultBlockStartBuilder::tool_use_id)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ToolResultBlockStart, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ToolResultBlockStart {
-+    pub fn build(self) -> ::std::result::Result<super::types::ToolResultBlockStart, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ToolResultBlockStart {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ToolResultBlockStart, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ToolResultBlockStart {
              tool_use_id: self.tool_use_id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "tool_use_id",

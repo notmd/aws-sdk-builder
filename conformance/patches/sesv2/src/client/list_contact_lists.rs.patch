@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListContactListsError>`](crate::operation::list_contact_lists::ListContactListsError)
 -    pub fn list_contact_lists(&self) -> crate::operation::list_contact_lists::builders::ListContactListsFluentBuilder {
 -        crate::operation::list_contact_lists::builders::ListContactListsFluentBuilder::new(self.handle.clone())
-+    pub fn list_contact_lists(&self) -> super::operation::list_contact_lists::builders::ListContactListsFluentBuilder {
-+        super::operation::list_contact_lists::builders::ListContactListsFluentBuilder::new(self.handle.clone())
++    pub fn list_contact_lists(&self) -> super::super::operation::list_contact_lists::builders::ListContactListsFluentBuilder {
++        super::super::operation::list_contact_lists::builders::ListContactListsFluentBuilder::new(self.handle.clone())
      }
  }

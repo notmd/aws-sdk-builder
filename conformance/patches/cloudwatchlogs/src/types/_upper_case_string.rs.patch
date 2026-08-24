@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpperCaseString`](crate::types::UpperCaseString).
 -    pub fn builder() -> crate::types::builders::UpperCaseStringBuilder {
 -        crate::types::builders::UpperCaseStringBuilder::default()
-+    pub fn builder() -> super::types::builders::UpperCaseStringBuilder {
-+        super::types::builders::UpperCaseStringBuilder::default()
++    pub fn builder() -> super::super::types::builders::UpperCaseStringBuilder {
++        super::super::types::builders::UpperCaseStringBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`with_keys`](crate::types::builders::UpperCaseStringBuilder::with_keys)
 -    pub fn build(self) -> ::std::result::Result<crate::types::UpperCaseString, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::UpperCaseString {
-+    pub fn build(self) -> ::std::result::Result<super::types::UpperCaseString, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::UpperCaseString {
++    pub fn build(self) -> ::std::result::Result<super::super::types::UpperCaseString, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::UpperCaseString {
              with_keys: self.with_keys.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "with_keys",

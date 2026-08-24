@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RuntimePlatform`](crate::types::RuntimePlatform).
 -    pub fn builder() -> crate::types::builders::RuntimePlatformBuilder {
 -        crate::types::builders::RuntimePlatformBuilder::default()
-+    pub fn builder() -> super::types::builders::RuntimePlatformBuilder {
-+        super::types::builders::RuntimePlatformBuilder::default()
++    pub fn builder() -> super::super::types::builders::RuntimePlatformBuilder {
++        super::super::types::builders::RuntimePlatformBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`RuntimePlatform`](crate::types::RuntimePlatform).
 -    pub fn build(self) -> crate::types::RuntimePlatform {
 -        crate::types::RuntimePlatform {
-+    pub fn build(self) -> super::types::RuntimePlatform {
-+        super::types::RuntimePlatform {
++    pub fn build(self) -> super::super::types::RuntimePlatform {
++        super::super::types::RuntimePlatform {
              operating_system_family: self.operating_system_family,
              cpu_architecture: self.cpu_architecture,
          }

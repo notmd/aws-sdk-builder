@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesFluentBuilder {
 -        crate::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesFluentBuilder::new(
-+    ) -> super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesFluentBuilder {
-+        super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesFluentBuilder::new(
++    ) -> super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesFluentBuilder {
++        super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesFluentBuilder::new(
              self.handle.clone(),
          )
      }

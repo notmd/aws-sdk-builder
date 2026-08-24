@@ -5,7 +5,7 @@
  pub struct ListSchedulingPoliciesOutput {
      /// <p>A list of scheduling policies that match the request.</p>
 -    pub scheduling_policies: ::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyListingDetail>>,
-+    pub scheduling_policies: ::std::option::Option<::std::vec::Vec<super::types::SchedulingPolicyListingDetail>>,
++    pub scheduling_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyListingDetail>>,
      /// <p>The <code>nextToken</code> value to include in a future <code>ListSchedulingPolicies</code> request. When the results of a <code>ListSchedulingPolicies</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.scheduling_policies.is_none()`.
 -    pub fn scheduling_policies(&self) -> &[crate::types::SchedulingPolicyListingDetail] {
-+    pub fn scheduling_policies(&self) -> &[super::types::SchedulingPolicyListingDetail] {
++    pub fn scheduling_policies(&self) -> &[super::super::super::types::SchedulingPolicyListingDetail] {
          self.scheduling_policies.as_deref().unwrap_or_default()
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>ListSchedulingPolicies</code> request. When the results of a <code>ListSchedulingPolicies</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListSchedulingPoliciesOutput`](crate::operation::list_scheduling_policies::ListSchedulingPoliciesOutput).
 -    pub fn builder() -> crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesOutputBuilder {
 -        crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_scheduling_policies::builders::ListSchedulingPoliciesOutputBuilder {
-+        super::operation::list_scheduling_policies::builders::ListSchedulingPoliciesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_scheduling_policies::builders::ListSchedulingPoliciesOutputBuilder {
++        super::super::super::operation::list_scheduling_policies::builders::ListSchedulingPoliciesOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListSchedulingPoliciesOutputBuilder {
 -    pub(crate) scheduling_policies: ::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyListingDetail>>,
-+    pub(crate) scheduling_policies: ::std::option::Option<::std::vec::Vec<super::types::SchedulingPolicyListingDetail>>,
++    pub(crate) scheduling_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyListingDetail>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of scheduling policies that match the request.</p>
 -    pub fn scheduling_policies(mut self, input: crate::types::SchedulingPolicyListingDetail) -> Self {
-+    pub fn scheduling_policies(mut self, input: super::types::SchedulingPolicyListingDetail) -> Self {
++    pub fn scheduling_policies(mut self, input: super::super::super::types::SchedulingPolicyListingDetail) -> Self {
          let mut v = self.scheduling_policies.unwrap_or_default();
          v.push(input);
          self.scheduling_policies = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of scheduling policies that match the request.</p>
 -    pub fn set_scheduling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyListingDetail>>) -> Self {
-+    pub fn set_scheduling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SchedulingPolicyListingDetail>>) -> Self {
++    pub fn set_scheduling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyListingDetail>>) -> Self {
          self.scheduling_policies = input;
          self
      }
      /// <p>A list of scheduling policies that match the request.</p>
 -    pub fn get_scheduling_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyListingDetail>> {
-+    pub fn get_scheduling_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SchedulingPolicyListingDetail>> {
++    pub fn get_scheduling_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyListingDetail>> {
          &self.scheduling_policies
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>ListSchedulingPolicies</code> request. When the results of a <code>ListSchedulingPolicies</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListSchedulingPoliciesOutput`](crate::operation::list_scheduling_policies::ListSchedulingPoliciesOutput).
 -    pub fn build(self) -> crate::operation::list_scheduling_policies::ListSchedulingPoliciesOutput {
 -        crate::operation::list_scheduling_policies::ListSchedulingPoliciesOutput {
-+    pub fn build(self) -> super::operation::list_scheduling_policies::ListSchedulingPoliciesOutput {
-+        super::operation::list_scheduling_policies::ListSchedulingPoliciesOutput {
++    pub fn build(self) -> super::super::super::operation::list_scheduling_policies::ListSchedulingPoliciesOutput {
++        super::super::super::operation::list_scheduling_policies::ListSchedulingPoliciesOutput {
              scheduling_policies: self.scheduling_policies,
              next_token: self.next_token,
              _request_id: self._request_id,

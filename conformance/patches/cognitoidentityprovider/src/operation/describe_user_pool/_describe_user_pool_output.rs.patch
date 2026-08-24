@@ -5,13 +5,13 @@
  pub struct DescribeUserPoolOutput {
      /// <p>The details of the requested user pool.</p>
 -    pub user_pool: ::std::option::Option<crate::types::UserPoolType>,
-+    pub user_pool: ::std::option::Option<super::types::UserPoolType>,
++    pub user_pool: ::std::option::Option<super::super::super::types::UserPoolType>,
      _request_id: Option<String>,
  }
  impl DescribeUserPoolOutput {
      /// <p>The details of the requested user pool.</p>
 -    pub fn user_pool(&self) -> ::std::option::Option<&crate::types::UserPoolType> {
-+    pub fn user_pool(&self) -> ::std::option::Option<&super::types::UserPoolType> {
++    pub fn user_pool(&self) -> ::std::option::Option<&super::super::super::types::UserPoolType> {
          self.user_pool.as_ref()
      }
  }
@@ -21,8 +21,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeUserPoolOutput`](crate::operation::describe_user_pool::DescribeUserPoolOutput).
 -    pub fn builder() -> crate::operation::describe_user_pool::builders::DescribeUserPoolOutputBuilder {
 -        crate::operation::describe_user_pool::builders::DescribeUserPoolOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_user_pool::builders::DescribeUserPoolOutputBuilder {
-+        super::operation::describe_user_pool::builders::DescribeUserPoolOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_user_pool::builders::DescribeUserPoolOutputBuilder {
++        super::super::super::operation::describe_user_pool::builders::DescribeUserPoolOutputBuilder::default()
      }
  }
 
@@ -31,25 +31,25 @@
  #[non_exhaustive]
  pub struct DescribeUserPoolOutputBuilder {
 -    pub(crate) user_pool: ::std::option::Option<crate::types::UserPoolType>,
-+    pub(crate) user_pool: ::std::option::Option<super::types::UserPoolType>,
++    pub(crate) user_pool: ::std::option::Option<super::super::super::types::UserPoolType>,
      _request_id: Option<String>,
  }
  impl DescribeUserPoolOutputBuilder {
      /// <p>The details of the requested user pool.</p>
 -    pub fn user_pool(mut self, input: crate::types::UserPoolType) -> Self {
-+    pub fn user_pool(mut self, input: super::types::UserPoolType) -> Self {
++    pub fn user_pool(mut self, input: super::super::super::types::UserPoolType) -> Self {
          self.user_pool = ::std::option::Option::Some(input);
          self
      }
      /// <p>The details of the requested user pool.</p>
 -    pub fn set_user_pool(mut self, input: ::std::option::Option<crate::types::UserPoolType>) -> Self {
-+    pub fn set_user_pool(mut self, input: ::std::option::Option<super::types::UserPoolType>) -> Self {
++    pub fn set_user_pool(mut self, input: ::std::option::Option<super::super::super::types::UserPoolType>) -> Self {
          self.user_pool = input;
          self
      }
      /// <p>The details of the requested user pool.</p>
 -    pub fn get_user_pool(&self) -> &::std::option::Option<crate::types::UserPoolType> {
-+    pub fn get_user_pool(&self) -> &::std::option::Option<super::types::UserPoolType> {
++    pub fn get_user_pool(&self) -> &::std::option::Option<super::super::super::types::UserPoolType> {
          &self.user_pool
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -59,8 +59,8 @@
      /// Consumes the builder and constructs a [`DescribeUserPoolOutput`](crate::operation::describe_user_pool::DescribeUserPoolOutput).
 -    pub fn build(self) -> crate::operation::describe_user_pool::DescribeUserPoolOutput {
 -        crate::operation::describe_user_pool::DescribeUserPoolOutput {
-+    pub fn build(self) -> super::operation::describe_user_pool::DescribeUserPoolOutput {
-+        super::operation::describe_user_pool::DescribeUserPoolOutput {
++    pub fn build(self) -> super::super::super::operation::describe_user_pool::DescribeUserPoolOutput {
++        super::super::super::operation::describe_user_pool::DescribeUserPoolOutput {
              user_pool: self.user_pool,
              _request_id: self._request_id,
          }

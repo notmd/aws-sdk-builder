@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetDelegationRequestError>`](crate::operation::get_delegation_request::GetDelegationRequestError)
 -    pub fn get_delegation_request(&self) -> crate::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder {
 -        crate::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder::new(self.handle.clone())
-+    pub fn get_delegation_request(&self) -> super::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder {
-+        super::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder::new(self.handle.clone())
++    pub fn get_delegation_request(&self) -> super::super::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder {
++        super::super::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder::new(self.handle.clone())
      }
  }

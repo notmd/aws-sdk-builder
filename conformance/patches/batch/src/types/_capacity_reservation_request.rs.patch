@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CapacityReservationRequest`](crate::types::CapacityReservationRequest).
 -    pub fn builder() -> crate::types::builders::CapacityReservationRequestBuilder {
 -        crate::types::builders::CapacityReservationRequestBuilder::default()
-+    pub fn builder() -> super::types::builders::CapacityReservationRequestBuilder {
-+        super::types::builders::CapacityReservationRequestBuilder::default()
++    pub fn builder() -> super::super::types::builders::CapacityReservationRequestBuilder {
++        super::super::types::builders::CapacityReservationRequestBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CapacityReservationRequest`](crate::types::CapacityReservationRequest).
 -    pub fn build(self) -> crate::types::CapacityReservationRequest {
 -        crate::types::CapacityReservationRequest {
-+    pub fn build(self) -> super::types::CapacityReservationRequest {
-+        super::types::CapacityReservationRequest {
++    pub fn build(self) -> super::super::types::CapacityReservationRequest {
++        super::super::types::CapacityReservationRequest {
              reservation_group_arn: self.reservation_group_arn,
              reservation_preference: self.reservation_preference,
          }

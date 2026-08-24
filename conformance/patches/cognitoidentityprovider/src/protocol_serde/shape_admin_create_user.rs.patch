@@ -5,34 +5,34 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::admin_create_user::AdminCreateUserOutput, crate::operation::admin_create_user::AdminCreateUserError> {
-+) -> std::result::Result<super::operation::admin_create_user::AdminCreateUserOutput, super::operation::admin_create_user::AdminCreateUserError> {
++) -> std::result::Result<super::super::operation::admin_create_user::AdminCreateUserOutput, super::super::operation::admin_create_user::AdminCreateUserError> {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::admin_create_user::AdminCreateUserError::unhandled(generic)),
-+        None => return Err(super::operation::admin_create_user::AdminCreateUserError::unhandled(generic)),
++        None => return Err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "CodeDeliveryFailureException" => crate::operation::admin_create_user::AdminCreateUserError::CodeDeliveryFailureException({
-+        "CodeDeliveryFailureException" => super::operation::admin_create_user::AdminCreateUserError::CodeDeliveryFailureException({
++        "CodeDeliveryFailureException" => super::super::operation::admin_create_user::AdminCreateUserError::CodeDeliveryFailureException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
-+                let mut output = super::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                    super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                    super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -41,16 +41,16 @@
              tmp
          }),
 -        "InternalErrorException" => crate::operation::admin_create_user::AdminCreateUserError::InternalErrorException({
-+        "InternalErrorException" => super::operation::admin_create_user::AdminCreateUserError::InternalErrorException({
++        "InternalErrorException" => super::super::operation::admin_create_user::AdminCreateUserError::InternalErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -59,19 +59,19 @@
              tmp
          }),
 -        "InvalidLambdaResponseException" => crate::operation::admin_create_user::AdminCreateUserError::InvalidLambdaResponseException({
-+        "InvalidLambdaResponseException" => super::operation::admin_create_user::AdminCreateUserError::InvalidLambdaResponseException({
++        "InvalidLambdaResponseException" => super::super::operation::admin_create_user::AdminCreateUserError::InvalidLambdaResponseException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
-+                let mut output = super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
++                let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -80,16 +80,16 @@
              tmp
          }),
 -        "InvalidParameterException" => crate::operation::admin_create_user::AdminCreateUserError::InvalidParameterException({
-+        "InvalidParameterException" => super::operation::admin_create_user::AdminCreateUserError::InvalidParameterException({
++        "InvalidParameterException" => super::super::operation::admin_create_user::AdminCreateUserError::InvalidParameterException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -98,16 +98,16 @@
              tmp
          }),
 -        "InvalidPasswordException" => crate::operation::admin_create_user::AdminCreateUserError::InvalidPasswordException({
-+        "InvalidPasswordException" => super::operation::admin_create_user::AdminCreateUserError::InvalidPasswordException({
++        "InvalidPasswordException" => super::super::operation::admin_create_user::AdminCreateUserError::InvalidPasswordException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidPasswordExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidPasswordExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidPasswordExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -116,19 +116,19 @@
              tmp
          }),
 -        "InvalidSmsRoleAccessPolicyException" => crate::operation::admin_create_user::AdminCreateUserError::InvalidSmsRoleAccessPolicyException({
-+        "InvalidSmsRoleAccessPolicyException" => super::operation::admin_create_user::AdminCreateUserError::InvalidSmsRoleAccessPolicyException({
++        "InvalidSmsRoleAccessPolicyException" => super::super::operation::admin_create_user::AdminCreateUserError::InvalidSmsRoleAccessPolicyException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
-+                let mut output = super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
++                let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -137,14 +137,14 @@
          }),
          "InvalidSmsRoleTrustRelationshipException" => {
 -            crate::operation::admin_create_user::AdminCreateUserError::InvalidSmsRoleTrustRelationshipException({
-+            super::operation::admin_create_user::AdminCreateUserError::InvalidSmsRoleTrustRelationshipException({
++            super::super::operation::admin_create_user::AdminCreateUserError::InvalidSmsRoleTrustRelationshipException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -153,16 +153,16 @@
              })
          }
 -        "NotAuthorizedException" => crate::operation::admin_create_user::AdminCreateUserError::NotAuthorizedException({
-+        "NotAuthorizedException" => super::operation::admin_create_user::AdminCreateUserError::NotAuthorizedException({
++        "NotAuthorizedException" => super::super::operation::admin_create_user::AdminCreateUserError::NotAuthorizedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -171,17 +171,17 @@
              tmp
          }),
 -        "OperationNotEnabledException" => crate::operation::admin_create_user::AdminCreateUserError::OperationNotEnabledException({
-+        "OperationNotEnabledException" => super::operation::admin_create_user::AdminCreateUserError::OperationNotEnabledException({
++        "OperationNotEnabledException" => super::super::operation::admin_create_user::AdminCreateUserError::OperationNotEnabledException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-+                let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                    super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -190,17 +190,17 @@
              tmp
          }),
 -        "PreconditionNotMetException" => crate::operation::admin_create_user::AdminCreateUserError::PreconditionNotMetException({
-+        "PreconditionNotMetException" => super::operation::admin_create_user::AdminCreateUserError::PreconditionNotMetException({
++        "PreconditionNotMetException" => super::super::operation::admin_create_user::AdminCreateUserError::PreconditionNotMetException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::PreconditionNotMetExceptionBuilder::default();
-+                let mut output = super::types::error::builders::PreconditionNotMetExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::PreconditionNotMetExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_precondition_not_met_exception::de_precondition_not_met_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                    super::protocol_serde::shape_precondition_not_met_exception::de_precondition_not_met_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                    super::super::protocol_serde::shape_precondition_not_met_exception::de_precondition_not_met_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -209,16 +209,16 @@
              tmp
          }),
 -        "ResourceNotFoundException" => crate::operation::admin_create_user::AdminCreateUserError::ResourceNotFoundException({
-+        "ResourceNotFoundException" => super::operation::admin_create_user::AdminCreateUserError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::super::operation::admin_create_user::AdminCreateUserError::ResourceNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -227,16 +227,16 @@
              tmp
          }),
 -        "TooManyRequestsException" => crate::operation::admin_create_user::AdminCreateUserError::TooManyRequestsException({
-+        "TooManyRequestsException" => super::operation::admin_create_user::AdminCreateUserError::TooManyRequestsException({
++        "TooManyRequestsException" => super::super::operation::admin_create_user::AdminCreateUserError::TooManyRequestsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -245,16 +245,16 @@
              tmp
          }),
 -        "UnexpectedLambdaException" => crate::operation::admin_create_user::AdminCreateUserError::UnexpectedLambdaException({
-+        "UnexpectedLambdaException" => super::operation::admin_create_user::AdminCreateUserError::UnexpectedLambdaException({
++        "UnexpectedLambdaException" => super::super::operation::admin_create_user::AdminCreateUserError::UnexpectedLambdaException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                let mut output = super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-+                output = super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -263,19 +263,19 @@
              tmp
          }),
 -        "UnsupportedUserStateException" => crate::operation::admin_create_user::AdminCreateUserError::UnsupportedUserStateException({
-+        "UnsupportedUserStateException" => super::operation::admin_create_user::AdminCreateUserError::UnsupportedUserStateException({
++        "UnsupportedUserStateException" => super::super::operation::admin_create_user::AdminCreateUserError::UnsupportedUserStateException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UnsupportedUserStateExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_unsupported_user_state_exception::de_unsupported_user_state_exception_json_err(
-+                let mut output = super::types::error::builders::UnsupportedUserStateExceptionBuilder::default();
-+                output = super::protocol_serde::shape_unsupported_user_state_exception::de_unsupported_user_state_exception_json_err(
++                let mut output = super::super::types::error::builders::UnsupportedUserStateExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_unsupported_user_state_exception::de_unsupported_user_state_exception_json_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -284,19 +284,19 @@
              tmp
          }),
 -        "UserLambdaValidationException" => crate::operation::admin_create_user::AdminCreateUserError::UserLambdaValidationException({
-+        "UserLambdaValidationException" => super::operation::admin_create_user::AdminCreateUserError::UserLambdaValidationException({
++        "UserLambdaValidationException" => super::super::operation::admin_create_user::AdminCreateUserError::UserLambdaValidationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UserLambdaValidationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
-+                let mut output = super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
++                let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -305,16 +305,16 @@
              tmp
          }),
 -        "UsernameExistsException" => crate::operation::admin_create_user::AdminCreateUserError::UsernameExistsException({
-+        "UsernameExistsException" => super::operation::admin_create_user::AdminCreateUserError::UsernameExistsException({
++        "UsernameExistsException" => super::super::operation::admin_create_user::AdminCreateUserError::UsernameExistsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UsernameExistsExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_username_exists_exception::de_username_exists_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                let mut output = super::types::error::builders::UsernameExistsExceptionBuilder::default();
-+                output = super::protocol_serde::shape_username_exists_exception::de_username_exists_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                let mut output = super::super::types::error::builders::UsernameExistsExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_username_exists_exception::de_username_exists_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -323,16 +323,16 @@
              tmp
          }),
 -        "UserNotFoundException" => crate::operation::admin_create_user::AdminCreateUserError::UserNotFoundException({
-+        "UserNotFoundException" => super::operation::admin_create_user::AdminCreateUserError::UserNotFoundException({
++        "UserNotFoundException" => super::super::operation::admin_create_user::AdminCreateUserError::UserNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+                let mut output = super::types::error::builders::UserNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++                let mut output = super::super::types::error::builders::UserNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -341,7 +341,7 @@
              tmp
          }),
 -        _ => crate::operation::admin_create_user::AdminCreateUserError::generic(generic),
-+        _ => super::operation::admin_create_user::AdminCreateUserError::generic(generic),
++        _ => super::super::operation::admin_create_user::AdminCreateUserError::generic(generic),
      })
  }
 
@@ -350,15 +350,15 @@
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
      _response_body: &[u8],
 -) -> std::result::Result<crate::operation::admin_create_user::AdminCreateUserOutput, crate::operation::admin_create_user::AdminCreateUserError> {
-+) -> std::result::Result<super::operation::admin_create_user::AdminCreateUserOutput, super::operation::admin_create_user::AdminCreateUserError> {
++) -> std::result::Result<super::super::operation::admin_create_user::AdminCreateUserOutput, super::super::operation::admin_create_user::AdminCreateUserError> {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::admin_create_user::builders::AdminCreateUserOutputBuilder::default();
 -        output = crate::protocol_serde::shape_admin_create_user::de_admin_create_user(_response_body, output)
 -            .map_err(crate::operation::admin_create_user::AdminCreateUserError::unhandled)?;
-+        let mut output = super::operation::admin_create_user::builders::AdminCreateUserOutputBuilder::default();
-+        output = super::protocol_serde::shape_admin_create_user::de_admin_create_user(_response_body, output)
-+            .map_err(super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
++        let mut output = super::super::operation::admin_create_user::builders::AdminCreateUserOutputBuilder::default();
++        output = super::super::protocol_serde::shape_admin_create_user::de_admin_create_user(_response_body, output)
++            .map_err(super::super::operation::admin_create_user::AdminCreateUserError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -367,12 +367,12 @@
 
  pub fn ser_admin_create_user_input(
 -    input: &crate::operation::admin_create_user::AdminCreateUserInput,
-+    input: &super::operation::admin_create_user::AdminCreateUserInput,
++    input: &super::super::operation::admin_create_user::AdminCreateUserInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_admin_create_user_input::ser_admin_create_user_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_admin_create_user_input::ser_admin_create_user_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_admin_create_user_input::ser_admin_create_user_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -381,14 +381,14 @@
  pub(crate) fn de_admin_create_user(
      _value: &[u8],
 -    mut builder: crate::operation::admin_create_user::builders::AdminCreateUserOutputBuilder,
-+    mut builder: super::operation::admin_create_user::builders::AdminCreateUserOutputBuilder,
++    mut builder: super::super::operation::admin_create_user::builders::AdminCreateUserOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::admin_create_user::builders::AdminCreateUserOutputBuilder,
-+    super::operation::admin_create_user::builders::AdminCreateUserOutputBuilder,
++    super::super::operation::admin_create_user::builders::AdminCreateUserOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -397,7 +397,7 @@
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                  "User" => {
 -                    builder = builder.set_user(crate::protocol_serde::shape_user_type::de_user_type(tokens, _value, depth + 1)?);
-+                    builder = builder.set_user(super::protocol_serde::shape_user_type::de_user_type(tokens, _value, depth + 1)?);
++                    builder = builder.set_user(super::super::protocol_serde::shape_user_type::de_user_type(tokens, _value, depth + 1)?);
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },

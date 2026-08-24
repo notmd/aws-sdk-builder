@@ -5,7 +5,7 @@
      pub ssh_public_key_id: ::std::option::Option<::std::string::String>,
      /// <p>Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use <code>PEM</code>.</p>
 -    pub encoding: ::std::option::Option<crate::types::EncodingType>,
-+    pub encoding: ::std::option::Option<super::types::EncodingType>,
++    pub encoding: ::std::option::Option<super::super::super::types::EncodingType>,
  }
  impl GetSshPublicKeyInput {
      /// <p>The name of the IAM user associated with the SSH public key.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use <code>PEM</code>.</p>
 -    pub fn encoding(&self) -> ::std::option::Option<&crate::types::EncodingType> {
-+    pub fn encoding(&self) -> ::std::option::Option<&super::types::EncodingType> {
++    pub fn encoding(&self) -> ::std::option::Option<&super::super::super::types::EncodingType> {
          self.encoding.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`GetSshPublicKeyInput`](crate::operation::get_ssh_public_key::GetSshPublicKeyInput).
 -    pub fn builder() -> crate::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder {
 -        crate::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder::default()
-+    pub fn builder() -> super::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder {
-+        super::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder {
++        super::super::super::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) user_name: ::std::option::Option<::std::string::String>,
      pub(crate) ssh_public_key_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) encoding: ::std::option::Option<crate::types::EncodingType>,
-+    pub(crate) encoding: ::std::option::Option<super::types::EncodingType>,
++    pub(crate) encoding: ::std::option::Option<super::super::super::types::EncodingType>,
  }
  impl GetSshPublicKeyInputBuilder {
      /// <p>The name of the IAM user associated with the SSH public key.</p>
@@ -41,19 +41,19 @@
      /// <p>Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use <code>PEM</code>.</p>
      /// This field is required.
 -    pub fn encoding(mut self, input: crate::types::EncodingType) -> Self {
-+    pub fn encoding(mut self, input: super::types::EncodingType) -> Self {
++    pub fn encoding(mut self, input: super::super::super::types::EncodingType) -> Self {
          self.encoding = ::std::option::Option::Some(input);
          self
      }
      /// <p>Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use <code>PEM</code>.</p>
 -    pub fn set_encoding(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
-+    pub fn set_encoding(mut self, input: ::std::option::Option<super::types::EncodingType>) -> Self {
++    pub fn set_encoding(mut self, input: ::std::option::Option<super::super::super::types::EncodingType>) -> Self {
          self.encoding = input;
          self
      }
      /// <p>Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use <code>PEM</code>.</p>
 -    pub fn get_encoding(&self) -> &::std::option::Option<crate::types::EncodingType> {
-+    pub fn get_encoding(&self) -> &::std::option::Option<super::types::EncodingType> {
++    pub fn get_encoding(&self) -> &::std::option::Option<super::super::super::types::EncodingType> {
          &self.encoding
      }
      /// Consumes the builder and constructs a [`GetSshPublicKeyInput`](crate::operation::get_ssh_public_key::GetSshPublicKeyInput).
@@ -61,8 +61,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_ssh_public_key::GetSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_ssh_public_key::GetSshPublicKeyInput {
-+    ) -> ::std::result::Result<super::operation::get_ssh_public_key::GetSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_ssh_public_key::GetSshPublicKeyInput {
++    ) -> ::std::result::Result<super::super::super::operation::get_ssh_public_key::GetSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_ssh_public_key::GetSshPublicKeyInput {
              user_name: self.user_name,
              ssh_public_key_id: self.ssh_public_key_id,
              encoding: self.encoding,

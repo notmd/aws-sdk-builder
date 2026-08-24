@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EksContainerVolumeMount`](crate::types::EksContainerVolumeMount).
 -    pub fn builder() -> crate::types::builders::EksContainerVolumeMountBuilder {
 -        crate::types::builders::EksContainerVolumeMountBuilder::default()
-+    pub fn builder() -> super::types::builders::EksContainerVolumeMountBuilder {
-+        super::types::builders::EksContainerVolumeMountBuilder::default()
++    pub fn builder() -> super::super::types::builders::EksContainerVolumeMountBuilder {
++        super::super::types::builders::EksContainerVolumeMountBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EksContainerVolumeMount`](crate::types::EksContainerVolumeMount).
 -    pub fn build(self) -> crate::types::EksContainerVolumeMount {
 -        crate::types::EksContainerVolumeMount {
-+    pub fn build(self) -> super::types::EksContainerVolumeMount {
-+        super::types::EksContainerVolumeMount {
++    pub fn build(self) -> super::super::types::EksContainerVolumeMount {
++        super::super::types::EksContainerVolumeMount {
              name: self.name,
              mount_path: self.mount_path,
              sub_path: self.sub_path,

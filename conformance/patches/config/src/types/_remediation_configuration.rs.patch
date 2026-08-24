@@ -5,7 +5,7 @@
      pub config_rule_name: ::std::string::String,
      /// <p>The type of the target. Target executes remediation. For example, SSM document.</p>
 -    pub target_type: crate::types::RemediationTargetType,
-+    pub target_type: super::types::RemediationTargetType,
++    pub target_type: super::super::types::RemediationTargetType,
      /// <p>Target ID is the name of the SSM document.</p>
      pub target_id: ::std::string::String,
      /// <p>Version of the target. For example, version of the SSM document.</p><note>
@@ -14,14 +14,14 @@
      pub target_version: ::std::option::Option<::std::string::String>,
      /// <p>An object of the RemediationParameterValue.</p>
 -    pub parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::RemediationParameterValue>>,
-+    pub parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::RemediationParameterValue>>,
++    pub parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::RemediationParameterValue>>,
      /// <p>The type of a resource.</p>
      pub resource_type: ::std::option::Option<::std::string::String>,
      /// <p>The remediation is triggered automatically.</p>
      pub automatic: bool,
      /// <p>An ExecutionControls object.</p>
 -    pub execution_controls: ::std::option::Option<crate::types::ExecutionControls>,
-+    pub execution_controls: ::std::option::Option<super::types::ExecutionControls>,
++    pub execution_controls: ::std::option::Option<super::super::types::ExecutionControls>,
      /// <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p>
      /// <p>For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.</p>
      pub maximum_automatic_attempts: ::std::option::Option<i32>,
@@ -30,7 +30,7 @@
      }
      /// <p>The type of the target. Target executes remediation. For example, SSM document.</p>
 -    pub fn target_type(&self) -> &crate::types::RemediationTargetType {
-+    pub fn target_type(&self) -> &super::types::RemediationTargetType {
++    pub fn target_type(&self) -> &super::super::types::RemediationTargetType {
          &self.target_type
      }
      /// <p>Target ID is the name of the SSM document.</p>
@@ -39,7 +39,7 @@
      }
      /// <p>An object of the RemediationParameterValue.</p>
 -    pub fn parameters(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::RemediationParameterValue>> {
-+    pub fn parameters(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::RemediationParameterValue>> {
++    pub fn parameters(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::RemediationParameterValue>> {
          self.parameters.as_ref()
      }
      /// <p>The type of a resource.</p>
@@ -48,7 +48,7 @@
      }
      /// <p>An ExecutionControls object.</p>
 -    pub fn execution_controls(&self) -> ::std::option::Option<&crate::types::ExecutionControls> {
-+    pub fn execution_controls(&self) -> ::std::option::Option<&super::types::ExecutionControls> {
++    pub fn execution_controls(&self) -> ::std::option::Option<&super::super::types::ExecutionControls> {
          self.execution_controls.as_ref()
      }
      /// <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p>
@@ -58,8 +58,8 @@
      /// Creates a new builder-style object to manufacture [`RemediationConfiguration`](crate::types::RemediationConfiguration).
 -    pub fn builder() -> crate::types::builders::RemediationConfigurationBuilder {
 -        crate::types::builders::RemediationConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::RemediationConfigurationBuilder {
-+        super::types::builders::RemediationConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::RemediationConfigurationBuilder {
++        super::super::types::builders::RemediationConfigurationBuilder::default()
      }
  }
 
@@ -68,15 +68,15 @@
  pub struct RemediationConfigurationBuilder {
      pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) target_type: ::std::option::Option<crate::types::RemediationTargetType>,
-+    pub(crate) target_type: ::std::option::Option<super::types::RemediationTargetType>,
++    pub(crate) target_type: ::std::option::Option<super::super::types::RemediationTargetType>,
      pub(crate) target_id: ::std::option::Option<::std::string::String>,
      pub(crate) target_version: ::std::option::Option<::std::string::String>,
 -    pub(crate) parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::RemediationParameterValue>>,
-+    pub(crate) parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::RemediationParameterValue>>,
++    pub(crate) parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::RemediationParameterValue>>,
      pub(crate) resource_type: ::std::option::Option<::std::string::String>,
      pub(crate) automatic: ::std::option::Option<bool>,
 -    pub(crate) execution_controls: ::std::option::Option<crate::types::ExecutionControls>,
-+    pub(crate) execution_controls: ::std::option::Option<super::types::ExecutionControls>,
++    pub(crate) execution_controls: ::std::option::Option<super::super::types::ExecutionControls>,
      pub(crate) maximum_automatic_attempts: ::std::option::Option<i32>,
      pub(crate) retry_attempt_seconds: ::std::option::Option<i64>,
      pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -85,19 +85,19 @@
      /// <p>The type of the target. Target executes remediation. For example, SSM document.</p>
      /// This field is required.
 -    pub fn target_type(mut self, input: crate::types::RemediationTargetType) -> Self {
-+    pub fn target_type(mut self, input: super::types::RemediationTargetType) -> Self {
++    pub fn target_type(mut self, input: super::super::types::RemediationTargetType) -> Self {
          self.target_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of the target. Target executes remediation. For example, SSM document.</p>
 -    pub fn set_target_type(mut self, input: ::std::option::Option<crate::types::RemediationTargetType>) -> Self {
-+    pub fn set_target_type(mut self, input: ::std::option::Option<super::types::RemediationTargetType>) -> Self {
++    pub fn set_target_type(mut self, input: ::std::option::Option<super::super::types::RemediationTargetType>) -> Self {
          self.target_type = input;
          self
      }
      /// <p>The type of the target. Target executes remediation. For example, SSM document.</p>
 -    pub fn get_target_type(&self) -> &::std::option::Option<crate::types::RemediationTargetType> {
-+    pub fn get_target_type(&self) -> &::std::option::Option<super::types::RemediationTargetType> {
++    pub fn get_target_type(&self) -> &::std::option::Option<super::super::types::RemediationTargetType> {
          &self.target_type
      }
      /// <p>Target ID is the name of the SSM document.</p>
@@ -106,7 +106,7 @@
      ///
      /// <p>An object of the RemediationParameterValue.</p>
 -    pub fn parameters(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::RemediationParameterValue) -> Self {
-+    pub fn parameters(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::RemediationParameterValue) -> Self {
++    pub fn parameters(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::types::RemediationParameterValue) -> Self {
          let mut hash_map = self.parameters.unwrap_or_default();
          hash_map.insert(k.into(), v);
          self.parameters = ::std::option::Option::Some(hash_map);
@@ -115,7 +115,7 @@
      pub fn set_parameters(
          mut self,
 -        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::RemediationParameterValue>>,
-+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::RemediationParameterValue>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::RemediationParameterValue>>,
      ) -> Self {
          self.parameters = input;
          self
@@ -124,7 +124,7 @@
      pub fn get_parameters(
          &self,
 -    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::RemediationParameterValue>> {
-+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::RemediationParameterValue>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::RemediationParameterValue>> {
          &self.parameters
      }
      /// <p>The type of a resource.</p>
@@ -133,19 +133,19 @@
      }
      /// <p>An ExecutionControls object.</p>
 -    pub fn execution_controls(mut self, input: crate::types::ExecutionControls) -> Self {
-+    pub fn execution_controls(mut self, input: super::types::ExecutionControls) -> Self {
++    pub fn execution_controls(mut self, input: super::super::types::ExecutionControls) -> Self {
          self.execution_controls = ::std::option::Option::Some(input);
          self
      }
      /// <p>An ExecutionControls object.</p>
 -    pub fn set_execution_controls(mut self, input: ::std::option::Option<crate::types::ExecutionControls>) -> Self {
-+    pub fn set_execution_controls(mut self, input: ::std::option::Option<super::types::ExecutionControls>) -> Self {
++    pub fn set_execution_controls(mut self, input: ::std::option::Option<super::super::types::ExecutionControls>) -> Self {
          self.execution_controls = input;
          self
      }
      /// <p>An ExecutionControls object.</p>
 -    pub fn get_execution_controls(&self) -> &::std::option::Option<crate::types::ExecutionControls> {
-+    pub fn get_execution_controls(&self) -> &::std::option::Option<super::types::ExecutionControls> {
++    pub fn get_execution_controls(&self) -> &::std::option::Option<super::super::types::ExecutionControls> {
          &self.execution_controls
      }
      /// <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p>
@@ -155,8 +155,8 @@
      /// - [`target_id`](crate::types::builders::RemediationConfigurationBuilder::target_id)
 -    pub fn build(self) -> ::std::result::Result<crate::types::RemediationConfiguration, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::RemediationConfiguration {
-+    pub fn build(self) -> ::std::result::Result<super::types::RemediationConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::RemediationConfiguration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::RemediationConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::RemediationConfiguration {
              config_rule_name: self.config_rule_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "config_rule_name",

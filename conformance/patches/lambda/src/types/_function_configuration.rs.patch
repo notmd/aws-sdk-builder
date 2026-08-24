@@ -5,7 +5,7 @@
      /// <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
      /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
 -    pub runtime: ::std::option::Option<crate::types::Runtime>,
-+    pub runtime: ::std::option::Option<super::types::Runtime>,
++    pub runtime: ::std::option::Option<super::super::types::Runtime>,
      /// <p>The function's execution role.</p>
      pub role: ::std::option::Option<::std::string::String>,
      /// <p>The function that Lambda calls to begin running your function.</p>
@@ -14,13 +14,13 @@
      pub version: ::std::option::Option<::std::string::String>,
      /// <p>The function's networking configuration.</p>
 -    pub vpc_config: ::std::option::Option<crate::types::VpcConfigResponse>,
-+    pub vpc_config: ::std::option::Option<super::types::VpcConfigResponse>,
++    pub vpc_config: ::std::option::Option<super::super::types::VpcConfigResponse>,
      /// <p>The function's dead letter queue.</p>
 -    pub dead_letter_config: ::std::option::Option<crate::types::DeadLetterConfig>,
-+    pub dead_letter_config: ::std::option::Option<super::types::DeadLetterConfig>,
++    pub dead_letter_config: ::std::option::Option<super::super::types::DeadLetterConfig>,
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
 -    pub environment: ::std::option::Option<crate::types::EnvironmentResponse>,
-+    pub environment: ::std::option::Option<super::types::EnvironmentResponse>,
++    pub environment: ::std::option::Option<super::super::types::EnvironmentResponse>,
      /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:</p>
      /// <ul>
      /// <li>
@@ -29,69 +29,69 @@
      pub kms_key_arn: ::std::option::Option<::std::string::String>,
      /// <p>The function's X-Ray tracing configuration.</p>
 -    pub tracing_config: ::std::option::Option<crate::types::TracingConfigResponse>,
-+    pub tracing_config: ::std::option::Option<super::types::TracingConfigResponse>,
++    pub tracing_config: ::std::option::Option<super::super::types::TracingConfigResponse>,
      /// <p>For Lambda@Edge functions, the ARN of the main function.</p>
      pub master_arn: ::std::option::Option<::std::string::String>,
      /// <p>The latest updated revision of the function or alias.</p>
      pub revision_id: ::std::option::Option<::std::string::String>,
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
 -    pub layers: ::std::option::Option<::std::vec::Vec<crate::types::Layer>>,
-+    pub layers: ::std::option::Option<::std::vec::Vec<super::types::Layer>>,
++    pub layers: ::std::option::Option<::std::vec::Vec<super::super::types::Layer>>,
      /// <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
 -    pub state: ::std::option::Option<crate::types::State>,
-+    pub state: ::std::option::Option<super::types::State>,
++    pub state: ::std::option::Option<super::super::types::State>,
      /// <p>The reason for the function's current state.</p>
      pub state_reason: ::std::option::Option<::std::string::String>,
      /// <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or modify the function.</p>
 -    pub state_reason_code: ::std::option::Option<crate::types::StateReasonCode>,
-+    pub state_reason_code: ::std::option::Option<super::types::StateReasonCode>,
++    pub state_reason_code: ::std::option::Option<super::super::types::StateReasonCode>,
      /// <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code> after function creation completes.</p>
 -    pub last_update_status: ::std::option::Option<crate::types::LastUpdateStatus>,
-+    pub last_update_status: ::std::option::Option<super::types::LastUpdateStatus>,
++    pub last_update_status: ::std::option::Option<super::super::types::LastUpdateStatus>,
      /// <p>The reason for the last update that was performed on the function.</p>
      pub last_update_status_reason: ::std::option::Option<::std::string::String>,
      /// <p>The reason code for the last update that was performed on the function.</p>
 -    pub last_update_status_reason_code: ::std::option::Option<crate::types::LastUpdateStatusReasonCode>,
-+    pub last_update_status_reason_code: ::std::option::Option<super::types::LastUpdateStatusReasonCode>,
++    pub last_update_status_reason_code: ::std::option::Option<super::super::types::LastUpdateStatusReasonCode>,
      /// <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
 -    pub file_system_configs: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>,
-+    pub file_system_configs: ::std::option::Option<::std::vec::Vec<super::types::FileSystemConfig>>,
++    pub file_system_configs: ::std::option::Option<::std::vec::Vec<super::super::types::FileSystemConfig>>,
      /// <p>The ARN of the signing profile version.</p>
      pub signing_profile_version_arn: ::std::option::Option<::std::string::String>,
      /// <p>The ARN of the signing job.</p>
      pub signing_job_arn: ::std::option::Option<::std::string::String>,
      /// <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
 -    pub package_type: ::std::option::Option<crate::types::PackageType>,
-+    pub package_type: ::std::option::Option<super::types::PackageType>,
++    pub package_type: ::std::option::Option<super::super::types::PackageType>,
      /// <p>The function's image configuration values.</p>
 -    pub image_config_response: ::std::option::Option<crate::types::ImageConfigResponse>,
-+    pub image_config_response: ::std::option::Option<super::types::ImageConfigResponse>,
++    pub image_config_response: ::std::option::Option<super::super::types::ImageConfigResponse>,
      /// <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
 -    pub architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
-+    pub architectures: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>,
++    pub architectures: ::std::option::Option<::std::vec::Vec<super::super::types::Architecture>>,
      /// <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
 -    pub ephemeral_storage: ::std::option::Option<crate::types::EphemeralStorage>,
-+    pub ephemeral_storage: ::std::option::Option<super::types::EphemeralStorage>,
++    pub ephemeral_storage: ::std::option::Option<super::super::types::EphemeralStorage>,
      /// <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
 -    pub snap_start: ::std::option::Option<crate::types::SnapStartResponse>,
-+    pub snap_start: ::std::option::Option<super::types::SnapStartResponse>,
++    pub snap_start: ::std::option::Option<super::super::types::SnapStartResponse>,
      /// <p>The ARN of the runtime and any errors that occured.</p>
 -    pub runtime_version_config: ::std::option::Option<crate::types::RuntimeVersionConfig>,
-+    pub runtime_version_config: ::std::option::Option<super::types::RuntimeVersionConfig>,
++    pub runtime_version_config: ::std::option::Option<super::super::types::RuntimeVersionConfig>,
      /// <p>The function's Amazon CloudWatch Logs configuration settings.</p>
 -    pub logging_config: ::std::option::Option<crate::types::LoggingConfig>,
-+    pub logging_config: ::std::option::Option<super::types::LoggingConfig>,
++    pub logging_config: ::std::option::Option<super::super::types::LoggingConfig>,
      /// <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
 -    pub tenancy_config: ::std::option::Option<crate::types::TenancyConfig>,
-+    pub tenancy_config: ::std::option::Option<super::types::TenancyConfig>,
++    pub tenancy_config: ::std::option::Option<super::super::types::TenancyConfig>,
      /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
 -    pub capacity_provider_config: ::std::option::Option<crate::types::CapacityProviderConfig>,
-+    pub capacity_provider_config: ::std::option::Option<super::types::CapacityProviderConfig>,
++    pub capacity_provider_config: ::std::option::Option<super::super::types::CapacityProviderConfig>,
      /// <p>The SHA256 hash of the function configuration.</p>
      pub config_sha256: ::std::option::Option<::std::string::String>,
      /// <p>The function's durable execution configuration settings, if the function is configured for durability.</p>
 -    pub durable_config: ::std::option::Option<crate::types::DurableConfig>,
-+    pub durable_config: ::std::option::Option<super::types::DurableConfig>,
++    pub durable_config: ::std::option::Option<super::super::types::DurableConfig>,
  }
  impl FunctionConfiguration {
      /// <p>The name of the function.</p>
@@ -100,7 +100,7 @@
      /// <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
      /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
 -    pub fn runtime(&self) -> ::std::option::Option<&crate::types::Runtime> {
-+    pub fn runtime(&self) -> ::std::option::Option<&super::types::Runtime> {
++    pub fn runtime(&self) -> ::std::option::Option<&super::super::types::Runtime> {
          self.runtime.as_ref()
      }
      /// <p>The function's execution role.</p>
@@ -109,17 +109,17 @@
      }
      /// <p>The function's networking configuration.</p>
 -    pub fn vpc_config(&self) -> ::std::option::Option<&crate::types::VpcConfigResponse> {
-+    pub fn vpc_config(&self) -> ::std::option::Option<&super::types::VpcConfigResponse> {
++    pub fn vpc_config(&self) -> ::std::option::Option<&super::super::types::VpcConfigResponse> {
          self.vpc_config.as_ref()
      }
      /// <p>The function's dead letter queue.</p>
 -    pub fn dead_letter_config(&self) -> ::std::option::Option<&crate::types::DeadLetterConfig> {
-+    pub fn dead_letter_config(&self) -> ::std::option::Option<&super::types::DeadLetterConfig> {
++    pub fn dead_letter_config(&self) -> ::std::option::Option<&super::super::types::DeadLetterConfig> {
          self.dead_letter_config.as_ref()
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
 -    pub fn environment(&self) -> ::std::option::Option<&crate::types::EnvironmentResponse> {
-+    pub fn environment(&self) -> ::std::option::Option<&super::types::EnvironmentResponse> {
++    pub fn environment(&self) -> ::std::option::Option<&super::super::types::EnvironmentResponse> {
          self.environment.as_ref()
      }
      /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:</p>
@@ -128,7 +128,7 @@
      }
      /// <p>The function's X-Ray tracing configuration.</p>
 -    pub fn tracing_config(&self) -> ::std::option::Option<&crate::types::TracingConfigResponse> {
-+    pub fn tracing_config(&self) -> ::std::option::Option<&super::types::TracingConfigResponse> {
++    pub fn tracing_config(&self) -> ::std::option::Option<&super::super::types::TracingConfigResponse> {
          self.tracing_config.as_ref()
      }
      /// <p>For Lambda@Edge functions, the ARN of the main function.</p>
@@ -137,12 +137,12 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.layers.is_none()`.
 -    pub fn layers(&self) -> &[crate::types::Layer] {
-+    pub fn layers(&self) -> &[super::types::Layer] {
++    pub fn layers(&self) -> &[super::super::types::Layer] {
          self.layers.as_deref().unwrap_or_default()
      }
      /// <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
 -    pub fn state(&self) -> ::std::option::Option<&crate::types::State> {
-+    pub fn state(&self) -> ::std::option::Option<&super::types::State> {
++    pub fn state(&self) -> ::std::option::Option<&super::super::types::State> {
          self.state.as_ref()
      }
      /// <p>The reason for the function's current state.</p>
@@ -151,12 +151,12 @@
      }
      /// <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or modify the function.</p>
 -    pub fn state_reason_code(&self) -> ::std::option::Option<&crate::types::StateReasonCode> {
-+    pub fn state_reason_code(&self) -> ::std::option::Option<&super::types::StateReasonCode> {
++    pub fn state_reason_code(&self) -> ::std::option::Option<&super::super::types::StateReasonCode> {
          self.state_reason_code.as_ref()
      }
      /// <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code> after function creation completes.</p>
 -    pub fn last_update_status(&self) -> ::std::option::Option<&crate::types::LastUpdateStatus> {
-+    pub fn last_update_status(&self) -> ::std::option::Option<&super::types::LastUpdateStatus> {
++    pub fn last_update_status(&self) -> ::std::option::Option<&super::super::types::LastUpdateStatus> {
          self.last_update_status.as_ref()
      }
      /// <p>The reason for the last update that was performed on the function.</p>
@@ -165,14 +165,14 @@
      }
      /// <p>The reason code for the last update that was performed on the function.</p>
 -    pub fn last_update_status_reason_code(&self) -> ::std::option::Option<&crate::types::LastUpdateStatusReasonCode> {
-+    pub fn last_update_status_reason_code(&self) -> ::std::option::Option<&super::types::LastUpdateStatusReasonCode> {
++    pub fn last_update_status_reason_code(&self) -> ::std::option::Option<&super::super::types::LastUpdateStatusReasonCode> {
          self.last_update_status_reason_code.as_ref()
      }
      /// <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.file_system_configs.is_none()`.
 -    pub fn file_system_configs(&self) -> &[crate::types::FileSystemConfig] {
-+    pub fn file_system_configs(&self) -> &[super::types::FileSystemConfig] {
++    pub fn file_system_configs(&self) -> &[super::super::types::FileSystemConfig] {
          self.file_system_configs.as_deref().unwrap_or_default()
      }
      /// <p>The ARN of the signing profile version.</p>
@@ -181,49 +181,49 @@
      }
      /// <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
 -    pub fn package_type(&self) -> ::std::option::Option<&crate::types::PackageType> {
-+    pub fn package_type(&self) -> ::std::option::Option<&super::types::PackageType> {
++    pub fn package_type(&self) -> ::std::option::Option<&super::super::types::PackageType> {
          self.package_type.as_ref()
      }
      /// <p>The function's image configuration values.</p>
 -    pub fn image_config_response(&self) -> ::std::option::Option<&crate::types::ImageConfigResponse> {
-+    pub fn image_config_response(&self) -> ::std::option::Option<&super::types::ImageConfigResponse> {
++    pub fn image_config_response(&self) -> ::std::option::Option<&super::super::types::ImageConfigResponse> {
          self.image_config_response.as_ref()
      }
      /// <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.architectures.is_none()`.
 -    pub fn architectures(&self) -> &[crate::types::Architecture] {
-+    pub fn architectures(&self) -> &[super::types::Architecture] {
++    pub fn architectures(&self) -> &[super::super::types::Architecture] {
          self.architectures.as_deref().unwrap_or_default()
      }
      /// <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
 -    pub fn ephemeral_storage(&self) -> ::std::option::Option<&crate::types::EphemeralStorage> {
-+    pub fn ephemeral_storage(&self) -> ::std::option::Option<&super::types::EphemeralStorage> {
++    pub fn ephemeral_storage(&self) -> ::std::option::Option<&super::super::types::EphemeralStorage> {
          self.ephemeral_storage.as_ref()
      }
      /// <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
 -    pub fn snap_start(&self) -> ::std::option::Option<&crate::types::SnapStartResponse> {
-+    pub fn snap_start(&self) -> ::std::option::Option<&super::types::SnapStartResponse> {
++    pub fn snap_start(&self) -> ::std::option::Option<&super::super::types::SnapStartResponse> {
          self.snap_start.as_ref()
      }
      /// <p>The ARN of the runtime and any errors that occured.</p>
 -    pub fn runtime_version_config(&self) -> ::std::option::Option<&crate::types::RuntimeVersionConfig> {
-+    pub fn runtime_version_config(&self) -> ::std::option::Option<&super::types::RuntimeVersionConfig> {
++    pub fn runtime_version_config(&self) -> ::std::option::Option<&super::super::types::RuntimeVersionConfig> {
          self.runtime_version_config.as_ref()
      }
      /// <p>The function's Amazon CloudWatch Logs configuration settings.</p>
 -    pub fn logging_config(&self) -> ::std::option::Option<&crate::types::LoggingConfig> {
-+    pub fn logging_config(&self) -> ::std::option::Option<&super::types::LoggingConfig> {
++    pub fn logging_config(&self) -> ::std::option::Option<&super::super::types::LoggingConfig> {
          self.logging_config.as_ref()
      }
      /// <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
 -    pub fn tenancy_config(&self) -> ::std::option::Option<&crate::types::TenancyConfig> {
-+    pub fn tenancy_config(&self) -> ::std::option::Option<&super::types::TenancyConfig> {
++    pub fn tenancy_config(&self) -> ::std::option::Option<&super::super::types::TenancyConfig> {
          self.tenancy_config.as_ref()
      }
      /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
 -    pub fn capacity_provider_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderConfig> {
-+    pub fn capacity_provider_config(&self) -> ::std::option::Option<&super::types::CapacityProviderConfig> {
++    pub fn capacity_provider_config(&self) -> ::std::option::Option<&super::super::types::CapacityProviderConfig> {
          self.capacity_provider_config.as_ref()
      }
      /// <p>The SHA256 hash of the function configuration.</p>
@@ -232,7 +232,7 @@
      }
      /// <p>The function's durable execution configuration settings, if the function is configured for durability.</p>
 -    pub fn durable_config(&self) -> ::std::option::Option<&crate::types::DurableConfig> {
-+    pub fn durable_config(&self) -> ::std::option::Option<&super::types::DurableConfig> {
++    pub fn durable_config(&self) -> ::std::option::Option<&super::super::types::DurableConfig> {
          self.durable_config.as_ref()
      }
  }
@@ -240,8 +240,8 @@
      /// Creates a new builder-style object to manufacture [`FunctionConfiguration`](crate::types::FunctionConfiguration).
 -    pub fn builder() -> crate::types::builders::FunctionConfigurationBuilder {
 -        crate::types::builders::FunctionConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::FunctionConfigurationBuilder {
-+        super::types::builders::FunctionConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::FunctionConfigurationBuilder {
++        super::super::types::builders::FunctionConfigurationBuilder::default()
      }
  }
 
@@ -250,7 +250,7 @@
      pub(crate) function_name: ::std::option::Option<::std::string::String>,
      pub(crate) function_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) runtime: ::std::option::Option<crate::types::Runtime>,
-+    pub(crate) runtime: ::std::option::Option<super::types::Runtime>,
++    pub(crate) runtime: ::std::option::Option<super::super::types::Runtime>,
      pub(crate) role: ::std::option::Option<::std::string::String>,
      pub(crate) handler: ::std::option::Option<::std::string::String>,
      pub(crate) code_size: ::std::option::Option<i64>,
@@ -261,28 +261,28 @@
 -    pub(crate) vpc_config: ::std::option::Option<crate::types::VpcConfigResponse>,
 -    pub(crate) dead_letter_config: ::std::option::Option<crate::types::DeadLetterConfig>,
 -    pub(crate) environment: ::std::option::Option<crate::types::EnvironmentResponse>,
-+    pub(crate) vpc_config: ::std::option::Option<super::types::VpcConfigResponse>,
-+    pub(crate) dead_letter_config: ::std::option::Option<super::types::DeadLetterConfig>,
-+    pub(crate) environment: ::std::option::Option<super::types::EnvironmentResponse>,
++    pub(crate) vpc_config: ::std::option::Option<super::super::types::VpcConfigResponse>,
++    pub(crate) dead_letter_config: ::std::option::Option<super::super::types::DeadLetterConfig>,
++    pub(crate) environment: ::std::option::Option<super::super::types::EnvironmentResponse>,
      pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tracing_config: ::std::option::Option<crate::types::TracingConfigResponse>,
-+    pub(crate) tracing_config: ::std::option::Option<super::types::TracingConfigResponse>,
++    pub(crate) tracing_config: ::std::option::Option<super::super::types::TracingConfigResponse>,
      pub(crate) master_arn: ::std::option::Option<::std::string::String>,
      pub(crate) revision_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) layers: ::std::option::Option<::std::vec::Vec<crate::types::Layer>>,
 -    pub(crate) state: ::std::option::Option<crate::types::State>,
-+    pub(crate) layers: ::std::option::Option<::std::vec::Vec<super::types::Layer>>,
-+    pub(crate) state: ::std::option::Option<super::types::State>,
++    pub(crate) layers: ::std::option::Option<::std::vec::Vec<super::super::types::Layer>>,
++    pub(crate) state: ::std::option::Option<super::super::types::State>,
      pub(crate) state_reason: ::std::option::Option<::std::string::String>,
 -    pub(crate) state_reason_code: ::std::option::Option<crate::types::StateReasonCode>,
 -    pub(crate) last_update_status: ::std::option::Option<crate::types::LastUpdateStatus>,
-+    pub(crate) state_reason_code: ::std::option::Option<super::types::StateReasonCode>,
-+    pub(crate) last_update_status: ::std::option::Option<super::types::LastUpdateStatus>,
++    pub(crate) state_reason_code: ::std::option::Option<super::super::types::StateReasonCode>,
++    pub(crate) last_update_status: ::std::option::Option<super::super::types::LastUpdateStatus>,
      pub(crate) last_update_status_reason: ::std::option::Option<::std::string::String>,
 -    pub(crate) last_update_status_reason_code: ::std::option::Option<crate::types::LastUpdateStatusReasonCode>,
 -    pub(crate) file_system_configs: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>,
-+    pub(crate) last_update_status_reason_code: ::std::option::Option<super::types::LastUpdateStatusReasonCode>,
-+    pub(crate) file_system_configs: ::std::option::Option<::std::vec::Vec<super::types::FileSystemConfig>>,
++    pub(crate) last_update_status_reason_code: ::std::option::Option<super::super::types::LastUpdateStatusReasonCode>,
++    pub(crate) file_system_configs: ::std::option::Option<::std::vec::Vec<super::super::types::FileSystemConfig>>,
      pub(crate) signing_profile_version_arn: ::std::option::Option<::std::string::String>,
      pub(crate) signing_job_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) package_type: ::std::option::Option<crate::types::PackageType>,
@@ -294,18 +294,18 @@
 -    pub(crate) logging_config: ::std::option::Option<crate::types::LoggingConfig>,
 -    pub(crate) tenancy_config: ::std::option::Option<crate::types::TenancyConfig>,
 -    pub(crate) capacity_provider_config: ::std::option::Option<crate::types::CapacityProviderConfig>,
-+    pub(crate) package_type: ::std::option::Option<super::types::PackageType>,
-+    pub(crate) image_config_response: ::std::option::Option<super::types::ImageConfigResponse>,
-+    pub(crate) architectures: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>,
-+    pub(crate) ephemeral_storage: ::std::option::Option<super::types::EphemeralStorage>,
-+    pub(crate) snap_start: ::std::option::Option<super::types::SnapStartResponse>,
-+    pub(crate) runtime_version_config: ::std::option::Option<super::types::RuntimeVersionConfig>,
-+    pub(crate) logging_config: ::std::option::Option<super::types::LoggingConfig>,
-+    pub(crate) tenancy_config: ::std::option::Option<super::types::TenancyConfig>,
-+    pub(crate) capacity_provider_config: ::std::option::Option<super::types::CapacityProviderConfig>,
++    pub(crate) package_type: ::std::option::Option<super::super::types::PackageType>,
++    pub(crate) image_config_response: ::std::option::Option<super::super::types::ImageConfigResponse>,
++    pub(crate) architectures: ::std::option::Option<::std::vec::Vec<super::super::types::Architecture>>,
++    pub(crate) ephemeral_storage: ::std::option::Option<super::super::types::EphemeralStorage>,
++    pub(crate) snap_start: ::std::option::Option<super::super::types::SnapStartResponse>,
++    pub(crate) runtime_version_config: ::std::option::Option<super::super::types::RuntimeVersionConfig>,
++    pub(crate) logging_config: ::std::option::Option<super::super::types::LoggingConfig>,
++    pub(crate) tenancy_config: ::std::option::Option<super::super::types::TenancyConfig>,
++    pub(crate) capacity_provider_config: ::std::option::Option<super::super::types::CapacityProviderConfig>,
      pub(crate) config_sha256: ::std::option::Option<::std::string::String>,
 -    pub(crate) durable_config: ::std::option::Option<crate::types::DurableConfig>,
-+    pub(crate) durable_config: ::std::option::Option<super::types::DurableConfig>,
++    pub(crate) durable_config: ::std::option::Option<super::super::types::DurableConfig>,
  }
  impl FunctionConfigurationBuilder {
      /// <p>The name of the function.</p>
@@ -314,7 +314,7 @@
      /// <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
      /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
 -    pub fn runtime(mut self, input: crate::types::Runtime) -> Self {
-+    pub fn runtime(mut self, input: super::types::Runtime) -> Self {
++    pub fn runtime(mut self, input: super::super::types::Runtime) -> Self {
          self.runtime = ::std::option::Option::Some(input);
          self
      }
@@ -323,7 +323,7 @@
      /// <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
      /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
 -    pub fn set_runtime(mut self, input: ::std::option::Option<crate::types::Runtime>) -> Self {
-+    pub fn set_runtime(mut self, input: ::std::option::Option<super::types::Runtime>) -> Self {
++    pub fn set_runtime(mut self, input: ::std::option::Option<super::super::types::Runtime>) -> Self {
          self.runtime = input;
          self
      }
@@ -332,7 +332,7 @@
      /// <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
      /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
 -    pub fn get_runtime(&self) -> &::std::option::Option<crate::types::Runtime> {
-+    pub fn get_runtime(&self) -> &::std::option::Option<super::types::Runtime> {
++    pub fn get_runtime(&self) -> &::std::option::Option<super::super::types::Runtime> {
          &self.runtime
      }
      /// <p>The function's execution role.</p>
@@ -341,53 +341,53 @@
      }
      /// <p>The function's networking configuration.</p>
 -    pub fn vpc_config(mut self, input: crate::types::VpcConfigResponse) -> Self {
-+    pub fn vpc_config(mut self, input: super::types::VpcConfigResponse) -> Self {
++    pub fn vpc_config(mut self, input: super::super::types::VpcConfigResponse) -> Self {
          self.vpc_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The function's networking configuration.</p>
 -    pub fn set_vpc_config(mut self, input: ::std::option::Option<crate::types::VpcConfigResponse>) -> Self {
-+    pub fn set_vpc_config(mut self, input: ::std::option::Option<super::types::VpcConfigResponse>) -> Self {
++    pub fn set_vpc_config(mut self, input: ::std::option::Option<super::super::types::VpcConfigResponse>) -> Self {
          self.vpc_config = input;
          self
      }
      /// <p>The function's networking configuration.</p>
 -    pub fn get_vpc_config(&self) -> &::std::option::Option<crate::types::VpcConfigResponse> {
-+    pub fn get_vpc_config(&self) -> &::std::option::Option<super::types::VpcConfigResponse> {
++    pub fn get_vpc_config(&self) -> &::std::option::Option<super::super::types::VpcConfigResponse> {
          &self.vpc_config
      }
      /// <p>The function's dead letter queue.</p>
 -    pub fn dead_letter_config(mut self, input: crate::types::DeadLetterConfig) -> Self {
-+    pub fn dead_letter_config(mut self, input: super::types::DeadLetterConfig) -> Self {
++    pub fn dead_letter_config(mut self, input: super::super::types::DeadLetterConfig) -> Self {
          self.dead_letter_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The function's dead letter queue.</p>
 -    pub fn set_dead_letter_config(mut self, input: ::std::option::Option<crate::types::DeadLetterConfig>) -> Self {
-+    pub fn set_dead_letter_config(mut self, input: ::std::option::Option<super::types::DeadLetterConfig>) -> Self {
++    pub fn set_dead_letter_config(mut self, input: ::std::option::Option<super::super::types::DeadLetterConfig>) -> Self {
          self.dead_letter_config = input;
          self
      }
      /// <p>The function's dead letter queue.</p>
 -    pub fn get_dead_letter_config(&self) -> &::std::option::Option<crate::types::DeadLetterConfig> {
-+    pub fn get_dead_letter_config(&self) -> &::std::option::Option<super::types::DeadLetterConfig> {
++    pub fn get_dead_letter_config(&self) -> &::std::option::Option<super::super::types::DeadLetterConfig> {
          &self.dead_letter_config
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
 -    pub fn environment(mut self, input: crate::types::EnvironmentResponse) -> Self {
-+    pub fn environment(mut self, input: super::types::EnvironmentResponse) -> Self {
++    pub fn environment(mut self, input: super::super::types::EnvironmentResponse) -> Self {
          self.environment = ::std::option::Option::Some(input);
          self
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
 -    pub fn set_environment(mut self, input: ::std::option::Option<crate::types::EnvironmentResponse>) -> Self {
-+    pub fn set_environment(mut self, input: ::std::option::Option<super::types::EnvironmentResponse>) -> Self {
++    pub fn set_environment(mut self, input: ::std::option::Option<super::super::types::EnvironmentResponse>) -> Self {
          self.environment = input;
          self
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
 -    pub fn get_environment(&self) -> &::std::option::Option<crate::types::EnvironmentResponse> {
-+    pub fn get_environment(&self) -> &::std::option::Option<super::types::EnvironmentResponse> {
++    pub fn get_environment(&self) -> &::std::option::Option<super::super::types::EnvironmentResponse> {
          &self.environment
      }
      /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:</p>
@@ -396,19 +396,19 @@
      }
      /// <p>The function's X-Ray tracing configuration.</p>
 -    pub fn tracing_config(mut self, input: crate::types::TracingConfigResponse) -> Self {
-+    pub fn tracing_config(mut self, input: super::types::TracingConfigResponse) -> Self {
++    pub fn tracing_config(mut self, input: super::super::types::TracingConfigResponse) -> Self {
          self.tracing_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The function's X-Ray tracing configuration.</p>
 -    pub fn set_tracing_config(mut self, input: ::std::option::Option<crate::types::TracingConfigResponse>) -> Self {
-+    pub fn set_tracing_config(mut self, input: ::std::option::Option<super::types::TracingConfigResponse>) -> Self {
++    pub fn set_tracing_config(mut self, input: ::std::option::Option<super::super::types::TracingConfigResponse>) -> Self {
          self.tracing_config = input;
          self
      }
      /// <p>The function's X-Ray tracing configuration.</p>
 -    pub fn get_tracing_config(&self) -> &::std::option::Option<crate::types::TracingConfigResponse> {
-+    pub fn get_tracing_config(&self) -> &::std::option::Option<super::types::TracingConfigResponse> {
++    pub fn get_tracing_config(&self) -> &::std::option::Option<super::super::types::TracingConfigResponse> {
          &self.tracing_config
      }
      /// <p>For Lambda@Edge functions, the ARN of the main function.</p>
@@ -417,7 +417,7 @@
      ///
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
 -    pub fn layers(mut self, input: crate::types::Layer) -> Self {
-+    pub fn layers(mut self, input: super::types::Layer) -> Self {
++    pub fn layers(mut self, input: super::super::types::Layer) -> Self {
          let mut v = self.layers.unwrap_or_default();
          v.push(input);
          self.layers = ::std::option::Option::Some(v);
@@ -426,30 +426,30 @@
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
 -    pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Layer>>) -> Self {
-+    pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Layer>>) -> Self {
++    pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::Layer>>) -> Self {
          self.layers = input;
          self
      }
      /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
 -    pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Layer>> {
-+    pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Layer>> {
++    pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::Layer>> {
          &self.layers
      }
      /// <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
 -    pub fn state(mut self, input: crate::types::State) -> Self {
-+    pub fn state(mut self, input: super::types::State) -> Self {
++    pub fn state(mut self, input: super::super::types::State) -> Self {
          self.state = ::std::option::Option::Some(input);
          self
      }
      /// <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
 -    pub fn set_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
-+    pub fn set_state(mut self, input: ::std::option::Option<super::types::State>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::super::types::State>) -> Self {
          self.state = input;
          self
      }
      /// <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
 -    pub fn get_state(&self) -> &::std::option::Option<crate::types::State> {
-+    pub fn get_state(&self) -> &::std::option::Option<super::types::State> {
++    pub fn get_state(&self) -> &::std::option::Option<super::super::types::State> {
          &self.state
      }
      /// <p>The reason for the function's current state.</p>
@@ -458,36 +458,36 @@
      }
      /// <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or modify the function.</p>
 -    pub fn state_reason_code(mut self, input: crate::types::StateReasonCode) -> Self {
-+    pub fn state_reason_code(mut self, input: super::types::StateReasonCode) -> Self {
++    pub fn state_reason_code(mut self, input: super::super::types::StateReasonCode) -> Self {
          self.state_reason_code = ::std::option::Option::Some(input);
          self
      }
      /// <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or modify the function.</p>
 -    pub fn set_state_reason_code(mut self, input: ::std::option::Option<crate::types::StateReasonCode>) -> Self {
-+    pub fn set_state_reason_code(mut self, input: ::std::option::Option<super::types::StateReasonCode>) -> Self {
++    pub fn set_state_reason_code(mut self, input: ::std::option::Option<super::super::types::StateReasonCode>) -> Self {
          self.state_reason_code = input;
          self
      }
      /// <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or modify the function.</p>
 -    pub fn get_state_reason_code(&self) -> &::std::option::Option<crate::types::StateReasonCode> {
-+    pub fn get_state_reason_code(&self) -> &::std::option::Option<super::types::StateReasonCode> {
++    pub fn get_state_reason_code(&self) -> &::std::option::Option<super::super::types::StateReasonCode> {
          &self.state_reason_code
      }
      /// <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code> after function creation completes.</p>
 -    pub fn last_update_status(mut self, input: crate::types::LastUpdateStatus) -> Self {
-+    pub fn last_update_status(mut self, input: super::types::LastUpdateStatus) -> Self {
++    pub fn last_update_status(mut self, input: super::super::types::LastUpdateStatus) -> Self {
          self.last_update_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code> after function creation completes.</p>
 -    pub fn set_last_update_status(mut self, input: ::std::option::Option<crate::types::LastUpdateStatus>) -> Self {
-+    pub fn set_last_update_status(mut self, input: ::std::option::Option<super::types::LastUpdateStatus>) -> Self {
++    pub fn set_last_update_status(mut self, input: ::std::option::Option<super::super::types::LastUpdateStatus>) -> Self {
          self.last_update_status = input;
          self
      }
      /// <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code> after function creation completes.</p>
 -    pub fn get_last_update_status(&self) -> &::std::option::Option<crate::types::LastUpdateStatus> {
-+    pub fn get_last_update_status(&self) -> &::std::option::Option<super::types::LastUpdateStatus> {
++    pub fn get_last_update_status(&self) -> &::std::option::Option<super::super::types::LastUpdateStatus> {
          &self.last_update_status
      }
      /// <p>The reason for the last update that was performed on the function.</p>
@@ -496,19 +496,19 @@
      }
      /// <p>The reason code for the last update that was performed on the function.</p>
 -    pub fn last_update_status_reason_code(mut self, input: crate::types::LastUpdateStatusReasonCode) -> Self {
-+    pub fn last_update_status_reason_code(mut self, input: super::types::LastUpdateStatusReasonCode) -> Self {
++    pub fn last_update_status_reason_code(mut self, input: super::super::types::LastUpdateStatusReasonCode) -> Self {
          self.last_update_status_reason_code = ::std::option::Option::Some(input);
          self
      }
      /// <p>The reason code for the last update that was performed on the function.</p>
 -    pub fn set_last_update_status_reason_code(mut self, input: ::std::option::Option<crate::types::LastUpdateStatusReasonCode>) -> Self {
-+    pub fn set_last_update_status_reason_code(mut self, input: ::std::option::Option<super::types::LastUpdateStatusReasonCode>) -> Self {
++    pub fn set_last_update_status_reason_code(mut self, input: ::std::option::Option<super::super::types::LastUpdateStatusReasonCode>) -> Self {
          self.last_update_status_reason_code = input;
          self
      }
      /// <p>The reason code for the last update that was performed on the function.</p>
 -    pub fn get_last_update_status_reason_code(&self) -> &::std::option::Option<crate::types::LastUpdateStatusReasonCode> {
-+    pub fn get_last_update_status_reason_code(&self) -> &::std::option::Option<super::types::LastUpdateStatusReasonCode> {
++    pub fn get_last_update_status_reason_code(&self) -> &::std::option::Option<super::super::types::LastUpdateStatusReasonCode> {
          &self.last_update_status_reason_code
      }
      /// Appends an item to `file_system_configs`.
@@ -517,7 +517,7 @@
      ///
      /// <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
 -    pub fn file_system_configs(mut self, input: crate::types::FileSystemConfig) -> Self {
-+    pub fn file_system_configs(mut self, input: super::types::FileSystemConfig) -> Self {
++    pub fn file_system_configs(mut self, input: super::super::types::FileSystemConfig) -> Self {
          let mut v = self.file_system_configs.unwrap_or_default();
          v.push(input);
          self.file_system_configs = ::std::option::Option::Some(v);
@@ -526,13 +526,13 @@
      }
      /// <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
 -    pub fn set_file_system_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>) -> Self {
-+    pub fn set_file_system_configs(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FileSystemConfig>>) -> Self {
++    pub fn set_file_system_configs(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::FileSystemConfig>>) -> Self {
          self.file_system_configs = input;
          self
      }
      /// <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
 -    pub fn get_file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>> {
-+    pub fn get_file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FileSystemConfig>> {
++    pub fn get_file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::FileSystemConfig>> {
          &self.file_system_configs
      }
      /// <p>The ARN of the signing profile version.</p>
@@ -541,36 +541,36 @@
      }
      /// <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
 -    pub fn package_type(mut self, input: crate::types::PackageType) -> Self {
-+    pub fn package_type(mut self, input: super::types::PackageType) -> Self {
++    pub fn package_type(mut self, input: super::super::types::PackageType) -> Self {
          self.package_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
 -    pub fn set_package_type(mut self, input: ::std::option::Option<crate::types::PackageType>) -> Self {
-+    pub fn set_package_type(mut self, input: ::std::option::Option<super::types::PackageType>) -> Self {
++    pub fn set_package_type(mut self, input: ::std::option::Option<super::super::types::PackageType>) -> Self {
          self.package_type = input;
          self
      }
      /// <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
 -    pub fn get_package_type(&self) -> &::std::option::Option<crate::types::PackageType> {
-+    pub fn get_package_type(&self) -> &::std::option::Option<super::types::PackageType> {
++    pub fn get_package_type(&self) -> &::std::option::Option<super::super::types::PackageType> {
          &self.package_type
      }
      /// <p>The function's image configuration values.</p>
 -    pub fn image_config_response(mut self, input: crate::types::ImageConfigResponse) -> Self {
-+    pub fn image_config_response(mut self, input: super::types::ImageConfigResponse) -> Self {
++    pub fn image_config_response(mut self, input: super::super::types::ImageConfigResponse) -> Self {
          self.image_config_response = ::std::option::Option::Some(input);
          self
      }
      /// <p>The function's image configuration values.</p>
 -    pub fn set_image_config_response(mut self, input: ::std::option::Option<crate::types::ImageConfigResponse>) -> Self {
-+    pub fn set_image_config_response(mut self, input: ::std::option::Option<super::types::ImageConfigResponse>) -> Self {
++    pub fn set_image_config_response(mut self, input: ::std::option::Option<super::super::types::ImageConfigResponse>) -> Self {
          self.image_config_response = input;
          self
      }
      /// <p>The function's image configuration values.</p>
 -    pub fn get_image_config_response(&self) -> &::std::option::Option<crate::types::ImageConfigResponse> {
-+    pub fn get_image_config_response(&self) -> &::std::option::Option<super::types::ImageConfigResponse> {
++    pub fn get_image_config_response(&self) -> &::std::option::Option<super::super::types::ImageConfigResponse> {
          &self.image_config_response
      }
      /// Appends an item to `architectures`.
@@ -579,7 +579,7 @@
      ///
      /// <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
 -    pub fn architectures(mut self, input: crate::types::Architecture) -> Self {
-+    pub fn architectures(mut self, input: super::types::Architecture) -> Self {
++    pub fn architectures(mut self, input: super::super::types::Architecture) -> Self {
          let mut v = self.architectures.unwrap_or_default();
          v.push(input);
          self.architectures = ::std::option::Option::Some(v);
@@ -588,115 +588,115 @@
      }
      /// <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
 -    pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
-+    pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>) -> Self {
++    pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::Architecture>>) -> Self {
          self.architectures = input;
          self
      }
      /// <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
 -    pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
-+    pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Architecture>> {
++    pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::Architecture>> {
          &self.architectures
      }
      /// <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
 -    pub fn ephemeral_storage(mut self, input: crate::types::EphemeralStorage) -> Self {
-+    pub fn ephemeral_storage(mut self, input: super::types::EphemeralStorage) -> Self {
++    pub fn ephemeral_storage(mut self, input: super::super::types::EphemeralStorage) -> Self {
          self.ephemeral_storage = ::std::option::Option::Some(input);
          self
      }
      /// <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
 -    pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<crate::types::EphemeralStorage>) -> Self {
-+    pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<super::types::EphemeralStorage>) -> Self {
++    pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<super::super::types::EphemeralStorage>) -> Self {
          self.ephemeral_storage = input;
          self
      }
      /// <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
 -    pub fn get_ephemeral_storage(&self) -> &::std::option::Option<crate::types::EphemeralStorage> {
-+    pub fn get_ephemeral_storage(&self) -> &::std::option::Option<super::types::EphemeralStorage> {
++    pub fn get_ephemeral_storage(&self) -> &::std::option::Option<super::super::types::EphemeralStorage> {
          &self.ephemeral_storage
      }
      /// <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
 -    pub fn snap_start(mut self, input: crate::types::SnapStartResponse) -> Self {
-+    pub fn snap_start(mut self, input: super::types::SnapStartResponse) -> Self {
++    pub fn snap_start(mut self, input: super::super::types::SnapStartResponse) -> Self {
          self.snap_start = ::std::option::Option::Some(input);
          self
      }
      /// <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
 -    pub fn set_snap_start(mut self, input: ::std::option::Option<crate::types::SnapStartResponse>) -> Self {
-+    pub fn set_snap_start(mut self, input: ::std::option::Option<super::types::SnapStartResponse>) -> Self {
++    pub fn set_snap_start(mut self, input: ::std::option::Option<super::super::types::SnapStartResponse>) -> Self {
          self.snap_start = input;
          self
      }
      /// <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
 -    pub fn get_snap_start(&self) -> &::std::option::Option<crate::types::SnapStartResponse> {
-+    pub fn get_snap_start(&self) -> &::std::option::Option<super::types::SnapStartResponse> {
++    pub fn get_snap_start(&self) -> &::std::option::Option<super::super::types::SnapStartResponse> {
          &self.snap_start
      }
      /// <p>The ARN of the runtime and any errors that occured.</p>
 -    pub fn runtime_version_config(mut self, input: crate::types::RuntimeVersionConfig) -> Self {
-+    pub fn runtime_version_config(mut self, input: super::types::RuntimeVersionConfig) -> Self {
++    pub fn runtime_version_config(mut self, input: super::super::types::RuntimeVersionConfig) -> Self {
          self.runtime_version_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The ARN of the runtime and any errors that occured.</p>
 -    pub fn set_runtime_version_config(mut self, input: ::std::option::Option<crate::types::RuntimeVersionConfig>) -> Self {
-+    pub fn set_runtime_version_config(mut self, input: ::std::option::Option<super::types::RuntimeVersionConfig>) -> Self {
++    pub fn set_runtime_version_config(mut self, input: ::std::option::Option<super::super::types::RuntimeVersionConfig>) -> Self {
          self.runtime_version_config = input;
          self
      }
      /// <p>The ARN of the runtime and any errors that occured.</p>
 -    pub fn get_runtime_version_config(&self) -> &::std::option::Option<crate::types::RuntimeVersionConfig> {
-+    pub fn get_runtime_version_config(&self) -> &::std::option::Option<super::types::RuntimeVersionConfig> {
++    pub fn get_runtime_version_config(&self) -> &::std::option::Option<super::super::types::RuntimeVersionConfig> {
          &self.runtime_version_config
      }
      /// <p>The function's Amazon CloudWatch Logs configuration settings.</p>
 -    pub fn logging_config(mut self, input: crate::types::LoggingConfig) -> Self {
-+    pub fn logging_config(mut self, input: super::types::LoggingConfig) -> Self {
++    pub fn logging_config(mut self, input: super::super::types::LoggingConfig) -> Self {
          self.logging_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The function's Amazon CloudWatch Logs configuration settings.</p>
 -    pub fn set_logging_config(mut self, input: ::std::option::Option<crate::types::LoggingConfig>) -> Self {
-+    pub fn set_logging_config(mut self, input: ::std::option::Option<super::types::LoggingConfig>) -> Self {
++    pub fn set_logging_config(mut self, input: ::std::option::Option<super::super::types::LoggingConfig>) -> Self {
          self.logging_config = input;
          self
      }
      /// <p>The function's Amazon CloudWatch Logs configuration settings.</p>
 -    pub fn get_logging_config(&self) -> &::std::option::Option<crate::types::LoggingConfig> {
-+    pub fn get_logging_config(&self) -> &::std::option::Option<super::types::LoggingConfig> {
++    pub fn get_logging_config(&self) -> &::std::option::Option<super::super::types::LoggingConfig> {
          &self.logging_config
      }
      /// <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
 -    pub fn tenancy_config(mut self, input: crate::types::TenancyConfig) -> Self {
-+    pub fn tenancy_config(mut self, input: super::types::TenancyConfig) -> Self {
++    pub fn tenancy_config(mut self, input: super::super::types::TenancyConfig) -> Self {
          self.tenancy_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
 -    pub fn set_tenancy_config(mut self, input: ::std::option::Option<crate::types::TenancyConfig>) -> Self {
-+    pub fn set_tenancy_config(mut self, input: ::std::option::Option<super::types::TenancyConfig>) -> Self {
++    pub fn set_tenancy_config(mut self, input: ::std::option::Option<super::super::types::TenancyConfig>) -> Self {
          self.tenancy_config = input;
          self
      }
      /// <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
 -    pub fn get_tenancy_config(&self) -> &::std::option::Option<crate::types::TenancyConfig> {
-+    pub fn get_tenancy_config(&self) -> &::std::option::Option<super::types::TenancyConfig> {
++    pub fn get_tenancy_config(&self) -> &::std::option::Option<super::super::types::TenancyConfig> {
          &self.tenancy_config
      }
      /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
 -    pub fn capacity_provider_config(mut self, input: crate::types::CapacityProviderConfig) -> Self {
-+    pub fn capacity_provider_config(mut self, input: super::types::CapacityProviderConfig) -> Self {
++    pub fn capacity_provider_config(mut self, input: super::super::types::CapacityProviderConfig) -> Self {
          self.capacity_provider_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
 -    pub fn set_capacity_provider_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderConfig>) -> Self {
-+    pub fn set_capacity_provider_config(mut self, input: ::std::option::Option<super::types::CapacityProviderConfig>) -> Self {
++    pub fn set_capacity_provider_config(mut self, input: ::std::option::Option<super::super::types::CapacityProviderConfig>) -> Self {
          self.capacity_provider_config = input;
          self
      }
      /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
 -    pub fn get_capacity_provider_config(&self) -> &::std::option::Option<crate::types::CapacityProviderConfig> {
-+    pub fn get_capacity_provider_config(&self) -> &::std::option::Option<super::types::CapacityProviderConfig> {
++    pub fn get_capacity_provider_config(&self) -> &::std::option::Option<super::super::types::CapacityProviderConfig> {
          &self.capacity_provider_config
      }
      /// <p>The SHA256 hash of the function configuration.</p>
@@ -705,26 +705,26 @@
      }
      /// <p>The function's durable execution configuration settings, if the function is configured for durability.</p>
 -    pub fn durable_config(mut self, input: crate::types::DurableConfig) -> Self {
-+    pub fn durable_config(mut self, input: super::types::DurableConfig) -> Self {
++    pub fn durable_config(mut self, input: super::super::types::DurableConfig) -> Self {
          self.durable_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The function's durable execution configuration settings, if the function is configured for durability.</p>
 -    pub fn set_durable_config(mut self, input: ::std::option::Option<crate::types::DurableConfig>) -> Self {
-+    pub fn set_durable_config(mut self, input: ::std::option::Option<super::types::DurableConfig>) -> Self {
++    pub fn set_durable_config(mut self, input: ::std::option::Option<super::super::types::DurableConfig>) -> Self {
          self.durable_config = input;
          self
      }
      /// <p>The function's durable execution configuration settings, if the function is configured for durability.</p>
 -    pub fn get_durable_config(&self) -> &::std::option::Option<crate::types::DurableConfig> {
-+    pub fn get_durable_config(&self) -> &::std::option::Option<super::types::DurableConfig> {
++    pub fn get_durable_config(&self) -> &::std::option::Option<super::super::types::DurableConfig> {
          &self.durable_config
      }
      /// Consumes the builder and constructs a [`FunctionConfiguration`](crate::types::FunctionConfiguration).
 -    pub fn build(self) -> crate::types::FunctionConfiguration {
 -        crate::types::FunctionConfiguration {
-+    pub fn build(self) -> super::types::FunctionConfiguration {
-+        super::types::FunctionConfiguration {
++    pub fn build(self) -> super::super::types::FunctionConfiguration {
++        super::super::types::FunctionConfiguration {
              function_name: self.function_name,
              function_arn: self.function_arn,
              runtime: self.runtime,

@@ -6,14 +6,14 @@
  ) -> std::result::Result<
 -    crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput,
 -    crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError,
-+    super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput,
-+    super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError,
++    super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput,
++    super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
@@ -22,7 +22,7 @@
          None => {
              return Err(
 -                crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled(
-+                super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled(
++                super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled(
                      generic,
                  ),
              )
@@ -31,15 +31,15 @@
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InvalidLimitException" => crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::InvalidLimitException({
-+        "InvalidLimitException" => super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::InvalidLimitException({
++        "InvalidLimitException" => super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::InvalidLimitException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidLimitExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output).map_err(crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidLimitExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output).map_err(super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output).map_err(super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -48,15 +48,15 @@
              tmp
          }),
 -        "InvalidNextTokenException" => crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::InvalidNextTokenException({
-+        "InvalidNextTokenException" => super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::InvalidNextTokenException({
++        "InvalidNextTokenException" => super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::InvalidNextTokenException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidNextTokenExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output).map_err(crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output).map_err(super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output).map_err(super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -65,15 +65,15 @@
              tmp
          }),
 -        "InvalidParameterValueException" => crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::InvalidParameterValueException({
-+        "InvalidParameterValueException" => super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::InvalidParameterValueException({
++        "InvalidParameterValueException" => super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::InvalidParameterValueException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(_response_body, output).map_err(crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
-+                    let mut output = super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(_response_body, output).map_err(super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(_response_body, output).map_err(super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -82,15 +82,15 @@
              tmp
          }),
 -        "NoSuchConfigurationAggregatorException" => crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::NoSuchConfigurationAggregatorException({
-+        "NoSuchConfigurationAggregatorException" => super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::NoSuchConfigurationAggregatorException({
++        "NoSuchConfigurationAggregatorException" => super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::NoSuchConfigurationAggregatorException({
              #[allow(unused_mut)]
              let mut tmp =
                   {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
-+                    let mut output = super::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
++                    let mut output = super::super::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  }
@@ -99,7 +99,7 @@
              tmp
          }),
 -        _ => crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::generic(generic)
-+        _ => super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::generic(generic)
++        _ => super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::generic(generic)
      })
  }
 
@@ -109,20 +109,20 @@
  ) -> std::result::Result<
 -    crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput,
 -    crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError,
-+    super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput,
-+    super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError,
++    super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput,
++    super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder::default();
 -        output = crate::protocol_serde::shape_describe_configuration_aggregator_sources_status::de_describe_configuration_aggregator_sources_status(
-+        let mut output = super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder::default();
-+        output = super::protocol_serde::shape_describe_configuration_aggregator_sources_status::de_describe_configuration_aggregator_sources_status(
++        let mut output = super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder::default();
++        output = super::super::protocol_serde::shape_describe_configuration_aggregator_sources_status::de_describe_configuration_aggregator_sources_status(
              _response_body,
              output,
          )
 -        .map_err(crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
-+        .map_err(super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
++        .map_err(super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -131,12 +131,12 @@
 
  pub fn ser_describe_configuration_aggregator_sources_status_input(
 -    input: &crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput,
-+    input: &super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput,
++    input: &super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_describe_configuration_aggregator_sources_status_input::ser_describe_configuration_aggregator_sources_status_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_describe_configuration_aggregator_sources_status_input::ser_describe_configuration_aggregator_sources_status_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_describe_configuration_aggregator_sources_status_input::ser_describe_configuration_aggregator_sources_status_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -145,14 +145,14 @@
  pub(crate) fn de_describe_configuration_aggregator_sources_status(
      _value: &[u8],
 -    mut builder: crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder,
-+    mut builder: super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder,
++    mut builder: super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder,
-+    super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder,
++    super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -161,7 +161,7 @@
                  "AggregatedSourceStatusList" => {
                      builder = builder.set_aggregated_source_status_list(
 -                        crate::protocol_serde::shape_aggregated_source_status_list::de_aggregated_source_status_list(tokens, _value, depth + 1)?,
-+                        super::protocol_serde::shape_aggregated_source_status_list::de_aggregated_source_status_list(tokens, _value, depth + 1)?,
++                        super::super::protocol_serde::shape_aggregated_source_status_list::de_aggregated_source_status_list(tokens, _value, depth + 1)?,
                      );
                  }
                  "NextToken" => {

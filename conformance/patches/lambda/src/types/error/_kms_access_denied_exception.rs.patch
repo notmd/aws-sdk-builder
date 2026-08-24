@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for KmsAccessDeniedException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::KmsAccessDeniedException {
-+impl ::aws_types::request_id::RequestId for super::types::error::KmsAccessDeniedException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::KmsAccessDeniedException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`KmsAccessDeniedException`](crate::types::error::KmsAccessDeniedException).
 -    pub fn builder() -> crate::types::error::builders::KmsAccessDeniedExceptionBuilder {
 -        crate::types::error::builders::KmsAccessDeniedExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::KmsAccessDeniedExceptionBuilder {
-+        super::types::error::builders::KmsAccessDeniedExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::KmsAccessDeniedExceptionBuilder {
++        super::super::super::types::error::builders::KmsAccessDeniedExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`KmsAccessDeniedException`](crate::types::error::KmsAccessDeniedException).
 -    pub fn build(self) -> crate::types::error::KmsAccessDeniedException {
 -        crate::types::error::KmsAccessDeniedException {
-+    pub fn build(self) -> super::types::error::KmsAccessDeniedException {
-+        super::types::error::KmsAccessDeniedException {
++    pub fn build(self) -> super::super::super::types::error::KmsAccessDeniedException {
++        super::super::super::types::error::KmsAccessDeniedException {
              r#type: self.r#type,
              message: self.message,
              meta: self.meta.unwrap_or_default(),

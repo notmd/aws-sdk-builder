@@ -25,6 +25,7 @@ aws-sdk-builder-sns = { path = "../aws-sdk-builder-sns" }
 aws-sdk-builder-sqs = { path = "../aws-sdk-builder-sqs" }
 aws-sdk-builder-sts = { path = "../aws-sdk-builder-sts" }
 diffy = { version = "0.5.1", features = ["std"] }
+quote = "1"
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["preserve_order"] }
 syn = { version = "3", features = ["full", "parsing", "visit"] }

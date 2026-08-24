@@ -5,7 +5,7 @@
  pub fn ser_global_secondary_index(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::GlobalSecondaryIndex,
-+    input: &super::types::GlobalSecondaryIndex,
++    input: &super::super::types::GlobalSecondaryIndex,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("IndexName").string(input.index_name.as_str());
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_3 = array_1.value().start_object();
 -                crate::protocol_serde::shape_key_schema_element::ser_key_schema_element(&mut object_3, item_2)?;
-+                super::protocol_serde::shape_key_schema_element::ser_key_schema_element(&mut object_3, item_2)?;
++                super::super::protocol_serde::shape_key_schema_element::ser_key_schema_element(&mut object_3, item_2)?;
                  object_3.finish();
              }
          }
@@ -23,28 +23,28 @@
          #[allow(unused_mut)]
          let mut object_5 = object.key("Projection").start_object();
 -        crate::protocol_serde::shape_projection::ser_projection(&mut object_5, var_4)?;
-+        super::protocol_serde::shape_projection::ser_projection(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_projection::ser_projection(&mut object_5, var_4)?;
          object_5.finish();
      }
      if let Some(var_6) = &input.provisioned_throughput {
          #[allow(unused_mut)]
          let mut object_7 = object.key("ProvisionedThroughput").start_object();
 -        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(&mut object_7, var_6)?;
-+        super::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(&mut object_7, var_6)?;
++        super::super::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(&mut object_7, var_6)?;
          object_7.finish();
      }
      if let Some(var_8) = &input.on_demand_throughput {
          #[allow(unused_mut)]
          let mut object_9 = object.key("OnDemandThroughput").start_object();
 -        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(&mut object_9, var_8)?;
-+        super::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(&mut object_9, var_8)?;
++        super::super::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(&mut object_9, var_8)?;
          object_9.finish();
      }
      if let Some(var_10) = &input.warm_throughput {
          #[allow(unused_mut)]
          let mut object_11 = object.key("WarmThroughput").start_object();
 -        crate::protocol_serde::shape_warm_throughput::ser_warm_throughput(&mut object_11, var_10)?;
-+        super::protocol_serde::shape_warm_throughput::ser_warm_throughput(&mut object_11, var_10)?;
++        super::super::protocol_serde::shape_warm_throughput::ser_warm_throughput(&mut object_11, var_10)?;
          object_11.finish();
      }
      Ok(())
@@ -53,7 +53,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::GlobalSecondaryIndex>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::GlobalSecondaryIndex>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::GlobalSecondaryIndex>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -62,7 +62,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::GlobalSecondaryIndexBuilder::default();
-+            let mut builder = super::types::builders::GlobalSecondaryIndexBuilder::default();
++            let mut builder = super::super::types::builders::GlobalSecondaryIndexBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -71,27 +71,27 @@
                              }
                              "KeySchema" => {
 -                                builder = builder.set_key_schema(crate::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
-+                                builder = builder.set_key_schema(super::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
++                                builder = builder.set_key_schema(super::super::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
                              }
                              "Projection" => {
 -                                builder = builder.set_projection(crate::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?);
-+                                builder = builder.set_projection(super::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?);
++                                builder = builder.set_projection(super::super::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?);
                              }
                              "ProvisionedThroughput" => {
                                  builder = builder.set_provisioned_throughput(
 -                                    crate::protocol_serde::shape_provisioned_throughput::de_provisioned_throughput(tokens, _value, depth + 1)?,
-+                                    super::protocol_serde::shape_provisioned_throughput::de_provisioned_throughput(tokens, _value, depth + 1)?,
++                                    super::super::protocol_serde::shape_provisioned_throughput::de_provisioned_throughput(tokens, _value, depth + 1)?,
                                  );
                              }
                              "OnDemandThroughput" => {
                                  builder = builder.set_on_demand_throughput(
 -                                    crate::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(tokens, _value, depth + 1)?,
-+                                    super::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(tokens, _value, depth + 1)?,
++                                    super::super::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(tokens, _value, depth + 1)?,
                                  );
                              }
                              "WarmThroughput" => {
 -                                builder = builder.set_warm_throughput(crate::protocol_serde::shape_warm_throughput::de_warm_throughput(
-+                                builder = builder.set_warm_throughput(super::protocol_serde::shape_warm_throughput::de_warm_throughput(
++                                builder = builder.set_warm_throughput(super::super::protocol_serde::shape_warm_throughput::de_warm_throughput(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -100,7 +100,7 @@
                  }
              }
 -            Ok(Some(crate::serde_util::global_secondary_index_correct_errors(builder).build().map_err(
-+            Ok(Some(super::serde_util::global_secondary_index_correct_errors(builder).build().map_err(
++            Ok(Some(super::super::serde_util::global_secondary_index_correct_errors(builder).build().map_err(
                  |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
              )?))
          }

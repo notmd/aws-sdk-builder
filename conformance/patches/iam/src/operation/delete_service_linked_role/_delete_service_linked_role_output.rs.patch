@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteServiceLinkedRoleOutput`](crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput).
 -    pub fn builder() -> crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleOutputBuilder {
 -        crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleOutputBuilder {
-+        super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleOutputBuilder {
++        super::super::super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleOutputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput,
-+        super::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput,
++        super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput {
-+        ::std::result::Result::Ok(super::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput {
              deletion_task_id: self.deletion_task_id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "deletion_task_id",

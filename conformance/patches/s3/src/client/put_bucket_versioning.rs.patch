@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutBucketVersioningError>`](crate::operation::put_bucket_versioning::PutBucketVersioningError)
 -    pub fn put_bucket_versioning(&self) -> crate::operation::put_bucket_versioning::builders::PutBucketVersioningFluentBuilder {
 -        crate::operation::put_bucket_versioning::builders::PutBucketVersioningFluentBuilder::new(self.handle.clone())
-+    pub fn put_bucket_versioning(&self) -> super::operation::put_bucket_versioning::builders::PutBucketVersioningFluentBuilder {
-+        super::operation::put_bucket_versioning::builders::PutBucketVersioningFluentBuilder::new(self.handle.clone())
++    pub fn put_bucket_versioning(&self) -> super::super::operation::put_bucket_versioning::builders::PutBucketVersioningFluentBuilder {
++        super::super::operation::put_bucket_versioning::builders::PutBucketVersioningFluentBuilder::new(self.handle.clone())
      }
  }

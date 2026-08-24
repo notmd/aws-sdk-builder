@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::VirtualMfaDevice, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::VirtualMfaDevice, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::VirtualMfaDevice, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::VirtualMfaDevice::builder();
-+    let mut builder = super::types::VirtualMfaDevice::builder();
++    let mut builder = super::super::types::VirtualMfaDevice::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("SerialNumber") /* SerialNumber com.amazonaws.iam#VirtualMFADevice$SerialNumber */ =>  {
@@ -20,7 +20,7 @@
                  let var_4 =
                      Some(
 -                        crate::protocol_serde::shape_user::de_user(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_user::de_user(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_user::de_user(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -29,7 +29,7 @@
                  let var_6 =
                      Some(
 -                        crate::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -38,7 +38,7 @@
          }
      }
 -    Ok(crate::serde_util::virtual_mfa_device_correct_errors(builder)
-+    Ok(super::serde_util::virtual_mfa_device_correct_errors(builder)
++    Ok(super::super::serde_util::virtual_mfa_device_correct_errors(builder)
          .build()
          .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
  }

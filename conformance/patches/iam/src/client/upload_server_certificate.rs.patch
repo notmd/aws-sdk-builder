@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UploadServerCertificateError>`](crate::operation::upload_server_certificate::UploadServerCertificateError)
 -    pub fn upload_server_certificate(&self) -> crate::operation::upload_server_certificate::builders::UploadServerCertificateFluentBuilder {
 -        crate::operation::upload_server_certificate::builders::UploadServerCertificateFluentBuilder::new(self.handle.clone())
-+    pub fn upload_server_certificate(&self) -> super::operation::upload_server_certificate::builders::UploadServerCertificateFluentBuilder {
-+        super::operation::upload_server_certificate::builders::UploadServerCertificateFluentBuilder::new(self.handle.clone())
++    pub fn upload_server_certificate(&self) -> super::super::operation::upload_server_certificate::builders::UploadServerCertificateFluentBuilder {
++        super::super::operation::upload_server_certificate::builders::UploadServerCertificateFluentBuilder::new(self.handle.clone())
      }
  }

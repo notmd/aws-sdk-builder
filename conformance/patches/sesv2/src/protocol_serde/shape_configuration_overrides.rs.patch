@@ -5,13 +5,13 @@
  pub fn ser_configuration_overrides(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ConfigurationOverrides,
-+    input: &super::types::ConfigurationOverrides,
++    input: &super::super::types::ConfigurationOverrides,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.tracking {
          #[allow(unused_mut)]
          let mut object_2 = object.key("Tracking").start_object();
 -        crate::protocol_serde::shape_tracking_configuration_overrides::ser_tracking_configuration_overrides(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_tracking_configuration_overrides::ser_tracking_configuration_overrides(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_tracking_configuration_overrides::ser_tracking_configuration_overrides(&mut object_2, var_1)?;
          object_2.finish();
      }
      Ok(())

@@ -6,8 +6,8 @@
  pub struct DescribeRemediationExceptionsPaginator {
 -    handle: std::sync::Arc<crate::client::Handle>,
 -    builder: crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder,
-+    handle: std::sync::Arc<super::client::Handle>,
-+    builder: super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder,
++    handle: std::sync::Arc<super::super::super::client::Handle>,
++    builder: super::super::super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder,
      stop_on_duplicate_token: bool,
  }
 
@@ -17,8 +17,8 @@
      pub(crate) fn new(
 -        handle: std::sync::Arc<crate::client::Handle>,
 -        builder: crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder,
-+        handle: std::sync::Arc<super::client::Handle>,
-+        builder: super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder,
++        handle: std::sync::Arc<super::super::super::client::Handle>,
++        builder: super::super::super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder,
      ) -> Self {
          Self {
              handle,
@@ -27,10 +27,10 @@
      ) -> ::aws_smithy_async::future::pagination_stream::PaginationStream<
          ::std::result::Result<
 -            crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput,
-+            super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput,
++            super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsOutput,
              ::aws_smithy_runtime_api::client::result::SdkError<
 -                crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError,
-+                super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError,
++                super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError,
                  ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
              >,
          >,
@@ -39,13 +39,13 @@
          let builder = self.builder;
          let handle = self.handle;
 -        let runtime_plugins = crate::operation::describe_remediation_exceptions::DescribeRemediationExceptions::operation_runtime_plugins(
-+        let runtime_plugins = super::operation::describe_remediation_exceptions::DescribeRemediationExceptions::operation_runtime_plugins(
++        let runtime_plugins = super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptions::operation_runtime_plugins(
              handle.runtime_plugins.clone(),
              &handle.conf,
              ::std::option::Option::None,
          )
 -        .with_operation_plugin(crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
-+        .with_operation_plugin(super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
++        .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
          ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
              move |tx| {
                  ::std::boxed::Box::pin(async move {
@@ -54,7 +54,7 @@
                      };
                      loop {
 -                        let resp = crate::operation::describe_remediation_exceptions::DescribeRemediationExceptions::orchestrate(
-+                        let resp = super::operation::describe_remediation_exceptions::DescribeRemediationExceptions::orchestrate(
++                        let resp = super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptions::orchestrate(
                              &runtime_plugins,
                              input.clone(),
                          )
@@ -63,7 +63,7 @@
                          let done = match resp {
                              ::std::result::Result::Ok(ref resp) => {
 -                                let new_token = crate::lens::reflens_describe_remediation_exceptions_output_output_next_token(resp);
-+                                let new_token = super::lens::reflens_describe_remediation_exceptions_output_output_next_token(resp);
++                                let new_token = super::super::super::lens::reflens_describe_remediation_exceptions_output_output_next_token(resp);
                                  // Pagination is exhausted when the next token is an empty string
                                  let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                  if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {

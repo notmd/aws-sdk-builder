@@ -5,13 +5,13 @@
  pub fn ser_bulk_email_entry(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::BulkEmailEntry,
-+    input: &super::types::BulkEmailEntry,
++    input: &super::super::types::BulkEmailEntry,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.destination {
          #[allow(unused_mut)]
          let mut object_2 = object.key("Destination").start_object();
 -        crate::protocol_serde::shape_destination::ser_destination(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_destination::ser_destination(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_destination::ser_destination(&mut object_2, var_1)?;
          object_2.finish();
      }
      if let Some(var_3) = &input.replacement_tags {
@@ -20,7 +20,7 @@
                  #[allow(unused_mut)]
                  let mut object_6 = array_4.value().start_object();
 -                crate::protocol_serde::shape_message_tag::ser_message_tag(&mut object_6, item_5)?;
-+                super::protocol_serde::shape_message_tag::ser_message_tag(&mut object_6, item_5)?;
++                super::super::protocol_serde::shape_message_tag::ser_message_tag(&mut object_6, item_5)?;
                  object_6.finish();
              }
          }
@@ -29,7 +29,7 @@
          #[allow(unused_mut)]
          let mut object_8 = object.key("ReplacementEmailContent").start_object();
 -        crate::protocol_serde::shape_replacement_email_content::ser_replacement_email_content(&mut object_8, var_7)?;
-+        super::protocol_serde::shape_replacement_email_content::ser_replacement_email_content(&mut object_8, var_7)?;
++        super::super::protocol_serde::shape_replacement_email_content::ser_replacement_email_content(&mut object_8, var_7)?;
          object_8.finish();
      }
      if let Some(var_9) = &input.replacement_headers {
@@ -38,7 +38,7 @@
                  #[allow(unused_mut)]
                  let mut object_12 = array_10.value().start_object();
 -                crate::protocol_serde::shape_message_header::ser_message_header(&mut object_12, item_11)?;
-+                super::protocol_serde::shape_message_header::ser_message_header(&mut object_12, item_11)?;
++                super::super::protocol_serde::shape_message_header::ser_message_header(&mut object_12, item_11)?;
                  object_12.finish();
              }
          }

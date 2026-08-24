@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListImportsInput`](crate::operation::list_imports::ListImportsInput).
 -    pub fn builder() -> crate::operation::list_imports::builders::ListImportsInputBuilder {
 -        crate::operation::list_imports::builders::ListImportsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_imports::builders::ListImportsInputBuilder {
-+        super::operation::list_imports::builders::ListImportsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_imports::builders::ListImportsInputBuilder {
++        super::super::super::operation::list_imports::builders::ListImportsInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ListImportsInput`](crate::operation::list_imports::ListImportsInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::list_imports::ListImportsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_imports::ListImportsInput {
-+    pub fn build(self) -> ::std::result::Result<super::operation::list_imports::ListImportsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_imports::ListImportsInput {
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_imports::ListImportsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_imports::ListImportsInput {
              table_arn: self.table_arn,
              page_size: self.page_size,
              next_token: self.next_token,

@@ -5,7 +5,7 @@
  pub fn ser_suppression_condition_threshold(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::SuppressionConditionThreshold,
-+    input: &super::types::SuppressionConditionThreshold,
++    input: &super::super::types::SuppressionConditionThreshold,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("ConditionThresholdEnabled").string(input.condition_threshold_enabled.as_str());
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_2 = object.key("OverallConfidenceThreshold").start_object();
 -        crate::protocol_serde::shape_suppression_confidence_threshold::ser_suppression_confidence_threshold(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_suppression_confidence_threshold::ser_suppression_confidence_threshold(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_suppression_confidence_threshold::ser_suppression_confidence_threshold(&mut object_2, var_1)?;
          object_2.finish();
      }
      Ok(())
@@ -23,7 +23,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::SuppressionConditionThreshold>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::SuppressionConditionThreshold>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::SuppressionConditionThreshold>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -32,7 +32,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::SuppressionConditionThresholdBuilder::default();
-+            let mut builder = super::types::builders::SuppressionConditionThresholdBuilder::default();
++            let mut builder = super::super::types::builders::SuppressionConditionThresholdBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -41,14 +41,14 @@
                              builder = builder.set_condition_threshold_enabled(
                                  ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                    .map(|s| s.to_unescaped().map(|u| crate::types::FeatureStatus::from(u.as_ref())))
-+                                    .map(|s| s.to_unescaped().map(|u| super::types::FeatureStatus::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::super::types::FeatureStatus::from(u.as_ref())))
                                      .transpose()?,
                              );
                          }
                          "OverallConfidenceThreshold" => {
                              builder = builder.set_overall_confidence_threshold(
 -                                crate::protocol_serde::shape_suppression_confidence_threshold::de_suppression_confidence_threshold(
-+                                super::protocol_serde::shape_suppression_confidence_threshold::de_suppression_confidence_threshold(
++                                super::super::protocol_serde::shape_suppression_confidence_threshold::de_suppression_confidence_threshold(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -57,7 +57,7 @@
              }
              Ok(Some(
 -                crate::serde_util::suppression_condition_threshold_correct_errors(builder)
-+                super::serde_util::suppression_condition_threshold_correct_errors(builder)
++                super::super::serde_util::suppression_condition_threshold_correct_errors(builder)
                      .build()
                      .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))

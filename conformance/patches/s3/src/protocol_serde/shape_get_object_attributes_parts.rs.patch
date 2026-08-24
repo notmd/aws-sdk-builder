@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::GetObjectAttributesParts, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::GetObjectAttributesParts, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::GetObjectAttributesParts, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::GetObjectAttributesParts::builder();
-+    let mut builder = super::types::GetObjectAttributesParts::builder();
++    let mut builder = super::super::types::GetObjectAttributesParts::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("PartsCount") /* TotalPartsCount com.amazonaws.s3#GetObjectAttributesParts$TotalPartsCount */ =>  {
@@ -20,11 +20,11 @@
                  let var_6 =
                      Some(
 -                        Result::<::std::vec::Vec::<crate::types::ObjectPart>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
-+                        Result::<::std::vec::Vec::<super::types::ObjectPart>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
++                        Result::<::std::vec::Vec::<super::super::types::ObjectPart>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                              let mut list_7 = builder.parts.take().unwrap_or_default();
                              list_7.push(
 -                                crate::protocol_serde::shape_object_part::de_object_part(&mut tag, depth + 1)
-+                                super::protocol_serde::shape_object_part::de_object_part(&mut tag, depth + 1)
++                                super::super::protocol_serde::shape_object_part::de_object_part(&mut tag, depth + 1)
                                  ?
                              );
                              list_7

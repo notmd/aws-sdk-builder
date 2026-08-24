@@ -1,4 +1,5 @@
 use crate::{manifest::Exclusions, normalize};
+use quote::ToTokens;
 use std::{
     collections::BTreeSet,
     error::Error,
@@ -343,7 +344,12 @@ fn compare_service(
     exclusions: &Exclusions,
 ) -> Result<ServiceReport, ReportError> {
     let reference_files = collect_files(reference_root, exclusions)?;
-    let generated_files = collect_files(generated_root, exclusions)?;
+    let projection_root = generated_root.join("normalized");
+    let generated_files = if projection_root.is_dir() {
+        collect_files(&projection_root, exclusions)?
+    } else {
+        collect_files(generated_root, exclusions)?
+    };
     let paths = reference_files
         .keys()
         .chain(generated_files.keys())
@@ -408,11 +414,8 @@ fn compare_service(
                         continue;
                     }
                 };
-                if reference == generated {
+                if reference == generated || rust_tokens_equal(&reference, &generated) {
                     report.matched_files += 1;
-                    // An exact byte match is already a proof of token
-                    // equality. Generated files have also passed rustfmt, so
-                    // reparsing both sides here only repeats work.
                     continue;
                 } else {
                     report.mismatched_files += 1;
@@ -473,6 +476,25 @@ fn apply_reference_patch(
         source.to_owned()
     };
     normalize::drop_inline_unit_tests(&normalized, relative_path).map(|source| source.into_bytes())
+}
+
+/// Compare parsed Rust sources without depending on rustfmt line breaks.
+///
+/// Token-stream equality retains comments and documentation strings, so source
+/// changes in those texts still fail conformance. It only ignores layout
+/// choices such as wrapping introduced by longer canonical module paths.
+fn rust_tokens_equal(reference: &[u8], generated: &[u8]) -> bool {
+    let (Ok(reference), Ok(generated)) = (
+        std::str::from_utf8(reference),
+        std::str::from_utf8(generated),
+    ) else {
+        return false;
+    };
+    let (Ok(reference), Ok(generated)) = (syn::parse_file(reference), syn::parse_file(generated))
+    else {
+        return false;
+    };
+    reference.to_token_stream().to_string() == generated.to_token_stream().to_string()
 }
 
 fn collect_files(

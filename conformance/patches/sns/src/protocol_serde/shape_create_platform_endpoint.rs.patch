@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::create_platform_endpoint::CreatePlatformEndpointOutput,
 -    crate::operation::create_platform_endpoint::CreatePlatformEndpointError,
-+    super::operation::create_platform_endpoint::CreatePlatformEndpointOutput,
-+    super::operation::create_platform_endpoint::CreatePlatformEndpointError,
++    super::super::operation::create_platform_endpoint::CreatePlatformEndpointOutput,
++    super::super::operation::create_platform_endpoint::CreatePlatformEndpointError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled(
-+            return Err(super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled(
++            return Err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled(
                  generic,
              ))
          }
@@ -29,16 +29,16 @@
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "AuthorizationError" => crate::operation::create_platform_endpoint::CreatePlatformEndpointError::AuthorizationErrorException({
-+        "AuthorizationError" => super::operation::create_platform_endpoint::CreatePlatformEndpointError::AuthorizationErrorException({
++        "AuthorizationError" => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::AuthorizationErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::AuthorizationErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
-+                let mut output = super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
++                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -47,16 +47,16 @@
              tmp
          }),
 -        "InternalError" => crate::operation::create_platform_endpoint::CreatePlatformEndpointError::InternalErrorException({
-+        "InternalError" => super::operation::create_platform_endpoint::CreatePlatformEndpointError::InternalErrorException({
++        "InternalError" => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::InternalErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -65,16 +65,16 @@
              tmp
          }),
 -        "InvalidParameter" => crate::operation::create_platform_endpoint::CreatePlatformEndpointError::InvalidParameterException({
-+        "InvalidParameter" => super::operation::create_platform_endpoint::CreatePlatformEndpointError::InvalidParameterException({
++        "InvalidParameter" => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::InvalidParameterException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -83,16 +83,16 @@
              tmp
          }),
 -        "NotFound" => crate::operation::create_platform_endpoint::CreatePlatformEndpointError::NotFoundException({
-+        "NotFound" => super::operation::create_platform_endpoint::CreatePlatformEndpointError::NotFoundException({
++        "NotFound" => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::NotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
-+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -101,7 +101,7 @@
              tmp
          }),
 -        _ => crate::operation::create_platform_endpoint::CreatePlatformEndpointError::generic(generic),
-+        _ => super::operation::create_platform_endpoint::CreatePlatformEndpointError::generic(generic),
++        _ => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::generic(generic),
      })
  }
 
@@ -111,17 +111,17 @@
  ) -> std::result::Result<
 -    crate::operation::create_platform_endpoint::CreatePlatformEndpointOutput,
 -    crate::operation::create_platform_endpoint::CreatePlatformEndpointError,
-+    super::operation::create_platform_endpoint::CreatePlatformEndpointOutput,
-+    super::operation::create_platform_endpoint::CreatePlatformEndpointError,
++    super::super::operation::create_platform_endpoint::CreatePlatformEndpointOutput,
++    super::super::operation::create_platform_endpoint::CreatePlatformEndpointError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder::default();
 -        output = crate::protocol_serde::shape_create_platform_endpoint::de_create_platform_endpoint(_response_body, output)
 -            .map_err(crate::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
-+        let mut output = super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder::default();
-+        output = super::protocol_serde::shape_create_platform_endpoint::de_create_platform_endpoint(_response_body, output)
-+            .map_err(super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
++        let mut output = super::super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder::default();
++        output = super::super::protocol_serde::shape_create_platform_endpoint::de_create_platform_endpoint(_response_body, output)
++            .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -130,10 +130,10 @@
  pub fn de_create_platform_endpoint(
      inp: &[u8],
 -    mut builder: crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder,
-+    mut builder: super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder,
++    mut builder: super::super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder,
-+    super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder,
++    super::super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;

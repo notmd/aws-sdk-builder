@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for EfsioException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::EfsioException {
-+impl ::aws_types::request_id::RequestId for super::types::error::EfsioException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::EfsioException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`EfsioException`](crate::types::error::EfsioException).
 -    pub fn builder() -> crate::types::error::builders::EfsioExceptionBuilder {
 -        crate::types::error::builders::EfsioExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::EfsioExceptionBuilder {
-+        super::types::error::builders::EfsioExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::EfsioExceptionBuilder {
++        super::super::super::types::error::builders::EfsioExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`EfsioException`](crate::types::error::EfsioException).
 -    pub fn build(self) -> crate::types::error::EfsioException {
 -        crate::types::error::EfsioException {
-+    pub fn build(self) -> super::types::error::EfsioException {
-+        super::types::error::EfsioException {
++    pub fn build(self) -> super::super::super::types::error::EfsioException {
++        super::super::super::types::error::EfsioException {
              r#type: self.r#type,
              message: self.message,
              meta: self.meta.unwrap_or_default(),

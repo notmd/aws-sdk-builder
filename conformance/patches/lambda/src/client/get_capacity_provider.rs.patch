@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetCapacityProviderError>`](crate::operation::get_capacity_provider::GetCapacityProviderError)
 -    pub fn get_capacity_provider(&self) -> crate::operation::get_capacity_provider::builders::GetCapacityProviderFluentBuilder {
 -        crate::operation::get_capacity_provider::builders::GetCapacityProviderFluentBuilder::new(self.handle.clone())
-+    pub fn get_capacity_provider(&self) -> super::operation::get_capacity_provider::builders::GetCapacityProviderFluentBuilder {
-+        super::operation::get_capacity_provider::builders::GetCapacityProviderFluentBuilder::new(self.handle.clone())
++    pub fn get_capacity_provider(&self) -> super::super::operation::get_capacity_provider::builders::GetCapacityProviderFluentBuilder {
++        super::super::operation::get_capacity_provider::builders::GetCapacityProviderFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateUserPoolDomainError>`](crate::operation::update_user_pool_domain::UpdateUserPoolDomainError)
 -    pub fn update_user_pool_domain(&self) -> crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder {
 -        crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder::new(self.handle.clone())
-+    pub fn update_user_pool_domain(&self) -> super::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder {
-+        super::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder::new(self.handle.clone())
++    pub fn update_user_pool_domain(&self) -> super::super::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder {
++        super::super::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder::new(self.handle.clone())
      }
  }

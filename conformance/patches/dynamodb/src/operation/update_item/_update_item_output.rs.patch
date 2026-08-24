@@ -5,11 +5,11 @@
      /// <p>A map of attribute values as they appear before or after the <code>UpdateItem</code> operation, as determined by the <code>ReturnValues</code> parameter.</p>
      /// <p>The <code>Attributes</code> map is only present if the update was successful and <code>ReturnValues</code> was specified as something other than <code>NONE</code> in the request. Each element represents one attribute.</p>
 -    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-+    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
++    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
      /// <p>The capacity units consumed by the <code>UpdateItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      /// <p>If the table has vector indexes, the response includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
 -    pub consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
-+    pub consumed_capacity: ::std::option::Option<super::types::ConsumedCapacity>,
++    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
      /// <p>Information about item collections, if any, that were affected by the <code>UpdateItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
      /// <p>Each <code>ItemCollectionMetrics</code> element consists of:</p>
      /// <ul>
@@ -18,20 +18,20 @@
      /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li>
      /// </ul>
 -    pub item_collection_metrics: ::std::option::Option<crate::types::ItemCollectionMetrics>,
-+    pub item_collection_metrics: ::std::option::Option<super::types::ItemCollectionMetrics>,
++    pub item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetrics>,
      _request_id: Option<String>,
  }
  impl UpdateItemOutput {
      /// <p>A map of attribute values as they appear before or after the <code>UpdateItem</code> operation, as determined by the <code>ReturnValues</code> parameter.</p>
      /// <p>The <code>Attributes</code> map is only present if the update was successful and <code>ReturnValues</code> was specified as something other than <code>NONE</code> in the request. Each element represents one attribute.</p>
 -    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
-+    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::AttributeValue>> {
++    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>> {
          self.attributes.as_ref()
      }
      /// <p>The capacity units consumed by the <code>UpdateItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      /// <p>If the table has vector indexes, the response includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
 -    pub fn consumed_capacity(&self) -> ::std::option::Option<&crate::types::ConsumedCapacity> {
-+    pub fn consumed_capacity(&self) -> ::std::option::Option<&super::types::ConsumedCapacity> {
++    pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> {
          self.consumed_capacity.as_ref()
      }
      /// <p>Information about item collections, if any, that were affected by the <code>UpdateItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
@@ -40,7 +40,7 @@
      /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li>
      /// </ul>
 -    pub fn item_collection_metrics(&self) -> ::std::option::Option<&crate::types::ItemCollectionMetrics> {
-+    pub fn item_collection_metrics(&self) -> ::std::option::Option<&super::types::ItemCollectionMetrics> {
++    pub fn item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ItemCollectionMetrics> {
          self.item_collection_metrics.as_ref()
      }
  }
@@ -50,8 +50,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateItemOutput`](crate::operation::update_item::UpdateItemOutput).
 -    pub fn builder() -> crate::operation::update_item::builders::UpdateItemOutputBuilder {
 -        crate::operation::update_item::builders::UpdateItemOutputBuilder::default()
-+    pub fn builder() -> super::operation::update_item::builders::UpdateItemOutputBuilder {
-+        super::operation::update_item::builders::UpdateItemOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_item::builders::UpdateItemOutputBuilder {
++        super::super::super::operation::update_item::builders::UpdateItemOutputBuilder::default()
      }
  }
 
@@ -62,9 +62,9 @@
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 -    pub(crate) consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
 -    pub(crate) item_collection_metrics: ::std::option::Option<crate::types::ItemCollectionMetrics>,
-+    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
-+    pub(crate) consumed_capacity: ::std::option::Option<super::types::ConsumedCapacity>,
-+    pub(crate) item_collection_metrics: ::std::option::Option<super::types::ItemCollectionMetrics>,
++    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
++    pub(crate) consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
++    pub(crate) item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetrics>,
      _request_id: Option<String>,
  }
  impl UpdateItemOutputBuilder {
@@ -73,7 +73,7 @@
      /// <p>A map of attribute values as they appear before or after the <code>UpdateItem</code> operation, as determined by the <code>ReturnValues</code> parameter.</p>
      /// <p>The <code>Attributes</code> map is only present if the update was successful and <code>ReturnValues</code> was specified as something other than <code>NONE</code> in the request. Each element represents one attribute.</p>
 -    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
-+    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::AttributeValue) -> Self {
++    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::AttributeValue) -> Self {
          let mut hash_map = self.attributes.unwrap_or_default();
          hash_map.insert(k.into(), v);
          self.attributes = ::std::option::Option::Some(hash_map);
@@ -82,7 +82,7 @@
      pub fn set_attributes(
          mut self,
 -        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
      ) -> Self {
          self.attributes = input;
          self
@@ -91,27 +91,27 @@
      /// <p>A map of attribute values as they appear before or after the <code>UpdateItem</code> operation, as determined by the <code>ReturnValues</code> parameter.</p>
      /// <p>The <code>Attributes</code> map is only present if the update was successful and <code>ReturnValues</code> was specified as something other than <code>NONE</code> in the request. Each element represents one attribute.</p>
 -    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
-+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>> {
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>> {
          &self.attributes
      }
      /// <p>The capacity units consumed by the <code>UpdateItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      /// <p>If the table has vector indexes, the response includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
 -    pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
-+    pub fn consumed_capacity(mut self, input: super::types::ConsumedCapacity) -> Self {
++    pub fn consumed_capacity(mut self, input: super::super::super::types::ConsumedCapacity) -> Self {
          self.consumed_capacity = ::std::option::Option::Some(input);
          self
      }
      /// <p>The capacity units consumed by the <code>UpdateItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      /// <p>If the table has vector indexes, the response includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
 -    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self {
-+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::types::ConsumedCapacity>) -> Self {
++    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacity>) -> Self {
          self.consumed_capacity = input;
          self
      }
      /// <p>The capacity units consumed by the <code>UpdateItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      /// <p>If the table has vector indexes, the response includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
 -    pub fn get_consumed_capacity(&self) -> &::std::option::Option<crate::types::ConsumedCapacity> {
-+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::types::ConsumedCapacity> {
++    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacity> {
          &self.consumed_capacity
      }
      /// <p>Information about item collections, if any, that were affected by the <code>UpdateItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
@@ -120,7 +120,7 @@
      /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li>
      /// </ul>
 -    pub fn item_collection_metrics(mut self, input: crate::types::ItemCollectionMetrics) -> Self {
-+    pub fn item_collection_metrics(mut self, input: super::types::ItemCollectionMetrics) -> Self {
++    pub fn item_collection_metrics(mut self, input: super::super::super::types::ItemCollectionMetrics) -> Self {
          self.item_collection_metrics = ::std::option::Option::Some(input);
          self
      }
@@ -129,7 +129,7 @@
      /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li>
      /// </ul>
 -    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ItemCollectionMetrics>) -> Self {
-+    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<super::types::ItemCollectionMetrics>) -> Self {
++    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ItemCollectionMetrics>) -> Self {
          self.item_collection_metrics = input;
          self
      }
@@ -138,7 +138,7 @@
      /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li>
      /// </ul>
 -    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<crate::types::ItemCollectionMetrics> {
-+    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<super::types::ItemCollectionMetrics> {
++    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<super::super::super::types::ItemCollectionMetrics> {
          &self.item_collection_metrics
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -148,8 +148,8 @@
      /// Consumes the builder and constructs a [`UpdateItemOutput`](crate::operation::update_item::UpdateItemOutput).
 -    pub fn build(self) -> crate::operation::update_item::UpdateItemOutput {
 -        crate::operation::update_item::UpdateItemOutput {
-+    pub fn build(self) -> super::operation::update_item::UpdateItemOutput {
-+        super::operation::update_item::UpdateItemOutput {
++    pub fn build(self) -> super::super::super::operation::update_item::UpdateItemOutput {
++        super::super::super::operation::update_item::UpdateItemOutput {
              attributes: self.attributes,
              consumed_capacity: self.consumed_capacity,
              item_collection_metrics: self.item_collection_metrics,

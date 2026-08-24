@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutGroupPolicyError>`](crate::operation::put_group_policy::PutGroupPolicyError)
 -    pub fn put_group_policy(&self) -> crate::operation::put_group_policy::builders::PutGroupPolicyFluentBuilder {
 -        crate::operation::put_group_policy::builders::PutGroupPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn put_group_policy(&self) -> super::operation::put_group_policy::builders::PutGroupPolicyFluentBuilder {
-+        super::operation::put_group_policy::builders::PutGroupPolicyFluentBuilder::new(self.handle.clone())
++    pub fn put_group_policy(&self) -> super::super::operation::put_group_policy::builders::PutGroupPolicyFluentBuilder {
++        super::super::operation::put_group_policy::builders::PutGroupPolicyFluentBuilder::new(self.handle.clone())
      }
  }

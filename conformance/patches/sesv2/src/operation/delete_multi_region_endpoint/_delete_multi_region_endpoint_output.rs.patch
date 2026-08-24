@@ -5,7 +5,7 @@
      /// <p><code>DELETING</code> – The resource is being deleted as requested.</p></li>
      /// </ul>
 -    pub status: ::std::option::Option<crate::types::Status>,
-+    pub status: ::std::option::Option<super::types::Status>,
++    pub status: ::std::option::Option<super::super::super::types::Status>,
      _request_id: Option<String>,
  }
  impl DeleteMultiRegionEndpointOutput {
@@ -14,7 +14,7 @@
      /// <p><code>DELETING</code> – The resource is being deleted as requested.</p></li>
      /// </ul>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::Status> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::Status> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::super::types::Status> {
          self.status.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteMultiRegionEndpointOutput`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput).
 -    pub fn builder() -> crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointOutputBuilder {
 -        crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointOutputBuilder {
-+        super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointOutputBuilder {
++        super::super::super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DeleteMultiRegionEndpointOutputBuilder {
 -    pub(crate) status: ::std::option::Option<crate::types::Status>,
-+    pub(crate) status: ::std::option::Option<super::types::Status>,
++    pub(crate) status: ::std::option::Option<super::super::super::types::Status>,
      _request_id: Option<String>,
  }
  impl DeleteMultiRegionEndpointOutputBuilder {
@@ -43,7 +43,7 @@
      /// <p><code>DELETING</code> – The resource is being deleted as requested.</p></li>
      /// </ul>
 -    pub fn status(mut self, input: crate::types::Status) -> Self {
-+    pub fn status(mut self, input: super::types::Status) -> Self {
++    pub fn status(mut self, input: super::super::super::types::Status) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
@@ -52,7 +52,7 @@
      /// <p><code>DELETING</code> – The resource is being deleted as requested.</p></li>
      /// </ul>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::Status>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::Status>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::super::types::Status>) -> Self {
          self.status = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p><code>DELETING</code> – The resource is being deleted as requested.</p></li>
      /// </ul>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::Status> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::Status> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::super::types::Status> {
          &self.status
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -71,8 +71,8 @@
      /// Consumes the builder and constructs a [`DeleteMultiRegionEndpointOutput`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput).
 -    pub fn build(self) -> crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput {
 -        crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput {
-+    pub fn build(self) -> super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput {
-+        super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput {
++    pub fn build(self) -> super::super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput {
++        super::super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput {
              status: self.status,
              _request_id: self._request_id,
          }

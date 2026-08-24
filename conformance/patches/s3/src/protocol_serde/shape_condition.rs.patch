@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::Condition, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::Condition, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::Condition, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::Condition::builder();
-+    let mut builder = super::types::Condition::builder();
++    let mut builder = super::super::types::Condition::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("HttpErrorCodeReturnedEquals") /* HttpErrorCodeReturnedEquals com.amazonaws.s3#Condition$HttpErrorCodeReturnedEquals */ =>  {
@@ -20,7 +20,7 @@
 
  pub fn ser_condition(
 -    input: &crate::types::Condition,
-+    input: &super::types::Condition,
++    input: &super::super::types::Condition,
      writer: ::aws_smithy_xml::encode::ElWriter,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      #[allow(unused_mut)]

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DocumentPageLocation`](crate::types::DocumentPageLocation).
 -    pub fn builder() -> crate::types::builders::DocumentPageLocationBuilder {
 -        crate::types::builders::DocumentPageLocationBuilder::default()
-+    pub fn builder() -> super::types::builders::DocumentPageLocationBuilder {
-+        super::types::builders::DocumentPageLocationBuilder::default()
++    pub fn builder() -> super::super::types::builders::DocumentPageLocationBuilder {
++        super::super::types::builders::DocumentPageLocationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DocumentPageLocation`](crate::types::DocumentPageLocation).
 -    pub fn build(self) -> crate::types::DocumentPageLocation {
 -        crate::types::DocumentPageLocation {
-+    pub fn build(self) -> super::types::DocumentPageLocation {
-+        super::types::DocumentPageLocation {
++    pub fn build(self) -> super::super::types::DocumentPageLocation {
++        super::super::types::DocumentPageLocation {
              document_index: self.document_index,
              start: self.start,
              end: self.end,

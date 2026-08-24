@@ -5,12 +5,12 @@
      pub reason: ::std::option::Option<::std::string::String>,
      /// <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
 -    pub state: ::std::option::Option<crate::types::JobStateTimeLimitActionsState>,
-+    pub state: ::std::option::Option<super::types::JobStateTimeLimitActionsState>,
++    pub state: ::std::option::Option<super::super::types::JobStateTimeLimitActionsState>,
      /// <p>The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. The minimum value is 600 (10 minutes) and the maximum value is 86,400 (24 hours).</p>
      pub max_time_seconds: ::std::option::Option<i32>,
      /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
 -    pub action: ::std::option::Option<crate::types::JobStateTimeLimitActionsAction>,
-+    pub action: ::std::option::Option<super::types::JobStateTimeLimitActionsAction>,
++    pub action: ::std::option::Option<super::super::types::JobStateTimeLimitActionsAction>,
  }
  impl JobStateTimeLimitAction {
      /// <p>The reason to log for the action being taken.</p>
@@ -19,7 +19,7 @@
      }
      /// <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
 -    pub fn state(&self) -> ::std::option::Option<&crate::types::JobStateTimeLimitActionsState> {
-+    pub fn state(&self) -> ::std::option::Option<&super::types::JobStateTimeLimitActionsState> {
++    pub fn state(&self) -> ::std::option::Option<&super::super::types::JobStateTimeLimitActionsState> {
          self.state.as_ref()
      }
      /// <p>The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. The minimum value is 600 (10 minutes) and the maximum value is 86,400 (24 hours).</p>
@@ -28,7 +28,7 @@
      }
      /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
 -    pub fn action(&self) -> ::std::option::Option<&crate::types::JobStateTimeLimitActionsAction> {
-+    pub fn action(&self) -> ::std::option::Option<&super::types::JobStateTimeLimitActionsAction> {
++    pub fn action(&self) -> ::std::option::Option<&super::super::types::JobStateTimeLimitActionsAction> {
          self.action.as_ref()
      }
  }
@@ -36,8 +36,8 @@
      /// Creates a new builder-style object to manufacture [`JobStateTimeLimitAction`](crate::types::JobStateTimeLimitAction).
 -    pub fn builder() -> crate::types::builders::JobStateTimeLimitActionBuilder {
 -        crate::types::builders::JobStateTimeLimitActionBuilder::default()
-+    pub fn builder() -> super::types::builders::JobStateTimeLimitActionBuilder {
-+        super::types::builders::JobStateTimeLimitActionBuilder::default()
++    pub fn builder() -> super::super::types::builders::JobStateTimeLimitActionBuilder {
++        super::super::types::builders::JobStateTimeLimitActionBuilder::default()
      }
  }
 
@@ -46,10 +46,10 @@
  pub struct JobStateTimeLimitActionBuilder {
      pub(crate) reason: ::std::option::Option<::std::string::String>,
 -    pub(crate) state: ::std::option::Option<crate::types::JobStateTimeLimitActionsState>,
-+    pub(crate) state: ::std::option::Option<super::types::JobStateTimeLimitActionsState>,
++    pub(crate) state: ::std::option::Option<super::super::types::JobStateTimeLimitActionsState>,
      pub(crate) max_time_seconds: ::std::option::Option<i32>,
 -    pub(crate) action: ::std::option::Option<crate::types::JobStateTimeLimitActionsAction>,
-+    pub(crate) action: ::std::option::Option<super::types::JobStateTimeLimitActionsAction>,
++    pub(crate) action: ::std::option::Option<super::super::types::JobStateTimeLimitActionsAction>,
  }
  impl JobStateTimeLimitActionBuilder {
      /// <p>The reason to log for the action being taken.</p>
@@ -58,19 +58,19 @@
      /// <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
      /// This field is required.
 -    pub fn state(mut self, input: crate::types::JobStateTimeLimitActionsState) -> Self {
-+    pub fn state(mut self, input: super::types::JobStateTimeLimitActionsState) -> Self {
++    pub fn state(mut self, input: super::super::types::JobStateTimeLimitActionsState) -> Self {
          self.state = ::std::option::Option::Some(input);
          self
      }
      /// <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
 -    pub fn set_state(mut self, input: ::std::option::Option<crate::types::JobStateTimeLimitActionsState>) -> Self {
-+    pub fn set_state(mut self, input: ::std::option::Option<super::types::JobStateTimeLimitActionsState>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::super::types::JobStateTimeLimitActionsState>) -> Self {
          self.state = input;
          self
      }
      /// <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
 -    pub fn get_state(&self) -> &::std::option::Option<crate::types::JobStateTimeLimitActionsState> {
-+    pub fn get_state(&self) -> &::std::option::Option<super::types::JobStateTimeLimitActionsState> {
++    pub fn get_state(&self) -> &::std::option::Option<super::super::types::JobStateTimeLimitActionsState> {
          &self.state
      }
      /// <p>The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. The minimum value is 600 (10 minutes) and the maximum value is 86,400 (24 hours).</p>
@@ -79,26 +79,26 @@
      /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
      /// This field is required.
 -    pub fn action(mut self, input: crate::types::JobStateTimeLimitActionsAction) -> Self {
-+    pub fn action(mut self, input: super::types::JobStateTimeLimitActionsAction) -> Self {
++    pub fn action(mut self, input: super::super::types::JobStateTimeLimitActionsAction) -> Self {
          self.action = ::std::option::Option::Some(input);
          self
      }
      /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
 -    pub fn set_action(mut self, input: ::std::option::Option<crate::types::JobStateTimeLimitActionsAction>) -> Self {
-+    pub fn set_action(mut self, input: ::std::option::Option<super::types::JobStateTimeLimitActionsAction>) -> Self {
++    pub fn set_action(mut self, input: ::std::option::Option<super::super::types::JobStateTimeLimitActionsAction>) -> Self {
          self.action = input;
          self
      }
      /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
 -    pub fn get_action(&self) -> &::std::option::Option<crate::types::JobStateTimeLimitActionsAction> {
-+    pub fn get_action(&self) -> &::std::option::Option<super::types::JobStateTimeLimitActionsAction> {
++    pub fn get_action(&self) -> &::std::option::Option<super::super::types::JobStateTimeLimitActionsAction> {
          &self.action
      }
      /// Consumes the builder and constructs a [`JobStateTimeLimitAction`](crate::types::JobStateTimeLimitAction).
 -    pub fn build(self) -> crate::types::JobStateTimeLimitAction {
 -        crate::types::JobStateTimeLimitAction {
-+    pub fn build(self) -> super::types::JobStateTimeLimitAction {
-+        super::types::JobStateTimeLimitAction {
++    pub fn build(self) -> super::super::types::JobStateTimeLimitAction {
++        super::super::types::JobStateTimeLimitAction {
              reason: self.reason,
              state: self.state,
              max_time_seconds: self.max_time_seconds,

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListRecommendationsError>`](crate::operation::list_recommendations::ListRecommendationsError)
 -    pub fn list_recommendations(&self) -> crate::operation::list_recommendations::builders::ListRecommendationsFluentBuilder {
 -        crate::operation::list_recommendations::builders::ListRecommendationsFluentBuilder::new(self.handle.clone())
-+    pub fn list_recommendations(&self) -> super::operation::list_recommendations::builders::ListRecommendationsFluentBuilder {
-+        super::operation::list_recommendations::builders::ListRecommendationsFluentBuilder::new(self.handle.clone())
++    pub fn list_recommendations(&self) -> super::super::operation::list_recommendations::builders::ListRecommendationsFluentBuilder {
++        super::super::operation::list_recommendations::builders::ListRecommendationsFluentBuilder::new(self.handle.clone())
      }
  }

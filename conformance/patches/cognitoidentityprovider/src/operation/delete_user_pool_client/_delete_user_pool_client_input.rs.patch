@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteUserPoolClientInput`](crate::operation::delete_user_pool_client::DeleteUserPoolClientInput).
 -    pub fn builder() -> crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientInputBuilder {
 -        crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_user_pool_client::builders::DeleteUserPoolClientInputBuilder {
-+        super::operation::delete_user_pool_client::builders::DeleteUserPoolClientInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_user_pool_client::builders::DeleteUserPoolClientInputBuilder {
++        super::super::super::operation::delete_user_pool_client::builders::DeleteUserPoolClientInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::delete_user_pool_client::DeleteUserPoolClientInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::delete_user_pool_client::DeleteUserPoolClientInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::delete_user_pool_client::DeleteUserPoolClientInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::delete_user_pool_client::DeleteUserPoolClientInput {
-+        ::std::result::Result::Ok(super::operation::delete_user_pool_client::DeleteUserPoolClientInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_user_pool_client::DeleteUserPoolClientInput {
              user_pool_id: self.user_pool_id,
              client_id: self.client_id,
          })

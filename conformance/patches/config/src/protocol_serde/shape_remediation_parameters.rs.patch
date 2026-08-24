@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    Option<::std::collections::HashMap<::std::string::String, crate::types::RemediationParameterValue>>,
-+    Option<::std::collections::HashMap<::std::string::String, super::types::RemediationParameterValue>>,
++    Option<::std::collections::HashMap<::std::string::String, super::super::types::RemediationParameterValue>>,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  >
  where
@@ -14,7 +14,7 @@
                          let key = key.to_unescaped().map(|u| u.into_owned())?;
                          let value =
 -                            crate::protocol_serde::shape_remediation_parameter_value::de_remediation_parameter_value(tokens, _value, depth + 1)?;
-+                            super::protocol_serde::shape_remediation_parameter_value::de_remediation_parameter_value(tokens, _value, depth + 1)?;
++                            super::super::protocol_serde::shape_remediation_parameter_value::de_remediation_parameter_value(tokens, _value, depth + 1)?;
                          match value {
                              Some(value) => {
                                  map.insert(key, value);

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<RemovePermissionError>`](crate::operation::remove_permission::RemovePermissionError)
 -    pub fn remove_permission(&self) -> crate::operation::remove_permission::builders::RemovePermissionFluentBuilder {
 -        crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::new(self.handle.clone())
-+    pub fn remove_permission(&self) -> super::operation::remove_permission::builders::RemovePermissionFluentBuilder {
-+        super::operation::remove_permission::builders::RemovePermissionFluentBuilder::new(self.handle.clone())
++    pub fn remove_permission(&self) -> super::super::operation::remove_permission::builders::RemovePermissionFluentBuilder {
++        super::super::operation::remove_permission::builders::RemovePermissionFluentBuilder::new(self.handle.clone())
      }
  }

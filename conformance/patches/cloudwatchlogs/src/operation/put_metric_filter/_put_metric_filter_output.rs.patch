@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutMetricFilterOutput`](crate::operation::put_metric_filter::PutMetricFilterOutput).
 -    pub fn builder() -> crate::operation::put_metric_filter::builders::PutMetricFilterOutputBuilder {
 -        crate::operation::put_metric_filter::builders::PutMetricFilterOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_metric_filter::builders::PutMetricFilterOutputBuilder {
-+        super::operation::put_metric_filter::builders::PutMetricFilterOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_metric_filter::builders::PutMetricFilterOutputBuilder {
++        super::super::super::operation::put_metric_filter::builders::PutMetricFilterOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutMetricFilterOutput`](crate::operation::put_metric_filter::PutMetricFilterOutput).
 -    pub fn build(self) -> crate::operation::put_metric_filter::PutMetricFilterOutput {
 -        crate::operation::put_metric_filter::PutMetricFilterOutput {
-+    pub fn build(self) -> super::operation::put_metric_filter::PutMetricFilterOutput {
-+        super::operation::put_metric_filter::PutMetricFilterOutput {
++    pub fn build(self) -> super::super::super::operation::put_metric_filter::PutMetricFilterOutput {
++        super::super::super::operation::put_metric_filter::PutMetricFilterOutput {
              _request_id: self._request_id,
          }
      }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ErrorDetails`](crate::types::ErrorDetails).
 -    pub fn builder() -> crate::types::builders::ErrorDetailsBuilder {
 -        crate::types::builders::ErrorDetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::ErrorDetailsBuilder {
-+        super::types::builders::ErrorDetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::ErrorDetailsBuilder {
++        super::super::types::builders::ErrorDetailsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`code`](crate::types::builders::ErrorDetailsBuilder::code)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ErrorDetails, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ErrorDetails {
-+    pub fn build(self) -> ::std::result::Result<super::types::ErrorDetails, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ErrorDetails {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ErrorDetails, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ErrorDetails {
              message: self.message.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "message",

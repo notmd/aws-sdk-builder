@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetQueueUrlOutput`](crate::operation::get_queue_url::GetQueueUrlOutput).
 -    pub fn builder() -> crate::operation::get_queue_url::builders::GetQueueUrlOutputBuilder {
 -        crate::operation::get_queue_url::builders::GetQueueUrlOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_queue_url::builders::GetQueueUrlOutputBuilder {
-+        super::operation::get_queue_url::builders::GetQueueUrlOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_queue_url::builders::GetQueueUrlOutputBuilder {
++        super::super::super::operation::get_queue_url::builders::GetQueueUrlOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetQueueUrlOutput`](crate::operation::get_queue_url::GetQueueUrlOutput).
 -    pub fn build(self) -> crate::operation::get_queue_url::GetQueueUrlOutput {
 -        crate::operation::get_queue_url::GetQueueUrlOutput {
-+    pub fn build(self) -> super::operation::get_queue_url::GetQueueUrlOutput {
-+        super::operation::get_queue_url::GetQueueUrlOutput {
++    pub fn build(self) -> super::super::super::operation::get_queue_url::GetQueueUrlOutput {
++        super::super::super::operation::get_queue_url::GetQueueUrlOutput {
              queue_url: self.queue_url,
              _request_id: self._request_id,
          }

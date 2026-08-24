@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SpecificToolChoice`](crate::types::SpecificToolChoice).
 -    pub fn builder() -> crate::types::builders::SpecificToolChoiceBuilder {
 -        crate::types::builders::SpecificToolChoiceBuilder::default()
-+    pub fn builder() -> super::types::builders::SpecificToolChoiceBuilder {
-+        super::types::builders::SpecificToolChoiceBuilder::default()
++    pub fn builder() -> super::super::types::builders::SpecificToolChoiceBuilder {
++        super::super::types::builders::SpecificToolChoiceBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`name`](crate::types::builders::SpecificToolChoiceBuilder::name)
 -    pub fn build(self) -> ::std::result::Result<crate::types::SpecificToolChoice, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::SpecificToolChoice {
-+    pub fn build(self) -> ::std::result::Result<super::types::SpecificToolChoice, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::SpecificToolChoice {
++    pub fn build(self) -> ::std::result::Result<super::super::types::SpecificToolChoice, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::SpecificToolChoice {
              name: self.name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "name",

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PublishError>`](crate::operation::publish::PublishError)
 -    pub fn publish(&self) -> crate::operation::publish::builders::PublishFluentBuilder {
 -        crate::operation::publish::builders::PublishFluentBuilder::new(self.handle.clone())
-+    pub fn publish(&self) -> super::operation::publish::builders::PublishFluentBuilder {
-+        super::operation::publish::builders::PublishFluentBuilder::new(self.handle.clone())
++    pub fn publish(&self) -> super::super::operation::publish::builders::PublishFluentBuilder {
++        super::super::operation::publish::builders::PublishFluentBuilder::new(self.handle.clone())
      }
  }

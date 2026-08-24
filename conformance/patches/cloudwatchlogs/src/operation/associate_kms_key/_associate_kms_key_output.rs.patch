@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AssociateKmsKeyOutput`](crate::operation::associate_kms_key::AssociateKmsKeyOutput).
 -    pub fn builder() -> crate::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder {
 -        crate::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder::default()
-+    pub fn builder() -> super::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder {
-+        super::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder {
++        super::super::super::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AssociateKmsKeyOutput`](crate::operation::associate_kms_key::AssociateKmsKeyOutput).
 -    pub fn build(self) -> crate::operation::associate_kms_key::AssociateKmsKeyOutput {
 -        crate::operation::associate_kms_key::AssociateKmsKeyOutput {
-+    pub fn build(self) -> super::operation::associate_kms_key::AssociateKmsKeyOutput {
-+        super::operation::associate_kms_key::AssociateKmsKeyOutput {
++    pub fn build(self) -> super::super::super::operation::associate_kms_key::AssociateKmsKeyOutput {
++        super::super::super::operation::associate_kms_key::AssociateKmsKeyOutput {
              _request_id: self._request_id,
          }
      }

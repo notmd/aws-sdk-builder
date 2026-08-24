@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PublishLayerVersionError>`](crate::operation::publish_layer_version::PublishLayerVersionError)
 -    pub fn publish_layer_version(&self) -> crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder {
 -        crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::new(self.handle.clone())
-+    pub fn publish_layer_version(&self) -> super::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder {
-+        super::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::new(self.handle.clone())
++    pub fn publish_layer_version(&self) -> super::super::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder {
++        super::super::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DomainEntryPoint`](crate::types::DomainEntryPoint).
 -    pub fn builder() -> crate::types::builders::DomainEntryPointBuilder {
 -        crate::types::builders::DomainEntryPointBuilder::default()
-+    pub fn builder() -> super::types::builders::DomainEntryPointBuilder {
-+        super::types::builders::DomainEntryPointBuilder::default()
++    pub fn builder() -> super::super::types::builders::DomainEntryPointBuilder {
++        super::super::types::builders::DomainEntryPointBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DomainEntryPoint`](crate::types::DomainEntryPoint).
 -    pub fn build(self) -> crate::types::DomainEntryPoint {
 -        crate::types::DomainEntryPoint {
-+    pub fn build(self) -> super::types::DomainEntryPoint {
-+        super::types::DomainEntryPoint {
++    pub fn build(self) -> super::super::types::DomainEntryPoint {
++        super::super::types::DomainEntryPoint {
              repository_name: self.repository_name,
              external_connection_name: self.external_connection_name,
          }

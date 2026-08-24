@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListOriginationNumbersError>`](crate::operation::list_origination_numbers::ListOriginationNumbersError)
 -    pub fn list_origination_numbers(&self) -> crate::operation::list_origination_numbers::builders::ListOriginationNumbersFluentBuilder {
 -        crate::operation::list_origination_numbers::builders::ListOriginationNumbersFluentBuilder::new(self.handle.clone())
-+    pub fn list_origination_numbers(&self) -> super::operation::list_origination_numbers::builders::ListOriginationNumbersFluentBuilder {
-+        super::operation::list_origination_numbers::builders::ListOriginationNumbersFluentBuilder::new(self.handle.clone())
++    pub fn list_origination_numbers(&self) -> super::super::operation::list_origination_numbers::builders::ListOriginationNumbersFluentBuilder {
++        super::super::operation::list_origination_numbers::builders::ListOriginationNumbersFluentBuilder::new(self.handle.clone())
      }
  }

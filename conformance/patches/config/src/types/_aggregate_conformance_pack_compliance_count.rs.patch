@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AggregateConformancePackComplianceCount`](crate::types::AggregateConformancePackComplianceCount).
 -    pub fn builder() -> crate::types::builders::AggregateConformancePackComplianceCountBuilder {
 -        crate::types::builders::AggregateConformancePackComplianceCountBuilder::default()
-+    pub fn builder() -> super::types::builders::AggregateConformancePackComplianceCountBuilder {
-+        super::types::builders::AggregateConformancePackComplianceCountBuilder::default()
++    pub fn builder() -> super::super::types::builders::AggregateConformancePackComplianceCountBuilder {
++        super::super::types::builders::AggregateConformancePackComplianceCountBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AggregateConformancePackComplianceCount`](crate::types::AggregateConformancePackComplianceCount).
 -    pub fn build(self) -> crate::types::AggregateConformancePackComplianceCount {
 -        crate::types::AggregateConformancePackComplianceCount {
-+    pub fn build(self) -> super::types::AggregateConformancePackComplianceCount {
-+        super::types::AggregateConformancePackComplianceCount {
++    pub fn build(self) -> super::super::types::AggregateConformancePackComplianceCount {
++        super::super::types::AggregateConformancePackComplianceCount {
              compliant_conformance_pack_count: self.compliant_conformance_pack_count.unwrap_or_default(),
              non_compliant_conformance_pack_count: self.non_compliant_conformance_pack_count.unwrap_or_default(),
          }

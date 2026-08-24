@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<StopConfigurationRecorderError>`](crate::operation::stop_configuration_recorder::StopConfigurationRecorderError)
 -    pub fn stop_configuration_recorder(&self) -> crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderFluentBuilder {
 -        crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderFluentBuilder::new(self.handle.clone())
-+    pub fn stop_configuration_recorder(&self) -> super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderFluentBuilder {
-+        super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderFluentBuilder::new(self.handle.clone())
++    pub fn stop_configuration_recorder(&self) -> super::super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderFluentBuilder {
++        super::super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderFluentBuilder::new(self.handle.clone())
      }
  }

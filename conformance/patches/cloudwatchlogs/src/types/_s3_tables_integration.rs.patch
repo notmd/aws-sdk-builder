@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`S3TablesIntegration`](crate::types::S3TablesIntegration).
 -    pub fn builder() -> crate::types::builders::S3TablesIntegrationBuilder {
 -        crate::types::builders::S3TablesIntegrationBuilder::default()
-+    pub fn builder() -> super::types::builders::S3TablesIntegrationBuilder {
-+        super::types::builders::S3TablesIntegrationBuilder::default()
++    pub fn builder() -> super::super::types::builders::S3TablesIntegrationBuilder {
++        super::super::types::builders::S3TablesIntegrationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`S3TablesIntegration`](crate::types::S3TablesIntegration).
 -    pub fn build(self) -> crate::types::S3TablesIntegration {
 -        crate::types::S3TablesIntegration {
-+    pub fn build(self) -> super::types::S3TablesIntegration {
-+        super::types::S3TablesIntegration {
++    pub fn build(self) -> super::super::types::S3TablesIntegration {
++        super::super::types::S3TablesIntegration {
              datasource_name: self.datasource_name,
              datasource_type: self.datasource_type,
          }

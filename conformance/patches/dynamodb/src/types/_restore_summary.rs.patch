@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RestoreSummary`](crate::types::RestoreSummary).
 -    pub fn builder() -> crate::types::builders::RestoreSummaryBuilder {
 -        crate::types::builders::RestoreSummaryBuilder::default()
-+    pub fn builder() -> super::types::builders::RestoreSummaryBuilder {
-+        super::types::builders::RestoreSummaryBuilder::default()
++    pub fn builder() -> super::super::types::builders::RestoreSummaryBuilder {
++        super::super::types::builders::RestoreSummaryBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`restore_in_progress`](crate::types::builders::RestoreSummaryBuilder::restore_in_progress)
 -    pub fn build(self) -> ::std::result::Result<crate::types::RestoreSummary, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::RestoreSummary {
-+    pub fn build(self) -> ::std::result::Result<super::types::RestoreSummary, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::RestoreSummary {
++    pub fn build(self) -> ::std::result::Result<super::super::types::RestoreSummary, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::RestoreSummary {
              source_backup_arn: self.source_backup_arn,
              source_table_arn: self.source_table_arn,
              restore_date_time: self.restore_date_time.ok_or_else(|| {

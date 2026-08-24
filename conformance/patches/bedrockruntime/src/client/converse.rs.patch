@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ConverseError>`](crate::operation::converse::ConverseError)
 -    pub fn converse(&self) -> crate::operation::converse::builders::ConverseFluentBuilder {
 -        crate::operation::converse::builders::ConverseFluentBuilder::new(self.handle.clone())
-+    pub fn converse(&self) -> super::operation::converse::builders::ConverseFluentBuilder {
-+        super::operation::converse::builders::ConverseFluentBuilder::new(self.handle.clone())
++    pub fn converse(&self) -> super::super::operation::converse::builders::ConverseFluentBuilder {
++        super::super::operation::converse::builders::ConverseFluentBuilder::new(self.handle.clone())
      }
  }

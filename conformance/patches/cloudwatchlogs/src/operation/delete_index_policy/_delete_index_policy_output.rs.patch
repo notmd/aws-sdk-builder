@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteIndexPolicyOutput`](crate::operation::delete_index_policy::DeleteIndexPolicyOutput).
 -    pub fn builder() -> crate::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder {
 -        crate::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder {
-+        super::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder {
++        super::super::super::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteIndexPolicyOutput`](crate::operation::delete_index_policy::DeleteIndexPolicyOutput).
 -    pub fn build(self) -> crate::operation::delete_index_policy::DeleteIndexPolicyOutput {
 -        crate::operation::delete_index_policy::DeleteIndexPolicyOutput {
-+    pub fn build(self) -> super::operation::delete_index_policy::DeleteIndexPolicyOutput {
-+        super::operation::delete_index_policy::DeleteIndexPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::delete_index_policy::DeleteIndexPolicyOutput {
++        super::super::super::operation::delete_index_policy::DeleteIndexPolicyOutput {
              _request_id: self._request_id,
          }
      }

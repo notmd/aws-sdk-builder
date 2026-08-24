@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GroupingIdentifier`](crate::types::GroupingIdentifier).
 -    pub fn builder() -> crate::types::builders::GroupingIdentifierBuilder {
 -        crate::types::builders::GroupingIdentifierBuilder::default()
-+    pub fn builder() -> super::types::builders::GroupingIdentifierBuilder {
-+        super::types::builders::GroupingIdentifierBuilder::default()
++    pub fn builder() -> super::super::types::builders::GroupingIdentifierBuilder {
++        super::super::types::builders::GroupingIdentifierBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GroupingIdentifier`](crate::types::GroupingIdentifier).
 -    pub fn build(self) -> crate::types::GroupingIdentifier {
 -        crate::types::GroupingIdentifier {
-+    pub fn build(self) -> super::types::GroupingIdentifier {
-+        super::types::GroupingIdentifier {
++    pub fn build(self) -> super::super::types::GroupingIdentifier {
++        super::super::types::GroupingIdentifier {
              key: self.key,
              value: self.value,
          }

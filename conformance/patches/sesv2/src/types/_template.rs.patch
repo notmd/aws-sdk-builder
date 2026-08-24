@@ -5,15 +5,15 @@
      /// <p>Amazon SES supports only simple substitions when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations and you provide the full template content in the request.</p>
      /// </note>
 -    pub template_content: ::std::option::Option<crate::types::EmailTemplateContent>,
-+    pub template_content: ::std::option::Option<super::types::EmailTemplateContent>,
++    pub template_content: ::std::option::Option<super::super::types::EmailTemplateContent>,
      /// <p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>
      pub template_data: ::std::option::Option<::std::string::String>,
      /// <p>The list of message headers that will be added to the email message.</p>
 -    pub headers: ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>,
-+    pub headers: ::std::option::Option<::std::vec::Vec<super::types::MessageHeader>>,
++    pub headers: ::std::option::Option<::std::vec::Vec<super::super::types::MessageHeader>>,
      /// <p>The List of attachments to include in your email. All recipients will receive the same attachments.</p>
 -    pub attachments: ::std::option::Option<::std::vec::Vec<crate::types::Attachment>>,
-+    pub attachments: ::std::option::Option<::std::vec::Vec<super::types::Attachment>>,
++    pub attachments: ::std::option::Option<::std::vec::Vec<super::super::types::Attachment>>,
  }
  impl Template {
      /// <p>The name of the template. You will refer to this name when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations.</p>
@@ -22,7 +22,7 @@
      /// <p>Amazon SES supports only simple substitions when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations and you provide the full template content in the request.</p>
      /// </note>
 -    pub fn template_content(&self) -> ::std::option::Option<&crate::types::EmailTemplateContent> {
-+    pub fn template_content(&self) -> ::std::option::Option<&super::types::EmailTemplateContent> {
++    pub fn template_content(&self) -> ::std::option::Option<&super::super::types::EmailTemplateContent> {
          self.template_content.as_ref()
      }
      /// <p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>
@@ -31,14 +31,14 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.headers.is_none()`.
 -    pub fn headers(&self) -> &[crate::types::MessageHeader] {
-+    pub fn headers(&self) -> &[super::types::MessageHeader] {
++    pub fn headers(&self) -> &[super::super::types::MessageHeader] {
          self.headers.as_deref().unwrap_or_default()
      }
      /// <p>The List of attachments to include in your email. All recipients will receive the same attachments.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attachments.is_none()`.
 -    pub fn attachments(&self) -> &[crate::types::Attachment] {
-+    pub fn attachments(&self) -> &[super::types::Attachment] {
++    pub fn attachments(&self) -> &[super::super::types::Attachment] {
          self.attachments.as_deref().unwrap_or_default()
      }
  }
@@ -46,8 +46,8 @@
      /// Creates a new builder-style object to manufacture [`Template`](crate::types::Template).
 -    pub fn builder() -> crate::types::builders::TemplateBuilder {
 -        crate::types::builders::TemplateBuilder::default()
-+    pub fn builder() -> super::types::builders::TemplateBuilder {
-+        super::types::builders::TemplateBuilder::default()
++    pub fn builder() -> super::super::types::builders::TemplateBuilder {
++        super::super::types::builders::TemplateBuilder::default()
      }
  }
 
@@ -56,12 +56,12 @@
      pub(crate) template_name: ::std::option::Option<::std::string::String>,
      pub(crate) template_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) template_content: ::std::option::Option<crate::types::EmailTemplateContent>,
-+    pub(crate) template_content: ::std::option::Option<super::types::EmailTemplateContent>,
++    pub(crate) template_content: ::std::option::Option<super::super::types::EmailTemplateContent>,
      pub(crate) template_data: ::std::option::Option<::std::string::String>,
 -    pub(crate) headers: ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>,
 -    pub(crate) attachments: ::std::option::Option<::std::vec::Vec<crate::types::Attachment>>,
-+    pub(crate) headers: ::std::option::Option<::std::vec::Vec<super::types::MessageHeader>>,
-+    pub(crate) attachments: ::std::option::Option<::std::vec::Vec<super::types::Attachment>>,
++    pub(crate) headers: ::std::option::Option<::std::vec::Vec<super::super::types::MessageHeader>>,
++    pub(crate) attachments: ::std::option::Option<::std::vec::Vec<super::super::types::Attachment>>,
  }
  impl TemplateBuilder {
      /// <p>The name of the template. You will refer to this name when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations.</p>
@@ -70,7 +70,7 @@
      /// <p>Amazon SES supports only simple substitions when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations and you provide the full template content in the request.</p>
      /// </note>
 -    pub fn template_content(mut self, input: crate::types::EmailTemplateContent) -> Self {
-+    pub fn template_content(mut self, input: super::types::EmailTemplateContent) -> Self {
++    pub fn template_content(mut self, input: super::super::types::EmailTemplateContent) -> Self {
          self.template_content = ::std::option::Option::Some(input);
          self
      }
@@ -79,7 +79,7 @@
      /// <p>Amazon SES supports only simple substitions when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations and you provide the full template content in the request.</p>
      /// </note>
 -    pub fn set_template_content(mut self, input: ::std::option::Option<crate::types::EmailTemplateContent>) -> Self {
-+    pub fn set_template_content(mut self, input: ::std::option::Option<super::types::EmailTemplateContent>) -> Self {
++    pub fn set_template_content(mut self, input: ::std::option::Option<super::super::types::EmailTemplateContent>) -> Self {
          self.template_content = input;
          self
      }
@@ -88,7 +88,7 @@
      /// <p>Amazon SES supports only simple substitions when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations and you provide the full template content in the request.</p>
      /// </note>
 -    pub fn get_template_content(&self) -> &::std::option::Option<crate::types::EmailTemplateContent> {
-+    pub fn get_template_content(&self) -> &::std::option::Option<super::types::EmailTemplateContent> {
++    pub fn get_template_content(&self) -> &::std::option::Option<super::super::types::EmailTemplateContent> {
          &self.template_content
      }
      /// <p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>
@@ -97,7 +97,7 @@
      ///
      /// <p>The list of message headers that will be added to the email message.</p>
 -    pub fn headers(mut self, input: crate::types::MessageHeader) -> Self {
-+    pub fn headers(mut self, input: super::types::MessageHeader) -> Self {
++    pub fn headers(mut self, input: super::super::types::MessageHeader) -> Self {
          let mut v = self.headers.unwrap_or_default();
          v.push(input);
          self.headers = ::std::option::Option::Some(v);
@@ -106,13 +106,13 @@
      }
      /// <p>The list of message headers that will be added to the email message.</p>
 -    pub fn set_headers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>) -> Self {
-+    pub fn set_headers(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MessageHeader>>) -> Self {
++    pub fn set_headers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::MessageHeader>>) -> Self {
          self.headers = input;
          self
      }
      /// <p>The list of message headers that will be added to the email message.</p>
 -    pub fn get_headers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>> {
-+    pub fn get_headers(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MessageHeader>> {
++    pub fn get_headers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::MessageHeader>> {
          &self.headers
      }
      /// Appends an item to `attachments`.
@@ -121,7 +121,7 @@
      ///
      /// <p>The List of attachments to include in your email. All recipients will receive the same attachments.</p>
 -    pub fn attachments(mut self, input: crate::types::Attachment) -> Self {
-+    pub fn attachments(mut self, input: super::types::Attachment) -> Self {
++    pub fn attachments(mut self, input: super::super::types::Attachment) -> Self {
          let mut v = self.attachments.unwrap_or_default();
          v.push(input);
          self.attachments = ::std::option::Option::Some(v);
@@ -130,20 +130,20 @@
      }
      /// <p>The List of attachments to include in your email. All recipients will receive the same attachments.</p>
 -    pub fn set_attachments(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Attachment>>) -> Self {
-+    pub fn set_attachments(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Attachment>>) -> Self {
++    pub fn set_attachments(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::Attachment>>) -> Self {
          self.attachments = input;
          self
      }
      /// <p>The List of attachments to include in your email. All recipients will receive the same attachments.</p>
 -    pub fn get_attachments(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Attachment>> {
-+    pub fn get_attachments(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Attachment>> {
++    pub fn get_attachments(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::Attachment>> {
          &self.attachments
      }
      /// Consumes the builder and constructs a [`Template`](crate::types::Template).
 -    pub fn build(self) -> crate::types::Template {
 -        crate::types::Template {
-+    pub fn build(self) -> super::types::Template {
-+        super::types::Template {
++    pub fn build(self) -> super::super::types::Template {
++        super::super::types::Template {
              template_name: self.template_name,
              template_arn: self.template_arn,
              template_content: self.template_content,

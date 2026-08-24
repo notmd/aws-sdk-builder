@@ -5,7 +5,7 @@
      pub integration_arn: ::std::option::Option<::std::string::String>,
      /// <p>The data source to associate with the S3 Table Integration. Contains the name and type of the data source.</p>
 -    pub data_source: ::std::option::Option<crate::types::DataSource>,
-+    pub data_source: ::std::option::Option<super::types::DataSource>,
++    pub data_source: ::std::option::Option<super::super::super::types::DataSource>,
  }
  impl AssociateSourceToS3TableIntegrationInput {
      /// <p>The Amazon Resource Name (ARN) of the S3 Table Integration to associate the data source with.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The data source to associate with the S3 Table Integration. Contains the name and type of the data source.</p>
 -    pub fn data_source(&self) -> ::std::option::Option<&crate::types::DataSource> {
-+    pub fn data_source(&self) -> ::std::option::Option<&super::types::DataSource> {
++    pub fn data_source(&self) -> ::std::option::Option<&super::super::super::types::DataSource> {
          self.data_source.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`AssociateSourceToS3TableIntegrationInput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput).
 -    pub fn builder() -> crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder {
 -        crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder::default()
-+    pub fn builder() -> super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder {
-+        super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder {
++        super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct AssociateSourceToS3TableIntegrationInputBuilder {
      pub(crate) integration_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) data_source: ::std::option::Option<crate::types::DataSource>,
-+    pub(crate) data_source: ::std::option::Option<super::types::DataSource>,
++    pub(crate) data_source: ::std::option::Option<super::super::super::types::DataSource>,
  }
  impl AssociateSourceToS3TableIntegrationInputBuilder {
      /// <p>The Amazon Resource Name (ARN) of the S3 Table Integration to associate the data source with.</p>
@@ -41,19 +41,19 @@
      /// <p>The data source to associate with the S3 Table Integration. Contains the name and type of the data source.</p>
      /// This field is required.
 -    pub fn data_source(mut self, input: crate::types::DataSource) -> Self {
-+    pub fn data_source(mut self, input: super::types::DataSource) -> Self {
++    pub fn data_source(mut self, input: super::super::super::types::DataSource) -> Self {
          self.data_source = ::std::option::Option::Some(input);
          self
      }
      /// <p>The data source to associate with the S3 Table Integration. Contains the name and type of the data source.</p>
 -    pub fn set_data_source(mut self, input: ::std::option::Option<crate::types::DataSource>) -> Self {
-+    pub fn set_data_source(mut self, input: ::std::option::Option<super::types::DataSource>) -> Self {
++    pub fn set_data_source(mut self, input: ::std::option::Option<super::super::super::types::DataSource>) -> Self {
          self.data_source = input;
          self
      }
      /// <p>The data source to associate with the S3 Table Integration. Contains the name and type of the data source.</p>
 -    pub fn get_data_source(&self) -> &::std::option::Option<crate::types::DataSource> {
-+    pub fn get_data_source(&self) -> &::std::option::Option<super::types::DataSource> {
++    pub fn get_data_source(&self) -> &::std::option::Option<super::super::super::types::DataSource> {
          &self.data_source
      }
      /// Consumes the builder and constructs a [`AssociateSourceToS3TableIntegrationInput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput).
@@ -62,12 +62,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput,
-+        super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput,
++        super::super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput {
-+            super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput {
++            super::super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput {
                  integration_arn: self.integration_arn,
                  data_source: self.data_source,
              },

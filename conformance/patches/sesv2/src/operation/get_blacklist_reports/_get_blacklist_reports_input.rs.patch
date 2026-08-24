@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetBlacklistReportsInput`](crate::operation::get_blacklist_reports::GetBlacklistReportsInput).
 -    pub fn builder() -> crate::operation::get_blacklist_reports::builders::GetBlacklistReportsInputBuilder {
 -        crate::operation::get_blacklist_reports::builders::GetBlacklistReportsInputBuilder::default()
-+    pub fn builder() -> super::operation::get_blacklist_reports::builders::GetBlacklistReportsInputBuilder {
-+        super::operation::get_blacklist_reports::builders::GetBlacklistReportsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_blacklist_reports::builders::GetBlacklistReportsInputBuilder {
++        super::super::super::operation::get_blacklist_reports::builders::GetBlacklistReportsInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_blacklist_reports::GetBlacklistReportsInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_blacklist_reports::GetBlacklistReportsInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_blacklist_reports::GetBlacklistReportsInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_blacklist_reports::GetBlacklistReportsInput {
-+        ::std::result::Result::Ok(super::operation::get_blacklist_reports::GetBlacklistReportsInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_blacklist_reports::GetBlacklistReportsInput {
              blacklist_item_names: self.blacklist_item_names,
          })
      }

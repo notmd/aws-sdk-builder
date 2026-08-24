@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for PublicPolicyException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::PublicPolicyException {
-+impl ::aws_types::request_id::RequestId for super::types::error::PublicPolicyException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::PublicPolicyException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`PublicPolicyException`](crate::types::error::PublicPolicyException).
 -    pub fn builder() -> crate::types::error::builders::PublicPolicyExceptionBuilder {
 -        crate::types::error::builders::PublicPolicyExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::PublicPolicyExceptionBuilder {
-+        super::types::error::builders::PublicPolicyExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::PublicPolicyExceptionBuilder {
++        super::super::super::types::error::builders::PublicPolicyExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`PublicPolicyException`](crate::types::error::PublicPolicyException).
 -    pub fn build(self) -> crate::types::error::PublicPolicyException {
 -        crate::types::error::PublicPolicyException {
-+    pub fn build(self) -> super::types::error::PublicPolicyException {
-+        super::types::error::PublicPolicyException {
++    pub fn build(self) -> super::super::super::types::error::PublicPolicyException {
++        super::super::super::types::error::PublicPolicyException {
              r#type: self.r#type,
              message: self.message,
              meta: self.meta.unwrap_or_default(),

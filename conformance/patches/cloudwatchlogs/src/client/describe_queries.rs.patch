@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeQueriesError>`](crate::operation::describe_queries::DescribeQueriesError)
 -    pub fn describe_queries(&self) -> crate::operation::describe_queries::builders::DescribeQueriesFluentBuilder {
 -        crate::operation::describe_queries::builders::DescribeQueriesFluentBuilder::new(self.handle.clone())
-+    pub fn describe_queries(&self) -> super::operation::describe_queries::builders::DescribeQueriesFluentBuilder {
-+        super::operation::describe_queries::builders::DescribeQueriesFluentBuilder::new(self.handle.clone())
++    pub fn describe_queries(&self) -> super::super::operation::describe_queries::builders::DescribeQueriesFluentBuilder {
++        super::super::operation::describe_queries::builders::DescribeQueriesFluentBuilder::new(self.handle.clone())
      }
  }

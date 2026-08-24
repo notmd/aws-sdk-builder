@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateLookupTableOutput`](crate::operation::create_lookup_table::CreateLookupTableOutput).
 -    pub fn builder() -> crate::operation::create_lookup_table::builders::CreateLookupTableOutputBuilder {
 -        crate::operation::create_lookup_table::builders::CreateLookupTableOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_lookup_table::builders::CreateLookupTableOutputBuilder {
-+        super::operation::create_lookup_table::builders::CreateLookupTableOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_lookup_table::builders::CreateLookupTableOutputBuilder {
++        super::super::super::operation::create_lookup_table::builders::CreateLookupTableOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateLookupTableOutput`](crate::operation::create_lookup_table::CreateLookupTableOutput).
 -    pub fn build(self) -> crate::operation::create_lookup_table::CreateLookupTableOutput {
 -        crate::operation::create_lookup_table::CreateLookupTableOutput {
-+    pub fn build(self) -> super::operation::create_lookup_table::CreateLookupTableOutput {
-+        super::operation::create_lookup_table::CreateLookupTableOutput {
++    pub fn build(self) -> super::super::super::operation::create_lookup_table::CreateLookupTableOutput {
++        super::super::super::operation::create_lookup_table::CreateLookupTableOutput {
              lookup_table_arn: self.lookup_table_arn,
              created_at: self.created_at,
              _request_id: self._request_id,

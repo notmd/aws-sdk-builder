@@ -5,12 +5,12 @@
  pub struct ExecutionTimedOutDetails {
      /// <p>Details about the execution timeout.</p>
 -    pub error: ::std::option::Option<crate::types::EventError>,
-+    pub error: ::std::option::Option<super::types::EventError>,
++    pub error: ::std::option::Option<super::super::types::EventError>,
  }
  impl ExecutionTimedOutDetails {
      /// <p>Details about the execution timeout.</p>
 -    pub fn error(&self) -> ::std::option::Option<&crate::types::EventError> {
-+    pub fn error(&self) -> ::std::option::Option<&super::types::EventError> {
++    pub fn error(&self) -> ::std::option::Option<&super::super::types::EventError> {
          self.error.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`ExecutionTimedOutDetails`](crate::types::ExecutionTimedOutDetails).
 -    pub fn builder() -> crate::types::builders::ExecutionTimedOutDetailsBuilder {
 -        crate::types::builders::ExecutionTimedOutDetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::ExecutionTimedOutDetailsBuilder {
-+        super::types::builders::ExecutionTimedOutDetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::ExecutionTimedOutDetailsBuilder {
++        super::super::types::builders::ExecutionTimedOutDetailsBuilder::default()
      }
  }
 
@@ -28,30 +28,30 @@
  #[non_exhaustive]
  pub struct ExecutionTimedOutDetailsBuilder {
 -    pub(crate) error: ::std::option::Option<crate::types::EventError>,
-+    pub(crate) error: ::std::option::Option<super::types::EventError>,
++    pub(crate) error: ::std::option::Option<super::super::types::EventError>,
  }
  impl ExecutionTimedOutDetailsBuilder {
      /// <p>Details about the execution timeout.</p>
 -    pub fn error(mut self, input: crate::types::EventError) -> Self {
-+    pub fn error(mut self, input: super::types::EventError) -> Self {
++    pub fn error(mut self, input: super::super::types::EventError) -> Self {
          self.error = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the execution timeout.</p>
 -    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-+    pub fn set_error(mut self, input: ::std::option::Option<super::types::EventError>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::super::types::EventError>) -> Self {
          self.error = input;
          self
      }
      /// <p>Details about the execution timeout.</p>
 -    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
-+    pub fn get_error(&self) -> &::std::option::Option<super::types::EventError> {
++    pub fn get_error(&self) -> &::std::option::Option<super::super::types::EventError> {
          &self.error
      }
      /// Consumes the builder and constructs a [`ExecutionTimedOutDetails`](crate::types::ExecutionTimedOutDetails).
 -    pub fn build(self) -> crate::types::ExecutionTimedOutDetails {
 -        crate::types::ExecutionTimedOutDetails { error: self.error }
-+    pub fn build(self) -> super::types::ExecutionTimedOutDetails {
-+        super::types::ExecutionTimedOutDetails { error: self.error }
++    pub fn build(self) -> super::super::types::ExecutionTimedOutDetails {
++        super::super::types::ExecutionTimedOutDetails { error: self.error }
      }
  }

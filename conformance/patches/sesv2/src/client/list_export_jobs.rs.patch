@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListExportJobsError>`](crate::operation::list_export_jobs::ListExportJobsError)
 -    pub fn list_export_jobs(&self) -> crate::operation::list_export_jobs::builders::ListExportJobsFluentBuilder {
 -        crate::operation::list_export_jobs::builders::ListExportJobsFluentBuilder::new(self.handle.clone())
-+    pub fn list_export_jobs(&self) -> super::operation::list_export_jobs::builders::ListExportJobsFluentBuilder {
-+        super::operation::list_export_jobs::builders::ListExportJobsFluentBuilder::new(self.handle.clone())
++    pub fn list_export_jobs(&self) -> super::super::operation::list_export_jobs::builders::ListExportJobsFluentBuilder {
++        super::super::operation::list_export_jobs::builders::ListExportJobsFluentBuilder::new(self.handle.clone())
      }
  }

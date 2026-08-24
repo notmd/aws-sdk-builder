@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutConfigurationSetVdmOptionsOutput`](crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsOutput).
 -    pub fn builder() -> crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsOutputBuilder {
 -        crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsOutputBuilder {
-+        super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsOutputBuilder {
++        super::super::super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutConfigurationSetVdmOptionsOutput`](crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsOutput).
 -    pub fn build(self) -> crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsOutput {
 -        crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsOutput {
-+    pub fn build(self) -> super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsOutput {
-+        super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsOutput {
++    pub fn build(self) -> super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsOutput {
++        super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsOutput {
              _request_id: self._request_id,
          }
      }

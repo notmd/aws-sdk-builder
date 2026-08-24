@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`QueryCompileErrorLocation`](crate::types::QueryCompileErrorLocation).
 -    pub fn builder() -> crate::types::builders::QueryCompileErrorLocationBuilder {
 -        crate::types::builders::QueryCompileErrorLocationBuilder::default()
-+    pub fn builder() -> super::types::builders::QueryCompileErrorLocationBuilder {
-+        super::types::builders::QueryCompileErrorLocationBuilder::default()
++    pub fn builder() -> super::super::types::builders::QueryCompileErrorLocationBuilder {
++        super::super::types::builders::QueryCompileErrorLocationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`QueryCompileErrorLocation`](crate::types::QueryCompileErrorLocation).
 -    pub fn build(self) -> crate::types::QueryCompileErrorLocation {
 -        crate::types::QueryCompileErrorLocation {
-+    pub fn build(self) -> super::types::QueryCompileErrorLocation {
-+        super::types::QueryCompileErrorLocation {
++    pub fn build(self) -> super::super::types::QueryCompileErrorLocation {
++        super::super::types::QueryCompileErrorLocation {
              start_char_offset: self.start_char_offset,
              end_char_offset: self.end_char_offset,
          }

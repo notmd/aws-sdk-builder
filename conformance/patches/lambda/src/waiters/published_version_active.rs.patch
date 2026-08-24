@@ -6,13 +6,13 @@
  pub struct PublishedVersionActiveFluentBuilder {
 -    handle: ::std::sync::Arc<crate::client::Handle>,
 -    inner: crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder,
-+    handle: ::std::sync::Arc<super::client::Handle>,
-+    inner: super::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder,
++    handle: ::std::sync::Arc<super::super::client::Handle>,
++    inner: super::super::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder,
  }
  impl PublishedVersionActiveFluentBuilder {
      /// Creates a new `PublishedVersionActiveFluentBuilder`.
 -    pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
-+    pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
++    pub(crate) fn new(handle: ::std::sync::Arc<super::super::client::Handle>) -> Self {
          Self {
              handle,
              inner: ::std::default::Default::default(),
@@ -21,7 +21,7 @@
      }
      /// Access the GetFunctionConfiguration as a reference.
 -    pub fn as_input(&self) -> &crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder {
-+    pub fn as_input(&self) -> &super::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder {
++    pub fn as_input(&self) -> &super::super::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder {
          &self.inner
      }
      /// Waits for the published version's State to be Active. This waiter uses GetFunctionConfiguration API. This should be used after new version is published.
@@ -31,21 +31,21 @@
      ) -> ::std::result::Result<
 -        crate::waiters::published_version_active::PublishedVersionActiveFinalPoll,
 -        crate::waiters::published_version_active::WaitUntilPublishedVersionActiveError,
-+        super::waiters::published_version_active::PublishedVersionActiveFinalPoll,
-+        super::waiters::published_version_active::WaitUntilPublishedVersionActiveError,
++        super::super::waiters::published_version_active::PublishedVersionActiveFinalPoll,
++        super::super::waiters::published_version_active::WaitUntilPublishedVersionActiveError,
      > {
          let input = self
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
 -        let runtime_plugins = crate::operation::get_function_configuration::GetFunctionConfiguration::operation_runtime_plugins(
-+        let runtime_plugins = super::operation::get_function_configuration::GetFunctionConfiguration::operation_runtime_plugins(
++        let runtime_plugins = super::super::operation::get_function_configuration::GetFunctionConfiguration::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              ::std::option::Option::None,
          )
 -        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
-+        .with_operation_plugin(super::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
++        .with_operation_plugin(super::super::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
          let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
          let runtime_components_builder = runtime_plugins
              .apply_client_configuration(&mut cfg)
@@ -55,22 +55,22 @@
          let acceptor = move |result: ::std::result::Result<
 -            &crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
 -            &crate::operation::get_function_configuration::GetFunctionConfigurationError,
-+            &super::operation::get_function_configuration::GetFunctionConfigurationOutput,
-+            &super::operation::get_function_configuration::GetFunctionConfigurationError,
++            &super::super::operation::get_function_configuration::GetFunctionConfigurationOutput,
++            &super::super::operation::get_function_configuration::GetFunctionConfigurationError,
          >| {
              // Matches: {"output":{"path":"State","expected":"Active","comparator":"stringEquals"}}
 -            if crate::waiters::matchers::match_get_function_configuration_9fb739f92fd5b515a(result) {
-+            if super::waiters::matchers::match_get_function_configuration_9fb739f92fd5b515a(result) {
++            if super::super::waiters::matchers::match_get_function_configuration_9fb739f92fd5b515a(result) {
                  return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
              }
              // Matches: {"output":{"path":"State","expected":"Failed","comparator":"stringEquals"}}
 -            if crate::waiters::matchers::match_get_function_configuration_87a1a2d4cc2e2d1e1(result) {
-+            if super::waiters::matchers::match_get_function_configuration_87a1a2d4cc2e2d1e1(result) {
++            if super::super::waiters::matchers::match_get_function_configuration_87a1a2d4cc2e2d1e1(result) {
                  return ::aws_smithy_runtime::client::waiters::AcceptorState::Failure;
              }
              // Matches: {"output":{"path":"State","expected":"Pending","comparator":"stringEquals"}}
 -            if crate::waiters::matchers::match_get_function_configuration_ff08d54fec9077aeb(result) {
-+            if super::waiters::matchers::match_get_function_configuration_ff08d54fec9077aeb(result) {
++            if super::super::waiters::matchers::match_get_function_configuration_ff08d54fec9077aeb(result) {
                  return ::aws_smithy_runtime::client::waiters::AcceptorState::Retry;
              }
              ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
@@ -79,7 +79,7 @@
              let input = input.clone();
              let runtime_plugins = runtime_plugins.clone();
 -            async move { crate::operation::get_function_configuration::GetFunctionConfiguration::orchestrate(&runtime_plugins, input).await }
-+            async move { super::operation::get_function_configuration::GetFunctionConfiguration::orchestrate(&runtime_plugins, input).await }
++            async move { super::super::operation::get_function_configuration::GetFunctionConfiguration::orchestrate(&runtime_plugins, input).await }
          };
          let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
              .min_delay(::std::time::Duration::from_secs(5))
@@ -88,10 +88,10 @@
  /// Successful return type for the `published_version_active` waiter.
  pub type PublishedVersionActiveFinalPoll = ::aws_smithy_runtime_api::client::waiters::FinalPoll<
 -    crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-+    super::operation::get_function_configuration::GetFunctionConfigurationOutput,
++    super::super::operation::get_function_configuration::GetFunctionConfigurationOutput,
      ::aws_smithy_runtime_api::client::result::SdkError<
 -        crate::operation::get_function_configuration::GetFunctionConfigurationError,
-+        super::operation::get_function_configuration::GetFunctionConfigurationError,
++        super::super::operation::get_function_configuration::GetFunctionConfigurationError,
          ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
      >,
  >;
@@ -101,6 +101,6 @@
  pub type WaitUntilPublishedVersionActiveError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
 -    crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
 -    crate::operation::get_function_configuration::GetFunctionConfigurationError,
-+    super::operation::get_function_configuration::GetFunctionConfigurationOutput,
-+    super::operation::get_function_configuration::GetFunctionConfigurationError,
++    super::super::operation::get_function_configuration::GetFunctionConfigurationOutput,
++    super::super::operation::get_function_configuration::GetFunctionConfigurationError,
  >;

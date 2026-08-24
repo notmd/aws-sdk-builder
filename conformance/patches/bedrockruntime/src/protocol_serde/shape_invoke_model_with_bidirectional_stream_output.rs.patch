@@ -7,17 +7,17 @@
 -    crate::event_receiver::EventReceiver<
 -        crate::types::InvokeModelWithBidirectionalStreamOutput,
 -        crate::types::error::InvokeModelWithBidirectionalStreamOutputError,
-+    super::event_receiver::EventReceiver<
-+        super::types::InvokeModelWithBidirectionalStreamOutput,
-+        super::types::error::InvokeModelWithBidirectionalStreamOutputError,
++    super::super::event_receiver::EventReceiver<
++        super::super::types::InvokeModelWithBidirectionalStreamOutput,
++        super::super::types::error::InvokeModelWithBidirectionalStreamOutputError,
      >,
 -    crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
-+    super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
++    super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
  > {
 -    let unmarshaller = crate::event_stream_serde::InvokeModelWithBidirectionalStreamOutputUnmarshaller::new();
-+    let unmarshaller = super::event_stream_serde::InvokeModelWithBidirectionalStreamOutputUnmarshaller::new();
++    let unmarshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamOutputUnmarshaller::new();
      let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
 -    let receiver = crate::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
-+    let receiver = super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
++    let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
      Ok(receiver)
  }

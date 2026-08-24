@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GenerateRandomError>`](crate::operation::generate_random::GenerateRandomError)
 -    pub fn generate_random(&self) -> crate::operation::generate_random::builders::GenerateRandomFluentBuilder {
 -        crate::operation::generate_random::builders::GenerateRandomFluentBuilder::new(self.handle.clone())
-+    pub fn generate_random(&self) -> super::operation::generate_random::builders::GenerateRandomFluentBuilder {
-+        super::operation::generate_random::builders::GenerateRandomFluentBuilder::new(self.handle.clone())
++    pub fn generate_random(&self) -> super::super::operation::generate_random::builders::GenerateRandomFluentBuilder {
++        super::super::operation::generate_random::builders::GenerateRandomFluentBuilder::new(self.handle.clone())
      }
  }

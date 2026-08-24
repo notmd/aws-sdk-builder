@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateBackupInput`](crate::operation::create_backup::CreateBackupInput).
 -    pub fn builder() -> crate::operation::create_backup::builders::CreateBackupInputBuilder {
 -        crate::operation::create_backup::builders::CreateBackupInputBuilder::default()
-+    pub fn builder() -> super::operation::create_backup::builders::CreateBackupInputBuilder {
-+        super::operation::create_backup::builders::CreateBackupInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_backup::builders::CreateBackupInputBuilder {
++        super::super::super::operation::create_backup::builders::CreateBackupInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::create_backup::CreateBackupInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::create_backup::CreateBackupInput {
-+    ) -> ::std::result::Result<super::operation::create_backup::CreateBackupInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::create_backup::CreateBackupInput {
++    ) -> ::std::result::Result<super::super::super::operation::create_backup::CreateBackupInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::create_backup::CreateBackupInput {
              table_name: self.table_name,
              backup_name: self.backup_name,
          })

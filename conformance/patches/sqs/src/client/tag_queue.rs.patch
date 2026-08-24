@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<TagQueueError>`](crate::operation::tag_queue::TagQueueError)
 -    pub fn tag_queue(&self) -> crate::operation::tag_queue::builders::TagQueueFluentBuilder {
 -        crate::operation::tag_queue::builders::TagQueueFluentBuilder::new(self.handle.clone())
-+    pub fn tag_queue(&self) -> super::operation::tag_queue::builders::TagQueueFluentBuilder {
-+        super::operation::tag_queue::builders::TagQueueFluentBuilder::new(self.handle.clone())
++    pub fn tag_queue(&self) -> super::super::operation::tag_queue::builders::TagQueueFluentBuilder {
++        super::super::operation::tag_queue::builders::TagQueueFluentBuilder::new(self.handle.clone())
      }
  }

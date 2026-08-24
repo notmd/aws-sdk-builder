@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for InvalidLambdaResponseException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::InvalidLambdaResponseException {
-+impl ::aws_types::request_id::RequestId for super::types::error::InvalidLambdaResponseException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::InvalidLambdaResponseException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`InvalidLambdaResponseException`](crate::types::error::InvalidLambdaResponseException).
 -    pub fn builder() -> crate::types::error::builders::InvalidLambdaResponseExceptionBuilder {
 -        crate::types::error::builders::InvalidLambdaResponseExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::InvalidLambdaResponseExceptionBuilder {
-+        super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder {
++        super::super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`InvalidLambdaResponseException`](crate::types::error::InvalidLambdaResponseException).
 -    pub fn build(self) -> crate::types::error::InvalidLambdaResponseException {
 -        crate::types::error::InvalidLambdaResponseException {
-+    pub fn build(self) -> super::types::error::InvalidLambdaResponseException {
-+        super::types::error::InvalidLambdaResponseException {
++    pub fn build(self) -> super::super::super::types::error::InvalidLambdaResponseException {
++        super::super::super::types::error::InvalidLambdaResponseException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

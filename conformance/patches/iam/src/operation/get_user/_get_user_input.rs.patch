@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetUserInput`](crate::operation::get_user::GetUserInput).
 -    pub fn builder() -> crate::operation::get_user::builders::GetUserInputBuilder {
 -        crate::operation::get_user::builders::GetUserInputBuilder::default()
-+    pub fn builder() -> super::operation::get_user::builders::GetUserInputBuilder {
-+        super::operation::get_user::builders::GetUserInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_user::builders::GetUserInputBuilder {
++        super::super::super::operation::get_user::builders::GetUserInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`GetUserInput`](crate::operation::get_user::GetUserInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::get_user::GetUserInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_user::GetUserInput { user_name: self.user_name })
-+    pub fn build(self) -> ::std::result::Result<super::operation::get_user::GetUserInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_user::GetUserInput { user_name: self.user_name })
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_user::GetUserInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_user::GetUserInput { user_name: self.user_name })
      }
  }

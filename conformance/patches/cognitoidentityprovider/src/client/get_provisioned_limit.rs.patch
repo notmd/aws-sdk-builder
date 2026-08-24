@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetProvisionedLimitError>`](crate::operation::get_provisioned_limit::GetProvisionedLimitError)
 -    pub fn get_provisioned_limit(&self) -> crate::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder {
 -        crate::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder::new(self.handle.clone())
-+    pub fn get_provisioned_limit(&self) -> super::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder {
-+        super::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder::new(self.handle.clone())
++    pub fn get_provisioned_limit(&self) -> super::super::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder {
++        super::super::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder::new(self.handle.clone())
      }
  }

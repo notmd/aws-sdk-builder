@@ -5,7 +5,7 @@
      pub key: ::std::string::String,
      /// <p>The type to convert the field value to. Valid values are <code>integer</code>, <code>double</code>, <code>string</code> and <code>boolean</code>.</p>
 -    pub r#type: crate::types::Type,
-+    pub r#type: super::types::Type,
++    pub r#type: super::super::types::Type,
  }
  impl TypeConverterEntry {
      /// <p>The key with the value that is to be converted to a different type.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The type to convert the field value to. Valid values are <code>integer</code>, <code>double</code>, <code>string</code> and <code>boolean</code>.</p>
 -    pub fn r#type(&self) -> &crate::types::Type {
-+    pub fn r#type(&self) -> &super::types::Type {
++    pub fn r#type(&self) -> &super::super::types::Type {
          &self.r#type
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`TypeConverterEntry`](crate::types::TypeConverterEntry).
 -    pub fn builder() -> crate::types::builders::TypeConverterEntryBuilder {
 -        crate::types::builders::TypeConverterEntryBuilder::default()
-+    pub fn builder() -> super::types::builders::TypeConverterEntryBuilder {
-+        super::types::builders::TypeConverterEntryBuilder::default()
++    pub fn builder() -> super::super::types::builders::TypeConverterEntryBuilder {
++        super::super::types::builders::TypeConverterEntryBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct TypeConverterEntryBuilder {
      pub(crate) key: ::std::option::Option<::std::string::String>,
 -    pub(crate) r#type: ::std::option::Option<crate::types::Type>,
-+    pub(crate) r#type: ::std::option::Option<super::types::Type>,
++    pub(crate) r#type: ::std::option::Option<super::super::types::Type>,
  }
  impl TypeConverterEntryBuilder {
      /// <p>The key with the value that is to be converted to a different type.</p>
@@ -41,19 +41,19 @@
      /// <p>The type to convert the field value to. Valid values are <code>integer</code>, <code>double</code>, <code>string</code> and <code>boolean</code>.</p>
      /// This field is required.
 -    pub fn r#type(mut self, input: crate::types::Type) -> Self {
-+    pub fn r#type(mut self, input: super::types::Type) -> Self {
++    pub fn r#type(mut self, input: super::super::types::Type) -> Self {
          self.r#type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The type to convert the field value to. Valid values are <code>integer</code>, <code>double</code>, <code>string</code> and <code>boolean</code>.</p>
 -    pub fn set_type(mut self, input: ::std::option::Option<crate::types::Type>) -> Self {
-+    pub fn set_type(mut self, input: ::std::option::Option<super::types::Type>) -> Self {
++    pub fn set_type(mut self, input: ::std::option::Option<super::super::types::Type>) -> Self {
          self.r#type = input;
          self
      }
      /// <p>The type to convert the field value to. Valid values are <code>integer</code>, <code>double</code>, <code>string</code> and <code>boolean</code>.</p>
 -    pub fn get_type(&self) -> &::std::option::Option<crate::types::Type> {
-+    pub fn get_type(&self) -> &::std::option::Option<super::types::Type> {
++    pub fn get_type(&self) -> &::std::option::Option<super::super::types::Type> {
          &self.r#type
      }
      /// Consumes the builder and constructs a [`TypeConverterEntry`](crate::types::TypeConverterEntry).
@@ -63,8 +63,8 @@
      /// - [`r#type`](crate::types::builders::TypeConverterEntryBuilder::type)
 -    pub fn build(self) -> ::std::result::Result<crate::types::TypeConverterEntry, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::TypeConverterEntry {
-+    pub fn build(self) -> ::std::result::Result<super::types::TypeConverterEntry, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::TypeConverterEntry {
++    pub fn build(self) -> ::std::result::Result<super::super::types::TypeConverterEntry, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::TypeConverterEntry {
              key: self.key.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "key",

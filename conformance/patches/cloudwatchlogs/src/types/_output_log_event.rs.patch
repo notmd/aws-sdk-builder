@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`OutputLogEvent`](crate::types::OutputLogEvent).
 -    pub fn builder() -> crate::types::builders::OutputLogEventBuilder {
 -        crate::types::builders::OutputLogEventBuilder::default()
-+    pub fn builder() -> super::types::builders::OutputLogEventBuilder {
-+        super::types::builders::OutputLogEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::OutputLogEventBuilder {
++        super::super::types::builders::OutputLogEventBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`OutputLogEvent`](crate::types::OutputLogEvent).
 -    pub fn build(self) -> crate::types::OutputLogEvent {
 -        crate::types::OutputLogEvent {
-+    pub fn build(self) -> super::types::OutputLogEvent {
-+        super::types::OutputLogEvent {
++    pub fn build(self) -> super::super::types::OutputLogEvent {
++        super::super::types::OutputLogEvent {
              timestamp: self.timestamp,
              message: self.message,
              ingestion_time: self.ingestion_time,

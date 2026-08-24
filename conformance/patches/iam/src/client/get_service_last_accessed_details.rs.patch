@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsFluentBuilder {
 -        crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsFluentBuilder {
-+        super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsFluentBuilder {
++        super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsFluentBuilder::new(self.handle.clone())
      }
  }

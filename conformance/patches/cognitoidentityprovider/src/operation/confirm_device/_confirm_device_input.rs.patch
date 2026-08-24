@@ -5,7 +5,7 @@
      pub device_key: ::std::option::Option<::std::string::String>,
      /// <p>The configuration of the device secret verifier.</p>
 -    pub device_secret_verifier_config: ::std::option::Option<crate::types::DeviceSecretVerifierConfigType>,
-+    pub device_secret_verifier_config: ::std::option::Option<super::types::DeviceSecretVerifierConfigType>,
++    pub device_secret_verifier_config: ::std::option::Option<super::super::super::types::DeviceSecretVerifierConfigType>,
      /// <p>A friendly name for the device, for example <code>MyMobilePhone</code>.</p>
      pub device_name: ::std::option::Option<::std::string::String>,
  }
@@ -14,7 +14,7 @@
      }
      /// <p>The configuration of the device secret verifier.</p>
 -    pub fn device_secret_verifier_config(&self) -> ::std::option::Option<&crate::types::DeviceSecretVerifierConfigType> {
-+    pub fn device_secret_verifier_config(&self) -> ::std::option::Option<&super::types::DeviceSecretVerifierConfigType> {
++    pub fn device_secret_verifier_config(&self) -> ::std::option::Option<&super::super::super::types::DeviceSecretVerifierConfigType> {
          self.device_secret_verifier_config.as_ref()
      }
      /// <p>A friendly name for the device, for example <code>MyMobilePhone</code>.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ConfirmDeviceInput`](crate::operation::confirm_device::ConfirmDeviceInput).
 -    pub fn builder() -> crate::operation::confirm_device::builders::ConfirmDeviceInputBuilder {
 -        crate::operation::confirm_device::builders::ConfirmDeviceInputBuilder::default()
-+    pub fn builder() -> super::operation::confirm_device::builders::ConfirmDeviceInputBuilder {
-+        super::operation::confirm_device::builders::ConfirmDeviceInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::confirm_device::builders::ConfirmDeviceInputBuilder {
++        super::super::super::operation::confirm_device::builders::ConfirmDeviceInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) access_token: ::std::option::Option<::std::string::String>,
      pub(crate) device_key: ::std::option::Option<::std::string::String>,
 -    pub(crate) device_secret_verifier_config: ::std::option::Option<crate::types::DeviceSecretVerifierConfigType>,
-+    pub(crate) device_secret_verifier_config: ::std::option::Option<super::types::DeviceSecretVerifierConfigType>,
++    pub(crate) device_secret_verifier_config: ::std::option::Option<super::super::super::types::DeviceSecretVerifierConfigType>,
      pub(crate) device_name: ::std::option::Option<::std::string::String>,
  }
  impl ConfirmDeviceInputBuilder {
@@ -43,19 +43,19 @@
      }
      /// <p>The configuration of the device secret verifier.</p>
 -    pub fn device_secret_verifier_config(mut self, input: crate::types::DeviceSecretVerifierConfigType) -> Self {
-+    pub fn device_secret_verifier_config(mut self, input: super::types::DeviceSecretVerifierConfigType) -> Self {
++    pub fn device_secret_verifier_config(mut self, input: super::super::super::types::DeviceSecretVerifierConfigType) -> Self {
          self.device_secret_verifier_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>The configuration of the device secret verifier.</p>
 -    pub fn set_device_secret_verifier_config(mut self, input: ::std::option::Option<crate::types::DeviceSecretVerifierConfigType>) -> Self {
-+    pub fn set_device_secret_verifier_config(mut self, input: ::std::option::Option<super::types::DeviceSecretVerifierConfigType>) -> Self {
++    pub fn set_device_secret_verifier_config(mut self, input: ::std::option::Option<super::super::super::types::DeviceSecretVerifierConfigType>) -> Self {
          self.device_secret_verifier_config = input;
          self
      }
      /// <p>The configuration of the device secret verifier.</p>
 -    pub fn get_device_secret_verifier_config(&self) -> &::std::option::Option<crate::types::DeviceSecretVerifierConfigType> {
-+    pub fn get_device_secret_verifier_config(&self) -> &::std::option::Option<super::types::DeviceSecretVerifierConfigType> {
++    pub fn get_device_secret_verifier_config(&self) -> &::std::option::Option<super::super::super::types::DeviceSecretVerifierConfigType> {
          &self.device_secret_verifier_config
      }
      /// <p>A friendly name for the device, for example <code>MyMobilePhone</code>.</p>
@@ -65,8 +65,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::confirm_device::ConfirmDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::confirm_device::ConfirmDeviceInput {
-+    ) -> ::std::result::Result<super::operation::confirm_device::ConfirmDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::confirm_device::ConfirmDeviceInput {
++    ) -> ::std::result::Result<super::super::super::operation::confirm_device::ConfirmDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::confirm_device::ConfirmDeviceInput {
              access_token: self.access_token,
              device_key: self.device_key,
              device_secret_verifier_config: self.device_secret_verifier_config,

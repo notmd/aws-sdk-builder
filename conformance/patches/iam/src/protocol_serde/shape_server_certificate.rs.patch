@@ -5,20 +5,20 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::ServerCertificate, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::ServerCertificate, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::ServerCertificate, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::ServerCertificate::builder();
-+    let mut builder = super::types::ServerCertificate::builder();
++    let mut builder = super::super::types::ServerCertificate::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("ServerCertificateMetadata") /* ServerCertificateMetadata com.amazonaws.iam#ServerCertificate$ServerCertificateMetadata */ =>  {
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_server_certificate_metadata::de_server_certificate_metadata(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_server_certificate_metadata::de_server_certificate_metadata(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_server_certificate_metadata::de_server_certificate_metadata(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -27,7 +27,7 @@
                  let var_4 =
                      Some(
 -                        crate::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -36,7 +36,7 @@
          }
      }
 -    Ok(crate::serde_util::server_certificate_correct_errors(builder)
-+    Ok(super::serde_util::server_certificate_correct_errors(builder)
++    Ok(super::super::serde_util::server_certificate_correct_errors(builder)
          .build()
          .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
  }

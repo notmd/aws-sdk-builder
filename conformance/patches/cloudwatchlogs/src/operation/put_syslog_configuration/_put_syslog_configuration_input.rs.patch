@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutSyslogConfigurationInput`](crate::operation::put_syslog_configuration::PutSyslogConfigurationInput).
 -    pub fn builder() -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationInputBuilder {
 -        crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationInputBuilder::default()
-+    pub fn builder() -> super::operation::put_syslog_configuration::builders::PutSyslogConfigurationInputBuilder {
-+        super::operation::put_syslog_configuration::builders::PutSyslogConfigurationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_syslog_configuration::builders::PutSyslogConfigurationInputBuilder {
++        super::super::super::operation::put_syslog_configuration::builders::PutSyslogConfigurationInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::put_syslog_configuration::PutSyslogConfigurationInput,
-+        super::operation::put_syslog_configuration::PutSyslogConfigurationInput,
++        super::super::super::operation::put_syslog_configuration::PutSyslogConfigurationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::put_syslog_configuration::PutSyslogConfigurationInput {
-+        ::std::result::Result::Ok(super::operation::put_syslog_configuration::PutSyslogConfigurationInput {
++        ::std::result::Result::Ok(super::super::super::operation::put_syslog_configuration::PutSyslogConfigurationInput {
              log_group_identifier: self.log_group_identifier,
              vpc_endpoint_id: self.vpc_endpoint_id,
          })

@@ -5,11 +5,11 @@
      pub name: ::std::option::Option<::std::string::String>,
      /// <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of user pool operations. Triggers can modify the outcome of the operations that invoked them.</p>
 -    pub lambda_config: ::std::option::Option<crate::types::LambdaConfigType>,
-+    pub lambda_config: ::std::option::Option<super::types::LambdaConfigType>,
++    pub lambda_config: ::std::option::Option<super::super::types::LambdaConfigType>,
      /// <p>The user pool status.</p>
      #[deprecated(note = "This property is no longer available.")]
 -    pub status: ::std::option::Option<crate::types::StatusType>,
-+    pub status: ::std::option::Option<super::types::StatusType>,
++    pub status: ::std::option::Option<super::super::types::StatusType>,
      /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
      pub last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -18,13 +18,13 @@
      }
      /// <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of user pool operations. Triggers can modify the outcome of the operations that invoked them.</p>
 -    pub fn lambda_config(&self) -> ::std::option::Option<&crate::types::LambdaConfigType> {
-+    pub fn lambda_config(&self) -> ::std::option::Option<&super::types::LambdaConfigType> {
++    pub fn lambda_config(&self) -> ::std::option::Option<&super::super::types::LambdaConfigType> {
          self.lambda_config.as_ref()
      }
      /// <p>The user pool status.</p>
      #[deprecated(note = "This property is no longer available.")]
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::StatusType> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::StatusType> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::StatusType> {
          self.status.as_ref()
      }
      /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -34,8 +34,8 @@
      /// Creates a new builder-style object to manufacture [`UserPoolDescriptionType`](crate::types::UserPoolDescriptionType).
 -    pub fn builder() -> crate::types::builders::UserPoolDescriptionTypeBuilder {
 -        crate::types::builders::UserPoolDescriptionTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::UserPoolDescriptionTypeBuilder {
-+        super::types::builders::UserPoolDescriptionTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::UserPoolDescriptionTypeBuilder {
++        super::super::types::builders::UserPoolDescriptionTypeBuilder::default()
      }
  }
 
@@ -45,8 +45,8 @@
      pub(crate) name: ::std::option::Option<::std::string::String>,
 -    pub(crate) lambda_config: ::std::option::Option<crate::types::LambdaConfigType>,
 -    pub(crate) status: ::std::option::Option<crate::types::StatusType>,
-+    pub(crate) lambda_config: ::std::option::Option<super::types::LambdaConfigType>,
-+    pub(crate) status: ::std::option::Option<super::types::StatusType>,
++    pub(crate) lambda_config: ::std::option::Option<super::super::types::LambdaConfigType>,
++    pub(crate) status: ::std::option::Option<super::super::types::StatusType>,
      pub(crate) last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) replica_regions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -55,39 +55,39 @@
      }
      /// <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of user pool operations. Triggers can modify the outcome of the operations that invoked them.</p>
 -    pub fn lambda_config(mut self, input: crate::types::LambdaConfigType) -> Self {
-+    pub fn lambda_config(mut self, input: super::types::LambdaConfigType) -> Self {
++    pub fn lambda_config(mut self, input: super::super::types::LambdaConfigType) -> Self {
          self.lambda_config = ::std::option::Option::Some(input);
          self
      }
      /// <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of user pool operations. Triggers can modify the outcome of the operations that invoked them.</p>
 -    pub fn set_lambda_config(mut self, input: ::std::option::Option<crate::types::LambdaConfigType>) -> Self {
-+    pub fn set_lambda_config(mut self, input: ::std::option::Option<super::types::LambdaConfigType>) -> Self {
++    pub fn set_lambda_config(mut self, input: ::std::option::Option<super::super::types::LambdaConfigType>) -> Self {
          self.lambda_config = input;
          self
      }
      /// <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of user pool operations. Triggers can modify the outcome of the operations that invoked them.</p>
 -    pub fn get_lambda_config(&self) -> &::std::option::Option<crate::types::LambdaConfigType> {
-+    pub fn get_lambda_config(&self) -> &::std::option::Option<super::types::LambdaConfigType> {
++    pub fn get_lambda_config(&self) -> &::std::option::Option<super::super::types::LambdaConfigType> {
          &self.lambda_config
      }
      /// <p>The user pool status.</p>
      #[deprecated(note = "This property is no longer available.")]
 -    pub fn status(mut self, input: crate::types::StatusType) -> Self {
-+    pub fn status(mut self, input: super::types::StatusType) -> Self {
++    pub fn status(mut self, input: super::super::types::StatusType) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The user pool status.</p>
      #[deprecated(note = "This property is no longer available.")]
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::StatusType>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::StatusType>) -> Self {
          self.status = input;
          self
      }
      /// <p>The user pool status.</p>
      #[deprecated(note = "This property is no longer available.")]
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::StatusType> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::StatusType> {
          &self.status
      }
      /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -97,8 +97,8 @@
      /// Consumes the builder and constructs a [`UserPoolDescriptionType`](crate::types::UserPoolDescriptionType).
 -    pub fn build(self) -> crate::types::UserPoolDescriptionType {
 -        crate::types::UserPoolDescriptionType {
-+    pub fn build(self) -> super::types::UserPoolDescriptionType {
-+        super::types::UserPoolDescriptionType {
++    pub fn build(self) -> super::super::types::UserPoolDescriptionType {
++        super::super::types::UserPoolDescriptionType {
              id: self.id,
              name: self.name,
              lambda_config: self.lambda_config,

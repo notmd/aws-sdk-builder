@@ -5,7 +5,7 @@
      pub dimensions: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      /// <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
 -    pub unit: ::std::option::Option<crate::types::StandardUnit>,
-+    pub unit: ::std::option::Option<super::types::StandardUnit>,
++    pub unit: ::std::option::Option<super::super::types::StandardUnit>,
  }
  impl MetricTransformation {
      /// <p>The name of the CloudWatch metric.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
 -    pub fn unit(&self) -> ::std::option::Option<&crate::types::StandardUnit> {
-+    pub fn unit(&self) -> ::std::option::Option<&super::types::StandardUnit> {
++    pub fn unit(&self) -> ::std::option::Option<&super::super::types::StandardUnit> {
          self.unit.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`MetricTransformation`](crate::types::MetricTransformation).
 -    pub fn builder() -> crate::types::builders::MetricTransformationBuilder {
 -        crate::types::builders::MetricTransformationBuilder::default()
-+    pub fn builder() -> super::types::builders::MetricTransformationBuilder {
-+        super::types::builders::MetricTransformationBuilder::default()
++    pub fn builder() -> super::super::types::builders::MetricTransformationBuilder {
++        super::super::types::builders::MetricTransformationBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) default_value: ::std::option::Option<f64>,
      pub(crate) dimensions: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) unit: ::std::option::Option<crate::types::StandardUnit>,
-+    pub(crate) unit: ::std::option::Option<super::types::StandardUnit>,
++    pub(crate) unit: ::std::option::Option<super::super::types::StandardUnit>,
  }
  impl MetricTransformationBuilder {
      /// <p>The name of the CloudWatch metric.</p>
@@ -41,19 +41,19 @@
      }
      /// <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
 -    pub fn unit(mut self, input: crate::types::StandardUnit) -> Self {
-+    pub fn unit(mut self, input: super::types::StandardUnit) -> Self {
++    pub fn unit(mut self, input: super::super::types::StandardUnit) -> Self {
          self.unit = ::std::option::Option::Some(input);
          self
      }
      /// <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
 -    pub fn set_unit(mut self, input: ::std::option::Option<crate::types::StandardUnit>) -> Self {
-+    pub fn set_unit(mut self, input: ::std::option::Option<super::types::StandardUnit>) -> Self {
++    pub fn set_unit(mut self, input: ::std::option::Option<super::super::types::StandardUnit>) -> Self {
          self.unit = input;
          self
      }
      /// <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
 -    pub fn get_unit(&self) -> &::std::option::Option<crate::types::StandardUnit> {
-+    pub fn get_unit(&self) -> &::std::option::Option<super::types::StandardUnit> {
++    pub fn get_unit(&self) -> &::std::option::Option<super::super::types::StandardUnit> {
          &self.unit
      }
      /// Consumes the builder and constructs a [`MetricTransformation`](crate::types::MetricTransformation).
@@ -63,8 +63,8 @@
      /// - [`metric_value`](crate::types::builders::MetricTransformationBuilder::metric_value)
 -    pub fn build(self) -> ::std::result::Result<crate::types::MetricTransformation, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::MetricTransformation {
-+    pub fn build(self) -> ::std::result::Result<super::types::MetricTransformation, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::MetricTransformation {
++    pub fn build(self) -> ::std::result::Result<super::super::types::MetricTransformation, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::MetricTransformation {
              metric_name: self.metric_name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "metric_name",

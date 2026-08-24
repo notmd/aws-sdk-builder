@@ -5,7 +5,7 @@
  pub fn ser_guardrail_converse_text_block(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::GuardrailConverseTextBlock,
-+    input: &super::types::GuardrailConverseTextBlock,
++    input: &super::super::types::GuardrailConverseTextBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("text").string(input.text.as_str());
@@ -14,7 +14,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::GuardrailConverseTextBlock>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::GuardrailConverseTextBlock>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::GuardrailConverseTextBlock>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -23,7 +23,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::GuardrailConverseTextBlockBuilder::default();
-+            let mut builder = super::types::builders::GuardrailConverseTextBlockBuilder::default();
++            let mut builder = super::super::types::builders::GuardrailConverseTextBlockBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -32,7 +32,7 @@
                              "qualifiers" => {
                                  builder = builder.set_qualifiers(
 -                                    crate::protocol_serde::shape_guardrail_converse_content_qualifier_list::de_guardrail_converse_content_qualifier_list(tokens, _value, depth + 1)?
-+                                    super::protocol_serde::shape_guardrail_converse_content_qualifier_list::de_guardrail_converse_content_qualifier_list(tokens, _value, depth + 1)?
++                                    super::super::protocol_serde::shape_guardrail_converse_content_qualifier_list::de_guardrail_converse_content_qualifier_list(tokens, _value, depth + 1)?
                                  );
                              }
                              _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -41,7 +41,7 @@
              }
              Ok(Some(
 -                crate::serde_util::guardrail_converse_text_block_correct_errors(builder)
-+                super::serde_util::guardrail_converse_text_block_correct_errors(builder)
++                super::super::serde_util::guardrail_converse_text_block_correct_errors(builder)
                      .build()
                      .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
              ))

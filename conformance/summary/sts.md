@@ -3,7 +3,43 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `146/146` files compared · `90` matched · `14` mismatches · `42` missing · `0` extra · `61.64%` match (100.00% means fully matched)
+**Progress:** `146/146` files compared · `77` matched · `27` mismatches · `42` missing · `0` extra · `52.74%` match (100.00% means fully matched)
+
+### `src/client/assume_role_with_web_identity.rs`
+
+```diff
+--- reference/src/client/assume_role_with_web_identity.rs
++++ generated/src/client/assume_role_with_web_identity.rs
+@@ -19,7 +19,9 @@
+     ///   - [`audience(Option<String>)`](crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityOutput::audience): <p>The intended audience (also known as client ID) of the web identity token. This is traditionally the client identifier issued to the application that requested the web identity token.</p>
+     ///   - [`source_identity(Option<String>)`](crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityOutput::source_identity): <p>The value of the source identity that is returned in the JSON web token (JWT) from the identity provider.</p> <p>You can require users to set a source identity value when they assume a role. You do this by using the <code>sts:SourceIdentity</code> condition key in a role trust policy. That way, actions that are taken with the role are associated with that user. After the source identity is set, the value cannot be changed. It is present in the request for all actions that are taken by the role and persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#id_roles_terms-and-concepts">chained role</a> sessions. You can configure your identity provider to use an attribute associated with your users, like user name or email, as the source identity when calling <code>AssumeRoleWithWebIdentity</code>. You do this by adding a claim to the JSON web token. To learn more about OIDC tokens and claims, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html">Using Tokens with User Pools</a> in the <i>Amazon Cognito Developer Guide</i>. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p> <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
+     /// - On failure, responds with [`SdkError<AssumeRoleWithWebIdentityError>`](crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError)
+-    pub fn assume_role_with_web_identity(&self) -> super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder {
++    pub fn assume_role_with_web_identity(
++        &self,
++    ) -> super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder {
+         super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder::new(self.handle.clone())
+     }
+ }
+```
+
+### `src/client/decode_authorization_message.rs`
+
+```diff
+--- reference/src/client/decode_authorization_message.rs
++++ generated/src/client/decode_authorization_message.rs
+@@ -7,7 +7,9 @@
+     /// - On success, responds with [`DecodeAuthorizationMessageOutput`](crate::operation::decode_authorization_message::DecodeAuthorizationMessageOutput) with field(s):
+     ///   - [`decoded_message(Option<String>)`](crate::operation::decode_authorization_message::DecodeAuthorizationMessageOutput::decoded_message): <p>The API returns a response with the decoded message.</p>
+     /// - On failure, responds with [`SdkError<DecodeAuthorizationMessageError>`](crate::operation::decode_authorization_message::DecodeAuthorizationMessageError)
+-    pub fn decode_authorization_message(&self) -> super::super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageFluentBuilder {
++    pub fn decode_authorization_message(
++        &self,
++    ) -> super::super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageFluentBuilder {
+         super::super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageFluentBuilder::new(self.handle.clone())
+     }
+ }
+```
 
 ### `src/client.rs`
 
@@ -65,6 +101,55 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// A client has a function for every operation that can be performed by the service.
 ```
 
+### `src/config/endpoint.rs`
+
+```diff
+--- reference/src/config/endpoint.rs
++++ generated/src/config/endpoint.rs
+@@ -29,7 +29,10 @@
+ /// Endpoint resolver trait specific to AWS Security Token Service
+ pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
+     /// Resolve an endpoint with the given parameters
+-    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
++    fn resolve_endpoint<'a>(
++        &'a self,
++        params: &'a super::super::config::endpoint::Params,
++    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
+
+     /// Convert this service-specific resolver into a `SharedEndpointResolver`
+     ///
+@@ -391,7 +394,10 @@
+ }
+
+ impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
+-    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
++    fn resolve_endpoint<'a>(
++        &'a self,
++        params: &'a super::super::config::endpoint::Params,
++    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
+         // Check single-entry cache (lock-free read via ArcSwap)
+         let cached = self.endpoint_cache.load();
+         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
+```
+
+### `src/operation/assume_role/_assume_role_input.rs`
+
+```diff
+--- reference/src/operation/assume_role/_assume_role_input.rs
++++ generated/src/operation/assume_role/_assume_role_input.rs
+@@ -461,7 +461,9 @@
+         &self.provided_contexts
+     }
+     /// Consumes the builder and constructs a [`AssumeRoleInput`](crate::operation::assume_role::AssumeRoleInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::assume_role::AssumeRoleInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::assume_role::AssumeRoleInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::assume_role::AssumeRoleInput {
+             role_arn: self.role_arn,
+             role_session_name: self.role_session_name,
+```
+
 ### `src/operation/assume_role.rs`
 
 ```diff
@@ -72,10 +157,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/assume_role.rs
 @@ -139,15 +139,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 super::operation::assume_role::AssumeRoleError,
+                 super::super::operation::assume_role::AssumeRoleError,
              >::new())
 -            .with_retry_classifier(
--                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::assume_role::AssumeRoleError>::builder()
+-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::assume_role::AssumeRoleError>::builder()
 -                    .transient_errors({
 -                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                        transient_errors.push("IDPCommunicationError");
@@ -84,12 +169,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::assume_role::AssumeRoleError,
++                super::super::operation::assume_role::AssumeRoleError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -282,12 +276,10 @@
+@@ -257,7 +251,9 @@
+         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+-        let input = input.downcast::<super::super::operation::assume_role::AssumeRoleInput>().expect("correct type");
++        let input = input
++            .downcast::<super::super::operation::assume_role::AssumeRoleInput>()
++            .expect("correct type");
+         let _header_serialization_settings = _cfg
+             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
+@@ -282,12 +278,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -99,11 +195,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_assume_role_input::ser_assume_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_assume_role_input::ser_assume_role_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_role_input::ser_assume_role_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_role_input::ser_assume_role_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/assume_role_with_saml/_assume_role_with_saml_input.rs`
+
+```diff
+--- reference/src/operation/assume_role_with_saml/_assume_role_with_saml_input.rs
++++ generated/src/operation/assume_role_with_saml/_assume_role_with_saml_input.rs
+@@ -236,8 +236,10 @@
+     /// Consumes the builder and constructs a [`AssumeRoleWithSamlInput`](crate::operation::assume_role_with_saml::AssumeRoleWithSamlInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlInput {
+             role_arn: self.role_arn,
+             principal_arn: self.principal_arn,
 ```
 
 ### `src/operation/assume_role_with_saml/builders.rs`
@@ -113,10 +229,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/assume_role_with_saml/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+            super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+-            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -135,26 +251,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct AssumeRoleWithSAMLFluentBuilder {
 +pub struct AssumeRoleWithSamlFluentBuilder {
-     handle: ::std::sync::Arc<super::client::Handle>,
-     inner: super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder,
-     config_override: ::std::option::Option<super::config::Builder>,
+     handle: ::std::sync::Arc<super::super::super::client::Handle>,
+     inner: super::super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder,
+     config_override: ::std::option::Option<super::super::super::config::Builder>,
 @@ -66,8 +66,8 @@
  impl
-     super::client::customize::internal::CustomizableSend<
-         super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--        super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
+     super::super::super::client::customize::internal::CustomizableSend<
+         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+-        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
 -    > for AssumeRoleWithSAMLFluentBuilder
-+        super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
++        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
 +    > for AssumeRoleWithSamlFluentBuilder
  {
      fn send(
          self,
 @@ -75,14 +75,14 @@
-     ) -> super::client::customize::internal::BoxFuture<
-         super::client::customize::internal::SendResult<
-             super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--            super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+            super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+     ) -> super::super::super::client::customize::internal::BoxFuture<
+         super::super::super::client::customize::internal::SendResult<
+             super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+-            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -164,7 +280,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `AssumeRoleWithSAMLFluentBuilder`.
 +impl AssumeRoleWithSamlFluentBuilder {
 +    /// Creates a new `AssumeRoleWithSamlFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -90,7 +90,7 @@
@@ -173,15 +289,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the AssumeRoleWithSAML as a reference.
 +    /// Access the AssumeRoleWithSaml as a reference.
-     pub fn as_input(&self) -> &super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder {
+     pub fn as_input(&self) -> &super::super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder {
          &self.inner
      }
 @@ -107,7 +107,7 @@
      ) -> ::std::result::Result<
-         super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+            super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+-            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -189,26 +305,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::operation::assume_role_with_saml::AssumeRoleWithSAML::operation_runtime_plugins(
-+        let runtime_plugins = super::operation::assume_role_with_saml::AssumeRoleWithSaml::operation_runtime_plugins(
+-        let runtime_plugins = super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAML::operation_runtime_plugins(
++        let runtime_plugins = super::super::super::operation::assume_role_with_saml::AssumeRoleWithSaml::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        super::operation::assume_role_with_saml::AssumeRoleWithSAML::orchestrate(&runtime_plugins, input).await
-+        super::operation::assume_role_with_saml::AssumeRoleWithSaml::orchestrate(&runtime_plugins, input).await
+-        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAML::orchestrate(&runtime_plugins, input).await
++        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSaml::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -128,7 +128,7 @@
          self,
-     ) -> super::client::customize::CustomizableOperation<
-         super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--        super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+        super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+     ) -> super::super::super::client::customize::CustomizableOperation<
+         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+-        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
          Self,
      > {
-         super::client::customize::CustomizableOperation::new(self)
+         super::super::super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/assume_role_with_saml.rs`
@@ -276,9 +392,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(AssumeRoleWithSAMLTelemetryInputCaptureInterceptor))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(AssumeRoleWithSAMLEndpointParamsInterceptor))
--                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::new())
--.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::new())
--.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::builder().transient_errors({
+-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::new())
+-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::new())
+-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::builder().transient_errors({
 -                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                                            transient_errors.push("IDPCommunicationError");
 -                                            ::std::borrow::Cow::Owned(transient_errors)
@@ -294,13 +410,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                AssumeRoleWithSamlEndpointParamsInterceptor,
 +            ))
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++                super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
 +            >::new())
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++                super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
 +            >::new())
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++                super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -331,8 +447,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            super::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_input_input_input(&input)?,
-+            super::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_op_input(&input)?,
+-            super::super::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_input_input_input(&input)?,
++            super::super::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -352,6 +468,40 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
+```
+
+### `src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_input.rs`
+
+```diff
+--- reference/src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_input.rs
++++ generated/src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_input.rs
+@@ -287,15 +287,17 @@
+         super::super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityInput {
+-            role_arn: self.role_arn,
+-            role_session_name: self.role_session_name,
+-            web_identity_token: self.web_identity_token,
+-            provider_id: self.provider_id,
+-            policy_arns: self.policy_arns,
+-            policy: self.policy,
+-            duration_seconds: self.duration_seconds,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityInput {
++                role_arn: self.role_arn,
++                role_session_name: self.role_session_name,
++                web_identity_token: self.web_identity_token,
++                provider_id: self.provider_id,
++                policy_arns: self.policy_arns,
++                policy: self.policy,
++                duration_seconds: self.duration_seconds,
++            },
++        )
+     }
+ }
+ impl ::std::fmt::Debug for AssumeRoleWithWebIdentityInputBuilder {
 ```
 
 ### `src/operation/assume_role_with_web_identity.rs`
@@ -379,11 +529,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 @@ -132,17 +142,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
+                 super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
              >::new())
 -            .with_retry_classifier(
 -                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                    super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
+-                    super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
 -                >::builder()
 -                .transient_errors({
 -                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -393,7 +543,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
++                super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -408,8 +558,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            super::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_input_input_input(&input)?,
-+            super::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_op_input(&input)?,
+-            super::super::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_input_input_input(&input)?,
++            super::super::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -427,6 +577,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AssumeRoleWithWebIdentityError {
 ```
 
+### `src/operation/assume_root/_assume_root_input.rs`
+
+```diff
+--- reference/src/operation/assume_root/_assume_root_input.rs
++++ generated/src/operation/assume_root/_assume_root_input.rs
+@@ -150,7 +150,9 @@
+         &self.duration_seconds
+     }
+     /// Consumes the builder and constructs a [`AssumeRootInput`](crate::operation::assume_root::AssumeRootInput).
+-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::assume_root::AssumeRootInput, ::aws_smithy_types::error::operation::BuildError> {
++    pub fn build(
++        self,
++    ) -> ::std::result::Result<super::super::super::operation::assume_root::AssumeRootInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::super::super::operation::assume_root::AssumeRootInput {
+             target_principal: self.target_principal,
+             task_policy_arn: self.task_policy_arn,
+```
+
 ### `src/operation/assume_root.rs`
 
 ```diff
@@ -434,10 +602,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/assume_root.rs
 @@ -139,15 +139,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 super::operation::assume_root::AssumeRootError,
+                 super::super::operation::assume_root::AssumeRootError,
              >::new())
 -            .with_retry_classifier(
--                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::assume_root::AssumeRootError>::builder()
+-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::assume_root::AssumeRootError>::builder()
 -                    .transient_errors({
 -                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                        transient_errors.push("IDPCommunicationError");
@@ -446,12 +614,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::assume_root::AssumeRootError,
++                super::super::operation::assume_root::AssumeRootError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -252,12 +246,10 @@
+@@ -227,7 +221,9 @@
+         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+-        let input = input.downcast::<super::super::operation::assume_root::AssumeRootInput>().expect("correct type");
++        let input = input
++            .downcast::<super::super::operation::assume_root::AssumeRootInput>()
++            .expect("correct type");
+         let _header_serialization_settings = _cfg
+             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
+@@ -252,12 +248,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -461,11 +640,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_assume_root_input::ser_assume_root_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_assume_root_input::ser_assume_root_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_root_input::ser_assume_root_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_root_input::ser_assume_root_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/decode_authorization_message/_decode_authorization_message_input.rs`
+
+```diff
+--- reference/src/operation/decode_authorization_message/_decode_authorization_message_input.rs
++++ generated/src/operation/decode_authorization_message/_decode_authorization_message_input.rs
+@@ -48,8 +48,10 @@
+         super::super::super::operation::decode_authorization_message::DecodeAuthorizationMessageInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(super::super::super::operation::decode_authorization_message::DecodeAuthorizationMessageInput {
+-            encoded_message: self.encoded_message,
+-        })
++        ::std::result::Result::Ok(
++            super::super::super::operation::decode_authorization_message::DecodeAuthorizationMessageInput {
++                encoded_message: self.encoded_message,
++            },
++        )
+     }
+ }
 ```
 
 ### `src/operation/decode_authorization_message.rs`
@@ -475,11 +675,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/decode_authorization_message.rs
 @@ -141,17 +141,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
+                 super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
              >::new())
 -            .with_retry_classifier(
 -                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                    super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
+-                    super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
 -                >::builder()
 -                .transient_errors({
 -                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -489,7 +689,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
++                super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -504,11 +704,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            super::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_input_input_input(&input)?,
-+            super::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_op_input(&input)?,
+-            super::super::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_input_input_input(&input)?,
++            super::super::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+```
+
+### `src/operation/get_access_key_info/_get_access_key_info_input.rs`
+
+```diff
+--- reference/src/operation/get_access_key_info/_get_access_key_info_input.rs
++++ generated/src/operation/get_access_key_info/_get_access_key_info_input.rs
+@@ -49,7 +49,10 @@
+     /// Consumes the builder and constructs a [`GetAccessKeyInfoInput`](crate::operation::get_access_key_info::GetAccessKeyInfoInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::get_access_key_info::GetAccessKeyInfoInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::get_access_key_info::GetAccessKeyInfoInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::get_access_key_info::GetAccessKeyInfoInput {
+             access_key_id: self.access_key_id,
+         })
 ```
 
 ### `src/operation/get_access_key_info.rs`
@@ -518,10 +737,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_access_key_info.rs
 @@ -138,16 +138,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 super::operation::get_access_key_info::GetAccessKeyInfoError,
+                 super::super::operation::get_access_key_info::GetAccessKeyInfoError,
              >::new())
 -            .with_retry_classifier(
--                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_access_key_info::GetAccessKeyInfoError>::builder(
+-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::get_access_key_info::GetAccessKeyInfoError>::builder(
 -                )
 -                .transient_errors({
 -                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -531,12 +750,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::get_access_key_info::GetAccessKeyInfoError,
++                super::super::operation::get_access_key_info::GetAccessKeyInfoError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -254,13 +247,12 @@
+@@ -254,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -545,15 +764,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_op_input(
-+            &input,
-+        )?);
+         let body = ::aws_smithy_types::body::SdkBody::from(
+-            super::super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_input_input_input(&input)?,
++            super::super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_op_input(&input)?,
+         );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/get_caller_identity/_get_caller_identity_input.rs`
+
+```diff
+--- reference/src/operation/get_caller_identity/_get_caller_identity_input.rs
++++ generated/src/operation/get_caller_identity/_get_caller_identity_input.rs
+@@ -18,7 +18,10 @@
+     /// Consumes the builder and constructs a [`GetCallerIdentityInput`](crate::operation::get_caller_identity::GetCallerIdentityInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::get_caller_identity::GetCallerIdentityInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::get_caller_identity::GetCallerIdentityInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::get_caller_identity::GetCallerIdentityInput {})
+     }
+ }
 ```
 
 ### `src/operation/get_caller_identity.rs`
@@ -568,9 +803,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetCallerIdentity")
 -                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetCallerIdentityEndpointParamsInterceptor))
--                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::operation::get_caller_identity::GetCallerIdentityError>::new())
--.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::operation::get_caller_identity::GetCallerIdentityError>::new())
--.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_caller_identity::GetCallerIdentityError>::builder().transient_errors({
+-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_caller_identity::GetCallerIdentityError>::new())
+-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_caller_identity::GetCallerIdentityError>::new())
+-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::get_caller_identity::GetCallerIdentityError>::builder().transient_errors({
 -                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                                            transient_errors.push("IDPCommunicationError");
 -                                            ::std::borrow::Cow::Owned(transient_errors)
@@ -583,13 +818,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetCallerIdentityEndpointParamsInterceptor,
 +            ))
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                super::operation::get_caller_identity::GetCallerIdentityError,
++                super::super::operation::get_caller_identity::GetCallerIdentityError,
 +            >::new())
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                super::operation::get_caller_identity::GetCallerIdentityError,
++                super::super::operation::get_caller_identity::GetCallerIdentityError,
 +            >::new())
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::get_caller_identity::GetCallerIdentityError,
++                super::super::operation::get_caller_identity::GetCallerIdentityError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -603,7 +838,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::protocol_serde::shape_get_caller_identity_input::ser_get_caller_identity_input_input_input(&input)?,
+-            super::super::protocol_serde::shape_get_caller_identity_input::ser_get_caller_identity_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -618,11 +853,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_delegated_access_token.rs
 @@ -139,17 +139,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
+                 super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
              >::new())
 -            .with_retry_classifier(
 -                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                    super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
+-                    super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
 -                >::builder()
 -                .transient_errors({
 -                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -632,7 +867,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
++                super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -647,11 +882,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            super::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_input_input_input(&input)?,
-+            super::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_op_input(&input)?,
+-            super::super::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_input_input_input(&input)?,
++            super::super::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+```
+
+### `src/operation/get_federation_token/_get_federation_token_input.rs`
+
+```diff
+--- reference/src/operation/get_federation_token/_get_federation_token_input.rs
++++ generated/src/operation/get_federation_token/_get_federation_token_input.rs
+@@ -239,8 +239,10 @@
+     /// Consumes the builder and constructs a [`GetFederationTokenInput`](crate::operation::get_federation_token::GetFederationTokenInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::get_federation_token::GetFederationTokenInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::get_federation_token::GetFederationTokenInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::get_federation_token::GetFederationTokenInput {
+             name: self.name,
+             policy: self.policy,
 ```
 
 ### `src/operation/get_federation_token.rs`
@@ -667,9 +922,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetFederationTokenTelemetryInputCaptureInterceptor))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetFederationTokenEndpointParamsInterceptor))
--                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::operation::get_federation_token::GetFederationTokenError>::new())
--.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::operation::get_federation_token::GetFederationTokenError>::new())
--.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_federation_token::GetFederationTokenError>::builder().transient_errors({
+-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_federation_token::GetFederationTokenError>::new())
+-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_federation_token::GetFederationTokenError>::new())
+-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::get_federation_token::GetFederationTokenError>::builder().transient_errors({
 -                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                                            transient_errors.push("IDPCommunicationError");
 -                                            ::std::borrow::Cow::Owned(transient_errors)
@@ -685,13 +940,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetFederationTokenEndpointParamsInterceptor,
 +            ))
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                super::operation::get_federation_token::GetFederationTokenError,
++                super::super::operation::get_federation_token::GetFederationTokenError,
 +            >::new())
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                super::operation::get_federation_token::GetFederationTokenError,
++                super::super::operation::get_federation_token::GetFederationTokenError,
 +            >::new())
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::get_federation_token::GetFederationTokenError,
++                super::super::operation::get_federation_token::GetFederationTokenError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -706,11 +961,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            super::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_input_input_input(&input)?,
-+            super::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_op_input(&input)?,
+-            super::super::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_input_input_input(&input)?,
++            super::super::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+```
+
+### `src/operation/get_session_token/_get_session_token_input.rs`
+
+```diff
+--- reference/src/operation/get_session_token/_get_session_token_input.rs
++++ generated/src/operation/get_session_token/_get_session_token_input.rs
+@@ -95,7 +95,10 @@
+     /// Consumes the builder and constructs a [`GetSessionTokenInput`](crate::operation::get_session_token::GetSessionTokenInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::get_session_token::GetSessionTokenInput, ::aws_smithy_types::error::operation::BuildError> {
++    ) -> ::std::result::Result<
++        super::super::super::operation::get_session_token::GetSessionTokenInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::get_session_token::GetSessionTokenInput {
+             duration_seconds: self.duration_seconds,
+             serial_number: self.serial_number,
 ```
 
 ### `src/operation/get_session_token.rs`
@@ -720,10 +994,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_session_token.rs
 @@ -139,15 +139,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 super::operation::get_session_token::GetSessionTokenError,
+                 super::super::operation::get_session_token::GetSessionTokenError,
              >::new())
 -            .with_retry_classifier(
--                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_session_token::GetSessionTokenError>::builder()
+-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::get_session_token::GetSessionTokenError>::builder()
 -                    .transient_errors({
 -                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                        transient_errors.push("IDPCommunicationError");
@@ -732,12 +1006,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::get_session_token::GetSessionTokenError,
++                super::super::operation::get_session_token::GetSessionTokenError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -259,13 +253,12 @@
+@@ -259,12 +253,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -746,15 +1020,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::protocol_serde::shape_get_session_token_input::ser_get_session_token_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_session_token_input::ser_get_session_token_op_input(
-+            &input,
-+        )?);
+         let body = ::aws_smithy_types::body::SdkBody::from(
+-            super::super::protocol_serde::shape_get_session_token_input::ser_get_session_token_input_input_input(&input)?,
++            super::super::protocol_serde::shape_get_session_token_input::ser_get_session_token_op_input(&input)?,
+         );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+```
+
+### `src/operation/get_web_identity_token/_get_web_identity_token_input.rs`
+
+```diff
+--- reference/src/operation/get_web_identity_token/_get_web_identity_token_input.rs
++++ generated/src/operation/get_web_identity_token/_get_web_identity_token_input.rs
+@@ -123,8 +123,10 @@
+     /// Consumes the builder and constructs a [`GetWebIdentityTokenInput`](crate::operation::get_web_identity_token::GetWebIdentityTokenInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<super::super::super::operation::get_web_identity_token::GetWebIdentityTokenInput, ::aws_smithy_types::error::operation::BuildError>
+-    {
++    ) -> ::std::result::Result<
++        super::super::super::operation::get_web_identity_token::GetWebIdentityTokenInput,
++        ::aws_smithy_types::error::operation::BuildError,
++    > {
+         ::std::result::Result::Ok(super::super::super::operation::get_web_identity_token::GetWebIdentityTokenInput {
+             audience: self.audience,
+             duration_seconds: self.duration_seconds,
 ```
 
 ### `src/operation/get_web_identity_token.rs`
@@ -770,9 +1061,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetWebIdentityTokenTelemetryInputCaptureInterceptor))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetWebIdentityTokenEndpointParamsInterceptor))
--                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::operation::get_web_identity_token::GetWebIdentityTokenError>::new())
--.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::operation::get_web_identity_token::GetWebIdentityTokenError>::new())
--.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_web_identity_token::GetWebIdentityTokenError>::builder().transient_errors({
+-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_web_identity_token::GetWebIdentityTokenError>::new())
+-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_web_identity_token::GetWebIdentityTokenError>::new())
+-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::get_web_identity_token::GetWebIdentityTokenError>::builder().transient_errors({
 -                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                                            transient_errors.push("IDPCommunicationError");
 -                                            ::std::borrow::Cow::Owned(transient_errors)
@@ -788,13 +1079,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetWebIdentityTokenEndpointParamsInterceptor,
 +            ))
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                super::operation::get_web_identity_token::GetWebIdentityTokenError,
++                super::super::operation::get_web_identity_token::GetWebIdentityTokenError,
 +            >::new())
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                super::operation::get_web_identity_token::GetWebIdentityTokenError,
++                super::super::operation::get_web_identity_token::GetWebIdentityTokenError,
 +            >::new())
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                super::operation::get_web_identity_token::GetWebIdentityTokenError,
++                super::super::operation::get_web_identity_token::GetWebIdentityTokenError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -809,8 +1100,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_input_input_input(&input)?,
-+            super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_op_input(&input)?,
+-            super::super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_input_input_input(&input)?,
++            super::super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();

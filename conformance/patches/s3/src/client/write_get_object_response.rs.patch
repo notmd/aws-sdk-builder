@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<WriteGetObjectResponseError>`](crate::operation::write_get_object_response::WriteGetObjectResponseError)
 -    pub fn write_get_object_response(&self) -> crate::operation::write_get_object_response::builders::WriteGetObjectResponseFluentBuilder {
 -        crate::operation::write_get_object_response::builders::WriteGetObjectResponseFluentBuilder::new(self.handle.clone())
-+    pub fn write_get_object_response(&self) -> super::operation::write_get_object_response::builders::WriteGetObjectResponseFluentBuilder {
-+        super::operation::write_get_object_response::builders::WriteGetObjectResponseFluentBuilder::new(self.handle.clone())
++    pub fn write_get_object_response(&self) -> super::super::operation::write_get_object_response::builders::WriteGetObjectResponseFluentBuilder {
++        super::super::operation::write_get_object_response::builders::WriteGetObjectResponseFluentBuilder::new(self.handle.clone())
      }
  }

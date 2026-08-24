@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<RestoreTableFromBackupError>`](crate::operation::restore_table_from_backup::RestoreTableFromBackupError)
 -    pub fn restore_table_from_backup(&self) -> crate::operation::restore_table_from_backup::builders::RestoreTableFromBackupFluentBuilder {
 -        crate::operation::restore_table_from_backup::builders::RestoreTableFromBackupFluentBuilder::new(self.handle.clone())
-+    pub fn restore_table_from_backup(&self) -> super::operation::restore_table_from_backup::builders::RestoreTableFromBackupFluentBuilder {
-+        super::operation::restore_table_from_backup::builders::RestoreTableFromBackupFluentBuilder::new(self.handle.clone())
++    pub fn restore_table_from_backup(&self) -> super::super::operation::restore_table_from_backup::builders::RestoreTableFromBackupFluentBuilder {
++        super::super::operation::restore_table_from_backup::builders::RestoreTableFromBackupFluentBuilder::new(self.handle.clone())
      }
  }

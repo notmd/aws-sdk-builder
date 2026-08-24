@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeUserImportJobInput`](crate::operation::describe_user_import_job::DescribeUserImportJobInput).
 -    pub fn builder() -> crate::operation::describe_user_import_job::builders::DescribeUserImportJobInputBuilder {
 -        crate::operation::describe_user_import_job::builders::DescribeUserImportJobInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_user_import_job::builders::DescribeUserImportJobInputBuilder {
-+        super::operation::describe_user_import_job::builders::DescribeUserImportJobInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_user_import_job::builders::DescribeUserImportJobInputBuilder {
++        super::super::super::operation::describe_user_import_job::builders::DescribeUserImportJobInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_user_import_job::DescribeUserImportJobInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::describe_user_import_job::DescribeUserImportJobInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::describe_user_import_job::DescribeUserImportJobInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::describe_user_import_job::DescribeUserImportJobInput {
-+        ::std::result::Result::Ok(super::operation::describe_user_import_job::DescribeUserImportJobInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_user_import_job::DescribeUserImportJobInput {
              user_pool_id: self.user_pool_id,
              job_id: self.job_id,
          })

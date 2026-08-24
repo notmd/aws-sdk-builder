@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<QueryError>`](crate::operation::query::QueryError)
 -    pub fn query(&self) -> crate::operation::query::builders::QueryFluentBuilder {
 -        crate::operation::query::builders::QueryFluentBuilder::new(self.handle.clone())
-+    pub fn query(&self) -> super::operation::query::builders::QueryFluentBuilder {
-+        super::operation::query::builders::QueryFluentBuilder::new(self.handle.clone())
++    pub fn query(&self) -> super::super::operation::query::builders::QueryFluentBuilder {
++        super::super::operation::query::builders::QueryFluentBuilder::new(self.handle.clone())
      }
  }

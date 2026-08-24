@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SsmControls`](crate::types::SsmControls).
 -    pub fn builder() -> crate::types::builders::SsmControlsBuilder {
 -        crate::types::builders::SsmControlsBuilder::default()
-+    pub fn builder() -> super::types::builders::SsmControlsBuilder {
-+        super::types::builders::SsmControlsBuilder::default()
++    pub fn builder() -> super::super::types::builders::SsmControlsBuilder {
++        super::super::types::builders::SsmControlsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`SsmControls`](crate::types::SsmControls).
 -    pub fn build(self) -> crate::types::SsmControls {
 -        crate::types::SsmControls {
-+    pub fn build(self) -> super::types::SsmControls {
-+        super::types::SsmControls {
++    pub fn build(self) -> super::super::types::SsmControls {
++        super::super::types::SsmControls {
              concurrent_execution_rate_percentage: self.concurrent_execution_rate_percentage,
              error_percentage: self.error_percentage,
          }

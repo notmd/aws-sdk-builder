@@ -5,22 +5,22 @@
  pub enum ToolResultContentBlock {
      /// <p>A tool result that is a document.</p>
 -    Document(crate::types::DocumentBlock),
-+    Document(super::types::DocumentBlock),
++    Document(super::super::types::DocumentBlock),
      /// <p>A tool result that is an image.</p><note>
      /// <p>This field is only supported by Amazon Nova and Anthropic Claude 3 and 4 models.</p>
      /// </note>
 -    Image(crate::types::ImageBlock),
-+    Image(super::types::ImageBlock),
++    Image(super::super::types::ImageBlock),
      /// <p>A tool result that is JSON format data.</p>
      Json(::aws_smithy_types::Document),
      /// <p>A tool result that is a search result.</p>
 -    SearchResult(crate::types::SearchResultBlock),
-+    SearchResult(super::types::SearchResultBlock),
++    SearchResult(super::super::types::SearchResultBlock),
      /// <p>A tool result that is text.</p>
      Text(::std::string::String),
      /// <p>A tool result that is video.</p>
 -    Video(crate::types::VideoBlock),
-+    Video(super::types::VideoBlock),
++    Video(super::super::types::VideoBlock),
      /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
      /// An unknown enum variant
      ///
@@ -29,7 +29,7 @@
      /// Tries to convert the enum instance into [`Document`](crate::types::ToolResultContentBlock::Document), extracting the inner [`DocumentBlock`](crate::types::DocumentBlock).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_document(&self) -> ::std::result::Result<&crate::types::DocumentBlock, &Self> {
-+    pub fn as_document(&self) -> ::std::result::Result<&super::types::DocumentBlock, &Self> {
++    pub fn as_document(&self) -> ::std::result::Result<&super::super::types::DocumentBlock, &Self> {
          if let ToolResultContentBlock::Document(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -38,7 +38,7 @@
      /// Tries to convert the enum instance into [`Image`](crate::types::ToolResultContentBlock::Image), extracting the inner [`ImageBlock`](crate::types::ImageBlock).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_image(&self) -> ::std::result::Result<&crate::types::ImageBlock, &Self> {
-+    pub fn as_image(&self) -> ::std::result::Result<&super::types::ImageBlock, &Self> {
++    pub fn as_image(&self) -> ::std::result::Result<&super::super::types::ImageBlock, &Self> {
          if let ToolResultContentBlock::Image(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -47,7 +47,7 @@
      /// Tries to convert the enum instance into [`SearchResult`](crate::types::ToolResultContentBlock::SearchResult), extracting the inner [`SearchResultBlock`](crate::types::SearchResultBlock).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_search_result(&self) -> ::std::result::Result<&crate::types::SearchResultBlock, &Self> {
-+    pub fn as_search_result(&self) -> ::std::result::Result<&super::types::SearchResultBlock, &Self> {
++    pub fn as_search_result(&self) -> ::std::result::Result<&super::super::types::SearchResultBlock, &Self> {
          if let ToolResultContentBlock::SearchResult(val) = &self {
              ::std::result::Result::Ok(val)
          } else {
@@ -56,7 +56,7 @@
      /// Tries to convert the enum instance into [`Video`](crate::types::ToolResultContentBlock::Video), extracting the inner [`VideoBlock`](crate::types::VideoBlock).
      /// Returns `Err(&Self)` if it can't be converted.
 -    pub fn as_video(&self) -> ::std::result::Result<&crate::types::VideoBlock, &Self> {
-+    pub fn as_video(&self) -> ::std::result::Result<&super::types::VideoBlock, &Self> {
++    pub fn as_video(&self) -> ::std::result::Result<&super::super::types::VideoBlock, &Self> {
          if let ToolResultContentBlock::Video(val) = &self {
              ::std::result::Result::Ok(val)
          } else {

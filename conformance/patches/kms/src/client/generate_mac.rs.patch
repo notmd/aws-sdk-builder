@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GenerateMacError>`](crate::operation::generate_mac::GenerateMacError)
 -    pub fn generate_mac(&self) -> crate::operation::generate_mac::builders::GenerateMacFluentBuilder {
 -        crate::operation::generate_mac::builders::GenerateMacFluentBuilder::new(self.handle.clone())
-+    pub fn generate_mac(&self) -> super::operation::generate_mac::builders::GenerateMacFluentBuilder {
-+        super::operation::generate_mac::builders::GenerateMacFluentBuilder::new(self.handle.clone())
++    pub fn generate_mac(&self) -> super::super::operation::generate_mac::builders::GenerateMacFluentBuilder {
++        super::super::operation::generate_mac::builders::GenerateMacFluentBuilder::new(self.handle.clone())
      }
  }

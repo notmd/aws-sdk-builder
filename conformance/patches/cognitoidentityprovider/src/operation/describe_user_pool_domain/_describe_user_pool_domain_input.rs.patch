@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeUserPoolDomainInput`](crate::operation::describe_user_pool_domain::DescribeUserPoolDomainInput).
 -    pub fn builder() -> crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainInputBuilder {
 -        crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainInputBuilder {
-+        super::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainInputBuilder {
++        super::super::super::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_user_pool_domain::DescribeUserPoolDomainInput,
-+        super::operation::describe_user_pool_domain::DescribeUserPoolDomainInput,
++        super::super::super::operation::describe_user_pool_domain::DescribeUserPoolDomainInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::describe_user_pool_domain::DescribeUserPoolDomainInput { domain: self.domain })
-+        ::std::result::Result::Ok(super::operation::describe_user_pool_domain::DescribeUserPoolDomainInput { domain: self.domain })
++        ::std::result::Result::Ok(super::super::super::operation::describe_user_pool_domain::DescribeUserPoolDomainInput { domain: self.domain })
      }
  }

@@ -5,7 +5,7 @@
      pub http_redirect_code: ::std::option::Option<::std::string::String>,
      /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
 -    pub protocol: ::std::option::Option<crate::types::Protocol>,
-+    pub protocol: ::std::option::Option<super::types::Protocol>,
++    pub protocol: ::std::option::Option<super::super::types::Protocol>,
      /// <p>The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix <code>docs/</code> (objects in the <code>docs/</code> folder) to <code>documents/</code>, you can set a condition block with <code>KeyPrefixEquals</code> set to <code>docs/</code> and in the Redirect set <code>ReplaceKeyPrefixWith</code> to <code>/documents</code>. Not required if one of the siblings is present. Can be present only if <code>ReplaceKeyWith</code> is not provided.</p><important>
      /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
      /// </important>
@@ -14,7 +14,7 @@
      }
      /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
 -    pub fn protocol(&self) -> ::std::option::Option<&crate::types::Protocol> {
-+    pub fn protocol(&self) -> ::std::option::Option<&super::types::Protocol> {
++    pub fn protocol(&self) -> ::std::option::Option<&super::super::types::Protocol> {
          self.protocol.as_ref()
      }
      /// <p>The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix <code>docs/</code> (objects in the <code>docs/</code> folder) to <code>documents/</code>, you can set a condition block with <code>KeyPrefixEquals</code> set to <code>docs/</code> and in the Redirect set <code>ReplaceKeyPrefixWith</code> to <code>/documents</code>. Not required if one of the siblings is present. Can be present only if <code>ReplaceKeyWith</code> is not provided.</p><important>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`Redirect`](crate::types::Redirect).
 -    pub fn builder() -> crate::types::builders::RedirectBuilder {
 -        crate::types::builders::RedirectBuilder::default()
-+    pub fn builder() -> super::types::builders::RedirectBuilder {
-+        super::types::builders::RedirectBuilder::default()
++    pub fn builder() -> super::super::types::builders::RedirectBuilder {
++        super::super::types::builders::RedirectBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) host_name: ::std::option::Option<::std::string::String>,
      pub(crate) http_redirect_code: ::std::option::Option<::std::string::String>,
 -    pub(crate) protocol: ::std::option::Option<crate::types::Protocol>,
-+    pub(crate) protocol: ::std::option::Option<super::types::Protocol>,
++    pub(crate) protocol: ::std::option::Option<super::super::types::Protocol>,
      pub(crate) replace_key_prefix_with: ::std::option::Option<::std::string::String>,
      pub(crate) replace_key_with: ::std::option::Option<::std::string::String>,
  }
@@ -43,19 +43,19 @@
      }
      /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
 -    pub fn protocol(mut self, input: crate::types::Protocol) -> Self {
-+    pub fn protocol(mut self, input: super::types::Protocol) -> Self {
++    pub fn protocol(mut self, input: super::super::types::Protocol) -> Self {
          self.protocol = ::std::option::Option::Some(input);
          self
      }
      /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
 -    pub fn set_protocol(mut self, input: ::std::option::Option<crate::types::Protocol>) -> Self {
-+    pub fn set_protocol(mut self, input: ::std::option::Option<super::types::Protocol>) -> Self {
++    pub fn set_protocol(mut self, input: ::std::option::Option<super::super::types::Protocol>) -> Self {
          self.protocol = input;
          self
      }
      /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
 -    pub fn get_protocol(&self) -> &::std::option::Option<crate::types::Protocol> {
-+    pub fn get_protocol(&self) -> &::std::option::Option<super::types::Protocol> {
++    pub fn get_protocol(&self) -> &::std::option::Option<super::super::types::Protocol> {
          &self.protocol
      }
      /// <p>The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix <code>docs/</code> (objects in the <code>docs/</code> folder) to <code>documents/</code>, you can set a condition block with <code>KeyPrefixEquals</code> set to <code>docs/</code> and in the Redirect set <code>ReplaceKeyPrefixWith</code> to <code>/documents</code>. Not required if one of the siblings is present. Can be present only if <code>ReplaceKeyWith</code> is not provided.</p><important>
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`Redirect`](crate::types::Redirect).
 -    pub fn build(self) -> crate::types::Redirect {
 -        crate::types::Redirect {
-+    pub fn build(self) -> super::types::Redirect {
-+        super::types::Redirect {
++    pub fn build(self) -> super::super::types::Redirect {
++        super::super::types::Redirect {
              host_name: self.host_name,
              http_redirect_code: self.http_redirect_code,
              protocol: self.protocol,

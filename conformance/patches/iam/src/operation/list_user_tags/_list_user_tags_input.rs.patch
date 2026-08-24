@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListUserTagsInput`](crate::operation::list_user_tags::ListUserTagsInput).
 -    pub fn builder() -> crate::operation::list_user_tags::builders::ListUserTagsInputBuilder {
 -        crate::operation::list_user_tags::builders::ListUserTagsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_user_tags::builders::ListUserTagsInputBuilder {
-+        super::operation::list_user_tags::builders::ListUserTagsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_user_tags::builders::ListUserTagsInputBuilder {
++        super::super::super::operation::list_user_tags::builders::ListUserTagsInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::list_user_tags::ListUserTagsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_user_tags::ListUserTagsInput {
-+    ) -> ::std::result::Result<super::operation::list_user_tags::ListUserTagsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_user_tags::ListUserTagsInput {
++    ) -> ::std::result::Result<super::super::super::operation::list_user_tags::ListUserTagsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_user_tags::ListUserTagsInput {
              user_name: self.user_name,
              marker: self.marker,
              max_items: self.max_items,

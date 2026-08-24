@@ -5,11 +5,11 @@
      pub isp: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      /// <p>The last delivery-related event for the email, where the ordering is as follows: <code>SEND</code> &lt; <code>BOUNCE</code> &lt; <code>DELIVERY</code> &lt; <code>COMPLAINT</code>.</p>
 -    pub last_delivery_event: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryEventType>>,
-+    pub last_delivery_event: ::std::option::Option<::std::vec::Vec<super::types::DeliveryEventType>>,
++    pub last_delivery_event: ::std::option::Option<::std::vec::Vec<super::super::types::DeliveryEventType>>,
      /// <p>The last engagement-related event for the email, where the ordering is as follows: <code>OPEN</code> &lt; <code>CLICK</code>.</p>
      /// <p>Engagement events are only available if <a href="https://docs.aws.amazon.com/ses/latest/dg/vdm-settings.html">Engagement tracking</a> is enabled.</p>
 -    pub last_engagement_event: ::std::option::Option<::std::vec::Vec<crate::types::EngagementEventType>>,
-+    pub last_engagement_event: ::std::option::Option<::std::vec::Vec<super::types::EngagementEventType>>,
++    pub last_engagement_event: ::std::option::Option<::std::vec::Vec<super::super::types::EngagementEventType>>,
  }
  impl MessageInsightsFilters {
      /// <p>The from address used to send the message.</p>
@@ -18,7 +18,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.last_delivery_event.is_none()`.
 -    pub fn last_delivery_event(&self) -> &[crate::types::DeliveryEventType] {
-+    pub fn last_delivery_event(&self) -> &[super::types::DeliveryEventType] {
++    pub fn last_delivery_event(&self) -> &[super::super::types::DeliveryEventType] {
          self.last_delivery_event.as_deref().unwrap_or_default()
      }
      /// <p>The last engagement-related event for the email, where the ordering is as follows: <code>OPEN</code> &lt; <code>CLICK</code>.</p>
@@ -27,7 +27,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.last_engagement_event.is_none()`.
 -    pub fn last_engagement_event(&self) -> &[crate::types::EngagementEventType] {
-+    pub fn last_engagement_event(&self) -> &[super::types::EngagementEventType] {
++    pub fn last_engagement_event(&self) -> &[super::super::types::EngagementEventType] {
          self.last_engagement_event.as_deref().unwrap_or_default()
      }
  }
@@ -35,8 +35,8 @@
      /// Creates a new builder-style object to manufacture [`MessageInsightsFilters`](crate::types::MessageInsightsFilters).
 -    pub fn builder() -> crate::types::builders::MessageInsightsFiltersBuilder {
 -        crate::types::builders::MessageInsightsFiltersBuilder::default()
-+    pub fn builder() -> super::types::builders::MessageInsightsFiltersBuilder {
-+        super::types::builders::MessageInsightsFiltersBuilder::default()
++    pub fn builder() -> super::super::types::builders::MessageInsightsFiltersBuilder {
++        super::super::types::builders::MessageInsightsFiltersBuilder::default()
      }
  }
 
@@ -46,8 +46,8 @@
      pub(crate) isp: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) last_delivery_event: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryEventType>>,
 -    pub(crate) last_engagement_event: ::std::option::Option<::std::vec::Vec<crate::types::EngagementEventType>>,
-+    pub(crate) last_delivery_event: ::std::option::Option<::std::vec::Vec<super::types::DeliveryEventType>>,
-+    pub(crate) last_engagement_event: ::std::option::Option<::std::vec::Vec<super::types::EngagementEventType>>,
++    pub(crate) last_delivery_event: ::std::option::Option<::std::vec::Vec<super::super::types::DeliveryEventType>>,
++    pub(crate) last_engagement_event: ::std::option::Option<::std::vec::Vec<super::super::types::EngagementEventType>>,
  }
  impl MessageInsightsFiltersBuilder {
      /// Appends an item to `from_email_address`.
@@ -56,7 +56,7 @@
      ///
      /// <p>The last delivery-related event for the email, where the ordering is as follows: <code>SEND</code> &lt; <code>BOUNCE</code> &lt; <code>DELIVERY</code> &lt; <code>COMPLAINT</code>.</p>
 -    pub fn last_delivery_event(mut self, input: crate::types::DeliveryEventType) -> Self {
-+    pub fn last_delivery_event(mut self, input: super::types::DeliveryEventType) -> Self {
++    pub fn last_delivery_event(mut self, input: super::super::types::DeliveryEventType) -> Self {
          let mut v = self.last_delivery_event.unwrap_or_default();
          v.push(input);
          self.last_delivery_event = ::std::option::Option::Some(v);
@@ -65,13 +65,13 @@
      }
      /// <p>The last delivery-related event for the email, where the ordering is as follows: <code>SEND</code> &lt; <code>BOUNCE</code> &lt; <code>DELIVERY</code> &lt; <code>COMPLAINT</code>.</p>
 -    pub fn set_last_delivery_event(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryEventType>>) -> Self {
-+    pub fn set_last_delivery_event(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::DeliveryEventType>>) -> Self {
++    pub fn set_last_delivery_event(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::DeliveryEventType>>) -> Self {
          self.last_delivery_event = input;
          self
      }
      /// <p>The last delivery-related event for the email, where the ordering is as follows: <code>SEND</code> &lt; <code>BOUNCE</code> &lt; <code>DELIVERY</code> &lt; <code>COMPLAINT</code>.</p>
 -    pub fn get_last_delivery_event(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeliveryEventType>> {
-+    pub fn get_last_delivery_event(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DeliveryEventType>> {
++    pub fn get_last_delivery_event(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::DeliveryEventType>> {
          &self.last_delivery_event
      }
      /// Appends an item to `last_engagement_event`.
@@ -80,7 +80,7 @@
      /// <p>The last engagement-related event for the email, where the ordering is as follows: <code>OPEN</code> &lt; <code>CLICK</code>.</p>
      /// <p>Engagement events are only available if <a href="https://docs.aws.amazon.com/ses/latest/dg/vdm-settings.html">Engagement tracking</a> is enabled.</p>
 -    pub fn last_engagement_event(mut self, input: crate::types::EngagementEventType) -> Self {
-+    pub fn last_engagement_event(mut self, input: super::types::EngagementEventType) -> Self {
++    pub fn last_engagement_event(mut self, input: super::super::types::EngagementEventType) -> Self {
          let mut v = self.last_engagement_event.unwrap_or_default();
          v.push(input);
          self.last_engagement_event = ::std::option::Option::Some(v);
@@ -89,21 +89,21 @@
      /// <p>The last engagement-related event for the email, where the ordering is as follows: <code>OPEN</code> &lt; <code>CLICK</code>.</p>
      /// <p>Engagement events are only available if <a href="https://docs.aws.amazon.com/ses/latest/dg/vdm-settings.html">Engagement tracking</a> is enabled.</p>
 -    pub fn set_last_engagement_event(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EngagementEventType>>) -> Self {
-+    pub fn set_last_engagement_event(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EngagementEventType>>) -> Self {
++    pub fn set_last_engagement_event(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::EngagementEventType>>) -> Self {
          self.last_engagement_event = input;
          self
      }
      /// <p>The last engagement-related event for the email, where the ordering is as follows: <code>OPEN</code> &lt; <code>CLICK</code>.</p>
      /// <p>Engagement events are only available if <a href="https://docs.aws.amazon.com/ses/latest/dg/vdm-settings.html">Engagement tracking</a> is enabled.</p>
 -    pub fn get_last_engagement_event(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EngagementEventType>> {
-+    pub fn get_last_engagement_event(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EngagementEventType>> {
++    pub fn get_last_engagement_event(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::EngagementEventType>> {
          &self.last_engagement_event
      }
      /// Consumes the builder and constructs a [`MessageInsightsFilters`](crate::types::MessageInsightsFilters).
 -    pub fn build(self) -> crate::types::MessageInsightsFilters {
 -        crate::types::MessageInsightsFilters {
-+    pub fn build(self) -> super::types::MessageInsightsFilters {
-+        super::types::MessageInsightsFilters {
++    pub fn build(self) -> super::super::types::MessageInsightsFilters {
++        super::super::types::MessageInsightsFilters {
              from_email_address: self.from_email_address,
              destination: self.destination,
              subject: self.subject,

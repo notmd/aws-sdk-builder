@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::MultipartUpload, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::MultipartUpload, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::MultipartUpload, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::MultipartUpload::builder();
-+    let mut builder = super::types::MultipartUpload::builder();
++    let mut builder = super::super::types::MultipartUpload::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("UploadId") /* UploadId com.amazonaws.s3#MultipartUpload$UploadId */ =>  {
@@ -21,8 +21,8 @@
                      Some(
 -                        Result::<crate::types::StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::StorageClass::from(
-+                        Result::<super::types::StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::StorageClass::from(
++                        Result::<super::super::types::StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::StorageClass::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -31,7 +31,7 @@
                  let var_5 =
                      Some(
 -                        crate::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -40,7 +40,7 @@
                  let var_6 =
                      Some(
 -                        crate::protocol_serde::shape_initiator::de_initiator(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_initiator::de_initiator(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_initiator::de_initiator(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -50,8 +50,8 @@
                      Some(
 -                        Result::<crate::types::ChecksumAlgorithm, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::ChecksumAlgorithm::from(
-+                        Result::<super::types::ChecksumAlgorithm, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::ChecksumAlgorithm::from(
++                        Result::<super::super::types::ChecksumAlgorithm, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::ChecksumAlgorithm::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -61,8 +61,8 @@
                      Some(
 -                        Result::<crate::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::ChecksumType::from(
-+                        Result::<super::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::ChecksumType::from(
++                        Result::<super::super::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::ChecksumType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )

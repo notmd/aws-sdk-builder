@@ -5,7 +5,7 @@
  pub struct DescribeComputeEnvironmentsOutput {
      /// <p>The list of compute environments.</p>
 -    pub compute_environments: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentDetail>>,
-+    pub compute_environments: ::std::option::Option<::std::vec::Vec<super::types::ComputeEnvironmentDetail>>,
++    pub compute_environments: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentDetail>>,
      /// <p>The <code>nextToken</code> value to include in a future <code>DescribeComputeEnvironments</code> request. When the results of a <code>DescribeComputeEnvironments</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.compute_environments.is_none()`.
 -    pub fn compute_environments(&self) -> &[crate::types::ComputeEnvironmentDetail] {
-+    pub fn compute_environments(&self) -> &[super::types::ComputeEnvironmentDetail] {
++    pub fn compute_environments(&self) -> &[super::super::super::types::ComputeEnvironmentDetail] {
          self.compute_environments.as_deref().unwrap_or_default()
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>DescribeComputeEnvironments</code> request. When the results of a <code>DescribeComputeEnvironments</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeComputeEnvironmentsOutput`](crate::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput).
 -    pub fn builder() -> crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsOutputBuilder {
 -        crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsOutputBuilder {
-+        super::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsOutputBuilder {
++        super::super::super::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeComputeEnvironmentsOutputBuilder {
 -    pub(crate) compute_environments: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentDetail>>,
-+    pub(crate) compute_environments: ::std::option::Option<::std::vec::Vec<super::types::ComputeEnvironmentDetail>>,
++    pub(crate) compute_environments: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentDetail>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>The list of compute environments.</p>
 -    pub fn compute_environments(mut self, input: crate::types::ComputeEnvironmentDetail) -> Self {
-+    pub fn compute_environments(mut self, input: super::types::ComputeEnvironmentDetail) -> Self {
++    pub fn compute_environments(mut self, input: super::super::super::types::ComputeEnvironmentDetail) -> Self {
          let mut v = self.compute_environments.unwrap_or_default();
          v.push(input);
          self.compute_environments = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>The list of compute environments.</p>
 -    pub fn set_compute_environments(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentDetail>>) -> Self {
-+    pub fn set_compute_environments(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ComputeEnvironmentDetail>>) -> Self {
++    pub fn set_compute_environments(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentDetail>>) -> Self {
          self.compute_environments = input;
          self
      }
      /// <p>The list of compute environments.</p>
 -    pub fn get_compute_environments(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentDetail>> {
-+    pub fn get_compute_environments(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ComputeEnvironmentDetail>> {
++    pub fn get_compute_environments(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentDetail>> {
          &self.compute_environments
      }
      /// <p>The <code>nextToken</code> value to include in a future <code>DescribeComputeEnvironments</code> request. When the results of a <code>DescribeComputeEnvironments</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeComputeEnvironmentsOutput`](crate::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput).
 -    pub fn build(self) -> crate::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput {
 -        crate::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput {
-+    pub fn build(self) -> super::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput {
-+        super::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput {
++    pub fn build(self) -> super::super::super::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput {
++        super::super::super::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput {
              compute_environments: self.compute_environments,
              next_token: self.next_token,
              _request_id: self._request_id,

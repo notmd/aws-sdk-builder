@@ -5,7 +5,7 @@
  pub struct ListProvisionedConcurrencyConfigsOutput {
      /// <p>A list of provisioned concurrency configurations.</p>
 -    pub provisioned_concurrency_configs: ::std::option::Option<::std::vec::Vec<crate::types::ProvisionedConcurrencyConfigListItem>>,
-+    pub provisioned_concurrency_configs: ::std::option::Option<::std::vec::Vec<super::types::ProvisionedConcurrencyConfigListItem>>,
++    pub provisioned_concurrency_configs: ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvisionedConcurrencyConfigListItem>>,
      /// <p>The pagination token that's included if more results are available.</p>
      pub next_marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.provisioned_concurrency_configs.is_none()`.
 -    pub fn provisioned_concurrency_configs(&self) -> &[crate::types::ProvisionedConcurrencyConfigListItem] {
-+    pub fn provisioned_concurrency_configs(&self) -> &[super::types::ProvisionedConcurrencyConfigListItem] {
++    pub fn provisioned_concurrency_configs(&self) -> &[super::super::super::types::ProvisionedConcurrencyConfigListItem] {
          self.provisioned_concurrency_configs.as_deref().unwrap_or_default()
      }
      /// <p>The pagination token that's included if more results are available.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListProvisionedConcurrencyConfigsOutput`](crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsOutput).
 -    pub fn builder() -> crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder {
 -        crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder {
-+        super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder {
++        super::super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListProvisionedConcurrencyConfigsOutputBuilder {
 -    pub(crate) provisioned_concurrency_configs: ::std::option::Option<::std::vec::Vec<crate::types::ProvisionedConcurrencyConfigListItem>>,
-+    pub(crate) provisioned_concurrency_configs: ::std::option::Option<::std::vec::Vec<super::types::ProvisionedConcurrencyConfigListItem>>,
++    pub(crate) provisioned_concurrency_configs: ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvisionedConcurrencyConfigListItem>>,
      pub(crate) next_marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of provisioned concurrency configurations.</p>
 -    pub fn provisioned_concurrency_configs(mut self, input: crate::types::ProvisionedConcurrencyConfigListItem) -> Self {
-+    pub fn provisioned_concurrency_configs(mut self, input: super::types::ProvisionedConcurrencyConfigListItem) -> Self {
++    pub fn provisioned_concurrency_configs(mut self, input: super::super::super::types::ProvisionedConcurrencyConfigListItem) -> Self {
          let mut v = self.provisioned_concurrency_configs.unwrap_or_default();
          v.push(input);
          self.provisioned_concurrency_configs = ::std::option::Option::Some(v);
@@ -52,14 +52,14 @@
      pub fn set_provisioned_concurrency_configs(
          mut self,
 -        input: ::std::option::Option<::std::vec::Vec<crate::types::ProvisionedConcurrencyConfigListItem>>,
-+        input: ::std::option::Option<::std::vec::Vec<super::types::ProvisionedConcurrencyConfigListItem>>,
++        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvisionedConcurrencyConfigListItem>>,
      ) -> Self {
          self.provisioned_concurrency_configs = input;
          self
      }
      /// <p>A list of provisioned concurrency configurations.</p>
 -    pub fn get_provisioned_concurrency_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProvisionedConcurrencyConfigListItem>> {
-+    pub fn get_provisioned_concurrency_configs(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ProvisionedConcurrencyConfigListItem>> {
++    pub fn get_provisioned_concurrency_configs(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ProvisionedConcurrencyConfigListItem>> {
          &self.provisioned_concurrency_configs
      }
      /// <p>The pagination token that's included if more results are available.</p>
@@ -69,8 +69,8 @@
      /// Consumes the builder and constructs a [`ListProvisionedConcurrencyConfigsOutput`](crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsOutput).
 -    pub fn build(self) -> crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsOutput {
 -        crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsOutput {
-+    pub fn build(self) -> super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsOutput {
-+        super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsOutput {
++    pub fn build(self) -> super::super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsOutput {
++        super::super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsOutput {
              provisioned_concurrency_configs: self.provisioned_concurrency_configs,
              next_marker: self.next_marker,
              _request_id: self._request_id,

@@ -5,14 +5,14 @@
  pub struct QueryInfo {
      /// <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
 -    pub query_language: ::std::option::Option<crate::types::QueryLanguage>,
-+    pub query_language: ::std::option::Option<super::types::QueryLanguage>,
++    pub query_language: ::std::option::Option<super::super::types::QueryLanguage>,
      /// <p>The unique ID number of this query.</p>
      pub query_id: ::std::option::Option<::std::string::String>,
      /// <p>The query string used in this query.</p>
      pub query_string: ::std::option::Option<::std::string::String>,
      /// <p>The status of this query. Possible values are <code>Cancelled</code>, <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
 -    pub status: ::std::option::Option<crate::types::QueryStatus>,
-+    pub status: ::std::option::Option<super::types::QueryStatus>,
++    pub status: ::std::option::Option<super::super::types::QueryStatus>,
      /// <p>The date and time that this query was created.</p>
      pub create_time: ::std::option::Option<i64>,
      /// <p>The name of the log group scanned by this query.</p>
@@ -21,7 +21,7 @@
  impl QueryInfo {
      /// <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
 -    pub fn query_language(&self) -> ::std::option::Option<&crate::types::QueryLanguage> {
-+    pub fn query_language(&self) -> ::std::option::Option<&super::types::QueryLanguage> {
++    pub fn query_language(&self) -> ::std::option::Option<&super::super::types::QueryLanguage> {
          self.query_language.as_ref()
      }
      /// <p>The unique ID number of this query.</p>
@@ -30,7 +30,7 @@
      }
      /// <p>The status of this query. Possible values are <code>Cancelled</code>, <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
 -    pub fn status(&self) -> ::std::option::Option<&crate::types::QueryStatus> {
-+    pub fn status(&self) -> ::std::option::Option<&super::types::QueryStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::super::types::QueryStatus> {
          self.status.as_ref()
      }
      /// <p>The date and time that this query was created.</p>
@@ -40,8 +40,8 @@
      /// Creates a new builder-style object to manufacture [`QueryInfo`](crate::types::QueryInfo).
 -    pub fn builder() -> crate::types::builders::QueryInfoBuilder {
 -        crate::types::builders::QueryInfoBuilder::default()
-+    pub fn builder() -> super::types::builders::QueryInfoBuilder {
-+        super::types::builders::QueryInfoBuilder::default()
++    pub fn builder() -> super::super::types::builders::QueryInfoBuilder {
++        super::super::types::builders::QueryInfoBuilder::default()
      }
  }
 
@@ -50,11 +50,11 @@
  #[non_exhaustive]
  pub struct QueryInfoBuilder {
 -    pub(crate) query_language: ::std::option::Option<crate::types::QueryLanguage>,
-+    pub(crate) query_language: ::std::option::Option<super::types::QueryLanguage>,
++    pub(crate) query_language: ::std::option::Option<super::super::types::QueryLanguage>,
      pub(crate) query_id: ::std::option::Option<::std::string::String>,
      pub(crate) query_string: ::std::option::Option<::std::string::String>,
 -    pub(crate) status: ::std::option::Option<crate::types::QueryStatus>,
-+    pub(crate) status: ::std::option::Option<super::types::QueryStatus>,
++    pub(crate) status: ::std::option::Option<super::super::types::QueryStatus>,
      pub(crate) create_time: ::std::option::Option<i64>,
      pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
      pub(crate) query_duration: ::std::option::Option<i64>,
@@ -63,19 +63,19 @@
  impl QueryInfoBuilder {
      /// <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
 -    pub fn query_language(mut self, input: crate::types::QueryLanguage) -> Self {
-+    pub fn query_language(mut self, input: super::types::QueryLanguage) -> Self {
++    pub fn query_language(mut self, input: super::super::types::QueryLanguage) -> Self {
          self.query_language = ::std::option::Option::Some(input);
          self
      }
      /// <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
 -    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
-+    pub fn set_query_language(mut self, input: ::std::option::Option<super::types::QueryLanguage>) -> Self {
++    pub fn set_query_language(mut self, input: ::std::option::Option<super::super::types::QueryLanguage>) -> Self {
          self.query_language = input;
          self
      }
      /// <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
 -    pub fn get_query_language(&self) -> &::std::option::Option<crate::types::QueryLanguage> {
-+    pub fn get_query_language(&self) -> &::std::option::Option<super::types::QueryLanguage> {
++    pub fn get_query_language(&self) -> &::std::option::Option<super::super::types::QueryLanguage> {
          &self.query_language
      }
      /// <p>The unique ID number of this query.</p>
@@ -84,19 +84,19 @@
      }
      /// <p>The status of this query. Possible values are <code>Cancelled</code>, <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
 -    pub fn status(mut self, input: crate::types::QueryStatus) -> Self {
-+    pub fn status(mut self, input: super::types::QueryStatus) -> Self {
++    pub fn status(mut self, input: super::super::types::QueryStatus) -> Self {
          self.status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status of this query. Possible values are <code>Cancelled</code>, <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
 -    pub fn set_status(mut self, input: ::std::option::Option<crate::types::QueryStatus>) -> Self {
-+    pub fn set_status(mut self, input: ::std::option::Option<super::types::QueryStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::super::types::QueryStatus>) -> Self {
          self.status = input;
          self
      }
      /// <p>The status of this query. Possible values are <code>Cancelled</code>, <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
 -    pub fn get_status(&self) -> &::std::option::Option<crate::types::QueryStatus> {
-+    pub fn get_status(&self) -> &::std::option::Option<super::types::QueryStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::super::types::QueryStatus> {
          &self.status
      }
      /// <p>The date and time that this query was created.</p>
@@ -106,8 +106,8 @@
      /// Consumes the builder and constructs a [`QueryInfo`](crate::types::QueryInfo).
 -    pub fn build(self) -> crate::types::QueryInfo {
 -        crate::types::QueryInfo {
-+    pub fn build(self) -> super::types::QueryInfo {
-+        super::types::QueryInfo {
++    pub fn build(self) -> super::super::types::QueryInfo {
++        super::super::types::QueryInfo {
              query_language: self.query_language,
              query_id: self.query_id,
              query_string: self.query_string,

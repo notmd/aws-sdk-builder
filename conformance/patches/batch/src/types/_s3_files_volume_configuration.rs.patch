@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`S3FilesVolumeConfiguration`](crate::types::S3FilesVolumeConfiguration).
 -    pub fn builder() -> crate::types::builders::S3FilesVolumeConfigurationBuilder {
 -        crate::types::builders::S3FilesVolumeConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::S3FilesVolumeConfigurationBuilder {
-+        super::types::builders::S3FilesVolumeConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::S3FilesVolumeConfigurationBuilder {
++        super::super::types::builders::S3FilesVolumeConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`S3FilesVolumeConfiguration`](crate::types::S3FilesVolumeConfiguration).
 -    pub fn build(self) -> crate::types::S3FilesVolumeConfiguration {
 -        crate::types::S3FilesVolumeConfiguration {
-+    pub fn build(self) -> super::types::S3FilesVolumeConfiguration {
-+        super::types::S3FilesVolumeConfiguration {
++    pub fn build(self) -> super::super::types::S3FilesVolumeConfiguration {
++        super::super::types::S3FilesVolumeConfiguration {
              file_system_arn: self.file_system_arn,
              root_directory: self.root_directory,
              transit_encryption_port: self.transit_encryption_port,

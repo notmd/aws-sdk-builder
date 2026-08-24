@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationFluentBuilder {
 -        crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationFluentBuilder {
-+        super::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationFluentBuilder {
++        super::super::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationFluentBuilder::new(self.handle.clone())
      }
  }

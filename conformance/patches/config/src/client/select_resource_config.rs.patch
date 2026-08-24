@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SelectResourceConfigError>`](crate::operation::select_resource_config::SelectResourceConfigError)
 -    pub fn select_resource_config(&self) -> crate::operation::select_resource_config::builders::SelectResourceConfigFluentBuilder {
 -        crate::operation::select_resource_config::builders::SelectResourceConfigFluentBuilder::new(self.handle.clone())
-+    pub fn select_resource_config(&self) -> super::operation::select_resource_config::builders::SelectResourceConfigFluentBuilder {
-+        super::operation::select_resource_config::builders::SelectResourceConfigFluentBuilder::new(self.handle.clone())
++    pub fn select_resource_config(&self) -> super::super::operation::select_resource_config::builders::SelectResourceConfigFluentBuilder {
++        super::super::operation::select_resource_config::builders::SelectResourceConfigFluentBuilder::new(self.handle.clone())
      }
  }

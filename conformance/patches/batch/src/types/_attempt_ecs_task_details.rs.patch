@@ -5,7 +5,7 @@
      pub task_arn: ::std::option::Option<::std::string::String>,
      /// <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
 -    pub containers: ::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>>,
-+    pub containers: ::std::option::Option<::std::vec::Vec<super::types::AttemptTaskContainerDetails>>,
++    pub containers: ::std::option::Option<::std::vec::Vec<super::super::types::AttemptTaskContainerDetails>>,
  }
  impl AttemptEcsTaskDetails {
      /// <p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.containers.is_none()`.
 -    pub fn containers(&self) -> &[crate::types::AttemptTaskContainerDetails] {
-+    pub fn containers(&self) -> &[super::types::AttemptTaskContainerDetails] {
++    pub fn containers(&self) -> &[super::super::types::AttemptTaskContainerDetails] {
          self.containers.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`AttemptEcsTaskDetails`](crate::types::AttemptEcsTaskDetails).
 -    pub fn builder() -> crate::types::builders::AttemptEcsTaskDetailsBuilder {
 -        crate::types::builders::AttemptEcsTaskDetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::AttemptEcsTaskDetailsBuilder {
-+        super::types::builders::AttemptEcsTaskDetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::AttemptEcsTaskDetailsBuilder {
++        super::super::types::builders::AttemptEcsTaskDetailsBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) container_instance_arn: ::std::option::Option<::std::string::String>,
      pub(crate) task_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) containers: ::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>>,
-+    pub(crate) containers: ::std::option::Option<::std::vec::Vec<super::types::AttemptTaskContainerDetails>>,
++    pub(crate) containers: ::std::option::Option<::std::vec::Vec<super::super::types::AttemptTaskContainerDetails>>,
  }
  impl AttemptEcsTaskDetailsBuilder {
      /// <p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>
@@ -41,7 +41,7 @@
      ///
      /// <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
 -    pub fn containers(mut self, input: crate::types::AttemptTaskContainerDetails) -> Self {
-+    pub fn containers(mut self, input: super::types::AttemptTaskContainerDetails) -> Self {
++    pub fn containers(mut self, input: super::super::types::AttemptTaskContainerDetails) -> Self {
          let mut v = self.containers.unwrap_or_default();
          v.push(input);
          self.containers = ::std::option::Option::Some(v);
@@ -50,20 +50,20 @@
      }
      /// <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
 -    pub fn set_containers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>>) -> Self {
-+    pub fn set_containers(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AttemptTaskContainerDetails>>) -> Self {
++    pub fn set_containers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::AttemptTaskContainerDetails>>) -> Self {
          self.containers = input;
          self
      }
      /// <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
 -    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>> {
-+    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AttemptTaskContainerDetails>> {
++    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::AttemptTaskContainerDetails>> {
          &self.containers
      }
      /// Consumes the builder and constructs a [`AttemptEcsTaskDetails`](crate::types::AttemptEcsTaskDetails).
 -    pub fn build(self) -> crate::types::AttemptEcsTaskDetails {
 -        crate::types::AttemptEcsTaskDetails {
-+    pub fn build(self) -> super::types::AttemptEcsTaskDetails {
-+        super::types::AttemptEcsTaskDetails {
++    pub fn build(self) -> super::super::types::AttemptEcsTaskDetails {
++        super::super::types::AttemptEcsTaskDetails {
              container_instance_arn: self.container_instance_arn,
              task_arn: self.task_arn,
              containers: self.containers,

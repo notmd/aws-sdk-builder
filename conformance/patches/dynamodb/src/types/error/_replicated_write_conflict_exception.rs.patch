@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for ReplicatedWriteConflictException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::ReplicatedWriteConflictException {
-+impl ::aws_types::request_id::RequestId for super::types::error::ReplicatedWriteConflictException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::ReplicatedWriteConflictException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`ReplicatedWriteConflictException`](crate::types::error::ReplicatedWriteConflictException).
 -    pub fn builder() -> crate::types::error::builders::ReplicatedWriteConflictExceptionBuilder {
 -        crate::types::error::builders::ReplicatedWriteConflictExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::ReplicatedWriteConflictExceptionBuilder {
-+        super::types::error::builders::ReplicatedWriteConflictExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::ReplicatedWriteConflictExceptionBuilder {
++        super::super::super::types::error::builders::ReplicatedWriteConflictExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`ReplicatedWriteConflictException`](crate::types::error::ReplicatedWriteConflictException).
 -    pub fn build(self) -> crate::types::error::ReplicatedWriteConflictException {
 -        crate::types::error::ReplicatedWriteConflictException {
-+    pub fn build(self) -> super::types::error::ReplicatedWriteConflictException {
-+        super::types::error::ReplicatedWriteConflictException {
++    pub fn build(self) -> super::super::super::types::error::ReplicatedWriteConflictException {
++        super::super::super::types::error::ReplicatedWriteConflictException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

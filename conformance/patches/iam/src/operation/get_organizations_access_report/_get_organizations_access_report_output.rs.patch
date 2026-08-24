@@ -5,7 +5,7 @@
  pub struct GetOrganizationsAccessReportOutput {
      /// <p>The status of the job.</p>
 -    pub job_status: crate::types::JobStatusType,
-+    pub job_status: super::types::JobStatusType,
++    pub job_status: super::super::super::types::JobStatusType,
      /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
      pub job_creation_date: ::aws_smithy_types::DateTime,
      /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the generated report job was completed or failed.</p>
@@ -14,7 +14,7 @@
      pub number_of_services_not_accessed: ::std::option::Option<i32>,
      /// <p>An object that contains details about the most recent attempt to access the service.</p>
 -    pub access_details: ::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>>,
-+    pub access_details: ::std::option::Option<::std::vec::Vec<super::types::AccessDetail>>,
++    pub access_details: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>>,
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
      pub is_truncated: bool,
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -23,13 +23,13 @@
      /// <p>Contains information about the reason that the operation failed.</p>
      /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
 -    pub error_details: ::std::option::Option<crate::types::ErrorDetails>,
-+    pub error_details: ::std::option::Option<super::types::ErrorDetails>,
++    pub error_details: ::std::option::Option<super::super::super::types::ErrorDetails>,
      _request_id: Option<String>,
  }
  impl GetOrganizationsAccessReportOutput {
      /// <p>The status of the job.</p>
 -    pub fn job_status(&self) -> &crate::types::JobStatusType {
-+    pub fn job_status(&self) -> &super::types::JobStatusType {
++    pub fn job_status(&self) -> &super::super::super::types::JobStatusType {
          &self.job_status
      }
      /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
@@ -38,7 +38,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.access_details.is_none()`.
 -    pub fn access_details(&self) -> &[crate::types::AccessDetail] {
-+    pub fn access_details(&self) -> &[super::types::AccessDetail] {
++    pub fn access_details(&self) -> &[super::super::super::types::AccessDetail] {
          self.access_details.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -47,7 +47,7 @@
      /// <p>Contains information about the reason that the operation failed.</p>
      /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
 -    pub fn error_details(&self) -> ::std::option::Option<&crate::types::ErrorDetails> {
-+    pub fn error_details(&self) -> ::std::option::Option<&super::types::ErrorDetails> {
++    pub fn error_details(&self) -> ::std::option::Option<&super::super::super::types::ErrorDetails> {
          self.error_details.as_ref()
      }
  }
@@ -57,8 +57,8 @@
      /// Creates a new builder-style object to manufacture [`GetOrganizationsAccessReportOutput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput).
 -    pub fn builder() -> crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder {
 -        crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder {
-+        super::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder {
++        super::super::super::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder::default()
      }
  }
 
@@ -67,36 +67,36 @@
  #[non_exhaustive]
  pub struct GetOrganizationsAccessReportOutputBuilder {
 -    pub(crate) job_status: ::std::option::Option<crate::types::JobStatusType>,
-+    pub(crate) job_status: ::std::option::Option<super::types::JobStatusType>,
++    pub(crate) job_status: ::std::option::Option<super::super::super::types::JobStatusType>,
      pub(crate) job_creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) job_completion_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) number_of_services_accessible: ::std::option::Option<i32>,
      pub(crate) number_of_services_not_accessed: ::std::option::Option<i32>,
 -    pub(crate) access_details: ::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>>,
-+    pub(crate) access_details: ::std::option::Option<::std::vec::Vec<super::types::AccessDetail>>,
++    pub(crate) access_details: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>>,
      pub(crate) is_truncated: ::std::option::Option<bool>,
      pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    pub(crate) error_details: ::std::option::Option<crate::types::ErrorDetails>,
-+    pub(crate) error_details: ::std::option::Option<super::types::ErrorDetails>,
++    pub(crate) error_details: ::std::option::Option<super::super::super::types::ErrorDetails>,
      _request_id: Option<String>,
  }
  impl GetOrganizationsAccessReportOutputBuilder {
      /// <p>The status of the job.</p>
      /// This field is required.
 -    pub fn job_status(mut self, input: crate::types::JobStatusType) -> Self {
-+    pub fn job_status(mut self, input: super::types::JobStatusType) -> Self {
++    pub fn job_status(mut self, input: super::super::super::types::JobStatusType) -> Self {
          self.job_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>The status of the job.</p>
 -    pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::JobStatusType>) -> Self {
-+    pub fn set_job_status(mut self, input: ::std::option::Option<super::types::JobStatusType>) -> Self {
++    pub fn set_job_status(mut self, input: ::std::option::Option<super::super::super::types::JobStatusType>) -> Self {
          self.job_status = input;
          self
      }
      /// <p>The status of the job.</p>
 -    pub fn get_job_status(&self) -> &::std::option::Option<crate::types::JobStatusType> {
-+    pub fn get_job_status(&self) -> &::std::option::Option<super::types::JobStatusType> {
++    pub fn get_job_status(&self) -> &::std::option::Option<super::super::super::types::JobStatusType> {
          &self.job_status
      }
      /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
@@ -105,7 +105,7 @@
      ///
      /// <p>An object that contains details about the most recent attempt to access the service.</p>
 -    pub fn access_details(mut self, input: crate::types::AccessDetail) -> Self {
-+    pub fn access_details(mut self, input: super::types::AccessDetail) -> Self {
++    pub fn access_details(mut self, input: super::super::super::types::AccessDetail) -> Self {
          let mut v = self.access_details.unwrap_or_default();
          v.push(input);
          self.access_details = ::std::option::Option::Some(v);
@@ -114,13 +114,13 @@
      }
      /// <p>An object that contains details about the most recent attempt to access the service.</p>
 -    pub fn set_access_details(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>>) -> Self {
-+    pub fn set_access_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AccessDetail>>) -> Self {
++    pub fn set_access_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>>) -> Self {
          self.access_details = input;
          self
      }
      /// <p>An object that contains details about the most recent attempt to access the service.</p>
 -    pub fn get_access_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>> {
-+    pub fn get_access_details(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AccessDetail>> {
++    pub fn get_access_details(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>> {
          &self.access_details
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -129,21 +129,21 @@
      /// <p>Contains information about the reason that the operation failed.</p>
      /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
 -    pub fn error_details(mut self, input: crate::types::ErrorDetails) -> Self {
-+    pub fn error_details(mut self, input: super::types::ErrorDetails) -> Self {
++    pub fn error_details(mut self, input: super::super::super::types::ErrorDetails) -> Self {
          self.error_details = ::std::option::Option::Some(input);
          self
      }
      /// <p>Contains information about the reason that the operation failed.</p>
      /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
 -    pub fn set_error_details(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
-+    pub fn set_error_details(mut self, input: ::std::option::Option<super::types::ErrorDetails>) -> Self {
++    pub fn set_error_details(mut self, input: ::std::option::Option<super::super::super::types::ErrorDetails>) -> Self {
          self.error_details = input;
          self
      }
      /// <p>Contains information about the reason that the operation failed.</p>
      /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
 -    pub fn get_error_details(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
-+    pub fn get_error_details(&self) -> &::std::option::Option<super::types::ErrorDetails> {
++    pub fn get_error_details(&self) -> &::std::option::Option<super::super::super::types::ErrorDetails> {
          &self.error_details
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -152,11 +152,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput,
-+        super::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput,
++        super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput {
-+        ::std::result::Result::Ok(super::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput {
++        ::std::result::Result::Ok(super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput {
              job_status: self.job_status.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "job_status",

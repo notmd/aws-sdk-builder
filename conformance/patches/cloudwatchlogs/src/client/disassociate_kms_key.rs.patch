@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DisassociateKmsKeyError>`](crate::operation::disassociate_kms_key::DisassociateKmsKeyError)
 -    pub fn disassociate_kms_key(&self) -> crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyFluentBuilder {
 -        crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyFluentBuilder::new(self.handle.clone())
-+    pub fn disassociate_kms_key(&self) -> super::operation::disassociate_kms_key::builders::DisassociateKmsKeyFluentBuilder {
-+        super::operation::disassociate_kms_key::builders::DisassociateKmsKeyFluentBuilder::new(self.handle.clone())
++    pub fn disassociate_kms_key(&self) -> super::super::operation::disassociate_kms_key::builders::DisassociateKmsKeyFluentBuilder {
++        super::super::operation::disassociate_kms_key::builders::DisassociateKmsKeyFluentBuilder::new(self.handle.clone())
      }
  }

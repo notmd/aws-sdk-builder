@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AdminUpdateDeviceStatusError>`](crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError)
 -    pub fn admin_update_device_status(&self) -> crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusFluentBuilder {
 -        crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusFluentBuilder::new(self.handle.clone())
-+    pub fn admin_update_device_status(&self) -> super::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusFluentBuilder {
-+        super::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusFluentBuilder::new(self.handle.clone())
++    pub fn admin_update_device_status(&self) -> super::super::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusFluentBuilder {
++        super::super::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusFluentBuilder::new(self.handle.clone())
      }
  }

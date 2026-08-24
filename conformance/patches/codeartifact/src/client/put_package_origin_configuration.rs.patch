@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationFluentBuilder {
 -        crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationFluentBuilder {
-+        super::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationFluentBuilder {
++        super::super::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

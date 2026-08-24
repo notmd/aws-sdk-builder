@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateDedicatedIpPoolError>`](crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError)
 -    pub fn create_dedicated_ip_pool(&self) -> crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolFluentBuilder {
 -        crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolFluentBuilder::new(self.handle.clone())
-+    pub fn create_dedicated_ip_pool(&self) -> super::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolFluentBuilder {
-+        super::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolFluentBuilder::new(self.handle.clone())
++    pub fn create_dedicated_ip_pool(&self) -> super::super::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolFluentBuilder {
++        super::super::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolFluentBuilder::new(self.handle.clone())
      }
  }

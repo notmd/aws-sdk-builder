@@ -5,7 +5,7 @@
      /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
      /// </ul>
 -    pub billing_mode: ::std::option::Option<crate::types::BillingMode>,
-+    pub billing_mode: ::std::option::Option<super::types::BillingMode>,
++    pub billing_mode: ::std::option::Option<super::super::types::BillingMode>,
      /// <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
      pub last_update_to_pay_per_request_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
@@ -14,7 +14,7 @@
      /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
      /// </ul>
 -    pub fn billing_mode(&self) -> ::std::option::Option<&crate::types::BillingMode> {
-+    pub fn billing_mode(&self) -> ::std::option::Option<&super::types::BillingMode> {
++    pub fn billing_mode(&self) -> ::std::option::Option<&super::super::types::BillingMode> {
          self.billing_mode.as_ref()
      }
      /// <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`BillingModeSummary`](crate::types::BillingModeSummary).
 -    pub fn builder() -> crate::types::builders::BillingModeSummaryBuilder {
 -        crate::types::builders::BillingModeSummaryBuilder::default()
-+    pub fn builder() -> super::types::builders::BillingModeSummaryBuilder {
-+        super::types::builders::BillingModeSummaryBuilder::default()
++    pub fn builder() -> super::super::types::builders::BillingModeSummaryBuilder {
++        super::super::types::builders::BillingModeSummaryBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct BillingModeSummaryBuilder {
 -    pub(crate) billing_mode: ::std::option::Option<crate::types::BillingMode>,
-+    pub(crate) billing_mode: ::std::option::Option<super::types::BillingMode>,
++    pub(crate) billing_mode: ::std::option::Option<super::super::types::BillingMode>,
      pub(crate) last_update_to_pay_per_request_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
  impl BillingModeSummaryBuilder {
@@ -43,7 +43,7 @@
      /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
      /// </ul>
 -    pub fn billing_mode(mut self, input: crate::types::BillingMode) -> Self {
-+    pub fn billing_mode(mut self, input: super::types::BillingMode) -> Self {
++    pub fn billing_mode(mut self, input: super::super::types::BillingMode) -> Self {
          self.billing_mode = ::std::option::Option::Some(input);
          self
      }
@@ -52,7 +52,7 @@
      /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
      /// </ul>
 -    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
-+    pub fn set_billing_mode(mut self, input: ::std::option::Option<super::types::BillingMode>) -> Self {
++    pub fn set_billing_mode(mut self, input: ::std::option::Option<super::super::types::BillingMode>) -> Self {
          self.billing_mode = input;
          self
      }
@@ -61,7 +61,7 @@
      /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
      /// </ul>
 -    pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
-+    pub fn get_billing_mode(&self) -> &::std::option::Option<super::types::BillingMode> {
++    pub fn get_billing_mode(&self) -> &::std::option::Option<super::super::types::BillingMode> {
          &self.billing_mode
      }
      /// <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
@@ -71,8 +71,8 @@
      /// Consumes the builder and constructs a [`BillingModeSummary`](crate::types::BillingModeSummary).
 -    pub fn build(self) -> crate::types::BillingModeSummary {
 -        crate::types::BillingModeSummary {
-+    pub fn build(self) -> super::types::BillingModeSummary {
-+        super::types::BillingModeSummary {
++    pub fn build(self) -> super::super::types::BillingModeSummary {
++        super::super::types::BillingModeSummary {
              billing_mode: self.billing_mode,
              last_update_to_pay_per_request_date_time: self.last_update_to_pay_per_request_date_time,
          }

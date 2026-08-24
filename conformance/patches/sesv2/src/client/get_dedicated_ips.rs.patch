@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetDedicatedIpsError>`](crate::operation::get_dedicated_ips::GetDedicatedIpsError)
 -    pub fn get_dedicated_ips(&self) -> crate::operation::get_dedicated_ips::builders::GetDedicatedIpsFluentBuilder {
 -        crate::operation::get_dedicated_ips::builders::GetDedicatedIpsFluentBuilder::new(self.handle.clone())
-+    pub fn get_dedicated_ips(&self) -> super::operation::get_dedicated_ips::builders::GetDedicatedIpsFluentBuilder {
-+        super::operation::get_dedicated_ips::builders::GetDedicatedIpsFluentBuilder::new(self.handle.clone())
++    pub fn get_dedicated_ips(&self) -> super::super::operation::get_dedicated_ips::builders::GetDedicatedIpsFluentBuilder {
++        super::super::operation::get_dedicated_ips::builders::GetDedicatedIpsFluentBuilder::new(self.handle.clone())
      }
  }

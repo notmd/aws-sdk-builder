@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ExportStatistics`](crate::types::ExportStatistics).
 -    pub fn builder() -> crate::types::builders::ExportStatisticsBuilder {
 -        crate::types::builders::ExportStatisticsBuilder::default()
-+    pub fn builder() -> super::types::builders::ExportStatisticsBuilder {
-+        super::types::builders::ExportStatisticsBuilder::default()
++    pub fn builder() -> super::super::types::builders::ExportStatisticsBuilder {
++        super::super::types::builders::ExportStatisticsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ExportStatistics`](crate::types::ExportStatistics).
 -    pub fn build(self) -> crate::types::ExportStatistics {
 -        crate::types::ExportStatistics {
-+    pub fn build(self) -> super::types::ExportStatistics {
-+        super::types::ExportStatistics {
++    pub fn build(self) -> super::super::types::ExportStatistics {
++        super::super::types::ExportStatistics {
              processed_records_count: self.processed_records_count,
              exported_records_count: self.exported_records_count,
          }

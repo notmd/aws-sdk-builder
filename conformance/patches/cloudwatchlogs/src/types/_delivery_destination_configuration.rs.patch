@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeliveryDestinationConfiguration`](crate::types::DeliveryDestinationConfiguration).
 -    pub fn builder() -> crate::types::builders::DeliveryDestinationConfigurationBuilder {
 -        crate::types::builders::DeliveryDestinationConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::DeliveryDestinationConfigurationBuilder {
-+        super::types::builders::DeliveryDestinationConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::DeliveryDestinationConfigurationBuilder {
++        super::super::types::builders::DeliveryDestinationConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// - [`destination_resource_arn`](crate::types::builders::DeliveryDestinationConfigurationBuilder::destination_resource_arn)
 -    pub fn build(self) -> ::std::result::Result<crate::types::DeliveryDestinationConfiguration, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::DeliveryDestinationConfiguration {
-+    pub fn build(self) -> ::std::result::Result<super::types::DeliveryDestinationConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::DeliveryDestinationConfiguration {
++    pub fn build(self) -> ::std::result::Result<super::super::types::DeliveryDestinationConfiguration, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::DeliveryDestinationConfiguration {
              destination_resource_arn: self.destination_resource_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "destination_resource_arn",

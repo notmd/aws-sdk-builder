@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UnsubscribeError>`](crate::operation::unsubscribe::UnsubscribeError)
 -    pub fn unsubscribe(&self) -> crate::operation::unsubscribe::builders::UnsubscribeFluentBuilder {
 -        crate::operation::unsubscribe::builders::UnsubscribeFluentBuilder::new(self.handle.clone())
-+    pub fn unsubscribe(&self) -> super::operation::unsubscribe::builders::UnsubscribeFluentBuilder {
-+        super::operation::unsubscribe::builders::UnsubscribeFluentBuilder::new(self.handle.clone())
++    pub fn unsubscribe(&self) -> super::super::operation::unsubscribe::builders::UnsubscribeFluentBuilder {
++        super::super::operation::unsubscribe::builders::UnsubscribeFluentBuilder::new(self.handle.clone())
      }
  }

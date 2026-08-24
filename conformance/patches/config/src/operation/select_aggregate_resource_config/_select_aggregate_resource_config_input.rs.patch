@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`SelectAggregateResourceConfigInput`](crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput).
 -    pub fn builder() -> crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder {
 -        crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder::default()
-+    pub fn builder() -> super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder {
-+        super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder {
++        super::super::super::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput,
-+        super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput,
++        super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput {
-+        ::std::result::Result::Ok(super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput {
++        ::std::result::Result::Ok(super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput {
              expression: self.expression,
              configuration_aggregator_name: self.configuration_aggregator_name,
              limit: self.limit,

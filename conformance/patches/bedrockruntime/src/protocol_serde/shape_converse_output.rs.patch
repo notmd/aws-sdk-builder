@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::ConverseOutput>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::ConverseOutput>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::ConverseOutput>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -15,15 +15,15 @@
                      variant = match key.as_ref() {
 -                        "message" => Some(crate::types::ConverseOutput::Message(
 -                            crate::protocol_serde::shape_message::de_message(tokens, _value, depth + 1)?.ok_or_else(|| {
-+                        "message" => Some(super::types::ConverseOutput::Message(
-+                            super::protocol_serde::shape_message::de_message(tokens, _value, depth + 1)?.ok_or_else(|| {
++                        "message" => Some(super::super::types::ConverseOutput::Message(
++                            super::super::protocol_serde::shape_message::de_message(tokens, _value, depth + 1)?.ok_or_else(|| {
                                  ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'message' cannot be null")
                              })?,
                          )),
                          _ => {
                              ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
 -                            Some(crate::types::ConverseOutput::Unknown)
-+                            Some(super::types::ConverseOutput::Unknown)
++                            Some(super::super::types::ConverseOutput::Unknown)
                          }
                      };
                  }

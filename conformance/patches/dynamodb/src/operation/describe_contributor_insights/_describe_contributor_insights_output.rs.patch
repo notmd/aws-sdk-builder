@@ -5,7 +5,7 @@
      pub contributor_insights_rule_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      /// <p>Current status of contributor insights.</p>
 -    pub contributor_insights_status: ::std::option::Option<crate::types::ContributorInsightsStatus>,
-+    pub contributor_insights_status: ::std::option::Option<super::types::ContributorInsightsStatus>,
++    pub contributor_insights_status: ::std::option::Option<super::super::super::types::ContributorInsightsStatus>,
      /// <p>Timestamp of the last time the status was changed.</p>
      pub last_update_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>Returns information about the last failure that was encountered.</p>
@@ -14,10 +14,10 @@
      /// <p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li>
      /// </ul>
 -    pub failure_exception: ::std::option::Option<crate::types::FailureException>,
-+    pub failure_exception: ::std::option::Option<super::types::FailureException>,
++    pub failure_exception: ::std::option::Option<super::super::super::types::FailureException>,
      /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
 -    pub contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
-+    pub contributor_insights_mode: ::std::option::Option<super::types::ContributorInsightsMode>,
++    pub contributor_insights_mode: ::std::option::Option<super::super::super::types::ContributorInsightsMode>,
      _request_id: Option<String>,
  }
  impl DescribeContributorInsightsOutput {
@@ -26,7 +26,7 @@
      }
      /// <p>Current status of contributor insights.</p>
 -    pub fn contributor_insights_status(&self) -> ::std::option::Option<&crate::types::ContributorInsightsStatus> {
-+    pub fn contributor_insights_status(&self) -> ::std::option::Option<&super::types::ContributorInsightsStatus> {
++    pub fn contributor_insights_status(&self) -> ::std::option::Option<&super::super::super::types::ContributorInsightsStatus> {
          self.contributor_insights_status.as_ref()
      }
      /// <p>Timestamp of the last time the status was changed.</p>
@@ -35,12 +35,12 @@
      /// <p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li>
      /// </ul>
 -    pub fn failure_exception(&self) -> ::std::option::Option<&crate::types::FailureException> {
-+    pub fn failure_exception(&self) -> ::std::option::Option<&super::types::FailureException> {
++    pub fn failure_exception(&self) -> ::std::option::Option<&super::super::super::types::FailureException> {
          self.failure_exception.as_ref()
      }
      /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
 -    pub fn contributor_insights_mode(&self) -> ::std::option::Option<&crate::types::ContributorInsightsMode> {
-+    pub fn contributor_insights_mode(&self) -> ::std::option::Option<&super::types::ContributorInsightsMode> {
++    pub fn contributor_insights_mode(&self) -> ::std::option::Option<&super::super::super::types::ContributorInsightsMode> {
          self.contributor_insights_mode.as_ref()
      }
  }
@@ -50,8 +50,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeContributorInsightsOutput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput).
 -    pub fn builder() -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsOutputBuilder {
 -        crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_contributor_insights::builders::DescribeContributorInsightsOutputBuilder {
-+        super::operation::describe_contributor_insights::builders::DescribeContributorInsightsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_contributor_insights::builders::DescribeContributorInsightsOutputBuilder {
++        super::super::super::operation::describe_contributor_insights::builders::DescribeContributorInsightsOutputBuilder::default()
      }
  }
 
@@ -60,12 +60,12 @@
      pub(crate) index_name: ::std::option::Option<::std::string::String>,
      pub(crate) contributor_insights_rule_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) contributor_insights_status: ::std::option::Option<crate::types::ContributorInsightsStatus>,
-+    pub(crate) contributor_insights_status: ::std::option::Option<super::types::ContributorInsightsStatus>,
++    pub(crate) contributor_insights_status: ::std::option::Option<super::super::super::types::ContributorInsightsStatus>,
      pub(crate) last_update_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) failure_exception: ::std::option::Option<crate::types::FailureException>,
 -    pub(crate) contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
-+    pub(crate) failure_exception: ::std::option::Option<super::types::FailureException>,
-+    pub(crate) contributor_insights_mode: ::std::option::Option<super::types::ContributorInsightsMode>,
++    pub(crate) failure_exception: ::std::option::Option<super::super::super::types::FailureException>,
++    pub(crate) contributor_insights_mode: ::std::option::Option<super::super::super::types::ContributorInsightsMode>,
      _request_id: Option<String>,
  }
  impl DescribeContributorInsightsOutputBuilder {
@@ -74,19 +74,19 @@
      }
      /// <p>Current status of contributor insights.</p>
 -    pub fn contributor_insights_status(mut self, input: crate::types::ContributorInsightsStatus) -> Self {
-+    pub fn contributor_insights_status(mut self, input: super::types::ContributorInsightsStatus) -> Self {
++    pub fn contributor_insights_status(mut self, input: super::super::super::types::ContributorInsightsStatus) -> Self {
          self.contributor_insights_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>Current status of contributor insights.</p>
 -    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
-+    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<super::types::ContributorInsightsStatus>) -> Self {
++    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<super::super::super::types::ContributorInsightsStatus>) -> Self {
          self.contributor_insights_status = input;
          self
      }
      /// <p>Current status of contributor insights.</p>
 -    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<crate::types::ContributorInsightsStatus> {
-+    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<super::types::ContributorInsightsStatus> {
++    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<super::super::super::types::ContributorInsightsStatus> {
          &self.contributor_insights_status
      }
      /// <p>Timestamp of the last time the status was changed.</p>
@@ -95,7 +95,7 @@
      /// <p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li>
      /// </ul>
 -    pub fn failure_exception(mut self, input: crate::types::FailureException) -> Self {
-+    pub fn failure_exception(mut self, input: super::types::FailureException) -> Self {
++    pub fn failure_exception(mut self, input: super::super::super::types::FailureException) -> Self {
          self.failure_exception = ::std::option::Option::Some(input);
          self
      }
@@ -104,7 +104,7 @@
      /// <p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li>
      /// </ul>
 -    pub fn set_failure_exception(mut self, input: ::std::option::Option<crate::types::FailureException>) -> Self {
-+    pub fn set_failure_exception(mut self, input: ::std::option::Option<super::types::FailureException>) -> Self {
++    pub fn set_failure_exception(mut self, input: ::std::option::Option<super::super::super::types::FailureException>) -> Self {
          self.failure_exception = input;
          self
      }
@@ -113,24 +113,24 @@
      /// <p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li>
      /// </ul>
 -    pub fn get_failure_exception(&self) -> &::std::option::Option<crate::types::FailureException> {
-+    pub fn get_failure_exception(&self) -> &::std::option::Option<super::types::FailureException> {
++    pub fn get_failure_exception(&self) -> &::std::option::Option<super::super::super::types::FailureException> {
          &self.failure_exception
      }
      /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
 -    pub fn contributor_insights_mode(mut self, input: crate::types::ContributorInsightsMode) -> Self {
-+    pub fn contributor_insights_mode(mut self, input: super::types::ContributorInsightsMode) -> Self {
++    pub fn contributor_insights_mode(mut self, input: super::super::super::types::ContributorInsightsMode) -> Self {
          self.contributor_insights_mode = ::std::option::Option::Some(input);
          self
      }
      /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
 -    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
-+    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<super::types::ContributorInsightsMode>) -> Self {
++    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<super::super::super::types::ContributorInsightsMode>) -> Self {
          self.contributor_insights_mode = input;
          self
      }
      /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
 -    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
-+    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<super::types::ContributorInsightsMode> {
++    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<super::super::super::types::ContributorInsightsMode> {
          &self.contributor_insights_mode
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -140,8 +140,8 @@
      /// Consumes the builder and constructs a [`DescribeContributorInsightsOutput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput).
 -    pub fn build(self) -> crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
 -        crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
-+    pub fn build(self) -> super::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
-+        super::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
++    pub fn build(self) -> super::super::super::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
++        super::super::super::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
              table_name: self.table_name,
              index_name: self.index_name,
              contributor_insights_rule_list: self.contributor_insights_rule_list,

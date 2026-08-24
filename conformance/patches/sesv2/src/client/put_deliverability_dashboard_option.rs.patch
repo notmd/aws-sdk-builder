@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder {
 -        crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder {
-+        super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder {
++        super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder::new(self.handle.clone())
      }
  }

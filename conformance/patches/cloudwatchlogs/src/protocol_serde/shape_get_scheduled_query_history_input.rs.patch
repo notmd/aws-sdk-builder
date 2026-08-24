@@ -5,7 +5,7 @@
  pub fn ser_get_scheduled_query_history_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput,
-+    input: &super::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput,
++    input: &super::super::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.identifier {
          object.key("identifier").string(var_1.as_str());

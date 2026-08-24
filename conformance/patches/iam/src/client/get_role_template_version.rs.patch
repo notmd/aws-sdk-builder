@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetRoleTemplateVersionError>`](crate::operation::get_role_template_version::GetRoleTemplateVersionError)
 -    pub fn get_role_template_version(&self) -> crate::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder {
 -        crate::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder::new(self.handle.clone())
-+    pub fn get_role_template_version(&self) -> super::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder {
-+        super::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder::new(self.handle.clone())
++    pub fn get_role_template_version(&self) -> super::super::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder {
++        super::super::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder::new(self.handle.clone())
      }
  }

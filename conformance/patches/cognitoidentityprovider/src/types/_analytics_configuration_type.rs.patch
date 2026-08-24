@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AnalyticsConfigurationType`](crate::types::AnalyticsConfigurationType).
 -    pub fn builder() -> crate::types::builders::AnalyticsConfigurationTypeBuilder {
 -        crate::types::builders::AnalyticsConfigurationTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::AnalyticsConfigurationTypeBuilder {
-+        super::types::builders::AnalyticsConfigurationTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::AnalyticsConfigurationTypeBuilder {
++        super::super::types::builders::AnalyticsConfigurationTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AnalyticsConfigurationType`](crate::types::AnalyticsConfigurationType).
 -    pub fn build(self) -> crate::types::AnalyticsConfigurationType {
 -        crate::types::AnalyticsConfigurationType {
-+    pub fn build(self) -> super::types::AnalyticsConfigurationType {
-+        super::types::AnalyticsConfigurationType {
++    pub fn build(self) -> super::super::types::AnalyticsConfigurationType {
++        super::super::types::AnalyticsConfigurationType {
              application_id: self.application_id,
              application_arn: self.application_arn,
              role_arn: self.role_arn,

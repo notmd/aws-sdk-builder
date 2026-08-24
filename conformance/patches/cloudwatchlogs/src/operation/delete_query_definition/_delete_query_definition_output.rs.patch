@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteQueryDefinitionOutput`](crate::operation::delete_query_definition::DeleteQueryDefinitionOutput).
 -    pub fn builder() -> crate::operation::delete_query_definition::builders::DeleteQueryDefinitionOutputBuilder {
 -        crate::operation::delete_query_definition::builders::DeleteQueryDefinitionOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_query_definition::builders::DeleteQueryDefinitionOutputBuilder {
-+        super::operation::delete_query_definition::builders::DeleteQueryDefinitionOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_query_definition::builders::DeleteQueryDefinitionOutputBuilder {
++        super::super::super::operation::delete_query_definition::builders::DeleteQueryDefinitionOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteQueryDefinitionOutput`](crate::operation::delete_query_definition::DeleteQueryDefinitionOutput).
 -    pub fn build(self) -> crate::operation::delete_query_definition::DeleteQueryDefinitionOutput {
 -        crate::operation::delete_query_definition::DeleteQueryDefinitionOutput {
-+    pub fn build(self) -> super::operation::delete_query_definition::DeleteQueryDefinitionOutput {
-+        super::operation::delete_query_definition::DeleteQueryDefinitionOutput {
++    pub fn build(self) -> super::super::super::operation::delete_query_definition::DeleteQueryDefinitionOutput {
++        super::super::super::operation::delete_query_definition::DeleteQueryDefinitionOutput {
              success: self.success.unwrap_or_default(),
              _request_id: self._request_id,
          }

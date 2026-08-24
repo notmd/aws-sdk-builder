@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`FilteredLogEvent`](crate::types::FilteredLogEvent).
 -    pub fn builder() -> crate::types::builders::FilteredLogEventBuilder {
 -        crate::types::builders::FilteredLogEventBuilder::default()
-+    pub fn builder() -> super::types::builders::FilteredLogEventBuilder {
-+        super::types::builders::FilteredLogEventBuilder::default()
++    pub fn builder() -> super::super::types::builders::FilteredLogEventBuilder {
++        super::super::types::builders::FilteredLogEventBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`FilteredLogEvent`](crate::types::FilteredLogEvent).
 -    pub fn build(self) -> crate::types::FilteredLogEvent {
 -        crate::types::FilteredLogEvent {
-+    pub fn build(self) -> super::types::FilteredLogEvent {
-+        super::types::FilteredLogEvent {
++    pub fn build(self) -> super::super::types::FilteredLogEvent {
++        super::super::types::FilteredLogEvent {
              log_stream_name: self.log_stream_name,
              timestamp: self.timestamp,
              message: self.message,

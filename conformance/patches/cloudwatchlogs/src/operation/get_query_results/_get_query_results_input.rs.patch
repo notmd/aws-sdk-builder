@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetQueryResultsInput`](crate::operation::get_query_results::GetQueryResultsInput).
 -    pub fn builder() -> crate::operation::get_query_results::builders::GetQueryResultsInputBuilder {
 -        crate::operation::get_query_results::builders::GetQueryResultsInputBuilder::default()
-+    pub fn builder() -> super::operation::get_query_results::builders::GetQueryResultsInputBuilder {
-+        super::operation::get_query_results::builders::GetQueryResultsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_query_results::builders::GetQueryResultsInputBuilder {
++        super::super::super::operation::get_query_results::builders::GetQueryResultsInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_query_results::GetQueryResultsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_query_results::GetQueryResultsInput {
-+    ) -> ::std::result::Result<super::operation::get_query_results::GetQueryResultsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_query_results::GetQueryResultsInput {
++    ) -> ::std::result::Result<super::super::super::operation::get_query_results::GetQueryResultsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_query_results::GetQueryResultsInput {
              query_id: self.query_id,
              next_token: self.next_token,
              max_items: self.max_items,

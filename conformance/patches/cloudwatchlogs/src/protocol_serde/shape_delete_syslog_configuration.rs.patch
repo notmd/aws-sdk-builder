@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput,
 -    crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError,
-+    super::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput,
-+    super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError,
++    super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput,
++    super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled(
-+            return Err(super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled(
++            return Err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled(
                  generic,
              ))
          }
@@ -29,16 +29,16 @@
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "AccessDeniedException" => crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::AccessDeniedException({
-+        "AccessDeniedException" => super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::AccessDeniedException({
++        "AccessDeniedException" => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::AccessDeniedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-+                let mut output = super::types::error::builders::AccessDeniedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
++                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -47,16 +47,16 @@
              tmp
          }),
 -        "InvalidOperationException" => crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::InvalidOperationException({
-+        "InvalidOperationException" => super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::InvalidOperationException({
++        "InvalidOperationException" => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::InvalidOperationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidOperationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidOperationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidOperationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -65,16 +65,16 @@
              tmp
          }),
 -        "InvalidParameterException" => crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::InvalidParameterException({
-+        "InvalidParameterException" => super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::InvalidParameterException({
++        "InvalidParameterException" => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::InvalidParameterException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -83,16 +83,16 @@
              tmp
          }),
 -        "OperationAbortedException" => crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::OperationAbortedException({
-+        "OperationAbortedException" => super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::OperationAbortedException({
++        "OperationAbortedException" => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::OperationAbortedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::OperationAbortedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-+                let mut output = super::types::error::builders::OperationAbortedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
++                let mut output = super::super::types::error::builders::OperationAbortedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -101,16 +101,16 @@
              tmp
          }),
 -        "ResourceNotFoundException" => crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ResourceNotFoundException({
-+        "ResourceNotFoundException" => super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ResourceNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -119,17 +119,17 @@
          }),
          "ServiceUnavailableException" => {
 -            crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ServiceUnavailableException({
-+            super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ServiceUnavailableException({
++            super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ServiceUnavailableException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-+                        super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
++                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -138,16 +138,16 @@
              })
          }
 -        "ThrottlingException" => crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ThrottlingException({
-+        "ThrottlingException" => super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ThrottlingException({
++        "ThrottlingException" => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ThrottlingException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ThrottlingExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-+                let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-+                output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
++                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -156,7 +156,7 @@
              tmp
          }),
 -        _ => crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::generic(generic),
-+        _ => super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::generic(generic),
++        _ => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::generic(generic),
      })
  }
 
@@ -166,13 +166,13 @@
  ) -> std::result::Result<
 -    crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput,
 -    crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError,
-+    super::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput,
-+    super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError,
++    super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput,
++    super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationOutputBuilder::default();
-+        let mut output = super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationOutputBuilder::default();
++        let mut output = super::super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -181,12 +181,12 @@
 
  pub fn ser_delete_syslog_configuration_input(
 -    input: &crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput,
-+    input: &super::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput,
++    input: &super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_delete_syslog_configuration_input::ser_delete_syslog_configuration_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_delete_syslog_configuration_input::ser_delete_syslog_configuration_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_delete_syslog_configuration_input::ser_delete_syslog_configuration_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }

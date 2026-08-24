@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListMfaDeviceTagsInput`](crate::operation::list_mfa_device_tags::ListMfaDeviceTagsInput).
 -    pub fn builder() -> crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder {
 -        crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder::default()
-+    pub fn builder() -> super::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder {
-+        super::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder {
++        super::super::super::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::list_mfa_device_tags::ListMfaDeviceTagsInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::list_mfa_device_tags::ListMfaDeviceTagsInput {
-+    ) -> ::std::result::Result<super::operation::list_mfa_device_tags::ListMfaDeviceTagsInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::list_mfa_device_tags::ListMfaDeviceTagsInput {
++    ) -> ::std::result::Result<super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsInput {
              serial_number: self.serial_number,
              marker: self.marker,
              max_items: self.max_items,

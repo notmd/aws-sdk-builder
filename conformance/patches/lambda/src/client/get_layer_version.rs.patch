@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetLayerVersionError>`](crate::operation::get_layer_version::GetLayerVersionError)
 -    pub fn get_layer_version(&self) -> crate::operation::get_layer_version::builders::GetLayerVersionFluentBuilder {
 -        crate::operation::get_layer_version::builders::GetLayerVersionFluentBuilder::new(self.handle.clone())
-+    pub fn get_layer_version(&self) -> super::operation::get_layer_version::builders::GetLayerVersionFluentBuilder {
-+        super::operation::get_layer_version::builders::GetLayerVersionFluentBuilder::new(self.handle.clone())
++    pub fn get_layer_version(&self) -> super::super::operation::get_layer_version::builders::GetLayerVersionFluentBuilder {
++        super::super::operation::get_layer_version::builders::GetLayerVersionFluentBuilder::new(self.handle.clone())
      }
  }

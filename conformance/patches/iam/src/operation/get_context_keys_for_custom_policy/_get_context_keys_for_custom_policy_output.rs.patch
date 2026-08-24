@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetContextKeysForCustomPolicyOutput`](crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyOutput).
 -    pub fn builder() -> crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyOutputBuilder {
 -        crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyOutputBuilder {
-+        super::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyOutputBuilder {
++        super::super::super::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetContextKeysForCustomPolicyOutput`](crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyOutput).
 -    pub fn build(self) -> crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyOutput {
 -        crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyOutput {
-+    pub fn build(self) -> super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyOutput {
-+        super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyOutput {
++    pub fn build(self) -> super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyOutput {
++        super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyOutput {
              context_key_names: self.context_key_names,
              _request_id: self._request_id,
          }

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UpdateAuthEventFeedbackError>`](crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError)
 -    pub fn update_auth_event_feedback(&self) -> crate::operation::update_auth_event_feedback::builders::UpdateAuthEventFeedbackFluentBuilder {
 -        crate::operation::update_auth_event_feedback::builders::UpdateAuthEventFeedbackFluentBuilder::new(self.handle.clone())
-+    pub fn update_auth_event_feedback(&self) -> super::operation::update_auth_event_feedback::builders::UpdateAuthEventFeedbackFluentBuilder {
-+        super::operation::update_auth_event_feedback::builders::UpdateAuthEventFeedbackFluentBuilder::new(self.handle.clone())
++    pub fn update_auth_event_feedback(&self) -> super::super::operation::update_auth_event_feedback::builders::UpdateAuthEventFeedbackFluentBuilder {
++        super::super::operation::update_auth_event_feedback::builders::UpdateAuthEventFeedbackFluentBuilder::new(self.handle.clone())
      }
  }

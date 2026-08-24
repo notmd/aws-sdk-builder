@@ -5,7 +5,7 @@
  pub fn ser_update_package_group_origin_configuration_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
-+    input: &super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
++    input: &super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.add_allowed_repositories {
          let mut array_2 = object.key("addAllowedRepositories").start_array();
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_4 = array_2.value().start_object();
 -                crate::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_4, item_3)?;
-+                super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_4, item_3)?;
++                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_4, item_3)?;
                  object_4.finish();
              }
          }
@@ -23,7 +23,7 @@
                  #[allow(unused_mut)]
                  let mut object_8 = array_6.value().start_object();
 -                crate::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_8, item_7)?;
-+                super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_8, item_7)?;
++                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_8, item_7)?;
                  object_8.finish();
              }
          }

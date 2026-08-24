@@ -5,12 +5,12 @@
  pub struct ExecutionControls {
      /// <p>A SsmControls object.</p>
 -    pub ssm_controls: ::std::option::Option<crate::types::SsmControls>,
-+    pub ssm_controls: ::std::option::Option<super::types::SsmControls>,
++    pub ssm_controls: ::std::option::Option<super::super::types::SsmControls>,
  }
  impl ExecutionControls {
      /// <p>A SsmControls object.</p>
 -    pub fn ssm_controls(&self) -> ::std::option::Option<&crate::types::SsmControls> {
-+    pub fn ssm_controls(&self) -> ::std::option::Option<&super::types::SsmControls> {
++    pub fn ssm_controls(&self) -> ::std::option::Option<&super::super::types::SsmControls> {
          self.ssm_controls.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`ExecutionControls`](crate::types::ExecutionControls).
 -    pub fn builder() -> crate::types::builders::ExecutionControlsBuilder {
 -        crate::types::builders::ExecutionControlsBuilder::default()
-+    pub fn builder() -> super::types::builders::ExecutionControlsBuilder {
-+        super::types::builders::ExecutionControlsBuilder::default()
++    pub fn builder() -> super::super::types::builders::ExecutionControlsBuilder {
++        super::super::types::builders::ExecutionControlsBuilder::default()
      }
  }
 
@@ -28,31 +28,31 @@
  #[non_exhaustive]
  pub struct ExecutionControlsBuilder {
 -    pub(crate) ssm_controls: ::std::option::Option<crate::types::SsmControls>,
-+    pub(crate) ssm_controls: ::std::option::Option<super::types::SsmControls>,
++    pub(crate) ssm_controls: ::std::option::Option<super::super::types::SsmControls>,
  }
  impl ExecutionControlsBuilder {
      /// <p>A SsmControls object.</p>
 -    pub fn ssm_controls(mut self, input: crate::types::SsmControls) -> Self {
-+    pub fn ssm_controls(mut self, input: super::types::SsmControls) -> Self {
++    pub fn ssm_controls(mut self, input: super::super::types::SsmControls) -> Self {
          self.ssm_controls = ::std::option::Option::Some(input);
          self
      }
      /// <p>A SsmControls object.</p>
 -    pub fn set_ssm_controls(mut self, input: ::std::option::Option<crate::types::SsmControls>) -> Self {
-+    pub fn set_ssm_controls(mut self, input: ::std::option::Option<super::types::SsmControls>) -> Self {
++    pub fn set_ssm_controls(mut self, input: ::std::option::Option<super::super::types::SsmControls>) -> Self {
          self.ssm_controls = input;
          self
      }
      /// <p>A SsmControls object.</p>
 -    pub fn get_ssm_controls(&self) -> &::std::option::Option<crate::types::SsmControls> {
-+    pub fn get_ssm_controls(&self) -> &::std::option::Option<super::types::SsmControls> {
++    pub fn get_ssm_controls(&self) -> &::std::option::Option<super::super::types::SsmControls> {
          &self.ssm_controls
      }
      /// Consumes the builder and constructs a [`ExecutionControls`](crate::types::ExecutionControls).
 -    pub fn build(self) -> crate::types::ExecutionControls {
 -        crate::types::ExecutionControls {
-+    pub fn build(self) -> super::types::ExecutionControls {
-+        super::types::ExecutionControls {
++    pub fn build(self) -> super::super::types::ExecutionControls {
++        super::super::types::ExecutionControls {
              ssm_controls: self.ssm_controls,
          }
      }

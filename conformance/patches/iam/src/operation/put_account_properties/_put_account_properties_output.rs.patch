@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutAccountPropertiesOutput`](crate::operation::put_account_properties::PutAccountPropertiesOutput).
 -    pub fn builder() -> crate::operation::put_account_properties::builders::PutAccountPropertiesOutputBuilder {
 -        crate::operation::put_account_properties::builders::PutAccountPropertiesOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_account_properties::builders::PutAccountPropertiesOutputBuilder {
-+        super::operation::put_account_properties::builders::PutAccountPropertiesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_account_properties::builders::PutAccountPropertiesOutputBuilder {
++        super::super::super::operation::put_account_properties::builders::PutAccountPropertiesOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutAccountPropertiesOutput`](crate::operation::put_account_properties::PutAccountPropertiesOutput).
 -    pub fn build(self) -> crate::operation::put_account_properties::PutAccountPropertiesOutput {
 -        crate::operation::put_account_properties::PutAccountPropertiesOutput {
-+    pub fn build(self) -> super::operation::put_account_properties::PutAccountPropertiesOutput {
-+        super::operation::put_account_properties::PutAccountPropertiesOutput {
++    pub fn build(self) -> super::super::super::operation::put_account_properties::PutAccountPropertiesOutput {
++        super::super::super::operation::put_account_properties::PutAccountPropertiesOutput {
              _request_id: self._request_id,
          }
      }

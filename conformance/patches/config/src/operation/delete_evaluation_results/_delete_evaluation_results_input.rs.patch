@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteEvaluationResultsInput`](crate::operation::delete_evaluation_results::DeleteEvaluationResultsInput).
 -    pub fn builder() -> crate::operation::delete_evaluation_results::builders::DeleteEvaluationResultsInputBuilder {
 -        crate::operation::delete_evaluation_results::builders::DeleteEvaluationResultsInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_evaluation_results::builders::DeleteEvaluationResultsInputBuilder {
-+        super::operation::delete_evaluation_results::builders::DeleteEvaluationResultsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_evaluation_results::builders::DeleteEvaluationResultsInputBuilder {
++        super::super::super::operation::delete_evaluation_results::builders::DeleteEvaluationResultsInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_evaluation_results::DeleteEvaluationResultsInput,
-+        super::operation::delete_evaluation_results::DeleteEvaluationResultsInput,
++        super::super::super::operation::delete_evaluation_results::DeleteEvaluationResultsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_evaluation_results::DeleteEvaluationResultsInput {
-+        ::std::result::Result::Ok(super::operation::delete_evaluation_results::DeleteEvaluationResultsInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_evaluation_results::DeleteEvaluationResultsInput {
              config_rule_name: self.config_rule_name,
          })
      }

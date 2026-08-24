@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<EncryptError>`](crate::operation::encrypt::EncryptError)
 -    pub fn encrypt(&self) -> crate::operation::encrypt::builders::EncryptFluentBuilder {
 -        crate::operation::encrypt::builders::EncryptFluentBuilder::new(self.handle.clone())
-+    pub fn encrypt(&self) -> super::operation::encrypt::builders::EncryptFluentBuilder {
-+        super::operation::encrypt::builders::EncryptFluentBuilder::new(self.handle.clone())
++    pub fn encrypt(&self) -> super::super::operation::encrypt::builders::EncryptFluentBuilder {
++        super::super::operation::encrypt::builders::EncryptFluentBuilder::new(self.handle.clone())
      }
  }

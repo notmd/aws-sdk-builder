@@ -5,7 +5,7 @@
      /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
      pub quota_shares:
 -        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>>>,
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::FrontOfQuotaShareJobSummary>>>,
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>>,
      /// <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>
      pub last_updated_at: ::std::option::Option<i64>,
  }
@@ -14,7 +14,7 @@
      pub fn quota_shares(
          &self,
 -    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>>> {
-+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::FrontOfQuotaShareJobSummary>>> {
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>> {
          self.quota_shares.as_ref()
      }
      /// <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`FrontOfQuotaSharesDetail`](crate::types::FrontOfQuotaSharesDetail).
 -    pub fn builder() -> crate::types::builders::FrontOfQuotaSharesDetailBuilder {
 -        crate::types::builders::FrontOfQuotaSharesDetailBuilder::default()
-+    pub fn builder() -> super::types::builders::FrontOfQuotaSharesDetailBuilder {
-+        super::types::builders::FrontOfQuotaSharesDetailBuilder::default()
++    pub fn builder() -> super::super::types::builders::FrontOfQuotaSharesDetailBuilder {
++        super::super::types::builders::FrontOfQuotaSharesDetailBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct FrontOfQuotaSharesDetailBuilder {
      pub(crate) quota_shares:
 -        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>>>,
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::FrontOfQuotaShareJobSummary>>>,
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>>,
      pub(crate) last_updated_at: ::std::option::Option<i64>,
  }
  impl FrontOfQuotaSharesDetailBuilder {
@@ -43,7 +43,7 @@
          mut self,
          k: impl ::std::convert::Into<::std::string::String>,
 -        v: ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>,
-+        v: ::std::vec::Vec<super::types::FrontOfQuotaShareJobSummary>,
++        v: ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>,
      ) -> Self {
          let mut hash_map = self.quota_shares.unwrap_or_default();
          hash_map.insert(k.into(), v);
@@ -52,7 +52,7 @@
      pub fn set_quota_shares(
          mut self,
 -        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>>>,
-+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::FrontOfQuotaShareJobSummary>>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>>,
      ) -> Self {
          self.quota_shares = input;
          self
@@ -61,7 +61,7 @@
      pub fn get_quota_shares(
          &self,
 -    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>>> {
-+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::FrontOfQuotaShareJobSummary>>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>> {
          &self.quota_shares
      }
      /// <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>
@@ -71,8 +71,8 @@
      /// Consumes the builder and constructs a [`FrontOfQuotaSharesDetail`](crate::types::FrontOfQuotaSharesDetail).
 -    pub fn build(self) -> crate::types::FrontOfQuotaSharesDetail {
 -        crate::types::FrontOfQuotaSharesDetail {
-+    pub fn build(self) -> super::types::FrontOfQuotaSharesDetail {
-+        super::types::FrontOfQuotaSharesDetail {
++    pub fn build(self) -> super::super::types::FrontOfQuotaSharesDetail {
++        super::super::types::FrontOfQuotaSharesDetail {
              quota_shares: self.quota_shares,
              last_updated_at: self.last_updated_at,
          }

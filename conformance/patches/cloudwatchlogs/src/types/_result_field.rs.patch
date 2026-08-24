@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ResultField`](crate::types::ResultField).
 -    pub fn builder() -> crate::types::builders::ResultFieldBuilder {
 -        crate::types::builders::ResultFieldBuilder::default()
-+    pub fn builder() -> super::types::builders::ResultFieldBuilder {
-+        super::types::builders::ResultFieldBuilder::default()
++    pub fn builder() -> super::super::types::builders::ResultFieldBuilder {
++        super::super::types::builders::ResultFieldBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ResultField`](crate::types::ResultField).
 -    pub fn build(self) -> crate::types::ResultField {
 -        crate::types::ResultField {
-+    pub fn build(self) -> super::types::ResultField {
-+        super::types::ResultField {
++    pub fn build(self) -> super::super::types::ResultField {
++        super::super::types::ResultField {
              field: self.field,
              value: self.value,
          }

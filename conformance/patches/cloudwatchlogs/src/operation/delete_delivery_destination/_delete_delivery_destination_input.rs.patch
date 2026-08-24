@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteDeliveryDestinationInput`](crate::operation::delete_delivery_destination::DeleteDeliveryDestinationInput).
 -    pub fn builder() -> crate::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationInputBuilder {
 -        crate::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationInputBuilder {
-+        super::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationInputBuilder {
++        super::super::super::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_delivery_destination::DeleteDeliveryDestinationInput,
-+        super::operation::delete_delivery_destination::DeleteDeliveryDestinationInput,
++        super::super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_delivery_destination::DeleteDeliveryDestinationInput { name: self.name })
-+        ::std::result::Result::Ok(super::operation::delete_delivery_destination::DeleteDeliveryDestinationInput { name: self.name })
++        ::std::result::Result::Ok(super::super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationInput { name: self.name })
      }
  }

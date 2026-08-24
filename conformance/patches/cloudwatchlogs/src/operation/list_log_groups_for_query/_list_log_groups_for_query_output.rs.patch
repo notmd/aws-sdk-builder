@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListLogGroupsForQueryOutput`](crate::operation::list_log_groups_for_query::ListLogGroupsForQueryOutput).
 -    pub fn builder() -> crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryOutputBuilder {
 -        crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryOutputBuilder {
-+        super::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryOutputBuilder {
++        super::super::super::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`ListLogGroupsForQueryOutput`](crate::operation::list_log_groups_for_query::ListLogGroupsForQueryOutput).
 -    pub fn build(self) -> crate::operation::list_log_groups_for_query::ListLogGroupsForQueryOutput {
 -        crate::operation::list_log_groups_for_query::ListLogGroupsForQueryOutput {
-+    pub fn build(self) -> super::operation::list_log_groups_for_query::ListLogGroupsForQueryOutput {
-+        super::operation::list_log_groups_for_query::ListLogGroupsForQueryOutput {
++    pub fn build(self) -> super::super::super::operation::list_log_groups_for_query::ListLogGroupsForQueryOutput {
++        super::super::super::operation::list_log_groups_for_query::ListLogGroupsForQueryOutput {
              log_group_identifiers: self.log_group_identifiers,
              next_token: self.next_token,
              _request_id: self._request_id,

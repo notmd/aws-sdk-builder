@@ -5,13 +5,13 @@
  pub fn ser_volume(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::Volume,
-+    input: &super::types::Volume,
++    input: &super::super::types::Volume,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.host {
          #[allow(unused_mut)]
          let mut object_2 = object.key("host").start_object();
 -        crate::protocol_serde::shape_host::ser_host(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_host::ser_host(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_host::ser_host(&mut object_2, var_1)?;
          object_2.finish();
      }
      if let Some(var_3) = &input.name {
@@ -20,14 +20,14 @@
          #[allow(unused_mut)]
          let mut object_5 = object.key("efsVolumeConfiguration").start_object();
 -        crate::protocol_serde::shape_efs_volume_configuration::ser_efs_volume_configuration(&mut object_5, var_4)?;
-+        super::protocol_serde::shape_efs_volume_configuration::ser_efs_volume_configuration(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_efs_volume_configuration::ser_efs_volume_configuration(&mut object_5, var_4)?;
          object_5.finish();
      }
      if let Some(var_6) = &input.s3files_volume_configuration {
          #[allow(unused_mut)]
          let mut object_7 = object.key("s3filesVolumeConfiguration").start_object();
 -        crate::protocol_serde::shape_s3_files_volume_configuration::ser_s3_files_volume_configuration(&mut object_7, var_6)?;
-+        super::protocol_serde::shape_s3_files_volume_configuration::ser_s3_files_volume_configuration(&mut object_7, var_6)?;
++        super::super::protocol_serde::shape_s3_files_volume_configuration::ser_s3_files_volume_configuration(&mut object_7, var_6)?;
          object_7.finish();
      }
      Ok(())
@@ -36,7 +36,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::Volume>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::Volume>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::Volume>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -45,14 +45,14 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::VolumeBuilder::default();
-+            let mut builder = super::types::builders::VolumeBuilder::default();
++            let mut builder = super::super::types::builders::VolumeBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "host" => {
 -                            builder = builder.set_host(crate::protocol_serde::shape_host::de_host(tokens, _value, depth + 1)?);
-+                            builder = builder.set_host(super::protocol_serde::shape_host::de_host(tokens, _value, depth + 1)?);
++                            builder = builder.set_host(super::super::protocol_serde::shape_host::de_host(tokens, _value, depth + 1)?);
                          }
                          "name" => {
                              builder = builder.set_name(
@@ -61,13 +61,13 @@
                          "efsVolumeConfiguration" => {
                              builder = builder.set_efs_volume_configuration(
 -                                crate::protocol_serde::shape_efs_volume_configuration::de_efs_volume_configuration(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_efs_volume_configuration::de_efs_volume_configuration(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_efs_volume_configuration::de_efs_volume_configuration(tokens, _value, depth + 1)?,
                              );
                          }
                          "s3filesVolumeConfiguration" => {
                              builder = builder.set_s3files_volume_configuration(
 -                                crate::protocol_serde::shape_s3_files_volume_configuration::de_s3_files_volume_configuration(
-+                                super::protocol_serde::shape_s3_files_volume_configuration::de_s3_files_volume_configuration(
++                                super::super::protocol_serde::shape_s3_files_volume_configuration::de_s3_files_volume_configuration(
                                      tokens,
                                      _value,
                                      depth + 1,

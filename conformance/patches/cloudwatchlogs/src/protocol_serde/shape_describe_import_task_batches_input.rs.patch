@@ -5,7 +5,7 @@
  pub fn ser_describe_import_task_batches_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::describe_import_task_batches::DescribeImportTaskBatchesInput,
-+    input: &super::operation::describe_import_task_batches::DescribeImportTaskBatchesInput,
++    input: &super::super::operation::describe_import_task_batches::DescribeImportTaskBatchesInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.import_id {
          object.key("importId").string(var_1.as_str());

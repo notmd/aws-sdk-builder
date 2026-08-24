@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteJobQueueError>`](crate::operation::delete_job_queue::DeleteJobQueueError)
 -    pub fn delete_job_queue(&self) -> crate::operation::delete_job_queue::builders::DeleteJobQueueFluentBuilder {
 -        crate::operation::delete_job_queue::builders::DeleteJobQueueFluentBuilder::new(self.handle.clone())
-+    pub fn delete_job_queue(&self) -> super::operation::delete_job_queue::builders::DeleteJobQueueFluentBuilder {
-+        super::operation::delete_job_queue::builders::DeleteJobQueueFluentBuilder::new(self.handle.clone())
++    pub fn delete_job_queue(&self) -> super::super::operation::delete_job_queue::builders::DeleteJobQueueFluentBuilder {
++        super::super::operation::delete_job_queue::builders::DeleteJobQueueFluentBuilder::new(self.handle.clone())
      }
  }

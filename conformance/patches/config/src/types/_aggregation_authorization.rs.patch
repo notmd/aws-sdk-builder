@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AggregationAuthorization`](crate::types::AggregationAuthorization).
 -    pub fn builder() -> crate::types::builders::AggregationAuthorizationBuilder {
 -        crate::types::builders::AggregationAuthorizationBuilder::default()
-+    pub fn builder() -> super::types::builders::AggregationAuthorizationBuilder {
-+        super::types::builders::AggregationAuthorizationBuilder::default()
++    pub fn builder() -> super::super::types::builders::AggregationAuthorizationBuilder {
++        super::super::types::builders::AggregationAuthorizationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AggregationAuthorization`](crate::types::AggregationAuthorization).
 -    pub fn build(self) -> crate::types::AggregationAuthorization {
 -        crate::types::AggregationAuthorization {
-+    pub fn build(self) -> super::types::AggregationAuthorization {
-+        super::types::AggregationAuthorization {
++    pub fn build(self) -> super::super::types::AggregationAuthorization {
++        super::super::types::AggregationAuthorization {
              aggregation_authorization_arn: self.aggregation_authorization_arn,
              authorized_account_id: self.authorized_account_id,
              authorized_aws_region: self.authorized_aws_region,

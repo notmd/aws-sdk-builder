@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`KeyValuesPair`](crate::types::KeyValuesPair).
 -    pub fn builder() -> crate::types::builders::KeyValuesPairBuilder {
 -        crate::types::builders::KeyValuesPairBuilder::default()
-+    pub fn builder() -> super::types::builders::KeyValuesPairBuilder {
-+        super::types::builders::KeyValuesPairBuilder::default()
++    pub fn builder() -> super::super::types::builders::KeyValuesPairBuilder {
++        super::super::types::builders::KeyValuesPairBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`KeyValuesPair`](crate::types::KeyValuesPair).
 -    pub fn build(self) -> crate::types::KeyValuesPair {
 -        crate::types::KeyValuesPair {
-+    pub fn build(self) -> super::types::KeyValuesPair {
-+        super::types::KeyValuesPair {
++    pub fn build(self) -> super::super::types::KeyValuesPair {
++        super::super::types::KeyValuesPair {
              name: self.name,
              values: self.values,
          }

@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::FunctionConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::FunctionConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::FunctionConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::FunctionConfigurationBuilder::default();
-+            let mut builder = super::types::builders::FunctionConfigurationBuilder::default();
++            let mut builder = super::super::types::builders::FunctionConfigurationBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                                  builder = builder.set_runtime(
                                      ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                        .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
-+                                        .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
++                                        .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
                                          .transpose()?,
                                  );
                              }
@@ -32,7 +32,7 @@
                              }
                              "VpcConfig" => {
 -                                builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
-+                                builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
++                                builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -41,7 +41,7 @@
                              }
                              "DeadLetterConfig" => {
 -                                builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
-+                                builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
++                                builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -50,7 +50,7 @@
                              }
                              "Environment" => {
 -                                builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
-+                                builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
++                                builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -59,7 +59,7 @@
                              "TracingConfig" => {
                                  builder = builder.set_tracing_config(
 -                                    crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?,
-+                                    super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?,
++                                    super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?,
                                  );
                              }
                              "MasterArn" => {
@@ -68,7 +68,7 @@
                              }
                              "Layers" => {
 -                                builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
-+                                builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
++                                builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -77,7 +77,7 @@
                                  builder = builder.set_state(
                                      ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                        .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
-+                                        .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
++                                        .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
                                          .transpose()?,
                                  );
                              }
@@ -86,7 +86,7 @@
                                  builder = builder.set_state_reason_code(
                                      ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                        .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
-+                                        .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
++                                        .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                                          .transpose()?,
                                  );
                              }
@@ -95,7 +95,7 @@
                                  builder = builder.set_last_update_status(
                                      ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                        .map(|s| s.to_unescaped().map(|u| crate::types::LastUpdateStatus::from(u.as_ref())))
-+                                        .map(|s| s.to_unescaped().map(|u| super::types::LastUpdateStatus::from(u.as_ref())))
++                                        .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatus::from(u.as_ref())))
                                          .transpose()?,
                                  );
                              }
@@ -104,14 +104,14 @@
                                  builder = builder.set_last_update_status_reason_code(
                                      ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                        .map(|s| s.to_unescaped().map(|u| crate::types::LastUpdateStatusReasonCode::from(u.as_ref())))
-+                                        .map(|s| s.to_unescaped().map(|u| super::types::LastUpdateStatusReasonCode::from(u.as_ref())))
++                                        .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatusReasonCode::from(u.as_ref())))
                                          .transpose()?,
                                  );
                              }
                              "FileSystemConfigs" => {
                                  builder = builder.set_file_system_configs(
 -                                    crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?,
-+                                    super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?,
++                                    super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?,
                                  );
                              }
                              "SigningProfileVersionArn" => {
@@ -120,19 +120,19 @@
                                  builder = builder.set_package_type(
                                      ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                                        .map(|s| s.to_unescaped().map(|u| crate::types::PackageType::from(u.as_ref())))
-+                                        .map(|s| s.to_unescaped().map(|u| super::types::PackageType::from(u.as_ref())))
++                                        .map(|s| s.to_unescaped().map(|u| super::super::types::PackageType::from(u.as_ref())))
                                          .transpose()?,
                                  );
                              }
                              "ImageConfigResponse" => {
                                  builder = builder.set_image_config_response(
 -                                    crate::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?,
-+                                    super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?,
++                                    super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?,
                                  );
                              }
                              "Architectures" => {
 -                                builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
-+                                builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
++                                builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -141,7 +141,7 @@
                              }
                              "EphemeralStorage" => {
 -                                builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
-+                                builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                                builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -150,7 +150,7 @@
                              }
                              "SnapStart" => {
 -                                builder = builder.set_snap_start(crate::protocol_serde::shape_snap_start_response::de_snap_start_response(
-+                                builder = builder.set_snap_start(super::protocol_serde::shape_snap_start_response::de_snap_start_response(
++                                builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -159,12 +159,12 @@
                              "RuntimeVersionConfig" => {
                                  builder = builder.set_runtime_version_config(
 -                                    crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(tokens, _value, depth + 1)?,
-+                                    super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(tokens, _value, depth + 1)?,
++                                    super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(tokens, _value, depth + 1)?,
                                  );
                              }
                              "LoggingConfig" => {
 -                                builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(
-+                                builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(
++                                builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -173,7 +173,7 @@
                              }
                              "TenancyConfig" => {
 -                                builder = builder.set_tenancy_config(crate::protocol_serde::shape_tenancy_config::de_tenancy_config(
-+                                builder = builder.set_tenancy_config(super::protocol_serde::shape_tenancy_config::de_tenancy_config(
++                                builder = builder.set_tenancy_config(super::super::protocol_serde::shape_tenancy_config::de_tenancy_config(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -182,7 +182,7 @@
                              "CapacityProviderConfig" => {
                                  builder = builder.set_capacity_provider_config(
 -                                    crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
-+                                    super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
++                                    super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
                                  );
                              }
                              "ConfigSha256" => {
@@ -191,7 +191,7 @@
                              }
                              "DurableConfig" => {
 -                                builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(
-+                                builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(
++                                builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(
                                      tokens,
                                      _value,
                                      depth + 1,

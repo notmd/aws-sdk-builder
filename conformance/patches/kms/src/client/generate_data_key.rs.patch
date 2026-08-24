@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GenerateDataKeyError>`](crate::operation::generate_data_key::GenerateDataKeyError)
 -    pub fn generate_data_key(&self) -> crate::operation::generate_data_key::builders::GenerateDataKeyFluentBuilder {
 -        crate::operation::generate_data_key::builders::GenerateDataKeyFluentBuilder::new(self.handle.clone())
-+    pub fn generate_data_key(&self) -> super::operation::generate_data_key::builders::GenerateDataKeyFluentBuilder {
-+        super::operation::generate_data_key::builders::GenerateDataKeyFluentBuilder::new(self.handle.clone())
++    pub fn generate_data_key(&self) -> super::super::operation::generate_data_key::builders::GenerateDataKeyFluentBuilder {
++        super::super::operation::generate_data_key::builders::GenerateDataKeyFluentBuilder::new(self.handle.clone())
      }
  }

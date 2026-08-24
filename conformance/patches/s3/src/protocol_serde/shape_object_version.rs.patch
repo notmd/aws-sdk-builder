@@ -5,13 +5,13 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<crate::types::ObjectVersion, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<super::types::ObjectVersion, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::super::types::ObjectVersion, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
      #[allow(unused_mut)]
 -    let mut builder = crate::types::ObjectVersion::builder();
-+    let mut builder = super::types::ObjectVersion::builder();
++    let mut builder = super::super::types::ObjectVersion::builder();
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
              s if s.matches("ETag") /* ETag com.amazonaws.s3#ObjectVersion$ETag */ =>  {
@@ -20,13 +20,13 @@
                  let var_2 =
                      Some(
 -                        Result::<::std::vec::Vec::<crate::types::ChecksumAlgorithm>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
-+                        Result::<::std::vec::Vec::<super::types::ChecksumAlgorithm>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
++                        Result::<::std::vec::Vec::<super::super::types::ChecksumAlgorithm>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                              let mut list_3 = builder.checksum_algorithm.take().unwrap_or_default();
                              list_3.push(
 -                                Result::<crate::types::ChecksumAlgorithm, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                                    crate::types::ChecksumAlgorithm::from(
-+                                Result::<super::types::ChecksumAlgorithm, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                                    super::types::ChecksumAlgorithm::from(
++                                Result::<super::super::types::ChecksumAlgorithm, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                                    super::super::types::ChecksumAlgorithm::from(
                                          ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                                      )
                                  )
@@ -36,8 +36,8 @@
                      Some(
 -                        Result::<crate::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::ChecksumType::from(
-+                        Result::<super::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::ChecksumType::from(
++                        Result::<super::super::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::ChecksumType::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -47,8 +47,8 @@
                      Some(
 -                        Result::<crate::types::ObjectVersionStorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                            crate::types::ObjectVersionStorageClass::from(
-+                        Result::<super::types::ObjectVersionStorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                            super::types::ObjectVersionStorageClass::from(
++                        Result::<super::super::types::ObjectVersionStorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::super::types::ObjectVersionStorageClass::from(
                                  ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                              )
                          )
@@ -57,7 +57,7 @@
                  let var_11 =
                      Some(
 -                        crate::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
                          ?
                      )
                  ;
@@ -66,7 +66,7 @@
                  let var_12 =
                      Some(
 -                        crate::protocol_serde::shape_restore_status::de_restore_status(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_restore_status::de_restore_status(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_restore_status::de_restore_status(&mut tag, depth + 1)
                          ?
                      )
                  ;

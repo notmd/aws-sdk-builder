@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<PutBucketEncryptionError>`](crate::operation::put_bucket_encryption::PutBucketEncryptionError)
 -    pub fn put_bucket_encryption(&self) -> crate::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder {
 -        crate::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder::new(self.handle.clone())
-+    pub fn put_bucket_encryption(&self) -> super::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder {
-+        super::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder::new(self.handle.clone())
++    pub fn put_bucket_encryption(&self) -> super::super::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder {
++        super::super::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder::new(self.handle.clone())
      }
  }

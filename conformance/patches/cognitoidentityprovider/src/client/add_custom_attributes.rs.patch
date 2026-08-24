@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<AddCustomAttributesError>`](crate::operation::add_custom_attributes::AddCustomAttributesError)
 -    pub fn add_custom_attributes(&self) -> crate::operation::add_custom_attributes::builders::AddCustomAttributesFluentBuilder {
 -        crate::operation::add_custom_attributes::builders::AddCustomAttributesFluentBuilder::new(self.handle.clone())
-+    pub fn add_custom_attributes(&self) -> super::operation::add_custom_attributes::builders::AddCustomAttributesFluentBuilder {
-+        super::operation::add_custom_attributes::builders::AddCustomAttributesFluentBuilder::new(self.handle.clone())
++    pub fn add_custom_attributes(&self) -> super::super::operation::add_custom_attributes::builders::AddCustomAttributesFluentBuilder {
++        super::super::operation::add_custom_attributes::builders::AddCustomAttributesFluentBuilder::new(self.handle.clone())
      }
  }

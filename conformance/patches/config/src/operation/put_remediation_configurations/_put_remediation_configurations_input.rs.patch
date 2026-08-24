@@ -5,14 +5,14 @@
  pub struct PutRemediationConfigurationsInput {
      /// <p>A list of remediation configuration objects.</p>
 -    pub remediation_configurations: ::std::option::Option<::std::vec::Vec<crate::types::RemediationConfiguration>>,
-+    pub remediation_configurations: ::std::option::Option<::std::vec::Vec<super::types::RemediationConfiguration>>,
++    pub remediation_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationConfiguration>>,
  }
  impl PutRemediationConfigurationsInput {
      /// <p>A list of remediation configuration objects.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.remediation_configurations.is_none()`.
 -    pub fn remediation_configurations(&self) -> &[crate::types::RemediationConfiguration] {
-+    pub fn remediation_configurations(&self) -> &[super::types::RemediationConfiguration] {
++    pub fn remediation_configurations(&self) -> &[super::super::super::types::RemediationConfiguration] {
          self.remediation_configurations.as_deref().unwrap_or_default()
      }
  }
@@ -20,8 +20,8 @@
      /// Creates a new builder-style object to manufacture [`PutRemediationConfigurationsInput`](crate::operation::put_remediation_configurations::PutRemediationConfigurationsInput).
 -    pub fn builder() -> crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsInputBuilder {
 -        crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsInputBuilder::default()
-+    pub fn builder() -> super::operation::put_remediation_configurations::builders::PutRemediationConfigurationsInputBuilder {
-+        super::operation::put_remediation_configurations::builders::PutRemediationConfigurationsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_remediation_configurations::builders::PutRemediationConfigurationsInputBuilder {
++        super::super::super::operation::put_remediation_configurations::builders::PutRemediationConfigurationsInputBuilder::default()
      }
  }
 
@@ -30,7 +30,7 @@
  #[non_exhaustive]
  pub struct PutRemediationConfigurationsInputBuilder {
 -    pub(crate) remediation_configurations: ::std::option::Option<::std::vec::Vec<crate::types::RemediationConfiguration>>,
-+    pub(crate) remediation_configurations: ::std::option::Option<::std::vec::Vec<super::types::RemediationConfiguration>>,
++    pub(crate) remediation_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationConfiguration>>,
  }
  impl PutRemediationConfigurationsInputBuilder {
      /// Appends an item to `remediation_configurations`.
@@ -39,7 +39,7 @@
      ///
      /// <p>A list of remediation configuration objects.</p>
 -    pub fn remediation_configurations(mut self, input: crate::types::RemediationConfiguration) -> Self {
-+    pub fn remediation_configurations(mut self, input: super::types::RemediationConfiguration) -> Self {
++    pub fn remediation_configurations(mut self, input: super::super::super::types::RemediationConfiguration) -> Self {
          let mut v = self.remediation_configurations.unwrap_or_default();
          v.push(input);
          self.remediation_configurations = ::std::option::Option::Some(v);
@@ -48,13 +48,13 @@
      }
      /// <p>A list of remediation configuration objects.</p>
 -    pub fn set_remediation_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RemediationConfiguration>>) -> Self {
-+    pub fn set_remediation_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::RemediationConfiguration>>) -> Self {
++    pub fn set_remediation_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationConfiguration>>) -> Self {
          self.remediation_configurations = input;
          self
      }
      /// <p>A list of remediation configuration objects.</p>
 -    pub fn get_remediation_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationConfiguration>> {
-+    pub fn get_remediation_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::RemediationConfiguration>> {
++    pub fn get_remediation_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationConfiguration>> {
          &self.remediation_configurations
      }
      /// Consumes the builder and constructs a [`PutRemediationConfigurationsInput`](crate::operation::put_remediation_configurations::PutRemediationConfigurationsInput).
@@ -63,11 +63,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::put_remediation_configurations::PutRemediationConfigurationsInput,
-+        super::operation::put_remediation_configurations::PutRemediationConfigurationsInput,
++        super::super::super::operation::put_remediation_configurations::PutRemediationConfigurationsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::put_remediation_configurations::PutRemediationConfigurationsInput {
-+        ::std::result::Result::Ok(super::operation::put_remediation_configurations::PutRemediationConfigurationsInput {
++        ::std::result::Result::Ok(super::super::super::operation::put_remediation_configurations::PutRemediationConfigurationsInput {
              remediation_configurations: self.remediation_configurations,
          })
      }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListAssociatedPackagesInput`](crate::operation::list_associated_packages::ListAssociatedPackagesInput).
 -    pub fn builder() -> crate::operation::list_associated_packages::builders::ListAssociatedPackagesInputBuilder {
 -        crate::operation::list_associated_packages::builders::ListAssociatedPackagesInputBuilder::default()
-+    pub fn builder() -> super::operation::list_associated_packages::builders::ListAssociatedPackagesInputBuilder {
-+        super::operation::list_associated_packages::builders::ListAssociatedPackagesInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_associated_packages::builders::ListAssociatedPackagesInputBuilder {
++        super::super::super::operation::list_associated_packages::builders::ListAssociatedPackagesInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::list_associated_packages::ListAssociatedPackagesInput,
-+        super::operation::list_associated_packages::ListAssociatedPackagesInput,
++        super::super::super::operation::list_associated_packages::ListAssociatedPackagesInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::list_associated_packages::ListAssociatedPackagesInput {
-+        ::std::result::Result::Ok(super::operation::list_associated_packages::ListAssociatedPackagesInput {
++        ::std::result::Result::Ok(super::super::super::operation::list_associated_packages::ListAssociatedPackagesInput {
              domain: self.domain,
              domain_owner: self.domain_owner,
              package_group: self.package_group,

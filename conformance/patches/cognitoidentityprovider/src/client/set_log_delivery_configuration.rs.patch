@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationFluentBuilder {
 -        crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationFluentBuilder {
-+        super::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationFluentBuilder {
++        super::super::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

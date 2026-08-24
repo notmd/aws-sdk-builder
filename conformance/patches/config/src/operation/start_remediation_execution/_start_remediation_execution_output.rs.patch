@@ -5,7 +5,7 @@
      pub failure_message: ::std::option::Option<::std::string::String>,
      /// <p>For resources that have failed to start execution, the API returns a resource key object.</p>
 -    pub failed_items: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>,
-+    pub failed_items: ::std::option::Option<::std::vec::Vec<super::types::ResourceKey>>,
++    pub failed_items: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceKey>>,
      _request_id: Option<String>,
  }
  impl StartRemediationExecutionOutput {
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.failed_items.is_none()`.
 -    pub fn failed_items(&self) -> &[crate::types::ResourceKey] {
-+    pub fn failed_items(&self) -> &[super::types::ResourceKey] {
++    pub fn failed_items(&self) -> &[super::super::super::types::ResourceKey] {
          self.failed_items.as_deref().unwrap_or_default()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`StartRemediationExecutionOutput`](crate::operation::start_remediation_execution::StartRemediationExecutionOutput).
 -    pub fn builder() -> crate::operation::start_remediation_execution::builders::StartRemediationExecutionOutputBuilder {
 -        crate::operation::start_remediation_execution::builders::StartRemediationExecutionOutputBuilder::default()
-+    pub fn builder() -> super::operation::start_remediation_execution::builders::StartRemediationExecutionOutputBuilder {
-+        super::operation::start_remediation_execution::builders::StartRemediationExecutionOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::start_remediation_execution::builders::StartRemediationExecutionOutputBuilder {
++        super::super::super::operation::start_remediation_execution::builders::StartRemediationExecutionOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct StartRemediationExecutionOutputBuilder {
      pub(crate) failure_message: ::std::option::Option<::std::string::String>,
 -    pub(crate) failed_items: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>,
-+    pub(crate) failed_items: ::std::option::Option<::std::vec::Vec<super::types::ResourceKey>>,
++    pub(crate) failed_items: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceKey>>,
      _request_id: Option<String>,
  }
  impl StartRemediationExecutionOutputBuilder {
@@ -43,7 +43,7 @@
      ///
      /// <p>For resources that have failed to start execution, the API returns a resource key object.</p>
 -    pub fn failed_items(mut self, input: crate::types::ResourceKey) -> Self {
-+    pub fn failed_items(mut self, input: super::types::ResourceKey) -> Self {
++    pub fn failed_items(mut self, input: super::super::super::types::ResourceKey) -> Self {
          let mut v = self.failed_items.unwrap_or_default();
          v.push(input);
          self.failed_items = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>For resources that have failed to start execution, the API returns a resource key object.</p>
 -    pub fn set_failed_items(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>) -> Self {
-+    pub fn set_failed_items(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ResourceKey>>) -> Self {
++    pub fn set_failed_items(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceKey>>) -> Self {
          self.failed_items = input;
          self
      }
      /// <p>For resources that have failed to start execution, the API returns a resource key object.</p>
 -    pub fn get_failed_items(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
-+    pub fn get_failed_items(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ResourceKey>> {
++    pub fn get_failed_items(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceKey>> {
          &self.failed_items
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`StartRemediationExecutionOutput`](crate::operation::start_remediation_execution::StartRemediationExecutionOutput).
 -    pub fn build(self) -> crate::operation::start_remediation_execution::StartRemediationExecutionOutput {
 -        crate::operation::start_remediation_execution::StartRemediationExecutionOutput {
-+    pub fn build(self) -> super::operation::start_remediation_execution::StartRemediationExecutionOutput {
-+        super::operation::start_remediation_execution::StartRemediationExecutionOutput {
++    pub fn build(self) -> super::super::super::operation::start_remediation_execution::StartRemediationExecutionOutput {
++        super::super::super::operation::start_remediation_execution::StartRemediationExecutionOutput {
              failure_message: self.failure_message,
              failed_items: self.failed_items,
              _request_id: self._request_id,

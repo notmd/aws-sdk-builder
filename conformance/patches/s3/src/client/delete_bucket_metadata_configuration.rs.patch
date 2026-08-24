@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder {
 -        crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder {
-+        super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder {
++        super::super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetBucketAclInput`](crate::operation::get_bucket_acl::GetBucketAclInput).
 -    pub fn builder() -> crate::operation::get_bucket_acl::builders::GetBucketAclInputBuilder {
 -        crate::operation::get_bucket_acl::builders::GetBucketAclInputBuilder::default()
-+    pub fn builder() -> super::operation::get_bucket_acl::builders::GetBucketAclInputBuilder {
-+        super::operation::get_bucket_acl::builders::GetBucketAclInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_bucket_acl::builders::GetBucketAclInputBuilder {
++        super::super::super::operation::get_bucket_acl::builders::GetBucketAclInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::get_bucket_acl::GetBucketAclInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_bucket_acl::GetBucketAclInput {
-+    ) -> ::std::result::Result<super::operation::get_bucket_acl::GetBucketAclInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::get_bucket_acl::GetBucketAclInput {
++    ) -> ::std::result::Result<super::super::super::operation::get_bucket_acl::GetBucketAclInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::get_bucket_acl::GetBucketAclInput {
              bucket: self.bucket,
              expected_bucket_owner: self.expected_bucket_owner,
          })

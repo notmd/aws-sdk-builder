@@ -5,7 +5,7 @@
  pub fn ser_retire_grant_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::retire_grant::RetireGrantInput,
-+    input: &super::operation::retire_grant::RetireGrantInput,
++    input: &super::super::operation::retire_grant::RetireGrantInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.grant_token {
          object.key("GrantToken").string(var_1.as_str());

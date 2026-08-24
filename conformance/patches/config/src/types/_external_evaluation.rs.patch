@@ -5,7 +5,7 @@
      pub compliance_resource_id: ::std::string::String,
      /// <p>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT, NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</p>
 -    pub compliance_type: crate::types::ComplianceType,
-+    pub compliance_type: super::types::ComplianceType,
++    pub compliance_type: super::super::types::ComplianceType,
      /// <p>Supplementary information about the reason of compliance. For example, this task was completed on a specific date.</p>
      pub annotation: ::std::option::Option<::std::string::String>,
      /// <p>The time when the compliance was recorded.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT, NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</p>
 -    pub fn compliance_type(&self) -> &crate::types::ComplianceType {
-+    pub fn compliance_type(&self) -> &super::types::ComplianceType {
++    pub fn compliance_type(&self) -> &super::super::types::ComplianceType {
          &self.compliance_type
      }
      /// <p>Supplementary information about the reason of compliance. For example, this task was completed on a specific date.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ExternalEvaluation`](crate::types::ExternalEvaluation).
 -    pub fn builder() -> crate::types::builders::ExternalEvaluationBuilder {
 -        crate::types::builders::ExternalEvaluationBuilder::default()
-+    pub fn builder() -> super::types::builders::ExternalEvaluationBuilder {
-+        super::types::builders::ExternalEvaluationBuilder::default()
++    pub fn builder() -> super::super::types::builders::ExternalEvaluationBuilder {
++        super::super::types::builders::ExternalEvaluationBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) compliance_resource_type: ::std::option::Option<::std::string::String>,
      pub(crate) compliance_resource_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) compliance_type: ::std::option::Option<crate::types::ComplianceType>,
-+    pub(crate) compliance_type: ::std::option::Option<super::types::ComplianceType>,
++    pub(crate) compliance_type: ::std::option::Option<super::super::types::ComplianceType>,
      pub(crate) annotation: ::std::option::Option<::std::string::String>,
      pub(crate) ordering_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
@@ -43,19 +43,19 @@
      /// <p>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT, NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</p>
      /// This field is required.
 -    pub fn compliance_type(mut self, input: crate::types::ComplianceType) -> Self {
-+    pub fn compliance_type(mut self, input: super::types::ComplianceType) -> Self {
++    pub fn compliance_type(mut self, input: super::super::types::ComplianceType) -> Self {
          self.compliance_type = ::std::option::Option::Some(input);
          self
      }
      /// <p>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT, NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</p>
 -    pub fn set_compliance_type(mut self, input: ::std::option::Option<crate::types::ComplianceType>) -> Self {
-+    pub fn set_compliance_type(mut self, input: ::std::option::Option<super::types::ComplianceType>) -> Self {
++    pub fn set_compliance_type(mut self, input: ::std::option::Option<super::super::types::ComplianceType>) -> Self {
          self.compliance_type = input;
          self
      }
      /// <p>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT, NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</p>
 -    pub fn get_compliance_type(&self) -> &::std::option::Option<crate::types::ComplianceType> {
-+    pub fn get_compliance_type(&self) -> &::std::option::Option<super::types::ComplianceType> {
++    pub fn get_compliance_type(&self) -> &::std::option::Option<super::super::types::ComplianceType> {
          &self.compliance_type
      }
      /// <p>Supplementary information about the reason of compliance. For example, this task was completed on a specific date.</p>
@@ -65,8 +65,8 @@
      /// - [`ordering_timestamp`](crate::types::builders::ExternalEvaluationBuilder::ordering_timestamp)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ExternalEvaluation, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ExternalEvaluation {
-+    pub fn build(self) -> ::std::result::Result<super::types::ExternalEvaluation, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ExternalEvaluation {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ExternalEvaluation, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ExternalEvaluation {
              compliance_resource_type: self.compliance_resource_type.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "compliance_resource_type",

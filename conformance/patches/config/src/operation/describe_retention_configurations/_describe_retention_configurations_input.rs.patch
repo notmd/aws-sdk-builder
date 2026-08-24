@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeRetentionConfigurationsInput`](crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsInput).
 -    pub fn builder() -> crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder {
 -        crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder {
-+        super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder {
++        super::super::super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsInput,
-+        super::operation::describe_retention_configurations::DescribeRetentionConfigurationsInput,
++        super::super::super::operation::describe_retention_configurations::DescribeRetentionConfigurationsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsInput {
-+            super::operation::describe_retention_configurations::DescribeRetentionConfigurationsInput {
++            super::super::super::operation::describe_retention_configurations::DescribeRetentionConfigurationsInput {
                  retention_configuration_names: self.retention_configuration_names,
                  next_token: self.next_token,
              },

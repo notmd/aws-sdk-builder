@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EksContainerSecurityContext`](crate::types::EksContainerSecurityContext).
 -    pub fn builder() -> crate::types::builders::EksContainerSecurityContextBuilder {
 -        crate::types::builders::EksContainerSecurityContextBuilder::default()
-+    pub fn builder() -> super::types::builders::EksContainerSecurityContextBuilder {
-+        super::types::builders::EksContainerSecurityContextBuilder::default()
++    pub fn builder() -> super::super::types::builders::EksContainerSecurityContextBuilder {
++        super::super::types::builders::EksContainerSecurityContextBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EksContainerSecurityContext`](crate::types::EksContainerSecurityContext).
 -    pub fn build(self) -> crate::types::EksContainerSecurityContext {
 -        crate::types::EksContainerSecurityContext {
-+    pub fn build(self) -> super::types::EksContainerSecurityContext {
-+        super::types::EksContainerSecurityContext {
++    pub fn build(self) -> super::super::types::EksContainerSecurityContext {
++        super::super::types::EksContainerSecurityContext {
              run_as_user: self.run_as_user,
              run_as_group: self.run_as_group,
              privileged: self.privileged,

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EmailTemplateContent`](crate::types::EmailTemplateContent).
 -    pub fn builder() -> crate::types::builders::EmailTemplateContentBuilder {
 -        crate::types::builders::EmailTemplateContentBuilder::default()
-+    pub fn builder() -> super::types::builders::EmailTemplateContentBuilder {
-+        super::types::builders::EmailTemplateContentBuilder::default()
++    pub fn builder() -> super::super::types::builders::EmailTemplateContentBuilder {
++        super::super::types::builders::EmailTemplateContentBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EmailTemplateContent`](crate::types::EmailTemplateContent).
 -    pub fn build(self) -> crate::types::EmailTemplateContent {
 -        crate::types::EmailTemplateContent {
-+    pub fn build(self) -> super::types::EmailTemplateContent {
-+        super::types::EmailTemplateContent {
++    pub fn build(self) -> super::super::types::EmailTemplateContent {
++        super::super::types::EmailTemplateContent {
              subject: self.subject,
              text: self.text,
              html: self.html,

@@ -6,8 +6,8 @@
          &self,
 -    ) -> crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateFluentBuilder {
 -        crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateFluentBuilder::new(
-+    ) -> super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateFluentBuilder {
-+        super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateFluentBuilder::new(
++    ) -> super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateFluentBuilder {
++        super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateFluentBuilder::new(
              self.handle.clone(),
          )
      }

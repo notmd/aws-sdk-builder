@@ -5,7 +5,7 @@
      pub config_rule_name: ::std::option::Option<::std::string::String>,
      /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
 -    pub resource_keys: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
-+    pub resource_keys: ::std::option::Option<::std::vec::Vec<super::types::RemediationExceptionResourceKey>>,
++    pub resource_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationExceptionResourceKey>>,
      /// <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, Config uses the default.</p>
      pub limit: ::std::option::Option<i32>,
      /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.resource_keys.is_none()`.
 -    pub fn resource_keys(&self) -> &[crate::types::RemediationExceptionResourceKey] {
-+    pub fn resource_keys(&self) -> &[super::types::RemediationExceptionResourceKey] {
++    pub fn resource_keys(&self) -> &[super::super::super::types::RemediationExceptionResourceKey] {
          self.resource_keys.as_deref().unwrap_or_default()
      }
      /// <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, Config uses the default.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeRemediationExceptionsInput`](crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput).
 -    pub fn builder() -> crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder {
 -        crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder {
-+        super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder {
++        super::super::super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  pub struct DescribeRemediationExceptionsInputBuilder {
      pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) resource_keys: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
-+    pub(crate) resource_keys: ::std::option::Option<::std::vec::Vec<super::types::RemediationExceptionResourceKey>>,
++    pub(crate) resource_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationExceptionResourceKey>>,
      pub(crate) limit: ::std::option::Option<i32>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
 -    pub fn resource_keys(mut self, input: crate::types::RemediationExceptionResourceKey) -> Self {
-+    pub fn resource_keys(mut self, input: super::types::RemediationExceptionResourceKey) -> Self {
++    pub fn resource_keys(mut self, input: super::super::super::types::RemediationExceptionResourceKey) -> Self {
          let mut v = self.resource_keys.unwrap_or_default();
          v.push(input);
          self.resource_keys = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
 -    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>) -> Self {
-+    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::RemediationExceptionResourceKey>>) -> Self {
++    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationExceptionResourceKey>>) -> Self {
          self.resource_keys = input;
          self
      }
      /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
 -    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>> {
-+    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::types::RemediationExceptionResourceKey>> {
++    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationExceptionResourceKey>> {
          &self.resource_keys
      }
      /// <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, Config uses the default.</p>
@@ -67,11 +67,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput,
-+        super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput,
++        super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput {
-+        ::std::result::Result::Ok(super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput {
              config_rule_name: self.config_rule_name,
              resource_keys: self.resource_keys,
              limit: self.limit,

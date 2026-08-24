@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::GuardrailAutomatedReasoningLogicWarning>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::GuardrailAutomatedReasoningLogicWarning>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningLogicWarning>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::GuardrailAutomatedReasoningLogicWarningBuilder::default();
-+            let mut builder = super::types::builders::GuardrailAutomatedReasoningLogicWarningBuilder::default();
++            let mut builder = super::super::types::builders::GuardrailAutomatedReasoningLogicWarningBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,7 +23,7 @@
                                      .map(|s| {
                                          s.to_unescaped()
 -                                            .map(|u| crate::types::GuardrailAutomatedReasoningLogicWarningType::from(u.as_ref()))
-+                                            .map(|u| super::types::GuardrailAutomatedReasoningLogicWarningType::from(u.as_ref()))
++                                            .map(|u| super::super::types::GuardrailAutomatedReasoningLogicWarningType::from(u.as_ref()))
                                      })
                                      .transpose()?,
                              );
@@ -32,13 +32,13 @@
                          "premises" => {
                              builder = builder.set_premises(
 -                                    crate::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
-+                                    super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
++                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
                                  );
                          }
                          "claims" => {
                              builder = builder.set_claims(
 -                                    crate::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
-+                                    super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
++                                    super::super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
                                  );
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

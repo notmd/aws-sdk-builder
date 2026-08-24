@@ -5,7 +5,7 @@
  pub struct DescribeComplianceByResourceOutput {
      /// <p>Indicates whether the specified Amazon Web Services resource complies with all of the Config rules that evaluate it.</p>
 -    pub compliance_by_resources: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>>,
-+    pub compliance_by_resources: ::std::option::Option<::std::vec::Vec<super::types::ComplianceByResource>>,
++    pub compliance_by_resources: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComplianceByResource>>,
      /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.compliance_by_resources.is_none()`.
 -    pub fn compliance_by_resources(&self) -> &[crate::types::ComplianceByResource] {
-+    pub fn compliance_by_resources(&self) -> &[super::types::ComplianceByResource] {
++    pub fn compliance_by_resources(&self) -> &[super::super::super::types::ComplianceByResource] {
          self.compliance_by_resources.as_deref().unwrap_or_default()
      }
      /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeComplianceByResourceOutput`](crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput).
 -    pub fn builder() -> crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceOutputBuilder {
 -        crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceOutputBuilder {
-+        super::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceOutputBuilder {
++        super::super::super::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeComplianceByResourceOutputBuilder {
 -    pub(crate) compliance_by_resources: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>>,
-+    pub(crate) compliance_by_resources: ::std::option::Option<::std::vec::Vec<super::types::ComplianceByResource>>,
++    pub(crate) compliance_by_resources: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComplianceByResource>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>Indicates whether the specified Amazon Web Services resource complies with all of the Config rules that evaluate it.</p>
 -    pub fn compliance_by_resources(mut self, input: crate::types::ComplianceByResource) -> Self {
-+    pub fn compliance_by_resources(mut self, input: super::types::ComplianceByResource) -> Self {
++    pub fn compliance_by_resources(mut self, input: super::super::super::types::ComplianceByResource) -> Self {
          let mut v = self.compliance_by_resources.unwrap_or_default();
          v.push(input);
          self.compliance_by_resources = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>Indicates whether the specified Amazon Web Services resource complies with all of the Config rules that evaluate it.</p>
 -    pub fn set_compliance_by_resources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>>) -> Self {
-+    pub fn set_compliance_by_resources(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ComplianceByResource>>) -> Self {
++    pub fn set_compliance_by_resources(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComplianceByResource>>) -> Self {
          self.compliance_by_resources = input;
          self
      }
      /// <p>Indicates whether the specified Amazon Web Services resource complies with all of the Config rules that evaluate it.</p>
 -    pub fn get_compliance_by_resources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>> {
-+    pub fn get_compliance_by_resources(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ComplianceByResource>> {
++    pub fn get_compliance_by_resources(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ComplianceByResource>> {
          &self.compliance_by_resources
      }
      /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeComplianceByResourceOutput`](crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput).
 -    pub fn build(self) -> crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput {
 -        crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput {
-+    pub fn build(self) -> super::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput {
-+        super::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput {
++    pub fn build(self) -> super::super::super::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput {
++        super::super::super::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput {
              compliance_by_resources: self.compliance_by_resources,
              next_token: self.next_token,
              _request_id: self._request_id,

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteAggregationAuthorizationInput`](crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput).
 -    pub fn builder() -> crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationInputBuilder {
 -        crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationInputBuilder {
-+        super::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationInputBuilder {
++        super::super::super::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput,
-+        super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput,
++        super::super::super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput {
-+        ::std::result::Result::Ok(super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput {
              authorized_account_id: self.authorized_account_id,
              authorized_aws_region: self.authorized_aws_region,
          })

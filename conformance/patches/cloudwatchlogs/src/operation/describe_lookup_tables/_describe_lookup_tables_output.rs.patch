@@ -5,7 +5,7 @@
  pub struct DescribeLookupTablesOutput {
      /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
 -    pub lookup_tables: ::std::option::Option<::std::vec::Vec<crate::types::LookupTable>>,
-+    pub lookup_tables: ::std::option::Option<::std::vec::Vec<super::types::LookupTable>>,
++    pub lookup_tables: ::std::option::Option<::std::vec::Vec<super::super::super::types::LookupTable>>,
      /// <p>The token to use when requesting the next set of items.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.lookup_tables.is_none()`.
 -    pub fn lookup_tables(&self) -> &[crate::types::LookupTable] {
-+    pub fn lookup_tables(&self) -> &[super::types::LookupTable] {
++    pub fn lookup_tables(&self) -> &[super::super::super::types::LookupTable] {
          self.lookup_tables.as_deref().unwrap_or_default()
      }
      /// <p>The token to use when requesting the next set of items.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeLookupTablesOutput`](crate::operation::describe_lookup_tables::DescribeLookupTablesOutput).
 -    pub fn builder() -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder {
 -        crate::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder::default()
-+    pub fn builder() -> super::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder {
-+        super::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder {
++        super::super::super::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct DescribeLookupTablesOutputBuilder {
 -    pub(crate) lookup_tables: ::std::option::Option<::std::vec::Vec<crate::types::LookupTable>>,
-+    pub(crate) lookup_tables: ::std::option::Option<::std::vec::Vec<super::types::LookupTable>>,
++    pub(crate) lookup_tables: ::std::option::Option<::std::vec::Vec<super::super::super::types::LookupTable>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
 -    pub fn lookup_tables(mut self, input: crate::types::LookupTable) -> Self {
-+    pub fn lookup_tables(mut self, input: super::types::LookupTable) -> Self {
++    pub fn lookup_tables(mut self, input: super::super::super::types::LookupTable) -> Self {
          let mut v = self.lookup_tables.unwrap_or_default();
          v.push(input);
          self.lookup_tables = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
 -    pub fn set_lookup_tables(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LookupTable>>) -> Self {
-+    pub fn set_lookup_tables(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::LookupTable>>) -> Self {
++    pub fn set_lookup_tables(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LookupTable>>) -> Self {
          self.lookup_tables = input;
          self
      }
      /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
 -    pub fn get_lookup_tables(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LookupTable>> {
-+    pub fn get_lookup_tables(&self) -> &::std::option::Option<::std::vec::Vec<super::types::LookupTable>> {
++    pub fn get_lookup_tables(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::LookupTable>> {
          &self.lookup_tables
      }
      /// <p>The token to use when requesting the next set of items.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`DescribeLookupTablesOutput`](crate::operation::describe_lookup_tables::DescribeLookupTablesOutput).
 -    pub fn build(self) -> crate::operation::describe_lookup_tables::DescribeLookupTablesOutput {
 -        crate::operation::describe_lookup_tables::DescribeLookupTablesOutput {
-+    pub fn build(self) -> super::operation::describe_lookup_tables::DescribeLookupTablesOutput {
-+        super::operation::describe_lookup_tables::DescribeLookupTablesOutput {
++    pub fn build(self) -> super::super::super::operation::describe_lookup_tables::DescribeLookupTablesOutput {
++        super::super::super::operation::describe_lookup_tables::DescribeLookupTablesOutput {
              lookup_tables: self.lookup_tables,
              next_token: self.next_token,
              _request_id: self._request_id,

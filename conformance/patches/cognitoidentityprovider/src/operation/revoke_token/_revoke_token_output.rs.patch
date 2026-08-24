@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`RevokeTokenOutput`](crate::operation::revoke_token::RevokeTokenOutput).
 -    pub fn builder() -> crate::operation::revoke_token::builders::RevokeTokenOutputBuilder {
 -        crate::operation::revoke_token::builders::RevokeTokenOutputBuilder::default()
-+    pub fn builder() -> super::operation::revoke_token::builders::RevokeTokenOutputBuilder {
-+        super::operation::revoke_token::builders::RevokeTokenOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::revoke_token::builders::RevokeTokenOutputBuilder {
++        super::super::super::operation::revoke_token::builders::RevokeTokenOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`RevokeTokenOutput`](crate::operation::revoke_token::RevokeTokenOutput).
 -    pub fn build(self) -> crate::operation::revoke_token::RevokeTokenOutput {
 -        crate::operation::revoke_token::RevokeTokenOutput {
-+    pub fn build(self) -> super::operation::revoke_token::RevokeTokenOutput {
-+        super::operation::revoke_token::RevokeTokenOutput {
++    pub fn build(self) -> super::super::super::operation::revoke_token::RevokeTokenOutput {
++        super::super::super::operation::revoke_token::RevokeTokenOutput {
              _request_id: self._request_id,
          }
      }

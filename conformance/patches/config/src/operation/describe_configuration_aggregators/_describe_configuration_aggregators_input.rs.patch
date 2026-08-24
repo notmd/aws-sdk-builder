@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeConfigurationAggregatorsInput`](crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsInput).
 -    pub fn builder() -> crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsInputBuilder {
 -        crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsInputBuilder {
-+        super::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsInputBuilder {
++        super::super::super::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsInputBuilder::default()
      }
  }
 
@@ -16,12 +16,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsInput,
-+        super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsInput,
++        super::super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsInput {
-+            super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsInput {
++            super::super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsInput {
                  configuration_aggregator_names: self.configuration_aggregator_names,
                  next_token: self.next_token,
                  limit: self.limit,

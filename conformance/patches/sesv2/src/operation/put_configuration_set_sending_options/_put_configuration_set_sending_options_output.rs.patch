@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`PutConfigurationSetSendingOptionsOutput`](crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput).
 -    pub fn builder() -> crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder {
 -        crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder::default()
-+    pub fn builder() -> super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder {
-+        super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder {
++        super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`PutConfigurationSetSendingOptionsOutput`](crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput).
 -    pub fn build(self) -> crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput {
 -        crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput {
-+    pub fn build(self) -> super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput {
-+        super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput {
++    pub fn build(self) -> super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput {
++        super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput {
              _request_id: self._request_id,
          }
      }

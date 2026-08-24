@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DisableOrganizationsRootSessionsInput`](crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput).
 -    pub fn builder() -> crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder {
 -        crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder::default()
-+    pub fn builder() -> super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder {
-+        super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder {
++        super::super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput,
-+        super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput,
++        super::super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput {})
-+        ::std::result::Result::Ok(super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput {})
++        ::std::result::Result::Ok(super::super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput {})
      }
  }

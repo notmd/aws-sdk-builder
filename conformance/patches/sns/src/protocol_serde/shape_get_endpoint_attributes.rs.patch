@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::get_endpoint_attributes::GetEndpointAttributesOutput,
 -    crate::operation::get_endpoint_attributes::GetEndpointAttributesError,
-+    super::operation::get_endpoint_attributes::GetEndpointAttributesOutput,
-+    super::operation::get_endpoint_attributes::GetEndpointAttributesError,
++    super::super::operation::get_endpoint_attributes::GetEndpointAttributesOutput,
++    super::super::operation::get_endpoint_attributes::GetEndpointAttributesError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled(generic)),
-+        None => return Err(super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled(generic)),
++        None => return Err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "AuthorizationError" => crate::operation::get_endpoint_attributes::GetEndpointAttributesError::AuthorizationErrorException({
-+        "AuthorizationError" => super::operation::get_endpoint_attributes::GetEndpointAttributesError::AuthorizationErrorException({
++        "AuthorizationError" => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::AuthorizationErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::AuthorizationErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "InternalError" => crate::operation::get_endpoint_attributes::GetEndpointAttributesError::InternalErrorException({
-+        "InternalError" => super::operation::get_endpoint_attributes::GetEndpointAttributesError::InternalErrorException({
++        "InternalError" => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::InternalErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,16 +61,16 @@
              tmp
          }),
 -        "InvalidParameter" => crate::operation::get_endpoint_attributes::GetEndpointAttributesError::InvalidParameterException({
-+        "InvalidParameter" => super::operation::get_endpoint_attributes::GetEndpointAttributesError::InvalidParameterException({
++        "InvalidParameter" => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::InvalidParameterException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -79,16 +79,16 @@
              tmp
          }),
 -        "NotFound" => crate::operation::get_endpoint_attributes::GetEndpointAttributesError::NotFoundException({
-+        "NotFound" => super::operation::get_endpoint_attributes::GetEndpointAttributesError::NotFoundException({
++        "NotFound" => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::NotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
-+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -97,7 +97,7 @@
              tmp
          }),
 -        _ => crate::operation::get_endpoint_attributes::GetEndpointAttributesError::generic(generic),
-+        _ => super::operation::get_endpoint_attributes::GetEndpointAttributesError::generic(generic),
++        _ => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::generic(generic),
      })
  }
 
@@ -107,17 +107,17 @@
  ) -> std::result::Result<
 -    crate::operation::get_endpoint_attributes::GetEndpointAttributesOutput,
 -    crate::operation::get_endpoint_attributes::GetEndpointAttributesError,
-+    super::operation::get_endpoint_attributes::GetEndpointAttributesOutput,
-+    super::operation::get_endpoint_attributes::GetEndpointAttributesError,
++    super::super::operation::get_endpoint_attributes::GetEndpointAttributesOutput,
++    super::super::operation::get_endpoint_attributes::GetEndpointAttributesError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder::default();
 -        output = crate::protocol_serde::shape_get_endpoint_attributes::de_get_endpoint_attributes(_response_body, output)
 -            .map_err(crate::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
-+        let mut output = super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder::default();
-+        output = super::protocol_serde::shape_get_endpoint_attributes::de_get_endpoint_attributes(_response_body, output)
-+            .map_err(super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
++        let mut output = super::super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder::default();
++        output = super::super::protocol_serde::shape_get_endpoint_attributes::de_get_endpoint_attributes(_response_body, output)
++            .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -126,10 +126,10 @@
  pub fn de_get_endpoint_attributes(
      inp: &[u8],
 -    mut builder: crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder,
-+    mut builder: super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder,
++    mut builder: super::super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder,
  ) -> std::result::Result<
 -    crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder,
-+    super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder,
++    super::super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder,
      ::aws_smithy_xml::decode::XmlDecodeError,
  > {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -138,7 +138,7 @@
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
                          ?
                      )
                  ;

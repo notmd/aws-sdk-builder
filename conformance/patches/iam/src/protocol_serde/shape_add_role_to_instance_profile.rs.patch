@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput,
 -    crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
-+    super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput,
-+    super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
++    super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput,
++    super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled(
-+            return Err(super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled(
++            return Err(super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled(
                  generic,
              ))
          }
@@ -29,17 +29,17 @@
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "EntityAlreadyExists" => crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::EntityAlreadyExistsException({
-+        "EntityAlreadyExists" => super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::EntityAlreadyExistsException({
++        "EntityAlreadyExists" => super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::EntityAlreadyExistsException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
-+                let mut output = super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
 -                        .map_err(crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
-+                    super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
-+                        .map_err(super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
++                    super::super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
++                        .map_err(super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -48,16 +48,16 @@
              tmp
          }),
 -        "LimitExceeded" => crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::LimitExceededException({
-+        "LimitExceeded" => super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::LimitExceededException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
-+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
++                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -66,16 +66,16 @@
              tmp
          }),
 -        "NoSuchEntity" => crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::NoSuchEntityException({
-+        "NoSuchEntity" => super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::NoSuchEntityException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
-+                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
-+                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
++                let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -84,16 +84,16 @@
              tmp
          }),
 -        "ServiceFailure" => crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::ServiceFailureException({
-+        "ServiceFailure" => super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::ServiceFailureException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
-+                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
-+                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
++                let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -102,16 +102,16 @@
              tmp
          }),
 -        "UnmodifiableEntity" => crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::UnmodifiableEntityException({
-+        "UnmodifiableEntity" => super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::UnmodifiableEntityException({
++        "UnmodifiableEntity" => super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::UnmodifiableEntityException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
-+                let mut output = super::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
-+                output = super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
++                let mut output = super::super::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -120,7 +120,7 @@
              tmp
          }),
 -        _ => crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::generic(generic),
-+        _ => super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::generic(generic),
++        _ => super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::generic(generic),
      })
  }
 
@@ -130,13 +130,13 @@
  ) -> std::result::Result<
 -    crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput,
 -    crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
-+    super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput,
-+    super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
++    super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput,
++    super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileOutputBuilder::default();
-+        let mut output = super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileOutputBuilder::default();
++        let mut output = super::super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })

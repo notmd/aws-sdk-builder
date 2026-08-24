@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    Option<::std::collections::HashMap<crate::types::MetricDimensionName, ::std::vec::Vec<::std::string::String>>>,
-+    Option<::std::collections::HashMap<super::types::MetricDimensionName, ::std::vec::Vec<::std::string::String>>>,
++    Option<::std::collections::HashMap<super::super::types::MetricDimensionName, ::std::vec::Vec<::std::string::String>>>,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  >
  where
@@ -15,8 +15,8 @@
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
 -                        let key = key.to_unescaped().map(|u| crate::types::MetricDimensionName::from(u.as_ref()))?;
 -                        let value = crate::protocol_serde::shape_export_dimension_value::de_export_dimension_value(tokens, _value, depth + 1)?;
-+                        let key = key.to_unescaped().map(|u| super::types::MetricDimensionName::from(u.as_ref()))?;
-+                        let value = super::protocol_serde::shape_export_dimension_value::de_export_dimension_value(tokens, _value, depth + 1)?;
++                        let key = key.to_unescaped().map(|u| super::super::types::MetricDimensionName::from(u.as_ref()))?;
++                        let value = super::super::protocol_serde::shape_export_dimension_value::de_export_dimension_value(tokens, _value, depth + 1)?;
                          match value {
                              Some(value) => {
                                  map.insert(key, value);

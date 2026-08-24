@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListPartsError>`](crate::operation::list_parts::ListPartsError)
 -    pub fn list_parts(&self) -> crate::operation::list_parts::builders::ListPartsFluentBuilder {
 -        crate::operation::list_parts::builders::ListPartsFluentBuilder::new(self.handle.clone())
-+    pub fn list_parts(&self) -> super::operation::list_parts::builders::ListPartsFluentBuilder {
-+        super::operation::list_parts::builders::ListPartsFluentBuilder::new(self.handle.clone())
++    pub fn list_parts(&self) -> super::super::operation::list_parts::builders::ListPartsFluentBuilder {
++        super::super::operation::list_parts::builders::ListPartsFluentBuilder::new(self.handle.clone())
      }
  }

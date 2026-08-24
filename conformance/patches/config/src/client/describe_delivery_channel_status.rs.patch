@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusFluentBuilder {
 -        crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusFluentBuilder {
-+        super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusFluentBuilder {
++        super::super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusFluentBuilder::new(self.handle.clone())
      }
  }

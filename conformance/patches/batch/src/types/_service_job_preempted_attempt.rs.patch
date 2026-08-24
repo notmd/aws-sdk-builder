@@ -5,7 +5,7 @@
  pub struct ServiceJobPreemptedAttempt {
      /// <p>The service resource identifier associated with the service job attempt.</p>
 -    pub service_resource_id: ::std::option::Option<crate::types::ServiceResourceId>,
-+    pub service_resource_id: ::std::option::Option<super::types::ServiceResourceId>,
++    pub service_resource_id: ::std::option::Option<super::super::types::ServiceResourceId>,
      /// <p>The Unix timestamp (in milliseconds) for when the service job attempt was started.</p>
      pub started_at: ::std::option::Option<i64>,
      /// <p>The Unix timestamp (in milliseconds) for when the service job attempt stopped running.</p>
@@ -14,7 +14,7 @@
  impl ServiceJobPreemptedAttempt {
      /// <p>The service resource identifier associated with the service job attempt.</p>
 -    pub fn service_resource_id(&self) -> ::std::option::Option<&crate::types::ServiceResourceId> {
-+    pub fn service_resource_id(&self) -> ::std::option::Option<&super::types::ServiceResourceId> {
++    pub fn service_resource_id(&self) -> ::std::option::Option<&super::super::types::ServiceResourceId> {
          self.service_resource_id.as_ref()
      }
      /// <p>The Unix timestamp (in milliseconds) for when the service job attempt was started.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ServiceJobPreemptedAttempt`](crate::types::ServiceJobPreemptedAttempt).
 -    pub fn builder() -> crate::types::builders::ServiceJobPreemptedAttemptBuilder {
 -        crate::types::builders::ServiceJobPreemptedAttemptBuilder::default()
-+    pub fn builder() -> super::types::builders::ServiceJobPreemptedAttemptBuilder {
-+        super::types::builders::ServiceJobPreemptedAttemptBuilder::default()
++    pub fn builder() -> super::super::types::builders::ServiceJobPreemptedAttemptBuilder {
++        super::super::types::builders::ServiceJobPreemptedAttemptBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ServiceJobPreemptedAttemptBuilder {
 -    pub(crate) service_resource_id: ::std::option::Option<crate::types::ServiceResourceId>,
-+    pub(crate) service_resource_id: ::std::option::Option<super::types::ServiceResourceId>,
++    pub(crate) service_resource_id: ::std::option::Option<super::super::types::ServiceResourceId>,
      pub(crate) started_at: ::std::option::Option<i64>,
      pub(crate) stopped_at: ::std::option::Option<i64>,
      pub(crate) status_reason: ::std::option::Option<::std::string::String>,
@@ -43,19 +43,19 @@
  impl ServiceJobPreemptedAttemptBuilder {
      /// <p>The service resource identifier associated with the service job attempt.</p>
 -    pub fn service_resource_id(mut self, input: crate::types::ServiceResourceId) -> Self {
-+    pub fn service_resource_id(mut self, input: super::types::ServiceResourceId) -> Self {
++    pub fn service_resource_id(mut self, input: super::super::types::ServiceResourceId) -> Self {
          self.service_resource_id = ::std::option::Option::Some(input);
          self
      }
      /// <p>The service resource identifier associated with the service job attempt.</p>
 -    pub fn set_service_resource_id(mut self, input: ::std::option::Option<crate::types::ServiceResourceId>) -> Self {
-+    pub fn set_service_resource_id(mut self, input: ::std::option::Option<super::types::ServiceResourceId>) -> Self {
++    pub fn set_service_resource_id(mut self, input: ::std::option::Option<super::super::types::ServiceResourceId>) -> Self {
          self.service_resource_id = input;
          self
      }
      /// <p>The service resource identifier associated with the service job attempt.</p>
 -    pub fn get_service_resource_id(&self) -> &::std::option::Option<crate::types::ServiceResourceId> {
-+    pub fn get_service_resource_id(&self) -> &::std::option::Option<super::types::ServiceResourceId> {
++    pub fn get_service_resource_id(&self) -> &::std::option::Option<super::super::types::ServiceResourceId> {
          &self.service_resource_id
      }
      /// <p>The Unix timestamp (in milliseconds) for when the service job attempt was started.</p>
@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`ServiceJobPreemptedAttempt`](crate::types::ServiceJobPreemptedAttempt).
 -    pub fn build(self) -> crate::types::ServiceJobPreemptedAttempt {
 -        crate::types::ServiceJobPreemptedAttempt {
-+    pub fn build(self) -> super::types::ServiceJobPreemptedAttempt {
-+        super::types::ServiceJobPreemptedAttempt {
++    pub fn build(self) -> super::super::types::ServiceJobPreemptedAttempt {
++        super::super::types::ServiceJobPreemptedAttempt {
              service_resource_id: self.service_resource_id,
              started_at: self.started_at,
              stopped_at: self.stopped_at,

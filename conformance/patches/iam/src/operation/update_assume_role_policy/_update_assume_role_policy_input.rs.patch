@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateAssumeRolePolicyInput`](crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyInput).
 -    pub fn builder() -> crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyInputBuilder {
 -        crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyInputBuilder {
-+        super::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyInputBuilder {
++        super::super::super::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyInput,
-+        super::operation::update_assume_role_policy::UpdateAssumeRolePolicyInput,
++        super::super::super::operation::update_assume_role_policy::UpdateAssumeRolePolicyInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyInput {
-+        ::std::result::Result::Ok(super::operation::update_assume_role_policy::UpdateAssumeRolePolicyInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_assume_role_policy::UpdateAssumeRolePolicyInput {
              role_name: self.role_name,
              policy_document: self.policy_document,
          })

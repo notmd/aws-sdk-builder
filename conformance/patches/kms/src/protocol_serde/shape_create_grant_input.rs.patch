@@ -5,7 +5,7 @@
  pub fn ser_create_grant_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::create_grant::CreateGrantInput,
-+    input: &super::operation::create_grant::CreateGrantInput,
++    input: &super::super::operation::create_grant::CreateGrantInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.key_id {
          object.key("KeyId").string(var_1.as_str());
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_8 = object.key("Constraints").start_object();
 -        crate::protocol_serde::shape_grant_constraints::ser_grant_constraints(&mut object_8, var_7)?;
-+        super::protocol_serde::shape_grant_constraints::ser_grant_constraints(&mut object_8, var_7)?;
++        super::super::protocol_serde::shape_grant_constraints::ser_grant_constraints(&mut object_8, var_7)?;
          object_8.finish();
      }
      if let Some(var_9) = &input.grant_tokens {

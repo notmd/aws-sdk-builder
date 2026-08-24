@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`LogGroupField`](crate::types::LogGroupField).
 -    pub fn builder() -> crate::types::builders::LogGroupFieldBuilder {
 -        crate::types::builders::LogGroupFieldBuilder::default()
-+    pub fn builder() -> super::types::builders::LogGroupFieldBuilder {
-+        super::types::builders::LogGroupFieldBuilder::default()
++    pub fn builder() -> super::super::types::builders::LogGroupFieldBuilder {
++        super::super::types::builders::LogGroupFieldBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`LogGroupField`](crate::types::LogGroupField).
 -    pub fn build(self) -> crate::types::LogGroupField {
 -        crate::types::LogGroupField {
-+    pub fn build(self) -> super::types::LogGroupField {
-+        super::types::LogGroupField {
++    pub fn build(self) -> super::super::types::LogGroupField {
++        super::super::types::LogGroupField {
              name: self.name,
              percent: self.percent.unwrap_or_default(),
          }

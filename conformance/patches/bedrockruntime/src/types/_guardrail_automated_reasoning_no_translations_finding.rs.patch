@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningNoTranslationsFinding`](crate::types::GuardrailAutomatedReasoningNoTranslationsFinding).
 -    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder {
 -        crate::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder::default()
-+    pub fn builder() -> super::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder {
-+        super::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder::default()
++    pub fn builder() -> super::super::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder {
++        super::super::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningNoTranslationsFinding`](crate::types::GuardrailAutomatedReasoningNoTranslationsFinding).
 -    pub fn build(self) -> crate::types::GuardrailAutomatedReasoningNoTranslationsFinding {
 -        crate::types::GuardrailAutomatedReasoningNoTranslationsFinding {}
-+    pub fn build(self) -> super::types::GuardrailAutomatedReasoningNoTranslationsFinding {
-+        super::types::GuardrailAutomatedReasoningNoTranslationsFinding {}
++    pub fn build(self) -> super::super::types::GuardrailAutomatedReasoningNoTranslationsFinding {
++        super::super::types::GuardrailAutomatedReasoningNoTranslationsFinding {}
      }
  }

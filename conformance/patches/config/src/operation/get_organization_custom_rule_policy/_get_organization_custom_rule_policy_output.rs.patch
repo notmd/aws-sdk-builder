@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetOrganizationCustomRulePolicyOutput`](crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyOutput).
 -    pub fn builder() -> crate::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyOutputBuilder {
 -        crate::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyOutputBuilder::default()
-+    pub fn builder() -> super::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyOutputBuilder {
-+        super::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyOutputBuilder {
++        super::super::super::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`GetOrganizationCustomRulePolicyOutput`](crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyOutput).
 -    pub fn build(self) -> crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyOutput {
 -        crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyOutput {
-+    pub fn build(self) -> super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyOutput {
-+        super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyOutput {
++    pub fn build(self) -> super::super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyOutput {
++        super::super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyOutput {
              policy_text: self.policy_text,
              _request_id: self._request_id,
          }

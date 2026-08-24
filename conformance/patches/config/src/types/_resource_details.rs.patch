@@ -5,7 +5,7 @@
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view">Managing extensions through the CloudFormation registry</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
      /// </note>
 -    pub resource_configuration_schema_type: ::std::option::Option<crate::types::ResourceConfigurationSchemaType>,
-+    pub resource_configuration_schema_type: ::std::option::Option<super::types::ResourceConfigurationSchemaType>,
++    pub resource_configuration_schema_type: ::std::option::Option<super::super::types::ResourceConfigurationSchemaType>,
  }
  impl ResourceDetails {
      /// <p>A unique resource ID for an evaluation.</p>
@@ -14,7 +14,7 @@
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view">Managing extensions through the CloudFormation registry</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
      /// </note>
 -    pub fn resource_configuration_schema_type(&self) -> ::std::option::Option<&crate::types::ResourceConfigurationSchemaType> {
-+    pub fn resource_configuration_schema_type(&self) -> ::std::option::Option<&super::types::ResourceConfigurationSchemaType> {
++    pub fn resource_configuration_schema_type(&self) -> ::std::option::Option<&super::super::types::ResourceConfigurationSchemaType> {
          self.resource_configuration_schema_type.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ResourceDetails`](crate::types::ResourceDetails).
 -    pub fn builder() -> crate::types::builders::ResourceDetailsBuilder {
 -        crate::types::builders::ResourceDetailsBuilder::default()
-+    pub fn builder() -> super::types::builders::ResourceDetailsBuilder {
-+        super::types::builders::ResourceDetailsBuilder::default()
++    pub fn builder() -> super::super::types::builders::ResourceDetailsBuilder {
++        super::super::types::builders::ResourceDetailsBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) resource_type: ::std::option::Option<::std::string::String>,
      pub(crate) resource_configuration: ::std::option::Option<::std::string::String>,
 -    pub(crate) resource_configuration_schema_type: ::std::option::Option<crate::types::ResourceConfigurationSchemaType>,
-+    pub(crate) resource_configuration_schema_type: ::std::option::Option<super::types::ResourceConfigurationSchemaType>,
++    pub(crate) resource_configuration_schema_type: ::std::option::Option<super::super::types::ResourceConfigurationSchemaType>,
  }
  impl ResourceDetailsBuilder {
      /// <p>A unique resource ID for an evaluation.</p>
@@ -41,7 +41,7 @@
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view">Managing extensions through the CloudFormation registry</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
      /// </note>
 -    pub fn resource_configuration_schema_type(mut self, input: crate::types::ResourceConfigurationSchemaType) -> Self {
-+    pub fn resource_configuration_schema_type(mut self, input: super::types::ResourceConfigurationSchemaType) -> Self {
++    pub fn resource_configuration_schema_type(mut self, input: super::super::types::ResourceConfigurationSchemaType) -> Self {
          self.resource_configuration_schema_type = ::std::option::Option::Some(input);
          self
      }
@@ -50,7 +50,7 @@
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view">Managing extensions through the CloudFormation registry</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
      /// </note>
 -    pub fn set_resource_configuration_schema_type(mut self, input: ::std::option::Option<crate::types::ResourceConfigurationSchemaType>) -> Self {
-+    pub fn set_resource_configuration_schema_type(mut self, input: ::std::option::Option<super::types::ResourceConfigurationSchemaType>) -> Self {
++    pub fn set_resource_configuration_schema_type(mut self, input: ::std::option::Option<super::super::types::ResourceConfigurationSchemaType>) -> Self {
          self.resource_configuration_schema_type = input;
          self
      }
@@ -59,7 +59,7 @@
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view">Managing extensions through the CloudFormation registry</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
      /// </note>
 -    pub fn get_resource_configuration_schema_type(&self) -> &::std::option::Option<crate::types::ResourceConfigurationSchemaType> {
-+    pub fn get_resource_configuration_schema_type(&self) -> &::std::option::Option<super::types::ResourceConfigurationSchemaType> {
++    pub fn get_resource_configuration_schema_type(&self) -> &::std::option::Option<super::super::types::ResourceConfigurationSchemaType> {
          &self.resource_configuration_schema_type
      }
      /// Consumes the builder and constructs a [`ResourceDetails`](crate::types::ResourceDetails).
@@ -69,8 +69,8 @@
      /// - [`resource_configuration`](crate::types::builders::ResourceDetailsBuilder::resource_configuration)
 -    pub fn build(self) -> ::std::result::Result<crate::types::ResourceDetails, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::ResourceDetails {
-+    pub fn build(self) -> ::std::result::Result<super::types::ResourceDetails, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::ResourceDetails {
++    pub fn build(self) -> ::std::result::Result<super::super::types::ResourceDetails, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::ResourceDetails {
              resource_id: self.resource_id.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "resource_id",

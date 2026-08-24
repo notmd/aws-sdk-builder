@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`UntagLogGroupInput`](crate::operation::untag_log_group::UntagLogGroupInput).
 -    pub fn builder() -> crate::operation::untag_log_group::builders::UntagLogGroupInputBuilder {
 -        crate::operation::untag_log_group::builders::UntagLogGroupInputBuilder::default()
-+    pub fn builder() -> super::operation::untag_log_group::builders::UntagLogGroupInputBuilder {
-+        super::operation::untag_log_group::builders::UntagLogGroupInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::untag_log_group::builders::UntagLogGroupInputBuilder {
++        super::super::super::operation::untag_log_group::builders::UntagLogGroupInputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::operation::untag_log_group::UntagLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::untag_log_group::UntagLogGroupInput {
-+    ) -> ::std::result::Result<super::operation::untag_log_group::UntagLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::untag_log_group::UntagLogGroupInput {
++    ) -> ::std::result::Result<super::super::super::operation::untag_log_group::UntagLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::untag_log_group::UntagLogGroupInput {
              log_group_name: self.log_group_name,
              tags: self.tags,
          })

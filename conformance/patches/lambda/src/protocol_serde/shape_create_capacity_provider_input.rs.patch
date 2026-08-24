@@ -5,7 +5,7 @@
  pub fn ser_create_capacity_provider_input_input(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::operation::create_capacity_provider::CreateCapacityProviderInput,
-+    input: &super::operation::create_capacity_provider::CreateCapacityProviderInput,
++    input: &super::super::operation::create_capacity_provider::CreateCapacityProviderInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.capacity_provider_name {
          object.key("CapacityProviderName").string(var_1.as_str());
@@ -14,14 +14,14 @@
          #[allow(unused_mut)]
          let mut object_3 = object.key("CapacityProviderScalingConfig").start_object();
 -        crate::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
-+        super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
++        super::super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
          object_3.finish();
      }
      if let Some(var_4) = &input.instance_requirements {
          #[allow(unused_mut)]
          let mut object_5 = object.key("InstanceRequirements").start_object();
 -        crate::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_5, var_4)?;
-+        super::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_5, var_4)?;
++        super::super::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_5, var_4)?;
          object_5.finish();
      }
      if let Some(var_6) = &input.kms_key_arn {
@@ -30,14 +30,14 @@
          #[allow(unused_mut)]
          let mut object_8 = object.key("PermissionsConfig").start_object();
 -        crate::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_8, var_7)?;
-+        super::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_8, var_7)?;
++        super::super::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_8, var_7)?;
          object_8.finish();
      }
      if let Some(var_9) = &input.propagate_tags {
          #[allow(unused_mut)]
          let mut object_10 = object.key("PropagateTags").start_object();
 -        crate::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_10, var_9)?;
-+        super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_10, var_9)?;
++        super::super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_10, var_9)?;
          object_10.finish();
      }
      if let Some(var_11) = &input.tags {
@@ -46,14 +46,14 @@
          #[allow(unused_mut)]
          let mut object_16 = object.key("TelemetryConfig").start_object();
 -        crate::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_16, var_15)?;
-+        super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_16, var_15)?;
++        super::super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_16, var_15)?;
          object_16.finish();
      }
      if let Some(var_17) = &input.vpc_config {
          #[allow(unused_mut)]
          let mut object_18 = object.key("VpcConfig").start_object();
 -        crate::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_18, var_17)?;
-+        super::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_18, var_17)?;
++        super::super::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_18, var_17)?;
          object_18.finish();
      }
      Ok(())

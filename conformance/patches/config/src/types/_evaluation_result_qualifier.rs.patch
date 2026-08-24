@@ -5,7 +5,7 @@
      pub resource_id: ::std::option::Option<::std::string::String>,
      /// <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
 -    pub evaluation_mode: ::std::option::Option<crate::types::EvaluationMode>,
-+    pub evaluation_mode: ::std::option::Option<super::types::EvaluationMode>,
++    pub evaluation_mode: ::std::option::Option<super::super::types::EvaluationMode>,
  }
  impl EvaluationResultQualifier {
      /// <p>The name of the Config rule that was used in the evaluation.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
 -    pub fn evaluation_mode(&self) -> ::std::option::Option<&crate::types::EvaluationMode> {
-+    pub fn evaluation_mode(&self) -> ::std::option::Option<&super::types::EvaluationMode> {
++    pub fn evaluation_mode(&self) -> ::std::option::Option<&super::super::types::EvaluationMode> {
          self.evaluation_mode.as_ref()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`EvaluationResultQualifier`](crate::types::EvaluationResultQualifier).
 -    pub fn builder() -> crate::types::builders::EvaluationResultQualifierBuilder {
 -        crate::types::builders::EvaluationResultQualifierBuilder::default()
-+    pub fn builder() -> super::types::builders::EvaluationResultQualifierBuilder {
-+        super::types::builders::EvaluationResultQualifierBuilder::default()
++    pub fn builder() -> super::super::types::builders::EvaluationResultQualifierBuilder {
++        super::super::types::builders::EvaluationResultQualifierBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
      pub(crate) resource_type: ::std::option::Option<::std::string::String>,
      pub(crate) resource_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) evaluation_mode: ::std::option::Option<crate::types::EvaluationMode>,
-+    pub(crate) evaluation_mode: ::std::option::Option<super::types::EvaluationMode>,
++    pub(crate) evaluation_mode: ::std::option::Option<super::super::types::EvaluationMode>,
  }
  impl EvaluationResultQualifierBuilder {
      /// <p>The name of the Config rule that was used in the evaluation.</p>
@@ -41,26 +41,26 @@
      }
      /// <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
 -    pub fn evaluation_mode(mut self, input: crate::types::EvaluationMode) -> Self {
-+    pub fn evaluation_mode(mut self, input: super::types::EvaluationMode) -> Self {
++    pub fn evaluation_mode(mut self, input: super::super::types::EvaluationMode) -> Self {
          self.evaluation_mode = ::std::option::Option::Some(input);
          self
      }
      /// <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
 -    pub fn set_evaluation_mode(mut self, input: ::std::option::Option<crate::types::EvaluationMode>) -> Self {
-+    pub fn set_evaluation_mode(mut self, input: ::std::option::Option<super::types::EvaluationMode>) -> Self {
++    pub fn set_evaluation_mode(mut self, input: ::std::option::Option<super::super::types::EvaluationMode>) -> Self {
          self.evaluation_mode = input;
          self
      }
      /// <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
 -    pub fn get_evaluation_mode(&self) -> &::std::option::Option<crate::types::EvaluationMode> {
-+    pub fn get_evaluation_mode(&self) -> &::std::option::Option<super::types::EvaluationMode> {
++    pub fn get_evaluation_mode(&self) -> &::std::option::Option<super::super::types::EvaluationMode> {
          &self.evaluation_mode
      }
      /// Consumes the builder and constructs a [`EvaluationResultQualifier`](crate::types::EvaluationResultQualifier).
 -    pub fn build(self) -> crate::types::EvaluationResultQualifier {
 -        crate::types::EvaluationResultQualifier {
-+    pub fn build(self) -> super::types::EvaluationResultQualifier {
-+        super::types::EvaluationResultQualifier {
++    pub fn build(self) -> super::super::types::EvaluationResultQualifier {
++        super::super::types::EvaluationResultQualifier {
              config_rule_name: self.config_rule_name,
              resource_type: self.resource_type,
              resource_id: self.resource_id,

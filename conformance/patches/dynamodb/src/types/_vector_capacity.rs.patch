@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`VectorCapacity`](crate::types::VectorCapacity).
 -    pub fn builder() -> crate::types::builders::VectorCapacityBuilder {
 -        crate::types::builders::VectorCapacityBuilder::default()
-+    pub fn builder() -> super::types::builders::VectorCapacityBuilder {
-+        super::types::builders::VectorCapacityBuilder::default()
++    pub fn builder() -> super::super::types::builders::VectorCapacityBuilder {
++        super::super::types::builders::VectorCapacityBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`VectorCapacity`](crate::types::VectorCapacity).
 -    pub fn build(self) -> crate::types::VectorCapacity {
 -        crate::types::VectorCapacity {
-+    pub fn build(self) -> super::types::VectorCapacity {
-+        super::types::VectorCapacity {
++    pub fn build(self) -> super::super::types::VectorCapacity {
++        super::super::types::VectorCapacity {
              vector_search_request_bytes: self.vector_search_request_bytes,
              vector_write_request_bytes: self.vector_write_request_bytes,
          }

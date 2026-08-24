@@ -5,12 +5,12 @@
  pub struct EksPropertiesDetail {
      /// <p>The properties for the Kubernetes pod resources of a job.</p>
 -    pub pod_properties: ::std::option::Option<crate::types::EksPodPropertiesDetail>,
-+    pub pod_properties: ::std::option::Option<super::types::EksPodPropertiesDetail>,
++    pub pod_properties: ::std::option::Option<super::super::types::EksPodPropertiesDetail>,
  }
  impl EksPropertiesDetail {
      /// <p>The properties for the Kubernetes pod resources of a job.</p>
 -    pub fn pod_properties(&self) -> ::std::option::Option<&crate::types::EksPodPropertiesDetail> {
-+    pub fn pod_properties(&self) -> ::std::option::Option<&super::types::EksPodPropertiesDetail> {
++    pub fn pod_properties(&self) -> ::std::option::Option<&super::super::types::EksPodPropertiesDetail> {
          self.pod_properties.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`EksPropertiesDetail`](crate::types::EksPropertiesDetail).
 -    pub fn builder() -> crate::types::builders::EksPropertiesDetailBuilder {
 -        crate::types::builders::EksPropertiesDetailBuilder::default()
-+    pub fn builder() -> super::types::builders::EksPropertiesDetailBuilder {
-+        super::types::builders::EksPropertiesDetailBuilder::default()
++    pub fn builder() -> super::super::types::builders::EksPropertiesDetailBuilder {
++        super::super::types::builders::EksPropertiesDetailBuilder::default()
      }
  }
 
@@ -28,31 +28,31 @@
  #[non_exhaustive]
  pub struct EksPropertiesDetailBuilder {
 -    pub(crate) pod_properties: ::std::option::Option<crate::types::EksPodPropertiesDetail>,
-+    pub(crate) pod_properties: ::std::option::Option<super::types::EksPodPropertiesDetail>,
++    pub(crate) pod_properties: ::std::option::Option<super::super::types::EksPodPropertiesDetail>,
  }
  impl EksPropertiesDetailBuilder {
      /// <p>The properties for the Kubernetes pod resources of a job.</p>
 -    pub fn pod_properties(mut self, input: crate::types::EksPodPropertiesDetail) -> Self {
-+    pub fn pod_properties(mut self, input: super::types::EksPodPropertiesDetail) -> Self {
++    pub fn pod_properties(mut self, input: super::super::types::EksPodPropertiesDetail) -> Self {
          self.pod_properties = ::std::option::Option::Some(input);
          self
      }
      /// <p>The properties for the Kubernetes pod resources of a job.</p>
 -    pub fn set_pod_properties(mut self, input: ::std::option::Option<crate::types::EksPodPropertiesDetail>) -> Self {
-+    pub fn set_pod_properties(mut self, input: ::std::option::Option<super::types::EksPodPropertiesDetail>) -> Self {
++    pub fn set_pod_properties(mut self, input: ::std::option::Option<super::super::types::EksPodPropertiesDetail>) -> Self {
          self.pod_properties = input;
          self
      }
      /// <p>The properties for the Kubernetes pod resources of a job.</p>
 -    pub fn get_pod_properties(&self) -> &::std::option::Option<crate::types::EksPodPropertiesDetail> {
-+    pub fn get_pod_properties(&self) -> &::std::option::Option<super::types::EksPodPropertiesDetail> {
++    pub fn get_pod_properties(&self) -> &::std::option::Option<super::super::types::EksPodPropertiesDetail> {
          &self.pod_properties
      }
      /// Consumes the builder and constructs a [`EksPropertiesDetail`](crate::types::EksPropertiesDetail).
 -    pub fn build(self) -> crate::types::EksPropertiesDetail {
 -        crate::types::EksPropertiesDetail {
-+    pub fn build(self) -> super::types::EksPropertiesDetail {
-+        super::types::EksPropertiesDetail {
++    pub fn build(self) -> super::super::types::EksPropertiesDetail {
++        super::super::types::EksPropertiesDetail {
              pod_properties: self.pod_properties,
          }
      }

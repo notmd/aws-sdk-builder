@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`QueryStatistics`](crate::types::QueryStatistics).
 -    pub fn builder() -> crate::types::builders::QueryStatisticsBuilder {
 -        crate::types::builders::QueryStatisticsBuilder::default()
-+    pub fn builder() -> super::types::builders::QueryStatisticsBuilder {
-+        super::types::builders::QueryStatisticsBuilder::default()
++    pub fn builder() -> super::super::types::builders::QueryStatisticsBuilder {
++        super::super::types::builders::QueryStatisticsBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`QueryStatistics`](crate::types::QueryStatistics).
 -    pub fn build(self) -> crate::types::QueryStatistics {
 -        crate::types::QueryStatistics {
-+    pub fn build(self) -> super::types::QueryStatistics {
-+        super::types::QueryStatistics {
++    pub fn build(self) -> super::super::types::QueryStatistics {
++        super::super::types::QueryStatistics {
              records_matched: self.records_matched.unwrap_or_default(),
              records_scanned: self.records_scanned.unwrap_or_default(),
              estimated_records_skipped: self.estimated_records_skipped.unwrap_or_default(),

@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeDeliveriesError>`](crate::operation::describe_deliveries::DescribeDeliveriesError)
 -    pub fn describe_deliveries(&self) -> crate::operation::describe_deliveries::builders::DescribeDeliveriesFluentBuilder {
 -        crate::operation::describe_deliveries::builders::DescribeDeliveriesFluentBuilder::new(self.handle.clone())
-+    pub fn describe_deliveries(&self) -> super::operation::describe_deliveries::builders::DescribeDeliveriesFluentBuilder {
-+        super::operation::describe_deliveries::builders::DescribeDeliveriesFluentBuilder::new(self.handle.clone())
++    pub fn describe_deliveries(&self) -> super::super::operation::describe_deliveries::builders::DescribeDeliveriesFluentBuilder {
++        super::super::operation::describe_deliveries::builders::DescribeDeliveriesFluentBuilder::new(self.handle.clone())
      }
  }

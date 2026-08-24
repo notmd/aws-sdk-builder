@@ -5,12 +5,12 @@
  pub struct GetProvisionedLimitInput {
      /// <p>The limit to retrieve. Specify the limit class and the attributes that identify the limit.</p>
 -    pub limit_definition: ::std::option::Option<crate::types::LimitDefinitionType>,
-+    pub limit_definition: ::std::option::Option<super::types::LimitDefinitionType>,
++    pub limit_definition: ::std::option::Option<super::super::super::types::LimitDefinitionType>,
  }
  impl GetProvisionedLimitInput {
      /// <p>The limit to retrieve. Specify the limit class and the attributes that identify the limit.</p>
 -    pub fn limit_definition(&self) -> ::std::option::Option<&crate::types::LimitDefinitionType> {
-+    pub fn limit_definition(&self) -> ::std::option::Option<&super::types::LimitDefinitionType> {
++    pub fn limit_definition(&self) -> ::std::option::Option<&super::super::super::types::LimitDefinitionType> {
          self.limit_definition.as_ref()
      }
  }
@@ -18,8 +18,8 @@
      /// Creates a new builder-style object to manufacture [`GetProvisionedLimitInput`](crate::operation::get_provisioned_limit::GetProvisionedLimitInput).
 -    pub fn builder() -> crate::operation::get_provisioned_limit::builders::GetProvisionedLimitInputBuilder {
 -        crate::operation::get_provisioned_limit::builders::GetProvisionedLimitInputBuilder::default()
-+    pub fn builder() -> super::operation::get_provisioned_limit::builders::GetProvisionedLimitInputBuilder {
-+        super::operation::get_provisioned_limit::builders::GetProvisionedLimitInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_provisioned_limit::builders::GetProvisionedLimitInputBuilder {
++        super::super::super::operation::get_provisioned_limit::builders::GetProvisionedLimitInputBuilder::default()
      }
  }
 
@@ -28,35 +28,35 @@
  #[non_exhaustive]
  pub struct GetProvisionedLimitInputBuilder {
 -    pub(crate) limit_definition: ::std::option::Option<crate::types::LimitDefinitionType>,
-+    pub(crate) limit_definition: ::std::option::Option<super::types::LimitDefinitionType>,
++    pub(crate) limit_definition: ::std::option::Option<super::super::super::types::LimitDefinitionType>,
  }
  impl GetProvisionedLimitInputBuilder {
      /// <p>The limit to retrieve. Specify the limit class and the attributes that identify the limit.</p>
      /// This field is required.
 -    pub fn limit_definition(mut self, input: crate::types::LimitDefinitionType) -> Self {
-+    pub fn limit_definition(mut self, input: super::types::LimitDefinitionType) -> Self {
++    pub fn limit_definition(mut self, input: super::super::super::types::LimitDefinitionType) -> Self {
          self.limit_definition = ::std::option::Option::Some(input);
          self
      }
      /// <p>The limit to retrieve. Specify the limit class and the attributes that identify the limit.</p>
 -    pub fn set_limit_definition(mut self, input: ::std::option::Option<crate::types::LimitDefinitionType>) -> Self {
-+    pub fn set_limit_definition(mut self, input: ::std::option::Option<super::types::LimitDefinitionType>) -> Self {
++    pub fn set_limit_definition(mut self, input: ::std::option::Option<super::super::super::types::LimitDefinitionType>) -> Self {
          self.limit_definition = input;
          self
      }
      /// <p>The limit to retrieve. Specify the limit class and the attributes that identify the limit.</p>
 -    pub fn get_limit_definition(&self) -> &::std::option::Option<crate::types::LimitDefinitionType> {
-+    pub fn get_limit_definition(&self) -> &::std::option::Option<super::types::LimitDefinitionType> {
++    pub fn get_limit_definition(&self) -> &::std::option::Option<super::super::super::types::LimitDefinitionType> {
          &self.limit_definition
      }
      /// Consumes the builder and constructs a [`GetProvisionedLimitInput`](crate::operation::get_provisioned_limit::GetProvisionedLimitInput).
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_provisioned_limit::GetProvisionedLimitInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_provisioned_limit::GetProvisionedLimitInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_provisioned_limit::GetProvisionedLimitInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_provisioned_limit::GetProvisionedLimitInput {
-+        ::std::result::Result::Ok(super::operation::get_provisioned_limit::GetProvisionedLimitInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_provisioned_limit::GetProvisionedLimitInput {
              limit_definition: self.limit_definition,
          })
      }

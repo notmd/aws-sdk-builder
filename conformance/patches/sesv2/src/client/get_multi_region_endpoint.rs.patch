@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<GetMultiRegionEndpointError>`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointError)
 -    pub fn get_multi_region_endpoint(&self) -> crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder {
 -        crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder::new(self.handle.clone())
-+    pub fn get_multi_region_endpoint(&self) -> super::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder {
-+        super::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder::new(self.handle.clone())
++    pub fn get_multi_region_endpoint(&self) -> super::super::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder {
++        super::super::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder::new(self.handle.clone())
      }
  }

@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsFluentBuilder {
 -        crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsFluentBuilder {
-+        super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsFluentBuilder {
++        super::super::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsFluentBuilder::new(self.handle.clone())
      }
  }

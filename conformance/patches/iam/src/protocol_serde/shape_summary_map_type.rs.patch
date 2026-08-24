@@ -5,7 +5,7 @@
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
      depth: u32,
 -) -> ::std::result::Result<::std::collections::HashMap<crate::types::SummaryKeyType, i32>, ::aws_smithy_xml::decode::XmlDecodeError> {
-+) -> ::std::result::Result<::std::collections::HashMap<super::types::SummaryKeyType, i32>, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<::std::collections::HashMap<super::super::types::SummaryKeyType, i32>, ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
@@ -14,7 +14,7 @@
          match tag.start_el() {
              s if s.matches("entry") => {
 -                crate::protocol_serde::shape_summary_map_type::de_summary_map_type_entry(&mut tag, &mut out, depth)?;
-+                super::protocol_serde::shape_summary_map_type::de_summary_map_type_entry(&mut tag, &mut out, depth)?;
++                super::super::protocol_serde::shape_summary_map_type::de_summary_map_type_entry(&mut tag, &mut out, depth)?;
              }
              _ => {}
          }
@@ -23,14 +23,14 @@
  pub fn de_summary_map_type_entry(
      decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
 -    out: &mut ::std::collections::HashMap<crate::types::SummaryKeyType, i32>,
-+    out: &mut ::std::collections::HashMap<super::types::SummaryKeyType, i32>,
++    out: &mut ::std::collections::HashMap<super::super::types::SummaryKeyType, i32>,
      depth: u32,
  ) -> ::std::result::Result<(), ::aws_smithy_xml::decode::XmlDecodeError> {
      if depth >= 128u32 {
          return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
      }
 -    let mut k: Option<crate::types::SummaryKeyType> = None;
-+    let mut k: Option<super::types::SummaryKeyType> = None;
++    let mut k: Option<super::super::types::SummaryKeyType> = None;
      let mut v: Option<i32> = None;
      while let Some(mut tag) = decoder.next_tag() {
          match tag.start_el() {
@@ -38,8 +38,8 @@
                  k = Some(
 -                    Result::<crate::types::SummaryKeyType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 -                        crate::types::SummaryKeyType::from(
-+                    Result::<super::types::SummaryKeyType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-+                        super::types::SummaryKeyType::from(
++                    Result::<super::super::types::SummaryKeyType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                        super::super::types::SummaryKeyType::from(
                              ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                          )
                      )

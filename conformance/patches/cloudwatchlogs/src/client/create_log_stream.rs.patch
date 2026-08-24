@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<CreateLogStreamError>`](crate::operation::create_log_stream::CreateLogStreamError)
 -    pub fn create_log_stream(&self) -> crate::operation::create_log_stream::builders::CreateLogStreamFluentBuilder {
 -        crate::operation::create_log_stream::builders::CreateLogStreamFluentBuilder::new(self.handle.clone())
-+    pub fn create_log_stream(&self) -> super::operation::create_log_stream::builders::CreateLogStreamFluentBuilder {
-+        super::operation::create_log_stream::builders::CreateLogStreamFluentBuilder::new(self.handle.clone())
++    pub fn create_log_stream(&self) -> super::super::operation::create_log_stream::builders::CreateLogStreamFluentBuilder {
++        super::super::operation::create_log_stream::builders::CreateLogStreamFluentBuilder::new(self.handle.clone())
      }
  }

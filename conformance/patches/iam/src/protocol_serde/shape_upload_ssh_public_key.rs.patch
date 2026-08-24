@@ -6,38 +6,38 @@
  ) -> std::result::Result<
 -    crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
 -    crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-+    super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
-+    super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
++    super::super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
++    super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled(generic)),
-+        None => return Err(super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled(generic)),
++        None => return Err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "DuplicateSSHPublicKey" => crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::DuplicateSshPublicKeyException({
-+        "DuplicateSSHPublicKey" => super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::DuplicateSshPublicKeyException({
++        "DuplicateSSHPublicKey" => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::DuplicateSshPublicKeyException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::DuplicateSshPublicKeyExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_duplicate_ssh_public_key_exception::de_duplicate_ssh_public_key_exception_xml_err(
-+                let mut output = super::types::error::builders::DuplicateSshPublicKeyExceptionBuilder::default();
-+                output = super::protocol_serde::shape_duplicate_ssh_public_key_exception::de_duplicate_ssh_public_key_exception_xml_err(
++                let mut output = super::super::types::error::builders::DuplicateSshPublicKeyExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_duplicate_ssh_public_key_exception::de_duplicate_ssh_public_key_exception_xml_err(
                      _response_body,
                      output,
                  )
 -                .map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
-+                .map_err(super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++                .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -46,16 +46,16 @@
              tmp
          }),
 -        "InvalidPublicKey" => crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::InvalidPublicKeyException({
-+        "InvalidPublicKey" => super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::InvalidPublicKeyException({
++        "InvalidPublicKey" => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::InvalidPublicKeyException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidPublicKeyExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_public_key_exception::de_invalid_public_key_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidPublicKeyExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_public_key_exception::de_invalid_public_key_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidPublicKeyExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_public_key_exception::de_invalid_public_key_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -64,16 +64,16 @@
              tmp
          }),
 -        "LimitExceeded" => crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::LimitExceededException({
-+        "LimitExceeded" => super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::LimitExceededException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
-+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -82,16 +82,16 @@
              tmp
          }),
 -        "NoSuchEntity" => crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::NoSuchEntityException({
-+        "NoSuchEntity" => super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::NoSuchEntityException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
 -                    .map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
-+                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
-+                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-+                    .map_err(super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++                let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -100,14 +100,14 @@
          }),
          "UnrecognizedPublicKeyEncoding" => {
 -            crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::UnrecognizedPublicKeyEncodingException({
-+            super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::UnrecognizedPublicKeyEncodingException({
++            super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::UnrecognizedPublicKeyEncodingException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::UnrecognizedPublicKeyEncodingExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_unrecognized_public_key_encoding_exception::de_unrecognized_public_key_encoding_exception_xml_err(_response_body, output).map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
-+                    let mut output = super::types::error::builders::UnrecognizedPublicKeyEncodingExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_unrecognized_public_key_encoding_exception::de_unrecognized_public_key_encoding_exception_xml_err(_response_body, output).map_err(super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++                    let mut output = super::super::types::error::builders::UnrecognizedPublicKeyEncodingExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_unrecognized_public_key_encoding_exception::de_unrecognized_public_key_encoding_exception_xml_err(_response_body, output).map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
                      let output = output.meta(generic);
                      output.build()
                  };
@@ -116,7 +116,7 @@
              })
          }
 -        _ => crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::generic(generic),
-+        _ => super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::generic(generic),
++        _ => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::generic(generic),
      })
  }
 
@@ -126,17 +126,17 @@
  ) -> std::result::Result<
 -    crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
 -    crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-+    super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
-+    super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
++    super::super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
++    super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder::default();
 -        output = crate::protocol_serde::shape_upload_ssh_public_key::de_upload_ssh_public_key(_response_body, output)
 -            .map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
-+        let mut output = super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder::default();
-+        output = super::protocol_serde::shape_upload_ssh_public_key::de_upload_ssh_public_key(_response_body, output)
-+            .map_err(super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++        let mut output = super::super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder::default();
++        output = super::super::protocol_serde::shape_upload_ssh_public_key::de_upload_ssh_public_key(_response_body, output)
++            .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -146,8 +146,8 @@
      inp: &[u8],
 -    mut builder: crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder,
 -) -> std::result::Result<crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
-+    mut builder: super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder,
-+) -> std::result::Result<super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
++    mut builder: super::super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder,
++) -> std::result::Result<super::super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
  {
      let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
@@ -156,7 +156,7 @@
                  let var_1 =
                      Some(
 -                        crate::protocol_serde::shape_ssh_public_key::de_ssh_public_key(&mut tag, depth + 1)
-+                        super::protocol_serde::shape_ssh_public_key::de_ssh_public_key(&mut tag, depth + 1)
++                        super::super::protocol_serde::shape_ssh_public_key::de_ssh_public_key(&mut tag, depth + 1)
                          ?
                      )
                  ;

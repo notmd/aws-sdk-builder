@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteServiceLinkedRoleError>`](crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError)
 -    pub fn delete_service_linked_role(&self) -> crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder {
 -        crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder::new(self.handle.clone())
-+    pub fn delete_service_linked_role(&self) -> super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder {
-+        super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder::new(self.handle.clone())
++    pub fn delete_service_linked_role(&self) -> super::super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder {
++        super::super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder::new(self.handle.clone())
      }
  }

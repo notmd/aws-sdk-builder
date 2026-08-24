@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteIndexPolicyError>`](crate::operation::delete_index_policy::DeleteIndexPolicyError)
 -    pub fn delete_index_policy(&self) -> crate::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder {
 -        crate::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder::new(self.handle.clone())
-+    pub fn delete_index_policy(&self) -> super::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder {
-+        super::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder::new(self.handle.clone())
++    pub fn delete_index_policy(&self) -> super::super::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder {
++        super::super::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder::new(self.handle.clone())
      }
  }

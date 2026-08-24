@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListGroupPoliciesError>`](crate::operation::list_group_policies::ListGroupPoliciesError)
 -    pub fn list_group_policies(&self) -> crate::operation::list_group_policies::builders::ListGroupPoliciesFluentBuilder {
 -        crate::operation::list_group_policies::builders::ListGroupPoliciesFluentBuilder::new(self.handle.clone())
-+    pub fn list_group_policies(&self) -> super::operation::list_group_policies::builders::ListGroupPoliciesFluentBuilder {
-+        super::operation::list_group_policies::builders::ListGroupPoliciesFluentBuilder::new(self.handle.clone())
++    pub fn list_group_policies(&self) -> super::super::operation::list_group_policies::builders::ListGroupPoliciesFluentBuilder {
++        super::super::operation::list_group_policies::builders::ListGroupPoliciesFluentBuilder::new(self.handle.clone())
      }
  }

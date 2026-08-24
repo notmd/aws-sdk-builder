@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`FieldsData`](crate::types::FieldsData).
 -    pub fn builder() -> crate::types::builders::FieldsDataBuilder {
 -        crate::types::builders::FieldsDataBuilder::default()
-+    pub fn builder() -> super::types::builders::FieldsDataBuilder {
-+        super::types::builders::FieldsDataBuilder::default()
++    pub fn builder() -> super::super::types::builders::FieldsDataBuilder {
++        super::super::types::builders::FieldsDataBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`FieldsData`](crate::types::FieldsData).
 -    pub fn build(self) -> crate::types::FieldsData {
 -        crate::types::FieldsData { data: self.data }
-+    pub fn build(self) -> super::types::FieldsData {
-+        super::types::FieldsData { data: self.data }
++    pub fn build(self) -> super::super::types::FieldsData {
++        super::super::types::FieldsData { data: self.data }
      }
  }

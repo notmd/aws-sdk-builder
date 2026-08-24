@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for OrganizationConformancePackTemplateValidationException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::OrganizationConformancePackTemplateValidationException {
-+impl ::aws_types::request_id::RequestId for super::types::error::OrganizationConformancePackTemplateValidationException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::OrganizationConformancePackTemplateValidationException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`OrganizationConformancePackTemplateValidationException`](crate::types::error::OrganizationConformancePackTemplateValidationException).
 -    pub fn builder() -> crate::types::error::builders::OrganizationConformancePackTemplateValidationExceptionBuilder {
 -        crate::types::error::builders::OrganizationConformancePackTemplateValidationExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::OrganizationConformancePackTemplateValidationExceptionBuilder {
-+        super::types::error::builders::OrganizationConformancePackTemplateValidationExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::OrganizationConformancePackTemplateValidationExceptionBuilder {
++        super::super::super::types::error::builders::OrganizationConformancePackTemplateValidationExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`OrganizationConformancePackTemplateValidationException`](crate::types::error::OrganizationConformancePackTemplateValidationException).
 -    pub fn build(self) -> crate::types::error::OrganizationConformancePackTemplateValidationException {
 -        crate::types::error::OrganizationConformancePackTemplateValidationException {
-+    pub fn build(self) -> super::types::error::OrganizationConformancePackTemplateValidationException {
-+        super::types::error::OrganizationConformancePackTemplateValidationException {
++    pub fn build(self) -> super::super::super::types::error::OrganizationConformancePackTemplateValidationException {
++        super::super::super::types::error::OrganizationConformancePackTemplateValidationException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

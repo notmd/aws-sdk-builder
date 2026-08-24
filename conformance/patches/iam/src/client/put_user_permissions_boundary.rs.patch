@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryFluentBuilder {
 -        crate::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryFluentBuilder {
-+        super::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryFluentBuilder {
++        super::super::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryFluentBuilder::new(self.handle.clone())
      }
  }

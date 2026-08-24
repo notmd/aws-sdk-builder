@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<UntagMFADeviceError>`](crate::operation::untag_mfa_device::UntagMFADeviceError)
 -    pub fn untag_mfa_device(&self) -> crate::operation::untag_mfa_device::builders::UntagMFADeviceFluentBuilder {
 -        crate::operation::untag_mfa_device::builders::UntagMFADeviceFluentBuilder::new(self.handle.clone())
-+    pub fn untag_mfa_device(&self) -> super::operation::untag_mfa_device::builders::UntagMFADeviceFluentBuilder {
-+        super::operation::untag_mfa_device::builders::UntagMFADeviceFluentBuilder::new(self.handle.clone())
++    pub fn untag_mfa_device(&self) -> super::super::operation::untag_mfa_device::builders::UntagMFADeviceFluentBuilder {
++        super::super::operation::untag_mfa_device::builders::UntagMFADeviceFluentBuilder::new(self.handle.clone())
      }
  }

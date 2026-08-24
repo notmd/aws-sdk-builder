@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<SetUserSettingsError>`](crate::operation::set_user_settings::SetUserSettingsError)
 -    pub fn set_user_settings(&self) -> crate::operation::set_user_settings::builders::SetUserSettingsFluentBuilder {
 -        crate::operation::set_user_settings::builders::SetUserSettingsFluentBuilder::new(self.handle.clone())
-+    pub fn set_user_settings(&self) -> super::operation::set_user_settings::builders::SetUserSettingsFluentBuilder {
-+        super::operation::set_user_settings::builders::SetUserSettingsFluentBuilder::new(self.handle.clone())
++    pub fn set_user_settings(&self) -> super::super::operation::set_user_settings::builders::SetUserSettingsFluentBuilder {
++        super::super::operation::set_user_settings::builders::SetUserSettingsFluentBuilder::new(self.handle.clone())
      }
  }

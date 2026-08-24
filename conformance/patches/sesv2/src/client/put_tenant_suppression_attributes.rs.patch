@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesFluentBuilder {
 -        crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesFluentBuilder {
-+        super::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesFluentBuilder {
++        super::super::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesFluentBuilder::new(self.handle.clone())
      }
  }

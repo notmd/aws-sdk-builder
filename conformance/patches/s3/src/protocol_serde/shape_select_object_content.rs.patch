@@ -6,8 +6,8 @@
  ) -> std::result::Result<
 -    crate::operation::select_object_content::SelectObjectContentOutput,
 -    crate::operation::select_object_content::SelectObjectContentError,
-+    super::operation::select_object_content::SelectObjectContentOutput,
-+    super::operation::select_object_content::SelectObjectContentError,
++    super::super::operation::select_object_content::SelectObjectContentOutput,
++    super::super::operation::select_object_content::SelectObjectContentError,
  > {
      let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
      std::mem::swap(&mut _response_body, response.body_mut());
@@ -17,17 +17,17 @@
          #[allow(unused_mut)]
 -        let mut output = crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default();
 -        output = output.set_payload(Some(crate::protocol_serde::shape_select_object_content_output::de_payload_payload(
-+        let mut output = super::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default();
-+        output = output.set_payload(Some(super::protocol_serde::shape_select_object_content_output::de_payload_payload(
++        let mut output = super::super::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default();
++        output = output.set_payload(Some(super::super::protocol_serde::shape_select_object_content_output::de_payload_payload(
              _response_body,
          )?));
 -        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
-+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
++        output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output
              .build()
 -            .map_err(crate::operation::select_object_content::SelectObjectContentError::unhandled)?
-+            .map_err(super::operation::select_object_content::SelectObjectContentError::unhandled)?
++            .map_err(super::super::operation::select_object_content::SelectObjectContentError::unhandled)?
      })
  }
 
@@ -37,25 +37,25 @@
  ) -> std::result::Result<
 -    crate::operation::select_object_content::SelectObjectContentOutput,
 -    crate::operation::select_object_content::SelectObjectContentError,
-+    super::operation::select_object_content::SelectObjectContentOutput,
-+    super::operation::select_object_content::SelectObjectContentError,
++    super::super::operation::select_object_content::SelectObjectContentOutput,
++    super::super::operation::select_object_content::SelectObjectContentError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::select_object_content::SelectObjectContentError::unhandled)?;
 -    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::select_object_content::SelectObjectContentError::unhandled)?;
-+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::select_object_content::SelectObjectContentError::unhandled)?;
++    generic_builder = super::super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
 -    Err(crate::operation::select_object_content::SelectObjectContentError::generic(generic))
-+    Err(super::operation::select_object_content::SelectObjectContentError::generic(generic))
++    Err(super::super::operation::select_object_content::SelectObjectContentError::generic(generic))
  }
 
  pub fn ser_select_object_content_headers(
 -    input: &crate::operation::select_object_content::SelectObjectContentInput,
-+    input: &super::operation::select_object_content::SelectObjectContentInput,
++    input: &super::super::operation::select_object_content::SelectObjectContentInput,
      mut builder: ::http_1x::request::Builder,
  ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
      if let ::std::option::Option::Some(inner_1) = &input.sse_customer_algorithm {
@@ -64,7 +64,7 @@
 
  pub fn ser_select_object_content_op_input(
 -    input: &crate::operation::select_object_content::SelectObjectContentInput,
-+    input: &super::operation::select_object_content::SelectObjectContentInput,
++    input: &super::super::operation::select_object_content::SelectObjectContentInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      {
@@ -73,7 +73,7 @@
              .start_el("SelectObjectContentRequest")
              .write_ns("http://s3.amazonaws.com/doc/2006-03-01/", None);
 -        crate::protocol_serde::shape_select_object_content_input::ser_select_object_content_input_input_input(input, root)?
-+        super::protocol_serde::shape_select_object_content_input::ser_select_object_content_input_input_input(input, root)?
++        super::super::protocol_serde::shape_select_object_content_input::ser_select_object_content_input_input_input(input, root)?
      }
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }

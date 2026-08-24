@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder {
 -        crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder {
-+        super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder {
++        super::super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder::new(self.handle.clone())
      }
  }

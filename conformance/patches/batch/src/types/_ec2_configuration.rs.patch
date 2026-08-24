@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Ec2Configuration`](crate::types::Ec2Configuration).
 -    pub fn builder() -> crate::types::builders::Ec2ConfigurationBuilder {
 -        crate::types::builders::Ec2ConfigurationBuilder::default()
-+    pub fn builder() -> super::types::builders::Ec2ConfigurationBuilder {
-+        super::types::builders::Ec2ConfigurationBuilder::default()
++    pub fn builder() -> super::super::types::builders::Ec2ConfigurationBuilder {
++        super::super::types::builders::Ec2ConfigurationBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Ec2Configuration`](crate::types::Ec2Configuration).
 -    pub fn build(self) -> crate::types::Ec2Configuration {
 -        crate::types::Ec2Configuration {
-+    pub fn build(self) -> super::types::Ec2Configuration {
-+        super::types::Ec2Configuration {
++    pub fn build(self) -> super::super::types::Ec2Configuration {
++        super::super::types::Ec2Configuration {
              image_type: self.image_type,
              image_id_override: self.image_id_override,
              batch_image_status: self.batch_image_status,

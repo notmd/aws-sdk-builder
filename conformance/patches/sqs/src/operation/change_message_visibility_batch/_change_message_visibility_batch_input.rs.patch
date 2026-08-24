@@ -5,7 +5,7 @@
      pub queue_url: ::std::option::Option<::std::string::String>,
      /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
 -    pub entries: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>,
-+    pub entries: ::std::option::Option<::std::vec::Vec<super::types::ChangeMessageVisibilityBatchRequestEntry>>,
++    pub entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>,
  }
  impl ChangeMessageVisibilityBatchInput {
      /// <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.entries.is_none()`.
 -    pub fn entries(&self) -> &[crate::types::ChangeMessageVisibilityBatchRequestEntry] {
-+    pub fn entries(&self) -> &[super::types::ChangeMessageVisibilityBatchRequestEntry] {
++    pub fn entries(&self) -> &[super::super::super::types::ChangeMessageVisibilityBatchRequestEntry] {
          self.entries.as_deref().unwrap_or_default()
      }
  }
@@ -22,8 +22,8 @@
      /// Creates a new builder-style object to manufacture [`ChangeMessageVisibilityBatchInput`](crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput).
 -    pub fn builder() -> crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchInputBuilder {
 -        crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchInputBuilder::default()
-+    pub fn builder() -> super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchInputBuilder {
-+        super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchInputBuilder {
++        super::super::super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchInputBuilder::default()
      }
  }
 
@@ -32,7 +32,7 @@
  pub struct ChangeMessageVisibilityBatchInputBuilder {
      pub(crate) queue_url: ::std::option::Option<::std::string::String>,
 -    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>,
-+    pub(crate) entries: ::std::option::Option<::std::vec::Vec<super::types::ChangeMessageVisibilityBatchRequestEntry>>,
++    pub(crate) entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>,
  }
  impl ChangeMessageVisibilityBatchInputBuilder {
      /// <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
@@ -41,7 +41,7 @@
      ///
      /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
 -    pub fn entries(mut self, input: crate::types::ChangeMessageVisibilityBatchRequestEntry) -> Self {
-+    pub fn entries(mut self, input: super::types::ChangeMessageVisibilityBatchRequestEntry) -> Self {
++    pub fn entries(mut self, input: super::super::super::types::ChangeMessageVisibilityBatchRequestEntry) -> Self {
          let mut v = self.entries.unwrap_or_default();
          v.push(input);
          self.entries = ::std::option::Option::Some(v);
@@ -50,13 +50,13 @@
      }
      /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
 -    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self {
-+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self {
++    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self {
          self.entries = input;
          self
      }
      /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
 -    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>> {
-+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ChangeMessageVisibilityBatchRequestEntry>> {
++    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>> {
          &self.entries
      }
      /// Consumes the builder and constructs a [`ChangeMessageVisibilityBatchInput`](crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput).
@@ -65,11 +65,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput,
-+        super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput,
++        super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput {
-+        ::std::result::Result::Ok(super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput {
++        ::std::result::Result::Ok(super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput {
              queue_url: self.queue_url,
              entries: self.entries,
          })

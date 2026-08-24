@@ -5,7 +5,7 @@
  pub fn ser_auto_scaling_settings_update(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::AutoScalingSettingsUpdate,
-+    input: &super::types::AutoScalingSettingsUpdate,
++    input: &super::super::types::AutoScalingSettingsUpdate,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.minimum_units {
          object.key("MinimumUnits").number(
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_6 = object.key("ScalingPolicyUpdate").start_object();
 -        crate::protocol_serde::shape_auto_scaling_policy_update::ser_auto_scaling_policy_update(&mut object_6, var_5)?;
-+        super::protocol_serde::shape_auto_scaling_policy_update::ser_auto_scaling_policy_update(&mut object_6, var_5)?;
++        super::super::protocol_serde::shape_auto_scaling_policy_update::ser_auto_scaling_policy_update(&mut object_6, var_5)?;
          object_6.finish();
      }
      Ok(())

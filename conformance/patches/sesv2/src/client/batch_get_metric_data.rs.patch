@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<BatchGetMetricDataError>`](crate::operation::batch_get_metric_data::BatchGetMetricDataError)
 -    pub fn batch_get_metric_data(&self) -> crate::operation::batch_get_metric_data::builders::BatchGetMetricDataFluentBuilder {
 -        crate::operation::batch_get_metric_data::builders::BatchGetMetricDataFluentBuilder::new(self.handle.clone())
-+    pub fn batch_get_metric_data(&self) -> super::operation::batch_get_metric_data::builders::BatchGetMetricDataFluentBuilder {
-+        super::operation::batch_get_metric_data::builders::BatchGetMetricDataFluentBuilder::new(self.handle.clone())
++    pub fn batch_get_metric_data(&self) -> super::super::operation::batch_get_metric_data::builders::BatchGetMetricDataFluentBuilder {
++        super::super::operation::batch_get_metric_data::builders::BatchGetMetricDataFluentBuilder::new(self.handle.clone())
      }
  }

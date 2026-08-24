@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`TagServerCertificateOutput`](crate::operation::tag_server_certificate::TagServerCertificateOutput).
 -    pub fn builder() -> crate::operation::tag_server_certificate::builders::TagServerCertificateOutputBuilder {
 -        crate::operation::tag_server_certificate::builders::TagServerCertificateOutputBuilder::default()
-+    pub fn builder() -> super::operation::tag_server_certificate::builders::TagServerCertificateOutputBuilder {
-+        super::operation::tag_server_certificate::builders::TagServerCertificateOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::tag_server_certificate::builders::TagServerCertificateOutputBuilder {
++        super::super::super::operation::tag_server_certificate::builders::TagServerCertificateOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`TagServerCertificateOutput`](crate::operation::tag_server_certificate::TagServerCertificateOutput).
 -    pub fn build(self) -> crate::operation::tag_server_certificate::TagServerCertificateOutput {
 -        crate::operation::tag_server_certificate::TagServerCertificateOutput {
-+    pub fn build(self) -> super::operation::tag_server_certificate::TagServerCertificateOutput {
-+        super::operation::tag_server_certificate::TagServerCertificateOutput {
++    pub fn build(self) -> super::super::super::operation::tag_server_certificate::TagServerCertificateOutput {
++        super::super::super::operation::tag_server_certificate::TagServerCertificateOutput {
              _request_id: self._request_id,
          }
      }

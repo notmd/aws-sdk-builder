@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::DeliveryChannelStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::DeliveryChannelStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::DeliveryChannelStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,7 +14,7 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::DeliveryChannelStatusBuilder::default();
-+            let mut builder = super::types::builders::DeliveryChannelStatusBuilder::default();
++            let mut builder = super::super::types::builders::DeliveryChannelStatusBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -23,19 +23,19 @@
                          "configSnapshotDeliveryInfo" => {
                              builder = builder.set_config_snapshot_delivery_info(
 -                                crate::protocol_serde::shape_config_export_delivery_info::de_config_export_delivery_info(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_config_export_delivery_info::de_config_export_delivery_info(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_config_export_delivery_info::de_config_export_delivery_info(tokens, _value, depth + 1)?,
                              );
                          }
                          "configHistoryDeliveryInfo" => {
                              builder = builder.set_config_history_delivery_info(
 -                                crate::protocol_serde::shape_config_export_delivery_info::de_config_export_delivery_info(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_config_export_delivery_info::de_config_export_delivery_info(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_config_export_delivery_info::de_config_export_delivery_info(tokens, _value, depth + 1)?,
                              );
                          }
                          "configStreamDeliveryInfo" => {
                              builder = builder.set_config_stream_delivery_info(
 -                                crate::protocol_serde::shape_config_stream_delivery_info::de_config_stream_delivery_info(tokens, _value, depth + 1)?,
-+                                super::protocol_serde::shape_config_stream_delivery_info::de_config_stream_delivery_info(tokens, _value, depth + 1)?,
++                                super::super::protocol_serde::shape_config_stream_delivery_info::de_config_stream_delivery_info(tokens, _value, depth + 1)?,
                              );
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

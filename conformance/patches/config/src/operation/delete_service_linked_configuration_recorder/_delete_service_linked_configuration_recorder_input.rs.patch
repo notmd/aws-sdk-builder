@@ -5,10 +5,10 @@
  impl DeleteServiceLinkedConfigurationRecorderInput {
      /// Creates a new builder-style object to manufacture [`DeleteServiceLinkedConfigurationRecorderInput`](crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput).
 -    pub fn builder() -> crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder
-+    pub fn builder() -> super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder
++    pub fn builder() -> super::super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder
      {
 -        crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder::default()
-+        super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder::default()
++        super::super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder::default()
      }
  }
 
@@ -17,12 +17,12 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput,
-+        super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput,
++        super::super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
          ::std::result::Result::Ok(
 -            crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput {
-+            super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput {
++            super::super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput {
                  service_principal: self.service_principal,
                  arn: self.arn,
              },

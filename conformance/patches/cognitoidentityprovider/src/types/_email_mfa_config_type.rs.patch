@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`EmailMfaConfigType`](crate::types::EmailMfaConfigType).
 -    pub fn builder() -> crate::types::builders::EmailMfaConfigTypeBuilder {
 -        crate::types::builders::EmailMfaConfigTypeBuilder::default()
-+    pub fn builder() -> super::types::builders::EmailMfaConfigTypeBuilder {
-+        super::types::builders::EmailMfaConfigTypeBuilder::default()
++    pub fn builder() -> super::super::types::builders::EmailMfaConfigTypeBuilder {
++        super::super::types::builders::EmailMfaConfigTypeBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`EmailMfaConfigType`](crate::types::EmailMfaConfigType).
 -    pub fn build(self) -> crate::types::EmailMfaConfigType {
 -        crate::types::EmailMfaConfigType {
-+    pub fn build(self) -> super::types::EmailMfaConfigType {
-+        super::types::EmailMfaConfigType {
++    pub fn build(self) -> super::super::types::EmailMfaConfigType {
++        super::super::types::EmailMfaConfigType {
              message: self.message,
              subject: self.subject,
          }

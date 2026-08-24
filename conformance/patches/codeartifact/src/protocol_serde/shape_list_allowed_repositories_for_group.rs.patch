@@ -6,167 +6,167 @@
  ) -> std::result::Result<
 -    crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput,
 -    crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError,
-+    super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput,
-+    super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError,
++    super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput,
++    super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled(generic)),
-+        None => return Err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled(generic)),
++        None => return Err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
          "AccessDeniedException" => {
 -            crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::AccessDeniedException({
-+            super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::AccessDeniedException({
++            super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::AccessDeniedException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-+                    let mut output = super::types::error::builders::AccessDeniedExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                      let output = output.meta(generic);
 -                    crate::serde_util::access_denied_exception_correct_errors(output)
-+                    super::serde_util::access_denied_exception_correct_errors(output)
++                    super::super::serde_util::access_denied_exception_correct_errors(output)
                          .build()
 -                        .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
-+                        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
++                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
                  };
                  tmp
              })
          }
          "InternalServerException" => {
 -            crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::InternalServerException({
-+            super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::InternalServerException({
++            super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::InternalServerException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InternalServerExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-+                    let mut output = super::types::error::builders::InternalServerExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                      let output = output.meta(generic);
 -                    crate::serde_util::internal_server_exception_correct_errors(output)
-+                    super::serde_util::internal_server_exception_correct_errors(output)
++                    super::super::serde_util::internal_server_exception_correct_errors(output)
                          .build()
 -                        .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
-+                        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
++                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
                  };
                  tmp
              })
          }
          "ResourceNotFoundException" => {
 -            crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ResourceNotFoundException({
-+            super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ResourceNotFoundException({
++            super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ResourceNotFoundException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-+                        super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                      let output = output.meta(generic);
 -                    crate::serde_util::resource_not_found_exception_correct_errors(output)
-+                    super::serde_util::resource_not_found_exception_correct_errors(output)
++                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
                          .build()
 -                        .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
-+                        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
++                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
                  };
                  tmp
              })
          }
          "ServiceQuotaExceededException" => {
 -            crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ServiceQuotaExceededException({
-+            super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ServiceQuotaExceededException({
++            super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ServiceQuotaExceededException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
-+                    let mut output = super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
++                    let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
                          _response_body,
                          output,
                      )
 -                    .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-+                    .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                      let output = output.meta(generic);
 -                    crate::serde_util::service_quota_exceeded_exception_correct_errors(output)
-+                    super::serde_util::service_quota_exceeded_exception_correct_errors(output)
++                    super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
                          .build()
 -                        .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
-+                        .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
++                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
                  };
                  tmp
              })
          }
 -        "ThrottlingException" => crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ThrottlingException({
-+        "ThrottlingException" => super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ThrottlingException({
++        "ThrottlingException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ThrottlingException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ThrottlingExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-+                let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-+                output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                  output = output.set_retry_after_seconds(
 -                    crate::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
 -                        crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled(
-+                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
-+                        super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled(
++                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
++                        super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled(
                              "Failed to parse retryAfterSeconds from header `Retry-After",
                          )
                      })?,
                  );
                  let output = output.meta(generic);
 -                crate::serde_util::throttling_exception_correct_errors(output)
-+                super::serde_util::throttling_exception_correct_errors(output)
++                super::super::serde_util::throttling_exception_correct_errors(output)
                      .build()
 -                    .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
-+                    .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
++                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
              };
              tmp
          }),
 -        "ValidationException" => crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ValidationException({
-+        "ValidationException" => super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ValidationException({
++        "ValidationException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ValidationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-+                let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                  let output = output.meta(generic);
 -                crate::serde_util::validation_exception_correct_errors(output)
-+                super::serde_util::validation_exception_correct_errors(output)
++                super::super::serde_util::validation_exception_correct_errors(output)
                      .build()
 -                    .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
-+                    .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
++                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
              };
              tmp
          }),
 -        _ => crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::generic(generic),
-+        _ => super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::generic(generic),
++        _ => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::generic(generic),
      })
  }
 
@@ -176,17 +176,17 @@
  ) -> std::result::Result<
 -    crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput,
 -    crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError,
-+    super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput,
-+    super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError,
++    super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput,
++    super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default();
 -        output = crate::protocol_serde::shape_list_allowed_repositories_for_group::de_list_allowed_repositories_for_group(_response_body, output)
 -            .map_err(crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-+        let mut output = super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default();
-+        output = super::protocol_serde::shape_list_allowed_repositories_for_group::de_list_allowed_repositories_for_group(_response_body, output)
-+            .map_err(super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
++        let mut output = super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default();
++        output = super::super::protocol_serde::shape_list_allowed_repositories_for_group::de_list_allowed_repositories_for_group(_response_body, output)
++            .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -195,14 +195,14 @@
  pub(crate) fn de_list_allowed_repositories_for_group(
      _value: &[u8],
 -    mut builder: crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder,
-+    mut builder: super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder,
++    mut builder: super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder,
-+    super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder,
++    super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -211,7 +211,7 @@
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                  "allowedRepositories" => {
 -                    builder = builder.set_allowed_repositories(crate::protocol_serde::shape_repository_name_list::de_repository_name_list(
-+                    builder = builder.set_allowed_repositories(super::protocol_serde::shape_repository_name_list::de_repository_name_list(
++                    builder = builder.set_allowed_repositories(super::super::protocol_serde::shape_repository_name_list::de_repository_name_list(
                          tokens,
                          _value,
                          depth + 1,

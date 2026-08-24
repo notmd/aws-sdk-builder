@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`MetricDataResult`](crate::types::MetricDataResult).
 -    pub fn builder() -> crate::types::builders::MetricDataResultBuilder {
 -        crate::types::builders::MetricDataResultBuilder::default()
-+    pub fn builder() -> super::types::builders::MetricDataResultBuilder {
-+        super::types::builders::MetricDataResultBuilder::default()
++    pub fn builder() -> super::super::types::builders::MetricDataResultBuilder {
++        super::super::types::builders::MetricDataResultBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`MetricDataResult`](crate::types::MetricDataResult).
 -    pub fn build(self) -> crate::types::MetricDataResult {
 -        crate::types::MetricDataResult {
-+    pub fn build(self) -> super::types::MetricDataResult {
-+        super::types::MetricDataResult {
++    pub fn build(self) -> super::super::types::MetricDataResult {
++        super::super::types::MetricDataResult {
              id: self.id,
              timestamps: self.timestamps,
              values: self.values,

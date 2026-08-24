@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeGlobalTableInput`](crate::operation::describe_global_table::DescribeGlobalTableInput).
 -    pub fn builder() -> crate::operation::describe_global_table::builders::DescribeGlobalTableInputBuilder {
 -        crate::operation::describe_global_table::builders::DescribeGlobalTableInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_global_table::builders::DescribeGlobalTableInputBuilder {
-+        super::operation::describe_global_table::builders::DescribeGlobalTableInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_global_table::builders::DescribeGlobalTableInputBuilder {
++        super::super::super::operation::describe_global_table::builders::DescribeGlobalTableInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::describe_global_table::DescribeGlobalTableInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::describe_global_table::DescribeGlobalTableInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::describe_global_table::DescribeGlobalTableInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::describe_global_table::DescribeGlobalTableInput {
-+        ::std::result::Result::Ok(super::operation::describe_global_table::DescribeGlobalTableInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_global_table::DescribeGlobalTableInput {
              global_table_name: self.global_table_name,
          })
      }

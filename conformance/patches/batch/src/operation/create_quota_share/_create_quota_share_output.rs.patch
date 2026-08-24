@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`CreateQuotaShareOutput`](crate::operation::create_quota_share::CreateQuotaShareOutput).
 -    pub fn builder() -> crate::operation::create_quota_share::builders::CreateQuotaShareOutputBuilder {
 -        crate::operation::create_quota_share::builders::CreateQuotaShareOutputBuilder::default()
-+    pub fn builder() -> super::operation::create_quota_share::builders::CreateQuotaShareOutputBuilder {
-+        super::operation::create_quota_share::builders::CreateQuotaShareOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_quota_share::builders::CreateQuotaShareOutputBuilder {
++        super::super::super::operation::create_quota_share::builders::CreateQuotaShareOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`CreateQuotaShareOutput`](crate::operation::create_quota_share::CreateQuotaShareOutput).
 -    pub fn build(self) -> crate::operation::create_quota_share::CreateQuotaShareOutput {
 -        crate::operation::create_quota_share::CreateQuotaShareOutput {
-+    pub fn build(self) -> super::operation::create_quota_share::CreateQuotaShareOutput {
-+        super::operation::create_quota_share::CreateQuotaShareOutput {
++    pub fn build(self) -> super::super::super::operation::create_quota_share::CreateQuotaShareOutput {
++        super::super::super::operation::create_quota_share::CreateQuotaShareOutput {
              quota_share_name: self.quota_share_name,
              quota_share_arn: self.quota_share_arn,
              _request_id: self._request_id,

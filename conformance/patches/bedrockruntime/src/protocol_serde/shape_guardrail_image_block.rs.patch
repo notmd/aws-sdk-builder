@@ -5,7 +5,7 @@
  pub fn ser_guardrail_image_block(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::GuardrailImageBlock,
-+    input: &super::types::GuardrailImageBlock,
++    input: &super::super::types::GuardrailImageBlock,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("format").string(input.format.as_str());
@@ -14,7 +14,7 @@
          #[allow(unused_mut)]
          let mut object_2 = object.key("source").start_object();
 -        crate::protocol_serde::shape_guardrail_image_source::ser_guardrail_image_source(&mut object_2, var_1)?;
-+        super::protocol_serde::shape_guardrail_image_source::ser_guardrail_image_source(&mut object_2, var_1)?;
++        super::super::protocol_serde::shape_guardrail_image_source::ser_guardrail_image_source(&mut object_2, var_1)?;
          object_2.finish();
      }
      Ok(())

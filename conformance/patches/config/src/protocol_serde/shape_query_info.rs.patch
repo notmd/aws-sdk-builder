@@ -5,7 +5,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::QueryInfo>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::QueryInfo>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::QueryInfo>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -14,14 +14,14 @@
          Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
              #[allow(unused_mut)]
 -            let mut builder = crate::types::builders::QueryInfoBuilder::default();
-+            let mut builder = super::types::builders::QueryInfoBuilder::default();
++            let mut builder = super::super::types::builders::QueryInfoBuilder::default();
              loop {
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "SelectFields" => {
 -                            builder = builder.set_select_fields(crate::protocol_serde::shape_field_info_list::de_field_info_list(
-+                            builder = builder.set_select_fields(super::protocol_serde::shape_field_info_list::de_field_info_list(
++                            builder = builder.set_select_fields(super::super::protocol_serde::shape_field_info_list::de_field_info_list(
                                  tokens,
                                  _value,
                                  depth + 1,

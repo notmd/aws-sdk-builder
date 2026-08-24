@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteUserInput`](crate::operation::delete_user::DeleteUserInput).
 -    pub fn builder() -> crate::operation::delete_user::builders::DeleteUserInputBuilder {
 -        crate::operation::delete_user::builders::DeleteUserInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_user::builders::DeleteUserInputBuilder {
-+        super::operation::delete_user::builders::DeleteUserInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_user::builders::DeleteUserInputBuilder {
++        super::super::super::operation::delete_user::builders::DeleteUserInputBuilder::default()
      }
  }
 
@@ -17,7 +17,7 @@
      /// Consumes the builder and constructs a [`DeleteUserInput`](crate::operation::delete_user::DeleteUserInput).
 -    pub fn build(self) -> ::std::result::Result<crate::operation::delete_user::DeleteUserInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::delete_user::DeleteUserInput { user_name: self.user_name })
-+    pub fn build(self) -> ::std::result::Result<super::operation::delete_user::DeleteUserInput, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::operation::delete_user::DeleteUserInput { user_name: self.user_name })
++    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_user::DeleteUserInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::super::operation::delete_user::DeleteUserInput { user_name: self.user_name })
      }
  }

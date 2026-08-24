@@ -5,7 +5,7 @@
      depth: u32,
  ) -> ::std::result::Result<
 -    Option<::std::vec::Vec<crate::types::ComplianceSummaryByResourceType>>,
-+    Option<::std::vec::Vec<super::types::ComplianceSummaryByResourceType>>,
++    Option<::std::vec::Vec<super::super::types::ComplianceSummaryByResourceType>>,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  >
  where
@@ -14,7 +14,7 @@
                      }
                      _ => {
 -                        let value = crate::protocol_serde::shape_compliance_summary_by_resource_type::de_compliance_summary_by_resource_type(
-+                        let value = super::protocol_serde::shape_compliance_summary_by_resource_type::de_compliance_summary_by_resource_type(
++                        let value = super::super::protocol_serde::shape_compliance_summary_by_resource_type::de_compliance_summary_by_resource_type(
                              tokens,
                              _value,
                              depth + 1,

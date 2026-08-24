@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeDeliveryChannelStatusInput`](crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusInput).
 -    pub fn builder() -> crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusInputBuilder {
 -        crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusInputBuilder {
-+        super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusInputBuilder {
++        super::super::super::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusInput,
-+        super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusInput,
++        super::super::super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusInput {
-+        ::std::result::Result::Ok(super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusInput {
              delivery_channel_names: self.delivery_channel_names,
          })
      }

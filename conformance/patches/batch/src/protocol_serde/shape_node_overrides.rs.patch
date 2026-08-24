@@ -5,7 +5,7 @@
  pub fn ser_node_overrides(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::NodeOverrides,
-+    input: &super::types::NodeOverrides,
++    input: &super::super::types::NodeOverrides,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      if let Some(var_1) = &input.num_nodes {
          object.key("numNodes").number(
@@ -14,7 +14,7 @@
                  #[allow(unused_mut)]
                  let mut object_5 = array_3.value().start_object();
 -                crate::protocol_serde::shape_node_property_override::ser_node_property_override(&mut object_5, item_4)?;
-+                super::protocol_serde::shape_node_property_override::ser_node_property_override(&mut object_5, item_4)?;
++                super::super::protocol_serde::shape_node_property_override::ser_node_property_override(&mut object_5, item_4)?;
                  object_5.finish();
              }
          }

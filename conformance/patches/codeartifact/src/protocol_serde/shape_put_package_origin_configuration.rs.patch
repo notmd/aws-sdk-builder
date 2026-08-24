@@ -6,140 +6,140 @@
  ) -> std::result::Result<
 -    crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput,
 -    crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError,
-+    super::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput,
-+    super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError,
++    super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput,
++    super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled(generic)),
-+        None => return Err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled(generic)),
++        None => return Err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "AccessDeniedException" => crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::AccessDeniedException({
-+        "AccessDeniedException" => super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::AccessDeniedException({
++        "AccessDeniedException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::AccessDeniedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
-+                let mut output = super::types::error::builders::AccessDeniedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                  let output = output.meta(generic);
 -                crate::serde_util::access_denied_exception_correct_errors(output)
-+                super::serde_util::access_denied_exception_correct_errors(output)
++                super::super::serde_util::access_denied_exception_correct_errors(output)
                      .build()
 -                    .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
-+                    .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
++                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
              };
              tmp
          }),
          "InternalServerException" => {
 -            crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::InternalServerException({
-+            super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::InternalServerException({
++            super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::InternalServerException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::InternalServerExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
-+                    let mut output = super::types::error::builders::InternalServerExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                      let output = output.meta(generic);
 -                    crate::serde_util::internal_server_exception_correct_errors(output)
-+                    super::serde_util::internal_server_exception_correct_errors(output)
++                    super::super::serde_util::internal_server_exception_correct_errors(output)
                          .build()
 -                        .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
-+                        .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
++                        .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
                  };
                  tmp
              })
          }
          "ResourceNotFoundException" => {
 -            crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ResourceNotFoundException({
-+            super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ResourceNotFoundException({
++            super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ResourceNotFoundException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                            .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
-+                        super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                            .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                            .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                      let output = output.meta(generic);
 -                    crate::serde_util::resource_not_found_exception_correct_errors(output)
-+                    super::serde_util::resource_not_found_exception_correct_errors(output)
++                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
                          .build()
 -                        .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
-+                        .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
++                        .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
                  };
                  tmp
              })
          }
 -        "ThrottlingException" => crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ThrottlingException({
-+        "ThrottlingException" => super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ThrottlingException({
++        "ThrottlingException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ThrottlingException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ThrottlingExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
-+                let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
-+                output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                  output = output.set_retry_after_seconds(
 -                    crate::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
 -                        crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled(
-+                    super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
-+                        super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled(
++                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
++                        super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled(
                              "Failed to parse retryAfterSeconds from header `Retry-After",
                          )
                      })?,
                  );
                  let output = output.meta(generic);
 -                crate::serde_util::throttling_exception_correct_errors(output)
-+                super::serde_util::throttling_exception_correct_errors(output)
++                super::super::serde_util::throttling_exception_correct_errors(output)
                      .build()
 -                    .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
-+                    .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
++                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
              };
              tmp
          }),
 -        "ValidationException" => crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ValidationException({
-+        "ValidationException" => super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ValidationException({
++        "ValidationException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ValidationException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
-+                let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
-+                output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                  let output = output.meta(generic);
 -                crate::serde_util::validation_exception_correct_errors(output)
-+                super::serde_util::validation_exception_correct_errors(output)
++                super::super::serde_util::validation_exception_correct_errors(output)
                      .build()
 -                    .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
-+                    .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
++                    .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
              };
              tmp
          }),
 -        _ => crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::generic(generic),
-+        _ => super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::generic(generic),
++        _ => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::generic(generic),
      })
  }
 
@@ -149,17 +149,17 @@
  ) -> std::result::Result<
 -    crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput,
 -    crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError,
-+    super::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput,
-+    super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError,
++    super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput,
++    super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder::default();
 -        output = crate::protocol_serde::shape_put_package_origin_configuration::de_put_package_origin_configuration(_response_body, output)
 -            .map_err(crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
-+        let mut output = super::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder::default();
-+        output = super::protocol_serde::shape_put_package_origin_configuration::de_put_package_origin_configuration(_response_body, output)
-+            .map_err(super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
++        let mut output = super::super::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder::default();
++        output = super::super::protocol_serde::shape_put_package_origin_configuration::de_put_package_origin_configuration(_response_body, output)
++            .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -168,12 +168,12 @@
 
  pub fn ser_put_package_origin_configuration_input(
 -    input: &crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput,
-+    input: &super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput,
++    input: &super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_put_package_origin_configuration_input::ser_put_package_origin_configuration_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_put_package_origin_configuration_input::ser_put_package_origin_configuration_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_put_package_origin_configuration_input::ser_put_package_origin_configuration_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -182,14 +182,14 @@
  pub(crate) fn de_put_package_origin_configuration(
      _value: &[u8],
 -    mut builder: crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder,
-+    mut builder: super::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder,
++    mut builder: super::super::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder,
  ) -> ::std::result::Result<
 -    crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder,
-+    super::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder,
++    super::super::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder,
      ::aws_smithy_json::deserialize::error::DeserializeError,
  > {
 -    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
      let tokens = &mut tokens_owned;
      #[allow(unused_variables)]
      let depth = 0u32;
@@ -198,7 +198,7 @@
                  "originConfiguration" => {
                      builder = builder.set_origin_configuration(
 -                        crate::protocol_serde::shape_package_origin_configuration::de_package_origin_configuration(tokens, _value, depth + 1)?,
-+                        super::protocol_serde::shape_package_origin_configuration::de_package_origin_configuration(tokens, _value, depth + 1)?,
++                        super::super::protocol_serde::shape_package_origin_configuration::de_package_origin_configuration(tokens, _value, depth + 1)?,
                      );
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

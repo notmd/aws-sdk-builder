@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteMetricFilterOutput`](crate::operation::delete_metric_filter::DeleteMetricFilterOutput).
 -    pub fn builder() -> crate::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder {
 -        crate::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder::default()
-+    pub fn builder() -> super::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder {
-+        super::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder {
++        super::super::super::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`DeleteMetricFilterOutput`](crate::operation::delete_metric_filter::DeleteMetricFilterOutput).
 -    pub fn build(self) -> crate::operation::delete_metric_filter::DeleteMetricFilterOutput {
 -        crate::operation::delete_metric_filter::DeleteMetricFilterOutput {
-+    pub fn build(self) -> super::operation::delete_metric_filter::DeleteMetricFilterOutput {
-+        super::operation::delete_metric_filter::DeleteMetricFilterOutput {
++    pub fn build(self) -> super::super::super::operation::delete_metric_filter::DeleteMetricFilterOutput {
++        super::super::super::operation::delete_metric_filter::DeleteMetricFilterOutput {
              _request_id: self._request_id,
          }
      }

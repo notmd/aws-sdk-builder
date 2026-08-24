@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetDurableExecutionStateInput`](crate::operation::get_durable_execution_state::GetDurableExecutionStateInput).
 -    pub fn builder() -> crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder {
 -        crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder::default()
-+    pub fn builder() -> super::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder {
-+        super::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder {
++        super::super::super::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::get_durable_execution_state::GetDurableExecutionStateInput,
-+        super::operation::get_durable_execution_state::GetDurableExecutionStateInput,
++        super::super::super::operation::get_durable_execution_state::GetDurableExecutionStateInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::get_durable_execution_state::GetDurableExecutionStateInput {
-+        ::std::result::Result::Ok(super::operation::get_durable_execution_state::GetDurableExecutionStateInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_durable_execution_state::GetDurableExecutionStateInput {
              durable_execution_arn: self.durable_execution_arn,
              checkpoint_token: self.checkpoint_token,
              marker: self.marker,

@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DeleteDataProtectionPolicyInput`](crate::operation::delete_data_protection_policy::DeleteDataProtectionPolicyInput).
 -    pub fn builder() -> crate::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyInputBuilder {
 -        crate::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyInputBuilder::default()
-+    pub fn builder() -> super::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyInputBuilder {
-+        super::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyInputBuilder {
++        super::super::super::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::delete_data_protection_policy::DeleteDataProtectionPolicyInput,
-+        super::operation::delete_data_protection_policy::DeleteDataProtectionPolicyInput,
++        super::super::super::operation::delete_data_protection_policy::DeleteDataProtectionPolicyInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::delete_data_protection_policy::DeleteDataProtectionPolicyInput {
-+        ::std::result::Result::Ok(super::operation::delete_data_protection_policy::DeleteDataProtectionPolicyInput {
++        ::std::result::Result::Ok(super::super::super::operation::delete_data_protection_policy::DeleteDataProtectionPolicyInput {
              log_group_identifier: self.log_group_identifier,
          })
      }

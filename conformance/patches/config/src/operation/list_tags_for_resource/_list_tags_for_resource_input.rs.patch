@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`ListTagsForResourceInput`](crate::operation::list_tags_for_resource::ListTagsForResourceInput).
 -    pub fn builder() -> crate::operation::list_tags_for_resource::builders::ListTagsForResourceInputBuilder {
 -        crate::operation::list_tags_for_resource::builders::ListTagsForResourceInputBuilder::default()
-+    pub fn builder() -> super::operation::list_tags_for_resource::builders::ListTagsForResourceInputBuilder {
-+        super::operation::list_tags_for_resource::builders::ListTagsForResourceInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_tags_for_resource::builders::ListTagsForResourceInputBuilder {
++        super::super::super::operation::list_tags_for_resource::builders::ListTagsForResourceInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::list_tags_for_resource::ListTagsForResourceInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::list_tags_for_resource::ListTagsForResourceInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::list_tags_for_resource::ListTagsForResourceInput {
-+        ::std::result::Result::Ok(super::operation::list_tags_for_resource::ListTagsForResourceInput {
++        ::std::result::Result::Ok(super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput {
              resource_arn: self.resource_arn,
              limit: self.limit,
              next_token: self.next_token,

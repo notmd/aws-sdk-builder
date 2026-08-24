@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsFluentBuilder {
 -        crate::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsFluentBuilder {
-+        super::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsFluentBuilder {
++        super::super::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsFluentBuilder::new(self.handle.clone())
      }
  }

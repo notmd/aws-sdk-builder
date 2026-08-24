@@ -5,10 +5,10 @@
      pub template_name: ::std::option::Option<::std::string::String>,
      /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
 -    pub template_content: ::std::option::Option<crate::types::EmailTemplateContent>,
-+    pub template_content: ::std::option::Option<super::types::EmailTemplateContent>,
++    pub template_content: ::std::option::Option<super::super::super::types::EmailTemplateContent>,
      /// <p>An array of objects that define the tags (keys and values) to associate with the email template.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreateEmailTemplateInput {
      /// <p>The name of the template.</p>
@@ -17,14 +17,14 @@
      }
      /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
 -    pub fn template_content(&self) -> ::std::option::Option<&crate::types::EmailTemplateContent> {
-+    pub fn template_content(&self) -> ::std::option::Option<&super::types::EmailTemplateContent> {
++    pub fn template_content(&self) -> ::std::option::Option<&super::super::super::types::EmailTemplateContent> {
          self.template_content.as_ref()
      }
      /// <p>An array of objects that define the tags (keys and values) to associate with the email template.</p>
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
 -    pub fn tags(&self) -> &[crate::types::Tag] {
-+    pub fn tags(&self) -> &[super::types::Tag] {
++    pub fn tags(&self) -> &[super::super::super::types::Tag] {
          self.tags.as_deref().unwrap_or_default()
      }
  }
@@ -32,8 +32,8 @@
      /// Creates a new builder-style object to manufacture [`CreateEmailTemplateInput`](crate::operation::create_email_template::CreateEmailTemplateInput).
 -    pub fn builder() -> crate::operation::create_email_template::builders::CreateEmailTemplateInputBuilder {
 -        crate::operation::create_email_template::builders::CreateEmailTemplateInputBuilder::default()
-+    pub fn builder() -> super::operation::create_email_template::builders::CreateEmailTemplateInputBuilder {
-+        super::operation::create_email_template::builders::CreateEmailTemplateInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::create_email_template::builders::CreateEmailTemplateInputBuilder {
++        super::super::super::operation::create_email_template::builders::CreateEmailTemplateInputBuilder::default()
      }
  }
 
@@ -43,8 +43,8 @@
      pub(crate) template_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) template_content: ::std::option::Option<crate::types::EmailTemplateContent>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub(crate) template_content: ::std::option::Option<super::types::EmailTemplateContent>,
-+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub(crate) template_content: ::std::option::Option<super::super::super::types::EmailTemplateContent>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreateEmailTemplateInputBuilder {
      /// <p>The name of the template.</p>
@@ -53,19 +53,19 @@
      /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
      /// This field is required.
 -    pub fn template_content(mut self, input: crate::types::EmailTemplateContent) -> Self {
-+    pub fn template_content(mut self, input: super::types::EmailTemplateContent) -> Self {
++    pub fn template_content(mut self, input: super::super::super::types::EmailTemplateContent) -> Self {
          self.template_content = ::std::option::Option::Some(input);
          self
      }
      /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
 -    pub fn set_template_content(mut self, input: ::std::option::Option<crate::types::EmailTemplateContent>) -> Self {
-+    pub fn set_template_content(mut self, input: ::std::option::Option<super::types::EmailTemplateContent>) -> Self {
++    pub fn set_template_content(mut self, input: ::std::option::Option<super::super::super::types::EmailTemplateContent>) -> Self {
          self.template_content = input;
          self
      }
      /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
 -    pub fn get_template_content(&self) -> &::std::option::Option<crate::types::EmailTemplateContent> {
-+    pub fn get_template_content(&self) -> &::std::option::Option<super::types::EmailTemplateContent> {
++    pub fn get_template_content(&self) -> &::std::option::Option<super::super::super::types::EmailTemplateContent> {
          &self.template_content
      }
      /// Appends an item to `tags`.
@@ -74,7 +74,7 @@
      ///
      /// <p>An array of objects that define the tags (keys and values) to associate with the email template.</p>
 -    pub fn tags(mut self, input: crate::types::Tag) -> Self {
-+    pub fn tags(mut self, input: super::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::super::super::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
          self.tags = ::std::option::Option::Some(v);
@@ -83,23 +83,23 @@
      }
      /// <p>An array of objects that define the tags (keys and values) to associate with the email template.</p>
 -    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self {
          self.tags = input;
          self
      }
      /// <p>An array of objects that define the tags (keys and values) to associate with the email template.</p>
 -    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
-+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> {
          &self.tags
      }
      /// Consumes the builder and constructs a [`CreateEmailTemplateInput`](crate::operation::create_email_template::CreateEmailTemplateInput).
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::create_email_template::CreateEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::create_email_template::CreateEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::create_email_template::CreateEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::create_email_template::CreateEmailTemplateInput {
-+        ::std::result::Result::Ok(super::operation::create_email_template::CreateEmailTemplateInput {
++        ::std::result::Result::Ok(super::super::super::operation::create_email_template::CreateEmailTemplateInput {
              template_name: self.template_name,
              template_content: self.template_content,
              tags: self.tags,

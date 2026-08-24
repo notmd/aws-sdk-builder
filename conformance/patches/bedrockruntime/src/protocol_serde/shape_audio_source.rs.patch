@@ -5,23 +5,23 @@
  pub fn ser_audio_source(
      object_2: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::AudioSource,
-+    input: &super::types::AudioSource,
++    input: &super::super::types::AudioSource,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
 -        crate::types::AudioSource::Bytes(inner) => {
-+        super::types::AudioSource::Bytes(inner) => {
++        super::super::types::AudioSource::Bytes(inner) => {
              object_2.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
          }
 -        crate::types::AudioSource::S3Location(inner) => {
-+        super::types::AudioSource::S3Location(inner) => {
++        super::super::types::AudioSource::S3Location(inner) => {
              #[allow(unused_mut)]
              let mut object_1 = object_2.key("s3Location").start_object();
 -            crate::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
-+            super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
++            super::super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
              object_1.finish();
          }
 -        crate::types::AudioSource::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("AudioSource")),
-+        super::types::AudioSource::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("AudioSource")),
++        super::super::types::AudioSource::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("AudioSource")),
      }
      Ok(())
  }
@@ -30,7 +30,7 @@
      _value: &'a [u8],
      depth: u32,
 -) -> ::std::result::Result<Option<crate::types::AudioSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::types::AudioSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::AudioSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
  where
      I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
  {
@@ -39,21 +39,21 @@
                      }
                      variant = match key.as_ref() {
 -                        "bytes" => Some(crate::types::AudioSource::Bytes(
-+                        "bytes" => Some(super::types::AudioSource::Bytes(
++                        "bytes" => Some(super::super::types::AudioSource::Bytes(
                              ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
                          )),
 -                        "s3Location" => Some(crate::types::AudioSource::S3Location(
 -                            crate::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| {
-+                        "s3Location" => Some(super::types::AudioSource::S3Location(
-+                            super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| {
++                        "s3Location" => Some(super::super::types::AudioSource::S3Location(
++                            super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| {
                                  ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null")
                              })?,
                          )),
                          _ => {
                              ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
 -                            Some(crate::types::AudioSource::Unknown)
-+                            Some(super::types::AudioSource::Unknown)
++                            Some(super::super::types::AudioSource::Unknown)
                          }
                      };
                  }

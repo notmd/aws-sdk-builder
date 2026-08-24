@@ -6,35 +6,35 @@
  ) -> std::result::Result<
 -    crate::operation::admin_set_user_settings::AdminSetUserSettingsOutput,
 -    crate::operation::admin_set_user_settings::AdminSetUserSettingsError,
-+    super::operation::admin_set_user_settings::AdminSetUserSettingsOutput,
-+    super::operation::admin_set_user_settings::AdminSetUserSettingsError,
++    super::super::operation::admin_set_user_settings::AdminSetUserSettingsOutput,
++    super::super::operation::admin_set_user_settings::AdminSetUserSettingsError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
 -        None => return Err(crate::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled(generic)),
-+        None => return Err(super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled(generic)),
++        None => return Err(super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled(generic)),
      };
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "InternalErrorException" => crate::operation::admin_set_user_settings::AdminSetUserSettingsError::InternalErrorException({
-+        "InternalErrorException" => super::operation::admin_set_user_settings::AdminSetUserSettingsError::InternalErrorException({
++        "InternalErrorException" => super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::InternalErrorException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
-+                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
-+                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
++                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -43,16 +43,16 @@
              tmp
          }),
 -        "InvalidParameterException" => crate::operation::admin_set_user_settings::AdminSetUserSettingsError::InvalidParameterException({
-+        "InvalidParameterException" => super::operation::admin_set_user_settings::AdminSetUserSettingsError::InvalidParameterException({
++        "InvalidParameterException" => super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::InvalidParameterException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
-+                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
-+                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
++                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -61,16 +61,16 @@
              tmp
          }),
 -        "NotAuthorizedException" => crate::operation::admin_set_user_settings::AdminSetUserSettingsError::NotAuthorizedException({
-+        "NotAuthorizedException" => super::operation::admin_set_user_settings::AdminSetUserSettingsError::NotAuthorizedException({
++        "NotAuthorizedException" => super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::NotAuthorizedException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
-+                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-+                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
++                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -79,17 +79,17 @@
              tmp
          }),
 -        "OperationNotEnabledException" => crate::operation::admin_set_user_settings::AdminSetUserSettingsError::OperationNotEnabledException({
-+        "OperationNotEnabledException" => super::operation::admin_set_user_settings::AdminSetUserSettingsError::OperationNotEnabledException({
++        "OperationNotEnabledException" => super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::OperationNotEnabledException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-+                let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
                  output =
 -                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
 -                        .map_err(crate::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
-+                    super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
-+                        .map_err(super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
++                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
++                        .map_err(super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -98,16 +98,16 @@
              tmp
          }),
 -        "ResourceNotFoundException" => crate::operation::admin_set_user_settings::AdminSetUserSettingsError::ResourceNotFoundException({
-+        "ResourceNotFoundException" => super::operation::admin_set_user_settings::AdminSetUserSettingsError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::ResourceNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
-+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
++                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -116,16 +116,16 @@
              tmp
          }),
 -        "UserNotFoundException" => crate::operation::admin_set_user_settings::AdminSetUserSettingsError::UserNotFoundException({
-+        "UserNotFoundException" => super::operation::admin_set_user_settings::AdminSetUserSettingsError::UserNotFoundException({
++        "UserNotFoundException" => super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::UserNotFoundException({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
 -                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
 -                    .map_err(crate::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
-+                let mut output = super::types::error::builders::UserNotFoundExceptionBuilder::default();
-+                output = super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
-+                    .map_err(super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
++                let mut output = super::super::types::error::builders::UserNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::unhandled)?;
                  let output = output.meta(generic);
                  output.build()
              };
@@ -134,7 +134,7 @@
              tmp
          }),
 -        _ => crate::operation::admin_set_user_settings::AdminSetUserSettingsError::generic(generic),
-+        _ => super::operation::admin_set_user_settings::AdminSetUserSettingsError::generic(generic),
++        _ => super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::generic(generic),
      })
  }
 
@@ -144,13 +144,13 @@
  ) -> std::result::Result<
 -    crate::operation::admin_set_user_settings::AdminSetUserSettingsOutput,
 -    crate::operation::admin_set_user_settings::AdminSetUserSettingsError,
-+    super::operation::admin_set_user_settings::AdminSetUserSettingsOutput,
-+    super::operation::admin_set_user_settings::AdminSetUserSettingsError,
++    super::super::operation::admin_set_user_settings::AdminSetUserSettingsOutput,
++    super::super::operation::admin_set_user_settings::AdminSetUserSettingsError,
  > {
      Ok({
          #[allow(unused_mut)]
 -        let mut output = crate::operation::admin_set_user_settings::builders::AdminSetUserSettingsOutputBuilder::default();
-+        let mut output = super::operation::admin_set_user_settings::builders::AdminSetUserSettingsOutputBuilder::default();
++        let mut output = super::super::operation::admin_set_user_settings::builders::AdminSetUserSettingsOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -159,12 +159,12 @@
 
  pub fn ser_admin_set_user_settings_input(
 -    input: &crate::operation::admin_set_user_settings::AdminSetUserSettingsInput,
-+    input: &super::operation::admin_set_user_settings::AdminSetUserSettingsInput,
++    input: &super::super::operation::admin_set_user_settings::AdminSetUserSettingsInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
 -    crate::protocol_serde::shape_admin_set_user_settings_input::ser_admin_set_user_settings_input_input(&mut object, input)?;
-+    super::protocol_serde::shape_admin_set_user_settings_input::ser_admin_set_user_settings_input_input(&mut object, input)?;
++    super::super::protocol_serde::shape_admin_set_user_settings_input::ser_admin_set_user_settings_input_input(&mut object, input)?;
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }

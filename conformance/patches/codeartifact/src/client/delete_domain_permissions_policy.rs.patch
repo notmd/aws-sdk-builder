@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyFluentBuilder {
 -        crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyFluentBuilder {
-+        super::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyFluentBuilder {
++        super::super::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyFluentBuilder::new(self.handle.clone())
      }
  }

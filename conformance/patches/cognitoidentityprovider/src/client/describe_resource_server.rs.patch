@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DescribeResourceServerError>`](crate::operation::describe_resource_server::DescribeResourceServerError)
 -    pub fn describe_resource_server(&self) -> crate::operation::describe_resource_server::builders::DescribeResourceServerFluentBuilder {
 -        crate::operation::describe_resource_server::builders::DescribeResourceServerFluentBuilder::new(self.handle.clone())
-+    pub fn describe_resource_server(&self) -> super::operation::describe_resource_server::builders::DescribeResourceServerFluentBuilder {
-+        super::operation::describe_resource_server::builders::DescribeResourceServerFluentBuilder::new(self.handle.clone())
++    pub fn describe_resource_server(&self) -> super::super::operation::describe_resource_server::builders::DescribeResourceServerFluentBuilder {
++        super::super::operation::describe_resource_server::builders::DescribeResourceServerFluentBuilder::new(self.handle.clone())
      }
  }

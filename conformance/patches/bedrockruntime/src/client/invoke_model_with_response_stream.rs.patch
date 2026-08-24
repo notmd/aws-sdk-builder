@@ -6,7 +6,7 @@
          &self,
 -    ) -> crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamFluentBuilder {
 -        crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamFluentBuilder::new(self.handle.clone())
-+    ) -> super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamFluentBuilder {
-+        super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamFluentBuilder::new(self.handle.clone())
++    ) -> super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamFluentBuilder {
++        super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamFluentBuilder::new(self.handle.clone())
      }
  }

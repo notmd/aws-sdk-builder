@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`GetUserPoolMfaConfigInput`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput).
 -    pub fn builder() -> crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigInputBuilder {
 -        crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigInputBuilder::default()
-+    pub fn builder() -> super::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigInputBuilder {
-+        super::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigInputBuilder {
++        super::super::super::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigInputBuilder::default()
      }
  }
 
@@ -16,10 +16,10 @@
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput {
-+        ::std::result::Result::Ok(super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput {
++        ::std::result::Result::Ok(super::super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput {
              user_pool_id: self.user_pool_id,
          })
      }

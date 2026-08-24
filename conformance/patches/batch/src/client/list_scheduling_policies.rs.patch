@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListSchedulingPoliciesError>`](crate::operation::list_scheduling_policies::ListSchedulingPoliciesError)
 -    pub fn list_scheduling_policies(&self) -> crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesFluentBuilder {
 -        crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesFluentBuilder::new(self.handle.clone())
-+    pub fn list_scheduling_policies(&self) -> super::operation::list_scheduling_policies::builders::ListSchedulingPoliciesFluentBuilder {
-+        super::operation::list_scheduling_policies::builders::ListSchedulingPoliciesFluentBuilder::new(self.handle.clone())
++    pub fn list_scheduling_policies(&self) -> super::super::operation::list_scheduling_policies::builders::ListSchedulingPoliciesFluentBuilder {
++        super::super::operation::list_scheduling_policies::builders::ListSchedulingPoliciesFluentBuilder::new(self.handle.clone())
      }
  }

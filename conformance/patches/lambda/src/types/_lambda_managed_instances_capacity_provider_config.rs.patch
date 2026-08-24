@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`LambdaManagedInstancesCapacityProviderConfig`](crate::types::LambdaManagedInstancesCapacityProviderConfig).
 -    pub fn builder() -> crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder {
 -        crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::default()
-+    pub fn builder() -> super::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder {
-+        super::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::default()
++    pub fn builder() -> super::super::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder {
++        super::super::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
          self,
 -    ) -> ::std::result::Result<crate::types::LambdaManagedInstancesCapacityProviderConfig, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::types::LambdaManagedInstancesCapacityProviderConfig {
-+    ) -> ::std::result::Result<super::types::LambdaManagedInstancesCapacityProviderConfig, ::aws_smithy_types::error::operation::BuildError> {
-+        ::std::result::Result::Ok(super::types::LambdaManagedInstancesCapacityProviderConfig {
++    ) -> ::std::result::Result<super::super::types::LambdaManagedInstancesCapacityProviderConfig, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::super::types::LambdaManagedInstancesCapacityProviderConfig {
              capacity_provider_arn: self.capacity_provider_arn.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "capacity_provider_arn",

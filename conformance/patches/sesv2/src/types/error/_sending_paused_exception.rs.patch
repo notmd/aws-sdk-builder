@@ -5,7 +5,7 @@
  }
  impl ::std::error::Error for SendingPausedException {}
 -impl ::aws_types::request_id::RequestId for crate::types::error::SendingPausedException {
-+impl ::aws_types::request_id::RequestId for super::types::error::SendingPausedException {
++impl ::aws_types::request_id::RequestId for super::super::super::types::error::SendingPausedException {
      fn request_id(&self) -> Option<&str> {
          use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
          self.meta().request_id()
@@ -15,8 +15,8 @@
      /// Creates a new builder-style object to manufacture [`SendingPausedException`](crate::types::error::SendingPausedException).
 -    pub fn builder() -> crate::types::error::builders::SendingPausedExceptionBuilder {
 -        crate::types::error::builders::SendingPausedExceptionBuilder::default()
-+    pub fn builder() -> super::types::error::builders::SendingPausedExceptionBuilder {
-+        super::types::error::builders::SendingPausedExceptionBuilder::default()
++    pub fn builder() -> super::super::super::types::error::builders::SendingPausedExceptionBuilder {
++        super::super::super::types::error::builders::SendingPausedExceptionBuilder::default()
      }
  }
 
@@ -26,8 +26,8 @@
      /// Consumes the builder and constructs a [`SendingPausedException`](crate::types::error::SendingPausedException).
 -    pub fn build(self) -> crate::types::error::SendingPausedException {
 -        crate::types::error::SendingPausedException {
-+    pub fn build(self) -> super::types::error::SendingPausedException {
-+        super::types::error::SendingPausedException {
++    pub fn build(self) -> super::super::super::types::error::SendingPausedException {
++        super::super::super::types::error::SendingPausedException {
              message: self.message,
              meta: self.meta.unwrap_or_default(),
          }

@@ -5,7 +5,7 @@
  pub fn ser_chained_invoke_options(
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 -    input: &crate::types::ChainedInvokeOptions,
-+    input: &super::types::ChainedInvokeOptions,
++    input: &super::super::types::ChainedInvokeOptions,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      {
          object.key("FunctionName").string(input.function_name.as_str());

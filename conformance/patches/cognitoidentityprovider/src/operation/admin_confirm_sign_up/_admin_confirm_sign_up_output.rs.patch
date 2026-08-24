@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`AdminConfirmSignUpOutput`](crate::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput).
 -    pub fn builder() -> crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder {
 -        crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder::default()
-+    pub fn builder() -> super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder {
-+        super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder {
++        super::super::super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`AdminConfirmSignUpOutput`](crate::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput).
 -    pub fn build(self) -> crate::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput {
 -        crate::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput {
-+    pub fn build(self) -> super::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput {
-+        super::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput {
++    pub fn build(self) -> super::super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput {
++        super::super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput {
              _request_id: self._request_id,
          }
      }

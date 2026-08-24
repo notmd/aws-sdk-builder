@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`Replica`](crate::types::Replica).
 -    pub fn builder() -> crate::types::builders::ReplicaBuilder {
 -        crate::types::builders::ReplicaBuilder::default()
-+    pub fn builder() -> super::types::builders::ReplicaBuilder {
-+        super::types::builders::ReplicaBuilder::default()
++    pub fn builder() -> super::super::types::builders::ReplicaBuilder {
++        super::super::types::builders::ReplicaBuilder::default()
      }
  }
 
@@ -17,8 +17,8 @@
      /// Consumes the builder and constructs a [`Replica`](crate::types::Replica).
 -    pub fn build(self) -> crate::types::Replica {
 -        crate::types::Replica {
-+    pub fn build(self) -> super::types::Replica {
-+        super::types::Replica {
++    pub fn build(self) -> super::super::types::Replica {
++        super::super::types::Replica {
              region_name: self.region_name,
          }
      }

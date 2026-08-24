@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<ListDirectoryBucketsError>`](crate::operation::list_directory_buckets::ListDirectoryBucketsError)
 -    pub fn list_directory_buckets(&self) -> crate::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder {
 -        crate::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder::new(self.handle.clone())
-+    pub fn list_directory_buckets(&self) -> super::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder {
-+        super::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder::new(self.handle.clone())
++    pub fn list_directory_buckets(&self) -> super::super::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder {
++        super::super::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder::new(self.handle.clone())
      }
  }

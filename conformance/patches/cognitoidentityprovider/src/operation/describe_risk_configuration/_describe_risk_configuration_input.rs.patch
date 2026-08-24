@@ -6,8 +6,8 @@
      /// Creates a new builder-style object to manufacture [`DescribeRiskConfigurationInput`](crate::operation::describe_risk_configuration::DescribeRiskConfigurationInput).
 -    pub fn builder() -> crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder {
 -        crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder::default()
-+    pub fn builder() -> super::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder {
-+        super::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder {
++        super::super::super::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder::default()
      }
  }
 
@@ -16,11 +16,11 @@
          self,
      ) -> ::std::result::Result<
 -        crate::operation::describe_risk_configuration::DescribeRiskConfigurationInput,
-+        super::operation::describe_risk_configuration::DescribeRiskConfigurationInput,
++        super::super::super::operation::describe_risk_configuration::DescribeRiskConfigurationInput,
          ::aws_smithy_types::error::operation::BuildError,
      > {
 -        ::std::result::Result::Ok(crate::operation::describe_risk_configuration::DescribeRiskConfigurationInput {
-+        ::std::result::Result::Ok(super::operation::describe_risk_configuration::DescribeRiskConfigurationInput {
++        ::std::result::Result::Ok(super::super::super::operation::describe_risk_configuration::DescribeRiskConfigurationInput {
              user_pool_id: self.user_pool_id,
              client_id: self.client_id,
          })

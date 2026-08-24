@@ -6,7 +6,7 @@
      /// - On failure, responds with [`SdkError<DeleteMessageError>`](crate::operation::delete_message::DeleteMessageError)
 -    pub fn delete_message(&self) -> crate::operation::delete_message::builders::DeleteMessageFluentBuilder {
 -        crate::operation::delete_message::builders::DeleteMessageFluentBuilder::new(self.handle.clone())
-+    pub fn delete_message(&self) -> super::operation::delete_message::builders::DeleteMessageFluentBuilder {
-+        super::operation::delete_message::builders::DeleteMessageFluentBuilder::new(self.handle.clone())
++    pub fn delete_message(&self) -> super::super::operation::delete_message::builders::DeleteMessageFluentBuilder {
++        super::super::operation::delete_message::builders::DeleteMessageFluentBuilder::new(self.handle.clone())
      }
  }

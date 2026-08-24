@@ -5,7 +5,7 @@
  pub struct ListImportJobsOutput {
      /// <p>A list of the import job summaries.</p>
 -    pub import_jobs: ::std::option::Option<::std::vec::Vec<crate::types::ImportJobSummary>>,
-+    pub import_jobs: ::std::option::Option<::std::vec::Vec<super::types::ImportJobSummary>>,
++    pub import_jobs: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportJobSummary>>,
      /// <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>
      pub next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
@@ -14,7 +14,7 @@
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.import_jobs.is_none()`.
 -    pub fn import_jobs(&self) -> &[crate::types::ImportJobSummary] {
-+    pub fn import_jobs(&self) -> &[super::types::ImportJobSummary] {
++    pub fn import_jobs(&self) -> &[super::super::super::types::ImportJobSummary] {
          self.import_jobs.as_deref().unwrap_or_default()
      }
      /// <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`ListImportJobsOutput`](crate::operation::list_import_jobs::ListImportJobsOutput).
 -    pub fn builder() -> crate::operation::list_import_jobs::builders::ListImportJobsOutputBuilder {
 -        crate::operation::list_import_jobs::builders::ListImportJobsOutputBuilder::default()
-+    pub fn builder() -> super::operation::list_import_jobs::builders::ListImportJobsOutputBuilder {
-+        super::operation::list_import_jobs::builders::ListImportJobsOutputBuilder::default()
++    pub fn builder() -> super::super::super::operation::list_import_jobs::builders::ListImportJobsOutputBuilder {
++        super::super::super::operation::list_import_jobs::builders::ListImportJobsOutputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
  #[non_exhaustive]
  pub struct ListImportJobsOutputBuilder {
 -    pub(crate) import_jobs: ::std::option::Option<::std::vec::Vec<crate::types::ImportJobSummary>>,
-+    pub(crate) import_jobs: ::std::option::Option<::std::vec::Vec<super::types::ImportJobSummary>>,
++    pub(crate) import_jobs: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportJobSummary>>,
      pub(crate) next_token: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
@@ -43,7 +43,7 @@
      ///
      /// <p>A list of the import job summaries.</p>
 -    pub fn import_jobs(mut self, input: crate::types::ImportJobSummary) -> Self {
-+    pub fn import_jobs(mut self, input: super::types::ImportJobSummary) -> Self {
++    pub fn import_jobs(mut self, input: super::super::super::types::ImportJobSummary) -> Self {
          let mut v = self.import_jobs.unwrap_or_default();
          v.push(input);
          self.import_jobs = ::std::option::Option::Some(v);
@@ -52,13 +52,13 @@
      }
      /// <p>A list of the import job summaries.</p>
 -    pub fn set_import_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ImportJobSummary>>) -> Self {
-+    pub fn set_import_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ImportJobSummary>>) -> Self {
++    pub fn set_import_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportJobSummary>>) -> Self {
          self.import_jobs = input;
          self
      }
      /// <p>A list of the import job summaries.</p>
 -    pub fn get_import_jobs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportJobSummary>> {
-+    pub fn get_import_jobs(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ImportJobSummary>> {
++    pub fn get_import_jobs(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ImportJobSummary>> {
          &self.import_jobs
      }
      /// <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>
@@ -68,8 +68,8 @@
      /// Consumes the builder and constructs a [`ListImportJobsOutput`](crate::operation::list_import_jobs::ListImportJobsOutput).
 -    pub fn build(self) -> crate::operation::list_import_jobs::ListImportJobsOutput {
 -        crate::operation::list_import_jobs::ListImportJobsOutput {
-+    pub fn build(self) -> super::operation::list_import_jobs::ListImportJobsOutput {
-+        super::operation::list_import_jobs::ListImportJobsOutput {
++    pub fn build(self) -> super::super::super::operation::list_import_jobs::ListImportJobsOutput {
++        super::super::super::operation::list_import_jobs::ListImportJobsOutput {
              import_jobs: self.import_jobs,
              next_token: self.next_token,
              _request_id: self._request_id,

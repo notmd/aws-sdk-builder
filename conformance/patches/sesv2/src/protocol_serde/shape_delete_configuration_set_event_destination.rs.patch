@@ -6,21 +6,21 @@
  ) -> std::result::Result<
 -    crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput,
 -    crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
-+    super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput,
-+    super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
++    super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput,
++    super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
  > {
      #[allow(unused_mut)]
 -    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
 -        .map_err(crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled)?;
-+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-+        .map_err(super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled)?;
++    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled)?;
      generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
      let generic = generic_builder.build();
      let error_code = match generic.code() {
          Some(code) => code,
          None => {
 -            return Err(crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled(generic))
-+            return Err(super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled(generic))
++            return Err(super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled(generic))
          }
      };
 
@@ -29,16 +29,16 @@
      Err(match error_code {
          "BadRequestException" => {
 -            crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::BadRequestException({
-+            super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::BadRequestException({
++            super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::BadRequestException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
 -                        crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
-+                    let mut output = super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
-+                        super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
++                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
++                        super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
                      )?;
                      let output = output.meta(generic);
                      output.build()
@@ -47,16 +47,16 @@
          }
          "NotFoundException" => {
 -            crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::NotFoundException({
-+            super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::NotFoundException({
++            super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::NotFoundException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
 -                    output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
 -                        crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
-+                    let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
-+                    output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
-+                        super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
++                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
++                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
++                        super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
                      )?;
                      let output = output.meta(generic);
                      output.build()
@@ -65,18 +65,18 @@
          }
          "TooManyRequestsException" => {
 -            crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::TooManyRequestsException({
-+            super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::TooManyRequestsException({
++            super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::TooManyRequestsException({
                  #[allow(unused_mut)]
                  let mut tmp = {
                      #[allow(unused_mut)]
 -                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                      output =
 -                        crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                              .map_err(
 -                                crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
-+                                super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
++                                super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
                              )?;
                      let output = output.meta(generic);
                      output.build()
@@ -85,7 +85,7 @@
              })
          }
 -        _ => crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::generic(generic),
-+        _ => super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::generic(generic),
++        _ => super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::generic(generic),
      })
  }
 
@@ -95,14 +95,14 @@
  ) -> std::result::Result<
 -    crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput,
 -    crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
-+    super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput,
-+    super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
++    super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput,
++    super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
  > {
      Ok({
          #[allow(unused_mut)]
          let mut output =
 -            crate::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder::default();
-+            super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder::default();
++            super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder::default();
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })

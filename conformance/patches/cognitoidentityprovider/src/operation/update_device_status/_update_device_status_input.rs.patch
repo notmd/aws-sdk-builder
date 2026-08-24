@@ -5,7 +5,7 @@
      pub device_key: ::std::option::Option<::std::string::String>,
      /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
 -    pub device_remembered_status: ::std::option::Option<crate::types::DeviceRememberedStatusType>,
-+    pub device_remembered_status: ::std::option::Option<super::types::DeviceRememberedStatusType>,
++    pub device_remembered_status: ::std::option::Option<super::super::super::types::DeviceRememberedStatusType>,
  }
  impl UpdateDeviceStatusInput {
      /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
@@ -14,7 +14,7 @@
      }
      /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
 -    pub fn device_remembered_status(&self) -> ::std::option::Option<&crate::types::DeviceRememberedStatusType> {
-+    pub fn device_remembered_status(&self) -> ::std::option::Option<&super::types::DeviceRememberedStatusType> {
++    pub fn device_remembered_status(&self) -> ::std::option::Option<&super::super::super::types::DeviceRememberedStatusType> {
          self.device_remembered_status.as_ref()
      }
  }
@@ -24,8 +24,8 @@
      /// Creates a new builder-style object to manufacture [`UpdateDeviceStatusInput`](crate::operation::update_device_status::UpdateDeviceStatusInput).
 -    pub fn builder() -> crate::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder {
 -        crate::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder::default()
-+    pub fn builder() -> super::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder {
-+        super::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder::default()
++    pub fn builder() -> super::super::super::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder {
++        super::super::super::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder::default()
      }
  }
 
@@ -34,7 +34,7 @@
      pub(crate) access_token: ::std::option::Option<::std::string::String>,
      pub(crate) device_key: ::std::option::Option<::std::string::String>,
 -    pub(crate) device_remembered_status: ::std::option::Option<crate::types::DeviceRememberedStatusType>,
-+    pub(crate) device_remembered_status: ::std::option::Option<super::types::DeviceRememberedStatusType>,
++    pub(crate) device_remembered_status: ::std::option::Option<super::super::super::types::DeviceRememberedStatusType>,
  }
  impl UpdateDeviceStatusInputBuilder {
      /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
@@ -43,29 +43,29 @@
      }
      /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
 -    pub fn device_remembered_status(mut self, input: crate::types::DeviceRememberedStatusType) -> Self {
-+    pub fn device_remembered_status(mut self, input: super::types::DeviceRememberedStatusType) -> Self {
++    pub fn device_remembered_status(mut self, input: super::super::super::types::DeviceRememberedStatusType) -> Self {
          self.device_remembered_status = ::std::option::Option::Some(input);
          self
      }
      /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
 -    pub fn set_device_remembered_status(mut self, input: ::std::option::Option<crate::types::DeviceRememberedStatusType>) -> Self {
-+    pub fn set_device_remembered_status(mut self, input: ::std::option::Option<super::types::DeviceRememberedStatusType>) -> Self {
++    pub fn set_device_remembered_status(mut self, input: ::std::option::Option<super::super::super::types::DeviceRememberedStatusType>) -> Self {
          self.device_remembered_status = input;
          self
      }
      /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
 -    pub fn get_device_remembered_status(&self) -> &::std::option::Option<crate::types::DeviceRememberedStatusType> {
-+    pub fn get_device_remembered_status(&self) -> &::std::option::Option<super::types::DeviceRememberedStatusType> {
++    pub fn get_device_remembered_status(&self) -> &::std::option::Option<super::super::super::types::DeviceRememberedStatusType> {
          &self.device_remembered_status
      }
      /// Consumes the builder and constructs a [`UpdateDeviceStatusInput`](crate::operation::update_device_status::UpdateDeviceStatusInput).
      pub fn build(
          self,
 -    ) -> ::std::result::Result<crate::operation::update_device_status::UpdateDeviceStatusInput, ::aws_smithy_types::error::operation::BuildError>
-+    ) -> ::std::result::Result<super::operation::update_device_status::UpdateDeviceStatusInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::super::super::operation::update_device_status::UpdateDeviceStatusInput, ::aws_smithy_types::error::operation::BuildError>
      {
 -        ::std::result::Result::Ok(crate::operation::update_device_status::UpdateDeviceStatusInput {
-+        ::std::result::Result::Ok(super::operation::update_device_status::UpdateDeviceStatusInput {
++        ::std::result::Result::Ok(super::super::super::operation::update_device_status::UpdateDeviceStatusInput {
              access_token: self.access_token,
              device_key: self.device_key,
              device_remembered_status: self.device_remembered_status,
