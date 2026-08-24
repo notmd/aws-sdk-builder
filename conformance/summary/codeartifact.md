@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## codeartifact
-**Progress:** `459/459` files compared · `445` matched · `14` mismatches · `0` missing · `0` extra · `96.95%` match (100.00% means fully matched)
+**Progress:** `459/459` files compared · `452` matched · `7` mismatches · `0` missing · `0` extra · `98.47%` match (100.00% means fully matched)
 
 ### `src/lib.rs`
 
@@ -58,38 +58,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
-### `src/protocol_serde/shape_access_denied_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_access_denied_exception.rs
-+++ generated/src/protocol_serde/shape_access_denied_exception.rs
-@@ -33,5 +33,7 @@
-             "found more JSON tokens after completing parsing",
-         ));
-     }
--    Ok(builder)
-+    Ok(super::super::serde_util::access_denied_exception_correct_errors(builder)
-+        .build()
-+        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
- }
-```
-
-### `src/protocol_serde/shape_conflict_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_conflict_exception.rs
-+++ generated/src/protocol_serde/shape_conflict_exception.rs
-@@ -47,5 +47,7 @@
-             "found more JSON tokens after completing parsing",
-         ));
-     }
--    Ok(builder)
-+    Ok(super::super::serde_util::conflict_exception_correct_errors(builder)
-+        .build()
-+        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
- }
-```
-
 ### `src/protocol_serde/shape_get_package_version_asset_output.rs`
 
 ```diff
@@ -112,22 +80,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_asset_name_header(
      header_map: &::aws_smithy_runtime_api::http::Headers,
  ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
-```
-
-### `src/protocol_serde/shape_internal_server_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_internal_server_exception.rs
-+++ generated/src/protocol_serde/shape_internal_server_exception.rs
-@@ -33,5 +33,7 @@
-             "found more JSON tokens after completing parsing",
-         ));
-     }
--    Ok(builder)
-+    Ok(super::super::serde_util::internal_server_exception_correct_errors(builder)
-+        .build()
-+        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
- }
 ```
 
 ### `src/protocol_serde/shape_publish_package_version.rs`
@@ -180,72 +132,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        None => return Ok(::bytes::Bytes::new()),
 +    };
 +    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
- }
-```
-
-### `src/protocol_serde/shape_resource_not_found_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_resource_not_found_exception.rs
-+++ generated/src/protocol_serde/shape_resource_not_found_exception.rs
-@@ -47,5 +47,7 @@
-             "found more JSON tokens after completing parsing",
-         ));
-     }
--    Ok(builder)
-+    Ok(super::super::serde_util::resource_not_found_exception_correct_errors(builder)
-+        .build()
-+        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
- }
-```
-
-### `src/protocol_serde/shape_service_quota_exceeded_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_service_quota_exceeded_exception.rs
-+++ generated/src/protocol_serde/shape_service_quota_exceeded_exception.rs
-@@ -48,5 +48,7 @@
-             "found more JSON tokens after completing parsing",
-         ));
-     }
--    Ok(builder)
-+    Ok(super::super::serde_util::service_quota_exceeded_exception_correct_errors(builder)
-+        .build()
-+        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
- }
-```
-
-### `src/protocol_serde/shape_throttling_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_throttling_exception.rs
-+++ generated/src/protocol_serde/shape_throttling_exception.rs
-@@ -40,7 +40,9 @@
-             "found more JSON tokens after completing parsing",
-         ));
-     }
--    Ok(builder)
-+    Ok(super::super::serde_util::throttling_exception_correct_errors(builder)
-+        .build()
-+        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
- }
-
- pub(crate) fn de_retry_after_seconds_header(
-```
-
-### `src/protocol_serde/shape_validation_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_validation_exception.rs
-+++ generated/src/protocol_serde/shape_validation_exception.rs
-@@ -40,5 +40,7 @@
-             "found more JSON tokens after completing parsing",
-         ));
-     }
--    Ok(builder)
-+    Ok(super::super::serde_util::validation_exception_correct_errors(builder)
-+        .build()
-+        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
  }
 ```
 

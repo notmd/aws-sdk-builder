@@ -24,7 +24,7 @@ pub(crate) fn converse_output_output_correct_errors(
     mut builder: super::operation::converse::builders::ConverseOutputBuilder,
 ) -> super::operation::converse::builders::ConverseOutputBuilder {
     if builder.output.is_none() {
-        builder.output = Some(Default::default())
+        builder.output = Some(super::types::ConverseOutput::Unknown)
     }
     if builder.stop_reason.is_none() {
         builder.stop_reason = "no value was set".parse::<super::types::StopReason>().ok()
@@ -69,7 +69,7 @@ pub(crate) fn get_async_invoke_output_output_correct_errors(
         builder.submit_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.output_data_config.is_none() {
-        builder.output_data_config = Some(Default::default())
+        builder.output_data_config = Some(super::types::AsyncInvokeOutputDataConfig::Unknown)
     }
     builder
 }
@@ -96,7 +96,7 @@ pub(crate) fn invoke_model_output_output_correct_errors(
     mut builder: super::operation::invoke_model::builders::InvokeModelOutputBuilder,
 ) -> super::operation::invoke_model::builders::InvokeModelOutputBuilder {
     if builder.body.is_none() {
-        builder.body = Some(Default::default())
+        builder.body = Some(::aws_smithy_types::Blob::new(""))
     }
     if builder.content_type.is_none() {
         builder.content_type = Some(Default::default())
@@ -108,7 +108,7 @@ pub(crate) fn invoke_model_with_bidirectional_stream_output_output_correct_error
     mut builder: super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
 ) -> super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
     if builder.body.is_none() {
-        builder.body = Some(Default::default())
+        builder.body = Some(super::types::InvokeModelWithBidirectionalStreamOutput::Unknown)
     }
     builder
 }
@@ -117,7 +117,7 @@ pub(crate) fn invoke_model_with_response_stream_output_output_correct_errors(
     mut builder: super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
 ) -> super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder {
     if builder.body.is_none() {
-        builder.body = Some(Default::default())
+        builder.body = Some(super::types::ResponseStream::Unknown)
     }
     if builder.content_type.is_none() {
         builder.content_type = Some(Default::default())
@@ -209,7 +209,7 @@ pub(crate) fn async_invoke_summary_correct_errors(
         builder.submit_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.output_data_config.is_none() {
-        builder.output_data_config = Some(Default::default())
+        builder.output_data_config = Some(super::types::AsyncInvokeOutputDataConfig::Unknown)
     }
     builder
 }
@@ -218,7 +218,7 @@ pub(crate) fn content_block_delta_event_correct_errors(
     mut builder: super::types::builders::ContentBlockDeltaEventBuilder,
 ) -> super::types::builders::ContentBlockDeltaEventBuilder {
     if builder.delta.is_none() {
-        builder.delta = Some(Default::default())
+        builder.delta = Some(super::types::ContentBlockDelta::Unknown)
     }
     if builder.content_block_index.is_none() {
         builder.content_block_index = Some(Default::default())
@@ -230,7 +230,7 @@ pub(crate) fn content_block_start_event_correct_errors(
     mut builder: super::types::builders::ContentBlockStartEventBuilder,
 ) -> super::types::builders::ContentBlockStartEventBuilder {
     if builder.start.is_none() {
-        builder.start = Some(Default::default())
+        builder.start = Some(super::types::ContentBlockStart::Unknown)
     }
     if builder.content_block_index.is_none() {
         builder.content_block_index = Some(Default::default())
@@ -502,7 +502,7 @@ pub(crate) fn audio_block_correct_errors(mut builder: super::types::builders::Au
         builder.format = "no value was set".parse::<super::types::AudioFormat>().ok()
     }
     if builder.source.is_none() {
-        builder.source = Some(Default::default())
+        builder.source = Some(super::types::AudioSource::Unknown)
     }
     builder
 }
@@ -523,7 +523,7 @@ pub(crate) fn document_block_correct_errors(
         builder.name = Some(Default::default())
     }
     if builder.source.is_none() {
-        builder.source = Some(Default::default())
+        builder.source = Some(super::types::DocumentSource::Unknown)
     }
     builder
 }
@@ -632,7 +632,7 @@ pub(crate) fn image_block_correct_errors(mut builder: super::types::builders::Im
         builder.format = "no value was set".parse::<super::types::ImageFormat>().ok()
     }
     if builder.source.is_none() {
-        builder.source = Some(Default::default())
+        builder.source = Some(super::types::ImageSource::Unknown)
     }
     builder
 }
@@ -706,7 +706,7 @@ pub(crate) fn video_block_correct_errors(mut builder: super::types::builders::Vi
         builder.format = "no value was set".parse::<super::types::VideoFormat>().ok()
     }
     if builder.source.is_none() {
-        builder.source = Some(Default::default())
+        builder.source = Some(super::types::VideoSource::Unknown)
     }
     builder
 }
@@ -727,7 +727,7 @@ pub(crate) fn guardrail_converse_image_block_correct_errors(
         builder.format = "no value was set".parse::<super::types::GuardrailConverseImageFormat>().ok()
     }
     if builder.source.is_none() {
-        builder.source = Some(Default::default())
+        builder.source = Some(super::types::GuardrailConverseImageSource::Unknown)
     }
     builder
 }

@@ -33,7 +33,5 @@ pub(crate) fn de_access_denied_exception_json_err(
             "found more JSON tokens after completing parsing",
         ));
     }
-    Ok(super::super::serde_util::access_denied_exception_correct_errors(builder)
-        .build()
-        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
+    Ok(builder)
 }

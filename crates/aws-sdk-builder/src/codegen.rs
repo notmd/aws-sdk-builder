@@ -1515,6 +1515,21 @@ fn render_serde_util_correction(
                 )
                 .unwrap();
             }
+            "union" => {
+                writeln!(
+                    output,
+                    "        builder.{field} = Some(crate::types::{}::Unknown)",
+                    rust_type_name(terminal(target))
+                )
+                .unwrap();
+            }
+            "blob" => {
+                writeln!(
+                    output,
+                    "        builder.{field} = Some(::aws_smithy_types::Blob::new(\"\"))"
+                )
+                .unwrap();
+            }
             "timestamp" => {
                 writeln!(
                     output,
@@ -10220,15 +10235,10 @@ fn render_json_protocol_error_file(selected: &SelectedModel, shape_id: &str) -> 
         false,
     );
     output.push_str("    if tokens.next().is_some() {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"found more JSON tokens after completing parsing\",\n        ));\n    }\n");
-    if serde_util_shape_needs_correction(shape) {
-        writeln!(
-            output,
-            "    Ok(crate::serde_util::{module}_correct_errors(builder).build().map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom(\"missing field\"))?)\n}}\n"
-        )
-        .unwrap();
-    } else {
-        output.push_str("    Ok(builder)\n}\n");
-    }
+    // Error correction belongs to the operation error arm, after metadata and
+    // header bindings have been applied. The Smithy parser itself only fills
+    // the error builder and returns it to that caller.
+    output.push_str("    Ok(builder)\n}\n");
     render_protocol_error_header_parsers(&mut output, selected, shape, &module);
     output
 }
@@ -18111,6 +18121,54 @@ mod tests {
         assert!(operation.contains("_ => crate::operation::get::GetError::generic(generic)\n"));
         assert!(!operation.contains("_ => crate::operation::get::GetError::generic(generic),"));
         assert!(error.contains("pub(crate) fn de_retry_after_seconds_header("));
+        assert!(error.contains("    Ok(builder)\n}"));
+        assert!(!error.contains("too_many_correct_errors(builder)"));
+    }
+
+    #[test]
+    fn error_correction_uses_smithy_defaults_for_unions_and_blobs() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "example#Output"},
+                        "traits": {"smithy.api#http": {"method": "GET", "uri": "/", "code": 200}}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "choice": {"target": "example#Choice", "traits": {"smithy.api#required": {}}},
+                            "body": {"target": "smithy.api#Blob", "traits": {"smithy.api#required": {}}}
+                        },
+                        "traits": {"smithy.api#output": {}}
+                    },
+                    "example#Choice": {
+                        "type": "union",
+                        "members": {"value": {"target": "smithy.api#String"}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let serde_util = render_serde_util_file(&selected);
+
+        assert!(serde_util.contains("builder.choice = Some(crate::types::Choice::Unknown)"));
+        assert!(serde_util.contains("builder.body = Some(::aws_smithy_types::Blob::new(\"\"))"));
     }
 
     #[test]

@@ -40,9 +40,7 @@ pub(crate) fn de_throttling_exception_json_err(
             "found more JSON tokens after completing parsing",
         ));
     }
-    Ok(super::super::serde_util::throttling_exception_correct_errors(builder)
-        .build()
-        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
+    Ok(builder)
 }
 
 pub(crate) fn de_retry_after_seconds_header(

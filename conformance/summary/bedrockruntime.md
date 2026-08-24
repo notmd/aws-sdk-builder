@@ -1021,33 +1021,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/serde_util.rs
 +++ generated/src/serde_util.rs
-@@ -24,7 +24,7 @@
-     mut builder: super::operation::converse::builders::ConverseOutputBuilder,
- ) -> super::operation::converse::builders::ConverseOutputBuilder {
-     if builder.output.is_none() {
--        builder.output = Some(super::types::ConverseOutput::Unknown)
-+        builder.output = Some(Default::default())
-     }
-     if builder.stop_reason.is_none() {
-         builder.stop_reason = "no value was set".parse::<super::types::StopReason>().ok()
-@@ -69,7 +69,7 @@
-         builder.submit_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-     }
-     if builder.output_data_config.is_none() {
--        builder.output_data_config = Some(super::types::AsyncInvokeOutputDataConfig::Unknown)
-+        builder.output_data_config = Some(Default::default())
-     }
-     builder
- }
-@@ -96,7 +96,7 @@
-     mut builder: super::operation::invoke_model::builders::InvokeModelOutputBuilder,
- ) -> super::operation::invoke_model::builders::InvokeModelOutputBuilder {
-     if builder.body.is_none() {
--        builder.body = Some(::aws_smithy_types::Blob::new(""))
-+        builder.body = Some(Default::default())
-     }
-     if builder.content_type.is_none() {
-         builder.content_type = Some(Default::default())
 @@ -104,9 +104,21 @@
      builder
  }
@@ -1056,7 +1029,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    mut builder: super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
 +) -> super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
 +    if builder.body.is_none() {
-+        builder.body = Some(Default::default())
++        builder.body = Some(super::types::InvokeModelWithBidirectionalStreamOutput::Unknown)
 +    }
 +    builder
 +}
@@ -1065,38 +1038,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      mut builder: super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
  ) -> super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder {
 +    if builder.body.is_none() {
-+        builder.body = Some(Default::default())
++        builder.body = Some(super::types::ResponseStream::Unknown)
 +    }
      if builder.content_type.is_none() {
          builder.content_type = Some(Default::default())
      }
-@@ -197,11 +209,62 @@
-         builder.submit_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-     }
-     if builder.output_data_config.is_none() {
--        builder.output_data_config = Some(super::types::AsyncInvokeOutputDataConfig::Unknown)
-+        builder.output_data_config = Some(Default::default())
-+    }
-+    builder
-+}
-+
+@@ -202,6 +214,57 @@
+     builder
+ }
+
 +pub(crate) fn content_block_delta_event_correct_errors(
 +    mut builder: super::types::builders::ContentBlockDeltaEventBuilder,
 +) -> super::types::builders::ContentBlockDeltaEventBuilder {
 +    if builder.delta.is_none() {
-+        builder.delta = Some(Default::default())
++        builder.delta = Some(super::types::ContentBlockDelta::Unknown)
 +    }
 +    if builder.content_block_index.is_none() {
 +        builder.content_block_index = Some(Default::default())
-     }
-     builder
- }
-
++    }
++    builder
++}
++
 +pub(crate) fn content_block_start_event_correct_errors(
 +    mut builder: super::types::builders::ContentBlockStartEventBuilder,
 +) -> super::types::builders::ContentBlockStartEventBuilder {
 +    if builder.start.is_none() {
-+        builder.start = Some(Default::default())
++        builder.start = Some(super::types::ContentBlockStart::Unknown)
 +    }
 +    if builder.content_block_index.is_none() {
 +        builder.content_block_index = Some(Default::default())
@@ -1134,7 +1101,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn guardrail_checks_content_filter_result_correct_errors(
      mut builder: super::types::builders::GuardrailChecksContentFilterResultBuilder,
  ) -> super::types::builders::GuardrailChecksContentFilterResultBuilder {
-@@ -266,63 +329,39 @@
+@@ -266,64 +329,40 @@
      builder
  }
 
@@ -1204,20 +1171,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            let builder = super::types::builders::TokenUsageBuilder::default();
 -            super::serde_util::token_usage_correct_errors(builder).build().ok()
 -        }
--    }
--    if builder.metrics.is_none() {
--        builder.metrics = {
--            let builder = super::types::builders::ConverseStreamMetricsBuilder::default();
--            super::serde_util::converse_stream_metrics_correct_errors(builder).build().ok()
--        }
 +pub(crate) fn converse_stream_metrics_correct_errors(
 +    mut builder: super::types::builders::ConverseStreamMetricsBuilder,
 +) -> super::types::builders::ConverseStreamMetricsBuilder {
 +    if builder.latency_ms.is_none() {
 +        builder.latency_ms = Some(Default::default())
      }
+-    if builder.metrics.is_none() {
+-        builder.metrics = {
+-            let builder = super::types::builders::ConverseStreamMetricsBuilder::default();
+-            super::serde_util::converse_stream_metrics_correct_errors(builder).build().ok()
+-        }
+-    }
      builder
  }
+
 @@ -369,33 +408,6 @@
      builder
  }
@@ -1252,7 +1220,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn guardrail_checks_content_filter_result_entry_correct_errors(
      mut builder: super::types::builders::GuardrailChecksContentFilterResultEntryBuilder,
  ) -> super::types::builders::GuardrailChecksContentFilterResultEntryBuilder {
-@@ -446,12 +458,51 @@
+@@ -446,6 +458,45 @@
      builder
  }
 
@@ -1298,40 +1266,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn audio_block_correct_errors(mut builder: super::types::builders::AudioBlockBuilder) -> super::types::builders::AudioBlockBuilder {
      if builder.format.is_none() {
          builder.format = "no value was set".parse::<super::types::AudioFormat>().ok()
-     }
-     if builder.source.is_none() {
--        builder.source = Some(super::types::AudioSource::Unknown)
-+        builder.source = Some(Default::default())
-     }
+@@ -586,15 +637,6 @@
      builder
  }
-@@ -472,7 +523,7 @@
-         builder.name = Some(Default::default())
-     }
-     if builder.source.is_none() {
--        builder.source = Some(super::types::DocumentSource::Unknown)
-+        builder.source = Some(Default::default())
-     }
-     builder
- }
-@@ -581,16 +632,7 @@
-         builder.format = "no value was set".parse::<super::types::ImageFormat>().ok()
-     }
-     if builder.source.is_none() {
--        builder.source = Some(super::types::ImageSource::Unknown)
--    }
--    builder
--}
--
+
 -pub(crate) fn image_block_start_correct_errors(
 -    mut builder: super::types::builders::ImageBlockStartBuilder,
 -) -> super::types::builders::ImageBlockStartBuilder {
 -    if builder.format.is_none() {
 -        builder.format = "no value was set".parse::<super::types::ImageFormat>().ok()
-+        builder.source = Some(Default::default())
-     }
-     builder
- }
+-    }
+-    builder
+-}
+-
+ pub(crate) fn search_result_block_correct_errors(
+     mut builder: super::types::builders::SearchResultBlockBuilder,
+ ) -> super::types::builders::SearchResultBlockBuilder {
 @@ -646,15 +688,6 @@
      builder
  }
@@ -1348,7 +1298,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn tool_use_block_correct_errors(mut builder: super::types::builders::ToolUseBlockBuilder) -> super::types::builders::ToolUseBlockBuilder {
      if builder.tool_use_id.is_none() {
          builder.tool_use_id = Some(Default::default())
-@@ -668,33 +701,12 @@
+@@ -668,27 +701,6 @@
      builder
  }
 
@@ -1376,22 +1326,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn video_block_correct_errors(mut builder: super::types::builders::VideoBlockBuilder) -> super::types::builders::VideoBlockBuilder {
      if builder.format.is_none() {
          builder.format = "no value was set".parse::<super::types::VideoFormat>().ok()
-     }
-     if builder.source.is_none() {
--        builder.source = Some(super::types::VideoSource::Unknown)
-+        builder.source = Some(Default::default())
-     }
-     builder
- }
-@@ -715,7 +727,7 @@
-         builder.format = "no value was set".parse::<super::types::GuardrailConverseImageFormat>().ok()
-     }
-     if builder.source.is_none() {
--        builder.source = Some(super::types::GuardrailConverseImageSource::Unknown)
-+        builder.source = Some(Default::default())
-     }
-     builder
- }
 ```
 
 ### `src/types/_content_block_delta.rs`

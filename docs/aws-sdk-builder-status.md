@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy error-correction defaults
+- State: in progress
+- Changed: shared `serde_util` correction generation now uses Smithy-RS defaults for
+  required blob and union members: empty blobs use `Blob::new("")`, while unions use
+  their `Unknown` variant. The rule is model-driven and applies to operation outputs,
+  event-stream structures, and nested correction helpers; a focused regression covers
+  both target kinds.
+- Evidence: compared the pinned Smithy-RS `ErrorCorrection.kt` at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. `just conformance` regenerated
+  and formatted all `13,166` snapshot files without generated-source parse errors.
+  The generated Bedrock `serde_util.rs` now has the Smithy fallback expressions; its
+  remaining diff is limited to helper reachability/order and other independent gaps.
+  Workspace tests, clippy with `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `12,995/13,168` exact, `170` mismatches, `2` missing, and `1` extra
+  (`98.56%`) before and after this checkpoint; the semantic diff shrank although no
+  complete file crossed the exact-match boundary.
+- Blocker: broader protocol ordering, documentation, shape, and runtime parity gaps
+  remain; no blocker in this checkpoint.
+- Next action: align the remaining shared protocol helper ordering and dependency
+  ownership after committing this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Match Smithy modeled-error fallback arms
 - State: in progress
 - Changed: shared JSON and XML HTTP error dispatch now renders the modeled-error
