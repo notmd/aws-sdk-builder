@@ -10699,7 +10699,7 @@ fn render_json_serialize_value(
         .unwrap(),
         "blob" => writeln!(
             output,
-            "{prefix}{writer}.string_unchecked(&::aws_smithy_types::base64::encode({value_without_reference}));"
+            "{prefix}{writer}.string_unchecked(&::aws_smithy_types::base64::encode({value_ref}));"
         )
         .unwrap(),
         "list" => {
@@ -17737,6 +17737,53 @@ mod tests {
             ),
             Some("input.ratio != 1.5_f32".to_owned())
         );
+    }
+
+    #[test]
+    fn json_blob_serialization_borrows_input_fields() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#Input": {"type": "structure", "members": {}}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let mut rendered = String::new();
+        let mut state = JsonRenderState::default();
+        render_json_serialize_value(
+            &mut rendered,
+            &selected,
+            "body",
+            "smithy.api#Blob",
+            "object",
+            "input.body",
+            &mut state,
+            0,
+            &mut BTreeMap::new(),
+        );
+
+        assert!(rendered.contains("base64::encode(&input.body)"));
+        assert!(!rendered.contains("base64::encode(input.body)"));
     }
 
     #[test]

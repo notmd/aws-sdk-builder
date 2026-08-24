@@ -4,7 +4,7 @@ pub fn ser_invoke_model_tokens_request(
     input: &super::super::types::InvokeModelTokensRequest,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object.key("body").string_unchecked(&::aws_smithy_types::base64::encode(input.body));
+        object.key("body").string_unchecked(&::aws_smithy_types::base64::encode(&input.body));
     }
     Ok(())
 }

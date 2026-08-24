@@ -6,7 +6,7 @@ pub fn ser_attachment(
     {
         object
             .key("RawContent")
-            .string_unchecked(&::aws_smithy_types::base64::encode(input.raw_content));
+            .string_unchecked(&::aws_smithy_types::base64::encode(&input.raw_content));
     }
     if let Some(var_1) = &input.content_disposition {
         object.key("ContentDisposition").string(var_1.as_str());

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `514` matched · `22` mismatches · `0` missing · `0` extra · `95.90%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `515` matched · `21` mismatches · `0` missing · `0` extra · `96.08%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -484,22 +484,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -    Ok(builder)
 -}
-```
-
-### `src/protocol_serde/shape_invoke_model_tokens_request.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invoke_model_tokens_request.rs
-+++ generated/src/protocol_serde/shape_invoke_model_tokens_request.rs
-@@ -4,7 +4,7 @@
-     input: &super::super::types::InvokeModelTokensRequest,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-     {
--        object.key("body").string_unchecked(&::aws_smithy_types::base64::encode(&input.body));
-+        object.key("body").string_unchecked(&::aws_smithy_types::base64::encode(input.body));
-     }
-     Ok(())
- }
 ```
 
 ### `src/protocol_serde/shape_invoke_model_with_bidirectional_stream_input.rs`

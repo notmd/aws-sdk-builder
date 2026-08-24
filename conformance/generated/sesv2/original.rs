@@ -136238,7 +136238,7 @@ pub fn ser_raw_message(
     input: &super::super::types::RawMessage,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 {
-    object.key("Data").string_unchecked(&::aws_smithy_types::base64::encode(input.data));
+    object.key("Data").string_unchecked(&::aws_smithy_types::base64::encode(&input.data));
 }
     Ok(())
 }
@@ -137214,7 +137214,7 @@ pub fn ser_attachment(
     input: &super::super::types::Attachment,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 {
-    object.key("RawContent").string_unchecked(&::aws_smithy_types::base64::encode(input.raw_content));
+    object.key("RawContent").string_unchecked(&::aws_smithy_types::base64::encode(&input.raw_content));
 }
 if let Some(var_1) = &input.content_disposition {
     object.key("ContentDisposition").string(var_1.as_str());

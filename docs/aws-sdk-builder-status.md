@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match JSON blob serializer borrowing
+- State: in progress
+- Changed: shared JSON blob-member serialization now passes the model field reference
+  to `aws_smithy_types::base64::encode`, matching Smithy-RS's borrowed input-field
+  expression and preserving ownership for generated request serializers. The rule is
+  shared by all JSON structures and is not service-specific.
+- Evidence: compared the pinned Smithy-RS JSON serializer behavior at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; added and passed the focused blob
+  renderer regression. Workspace tests (61), Clippy with `-D warnings`, formatting,
+  and `git diff --check` pass. `just conformance` regenerated 15 services and 1,133
+  operations, formatted all 13,166 generated Rust files, and produced no parse errors.
+- Conformance: `13,028/13,168` exact, `137` mismatches, `2` missing, and `1` extra
+  (`98.74%`) -> `13,031/13,168` exact, `134` mismatches, `2` missing, and `1` extra
+  (`98.77%`). Bedrock Runtime improved from `514/22` to `515/21` mismatches; SESv2
+  improved from `1,144/14` to `1,146/12` mismatches.
+- Blocker: `just conformance` still exits 1 because broader Bedrock Runtime,
+  Lambda, SESv2, and shared protocol/shape parity gaps remain; no blocker in this
+  serializer ownership fix.
+- Next action: continue with the next narrowly evidenced generic JSON/protocol
+  mismatch in Bedrock Runtime.
+
 ### Checkpoint: 2026-08-25 — Match Smithy URI-label encoding
 - State: in progress
 - Changed: standalone HTTP URI-label serialization now classifies each label from its

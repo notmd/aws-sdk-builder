@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sesv2
-**Progress:** `1159/1159` files compared · `1144` matched · `14` mismatches · `1` missing · `0` extra · `98.71%` match (100.00% means fully matched)
+**Progress:** `1159/1159` files compared · `1146` matched · `12` mismatches · `1` missing · `0` extra · `98.88%` match (100.00% means fully matched)
 
 ### `src/config/auth.rs`
 
@@ -248,22 +248,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/protocol_serde/shape_attachment.rs`
-
-```diff
---- reference/src/protocol_serde/shape_attachment.rs
-+++ generated/src/protocol_serde/shape_attachment.rs
-@@ -6,7 +6,7 @@
-     {
-         object
-             .key("RawContent")
--            .string_unchecked(&::aws_smithy_types::base64::encode(&input.raw_content));
-+            .string_unchecked(&::aws_smithy_types::base64::encode(input.raw_content));
-     }
-     if let Some(var_1) = &input.content_disposition {
-         object.key("ContentDisposition").string(var_1.as_str());
-```
-
 ### `src/protocol_serde/shape_batch_get_metric_data_query.rs`
 
 ```diff
@@ -343,22 +327,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .key("EndDate")
 -            .date_time(&input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
 +            .date_time(input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-     }
-     Ok(())
- }
-```
-
-### `src/protocol_serde/shape_raw_message.rs`
-
-```diff
---- reference/src/protocol_serde/shape_raw_message.rs
-+++ generated/src/protocol_serde/shape_raw_message.rs
-@@ -4,7 +4,7 @@
-     input: &super::super::types::RawMessage,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-     {
--        object.key("Data").string_unchecked(&::aws_smithy_types::base64::encode(&input.data));
-+        object.key("Data").string_unchecked(&::aws_smithy_types::base64::encode(input.data));
      }
      Ok(())
  }
