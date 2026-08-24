@@ -4834,8 +4834,16 @@ fn operation_has_s3_expires_output(selected: &SelectedModel, operation: &Value) 
 struct StandaloneUriLabel {
     format_name: String,
     field: String,
-    variable: String,
     greedy: bool,
+    kind: StandaloneUriLabelKind,
+}
+
+#[derive(Clone, Copy, Debug)]
+enum StandaloneUriLabelKind {
+    String,
+    Enum,
+    Timestamp(&'static str),
+    Primitive,
 }
 
 fn service_endpoint_parameter_names(selected: &SelectedModel) -> BTreeSet<String> {
@@ -4899,14 +4907,23 @@ fn standalone_uri_labels(
         if !is_label {
             rendered_path.push_str(segment);
         } else if !omit {
-            let (name, _) =
+            let (name, member) =
                 member.unwrap_or_else(|| panic!("HTTP label `{label_name}` has no input member"));
             let field = names::rust_identifier(&name);
+            let target = member_target(member).unwrap_or("smithy.api#String");
+            let kind = match protocol_shape_kind(selected, target) {
+                "enum" => StandaloneUriLabelKind::Enum,
+                "string" => StandaloneUriLabelKind::String,
+                "timestamp" => StandaloneUriLabelKind::Timestamp(
+                    standalone_label_timestamp_format(selected, member, target),
+                ),
+                _ => StandaloneUriLabelKind::Primitive,
+            };
             labels.push(StandaloneUriLabel {
                 format_name: label_name.to_owned(),
                 field: field.clone(),
-                variable: field,
                 greedy,
+                kind,
             });
             rendered_path.push('{');
             rendered_path.push_str(label_name);
@@ -4922,25 +4939,54 @@ fn standalone_uri_labels(
 fn standalone_uri_label_body(path: &str, labels: &[StandaloneUriLabel]) -> String {
     let mut body = String::new();
     for (index, label) in labels.iter().enumerate() {
+        let input = format!("input_{}", index + 1);
+        let formatted = format!("formatted_{}", index + 1);
         writeln!(
             body,
-            "                let input_{} = &_input.{};\n                let input_{} = input_{}.as_ref().ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field(\"{}\", \"cannot be empty or unset\"))?;\n                let {} = ::aws_smithy_http::label::fmt_string(input_{}, ::aws_smithy_http::label::EncodingStrategy::{});\n                if {}.is_empty() {{\n                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(\n                        \"{}\",\n                        \"cannot be empty or unset\",\n                    ));\n                }}",
-            index + 1,
-            label.field,
-            index + 1,
-            index + 1,
-            label.field,
-            label.variable,
-            index + 1,
-            if label.greedy { "Greedy" } else { "Default" },
-            label.variable,
+            "                let {input} = &_input.{};\n                let {input} = {input}.as_ref().ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field(\"{}\", \"cannot be empty or unset\"))?;",
+            label.field, label.field,
+        )
+        .unwrap();
+        match label.kind {
+            StandaloneUriLabelKind::String | StandaloneUriLabelKind::Enum => {
+                let value = if matches!(label.kind, StandaloneUriLabelKind::Enum) {
+                    format!("{input}.as_str()")
+                } else {
+                    input.clone()
+                };
+                writeln!(
+                    body,
+                    "                let {formatted} = ::aws_smithy_http::label::fmt_string({value}, ::aws_smithy_http::label::EncodingStrategy::{});",
+                    if label.greedy { "Greedy" } else { "Default" },
+                )
+                .unwrap();
+            }
+            StandaloneUriLabelKind::Timestamp(format) => {
+                writeln!(
+                    body,
+                    "                let {formatted} = ::aws_smithy_http::label::fmt_timestamp({input}, ::aws_smithy_types::date_time::Format::{format})?;",
+                )
+                .unwrap();
+            }
+            StandaloneUriLabelKind::Primitive => {
+                writeln!(
+                    body,
+                    "                let mut {formatted}_encoder = ::aws_smithy_types::primitive::Encoder::from(*{input});\n                let {formatted} = {formatted}_encoder.encode();",
+                )
+                .unwrap();
+            }
+        }
+        writeln!(
+            body,
+            "                if {formatted}.is_empty() {{\n                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(\n                        \"{}\",\n                        \"cannot be empty or unset\",\n                    ));\n                }}",
             label.field,
         )
         .unwrap();
     }
     let arguments = labels
         .iter()
-        .map(|label| format!("{} = {}", label.format_name, label.variable))
+        .enumerate()
+        .map(|(index, label)| format!("{} = formatted_{}", label.format_name, index + 1))
         .collect::<Vec<_>>();
     if arguments.is_empty() {
         writeln!(
@@ -4957,6 +5003,32 @@ fn standalone_uri_label_body(path: &str, labels: &[StandaloneUriLabel]) -> Strin
         .unwrap();
     }
     body
+}
+
+fn standalone_label_timestamp_format(
+    selected: &SelectedModel,
+    member: &Value,
+    target: &str,
+) -> &'static str {
+    let format = member
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.api#timestampFormat"))
+        .and_then(Value::as_str)
+        .or_else(|| {
+            selected
+                .model
+                .shapes
+                .get(target)
+                .and_then(|shape| shape.get("traits"))
+                .and_then(|traits| traits.get("smithy.api#timestampFormat"))
+                .and_then(Value::as_str)
+        });
+    match format {
+        Some("date-time") => "DateTimeWithOffset",
+        Some("epoch-seconds") => "EpochSeconds",
+        Some("http-date") | None => "HttpDate",
+        Some(_) => "HttpDate",
+    }
 }
 
 fn standalone_request_body(
