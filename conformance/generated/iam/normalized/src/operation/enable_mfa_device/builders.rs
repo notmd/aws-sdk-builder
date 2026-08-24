@@ -11,7 +11,7 @@ impl super::super::super::operation::enable_mfa_device::builders::EnableMfaDevic
     ) -> ::std::result::Result<
         super::super::super::operation::enable_mfa_device::EnableMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::enable_mfa_device::EnableMfaDeviceError,
+            super::super::super::operation::enable_mfa_device::EnableMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,11 +20,11 @@ impl super::super::super::operation::enable_mfa_device::builders::EnableMfaDevic
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `EnableMfaDevice`.
+/// Fluent builder constructing a request to `EnableMFADevice`.
 ///
 /// <p>Enables the specified MFA device and associates it with the specified IAM user. When enabled, the MFA device is required for every subsequent login by the IAM user associated with the device.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct EnableMfaDeviceFluentBuilder {
+pub struct EnableMFADeviceFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::enable_mfa_device::builders::EnableMfaDeviceInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -32,8 +32,8 @@ pub struct EnableMfaDeviceFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::enable_mfa_device::EnableMfaDeviceOutput,
-        super::super::super::operation::enable_mfa_device::EnableMfaDeviceError,
-    > for EnableMfaDeviceFluentBuilder
+        super::super::super::operation::enable_mfa_device::EnableMFADeviceError,
+    > for EnableMFADeviceFluentBuilder
 {
     fn send(
         self,
@@ -41,14 +41,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::enable_mfa_device::EnableMfaDeviceOutput,
-            super::super::super::operation::enable_mfa_device::EnableMfaDeviceError,
+            super::super::super::operation::enable_mfa_device::EnableMFADeviceError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl EnableMfaDeviceFluentBuilder {
-    /// Creates a new `EnableMfaDeviceFluentBuilder`.
+impl EnableMFADeviceFluentBuilder {
+    /// Creates a new `EnableMFADeviceFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -56,7 +56,7 @@ impl EnableMfaDeviceFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the EnableMfaDevice as a reference.
+    /// Access the EnableMFADevice as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::enable_mfa_device::builders::EnableMfaDeviceInputBuilder {
         &self.inner
     }
@@ -73,7 +73,7 @@ impl EnableMfaDeviceFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::enable_mfa_device::EnableMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::enable_mfa_device::EnableMfaDeviceError,
+            super::super::super::operation::enable_mfa_device::EnableMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -81,12 +81,12 @@ impl EnableMfaDeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::enable_mfa_device::EnableMfaDevice::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::enable_mfa_device::EnableMFADevice::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::enable_mfa_device::EnableMfaDevice::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::enable_mfa_device::EnableMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -94,7 +94,7 @@ impl EnableMfaDeviceFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::enable_mfa_device::EnableMfaDeviceOutput,
-        super::super::super::operation::enable_mfa_device::EnableMfaDeviceError,
+        super::super::super::operation::enable_mfa_device::EnableMFADeviceError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

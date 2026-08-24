@@ -11,7 +11,7 @@ impl super::super::super::operation::list_mfa_devices::builders::ListMfaDevicesI
     ) -> ::std::result::Result<
         super::super::super::operation::list_mfa_devices::ListMfaDevicesOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_mfa_devices::ListMfaDevicesError,
+            super::super::super::operation::list_mfa_devices::ListMFADevicesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::list_mfa_devices::builders::ListMfaDevicesI
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `ListMfaDevices`.
+/// Fluent builder constructing a request to `ListMFADevices`.
 ///
 /// <p>Lists the MFA devices for an IAM user. If the request includes a IAM user name, then this operation lists all the MFA devices associated with the specified user. If you do not specify a user name, IAM determines the user name implicitly based on the Amazon Web Services access key ID signing the request for this operation.</p>
 /// <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct ListMfaDevicesFluentBuilder {
+pub struct ListMFADevicesFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::list_mfa_devices::builders::ListMfaDevicesInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct ListMfaDevicesFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::list_mfa_devices::ListMfaDevicesOutput,
-        super::super::super::operation::list_mfa_devices::ListMfaDevicesError,
-    > for ListMfaDevicesFluentBuilder
+        super::super::super::operation::list_mfa_devices::ListMFADevicesError,
+    > for ListMFADevicesFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::list_mfa_devices::ListMfaDevicesOutput,
-            super::super::super::operation::list_mfa_devices::ListMfaDevicesError,
+            super::super::super::operation::list_mfa_devices::ListMFADevicesError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl ListMfaDevicesFluentBuilder {
-    /// Creates a new `ListMfaDevicesFluentBuilder`.
+impl ListMFADevicesFluentBuilder {
+    /// Creates a new `ListMFADevicesFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl ListMfaDevicesFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the ListMfaDevices as a reference.
+    /// Access the ListMFADevices as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::list_mfa_devices::builders::ListMfaDevicesInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl ListMfaDevicesFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::list_mfa_devices::ListMfaDevicesOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_mfa_devices::ListMfaDevicesError,
+            super::super::super::operation::list_mfa_devices::ListMFADevicesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl ListMfaDevicesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::list_mfa_devices::ListMfaDevices::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::list_mfa_devices::ListMFADevices::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::list_mfa_devices::ListMfaDevices::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::list_mfa_devices::ListMFADevices::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl ListMfaDevicesFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::list_mfa_devices::ListMfaDevicesOutput,
-        super::super::super::operation::list_mfa_devices::ListMfaDevicesError,
+        super::super::super::operation::list_mfa_devices::ListMFADevicesError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)
@@ -111,9 +111,9 @@ impl ListMfaDevicesFluentBuilder {
     }
     /// Create a paginator for this request
     ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_mfa_devices::paginator::ListMfaDevicesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::list_mfa_devices::paginator::ListMfaDevicesPaginator {
-        super::super::super::operation::list_mfa_devices::paginator::ListMfaDevicesPaginator::new(self.handle, self.inner)
+    /// Paginators are used by calling [`send().await`](crate::operation::list_mfa_devices::paginator::ListMFADevicesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> super::super::super::operation::list_mfa_devices::paginator::ListMFADevicesPaginator {
+        super::super::super::operation::list_mfa_devices::paginator::ListMFADevicesPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the user whose MFA devices you want to list.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

@@ -4,20 +4,20 @@ pub fn de_tag_saml_provider_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::tag_saml_provider::TagSamlProviderOutput, super::super::operation::tag_saml_provider::TagSamlProviderError> {
+) -> std::result::Result<super::super::operation::tag_saml_provider::TagSamlProviderOutput, super::super::operation::tag_saml_provider::TagSAMLProviderError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+        .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled(generic)),
+        None => return Err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConcurrentModification" => super::super::operation::tag_saml_provider::TagSamlProviderError::ConcurrentModificationException({
+        "ConcurrentModification" => super::super::operation::tag_saml_provider::TagSAMLProviderError::ConcurrentModificationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -26,7 +26,7 @@ pub fn de_tag_saml_provider_http_error(
                     _response_body,
                     output,
                 )
-                .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+                .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_tag_saml_provider_http_error(
             }
             tmp
         }),
-        "InvalidInput" => super::super::operation::tag_saml_provider::TagSamlProviderError::InvalidInputException({
+        "InvalidInput" => super::super::operation::tag_saml_provider::TagSAMLProviderError::InvalidInputException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+                    .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_tag_saml_provider_http_error(
             }
             tmp
         }),
-        "LimitExceeded" => super::super::operation::tag_saml_provider::TagSamlProviderError::LimitExceededException({
+        "LimitExceeded" => super::super::operation::tag_saml_provider::TagSAMLProviderError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+                    .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,13 +65,13 @@ pub fn de_tag_saml_provider_http_error(
             }
             tmp
         }),
-        "NoSuchEntity" => super::super::operation::tag_saml_provider::TagSamlProviderError::NoSuchEntityException({
+        "NoSuchEntity" => super::super::operation::tag_saml_provider::TagSAMLProviderError::NoSuchEntityException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+                    .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,13 +80,13 @@ pub fn de_tag_saml_provider_http_error(
             }
             tmp
         }),
-        "ServiceFailure" => super::super::operation::tag_saml_provider::TagSamlProviderError::ServiceFailureException({
+        "ServiceFailure" => super::super::operation::tag_saml_provider::TagSAMLProviderError::ServiceFailureException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+                    .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -95,7 +95,7 @@ pub fn de_tag_saml_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_saml_provider::TagSamlProviderError::generic(generic),
+        _ => super::super::operation::tag_saml_provider::TagSAMLProviderError::generic(generic),
     })
 }
 
@@ -104,7 +104,7 @@ pub fn de_tag_saml_provider_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::tag_saml_provider::TagSamlProviderOutput, super::super::operation::tag_saml_provider::TagSamlProviderError> {
+) -> std::result::Result<super::super::operation::tag_saml_provider::TagSamlProviderOutput, super::super::operation::tag_saml_provider::TagSAMLProviderError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::tag_saml_provider::builders::TagSamlProviderOutputBuilder::default();

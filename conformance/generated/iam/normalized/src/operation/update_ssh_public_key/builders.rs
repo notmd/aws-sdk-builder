@@ -11,7 +11,7 @@ impl super::super::super::operation::update_ssh_public_key::builders::UpdateSshP
     ) -> ::std::result::Result<
         super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+            super::super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::update_ssh_public_key::builders::UpdateSshP
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `UpdateSshPublicKey`.
+/// Fluent builder constructing a request to `UpdateSSHPublicKey`.
 ///
 /// <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public keys that are inactive cannot be used for authentication. This operation can be used to disable a user's SSH public key as part of a key rotation work flow.</p>
 /// <p>The SSH public key affected by this operation is used only for authenticating the associated IAM user to an CodeCommit repository. For more information about using SSH keys to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct UpdateSshPublicKeyFluentBuilder {
+pub struct UpdateSSHPublicKeyFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct UpdateSshPublicKeyFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
-        super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
-    > for UpdateSshPublicKeyFluentBuilder
+        super::super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
+    > for UpdateSSHPublicKeyFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
-            super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+            super::super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl UpdateSshPublicKeyFluentBuilder {
-    /// Creates a new `UpdateSshPublicKeyFluentBuilder`.
+impl UpdateSSHPublicKeyFluentBuilder {
+    /// Creates a new `UpdateSSHPublicKeyFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl UpdateSshPublicKeyFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the UpdateSshPublicKey as a reference.
+    /// Access the UpdateSSHPublicKey as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl UpdateSshPublicKeyFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+            super::super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl UpdateSshPublicKeyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::update_ssh_public_key::UpdateSshPublicKey::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::update_ssh_public_key::UpdateSSHPublicKey::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::update_ssh_public_key::UpdateSshPublicKey::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::update_ssh_public_key::UpdateSSHPublicKey::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl UpdateSshPublicKeyFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
-        super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+        super::super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

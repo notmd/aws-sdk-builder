@@ -11,7 +11,7 @@ impl super::super::super::operation::tag_open_id_connect_provider::builders::Tag
     ) -> ::std::result::Result<
         super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
+            super::super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,7 +20,7 @@ impl super::super::super::operation::tag_open_id_connect_provider::builders::Tag
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `TagOpenIdConnectProvider`.
+/// Fluent builder constructing a request to `TagOpenIDConnectProvider`.
 ///
 /// <p>Adds one or more tags to an OpenID Connect (OIDC)-compatible identity provider. For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>. If a tag with the same key name already exists, then that tag is overwritten with the new value.</p>
 /// <p>A tag consists of a key name and an associated value. By assigning tags to your resources, you can do the following:</p>
@@ -38,7 +38,7 @@ impl super::super::super::operation::tag_open_id_connect_provider::builders::Tag
 /// </ul>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct TagOpenIdConnectProviderFluentBuilder {
+pub struct TagOpenIDConnectProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::tag_open_id_connect_provider::builders::TagOpenIdConnectProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -46,8 +46,8 @@ pub struct TagOpenIdConnectProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
-        super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
-    > for TagOpenIdConnectProviderFluentBuilder
+        super::super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
+    > for TagOpenIDConnectProviderFluentBuilder
 {
     fn send(
         self,
@@ -55,14 +55,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
-            super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
+            super::super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl TagOpenIdConnectProviderFluentBuilder {
-    /// Creates a new `TagOpenIdConnectProviderFluentBuilder`.
+impl TagOpenIDConnectProviderFluentBuilder {
+    /// Creates a new `TagOpenIDConnectProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -70,7 +70,7 @@ impl TagOpenIdConnectProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the TagOpenIdConnectProvider as a reference.
+    /// Access the TagOpenIDConnectProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::tag_open_id_connect_provider::builders::TagOpenIdConnectProviderInputBuilder {
         &self.inner
     }
@@ -87,7 +87,7 @@ impl TagOpenIdConnectProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
+            super::super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -95,12 +95,12 @@ impl TagOpenIdConnectProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProvider::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProvider::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -108,7 +108,7 @@ impl TagOpenIdConnectProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
-        super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
+        super::super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

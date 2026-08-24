@@ -11,7 +11,7 @@ impl super::super::super::operation::upload_ssh_public_key::builders::UploadSshP
     ) -> ::std::result::Result<
         super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+            super::super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::upload_ssh_public_key::builders::UploadSshP
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `UploadSshPublicKey`.
+/// Fluent builder constructing a request to `UploadSSHPublicKey`.
 ///
 /// <p>Uploads an SSH public key and associates it with the specified IAM user.</p>
 /// <p>The SSH public key uploaded by this operation can be used only for authenticating the associated IAM user to an CodeCommit repository. For more information about using SSH keys to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct UploadSshPublicKeyFluentBuilder {
+pub struct UploadSSHPublicKeyFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct UploadSshPublicKeyFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
-        super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
-    > for UploadSshPublicKeyFluentBuilder
+        super::super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
+    > for UploadSSHPublicKeyFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
-            super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+            super::super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl UploadSshPublicKeyFluentBuilder {
-    /// Creates a new `UploadSshPublicKeyFluentBuilder`.
+impl UploadSSHPublicKeyFluentBuilder {
+    /// Creates a new `UploadSSHPublicKeyFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl UploadSshPublicKeyFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the UploadSshPublicKey as a reference.
+    /// Access the UploadSSHPublicKey as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl UploadSshPublicKeyFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+            super::super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl UploadSshPublicKeyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::upload_ssh_public_key::UploadSshPublicKey::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::upload_ssh_public_key::UploadSSHPublicKey::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::upload_ssh_public_key::UploadSshPublicKey::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::upload_ssh_public_key::UploadSSHPublicKey::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl UploadSshPublicKeyFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
-        super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+        super::super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

@@ -11,7 +11,7 @@ impl super::super::super::operation::list_saml_provider_tags::builders::ListSaml
     ) -> ::std::result::Result<
         super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+            super::super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::list_saml_provider_tags::builders::ListSaml
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `ListSamlProviderTags`.
+/// Fluent builder constructing a request to `ListSAMLProviderTags`.
 ///
 /// <p>Lists the tags that are attached to the specified Security Assertion Markup Language (SAML) identity provider. The returned list of tags is sorted by tag key. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based federation</a>.</p>
 /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct ListSamlProviderTagsFluentBuilder {
+pub struct ListSAMLProviderTagsFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::list_saml_provider_tags::builders::ListSamlProviderTagsInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct ListSamlProviderTagsFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
-        super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
-    > for ListSamlProviderTagsFluentBuilder
+        super::super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
+    > for ListSAMLProviderTagsFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
-            super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+            super::super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl ListSamlProviderTagsFluentBuilder {
-    /// Creates a new `ListSamlProviderTagsFluentBuilder`.
+impl ListSAMLProviderTagsFluentBuilder {
+    /// Creates a new `ListSAMLProviderTagsFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl ListSamlProviderTagsFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the ListSamlProviderTags as a reference.
+    /// Access the ListSAMLProviderTags as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::list_saml_provider_tags::builders::ListSamlProviderTagsInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl ListSamlProviderTagsFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+            super::super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl ListSamlProviderTagsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::list_saml_provider_tags::ListSamlProviderTags::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::list_saml_provider_tags::ListSAMLProviderTags::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::list_saml_provider_tags::ListSamlProviderTags::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::list_saml_provider_tags::ListSAMLProviderTags::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl ListSamlProviderTagsFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
-        super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+        super::super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)
@@ -111,9 +111,9 @@ impl ListSamlProviderTagsFluentBuilder {
     }
     /// Create a paginator for this request
     ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_saml_provider_tags::paginator::ListSamlProviderTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::list_saml_provider_tags::paginator::ListSamlProviderTagsPaginator {
-        super::super::super::operation::list_saml_provider_tags::paginator::ListSamlProviderTagsPaginator::new(self.handle, self.inner)
+    /// Paginators are used by calling [`send().await`](crate::operation::list_saml_provider_tags::paginator::ListSAMLProviderTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> super::super::super::operation::list_saml_provider_tags::paginator::ListSAMLProviderTagsPaginator {
+        super::super::super::operation::list_saml_provider_tags::paginator::ListSAMLProviderTagsPaginator::new(self.handle, self.inner)
     }
     /// <p>The ARN of the Security Assertion Markup Language (SAML) identity provider whose tags you want to see.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

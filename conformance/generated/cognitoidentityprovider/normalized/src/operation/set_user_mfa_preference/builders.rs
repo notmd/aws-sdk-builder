@@ -11,7 +11,7 @@ impl super::super::super::operation::set_user_mfa_preference::builders::SetUserM
     ) -> ::std::result::Result<
         super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceError,
+            super::super::super::operation::set_user_mfa_preference::SetUserMFAPreferenceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,14 +20,14 @@ impl super::super::super::operation::set_user_mfa_preference::builders::SetUserM
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `SetUserMfaPreference`.
+/// Fluent builder constructing a request to `SetUserMFAPreference`.
 ///
 /// <p>Set the user's multi-factor authentication (MFA) method preference, including which MFA factors are activated and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are activated. If multiple options are activated and no preference is set, a challenge to choose an MFA option will be returned during sign-in. If an MFA type is activated for a user, the user will be prompted for MFA during all sign-in attempts unless device tracking is turned on and the device has been trusted. If you want MFA to be applied selectively based on the assessed risk level of sign-in attempts, deactivate MFA for users and turn on Adaptive Authentication for the user pool.</p>
 /// <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p><note>
 /// <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct SetUserMfaPreferenceFluentBuilder {
+pub struct SetUserMFAPreferenceFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::set_user_mfa_preference::builders::SetUserMfaPreferenceInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -35,8 +35,8 @@ pub struct SetUserMfaPreferenceFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput,
-        super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceError,
-    > for SetUserMfaPreferenceFluentBuilder
+        super::super::super::operation::set_user_mfa_preference::SetUserMFAPreferenceError,
+    > for SetUserMFAPreferenceFluentBuilder
 {
     fn send(
         self,
@@ -44,14 +44,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput,
-            super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceError,
+            super::super::super::operation::set_user_mfa_preference::SetUserMFAPreferenceError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl SetUserMfaPreferenceFluentBuilder {
-    /// Creates a new `SetUserMfaPreferenceFluentBuilder`.
+impl SetUserMFAPreferenceFluentBuilder {
+    /// Creates a new `SetUserMFAPreferenceFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -59,7 +59,7 @@ impl SetUserMfaPreferenceFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the SetUserMfaPreference as a reference.
+    /// Access the SetUserMFAPreference as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::set_user_mfa_preference::builders::SetUserMfaPreferenceInputBuilder {
         &self.inner
     }
@@ -76,7 +76,7 @@ impl SetUserMfaPreferenceFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceError,
+            super::super::super::operation::set_user_mfa_preference::SetUserMFAPreferenceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -84,12 +84,12 @@ impl SetUserMfaPreferenceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::set_user_mfa_preference::SetUserMfaPreference::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::set_user_mfa_preference::SetUserMFAPreference::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::set_user_mfa_preference::SetUserMfaPreference::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::set_user_mfa_preference::SetUserMFAPreference::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +97,7 @@ impl SetUserMfaPreferenceFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput,
-        super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceError,
+        super::super::super::operation::set_user_mfa_preference::SetUserMFAPreferenceError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

@@ -11,7 +11,7 @@ impl super::super::super::operation::admin_set_user_mfa_preference::builders::Ad
     ) -> ::std::result::Result<
         super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError,
+            super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,7 +20,7 @@ impl super::super::super::operation::admin_set_user_mfa_preference::builders::Ad
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `AdminSetUserMfaPreference`.
+/// Fluent builder constructing a request to `AdminSetUserMFAPreference`.
 ///
 /// <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA options are activated, and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are activated. If multiple options are activated and no preference is set, a challenge to choose an MFA option will be returned during sign-in.</p><note>
 /// <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p>
@@ -33,7 +33,7 @@ impl super::super::super::operation::admin_set_user_mfa_preference::builders::Ad
 /// </ul>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct AdminSetUserMfaPreferenceFluentBuilder {
+pub struct AdminSetUserMFAPreferenceFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -41,8 +41,8 @@ pub struct AdminSetUserMfaPreferenceFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
-        super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError,
-    > for AdminSetUserMfaPreferenceFluentBuilder
+        super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
+    > for AdminSetUserMFAPreferenceFluentBuilder
 {
     fn send(
         self,
@@ -50,14 +50,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
-            super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError,
+            super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl AdminSetUserMfaPreferenceFluentBuilder {
-    /// Creates a new `AdminSetUserMfaPreferenceFluentBuilder`.
+impl AdminSetUserMFAPreferenceFluentBuilder {
+    /// Creates a new `AdminSetUserMFAPreferenceFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -65,7 +65,7 @@ impl AdminSetUserMfaPreferenceFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the AdminSetUserMfaPreference as a reference.
+    /// Access the AdminSetUserMFAPreference as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceInputBuilder {
         &self.inner
     }
@@ -82,7 +82,7 @@ impl AdminSetUserMfaPreferenceFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError,
+            super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -90,12 +90,12 @@ impl AdminSetUserMfaPreferenceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreference::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreference::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreference::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreference::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -103,7 +103,7 @@ impl AdminSetUserMfaPreferenceFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
-        super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError,
+        super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

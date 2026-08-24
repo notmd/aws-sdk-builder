@@ -11,7 +11,7 @@ impl super::super::super::operation::get_csv_header::builders::GetCsvHeaderInput
     ) -> ::std::result::Result<
         super::super::super::operation::get_csv_header::GetCsvHeaderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_csv_header::GetCsvHeaderError,
+            super::super::super::operation::get_csv_header::GetCSVHeaderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,7 +20,7 @@ impl super::super::super::operation::get_csv_header::builders::GetCsvHeaderInput
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `GetCsvHeader`.
+/// Fluent builder constructing a request to `GetCSVHeader`.
 ///
 /// <p>Given a user pool ID, generates a comma-separated value (CSV) list populated with available user attributes in the user pool. This list is the header for the CSV file that determines the users in a user import job. Save the content of <code>CSVHeader</code> in the response as a <code>.csv</code> file and populate it with the usernames and attributes of users that you want to import. For more information about CSV user import, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing users from a CSV file</a>.</p><note>
 /// <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p>
@@ -33,7 +33,7 @@ impl super::super::super::operation::get_csv_header::builders::GetCsvHeaderInput
 /// </ul>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct GetCsvHeaderFluentBuilder {
+pub struct GetCSVHeaderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::get_csv_header::builders::GetCsvHeaderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -41,8 +41,8 @@ pub struct GetCsvHeaderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::get_csv_header::GetCsvHeaderOutput,
-        super::super::super::operation::get_csv_header::GetCsvHeaderError,
-    > for GetCsvHeaderFluentBuilder
+        super::super::super::operation::get_csv_header::GetCSVHeaderError,
+    > for GetCSVHeaderFluentBuilder
 {
     fn send(
         self,
@@ -50,14 +50,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::get_csv_header::GetCsvHeaderOutput,
-            super::super::super::operation::get_csv_header::GetCsvHeaderError,
+            super::super::super::operation::get_csv_header::GetCSVHeaderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl GetCsvHeaderFluentBuilder {
-    /// Creates a new `GetCsvHeaderFluentBuilder`.
+impl GetCSVHeaderFluentBuilder {
+    /// Creates a new `GetCSVHeaderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -65,7 +65,7 @@ impl GetCsvHeaderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the GetCsvHeader as a reference.
+    /// Access the GetCSVHeader as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::get_csv_header::builders::GetCsvHeaderInputBuilder {
         &self.inner
     }
@@ -82,7 +82,7 @@ impl GetCsvHeaderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::get_csv_header::GetCsvHeaderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_csv_header::GetCsvHeaderError,
+            super::super::super::operation::get_csv_header::GetCSVHeaderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -90,12 +90,12 @@ impl GetCsvHeaderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::get_csv_header::GetCsvHeader::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::get_csv_header::GetCSVHeader::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::get_csv_header::GetCsvHeader::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::get_csv_header::GetCSVHeader::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -103,7 +103,7 @@ impl GetCsvHeaderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::get_csv_header::GetCsvHeaderOutput,
-        super::super::super::operation::get_csv_header::GetCsvHeaderError,
+        super::super::super::operation::get_csv_header::GetCSVHeaderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

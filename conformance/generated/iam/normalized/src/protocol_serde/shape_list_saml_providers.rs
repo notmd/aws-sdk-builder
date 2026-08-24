@@ -4,27 +4,27 @@ pub fn de_list_saml_providers_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::list_saml_providers::ListSamlProvidersOutput, super::super::operation::list_saml_providers::ListSamlProvidersError>
+) -> std::result::Result<super::super::operation::list_saml_providers::ListSamlProvidersOutput, super::super::operation::list_saml_providers::ListSAMLProvidersError>
 {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::list_saml_providers::ListSamlProvidersError::unhandled)?;
+        .map_err(super::super::operation::list_saml_providers::ListSAMLProvidersError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::list_saml_providers::ListSamlProvidersError::unhandled(generic)),
+        None => return Err(super::super::operation::list_saml_providers::ListSAMLProvidersError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ServiceFailure" => super::super::operation::list_saml_providers::ListSamlProvidersError::ServiceFailureException({
+        "ServiceFailure" => super::super::operation::list_saml_providers::ListSAMLProvidersError::ServiceFailureException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::list_saml_providers::ListSamlProvidersError::unhandled)?;
+                    .map_err(super::super::operation::list_saml_providers::ListSAMLProvidersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -33,7 +33,7 @@ pub fn de_list_saml_providers_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_saml_providers::ListSamlProvidersError::generic(generic),
+        _ => super::super::operation::list_saml_providers::ListSAMLProvidersError::generic(generic),
     })
 }
 
@@ -42,13 +42,13 @@ pub fn de_list_saml_providers_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::list_saml_providers::ListSamlProvidersOutput, super::super::operation::list_saml_providers::ListSamlProvidersError>
+) -> std::result::Result<super::super::operation::list_saml_providers::ListSamlProvidersOutput, super::super::operation::list_saml_providers::ListSAMLProvidersError>
 {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::list_saml_providers::builders::ListSamlProvidersOutputBuilder::default();
         output = super::super::protocol_serde::shape_list_saml_providers::de_list_saml_providers(_response_body, output)
-            .map_err(super::super::operation::list_saml_providers::ListSamlProvidersError::unhandled)?;
+            .map_err(super::super::operation::list_saml_providers::ListSAMLProvidersError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

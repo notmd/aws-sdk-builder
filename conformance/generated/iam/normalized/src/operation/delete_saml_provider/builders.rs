@@ -11,7 +11,7 @@ impl super::super::super::operation::delete_saml_provider::builders::DeleteSamlP
     ) -> ::std::result::Result<
         super::super::super::operation::delete_saml_provider::DeleteSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::delete_saml_provider::DeleteSamlProviderError,
+            super::super::super::operation::delete_saml_provider::DeleteSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,14 +20,14 @@ impl super::super::super::operation::delete_saml_provider::builders::DeleteSamlP
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `DeleteSamlProvider`.
+/// Fluent builder constructing a request to `DeleteSAMLProvider`.
 ///
 /// <p>Deletes a SAML provider resource in IAM.</p>
 /// <p>Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource's ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.</p><note>
 /// <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct DeleteSamlProviderFluentBuilder {
+pub struct DeleteSAMLProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::delete_saml_provider::builders::DeleteSamlProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -35,8 +35,8 @@ pub struct DeleteSamlProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::delete_saml_provider::DeleteSamlProviderOutput,
-        super::super::super::operation::delete_saml_provider::DeleteSamlProviderError,
-    > for DeleteSamlProviderFluentBuilder
+        super::super::super::operation::delete_saml_provider::DeleteSAMLProviderError,
+    > for DeleteSAMLProviderFluentBuilder
 {
     fn send(
         self,
@@ -44,14 +44,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::delete_saml_provider::DeleteSamlProviderOutput,
-            super::super::super::operation::delete_saml_provider::DeleteSamlProviderError,
+            super::super::super::operation::delete_saml_provider::DeleteSAMLProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl DeleteSamlProviderFluentBuilder {
-    /// Creates a new `DeleteSamlProviderFluentBuilder`.
+impl DeleteSAMLProviderFluentBuilder {
+    /// Creates a new `DeleteSAMLProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -59,7 +59,7 @@ impl DeleteSamlProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the DeleteSamlProvider as a reference.
+    /// Access the DeleteSAMLProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::delete_saml_provider::builders::DeleteSamlProviderInputBuilder {
         &self.inner
     }
@@ -76,7 +76,7 @@ impl DeleteSamlProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::delete_saml_provider::DeleteSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::delete_saml_provider::DeleteSamlProviderError,
+            super::super::super::operation::delete_saml_provider::DeleteSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -84,12 +84,12 @@ impl DeleteSamlProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::delete_saml_provider::DeleteSamlProvider::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::delete_saml_provider::DeleteSAMLProvider::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::delete_saml_provider::DeleteSamlProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::delete_saml_provider::DeleteSAMLProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +97,7 @@ impl DeleteSamlProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::delete_saml_provider::DeleteSamlProviderOutput,
-        super::super::super::operation::delete_saml_provider::DeleteSamlProviderError,
+        super::super::super::operation::delete_saml_provider::DeleteSAMLProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

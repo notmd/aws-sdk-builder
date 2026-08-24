@@ -11,7 +11,7 @@ impl super::super::super::operation::list_open_id_connect_providers::builders::L
     ) -> ::std::result::Result<
         super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
+            super::super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,13 +20,13 @@ impl super::super::super::operation::list_open_id_connect_providers::builders::L
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `ListOpenIdConnectProviders`.
+/// Fluent builder constructing a request to `ListOpenIDConnectProviders`.
 ///
 /// <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined in the Amazon Web Services account.</p><note>
 /// <p>IAM resource-listing operations return a subset of the available attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an OIDC provider, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html">GetOpenIDConnectProvider</a>.</p>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct ListOpenIdConnectProvidersFluentBuilder {
+pub struct ListOpenIDConnectProvidersFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -34,8 +34,8 @@ pub struct ListOpenIdConnectProvidersFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
-        super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
-    > for ListOpenIdConnectProvidersFluentBuilder
+        super::super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
+    > for ListOpenIDConnectProvidersFluentBuilder
 {
     fn send(
         self,
@@ -43,14 +43,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
-            super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
+            super::super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl ListOpenIdConnectProvidersFluentBuilder {
-    /// Creates a new `ListOpenIdConnectProvidersFluentBuilder`.
+impl ListOpenIDConnectProvidersFluentBuilder {
+    /// Creates a new `ListOpenIDConnectProvidersFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -58,7 +58,7 @@ impl ListOpenIdConnectProvidersFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the ListOpenIdConnectProviders as a reference.
+    /// Access the ListOpenIDConnectProviders as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder {
         &self.inner
     }
@@ -75,7 +75,7 @@ impl ListOpenIdConnectProvidersFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
+            super::super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -83,12 +83,12 @@ impl ListOpenIdConnectProvidersFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProviders::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProviders::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProviders::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProviders::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +96,7 @@ impl ListOpenIdConnectProvidersFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
-        super::super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
+        super::super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

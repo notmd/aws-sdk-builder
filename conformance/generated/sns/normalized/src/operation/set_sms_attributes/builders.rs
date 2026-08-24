@@ -11,7 +11,7 @@ impl super::super::super::operation::set_sms_attributes::builders::SetSmsAttribu
     ) -> ::std::result::Result<
         super::super::super::operation::set_sms_attributes::SetSmsAttributesOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::set_sms_attributes::SetSmsAttributesError,
+            super::super::super::operation::set_sms_attributes::SetSMSAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,14 +20,14 @@ impl super::super::super::operation::set_sms_attributes::builders::SetSmsAttribu
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `SetSmsAttributes`.
+/// Fluent builder constructing a request to `SetSMSAttributes`.
 ///
 /// <p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p>
 /// <p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a> in the <i>Amazon SNS Developer Guide</i>.</p><note>
 /// <p>To use this operation, you must grant the Amazon SNS service principal (<code>sns.amazonaws.com</code>) permission to perform the <code>s3:ListBucket</code> action.</p>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct SetSmsAttributesFluentBuilder {
+pub struct SetSMSAttributesFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::set_sms_attributes::builders::SetSmsAttributesInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -35,8 +35,8 @@ pub struct SetSmsAttributesFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::set_sms_attributes::SetSmsAttributesOutput,
-        super::super::super::operation::set_sms_attributes::SetSmsAttributesError,
-    > for SetSmsAttributesFluentBuilder
+        super::super::super::operation::set_sms_attributes::SetSMSAttributesError,
+    > for SetSMSAttributesFluentBuilder
 {
     fn send(
         self,
@@ -44,14 +44,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::set_sms_attributes::SetSmsAttributesOutput,
-            super::super::super::operation::set_sms_attributes::SetSmsAttributesError,
+            super::super::super::operation::set_sms_attributes::SetSMSAttributesError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl SetSmsAttributesFluentBuilder {
-    /// Creates a new `SetSmsAttributesFluentBuilder`.
+impl SetSMSAttributesFluentBuilder {
+    /// Creates a new `SetSMSAttributesFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -59,7 +59,7 @@ impl SetSmsAttributesFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the SetSmsAttributes as a reference.
+    /// Access the SetSMSAttributes as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::set_sms_attributes::builders::SetSmsAttributesInputBuilder {
         &self.inner
     }
@@ -76,7 +76,7 @@ impl SetSmsAttributesFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::set_sms_attributes::SetSmsAttributesOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::set_sms_attributes::SetSmsAttributesError,
+            super::super::super::operation::set_sms_attributes::SetSMSAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -84,12 +84,12 @@ impl SetSmsAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::set_sms_attributes::SetSmsAttributes::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::set_sms_attributes::SetSMSAttributes::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::set_sms_attributes::SetSmsAttributes::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::set_sms_attributes::SetSMSAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +97,7 @@ impl SetSmsAttributesFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::set_sms_attributes::SetSmsAttributesOutput,
-        super::super::super::operation::set_sms_attributes::SetSmsAttributesError,
+        super::super::super::operation::set_sms_attributes::SetSMSAttributesError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

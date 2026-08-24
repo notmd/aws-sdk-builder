@@ -4,6 +4,26 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-24 — Preserve acronym operation symbols
+- State: in progress
+- Changed: operation-root, error, fluent-builder, paginator, waiter, and protocol
+  renderers now preserve Smithy operation symbols such as `CreateSMSSandboxPhoneNumber`,
+  `ListSAMLProviders`, and `AssumeRoleWithSAML`, while synthetic input/output and
+  builder types retain normalized names such as `CreateSmsSandboxPhoneNumberInput`.
+  The behavior is covered by a focused codegen regression test and follows the pinned
+  Smithy-RS `SymbolVisitor` implementation at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  compared `13,301` files, and matched `11,570`, with `1,580` mismatches, `17` missing,
+  and `134` extra (`84.89%` average match). This is an increase of 116 exact matches
+  from the previous `11,454` checkpoint; S3 remains exact at `1,281/1,281`. The command
+  exits 1 only because broader parity gaps remain.
+- Verification: focused acronym test, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass.
+- Next action: continue generic codegen parity work while retaining the exact S3
+  checkpoint.
+
 ### Checkpoint: 2026-08-24 — Match required modeled error accessors
 - State: in progress
 - Changed: modeled error structures now generate Smithy-RS-compatible required

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `146/146` files compared · `130` matched · `16` mismatches · `0` missing · `0` extra · `89.04%` match (100.00% means fully matched)
+**Progress:** `146/146` files compared · `132` matched · `14` mismatches · `0` missing · `0` extra · `90.41%` match (100.00% means fully matched)
 
 ### `src/client.rs`
 
@@ -91,150 +91,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/assume_role_with_saml/builders.rs`
-
-```diff
---- reference/src/operation/assume_role_with_saml/builders.rs
-+++ generated/src/operation/assume_role_with_saml/builders.rs
-@@ -11,7 +11,7 @@
-     ) -> ::std::result::Result<
-         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
-         ::aws_smithy_runtime_api::client::result::SdkError<
--            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >,
-     > {
-@@ -20,7 +20,7 @@
-         fluent_builder.send().await
-     }
- }
--/// Fluent builder constructing a request to `AssumeRoleWithSAML`.
-+/// Fluent builder constructing a request to `AssumeRoleWithSaml`.
- ///
- /// <p>Returns a set of temporary security credentials for users who have been authenticated via a SAML authentication response. This operation provides a mechanism for tying an enterprise identity store or directory to role-based Amazon Web Services access without user-specific credentials or configuration. For a comparison of <code>AssumeRoleWithSAML</code> with the other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare STS credentials</a> in the <i>IAM User Guide</i>.</p>
- /// <p>The temporary security credentials returned by this operation consist of an access key ID, a secret access key, and a security token. Applications can use these temporary security credentials to sign calls to Amazon Web Services services.</p><note>
-@@ -58,7 +58,7 @@
- /// <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html">Creating a Role for SAML 2.0 Federation</a> in the <i>IAM User Guide</i>.</p></li>
- /// </ul>
- #[derive(::std::clone::Clone, ::std::fmt::Debug)]
--pub struct AssumeRoleWithSAMLFluentBuilder {
-+pub struct AssumeRoleWithSamlFluentBuilder {
-     handle: ::std::sync::Arc<super::super::super::client::Handle>,
-     inner: super::super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
-@@ -66,8 +66,8 @@
- impl
-     super::super::super::client::customize::internal::CustomizableSend<
-         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
--    > for AssumeRoleWithSAMLFluentBuilder
-+        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
-+    > for AssumeRoleWithSamlFluentBuilder
- {
-     fn send(
-         self,
-@@ -75,14 +75,14 @@
-     ) -> super::super::super::client::customize::internal::BoxFuture<
-         super::super::super::client::customize::internal::SendResult<
-             super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
-         >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
- }
--impl AssumeRoleWithSAMLFluentBuilder {
--    /// Creates a new `AssumeRoleWithSAMLFluentBuilder`.
-+impl AssumeRoleWithSamlFluentBuilder {
-+    /// Creates a new `AssumeRoleWithSamlFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
-         Self {
-             handle,
-@@ -90,7 +90,7 @@
-             config_override: ::std::option::Option::None,
-         }
-     }
--    /// Access the AssumeRoleWithSAML as a reference.
-+    /// Access the AssumeRoleWithSaml as a reference.
-     pub fn as_input(&self) -> &super::super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder {
-         &self.inner
-     }
-@@ -107,7 +107,7 @@
-     ) -> ::std::result::Result<
-         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
-         ::aws_smithy_runtime_api::client::result::SdkError<
--            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >,
-     > {
-@@ -115,12 +115,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAML::operation_runtime_plugins(
-+        let runtime_plugins = super::super::super::operation::assume_role_with_saml::AssumeRoleWithSaml::operation_runtime_plugins(
-             self.handle.runtime_plugins.clone(),
-             &self.handle.conf,
-             self.config_override,
-         );
--        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAML::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSaml::orchestrate(&runtime_plugins, input).await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-@@ -128,7 +128,7 @@
-         self,
-     ) -> super::super::super::client::customize::CustomizableOperation<
-         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
-         Self,
-     > {
-         super::super::super::client::customize::CustomizableOperation::new(self)
-```
-
 ### `src/operation/assume_role_with_saml.rs`
 
 ```diff
 --- reference/src/operation/assume_role_with_saml.rs
 +++ generated/src/operation/assume_role_with_saml.rs
-@@ -1,10 +1,10 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
--/// Orchestration and serialization glue logic for `AssumeRoleWithSAML`.
-+/// Orchestration and serialization glue logic for `AssumeRoleWithSaml`.
- #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug)]
- #[non_exhaustive]
--pub struct AssumeRoleWithSAML;
--impl AssumeRoleWithSAML {
--    /// Creates a new `AssumeRoleWithSAML`
-+pub struct AssumeRoleWithSaml;
-+impl AssumeRoleWithSaml {
-+    /// Creates a new `AssumeRoleWithSaml`
-     pub fn new() -> Self {
-         Self
-     }
-@@ -84,15 +84,15 @@
-         runtime_plugins
-     }
- }
--impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AssumeRoleWithSAML {
-+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AssumeRoleWithSaml {
-     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("AssumeRoleWithSAML");
-
-         cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
--            AssumeRoleWithSAMLRequestSerializer,
-+            AssumeRoleWithSamlRequestSerializer,
-         ));
-         cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
--            AssumeRoleWithSAMLResponseDeserializer,
-+            AssumeRoleWithSamlResponseDeserializer,
-         ));
-
-         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
 @@ -104,6 +104,16 @@
 
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
@@ -269,13 +130,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                                            }).build());
 +        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("AssumeRoleWithSAML")
 +            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                AssumeRoleWithSamlTelemetryInputCaptureInterceptor,
++                AssumeRoleWithSAMLTelemetryInputCaptureInterceptor,
 +            ))
 +            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 +                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
 +            ))
 +            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                AssumeRoleWithSamlEndpointParamsInterceptor,
++                AssumeRoleWithSAMLEndpointParamsInterceptor,
 +            ))
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
 +                super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
@@ -289,38 +150,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -130,12 +148,12 @@
- }
-
- #[derive(Debug)]
--struct AssumeRoleWithSAMLTelemetryInputCaptureInterceptor;
-+struct AssumeRoleWithSamlTelemetryInputCaptureInterceptor;
-
- #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
--impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AssumeRoleWithSAMLTelemetryInputCaptureInterceptor {
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AssumeRoleWithSamlTelemetryInputCaptureInterceptor {
-     fn name(&self) -> &'static str {
--        "AssumeRoleWithSAMLTelemetryInputCaptureInterceptor"
-+        "AssumeRoleWithSamlTelemetryInputCaptureInterceptor"
-     }
-
-     fn read_before_execution(
-@@ -255,12 +273,12 @@
-     }
- }
- #[derive(Debug)]
--struct AssumeRoleWithSAMLEndpointParamsInterceptor;
-+struct AssumeRoleWithSamlEndpointParamsInterceptor;
-
- #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
--impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AssumeRoleWithSAMLEndpointParamsInterceptor {
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AssumeRoleWithSamlEndpointParamsInterceptor {
-     fn name(&self) -> &'static str {
--        "AssumeRoleWithSAMLEndpointParamsInterceptor"
-+        "AssumeRoleWithSamlEndpointParamsInterceptor"
-     }
-
-     fn read_before_execution(
 ```
 
 ### `src/operation/assume_role_with_web_identity.rs`
@@ -654,238 +483,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-```
-
-### `src/protocol_serde/shape_assume_role_with_saml.rs`
-
-```diff
---- reference/src/protocol_serde/shape_assume_role_with_saml.rs
-+++ generated/src/protocol_serde/shape_assume_role_with_saml.rs
-@@ -6,27 +6,27 @@
-     _response_body: &[u8],
- ) -> std::result::Result<
-     super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--    super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+    super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
- > {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
--        .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
-+        .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
-     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled(generic)),
-+        None => return Err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "ExpiredTokenException" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::ExpiredTokenException({
-+        "ExpiredTokenException" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::ExpiredTokenException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::ExpiredTokenExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_expired_token_exception::de_expired_token_exception_xml_err(_response_body, output)
--                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
-+                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -35,13 +35,13 @@
-             }
-             tmp
-         }),
--        "IDPRejectedClaim" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::IdpRejectedClaimException({
-+        "IDPRejectedClaim" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::IdpRejectedClaimException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::IdpRejectedClaimExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_idp_rejected_claim_exception::de_idp_rejected_claim_exception_xml_err(_response_body, output)
--                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
-+                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -50,7 +50,7 @@
-             }
-             tmp
-         }),
--        "InvalidIdentityToken" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::InvalidIdentityTokenException({
-+        "InvalidIdentityToken" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::InvalidIdentityTokenException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -59,7 +59,7 @@
-                     _response_body,
-                     output,
-                 )
--                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
-+                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -68,7 +68,7 @@
-             }
-             tmp
-         }),
--        "MalformedPolicyDocument" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::MalformedPolicyDocumentException({
-+        "MalformedPolicyDocument" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::MalformedPolicyDocumentException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -77,7 +77,7 @@
-                     _response_body,
-                     output,
-                 )
--                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
-+                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -86,7 +86,7 @@
-             }
-             tmp
-         }),
--        "PackedPolicyTooLarge" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::PackedPolicyTooLargeException({
-+        "PackedPolicyTooLarge" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::PackedPolicyTooLargeException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -95,7 +95,7 @@
-                     _response_body,
-                     output,
-                 )
--                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
-+                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -104,13 +104,13 @@
-             }
-             tmp
-         }),
--        "RegionDisabledException" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::RegionDisabledException({
-+        "RegionDisabledException" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::RegionDisabledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::RegionDisabledExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
--                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
-+                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -119,7 +119,7 @@
-             }
-             tmp
-         }),
--        _ => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::generic(generic),
-+        _ => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::generic(generic),
-     })
- }
-
-@@ -130,13 +130,13 @@
-     _response_body: &[u8],
- ) -> std::result::Result<
-     super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--    super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+    super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
- > {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlOutputBuilder::default();
-         output = super::super::protocol_serde::shape_assume_role_with_saml::de_assume_role_with_saml(_response_body, output)
--            .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
-+            .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -170,7 +170,7 @@
-         }
-         while let Some(mut tag) = result_tag.next_tag() {
-             match tag.start_el() {
--            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$Credentials */ =>  {
-+            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Credentials */ =>  {
-                 let var_1 =
-                     Some(
-                         super::super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
-@@ -180,7 +180,7 @@
-                 builder = builder.set_credentials(var_1);
-             }
-             ,
--            s if s.matches("AssumedRoleUser") /* AssumedRoleUser com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$AssumedRoleUser */ =>  {
-+            s if s.matches("AssumedRoleUser") /* AssumedRoleUser com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$AssumedRoleUser */ =>  {
-                 let var_2 =
-                     Some(
-                         super::super::protocol_serde::shape_assumed_role_user::de_assumed_role_user(&mut tag, depth + 1)
-@@ -190,7 +190,7 @@
-                 builder = builder.set_assumed_role_user(var_2);
-             }
-             ,
--            s if s.matches("PackedPolicySize") /* PackedPolicySize com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$PackedPolicySize */ =>  {
-+            s if s.matches("PackedPolicySize") /* PackedPolicySize com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$PackedPolicySize */ =>  {
-                 let var_3 =
-                     Some(
-                          {
-@@ -205,7 +205,7 @@
-                 builder = builder.set_packed_policy_size(var_3);
-             }
-             ,
--            s if s.matches("Subject") /* Subject com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$Subject */ =>  {
-+            s if s.matches("Subject") /* Subject com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Subject */ =>  {
-                 let var_4 =
-                     Some(
-                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-@@ -218,7 +218,7 @@
-                 builder = builder.set_subject(var_4);
-             }
-             ,
--            s if s.matches("SubjectType") /* SubjectType com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$SubjectType */ =>  {
-+            s if s.matches("SubjectType") /* SubjectType com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$SubjectType */ =>  {
-                 let var_5 =
-                     Some(
-                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-@@ -231,7 +231,7 @@
-                 builder = builder.set_subject_type(var_5);
-             }
-             ,
--            s if s.matches("Issuer") /* Issuer com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$Issuer */ =>  {
-+            s if s.matches("Issuer") /* Issuer com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Issuer */ =>  {
-                 let var_6 =
-                     Some(
-                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-@@ -244,7 +244,7 @@
-                 builder = builder.set_issuer(var_6);
-             }
-             ,
--            s if s.matches("Audience") /* Audience com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$Audience */ =>  {
-+            s if s.matches("Audience") /* Audience com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Audience */ =>  {
-                 let var_7 =
-                     Some(
-                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-@@ -257,7 +257,7 @@
-                 builder = builder.set_audience(var_7);
-             }
-             ,
--            s if s.matches("NameQualifier") /* NameQualifier com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$NameQualifier */ =>  {
-+            s if s.matches("NameQualifier") /* NameQualifier com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$NameQualifier */ =>  {
-                 let var_8 =
-                     Some(
-                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-@@ -270,7 +270,7 @@
-                 builder = builder.set_name_qualifier(var_8);
-             }
-             ,
--            s if s.matches("SourceIdentity") /* SourceIdentity com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$SourceIdentity */ =>  {
-+            s if s.matches("SourceIdentity") /* SourceIdentity com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$SourceIdentity */ =>  {
-                 let var_9 =
-                     Some(
-                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
 ```
 
 ### `src/protocol_serde.rs`

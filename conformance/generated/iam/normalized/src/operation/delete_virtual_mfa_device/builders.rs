@@ -11,7 +11,7 @@ impl super::super::super::operation::delete_virtual_mfa_device::builders::Delete
     ) -> ::std::result::Result<
         super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
+            super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,13 +20,13 @@ impl super::super::super::operation::delete_virtual_mfa_device::builders::Delete
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `DeleteVirtualMfaDevice`.
+/// Fluent builder constructing a request to `DeleteVirtualMFADevice`.
 ///
 /// <p>Deletes a virtual MFA device.</p><note>
 /// <p>You must deactivate a user's virtual MFA device before you can delete it. For information about deactivating MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html">DeactivateMFADevice</a>.</p>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct DeleteVirtualMfaDeviceFluentBuilder {
+pub struct DeleteVirtualMFADeviceFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::delete_virtual_mfa_device::builders::DeleteVirtualMfaDeviceInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -34,8 +34,8 @@ pub struct DeleteVirtualMfaDeviceFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
-        super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
-    > for DeleteVirtualMfaDeviceFluentBuilder
+        super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
+    > for DeleteVirtualMFADeviceFluentBuilder
 {
     fn send(
         self,
@@ -43,14 +43,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
-            super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
+            super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl DeleteVirtualMfaDeviceFluentBuilder {
-    /// Creates a new `DeleteVirtualMfaDeviceFluentBuilder`.
+impl DeleteVirtualMFADeviceFluentBuilder {
+    /// Creates a new `DeleteVirtualMFADeviceFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -58,7 +58,7 @@ impl DeleteVirtualMfaDeviceFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the DeleteVirtualMfaDevice as a reference.
+    /// Access the DeleteVirtualMFADevice as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::delete_virtual_mfa_device::builders::DeleteVirtualMfaDeviceInputBuilder {
         &self.inner
     }
@@ -75,7 +75,7 @@ impl DeleteVirtualMfaDeviceFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
+            super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -83,12 +83,12 @@ impl DeleteVirtualMfaDeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDevice::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADevice::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDevice::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +96,7 @@ impl DeleteVirtualMfaDeviceFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
-        super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
+        super::super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

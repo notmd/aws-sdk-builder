@@ -6,27 +6,27 @@ pub fn de_delete_ssh_public_key_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
-    super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+    super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError::unhandled)?;
+        .map_err(super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError::unhandled(generic)),
+        None => return Err(super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchEntity" => super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError::NoSuchEntityException({
+        "NoSuchEntity" => super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::NoSuchEntityException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError::unhandled)?;
+                    .map_err(super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,7 +35,7 @@ pub fn de_delete_ssh_public_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError::generic(generic),
+        _ => super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::generic(generic),
     })
 }
 
@@ -46,7 +46,7 @@ pub fn de_delete_ssh_public_key_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
-    super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+    super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
 > {
     Ok({
         #[allow(unused_mut)]

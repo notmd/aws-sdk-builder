@@ -4,20 +4,20 @@ pub fn de_enable_mfa_device_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::enable_mfa_device::EnableMfaDeviceOutput, super::super::operation::enable_mfa_device::EnableMfaDeviceError> {
+) -> std::result::Result<super::super::operation::enable_mfa_device::EnableMfaDeviceOutput, super::super::operation::enable_mfa_device::EnableMFADeviceError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+        .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled(generic)),
+        None => return Err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConcurrentModification" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::ConcurrentModificationException({
+        "ConcurrentModification" => super::super::operation::enable_mfa_device::EnableMFADeviceError::ConcurrentModificationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -26,7 +26,7 @@ pub fn de_enable_mfa_device_http_error(
                     _response_body,
                     output,
                 )
-                .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,14 +35,14 @@ pub fn de_enable_mfa_device_http_error(
             }
             tmp
         }),
-        "EntityAlreadyExists" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::EntityAlreadyExistsException({
+        "EntityAlreadyExists" => super::super::operation::enable_mfa_device::EnableMFADeviceError::EntityAlreadyExistsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
                 output =
                     super::super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
-                        .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                        .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -51,7 +51,7 @@ pub fn de_enable_mfa_device_http_error(
             }
             tmp
         }),
-        "EntityTemporarilyUnmodifiable" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::EntityTemporarilyUnmodifiableException({
+        "EntityTemporarilyUnmodifiable" => super::super::operation::enable_mfa_device::EnableMFADeviceError::EntityTemporarilyUnmodifiableException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -61,7 +61,7 @@ pub fn de_enable_mfa_device_http_error(
                         _response_body,
                         output,
                     )
-                    .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                    .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -70,7 +70,7 @@ pub fn de_enable_mfa_device_http_error(
             }
             tmp
         }),
-        "InvalidAuthenticationCode" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::InvalidAuthenticationCodeException({
+        "InvalidAuthenticationCode" => super::super::operation::enable_mfa_device::EnableMFADeviceError::InvalidAuthenticationCodeException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -79,7 +79,7 @@ pub fn de_enable_mfa_device_http_error(
                     _response_body,
                     output,
                 )
-                .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -88,13 +88,13 @@ pub fn de_enable_mfa_device_http_error(
             }
             tmp
         }),
-        "LimitExceeded" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::LimitExceededException({
+        "LimitExceeded" => super::super::operation::enable_mfa_device::EnableMFADeviceError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                    .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -103,13 +103,13 @@ pub fn de_enable_mfa_device_http_error(
             }
             tmp
         }),
-        "NoSuchEntity" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::NoSuchEntityException({
+        "NoSuchEntity" => super::super::operation::enable_mfa_device::EnableMFADeviceError::NoSuchEntityException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                    .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -118,13 +118,13 @@ pub fn de_enable_mfa_device_http_error(
             }
             tmp
         }),
-        "ServiceFailure" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::ServiceFailureException({
+        "ServiceFailure" => super::super::operation::enable_mfa_device::EnableMFADeviceError::ServiceFailureException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                    .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133,7 +133,7 @@ pub fn de_enable_mfa_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::enable_mfa_device::EnableMfaDeviceError::generic(generic),
+        _ => super::super::operation::enable_mfa_device::EnableMFADeviceError::generic(generic),
     })
 }
 
@@ -142,7 +142,7 @@ pub fn de_enable_mfa_device_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::enable_mfa_device::EnableMfaDeviceOutput, super::super::operation::enable_mfa_device::EnableMfaDeviceError> {
+) -> std::result::Result<super::super::operation::enable_mfa_device::EnableMfaDeviceOutput, super::super::operation::enable_mfa_device::EnableMFADeviceError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::enable_mfa_device::builders::EnableMfaDeviceOutputBuilder::default();

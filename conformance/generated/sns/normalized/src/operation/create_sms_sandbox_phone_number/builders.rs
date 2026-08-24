@@ -11,7 +11,7 @@ impl super::super::super::operation::create_sms_sandbox_phone_number::builders::
     ) -> ::std::result::Result<
         super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+            super::super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::create_sms_sandbox_phone_number::builders::
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `CreateSmsSandboxPhoneNumber`.
+/// Fluent builder constructing a request to `CreateSMSSandboxPhoneNumber`.
 ///
 /// <p>Adds a destination phone number to an Amazon Web Services account in the SMS sandbox and sends a one-time password (OTP) to that phone number.</p>
 /// <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct CreateSmsSandboxPhoneNumberFluentBuilder {
+pub struct CreateSMSSandboxPhoneNumberFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct CreateSmsSandboxPhoneNumberFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
-        super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
-    > for CreateSmsSandboxPhoneNumberFluentBuilder
+        super::super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
+    > for CreateSMSSandboxPhoneNumberFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
-            super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+            super::super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl CreateSmsSandboxPhoneNumberFluentBuilder {
-    /// Creates a new `CreateSmsSandboxPhoneNumberFluentBuilder`.
+impl CreateSMSSandboxPhoneNumberFluentBuilder {
+    /// Creates a new `CreateSMSSandboxPhoneNumberFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl CreateSmsSandboxPhoneNumberFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the CreateSmsSandboxPhoneNumber as a reference.
+    /// Access the CreateSMSSandboxPhoneNumber as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl CreateSmsSandboxPhoneNumberFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+            super::super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl CreateSmsSandboxPhoneNumberFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumber::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl CreateSmsSandboxPhoneNumberFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
-        super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+        super::super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

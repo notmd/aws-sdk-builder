@@ -11,7 +11,7 @@ impl super::super::super::operation::resync_mfa_device::builders::ResyncMfaDevic
     ) -> ::std::result::Result<
         super::super::super::operation::resync_mfa_device::ResyncMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::resync_mfa_device::ResyncMfaDeviceError,
+            super::super::super::operation::resync_mfa_device::ResyncMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::resync_mfa_device::builders::ResyncMfaDevic
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `ResyncMfaDevice`.
+/// Fluent builder constructing a request to `ResyncMFADevice`.
 ///
 /// <p>Synchronizes the specified MFA device with its IAM resource object on the Amazon Web Services servers.</p>
 /// <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA device</a> in the <i>IAM User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct ResyncMfaDeviceFluentBuilder {
+pub struct ResyncMFADeviceFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct ResyncMfaDeviceFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::resync_mfa_device::ResyncMfaDeviceOutput,
-        super::super::super::operation::resync_mfa_device::ResyncMfaDeviceError,
-    > for ResyncMfaDeviceFluentBuilder
+        super::super::super::operation::resync_mfa_device::ResyncMFADeviceError,
+    > for ResyncMFADeviceFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::resync_mfa_device::ResyncMfaDeviceOutput,
-            super::super::super::operation::resync_mfa_device::ResyncMfaDeviceError,
+            super::super::super::operation::resync_mfa_device::ResyncMFADeviceError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl ResyncMfaDeviceFluentBuilder {
-    /// Creates a new `ResyncMfaDeviceFluentBuilder`.
+impl ResyncMFADeviceFluentBuilder {
+    /// Creates a new `ResyncMFADeviceFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl ResyncMfaDeviceFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the ResyncMfaDevice as a reference.
+    /// Access the ResyncMFADevice as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl ResyncMfaDeviceFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::resync_mfa_device::ResyncMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::resync_mfa_device::ResyncMfaDeviceError,
+            super::super::super::operation::resync_mfa_device::ResyncMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl ResyncMfaDeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::resync_mfa_device::ResyncMfaDevice::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::resync_mfa_device::ResyncMFADevice::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::resync_mfa_device::ResyncMfaDevice::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::resync_mfa_device::ResyncMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl ResyncMfaDeviceFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::resync_mfa_device::ResyncMfaDeviceOutput,
-        super::super::super::operation::resync_mfa_device::ResyncMfaDeviceError,
+        super::super::super::operation::resync_mfa_device::ResyncMFADeviceError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

@@ -6,27 +6,27 @@ pub fn de_admin_set_user_mfa_preference_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
-    super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError,
+    super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::unhandled)?;
+        .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::unhandled(generic)),
+        None => return Err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalErrorException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::InternalErrorException({
+        "InternalErrorException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::InternalErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::unhandled)?;
+                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_admin_set_user_mfa_preference_http_error(
             }
             tmp
         }),
-        "InvalidParameterException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::InvalidParameterException({
+        "InvalidParameterException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::InvalidParameterException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::unhandled)?;
+                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_admin_set_user_mfa_preference_http_error(
             }
             tmp
         }),
-        "NotAuthorizedException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::NotAuthorizedException({
+        "NotAuthorizedException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::NotAuthorizedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::unhandled)?;
+                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -66,7 +66,7 @@ pub fn de_admin_set_user_mfa_preference_http_error(
             tmp
         }),
         "OperationNotEnabledException" => {
-            super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::OperationNotEnabledException({
+            super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::OperationNotEnabledException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
@@ -75,7 +75,7 @@ pub fn de_admin_set_user_mfa_preference_http_error(
                         _response_body,
                         output,
                     )
-                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::unhandled)?;
+                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -86,7 +86,7 @@ pub fn de_admin_set_user_mfa_preference_http_error(
             })
         }
         "PasswordResetRequiredException" => {
-            super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::PasswordResetRequiredException({
+            super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::PasswordResetRequiredException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
@@ -95,7 +95,7 @@ pub fn de_admin_set_user_mfa_preference_http_error(
                         _response_body,
                         output,
                     )
-                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::unhandled)?;
+                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -105,13 +105,13 @@ pub fn de_admin_set_user_mfa_preference_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::unhandled)?;
+                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -120,13 +120,13 @@ pub fn de_admin_set_user_mfa_preference_http_error(
             }
             tmp
         }),
-        "UserNotConfirmedException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::UserNotConfirmedException({
+        "UserNotConfirmedException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::UserNotConfirmedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::unhandled)?;
+                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -135,13 +135,13 @@ pub fn de_admin_set_user_mfa_preference_http_error(
             }
             tmp
         }),
-        "UserNotFoundException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::UserNotFoundException({
+        "UserNotFoundException" => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::UserNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::unhandled)?;
+                    .map_err(super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -150,7 +150,7 @@ pub fn de_admin_set_user_mfa_preference_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError::generic(generic),
+        _ => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::generic(generic),
     })
 }
 
@@ -161,7 +161,7 @@ pub fn de_admin_set_user_mfa_preference_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
-    super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceError,
+    super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
 > {
     Ok({
         #[allow(unused_mut)]

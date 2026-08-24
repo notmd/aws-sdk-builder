@@ -4,20 +4,20 @@ pub fn de_untag_mfa_device_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::untag_mfa_device::UntagMfaDeviceOutput, super::super::operation::untag_mfa_device::UntagMfaDeviceError> {
+) -> std::result::Result<super::super::operation::untag_mfa_device::UntagMfaDeviceOutput, super::super::operation::untag_mfa_device::UntagMFADeviceError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled)?;
+        .map_err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled(generic)),
+        None => return Err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConcurrentModification" => super::super::operation::untag_mfa_device::UntagMfaDeviceError::ConcurrentModificationException({
+        "ConcurrentModification" => super::super::operation::untag_mfa_device::UntagMFADeviceError::ConcurrentModificationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -26,7 +26,7 @@ pub fn de_untag_mfa_device_http_error(
                     _response_body,
                     output,
                 )
-                .map_err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled)?;
+                .map_err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_untag_mfa_device_http_error(
             }
             tmp
         }),
-        "InvalidInput" => super::super::operation::untag_mfa_device::UntagMfaDeviceError::InvalidInputException({
+        "InvalidInput" => super::super::operation::untag_mfa_device::UntagMFADeviceError::InvalidInputException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled)?;
+                    .map_err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_untag_mfa_device_http_error(
             }
             tmp
         }),
-        "NoSuchEntity" => super::super::operation::untag_mfa_device::UntagMfaDeviceError::NoSuchEntityException({
+        "NoSuchEntity" => super::super::operation::untag_mfa_device::UntagMFADeviceError::NoSuchEntityException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled)?;
+                    .map_err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,13 +65,13 @@ pub fn de_untag_mfa_device_http_error(
             }
             tmp
         }),
-        "ServiceFailure" => super::super::operation::untag_mfa_device::UntagMfaDeviceError::ServiceFailureException({
+        "ServiceFailure" => super::super::operation::untag_mfa_device::UntagMFADeviceError::ServiceFailureException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled)?;
+                    .map_err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,7 +80,7 @@ pub fn de_untag_mfa_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_mfa_device::UntagMfaDeviceError::generic(generic),
+        _ => super::super::operation::untag_mfa_device::UntagMFADeviceError::generic(generic),
     })
 }
 
@@ -89,7 +89,7 @@ pub fn de_untag_mfa_device_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::untag_mfa_device::UntagMfaDeviceOutput, super::super::operation::untag_mfa_device::UntagMfaDeviceError> {
+) -> std::result::Result<super::super::operation::untag_mfa_device::UntagMfaDeviceOutput, super::super::operation::untag_mfa_device::UntagMFADeviceError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::untag_mfa_device::builders::UntagMfaDeviceOutputBuilder::default();

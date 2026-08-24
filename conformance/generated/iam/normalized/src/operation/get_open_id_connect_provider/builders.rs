@@ -11,7 +11,7 @@ impl super::super::super::operation::get_open_id_connect_provider::builders::Get
     ) -> ::std::result::Result<
         super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+            super::super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,11 +20,11 @@ impl super::super::super::operation::get_open_id_connect_provider::builders::Get
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `GetOpenIdConnectProvider`.
+/// Fluent builder constructing a request to `GetOpenIDConnectProvider`.
 ///
 /// <p>Returns information about the specified OpenID Connect (OIDC) provider resource object in IAM.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct GetOpenIdConnectProviderFluentBuilder {
+pub struct GetOpenIDConnectProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::get_open_id_connect_provider::builders::GetOpenIdConnectProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -32,8 +32,8 @@ pub struct GetOpenIdConnectProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
-        super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
-    > for GetOpenIdConnectProviderFluentBuilder
+        super::super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
+    > for GetOpenIDConnectProviderFluentBuilder
 {
     fn send(
         self,
@@ -41,14 +41,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
-            super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+            super::super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl GetOpenIdConnectProviderFluentBuilder {
-    /// Creates a new `GetOpenIdConnectProviderFluentBuilder`.
+impl GetOpenIDConnectProviderFluentBuilder {
+    /// Creates a new `GetOpenIDConnectProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -56,7 +56,7 @@ impl GetOpenIdConnectProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the GetOpenIdConnectProvider as a reference.
+    /// Access the GetOpenIDConnectProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::get_open_id_connect_provider::builders::GetOpenIdConnectProviderInputBuilder {
         &self.inner
     }
@@ -73,7 +73,7 @@ impl GetOpenIdConnectProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+            super::super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -81,12 +81,12 @@ impl GetOpenIdConnectProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProvider::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProvider::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -94,7 +94,7 @@ impl GetOpenIdConnectProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
-        super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+        super::super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

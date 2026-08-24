@@ -11,7 +11,7 @@ impl super::super::super::operation::create_open_id_connect_provider::builders::
     ) -> ::std::result::Result<
         super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+            super::super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,7 +20,7 @@ impl super::super::super::operation::create_open_id_connect_provider::builders::
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `CreateOpenIdConnectProvider`.
+/// Fluent builder constructing a request to `CreateOpenIDConnectProvider`.
 ///
 /// <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>
 /// <p>The OIDC provider that you create with this operation can be used as a principal in a role's trust policy. Such a policy establishes a trust relationship between Amazon Web Services and the OIDC provider.</p>
@@ -42,7 +42,7 @@ impl super::super::super::operation::create_open_id_connect_provider::builders::
 /// <p>The trust for the OIDC provider is derived from the IAM provider that this operation creates. Therefore, it is best to limit access to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a> operation to highly privileged users.</p>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct CreateOpenIdConnectProviderFluentBuilder {
+pub struct CreateOpenIDConnectProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -50,8 +50,8 @@ pub struct CreateOpenIdConnectProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
-        super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
-    > for CreateOpenIdConnectProviderFluentBuilder
+        super::super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
+    > for CreateOpenIDConnectProviderFluentBuilder
 {
     fn send(
         self,
@@ -59,14 +59,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
-            super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+            super::super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl CreateOpenIdConnectProviderFluentBuilder {
-    /// Creates a new `CreateOpenIdConnectProviderFluentBuilder`.
+impl CreateOpenIDConnectProviderFluentBuilder {
+    /// Creates a new `CreateOpenIDConnectProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -74,7 +74,7 @@ impl CreateOpenIdConnectProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the CreateOpenIdConnectProvider as a reference.
+    /// Access the CreateOpenIDConnectProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderInputBuilder {
         &self.inner
     }
@@ -91,7 +91,7 @@ impl CreateOpenIdConnectProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+            super::super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -99,12 +99,12 @@ impl CreateOpenIdConnectProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProvider::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProvider::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,7 +112,7 @@ impl CreateOpenIdConnectProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
-        super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+        super::super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

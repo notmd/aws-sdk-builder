@@ -6,27 +6,27 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
-    super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
+    super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+        .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled(generic)),
+        None => return Err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AuthorizationError" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::AuthorizationErrorException({
+        "AuthorizationError" => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::AuthorizationErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
             }
             tmp
         }),
-        "InternalError" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::InternalErrorException({
+        "InternalError" => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::InternalErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
             }
             tmp
         }),
-        "InvalidParameter" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::InvalidParameterException({
+        "InvalidParameter" => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::InvalidParameterException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,13 +65,13 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
             }
             tmp
         }),
-        "ResourceNotFound" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::ResourceNotFoundException({
+        "ResourceNotFound" => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,13 +80,13 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
             }
             tmp
         }),
-        "Throttled" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::ThrottledException({
+        "Throttled" => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::ThrottledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -95,7 +95,7 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::generic(generic),
+        _ => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::generic(generic),
     })
 }
 
@@ -106,17 +106,17 @@ pub fn de_list_sms_sandbox_phone_numbers_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
-    super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
+    super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
 > {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder::default();
         output = super::super::protocol_serde::shape_list_sms_sandbox_phone_numbers::de_list_sms_sandbox_phone_numbers(_response_body, output)
-            .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+            .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::list_sms_sandbox_phone_numbers_output_output_correct_errors(output)
             .build()
-            .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?
+            .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?
     })
 }
 

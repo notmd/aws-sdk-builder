@@ -3884,10 +3884,11 @@ fn render_operation_file(selected: &SelectedModel, operation_name: &str) -> Stri
 fn render_standalone_operation_file(selected: &SelectedModel, operation_name: &str) -> String {
     let module = names::snake_case(operation_name);
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
-    let operation_type = rust_type_name(operation_name);
+    let operation_type = operation_error_type_name(operation_name);
+    let shape_type = rust_type_name(operation_name);
     let service_id = service_sdk_id(selected);
-    let input_path = format!("crate::operation::{module}::{operation_type}Input");
-    let output_path = format!("crate::operation::{module}::{operation_type}Output");
+    let input_path = format!("crate::operation::{module}::{shape_type}Input");
+    let output_path = format!("crate::operation::{module}::{shape_type}Output");
     let error_path = format!(
         "crate::operation::{module}::{}Error",
         operation_error_type_name(operation_name)
@@ -3926,6 +3927,7 @@ fn render_standalone_operation_file(selected: &SelectedModel, operation_name: &s
         operation,
         &module,
         &operation_type,
+        &shape_type,
         &error_path,
     );
     if !operation_has_telemetry_members(selected, operation) {
@@ -3937,6 +3939,7 @@ fn render_standalone_operation_file(selected: &SelectedModel, operation_name: &s
             selected,
             operation_name,
             &operation_type,
+            &shape_type,
         );
     }
     render_standalone_response_deserializer(
@@ -3953,14 +3956,20 @@ fn render_standalone_operation_file(selected: &SelectedModel, operation_name: &s
         operation_name,
         operation,
         &module,
-        &operation_type,
+        &shape_type,
         &error_path,
     );
-    render_standalone_endpoint_interceptor(&mut output, selected, operation_name, &operation_type);
+    render_standalone_endpoint_interceptor(
+        &mut output,
+        selected,
+        operation_name,
+        &operation_type,
+        &shape_type,
+    );
     render_standalone_operation_error(&mut output, selected, operation_name, operation);
     writeln!(
         output,
-        "\npub use crate::operation::{module}::_{module}_input::{operation_type}Input;\n\npub use crate::operation::{module}::_{module}_output::{operation_type}Output;\n\nmod _{module}_input;\n\nmod _{module}_output;\n\n/// Builders\npub mod builders;"
+        "\npub use crate::operation::{module}::_{module}_input::{shape_type}Input;\n\npub use crate::operation::{module}::_{module}_output::{shape_type}Output;\n\nmod _{module}_input;\n\nmod _{module}_output;\n\n/// Builders\npub mod builders;"
     )
     .unwrap();
     if operation_pagination_info(selected, operation_name).is_some() {
@@ -4453,6 +4462,7 @@ fn render_standalone_operation_orchestration(
     }
 }
 
+#[allow(clippy::too_many_arguments)]
 fn render_standalone_runtime_plugin(
     output: &mut String,
     selected: &SelectedModel,
@@ -4460,6 +4470,7 @@ fn render_standalone_runtime_plugin(
     operation: &Value,
     module: &str,
     operation_type: &str,
+    shape_type: &str,
     error_path: &str,
 ) {
     let service_id = service_sdk_id(selected);
@@ -4538,7 +4549,7 @@ fn render_standalone_runtime_plugin(
     if let (Some(request_checksum_member_name), Some(request_checksum_header)) =
         (request_checksum_member_name, request_checksum_header)
     {
-        let input_type = format!("crate::operation::{module}::{operation_type}Input");
+        let input_type = format!("crate::operation::{module}::{shape_type}Input");
         let field = names::rust_identifier(request_checksum_member_name);
         let required = request_checksum_required.to_string();
         let header = request_checksum_header;
@@ -4629,7 +4640,7 @@ fn render_standalone_runtime_plugin(
             })
             .unwrap_or_default();
         if !algorithms.is_empty() {
-            let input_type = format!("crate::operation::{module}::{operation_type}Input");
+            let input_type = format!("crate::operation::{module}::{shape_type}Input");
             let response_interceptor = r#".with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(crate::http_response_checksum::ResponseChecksumInterceptor::new(
                                 [__ALGORITHMS__].as_slice(),
                                 |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
@@ -4722,6 +4733,7 @@ fn render_standalone_telemetry_interceptor(
     selected: &SelectedModel,
     operation_name: &str,
     operation_type: &str,
+    shape_type: &str,
 ) {
     let input_shape = operation_shape(selected, operation_name)
         .and_then(|operation| operation.get("input"))
@@ -4732,6 +4744,15 @@ fn render_standalone_telemetry_interceptor(
         "\n#[derive(Debug)]\nstruct {operation_type}TelemetryInputCaptureInterceptor;\n\n#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]\nimpl ::aws_smithy_runtime_api::client::interceptors::Intercept for {operation_type}TelemetryInputCaptureInterceptor {{\n    fn name(&self) -> &'static str {{\n        \"{operation_type}TelemetryInputCaptureInterceptor\"\n    }}\n\n    fn read_before_execution(\n        &self,\n        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<\n            '_ ,\n            ::aws_smithy_runtime_api::client::interceptors::context::Input,\n            ::aws_smithy_runtime_api::client::interceptors::context::Output,\n            ::aws_smithy_runtime_api::client::interceptors::context::Error,\n        >,\n        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,\n    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {{\n        // Nothing to do unless the customer opted in by naming members to record.\n        let ::std::option::Option::Some(requested) = cfg\n            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()\n            .filter(|r| !r.is_empty())\n        else {{\n            return ::std::result::Result::Ok(());\n        }};\n\n        let ::std::option::Option::Some(input) = context.input().downcast_ref::<{operation_type}Input>() else {{\n            // A mismatched input is not this interceptor's concern; skip quietly.\n            return ::std::result::Result::Ok(());\n        }};\n\n        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();"
     )
     .unwrap();
+    *output = output
+        .replace(
+            &format!("downcast_ref::<{operation_type}Input>()"),
+            &format!("downcast_ref::<{shape_type}Input>()"),
+        )
+        .replace(
+            &format!("failed to downcast to {operation_type}Input"),
+            &format!("failed to downcast to {shape_type}Input"),
+        );
     if let Some(shape) = input_shape {
         for (name, member) in members(shape) {
             let Some(target) = member_target(member) else {
@@ -4858,14 +4879,14 @@ fn render_standalone_request_serializer(
     operation_name: &str,
     operation: &Value,
     module: &str,
-    operation_type: &str,
+    shape_type: &str,
     error_path: &str,
 ) {
     let input_shape = operation
         .get("input")
         .and_then(target_value)
         .and_then(|id| selected.model.shapes.get(id));
-    let input_path = format!("crate::operation::{module}::{operation_type}Input");
+    let input_path = format!("crate::operation::{module}::{shape_type}Input");
     let uri = operation_http_uri(operation);
     let (path, query) = uri.split_once('?').unwrap_or((uri, ""));
     let (rendered_path, uri_labels) = standalone_uri_labels(selected, input_shape, path);
@@ -5047,6 +5068,7 @@ fn render_standalone_endpoint_interceptor(
     selected: &SelectedModel,
     operation_name: &str,
     operation_type: &str,
+    shape_type: &str,
 ) {
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
     let service = selected
@@ -5079,6 +5101,15 @@ fn render_standalone_endpoint_interceptor(
         "\n#[derive(Debug)]\nstruct {operation_type}EndpointParamsInterceptor;\n\n#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]\nimpl ::aws_smithy_runtime_api::client::interceptors::Intercept for {operation_type}EndpointParamsInterceptor {{\n    fn name(&self) -> &'static str {{\n        \"{operation_type}EndpointParamsInterceptor\"\n    }}\n\n    fn read_before_execution(\n        &self,\n        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<\n            '_ ,\n            ::aws_smithy_runtime_api::client::interceptors::context::Input,\n            ::aws_smithy_runtime_api::client::interceptors::context::Output,\n            ::aws_smithy_runtime_api::client::interceptors::context::Error,\n        >,\n        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,\n    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {{\n        let _input = context\n            .input()\n            .downcast_ref::<{operation_type}Input>()\n            .ok_or(\"failed to downcast to {operation_type}Input\")?;\n\n        let params = crate::config::endpoint::Params::builder()"
     )
     .unwrap();
+    *output = output
+        .replace(
+            &format!("downcast_ref::<{operation_type}Input>()"),
+            &format!("downcast_ref::<{shape_type}Input>()"),
+        )
+        .replace(
+            &format!("failed to downcast to {operation_type}Input"),
+            &format!("failed to downcast to {shape_type}Input"),
+        );
     if let Some(endpoint_prefix) = render_standalone_endpoint_prefix(operation, input_shape) {
         let params_marker = "        let params = crate::config::endpoint::Params::builder()";
         *output = output.replace(params_marker, &format!("{endpoint_prefix}{params_marker}"));
@@ -5868,7 +5899,7 @@ fn render_waiter_output_matcher(
     matcher: &Value,
     operation_prefix: &str,
     operation_module: &str,
-    operation_type: &str,
+    output_type: &str,
 ) -> bool {
     let Some(output_matcher) = matcher.get("output").and_then(Value::as_object) else {
         return false;
@@ -5891,7 +5922,7 @@ fn render_waiter_output_matcher(
     else {
         return false;
     };
-    let output_path = format!("{operation_prefix}::{operation_module}::{operation_type}Output");
+    let output_path = format!("{operation_prefix}::{operation_module}::{output_type}Output");
     let target_type = waiter_matcher_type(selected, &target, operation_module);
     if comparator == "stringEquals" && steps.iter().all(|(_, _, is_array)| !is_array) {
         writeln!(
@@ -6100,7 +6131,8 @@ fn render_waiter_matchers_file(selected: &SelectedModel) -> String {
     let mut seen = BTreeSet::new();
     for (operation_name, _, waiter) in waiter_specs_by_name(selected) {
         let operation_module = names::snake_case(&operation_name);
-        let operation_type = rust_type_name(&operation_name);
+        let operation_type = operation_error_type_name(&operation_name);
+        let output_type = rust_type_name(&operation_name);
         for (_, matcher) in waiter_acceptors(&waiter) {
             let matcher_json = waiter_matcher_json(&matcher);
             if !seen.insert(format!("{operation_name}\0{matcher_json}")) {
@@ -6110,7 +6142,7 @@ fn render_waiter_matchers_file(selected: &SelectedModel) -> String {
             writeln!(output, "/// Matcher union: {matcher_json}").unwrap();
             writeln!(
                 output,
-                "pub(crate) fn {matcher_name}(\n    _result: ::std::result::Result<&{operation_prefix}::{operation_module}::{operation_type}Output, &{operation_prefix}::{operation_module}::{operation_type}Error>,\n) -> bool {{"
+                "pub(crate) fn {matcher_name}(\n    _result: ::std::result::Result<&{operation_prefix}::{operation_module}::{output_type}Output, &{operation_prefix}::{operation_module}::{operation_type}Error>,\n) -> bool {{"
             )
             .unwrap();
             if let Some(success) = matcher.get("success").and_then(Value::as_bool) {
@@ -6135,7 +6167,7 @@ fn render_waiter_matchers_file(selected: &SelectedModel) -> String {
                 &matcher,
                 operation_prefix,
                 &operation_module,
-                &operation_type,
+                &output_type,
             ) {
             } else {
                 output.push_str("    false\n");
@@ -6152,13 +6184,14 @@ fn render_waiter_file(selected: &SelectedModel, waiter_name: &str, waiter: &Valu
         .find(|(_, name, _)| name == waiter_name)
         .expect("waiter belongs to selected model");
     let operation_module = names::snake_case(&operation_name);
-    let operation_type = rust_type_name(&operation_name);
+    let operation_type = operation_error_type_name(&operation_name);
+    let shape_type = rust_type_name(&operation_name);
     let waiter_type = rust_type_name(waiter_name);
     let operation_prefix = { "crate::operation" };
     let client_path = { "crate::client" };
     let matcher_prefix = { "crate::waiters::matchers" };
     let input_builder_path =
-        format!("{operation_prefix}::{operation_module}::builders::{operation_type}InputBuilder");
+        format!("{operation_prefix}::{operation_module}::builders::{shape_type}InputBuilder");
     let mut output = String::new();
     header(&mut output);
     output.push_str(&format!(
@@ -6213,6 +6246,10 @@ fn render_waiter_file(selected: &SelectedModel, waiter_name: &str, waiter: &Valu
         )
     )
     .unwrap();
+    output = output.replace(
+        &format!("{operation_prefix}::{operation_module}::{operation_type}Output"),
+        &format!("{operation_prefix}::{operation_module}::{shape_type}Output"),
+    );
     // FluentBuilderGenerator places input helpers immediately after the
     // overridden wait method; keep the doc comment adjacent to the method as
     // rustfmt does in Smithy-RS output.
@@ -6401,8 +6438,8 @@ fn render_paginator_file(selected: &SelectedModel, operation_name: &str) -> Stri
     let info = operation_pagination_info(selected, operation_name)
         .expect("paginator file only exists for paginated operations");
     let operation_module = names::snake_case(operation_name);
-    let operation_type = rust_type_name(operation_name);
-    let operation_symbol = operation_name;
+    let operation_type = operation_error_type_name(operation_name);
+    let shape_type = rust_type_name(operation_name);
     let paginator_name = format!("{operation_type}Paginator");
     let operation_path = format!("crate::operation::{operation_module}");
     let output_token_suffix = info
@@ -6422,7 +6459,7 @@ fn render_paginator_file(selected: &SelectedModel, operation_name: &str) -> Stri
     client_operation_header(&mut output);
     writeln!(
         output,
-        "/// Paginator for [`{operation_name}`]({operation_path}::{operation_type})\npub struct {paginator_name} {{\n    handle: std::sync::Arc<crate::client::Handle>,\n    builder: {operation_path}::builders::{operation_type}InputBuilder,\n    stop_on_duplicate_token: bool,\n}}\n\nimpl {paginator_name} {{\n    /// Create a new paginator-wrapper\n    pub(crate) fn new(\n        handle: std::sync::Arc<crate::client::Handle>,\n        builder: {operation_path}::builders::{operation_type}InputBuilder,\n    ) -> Self {{\n        Self {{\n            handle,\n            builder,\n            stop_on_duplicate_token: true,\n        }}\n    }}\n"
+        "/// Paginator for [`{operation_name}`]({operation_path}::{operation_type})\npub struct {paginator_name} {{\n    handle: std::sync::Arc<crate::client::Handle>,\n    builder: {operation_path}::builders::{shape_type}InputBuilder,\n    stop_on_duplicate_token: bool,\n}}\n\nimpl {paginator_name} {{\n    /// Create a new paginator-wrapper\n    pub(crate) fn new(\n        handle: std::sync::Arc<crate::client::Handle>,\n        builder: {operation_path}::builders::{shape_type}InputBuilder,\n    ) -> Self {{\n        Self {{\n            handle,\n            builder,\n            stop_on_duplicate_token: true,\n        }}\n    }}\n"
     )
     .unwrap();
 
@@ -6471,8 +6508,8 @@ fn render_paginator_file(selected: &SelectedModel, operation_name: &str) -> Stri
         "    /// Stop paginating when the service returns the same pagination token twice in a row.\n    ///\n    /// Defaults to true.\n    ///\n    /// For certain operations, it may be useful to continue on duplicate token. For example,\n    /// if an operation is for tailing a log file in real-time, then continuing may be desired.\n    /// This option can be set to `false` to accommodate these use cases.\n    pub fn stop_on_duplicate_token(mut self, stop_on_duplicate_token: bool) -> Self {\n        self.stop_on_duplicate_token = stop_on_duplicate_token;\n        self\n    }\n\n",
     );
 
-    let output_type = format!("{operation_path}::{operation_type}Output");
-    let error_type = format!("{operation_path}::{operation_symbol}Error");
+    let output_type = format!("{operation_path}::{shape_type}Output");
+    let error_type = format!("{operation_path}::{operation_type}Error");
     let is_empty = if info.is_truncated {
         "                                // Pagination is exhausted when `is_truncated` is false\n                                let is_empty = !resp.is_truncated.unwrap_or(false);"
     } else {
@@ -6507,16 +6544,6 @@ fn render_paginator_file(selected: &SelectedModel, operation_name: &str) -> Stri
         .unwrap();
     }
 
-    if operation_type != operation_symbol {
-        output = output.replace(
-            &format!("{operation_path}::{operation_type}"),
-            &format!("{operation_path}::{operation_symbol}"),
-        );
-        output = output.replace(
-            &format!("{operation_path}::{operation_symbol}Output"),
-            &format!("{operation_path}::{operation_type}Output"),
-        );
-    }
     output
 }
 
@@ -6806,10 +6833,11 @@ fn render_standalone_fluent_operation_builder_file(
 ) -> String {
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
     let module = names::snake_case(operation_name);
-    let operation_type = rust_type_name(operation_name);
+    let operation_type = operation_error_type_name(operation_name);
+    let shape_type = rust_type_name(operation_name);
     let input_builder_path =
-        format!("crate::operation::{module}::builders::{operation_type}InputBuilder");
-    let output_path = format!("crate::operation::{module}::{operation_type}Output");
+        format!("crate::operation::{module}::builders::{shape_type}InputBuilder");
+    let output_path = format!("crate::operation::{module}::{shape_type}Output");
     let error_path = format!("crate::operation::{module}::{operation_type}Error");
     let long_builder_field = 4 + "inner: ".len() + input_builder_path.len() + 1 > 150;
     let (field_indent, config_indent, struct_close_indent) = if long_builder_field {
@@ -6839,7 +6867,7 @@ fn render_standalone_fluent_operation_builder_file(
     client_operation_header(&mut output);
     writeln!(
         output,
-        "pub use crate::operation::{module}::_{module}_input::{operation_type}InputBuilder;\n\npub use crate::operation::{module}::_{module}_output::{operation_type}OutputBuilder;\n"
+        "pub use crate::operation::{module}::_{module}_input::{shape_type}InputBuilder;\n\npub use crate::operation::{module}::_{module}_output::{shape_type}OutputBuilder;\n"
     )
     .unwrap();
     writeln!(
@@ -8556,7 +8584,8 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
     let operation = operation_shape(selected, operation_name).expect("operation exists");
     let module = names::rust_module_name(operation_name);
     let operation_type = rust_type_name(operation_name);
-    let error_path = format!("crate::operation::{module}::{operation_type}Error");
+    let operation_symbol = operation_error_type_name(operation_name);
+    let error_path = format!("crate::operation::{module}::{operation_symbol}Error");
     let output_path = format!("crate::operation::{module}::{operation_type}Output");
     let mut output = String::new();
     client_operation_header(&mut output);
@@ -8733,8 +8762,9 @@ fn render_json_protocol_http_error(
 ) {
     let module = names::rust_module_name(operation_name);
     let operation_type = rust_type_name(operation_name);
+    let operation_symbol = operation_error_type_name(operation_name);
     let output_path = format!("crate::operation::{module}::{operation_type}Output");
-    let error_path = format!("crate::operation::{module}::{operation_type}Error");
+    let error_path = format!("crate::operation::{module}::{operation_symbol}Error");
     writeln!(
         output,
         "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_error(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{\n    #[allow(unused_mut)]\n    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)\n        .map_err({error_path}::unhandled)?;"
@@ -11119,8 +11149,9 @@ fn render_protocol_http_error(
 ) {
     let module = names::snake_case(operation_name);
     let rust_operation = rust_type_name(operation_name);
+    let operation_symbol = operation_error_type_name(operation_name);
     let output_path = protocol_operation_type_path(&module, &rust_operation, "Output");
-    let error_path = protocol_operation_type_path(&module, &rust_operation, "Error");
+    let error_path = protocol_operation_type_path(&module, &operation_symbol, "Error");
     writeln!(
         output,
         "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_error(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{"
@@ -11250,8 +11281,9 @@ fn render_protocol_http_response(
 ) {
     let module = names::snake_case(operation_name);
     let rust_operation = rust_type_name(operation_name);
+    let operation_symbol = operation_error_type_name(operation_name);
     let output_path = protocol_operation_type_path(&module, &rust_operation, "Output");
-    let error_path = protocol_operation_type_path(&module, &rust_operation, "Error");
+    let error_path = protocol_operation_type_path(&module, &operation_symbol, "Error");
     let streaming_payload = output_shape.and_then(|shape| {
         members(shape).into_iter().find(|(_, member)| {
             has_trait(member, "smithy.api#httpPayload")
@@ -11814,7 +11846,7 @@ fn render_protocol_output_payload_file(
     let error = format!(
         "crate::operation::{}::{}Error",
         names::rust_module_name(operation_name),
-        rust_type_name(operation_name)
+        operation_error_type_name(operation_name)
     );
     let mut output = String::new();
     client_operation_header(&mut output);
@@ -14882,48 +14914,15 @@ fn rust_type_name(value: &str) -> String {
     }
 }
 
-/// Smithy keeps all-uppercase runs in operation symbols (for example, the
-/// `SAML` segment of `AssumeRoleWithSAML`) while modeled member/enum names use
-/// the ordinary Rust type-name normalization above.
+/// Smithy operation symbols preserve the operation shape name, only
+/// uppercasing its first character. Modeled operation input/output shapes use
+/// the ordinary Rust type-name normalization above instead.
 fn operation_error_type_name(value: &str) -> String {
-    let mut result = rust_type_name(value);
-    let chars = value.chars().collect::<Vec<_>>();
-    let mut index = 0;
-    while index < chars.len() {
-        if !chars[index].is_ascii_uppercase() {
-            index += 1;
-            continue;
-        }
-        let start = index;
-        while index < chars.len() && chars[index].is_ascii_uppercase() {
-            if index > start
-                && chars
-                    .get(index + 1)
-                    .is_some_and(|next| next.is_ascii_lowercase())
-            {
-                break;
-            }
-            index += 1;
-        }
-        if index - start < 2 {
-            continue;
-        }
-        let acronym = chars[start..index].iter().collect::<String>();
-        let normalized = acronym
-            .chars()
-            .next()
-            .into_iter()
-            .flat_map(|first| first.to_uppercase())
-            .chain(
-                acronym
-                    .chars()
-                    .skip(1)
-                    .flat_map(|character| character.to_lowercase()),
-            )
-            .collect::<String>();
-        result = result.replace(&normalized, &acronym);
-    }
-    result
+    let mut chars = value.chars();
+    let Some(first) = chars.next() else {
+        return String::new();
+    };
+    first.to_uppercase().chain(chars).collect()
 }
 
 fn terminal(value: &str) -> &str {
@@ -14961,6 +14960,27 @@ fn sorted_members(shape: &Value) -> BTreeMap<String, &Value> {
 mod tests {
     use super::*;
     use crate::{ServiceMetadata, ServiceSource};
+
+    #[test]
+    fn operation_symbols_preserve_acronyms_but_shapes_are_normalized() {
+        assert_eq!(
+            operation_error_type_name("CreateSMSSandboxPhoneNumber"),
+            "CreateSMSSandboxPhoneNumber"
+        );
+        assert_eq!(
+            rust_type_name("CreateSMSSandboxPhoneNumber"),
+            "CreateSmsSandboxPhoneNumber"
+        );
+        assert_eq!(
+            operation_error_type_name("ListSAMLProviders"),
+            "ListSAMLProviders"
+        );
+        assert_eq!(
+            operation_error_type_name("AssumeRoleWithSAML"),
+            "AssumeRoleWithSAML"
+        );
+        assert_eq!(operation_error_type_name("CreateThing"), "CreateThing");
+    }
 
     #[test]
     fn normalize_model_documentation_preserves_malformed_html_structure() {

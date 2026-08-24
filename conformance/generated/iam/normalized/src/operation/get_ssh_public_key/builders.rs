@@ -11,7 +11,7 @@ impl super::super::super::operation::get_ssh_public_key::builders::GetSshPublicK
     ) -> ::std::result::Result<
         super::super::super::operation::get_ssh_public_key::GetSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_ssh_public_key::GetSshPublicKeyError,
+            super::super::super::operation::get_ssh_public_key::GetSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::get_ssh_public_key::builders::GetSshPublicK
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `GetSshPublicKey`.
+/// Fluent builder constructing a request to `GetSSHPublicKey`.
 ///
 /// <p>Retrieves the specified SSH public key, including metadata about the key.</p>
 /// <p>The SSH public key retrieved by this operation is used only for authenticating the associated IAM user to an CodeCommit repository. For more information about using SSH keys to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct GetSshPublicKeyFluentBuilder {
+pub struct GetSSHPublicKeyFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct GetSshPublicKeyFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::get_ssh_public_key::GetSshPublicKeyOutput,
-        super::super::super::operation::get_ssh_public_key::GetSshPublicKeyError,
-    > for GetSshPublicKeyFluentBuilder
+        super::super::super::operation::get_ssh_public_key::GetSSHPublicKeyError,
+    > for GetSSHPublicKeyFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::get_ssh_public_key::GetSshPublicKeyOutput,
-            super::super::super::operation::get_ssh_public_key::GetSshPublicKeyError,
+            super::super::super::operation::get_ssh_public_key::GetSSHPublicKeyError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl GetSshPublicKeyFluentBuilder {
-    /// Creates a new `GetSshPublicKeyFluentBuilder`.
+impl GetSSHPublicKeyFluentBuilder {
+    /// Creates a new `GetSSHPublicKeyFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl GetSshPublicKeyFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the GetSshPublicKey as a reference.
+    /// Access the GetSSHPublicKey as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl GetSshPublicKeyFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::get_ssh_public_key::GetSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_ssh_public_key::GetSshPublicKeyError,
+            super::super::super::operation::get_ssh_public_key::GetSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl GetSshPublicKeyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::get_ssh_public_key::GetSshPublicKey::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::get_ssh_public_key::GetSSHPublicKey::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::get_ssh_public_key::GetSshPublicKey::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::get_ssh_public_key::GetSSHPublicKey::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl GetSshPublicKeyFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::get_ssh_public_key::GetSshPublicKeyOutput,
-        super::super::super::operation::get_ssh_public_key::GetSshPublicKeyError,
+        super::super::super::operation::get_ssh_public_key::GetSSHPublicKeyError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

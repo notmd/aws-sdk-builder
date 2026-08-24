@@ -6,27 +6,27 @@ pub fn de_get_sms_sandbox_account_status_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
-    super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+    super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+        .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled(generic)),
+        None => return Err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AuthorizationError" => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::AuthorizationErrorException({
+        "AuthorizationError" => super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::AuthorizationErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_get_sms_sandbox_account_status_http_error(
             }
             tmp
         }),
-        "InternalError" => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::InternalErrorException({
+        "InternalError" => super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::InternalErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_get_sms_sandbox_account_status_http_error(
             }
             tmp
         }),
-        "Throttled" => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::ThrottledException({
+        "Throttled" => super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::ThrottledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,7 +65,7 @@ pub fn de_get_sms_sandbox_account_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::generic(generic),
+        _ => super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::generic(generic),
     })
 }
 
@@ -76,17 +76,17 @@ pub fn de_get_sms_sandbox_account_status_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
-    super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+    super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
 > {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder::default();
         output = super::super::protocol_serde::shape_get_sms_sandbox_account_status::de_get_sms_sandbox_account_status(_response_body, output)
-            .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+            .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::get_sms_sandbox_account_status_output_output_correct_errors(output)
             .build()
-            .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?
+            .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?
     })
 }
 

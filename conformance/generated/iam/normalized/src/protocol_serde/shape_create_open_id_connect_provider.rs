@@ -6,22 +6,22 @@ pub fn de_create_open_id_connect_provider_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
-    super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+    super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled(generic)),
+        None => return Err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "ConcurrentModification" => {
-            super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::ConcurrentModificationException({
+            super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ConcurrentModificationException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
@@ -30,7 +30,7 @@ pub fn de_create_open_id_connect_provider_http_error(
                         _response_body,
                         output,
                     )
-                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -40,14 +40,14 @@ pub fn de_create_open_id_connect_provider_http_error(
                 tmp
             })
         }
-        "EntityAlreadyExists" => super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::EntityAlreadyExistsException({
+        "EntityAlreadyExists" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::EntityAlreadyExistsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
                 output =
                     super::super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
-                        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -56,13 +56,13 @@ pub fn de_create_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        "InvalidInput" => super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::InvalidInputException({
+        "InvalidInput" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::InvalidInputException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -71,13 +71,13 @@ pub fn de_create_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        "LimitExceeded" => super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::LimitExceededException({
+        "LimitExceeded" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -87,7 +87,7 @@ pub fn de_create_open_id_connect_provider_http_error(
             tmp
         }),
         "OpenIdIdpCommunicationError" => {
-            super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::OpenIdIdpCommunicationErrorException({
+            super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::OpenIdIdpCommunicationErrorException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
@@ -97,7 +97,7 @@ pub fn de_create_open_id_connect_provider_http_error(
                             _response_body,
                             output,
                         )
-                        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -107,13 +107,13 @@ pub fn de_create_open_id_connect_provider_http_error(
                 tmp
             })
         }
-        "ServiceFailure" => super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::ServiceFailureException({
+        "ServiceFailure" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ServiceFailureException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122,7 +122,7 @@ pub fn de_create_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::generic(generic),
+        _ => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::generic(generic),
     })
 }
 
@@ -133,13 +133,13 @@ pub fn de_create_open_id_connect_provider_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
-    super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+    super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
 > {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder::default();
         output = super::super::protocol_serde::shape_create_open_id_connect_provider::de_create_open_id_connect_provider(_response_body, output)
-            .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+            .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

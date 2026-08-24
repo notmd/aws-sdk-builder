@@ -4,26 +4,26 @@ pub fn de_get_sms_attributes_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::get_sms_attributes::GetSmsAttributesOutput, super::super::operation::get_sms_attributes::GetSmsAttributesError> {
+) -> std::result::Result<super::super::operation::get_sms_attributes::GetSmsAttributesOutput, super::super::operation::get_sms_attributes::GetSMSAttributesError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+        .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled(generic)),
+        None => return Err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AuthorizationError" => super::super::operation::get_sms_attributes::GetSmsAttributesError::AuthorizationErrorException({
+        "AuthorizationError" => super::super::operation::get_sms_attributes::GetSMSAttributesError::AuthorizationErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                    .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -32,13 +32,13 @@ pub fn de_get_sms_attributes_http_error(
             }
             tmp
         }),
-        "InternalError" => super::super::operation::get_sms_attributes::GetSmsAttributesError::InternalErrorException({
+        "InternalError" => super::super::operation::get_sms_attributes::GetSMSAttributesError::InternalErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                    .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -47,13 +47,13 @@ pub fn de_get_sms_attributes_http_error(
             }
             tmp
         }),
-        "InvalidParameter" => super::super::operation::get_sms_attributes::GetSmsAttributesError::InvalidParameterException({
+        "InvalidParameter" => super::super::operation::get_sms_attributes::GetSMSAttributesError::InvalidParameterException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                    .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,13 +62,13 @@ pub fn de_get_sms_attributes_http_error(
             }
             tmp
         }),
-        "Throttled" => super::super::operation::get_sms_attributes::GetSmsAttributesError::ThrottledException({
+        "Throttled" => super::super::operation::get_sms_attributes::GetSMSAttributesError::ThrottledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                    .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -77,7 +77,7 @@ pub fn de_get_sms_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_sms_attributes::GetSmsAttributesError::generic(generic),
+        _ => super::super::operation::get_sms_attributes::GetSMSAttributesError::generic(generic),
     })
 }
 
@@ -86,12 +86,12 @@ pub fn de_get_sms_attributes_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::get_sms_attributes::GetSmsAttributesOutput, super::super::operation::get_sms_attributes::GetSmsAttributesError> {
+) -> std::result::Result<super::super::operation::get_sms_attributes::GetSmsAttributesOutput, super::super::operation::get_sms_attributes::GetSMSAttributesError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder::default();
         output = super::super::protocol_serde::shape_get_sms_attributes::de_get_sms_attributes(_response_body, output)
-            .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+            .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

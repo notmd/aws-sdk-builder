@@ -11,7 +11,7 @@ impl super::super::super::operation::get_sms_attributes::builders::GetSmsAttribu
     ) -> ::std::result::Result<
         super::super::super::operation::get_sms_attributes::GetSmsAttributesOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_sms_attributes::GetSmsAttributesError,
+            super::super::super::operation::get_sms_attributes::GetSMSAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::get_sms_attributes::builders::GetSmsAttribu
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `GetSmsAttributes`.
+/// Fluent builder constructing a request to `GetSMSAttributes`.
 ///
 /// <p>Returns the settings for sending SMS messages from your Amazon Web Services account.</p>
 /// <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct GetSmsAttributesFluentBuilder {
+pub struct GetSMSAttributesFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct GetSmsAttributesFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::get_sms_attributes::GetSmsAttributesOutput,
-        super::super::super::operation::get_sms_attributes::GetSmsAttributesError,
-    > for GetSmsAttributesFluentBuilder
+        super::super::super::operation::get_sms_attributes::GetSMSAttributesError,
+    > for GetSMSAttributesFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::get_sms_attributes::GetSmsAttributesOutput,
-            super::super::super::operation::get_sms_attributes::GetSmsAttributesError,
+            super::super::super::operation::get_sms_attributes::GetSMSAttributesError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl GetSmsAttributesFluentBuilder {
-    /// Creates a new `GetSmsAttributesFluentBuilder`.
+impl GetSMSAttributesFluentBuilder {
+    /// Creates a new `GetSMSAttributesFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl GetSmsAttributesFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the GetSmsAttributes as a reference.
+    /// Access the GetSMSAttributes as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl GetSmsAttributesFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::get_sms_attributes::GetSmsAttributesOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_sms_attributes::GetSmsAttributesError,
+            super::super::super::operation::get_sms_attributes::GetSMSAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl GetSmsAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::get_sms_attributes::GetSmsAttributes::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::get_sms_attributes::GetSMSAttributes::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::get_sms_attributes::GetSmsAttributes::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::get_sms_attributes::GetSMSAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl GetSmsAttributesFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::get_sms_attributes::GetSmsAttributesOutput,
-        super::super::super::operation::get_sms_attributes::GetSmsAttributesError,
+        super::super::super::operation::get_sms_attributes::GetSMSAttributesError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

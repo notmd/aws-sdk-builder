@@ -6,27 +6,27 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
-    super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
+    super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+        .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled(generic)),
+        None => return Err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AuthorizationError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::AuthorizationErrorException({
+        "AuthorizationError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::AuthorizationErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        "InternalError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::InternalErrorException({
+        "InternalError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::InternalErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        "InvalidParameter" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::InvalidParameterException({
+        "InvalidParameter" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::InvalidParameterException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,13 +65,13 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        "ResourceNotFound" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::ResourceNotFoundException({
+        "ResourceNotFound" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,13 +80,13 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        "Throttled" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::ThrottledException({
+        "Throttled" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::ThrottledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -95,13 +95,13 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        "UserError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::UserErrorException({
+        "UserError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::UserErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_user_error_exception::de_user_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -110,7 +110,7 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::generic(generic),
+        _ => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::generic(generic),
     })
 }
 
@@ -121,7 +121,7 @@ pub fn de_delete_sms_sandbox_phone_number_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
-    super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
+    super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
 > {
     Ok({
         #[allow(unused_mut)]

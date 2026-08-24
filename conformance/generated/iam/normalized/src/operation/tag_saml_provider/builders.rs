@@ -11,7 +11,7 @@ impl super::super::super::operation::tag_saml_provider::builders::TagSamlProvide
     ) -> ::std::result::Result<
         super::super::super::operation::tag_saml_provider::TagSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::tag_saml_provider::TagSamlProviderError,
+            super::super::super::operation::tag_saml_provider::TagSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,7 +20,7 @@ impl super::super::super::operation::tag_saml_provider::builders::TagSamlProvide
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `TagSamlProvider`.
+/// Fluent builder constructing a request to `TagSAMLProvider`.
 ///
 /// <p>Adds one or more tags to a Security Assertion Markup Language (SAML) identity provider. For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based federation </a>. If a tag with the same key name already exists, then that tag is overwritten with the new value.</p>
 /// <p>A tag consists of a key name and an associated value. By assigning tags to your resources, you can do the following:</p>
@@ -38,7 +38,7 @@ impl super::super::super::operation::tag_saml_provider::builders::TagSamlProvide
 /// </ul>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct TagSamlProviderFluentBuilder {
+pub struct TagSAMLProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::tag_saml_provider::builders::TagSamlProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -46,8 +46,8 @@ pub struct TagSamlProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::tag_saml_provider::TagSamlProviderOutput,
-        super::super::super::operation::tag_saml_provider::TagSamlProviderError,
-    > for TagSamlProviderFluentBuilder
+        super::super::super::operation::tag_saml_provider::TagSAMLProviderError,
+    > for TagSAMLProviderFluentBuilder
 {
     fn send(
         self,
@@ -55,14 +55,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::tag_saml_provider::TagSamlProviderOutput,
-            super::super::super::operation::tag_saml_provider::TagSamlProviderError,
+            super::super::super::operation::tag_saml_provider::TagSAMLProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl TagSamlProviderFluentBuilder {
-    /// Creates a new `TagSamlProviderFluentBuilder`.
+impl TagSAMLProviderFluentBuilder {
+    /// Creates a new `TagSAMLProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -70,7 +70,7 @@ impl TagSamlProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the TagSamlProvider as a reference.
+    /// Access the TagSAMLProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::tag_saml_provider::builders::TagSamlProviderInputBuilder {
         &self.inner
     }
@@ -87,7 +87,7 @@ impl TagSamlProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::tag_saml_provider::TagSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::tag_saml_provider::TagSamlProviderError,
+            super::super::super::operation::tag_saml_provider::TagSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -95,12 +95,12 @@ impl TagSamlProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::tag_saml_provider::TagSamlProvider::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::tag_saml_provider::TagSAMLProvider::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::tag_saml_provider::TagSamlProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::tag_saml_provider::TagSAMLProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -108,7 +108,7 @@ impl TagSamlProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::tag_saml_provider::TagSamlProviderOutput,
-        super::super::super::operation::tag_saml_provider::TagSamlProviderError,
+        super::super::super::operation::tag_saml_provider::TagSAMLProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

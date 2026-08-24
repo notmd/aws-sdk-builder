@@ -6,27 +6,27 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
-    super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+    super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+        .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled(generic)),
+        None => return Err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AuthorizationError" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::AuthorizationErrorException({
+        "AuthorizationError" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::AuthorizationErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        "InternalError" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::InternalErrorException({
+        "InternalError" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::InternalErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        "InvalidParameter" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::InvalidParameterException({
+        "InvalidParameter" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::InvalidParameterException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,13 +65,13 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        "OptedOut" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::OptedOutException({
+        "OptedOut" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::OptedOutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OptedOutExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_opted_out_exception::de_opted_out_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,13 +80,13 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        "Throttled" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::ThrottledException({
+        "Throttled" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::ThrottledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -95,13 +95,13 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        "UserError" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::UserErrorException({
+        "UserError" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::UserErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_user_error_exception::de_user_error_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -110,7 +110,7 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::generic(generic),
+        _ => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::generic(generic),
     })
 }
 
@@ -121,7 +121,7 @@ pub fn de_create_sms_sandbox_phone_number_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
-    super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+    super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
 > {
     Ok({
         #[allow(unused_mut)]

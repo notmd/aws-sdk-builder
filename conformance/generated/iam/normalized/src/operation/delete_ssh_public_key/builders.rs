@@ -11,7 +11,7 @@ impl super::super::super::operation::delete_ssh_public_key::builders::DeleteSshP
     ) -> ::std::result::Result<
         super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+            super::super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::delete_ssh_public_key::builders::DeleteSshP
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `DeleteSshPublicKey`.
+/// Fluent builder constructing a request to `DeleteSSHPublicKey`.
 ///
 /// <p>Deletes the specified SSH public key.</p>
 /// <p>The SSH public key deleted by this operation is used only for authenticating the associated IAM user to an CodeCommit repository. For more information about using SSH keys to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct DeleteSshPublicKeyFluentBuilder {
+pub struct DeleteSSHPublicKeyFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::delete_ssh_public_key::builders::DeleteSshPublicKeyInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct DeleteSshPublicKeyFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
-        super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
-    > for DeleteSshPublicKeyFluentBuilder
+        super::super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
+    > for DeleteSSHPublicKeyFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
-            super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+            super::super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl DeleteSshPublicKeyFluentBuilder {
-    /// Creates a new `DeleteSshPublicKeyFluentBuilder`.
+impl DeleteSSHPublicKeyFluentBuilder {
+    /// Creates a new `DeleteSSHPublicKeyFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl DeleteSshPublicKeyFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the DeleteSshPublicKey as a reference.
+    /// Access the DeleteSSHPublicKey as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::delete_ssh_public_key::builders::DeleteSshPublicKeyInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl DeleteSshPublicKeyFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+            super::super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl DeleteSshPublicKeyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKey::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::delete_ssh_public_key::DeleteSSHPublicKey::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKey::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::delete_ssh_public_key::DeleteSSHPublicKey::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl DeleteSshPublicKeyFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
-        super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+        super::super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

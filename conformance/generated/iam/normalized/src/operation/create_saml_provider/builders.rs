@@ -11,7 +11,7 @@ impl super::super::super::operation::create_saml_provider::builders::CreateSamlP
     ) -> ::std::result::Result<
         super::super::super::operation::create_saml_provider::CreateSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::create_saml_provider::CreateSamlProviderError,
+            super::super::super::operation::create_saml_provider::CreateSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,7 +20,7 @@ impl super::super::super::operation::create_saml_provider::builders::CreateSamlP
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `CreateSamlProvider`.
+/// Fluent builder constructing a request to `CreateSAMLProvider`.
 ///
 /// <p>Creates an IAM resource that describes an identity provider (IdP) that supports SAML 2.0.</p>
 /// <p>The SAML provider resource that you create with this operation can be used as a principal in an IAM role's trust policy. Such a policy can enable federated users who sign in using the SAML IdP to assume the role. You can create an IAM role that supports Web-based single sign-on (SSO) to the Amazon Web Services Management Console or one that supports API access to Amazon Web Services.</p>
@@ -29,7 +29,7 @@ impl super::super::super::operation::create_saml_provider::builders::CreateSamlP
 /// </note>
 /// <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html">Enabling SAML 2.0 federated users to access the Amazon Web Services Management Console</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based federation</a> in the <i>IAM User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct CreateSamlProviderFluentBuilder {
+pub struct CreateSAMLProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::create_saml_provider::builders::CreateSamlProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -37,8 +37,8 @@ pub struct CreateSamlProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::create_saml_provider::CreateSamlProviderOutput,
-        super::super::super::operation::create_saml_provider::CreateSamlProviderError,
-    > for CreateSamlProviderFluentBuilder
+        super::super::super::operation::create_saml_provider::CreateSAMLProviderError,
+    > for CreateSAMLProviderFluentBuilder
 {
     fn send(
         self,
@@ -46,14 +46,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::create_saml_provider::CreateSamlProviderOutput,
-            super::super::super::operation::create_saml_provider::CreateSamlProviderError,
+            super::super::super::operation::create_saml_provider::CreateSAMLProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl CreateSamlProviderFluentBuilder {
-    /// Creates a new `CreateSamlProviderFluentBuilder`.
+impl CreateSAMLProviderFluentBuilder {
+    /// Creates a new `CreateSAMLProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -61,7 +61,7 @@ impl CreateSamlProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the CreateSamlProvider as a reference.
+    /// Access the CreateSAMLProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::create_saml_provider::builders::CreateSamlProviderInputBuilder {
         &self.inner
     }
@@ -78,7 +78,7 @@ impl CreateSamlProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::create_saml_provider::CreateSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::create_saml_provider::CreateSamlProviderError,
+            super::super::super::operation::create_saml_provider::CreateSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -86,12 +86,12 @@ impl CreateSamlProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::create_saml_provider::CreateSamlProvider::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::create_saml_provider::CreateSAMLProvider::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::create_saml_provider::CreateSamlProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::create_saml_provider::CreateSAMLProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,7 +99,7 @@ impl CreateSamlProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::create_saml_provider::CreateSamlProviderOutput,
-        super::super::super::operation::create_saml_provider::CreateSamlProviderError,
+        super::super::super::operation::create_saml_provider::CreateSAMLProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

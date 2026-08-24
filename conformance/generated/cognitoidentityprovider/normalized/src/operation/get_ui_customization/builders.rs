@@ -11,7 +11,7 @@ impl super::super::super::operation::get_ui_customization::builders::GetUiCustom
     ) -> ::std::result::Result<
         super::super::super::operation::get_ui_customization::GetUiCustomizationOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_ui_customization::GetUiCustomizationError,
+            super::super::super::operation::get_ui_customization::GetUICustomizationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,11 +20,11 @@ impl super::super::super::operation::get_ui_customization::builders::GetUiCustom
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `GetUiCustomization`.
+/// Fluent builder constructing a request to `GetUICustomization`.
 ///
 /// <p>Given a user pool ID or app client, returns information about classic hosted UI branding that you applied, if any. Returns user-pool level branding information if no app client branding is applied, or if you don't specify an app client ID. Returns an empty object if you haven't applied hosted UI branding to either the client or the user pool. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/hosted-ui-classic-branding.html">Hosted UI (classic) branding</a>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct GetUiCustomizationFluentBuilder {
+pub struct GetUICustomizationFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::get_ui_customization::builders::GetUiCustomizationInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -32,8 +32,8 @@ pub struct GetUiCustomizationFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::get_ui_customization::GetUiCustomizationOutput,
-        super::super::super::operation::get_ui_customization::GetUiCustomizationError,
-    > for GetUiCustomizationFluentBuilder
+        super::super::super::operation::get_ui_customization::GetUICustomizationError,
+    > for GetUICustomizationFluentBuilder
 {
     fn send(
         self,
@@ -41,14 +41,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::get_ui_customization::GetUiCustomizationOutput,
-            super::super::super::operation::get_ui_customization::GetUiCustomizationError,
+            super::super::super::operation::get_ui_customization::GetUICustomizationError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl GetUiCustomizationFluentBuilder {
-    /// Creates a new `GetUiCustomizationFluentBuilder`.
+impl GetUICustomizationFluentBuilder {
+    /// Creates a new `GetUICustomizationFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -56,7 +56,7 @@ impl GetUiCustomizationFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the GetUiCustomization as a reference.
+    /// Access the GetUICustomization as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::get_ui_customization::builders::GetUiCustomizationInputBuilder {
         &self.inner
     }
@@ -73,7 +73,7 @@ impl GetUiCustomizationFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::get_ui_customization::GetUiCustomizationOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_ui_customization::GetUiCustomizationError,
+            super::super::super::operation::get_ui_customization::GetUICustomizationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -81,12 +81,12 @@ impl GetUiCustomizationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::get_ui_customization::GetUiCustomization::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::get_ui_customization::GetUICustomization::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::get_ui_customization::GetUiCustomization::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::get_ui_customization::GetUICustomization::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -94,7 +94,7 @@ impl GetUiCustomizationFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::get_ui_customization::GetUiCustomizationOutput,
-        super::super::super::operation::get_ui_customization::GetUiCustomizationError,
+        super::super::super::operation::get_ui_customization::GetUICustomizationError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

@@ -11,7 +11,7 @@ impl super::super::super::operation::list_open_id_connect_provider_tags::builder
     ) -> ::std::result::Result<
         super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+            super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::list_open_id_connect_provider_tags::builder
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `ListOpenIdConnectProviderTags`.
+/// Fluent builder constructing a request to `ListOpenIDConnectProviderTags`.
 ///
 /// <p>Lists the tags that are attached to the specified OpenID Connect (OIDC)-compatible identity provider. The returned list of tags is sorted by tag key. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>.</p>
 /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct ListOpenIdConnectProviderTagsFluentBuilder {
+pub struct ListOpenIDConnectProviderTagsFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct ListOpenIdConnectProviderTagsFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
-        super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
-    > for ListOpenIdConnectProviderTagsFluentBuilder
+        super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
+    > for ListOpenIDConnectProviderTagsFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
-            super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+            super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl ListOpenIdConnectProviderTagsFluentBuilder {
-    /// Creates a new `ListOpenIdConnectProviderTagsFluentBuilder`.
+impl ListOpenIDConnectProviderTagsFluentBuilder {
+    /// Creates a new `ListOpenIDConnectProviderTagsFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl ListOpenIdConnectProviderTagsFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the ListOpenIdConnectProviderTags as a reference.
+    /// Access the ListOpenIDConnectProviderTags as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl ListOpenIdConnectProviderTagsFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+            super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl ListOpenIdConnectProviderTagsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTags::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTags::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTags::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTags::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl ListOpenIdConnectProviderTagsFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
-        super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+        super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)
@@ -111,9 +111,9 @@ impl ListOpenIdConnectProviderTagsFluentBuilder {
     }
     /// Create a paginator for this request
     ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator {
-        super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator::new(self.handle, self.inner)
+    /// Paginators are used by calling [`send().await`](crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIDConnectProviderTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIDConnectProviderTagsPaginator {
+        super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIDConnectProviderTagsPaginator::new(self.handle, self.inner)
     }
     /// <p>The ARN of the OpenID Connect (OIDC) identity provider whose tags you want to see.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

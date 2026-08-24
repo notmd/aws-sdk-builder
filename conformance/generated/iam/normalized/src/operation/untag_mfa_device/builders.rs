@@ -11,7 +11,7 @@ impl super::super::super::operation::untag_mfa_device::builders::UntagMfaDeviceI
     ) -> ::std::result::Result<
         super::super::super::operation::untag_mfa_device::UntagMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::untag_mfa_device::UntagMfaDeviceError,
+            super::super::super::operation::untag_mfa_device::UntagMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,11 +20,11 @@ impl super::super::super::operation::untag_mfa_device::builders::UntagMfaDeviceI
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `UntagMfaDevice`.
+/// Fluent builder constructing a request to `UntagMFADevice`.
 ///
 /// <p>Removes the specified tags from the IAM virtual multi-factor authentication (MFA) device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct UntagMfaDeviceFluentBuilder {
+pub struct UntagMFADeviceFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -32,8 +32,8 @@ pub struct UntagMfaDeviceFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::untag_mfa_device::UntagMfaDeviceOutput,
-        super::super::super::operation::untag_mfa_device::UntagMfaDeviceError,
-    > for UntagMfaDeviceFluentBuilder
+        super::super::super::operation::untag_mfa_device::UntagMFADeviceError,
+    > for UntagMFADeviceFluentBuilder
 {
     fn send(
         self,
@@ -41,14 +41,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::untag_mfa_device::UntagMfaDeviceOutput,
-            super::super::super::operation::untag_mfa_device::UntagMfaDeviceError,
+            super::super::super::operation::untag_mfa_device::UntagMFADeviceError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl UntagMfaDeviceFluentBuilder {
-    /// Creates a new `UntagMfaDeviceFluentBuilder`.
+impl UntagMFADeviceFluentBuilder {
+    /// Creates a new `UntagMFADeviceFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -56,7 +56,7 @@ impl UntagMfaDeviceFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the UntagMfaDevice as a reference.
+    /// Access the UntagMFADevice as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder {
         &self.inner
     }
@@ -73,7 +73,7 @@ impl UntagMfaDeviceFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::untag_mfa_device::UntagMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::untag_mfa_device::UntagMfaDeviceError,
+            super::super::super::operation::untag_mfa_device::UntagMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -81,12 +81,12 @@ impl UntagMfaDeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::untag_mfa_device::UntagMfaDevice::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::untag_mfa_device::UntagMFADevice::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::untag_mfa_device::UntagMfaDevice::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::untag_mfa_device::UntagMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -94,7 +94,7 @@ impl UntagMfaDeviceFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::untag_mfa_device::UntagMfaDeviceOutput,
-        super::super::super::operation::untag_mfa_device::UntagMfaDeviceError,
+        super::super::super::operation::untag_mfa_device::UntagMFADeviceError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

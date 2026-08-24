@@ -11,7 +11,7 @@ impl super::super::super::operation::update_saml_provider::builders::UpdateSamlP
     ) -> ::std::result::Result<
         super::super::super::operation::update_saml_provider::UpdateSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::update_saml_provider::UpdateSamlProviderError,
+            super::super::super::operation::update_saml_provider::UpdateSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,11 +20,11 @@ impl super::super::super::operation::update_saml_provider::builders::UpdateSamlP
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `UpdateSamlProvider`.
+/// Fluent builder constructing a request to `UpdateSAMLProvider`.
 ///
 /// <p>Updates the metadata document, SAML encryption settings, and private keys for an existing SAML provider. To rotate private keys, add your new private key and then remove the old key in a separate request.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct UpdateSamlProviderFluentBuilder {
+pub struct UpdateSAMLProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::update_saml_provider::builders::UpdateSamlProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -32,8 +32,8 @@ pub struct UpdateSamlProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::update_saml_provider::UpdateSamlProviderOutput,
-        super::super::super::operation::update_saml_provider::UpdateSamlProviderError,
-    > for UpdateSamlProviderFluentBuilder
+        super::super::super::operation::update_saml_provider::UpdateSAMLProviderError,
+    > for UpdateSAMLProviderFluentBuilder
 {
     fn send(
         self,
@@ -41,14 +41,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::update_saml_provider::UpdateSamlProviderOutput,
-            super::super::super::operation::update_saml_provider::UpdateSamlProviderError,
+            super::super::super::operation::update_saml_provider::UpdateSAMLProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl UpdateSamlProviderFluentBuilder {
-    /// Creates a new `UpdateSamlProviderFluentBuilder`.
+impl UpdateSAMLProviderFluentBuilder {
+    /// Creates a new `UpdateSAMLProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -56,7 +56,7 @@ impl UpdateSamlProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the UpdateSamlProvider as a reference.
+    /// Access the UpdateSAMLProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::update_saml_provider::builders::UpdateSamlProviderInputBuilder {
         &self.inner
     }
@@ -73,7 +73,7 @@ impl UpdateSamlProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::update_saml_provider::UpdateSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::update_saml_provider::UpdateSamlProviderError,
+            super::super::super::operation::update_saml_provider::UpdateSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -81,12 +81,12 @@ impl UpdateSamlProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::update_saml_provider::UpdateSamlProvider::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::update_saml_provider::UpdateSAMLProvider::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::update_saml_provider::UpdateSamlProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::update_saml_provider::UpdateSAMLProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -94,7 +94,7 @@ impl UpdateSamlProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::update_saml_provider::UpdateSamlProviderOutput,
-        super::super::super::operation::update_saml_provider::UpdateSamlProviderError,
+        super::super::super::operation::update_saml_provider::UpdateSAMLProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

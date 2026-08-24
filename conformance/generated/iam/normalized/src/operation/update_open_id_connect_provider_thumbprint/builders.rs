@@ -11,7 +11,7 @@ impl super::super::super::operation::update_open_id_connect_provider_thumbprint:
     ) -> ::std::result::Result<
         super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+            super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,7 +20,7 @@ impl super::super::super::operation::update_open_id_connect_provider_thumbprint:
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `UpdateOpenIdConnectProviderThumbprint`.
+/// Fluent builder constructing a request to `UpdateOpenIDConnectProviderThumbprint`.
 ///
 /// <p>Replaces the existing list of server certificate thumbprints associated with an OpenID Connect (OIDC) provider resource object with a new list of thumbprints.</p>
 /// <p>The list that you pass with this operation completely replaces the existing list of thumbprints. (The lists are not merged.)</p>
@@ -30,7 +30,7 @@ impl super::super::super::operation::update_open_id_connect_provider_thumbprint:
 /// <p>Trust for the OIDC provider is derived from the provider certificate and is validated by the thumbprint. Therefore, it is best to limit access to the <code>UpdateOpenIDConnectProviderThumbprint</code> operation to highly privileged users.</p>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct UpdateOpenIdConnectProviderThumbprintFluentBuilder {
+pub struct UpdateOpenIDConnectProviderThumbprintFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -38,8 +38,8 @@ pub struct UpdateOpenIdConnectProviderThumbprintFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
-        super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
-    > for UpdateOpenIdConnectProviderThumbprintFluentBuilder
+        super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
+    > for UpdateOpenIDConnectProviderThumbprintFluentBuilder
 {
     fn send(
         self,
@@ -47,14 +47,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
-            super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+            super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl UpdateOpenIdConnectProviderThumbprintFluentBuilder {
-    /// Creates a new `UpdateOpenIdConnectProviderThumbprintFluentBuilder`.
+impl UpdateOpenIDConnectProviderThumbprintFluentBuilder {
+    /// Creates a new `UpdateOpenIDConnectProviderThumbprintFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -62,7 +62,7 @@ impl UpdateOpenIdConnectProviderThumbprintFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the UpdateOpenIdConnectProviderThumbprint as a reference.
+    /// Access the UpdateOpenIDConnectProviderThumbprint as a reference.
     pub fn as_input(
         &self,
     ) -> &super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder {
@@ -81,7 +81,7 @@ impl UpdateOpenIdConnectProviderThumbprintFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+            super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -90,12 +90,12 @@ impl UpdateOpenIdConnectProviderThumbprintFluentBuilder {
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
         let runtime_plugins =
-            super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprint::operation_runtime_plugins(
+            super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprint::operation_runtime_plugins(
                 self.handle.runtime_plugins.clone(),
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprint::orchestrate(&runtime_plugins, input)
+        super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprint::orchestrate(&runtime_plugins, input)
             .await
     }
 
@@ -104,7 +104,7 @@ impl UpdateOpenIdConnectProviderThumbprintFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
-        super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+        super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

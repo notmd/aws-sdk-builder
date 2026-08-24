@@ -11,7 +11,7 @@ impl super::super::super::operation::remove_client_id_from_open_id_connect_provi
     ) -> ::std::result::Result<
         super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
+            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::remove_client_id_from_open_id_connect_provi
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `RemoveClientIdFromOpenIdConnectProvider`.
+/// Fluent builder constructing a request to `RemoveClientIDFromOpenIDConnectProvider`.
 ///
 /// <p>Removes the specified client ID (also known as audience) from the list of client IDs registered for the specified IAM OpenID Connect (OIDC) provider resource object.</p>
 /// <p>This operation is idempotent; it does not fail or return an error if you try to remove a client ID that does not exist.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
+pub struct RemoveClientIDFromOpenIDConnectProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
-        super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
-    > for RemoveClientIdFromOpenIdConnectProviderFluentBuilder
+        super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
+    > for RemoveClientIDFromOpenIDConnectProviderFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
-            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
+            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
-    /// Creates a new `RemoveClientIdFromOpenIdConnectProviderFluentBuilder`.
+impl RemoveClientIDFromOpenIDConnectProviderFluentBuilder {
+    /// Creates a new `RemoveClientIDFromOpenIDConnectProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the RemoveClientIdFromOpenIdConnectProvider as a reference.
+    /// Access the RemoveClientIDFromOpenIDConnectProvider as a reference.
     pub fn as_input(
         &self,
     ) -> &super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder {
@@ -76,7 +76,7 @@ impl RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
+            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -85,12 +85,12 @@ impl RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
         let runtime_plugins =
-            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::operation_runtime_plugins(
+            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProvider::operation_runtime_plugins(
                 self.handle.runtime_plugins.clone(),
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::orchestrate(
+        super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProvider::orchestrate(
             &runtime_plugins,
             input,
         )
@@ -102,7 +102,7 @@ impl RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
-        super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
+        super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

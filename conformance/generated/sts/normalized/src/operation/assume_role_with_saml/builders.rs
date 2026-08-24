@@ -11,7 +11,7 @@ impl super::super::super::operation::assume_role_with_saml::builders::AssumeRole
     ) -> ::std::result::Result<
         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,7 +20,7 @@ impl super::super::super::operation::assume_role_with_saml::builders::AssumeRole
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `AssumeRoleWithSaml`.
+/// Fluent builder constructing a request to `AssumeRoleWithSAML`.
 ///
 /// <p>Returns a set of temporary security credentials for users who have been authenticated via a SAML authentication response. This operation provides a mechanism for tying an enterprise identity store or directory to role-based Amazon Web Services access without user-specific credentials or configuration. For a comparison of <code>AssumeRoleWithSAML</code> with the other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare STS credentials</a> in the <i>IAM User Guide</i>.</p>
 /// <p>The temporary security credentials returned by this operation consist of an access key ID, a secret access key, and a security token. Applications can use these temporary security credentials to sign calls to Amazon Web Services services.</p><note>
@@ -58,7 +58,7 @@ impl super::super::super::operation::assume_role_with_saml::builders::AssumeRole
 /// <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html">Creating a Role for SAML 2.0 Federation</a> in the <i>IAM User Guide</i>.</p></li>
 /// </ul>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct AssumeRoleWithSamlFluentBuilder {
+pub struct AssumeRoleWithSAMLFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -66,8 +66,8 @@ pub struct AssumeRoleWithSamlFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
-        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
-    > for AssumeRoleWithSamlFluentBuilder
+        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
+    > for AssumeRoleWithSAMLFluentBuilder
 {
     fn send(
         self,
@@ -75,14 +75,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
-            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl AssumeRoleWithSamlFluentBuilder {
-    /// Creates a new `AssumeRoleWithSamlFluentBuilder`.
+impl AssumeRoleWithSAMLFluentBuilder {
+    /// Creates a new `AssumeRoleWithSAMLFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -90,7 +90,7 @@ impl AssumeRoleWithSamlFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the AssumeRoleWithSaml as a reference.
+    /// Access the AssumeRoleWithSAML as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder {
         &self.inner
     }
@@ -107,7 +107,7 @@ impl AssumeRoleWithSamlFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+            super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -115,12 +115,12 @@ impl AssumeRoleWithSamlFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::assume_role_with_saml::AssumeRoleWithSaml::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAML::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSaml::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAML::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -128,7 +128,7 @@ impl AssumeRoleWithSamlFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
-        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

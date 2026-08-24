@@ -11,7 +11,7 @@ impl super::super::super::operation::untag_saml_provider::builders::UntagSamlPro
     ) -> ::std::result::Result<
         super::super::super::operation::untag_saml_provider::UntagSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::untag_saml_provider::UntagSamlProviderError,
+            super::super::super::operation::untag_saml_provider::UntagSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,11 +20,11 @@ impl super::super::super::operation::untag_saml_provider::builders::UntagSamlPro
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `UntagSamlProvider`.
+/// Fluent builder constructing a request to `UntagSAMLProvider`.
 ///
 /// <p>Removes the specified tags from the specified Security Assertion Markup Language (SAML) identity provider in IAM. For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct UntagSamlProviderFluentBuilder {
+pub struct UntagSAMLProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::untag_saml_provider::builders::UntagSamlProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -32,8 +32,8 @@ pub struct UntagSamlProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::untag_saml_provider::UntagSamlProviderOutput,
-        super::super::super::operation::untag_saml_provider::UntagSamlProviderError,
-    > for UntagSamlProviderFluentBuilder
+        super::super::super::operation::untag_saml_provider::UntagSAMLProviderError,
+    > for UntagSAMLProviderFluentBuilder
 {
     fn send(
         self,
@@ -41,14 +41,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::untag_saml_provider::UntagSamlProviderOutput,
-            super::super::super::operation::untag_saml_provider::UntagSamlProviderError,
+            super::super::super::operation::untag_saml_provider::UntagSAMLProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl UntagSamlProviderFluentBuilder {
-    /// Creates a new `UntagSamlProviderFluentBuilder`.
+impl UntagSAMLProviderFluentBuilder {
+    /// Creates a new `UntagSAMLProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -56,7 +56,7 @@ impl UntagSamlProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the UntagSamlProvider as a reference.
+    /// Access the UntagSAMLProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::untag_saml_provider::builders::UntagSamlProviderInputBuilder {
         &self.inner
     }
@@ -73,7 +73,7 @@ impl UntagSamlProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::untag_saml_provider::UntagSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::untag_saml_provider::UntagSamlProviderError,
+            super::super::super::operation::untag_saml_provider::UntagSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -81,12 +81,12 @@ impl UntagSamlProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::untag_saml_provider::UntagSamlProvider::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::untag_saml_provider::UntagSAMLProvider::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::untag_saml_provider::UntagSamlProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::untag_saml_provider::UntagSAMLProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -94,7 +94,7 @@ impl UntagSamlProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::untag_saml_provider::UntagSamlProviderOutput,
-        super::super::super::operation::untag_saml_provider::UntagSamlProviderError,
+        super::super::super::operation::untag_saml_provider::UntagSAMLProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

@@ -11,7 +11,7 @@ impl super::super::super::operation::delete_open_id_connect_provider::builders::
     ) -> ::std::result::Result<
         super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+            super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,13 +20,13 @@ impl super::super::super::operation::delete_open_id_connect_provider::builders::
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `DeleteOpenIdConnectProvider`.
+/// Fluent builder constructing a request to `DeleteOpenIDConnectProvider`.
 ///
 /// <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
 /// <p>Deleting an IAM OIDC provider resource does not update any roles that reference the provider as a principal in their trust policies. Any attempt to assume a role that references a deleted provider fails.</p>
 /// <p>This operation is idempotent; it does not fail or return an error if you call the operation for a provider that does not exist.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct DeleteOpenIdConnectProviderFluentBuilder {
+pub struct DeleteOpenIDConnectProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -34,8 +34,8 @@ pub struct DeleteOpenIdConnectProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
-        super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
-    > for DeleteOpenIdConnectProviderFluentBuilder
+        super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
+    > for DeleteOpenIDConnectProviderFluentBuilder
 {
     fn send(
         self,
@@ -43,14 +43,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
-            super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+            super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl DeleteOpenIdConnectProviderFluentBuilder {
-    /// Creates a new `DeleteOpenIdConnectProviderFluentBuilder`.
+impl DeleteOpenIDConnectProviderFluentBuilder {
+    /// Creates a new `DeleteOpenIDConnectProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -58,7 +58,7 @@ impl DeleteOpenIdConnectProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the DeleteOpenIdConnectProvider as a reference.
+    /// Access the DeleteOpenIDConnectProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderInputBuilder {
         &self.inner
     }
@@ -75,7 +75,7 @@ impl DeleteOpenIdConnectProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+            super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -83,12 +83,12 @@ impl DeleteOpenIdConnectProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProvider::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProvider::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +96,7 @@ impl DeleteOpenIdConnectProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
-        super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+        super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

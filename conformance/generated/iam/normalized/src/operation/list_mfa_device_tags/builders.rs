@@ -11,7 +11,7 @@ impl super::super::super::operation::list_mfa_device_tags::builders::ListMfaDevi
     ) -> ::std::result::Result<
         super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
+            super::super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,11 +20,11 @@ impl super::super::super::operation::list_mfa_device_tags::builders::ListMfaDevi
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `ListMfaDeviceTags`.
+/// Fluent builder constructing a request to `ListMFADeviceTags`.
 ///
 /// <p>Lists the tags that are attached to the specified IAM virtual multi-factor authentication (MFA) device. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct ListMfaDeviceTagsFluentBuilder {
+pub struct ListMFADeviceTagsFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -32,8 +32,8 @@ pub struct ListMfaDeviceTagsFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
-        super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
-    > for ListMfaDeviceTagsFluentBuilder
+        super::super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
+    > for ListMFADeviceTagsFluentBuilder
 {
     fn send(
         self,
@@ -41,14 +41,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
-            super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
+            super::super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl ListMfaDeviceTagsFluentBuilder {
-    /// Creates a new `ListMfaDeviceTagsFluentBuilder`.
+impl ListMFADeviceTagsFluentBuilder {
+    /// Creates a new `ListMFADeviceTagsFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -56,7 +56,7 @@ impl ListMfaDeviceTagsFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the ListMfaDeviceTags as a reference.
+    /// Access the ListMFADeviceTags as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder {
         &self.inner
     }
@@ -73,7 +73,7 @@ impl ListMfaDeviceTagsFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
+            super::super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -81,12 +81,12 @@ impl ListMfaDeviceTagsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTags::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::list_mfa_device_tags::ListMFADeviceTags::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTags::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::list_mfa_device_tags::ListMFADeviceTags::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -94,7 +94,7 @@ impl ListMfaDeviceTagsFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
-        super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
+        super::super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)
@@ -110,9 +110,9 @@ impl ListMfaDeviceTagsFluentBuilder {
     }
     /// Create a paginator for this request
     ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_mfa_device_tags::paginator::ListMfaDeviceTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::list_mfa_device_tags::paginator::ListMfaDeviceTagsPaginator {
-        super::super::super::operation::list_mfa_device_tags::paginator::ListMfaDeviceTagsPaginator::new(self.handle, self.inner)
+    /// Paginators are used by calling [`send().await`](crate::operation::list_mfa_device_tags::paginator::ListMFADeviceTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> super::super::super::operation::list_mfa_device_tags::paginator::ListMFADeviceTagsPaginator {
+        super::super::super::operation::list_mfa_device_tags::paginator::ListMFADeviceTagsPaginator::new(self.handle, self.inner)
     }
     /// <p>The unique identifier for the IAM virtual MFA device whose tags you want to see. For virtual MFA devices, the serial number is the same as the ARN.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

@@ -6,27 +6,27 @@ pub fn de_update_ssh_public_key_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
-    super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+    super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::unhandled)?;
+        .map_err(super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::unhandled(generic)),
+        None => return Err(super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidInput" => super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::InvalidInputException({
+        "InvalidInput" => super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::InvalidInputException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::unhandled)?;
+                    .map_err(super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_update_ssh_public_key_http_error(
             }
             tmp
         }),
-        "NoSuchEntity" => super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::NoSuchEntityException({
+        "NoSuchEntity" => super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::NoSuchEntityException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::unhandled)?;
+                    .map_err(super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,7 +50,7 @@ pub fn de_update_ssh_public_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::generic(generic),
+        _ => super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::generic(generic),
     })
 }
 
@@ -61,7 +61,7 @@ pub fn de_update_ssh_public_key_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
-    super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+    super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
 > {
     Ok({
         #[allow(unused_mut)]

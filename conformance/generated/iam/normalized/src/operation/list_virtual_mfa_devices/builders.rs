@@ -11,7 +11,7 @@ impl super::super::super::operation::list_virtual_mfa_devices::builders::ListVir
     ) -> ::std::result::Result<
         super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
+            super::super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,14 +20,14 @@ impl super::super::super::operation::list_virtual_mfa_devices::builders::ListVir
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `ListVirtualMfaDevices`.
+/// Fluent builder constructing a request to `ListVirtualMFADevices`.
 ///
 /// <p>Lists the virtual MFA devices defined in the Amazon Web Services account by assignment status. If you do not specify an assignment status, the operation returns a list of all virtual MFA devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or <code>Any</code>.</p><note>
 /// <p>IAM resource-listing operations return a subset of the available attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view tag information for a virtual MFA device, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADeviceTags.html">ListMFADeviceTags</a>.</p>
 /// </note>
 /// <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct ListVirtualMfaDevicesFluentBuilder {
+pub struct ListVirtualMFADevicesFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -35,8 +35,8 @@ pub struct ListVirtualMfaDevicesFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
-        super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
-    > for ListVirtualMfaDevicesFluentBuilder
+        super::super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
+    > for ListVirtualMFADevicesFluentBuilder
 {
     fn send(
         self,
@@ -44,14 +44,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
-            super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
+            super::super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl ListVirtualMfaDevicesFluentBuilder {
-    /// Creates a new `ListVirtualMfaDevicesFluentBuilder`.
+impl ListVirtualMFADevicesFluentBuilder {
+    /// Creates a new `ListVirtualMFADevicesFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -59,7 +59,7 @@ impl ListVirtualMfaDevicesFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the ListVirtualMfaDevices as a reference.
+    /// Access the ListVirtualMFADevices as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder {
         &self.inner
     }
@@ -76,7 +76,7 @@ impl ListVirtualMfaDevicesFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
+            super::super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -84,12 +84,12 @@ impl ListVirtualMfaDevicesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevices::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevices::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevices::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevices::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +97,7 @@ impl ListVirtualMfaDevicesFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
-        super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
+        super::super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)
@@ -113,9 +113,9 @@ impl ListVirtualMfaDevicesFluentBuilder {
     }
     /// Create a paginator for this request
     ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_virtual_mfa_devices::paginator::ListVirtualMfaDevicesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::list_virtual_mfa_devices::paginator::ListVirtualMfaDevicesPaginator {
-        super::super::super::operation::list_virtual_mfa_devices::paginator::ListVirtualMfaDevicesPaginator::new(self.handle, self.inner)
+    /// Paginators are used by calling [`send().await`](crate::operation::list_virtual_mfa_devices::paginator::ListVirtualMFADevicesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> super::super::super::operation::list_virtual_mfa_devices::paginator::ListVirtualMFADevicesPaginator {
+        super::super::super::operation::list_virtual_mfa_devices::paginator::ListVirtualMFADevicesPaginator::new(self.handle, self.inner)
     }
     /// <p>The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list. If you do not specify an <code>AssignmentStatus</code>, the operation defaults to <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</p>
     pub fn assignment_status(mut self, input: super::super::super::types::AssignmentStatusType) -> Self {

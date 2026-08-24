@@ -11,7 +11,7 @@ impl super::super::super::operation::add_client_id_to_open_id_connect_provider::
     ) -> ::std::result::Result<
         super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+            super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::add_client_id_to_open_id_connect_provider::
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `AddClientIdToOpenIdConnectProvider`.
+/// Fluent builder constructing a request to `AddClientIDToOpenIDConnectProvider`.
 ///
 /// <p>Adds a new client ID (also known as audience) to the list of client IDs already registered for the specified IAM OpenID Connect (OIDC) provider resource.</p>
 /// <p>This operation is idempotent; it does not fail or return an error if you add an existing client ID to the provider.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct AddClientIdToOpenIdConnectProviderFluentBuilder {
+pub struct AddClientIDToOpenIDConnectProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct AddClientIdToOpenIdConnectProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
-        super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
-    > for AddClientIdToOpenIdConnectProviderFluentBuilder
+        super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
+    > for AddClientIDToOpenIDConnectProviderFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
-            super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+            super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl AddClientIdToOpenIdConnectProviderFluentBuilder {
-    /// Creates a new `AddClientIdToOpenIdConnectProviderFluentBuilder`.
+impl AddClientIDToOpenIDConnectProviderFluentBuilder {
+    /// Creates a new `AddClientIDToOpenIDConnectProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl AddClientIdToOpenIdConnectProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the AddClientIdToOpenIdConnectProvider as a reference.
+    /// Access the AddClientIDToOpenIDConnectProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl AddClientIdToOpenIdConnectProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+            super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -83,12 +83,12 @@ impl AddClientIdToOpenIdConnectProviderFluentBuilder {
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
         let runtime_plugins =
-            super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProvider::operation_runtime_plugins(
+            super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProvider::operation_runtime_plugins(
                 self.handle.runtime_plugins.clone(),
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +96,7 @@ impl AddClientIdToOpenIdConnectProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
-        super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+        super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

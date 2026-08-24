@@ -6,27 +6,27 @@ pub fn de_set_ui_customization_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::set_ui_customization::SetUiCustomizationOutput,
-    super::super::operation::set_ui_customization::SetUiCustomizationError,
+    super::super::operation::set_ui_customization::SetUICustomizationError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::set_ui_customization::SetUiCustomizationError::unhandled)?;
+        .map_err(super::super::operation::set_ui_customization::SetUICustomizationError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::set_ui_customization::SetUiCustomizationError::unhandled(generic)),
+        None => return Err(super::super::operation::set_ui_customization::SetUICustomizationError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalErrorException" => super::super::operation::set_ui_customization::SetUiCustomizationError::InternalErrorException({
+        "InternalErrorException" => super::super::operation::set_ui_customization::SetUICustomizationError::InternalErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::set_ui_customization::SetUiCustomizationError::unhandled)?;
+                    .map_err(super::super::operation::set_ui_customization::SetUICustomizationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_set_ui_customization_http_error(
             }
             tmp
         }),
-        "InvalidParameterException" => super::super::operation::set_ui_customization::SetUiCustomizationError::InvalidParameterException({
+        "InvalidParameterException" => super::super::operation::set_ui_customization::SetUICustomizationError::InvalidParameterException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::set_ui_customization::SetUiCustomizationError::unhandled)?;
+                    .map_err(super::super::operation::set_ui_customization::SetUICustomizationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_set_ui_customization_http_error(
             }
             tmp
         }),
-        "NotAuthorizedException" => super::super::operation::set_ui_customization::SetUiCustomizationError::NotAuthorizedException({
+        "NotAuthorizedException" => super::super::operation::set_ui_customization::SetUICustomizationError::NotAuthorizedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::set_ui_customization::SetUiCustomizationError::unhandled)?;
+                    .map_err(super::super::operation::set_ui_customization::SetUICustomizationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,14 +65,14 @@ pub fn de_set_ui_customization_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => super::super::operation::set_ui_customization::SetUiCustomizationError::OperationNotEnabledException({
+        "OperationNotEnabledException" => super::super::operation::set_ui_customization::SetUICustomizationError::OperationNotEnabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
                 output =
                     super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::set_ui_customization::SetUiCustomizationError::unhandled)?;
+                        .map_err(super::super::operation::set_ui_customization::SetUICustomizationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -81,13 +81,13 @@ pub fn de_set_ui_customization_http_error(
             }
             tmp
         }),
-        "ResourceNotFoundException" => super::super::operation::set_ui_customization::SetUiCustomizationError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::super::operation::set_ui_customization::SetUICustomizationError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::set_ui_customization::SetUiCustomizationError::unhandled)?;
+                    .map_err(super::super::operation::set_ui_customization::SetUICustomizationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -96,13 +96,13 @@ pub fn de_set_ui_customization_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => super::super::operation::set_ui_customization::SetUiCustomizationError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::set_ui_customization::SetUICustomizationError::TooManyRequestsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                    .map_err(super::super::operation::set_ui_customization::SetUiCustomizationError::unhandled)?;
+                    .map_err(super::super::operation::set_ui_customization::SetUICustomizationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -111,7 +111,7 @@ pub fn de_set_ui_customization_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_ui_customization::SetUiCustomizationError::generic(generic),
+        _ => super::super::operation::set_ui_customization::SetUICustomizationError::generic(generic),
     })
 }
 
@@ -122,13 +122,13 @@ pub fn de_set_ui_customization_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::set_ui_customization::SetUiCustomizationOutput,
-    super::super::operation::set_ui_customization::SetUiCustomizationError,
+    super::super::operation::set_ui_customization::SetUICustomizationError,
 > {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::set_ui_customization::builders::SetUiCustomizationOutputBuilder::default();
         output = super::super::protocol_serde::shape_set_ui_customization::de_set_ui_customization(_response_body, output)
-            .map_err(super::super::operation::set_ui_customization::SetUiCustomizationError::unhandled)?;
+            .map_err(super::super::operation::set_ui_customization::SetUICustomizationError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::set_ui_customization_output_output_correct_errors(output).build()
     })

@@ -6,17 +6,17 @@ pub fn de_get_open_id_connect_provider_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
-    super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+    super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled)?;
+        .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled(
+            return Err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled(
                 generic,
             ))
         }
@@ -24,13 +24,13 @@ pub fn de_get_open_id_connect_provider_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidInput" => super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::InvalidInputException({
+        "InvalidInput" => super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::InvalidInputException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled)?;
+                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -39,13 +39,13 @@ pub fn de_get_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        "NoSuchEntity" => super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::NoSuchEntityException({
+        "NoSuchEntity" => super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::NoSuchEntityException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled)?;
+                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -54,13 +54,13 @@ pub fn de_get_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        "ServiceFailure" => super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::ServiceFailureException({
+        "ServiceFailure" => super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::ServiceFailureException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled)?;
+                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -69,7 +69,7 @@ pub fn de_get_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::generic(generic),
+        _ => super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::generic(generic),
     })
 }
 
@@ -80,13 +80,13 @@ pub fn de_get_open_id_connect_provider_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
-    super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+    super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
 > {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_open_id_connect_provider::builders::GetOpenIdConnectProviderOutputBuilder::default();
         output = super::super::protocol_serde::shape_get_open_id_connect_provider::de_get_open_id_connect_provider(_response_body, output)
-            .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled)?;
+            .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

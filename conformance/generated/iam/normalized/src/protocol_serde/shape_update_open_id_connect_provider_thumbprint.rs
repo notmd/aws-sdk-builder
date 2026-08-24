@@ -6,24 +6,24 @@ pub fn de_update_open_id_connect_provider_thumbprint_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
-    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
 > {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled)?;
+        .map_err(super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled(generic))
+            return Err(super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled(generic))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "ConcurrentModification" => {
-            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::ConcurrentModificationException(
+            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ConcurrentModificationException(
                 {
                     #[allow(unused_mut)]
                     let mut tmp = {
@@ -34,7 +34,7 @@ pub fn de_update_open_id_connect_provider_thumbprint_http_error(
                             output,
                         )
                         .map_err(
-                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled,
+                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
                         )?;
                         let output = output.meta(generic);
                         output.build()
@@ -47,14 +47,14 @@ pub fn de_update_open_id_connect_provider_thumbprint_http_error(
             )
         }
         "InvalidInput" => {
-            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::InvalidInputException({
+            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::InvalidInputException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
                         .map_err(
-                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled,
+                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
                         )?;
                     let output = output.meta(generic);
                     output.build()
@@ -66,14 +66,14 @@ pub fn de_update_open_id_connect_provider_thumbprint_http_error(
             })
         }
         "NoSuchEntity" => {
-            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::NoSuchEntityException({
+            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::NoSuchEntityException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
                         .map_err(
-                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled,
+                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
                         )?;
                     let output = output.meta(generic);
                     output.build()
@@ -85,14 +85,14 @@ pub fn de_update_open_id_connect_provider_thumbprint_http_error(
             })
         }
         "ServiceFailure" => {
-            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::ServiceFailureException({
+            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ServiceFailureException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
                         .map_err(
-                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled,
+                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
                         )?;
                     let output = output.meta(generic);
                     output.build()
@@ -103,7 +103,7 @@ pub fn de_update_open_id_connect_provider_thumbprint_http_error(
                 tmp
             })
         }
-        _ => super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::generic(generic),
+        _ => super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::generic(generic),
     })
 }
 
@@ -114,7 +114,7 @@ pub fn de_update_open_id_connect_provider_thumbprint_http_response(
     _response_body: &[u8],
 ) -> std::result::Result<
     super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
-    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
 > {
     Ok({
         #[allow(unused_mut)]

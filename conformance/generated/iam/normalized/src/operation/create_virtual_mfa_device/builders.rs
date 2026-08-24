@@ -11,7 +11,7 @@ impl super::super::super::operation::create_virtual_mfa_device::builders::Create
     ) -> ::std::result::Result<
         super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+            super::super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,14 +20,14 @@ impl super::super::super::operation::create_virtual_mfa_device::builders::Create
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `CreateVirtualMfaDevice`.
+/// Fluent builder constructing a request to `CreateVirtualMFADevice`.
 ///
 /// <p>Creates a new virtual MFA device for the Amazon Web Services account. After creating the virtual MFA, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html">EnableMFADevice</a> to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA device</a> in the <i>IAM User Guide</i>.</p>
 /// <p>For information about the maximum number of MFA devices you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a> in the <i>IAM User Guide</i>.</p><important>
 /// <p>The seed information contained in the QR code and the Base32 string should be treated like any other secret access information. In other words, protect the seed information as you would your Amazon Web Services access keys or your passwords. After you provision your virtual device, you should ensure that the information is destroyed following secure procedures.</p>
 /// </important>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct CreateVirtualMfaDeviceFluentBuilder {
+pub struct CreateVirtualMFADeviceFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -35,8 +35,8 @@ pub struct CreateVirtualMfaDeviceFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
-        super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
-    > for CreateVirtualMfaDeviceFluentBuilder
+        super::super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
+    > for CreateVirtualMFADeviceFluentBuilder
 {
     fn send(
         self,
@@ -44,14 +44,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
-            super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+            super::super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl CreateVirtualMfaDeviceFluentBuilder {
-    /// Creates a new `CreateVirtualMfaDeviceFluentBuilder`.
+impl CreateVirtualMFADeviceFluentBuilder {
+    /// Creates a new `CreateVirtualMFADeviceFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -59,7 +59,7 @@ impl CreateVirtualMfaDeviceFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the CreateVirtualMfaDevice as a reference.
+    /// Access the CreateVirtualMFADevice as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceInputBuilder {
         &self.inner
     }
@@ -76,7 +76,7 @@ impl CreateVirtualMfaDeviceFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+            super::super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -84,12 +84,12 @@ impl CreateVirtualMfaDeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDevice::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::create_virtual_mfa_device::CreateVirtualMFADevice::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDevice::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::create_virtual_mfa_device::CreateVirtualMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +97,7 @@ impl CreateVirtualMfaDeviceFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
-        super::super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+        super::super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

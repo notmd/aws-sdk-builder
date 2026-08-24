@@ -11,7 +11,7 @@ impl super::super::super::operation::list_ssh_public_keys::builders::ListSshPubl
     ) -> ::std::result::Result<
         super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysError,
+            super::super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,13 +20,13 @@ impl super::super::super::operation::list_ssh_public_keys::builders::ListSshPubl
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `ListSshPublicKeys`.
+/// Fluent builder constructing a request to `ListSSHPublicKeys`.
 ///
 /// <p>Returns information about the SSH public keys associated with the specified IAM user. If none exists, the operation returns an empty list.</p>
 /// <p>The SSH public keys returned by this operation are used only for authenticating the IAM user to an CodeCommit repository. For more information about using SSH keys to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
 /// <p>Although each user is limited to a small number of keys, you can still paginate the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct ListSshPublicKeysFluentBuilder {
+pub struct ListSSHPublicKeysFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -34,8 +34,8 @@ pub struct ListSshPublicKeysFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
-        super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysError,
-    > for ListSshPublicKeysFluentBuilder
+        super::super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
+    > for ListSSHPublicKeysFluentBuilder
 {
     fn send(
         self,
@@ -43,14 +43,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
-            super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysError,
+            super::super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl ListSshPublicKeysFluentBuilder {
-    /// Creates a new `ListSshPublicKeysFluentBuilder`.
+impl ListSSHPublicKeysFluentBuilder {
+    /// Creates a new `ListSSHPublicKeysFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -58,7 +58,7 @@ impl ListSshPublicKeysFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the ListSshPublicKeys as a reference.
+    /// Access the ListSSHPublicKeys as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder {
         &self.inner
     }
@@ -75,7 +75,7 @@ impl ListSshPublicKeysFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysError,
+            super::super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -83,12 +83,12 @@ impl ListSshPublicKeysFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::list_ssh_public_keys::ListSshPublicKeys::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::list_ssh_public_keys::ListSSHPublicKeys::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::list_ssh_public_keys::ListSshPublicKeys::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::list_ssh_public_keys::ListSSHPublicKeys::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +96,7 @@ impl ListSshPublicKeysFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
-        super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysError,
+        super::super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)
@@ -112,9 +112,9 @@ impl ListSshPublicKeysFluentBuilder {
     }
     /// Create a paginator for this request
     ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_ssh_public_keys::paginator::ListSshPublicKeysPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::list_ssh_public_keys::paginator::ListSshPublicKeysPaginator {
-        super::super::super::operation::list_ssh_public_keys::paginator::ListSshPublicKeysPaginator::new(self.handle, self.inner)
+    /// Paginators are used by calling [`send().await`](crate::operation::list_ssh_public_keys::paginator::ListSSHPublicKeysPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> super::super::super::operation::list_ssh_public_keys::paginator::ListSSHPublicKeysPaginator {
+        super::super::super::operation::list_ssh_public_keys::paginator::ListSSHPublicKeysPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the IAM user to list SSH public keys for. If none is specified, the <code>UserName</code> field is determined implicitly based on the Amazon Web Services access key used to sign the request.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

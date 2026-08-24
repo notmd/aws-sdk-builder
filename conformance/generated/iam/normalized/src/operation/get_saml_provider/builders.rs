@@ -11,7 +11,7 @@ impl super::super::super::operation::get_saml_provider::builders::GetSamlProvide
     ) -> ::std::result::Result<
         super::super::super::operation::get_saml_provider::GetSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_saml_provider::GetSamlProviderError,
+            super::super::super::operation::get_saml_provider::GetSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,13 +20,13 @@ impl super::super::super::operation::get_saml_provider::builders::GetSamlProvide
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `GetSamlProvider`.
+/// Fluent builder constructing a request to `GetSAMLProvider`.
 ///
 /// <p>Returns the SAML provider metadocument that was uploaded when the IAM SAML provider resource object was created or updated.</p><note>
 /// <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct GetSamlProviderFluentBuilder {
+pub struct GetSAMLProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::get_saml_provider::builders::GetSamlProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -34,8 +34,8 @@ pub struct GetSamlProviderFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::get_saml_provider::GetSamlProviderOutput,
-        super::super::super::operation::get_saml_provider::GetSamlProviderError,
-    > for GetSamlProviderFluentBuilder
+        super::super::super::operation::get_saml_provider::GetSAMLProviderError,
+    > for GetSAMLProviderFluentBuilder
 {
     fn send(
         self,
@@ -43,14 +43,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::get_saml_provider::GetSamlProviderOutput,
-            super::super::super::operation::get_saml_provider::GetSamlProviderError,
+            super::super::super::operation::get_saml_provider::GetSAMLProviderError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl GetSamlProviderFluentBuilder {
-    /// Creates a new `GetSamlProviderFluentBuilder`.
+impl GetSAMLProviderFluentBuilder {
+    /// Creates a new `GetSAMLProviderFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -58,7 +58,7 @@ impl GetSamlProviderFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the GetSamlProvider as a reference.
+    /// Access the GetSAMLProvider as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::get_saml_provider::builders::GetSamlProviderInputBuilder {
         &self.inner
     }
@@ -75,7 +75,7 @@ impl GetSamlProviderFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::get_saml_provider::GetSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::get_saml_provider::GetSamlProviderError,
+            super::super::super::operation::get_saml_provider::GetSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -83,12 +83,12 @@ impl GetSamlProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::get_saml_provider::GetSamlProvider::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::get_saml_provider::GetSAMLProvider::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::get_saml_provider::GetSamlProvider::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::get_saml_provider::GetSAMLProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +96,7 @@ impl GetSamlProviderFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::get_saml_provider::GetSamlProviderOutput,
-        super::super::super::operation::get_saml_provider::GetSamlProviderError,
+        super::super::super::operation::get_saml_provider::GetSAMLProviderError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)

@@ -11,7 +11,7 @@ impl super::super::super::operation::deactivate_mfa_device::builders::Deactivate
     ) -> ::std::result::Result<
         super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+            super::super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -20,12 +20,12 @@ impl super::super::super::operation::deactivate_mfa_device::builders::Deactivate
         fluent_builder.send().await
     }
 }
-/// Fluent builder constructing a request to `DeactivateMfaDevice`.
+/// Fluent builder constructing a request to `DeactivateMFADevice`.
 ///
 /// <p>Deactivates the specified MFA device and removes it from association with the user name for which it was originally enabled.</p>
 /// <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a virtual multi-factor authentication (MFA) device</a> in the <i>IAM User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
-pub struct DeactivateMfaDeviceFluentBuilder {
+pub struct DeactivateMFADeviceFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
     inner: super::super::super::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
@@ -33,8 +33,8 @@ pub struct DeactivateMfaDeviceFluentBuilder {
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
-        super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
-    > for DeactivateMfaDeviceFluentBuilder
+        super::super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
+    > for DeactivateMFADeviceFluentBuilder
 {
     fn send(
         self,
@@ -42,14 +42,14 @@ impl
     ) -> super::super::super::client::customize::internal::BoxFuture<
         super::super::super::client::customize::internal::SendResult<
             super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
-            super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+            super::super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
         >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-impl DeactivateMfaDeviceFluentBuilder {
-    /// Creates a new `DeactivateMfaDeviceFluentBuilder`.
+impl DeactivateMFADeviceFluentBuilder {
+    /// Creates a new `DeactivateMFADeviceFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
         Self {
             handle,
@@ -57,7 +57,7 @@ impl DeactivateMfaDeviceFluentBuilder {
             config_override: ::std::option::Option::None,
         }
     }
-    /// Access the DeactivateMfaDevice as a reference.
+    /// Access the DeactivateMFADevice as a reference.
     pub fn as_input(&self) -> &super::super::super::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceInputBuilder {
         &self.inner
     }
@@ -74,7 +74,7 @@ impl DeactivateMfaDeviceFluentBuilder {
     ) -> ::std::result::Result<
         super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+            super::super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -82,12 +82,12 @@ impl DeactivateMfaDeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::deactivate_mfa_device::DeactivateMfaDevice::operation_runtime_plugins(
+        let runtime_plugins = super::super::super::operation::deactivate_mfa_device::DeactivateMFADevice::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::deactivate_mfa_device::DeactivateMfaDevice::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::deactivate_mfa_device::DeactivateMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -95,7 +95,7 @@ impl DeactivateMfaDeviceFluentBuilder {
         self,
     ) -> super::super::super::client::customize::CustomizableOperation<
         super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
-        super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+        super::super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
         Self,
     > {
         super::super::super::client::customize::CustomizableOperation::new(self)
