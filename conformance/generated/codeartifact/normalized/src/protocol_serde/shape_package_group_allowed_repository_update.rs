@@ -23,7 +23,9 @@ where
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        let key = key.to_unescaped().map(|u| u.into_owned())?;
+                        let key = key
+                            .to_unescaped()
+                            .map(|u| super::super::types::PackageGroupAllowedRepositoryUpdateType::from(u.as_ref()))?;
                         let value = super::super::protocol_serde::shape_repository_name_list::de_repository_name_list(tokens, _value, depth + 1)?;
                         match value {
                             Some(value) => {

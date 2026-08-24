@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1020` matched · `56` mismatches · `0` missing · `1` extra · `94.71%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `1021` matched · `55` mismatches · `0` missing · `1` extra · `94.80%` match (100.00% means fully matched)
 
 ### `src/client/get_function_event_invoke_config.rs`
 
@@ -724,22 +724,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -    Ok(())
 -}
-```
-
-### `src/protocol_serde/shape_endpoints.rs`
-
-```diff
---- reference/src/protocol_serde/shape_endpoints.rs
-+++ generated/src/protocol_serde/shape_endpoints.rs
-@@ -23,7 +23,7 @@
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        let key = key.to_unescaped().map(|u| super::super::types::EndPointType::from(u.as_ref()))?;
-+                        let key = key.to_unescaped().map(|u| u.into_owned())?;
-                         let value = super::super::protocol_serde::shape_endpoint_lists::de_endpoint_lists(tokens, _value, depth + 1)?;
-                         match value {
-                             Some(value) => {
 ```
 
 ### `src/protocol_serde/shape_ephemeral_storage.rs`

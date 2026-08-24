@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Deserialize JSON map keys through modeled enums
+- State: in progress
+- Changed: JSON map deserializers now convert modeled enum keys through the generated
+  enum type after unescaping JSON object keys, while string keys retain their owned
+  string conversion and other key kinds retain their token value. This generic rule
+  follows the pinned Smithy-RS JSON map deserializer behavior inspected at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: `cargo check -p aws-sdk-builder`, `cargo test --workspace`, `cargo clippy
+  --workspace --all-targets -- -D warnings`, formatting, and `git diff --check` pass.
+  `just conformance` generated and formatted all `13,164` Rust snapshot files,
+  reported no generated-source parse errors, and exits 1 only because broader parity
+  gaps remain.
+- Conformance: `12,805/13,168` exact, `358` mismatches, `4` missing, and `1` extra
+  (`97.01%`) -> `12,813/13,168` exact, `350` mismatches, `4` missing, and `1` extra
+  (`97.13%`). CodeArtifact improved from `440/19` to `444/15`; Lambda from `1,020/56`
+  to `1,021/55`; SESv2 from `1,132/26` to `1,133/25`; SQS from `281/12` to `283/10`.
+- Blocker: broader protocol, streaming, shape, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic protocol or shape parity
+  mismatch.
+
 ### Checkpoint: 2026-08-25 — Preserve composed JSON serializer modules and writer names
 - State: in progress
 - Changed: canonical file assembly now composes duplicate generated paths instead of

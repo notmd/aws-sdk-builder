@@ -146691,7 +146691,7 @@ where
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        let key = key.to_unescaped().map(|u| u.into_owned())?;
+                        let key = key.to_unescaped().map(|u| super::super::types::EndPointType::from(u.as_ref()))?;
                         let value = super::super::protocol_serde::shape_endpoint_lists::de_endpoint_lists(tokens, _value, depth + 1)?;
                         match value {
                             Some(value) => {

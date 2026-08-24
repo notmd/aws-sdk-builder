@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sesv2
-**Progress:** `1159/1159` files compared · `1132` matched · `26` mismatches · `1` missing · `0` extra · `97.67%` match (100.00% means fully matched)
+**Progress:** `1159/1159` files compared · `1133` matched · `25` mismatches · `1` missing · `0` extra · `97.76%` match (100.00% means fully matched)
 
 ### `src/config/auth.rs`
 
@@ -351,22 +351,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          object.key("Enabled").boolean(input.enabled);
      }
      if let Some(var_1) = &input.matching_event_types {
-```
-
-### `src/protocol_serde/shape_export_dimensions.rs`
-
-```diff
---- reference/src/protocol_serde/shape_export_dimensions.rs
-+++ generated/src/protocol_serde/shape_export_dimensions.rs
-@@ -23,7 +23,7 @@
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        let key = key.to_unescaped().map(|u| super::super::types::MetricDimensionName::from(u.as_ref()))?;
-+                        let key = key.to_unescaped().map(|u| u.into_owned())?;
-                         let value = super::super::protocol_serde::shape_export_dimension_value::de_export_dimension_value(tokens, _value, depth + 1)?;
-                         match value {
-                             Some(value) => {
 ```
 
 ### `src/protocol_serde/shape_get_deliverability_dashboard_options.rs`

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## codeartifact
-**Progress:** `459/459` files compared · `440` matched · `19` mismatches · `0` missing · `0` extra · `95.86%` match (100.00% means fully matched)
+**Progress:** `459/459` files compared · `444` matched · `15` mismatches · `0` missing · `0` extra · `96.73%` match (100.00% means fully matched)
 
 ### `src/lib.rs`
 
@@ -74,22 +74,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_asset_hashes.rs`
-
-```diff
---- reference/src/protocol_serde/shape_asset_hashes.rs
-+++ generated/src/protocol_serde/shape_asset_hashes.rs
-@@ -23,7 +23,7 @@
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        let key = key.to_unescaped().map(|u| super::super::types::HashAlgorithm::from(u.as_ref()))?;
-+                        let key = key.to_unescaped().map(|u| u.into_owned())?;
-                         let value = ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                             .transpose()?;
-```
-
 ### `src/protocol_serde/shape_conflict_exception.rs`
 
 ```diff
@@ -144,60 +128,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        .build()
 +        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
  }
-```
-
-### `src/protocol_serde/shape_package_group_allowed_repository_update.rs`
-
-```diff
---- reference/src/protocol_serde/shape_package_group_allowed_repository_update.rs
-+++ generated/src/protocol_serde/shape_package_group_allowed_repository_update.rs
-@@ -23,9 +23,7 @@
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        let key = key
--                            .to_unescaped()
--                            .map(|u| super::super::types::PackageGroupAllowedRepositoryUpdateType::from(u.as_ref()))?;
-+                        let key = key.to_unescaped().map(|u| u.into_owned())?;
-                         let value = super::super::protocol_serde::shape_repository_name_list::de_repository_name_list(tokens, _value, depth + 1)?;
-                         match value {
-                             Some(value) => {
-```
-
-### `src/protocol_serde/shape_package_group_allowed_repository_updates.rs`
-
-```diff
---- reference/src/protocol_serde/shape_package_group_allowed_repository_updates.rs
-+++ generated/src/protocol_serde/shape_package_group_allowed_repository_updates.rs
-@@ -28,9 +28,7 @@
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        let key = key
--                            .to_unescaped()
--                            .map(|u| super::super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
-+                        let key = key.to_unescaped().map(|u| u.into_owned())?;
-                         let value = super::super::protocol_serde::shape_package_group_allowed_repository_update::de_package_group_allowed_repository_update(
-                             tokens,
-                             _value,
-```
-
-### `src/protocol_serde/shape_package_group_origin_restrictions.rs`
-
-```diff
---- reference/src/protocol_serde/shape_package_group_origin_restrictions.rs
-+++ generated/src/protocol_serde/shape_package_group_origin_restrictions.rs
-@@ -23,9 +23,7 @@
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        let key = key
--                            .to_unescaped()
--                            .map(|u| super::super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
-+                        let key = key.to_unescaped().map(|u| u.into_owned())?;
-                         let value = super::super::protocol_serde::shape_package_group_origin_restriction::de_package_group_origin_restriction(
-                             tokens,
-                             _value,
 ```
 
 ### `src/protocol_serde/shape_publish_package_version.rs`

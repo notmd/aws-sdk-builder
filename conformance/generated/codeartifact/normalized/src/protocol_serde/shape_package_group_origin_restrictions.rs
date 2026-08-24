@@ -23,7 +23,9 @@ where
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        let key = key.to_unescaped().map(|u| u.into_owned())?;
+                        let key = key
+                            .to_unescaped()
+                            .map(|u| super::super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
                         let value = super::super::protocol_serde::shape_package_group_origin_restriction::de_package_group_origin_restriction(
                             tokens,
                             _value,

@@ -67510,7 +67510,7 @@ where
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        let key = key.to_unescaped().map(|u| u.into_owned())?;
+                        let key = key.to_unescaped().map(|u| super::super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
                         let value = super::super::protocol_serde::shape_package_group_allowed_repository_update::de_package_group_allowed_repository_update(tokens, _value, depth + 1)?;
                         match value {
                             Some(value) => {
@@ -68506,7 +68506,7 @@ where
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        let key = key.to_unescaped().map(|u| u.into_owned())?;
+                        let key = key.to_unescaped().map(|u| super::super::types::HashAlgorithm::from(u.as_ref()))?;
                         let value = ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?;
@@ -68798,7 +68798,7 @@ where
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        let key = key.to_unescaped().map(|u| u.into_owned())?;
+                        let key = key.to_unescaped().map(|u| super::super::types::PackageGroupAllowedRepositoryUpdateType::from(u.as_ref()))?;
                         let value = super::super::protocol_serde::shape_repository_name_list::de_repository_name_list(tokens, _value, depth + 1)?;
                         match value {
                             Some(value) => {
@@ -69511,7 +69511,7 @@ where
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        let key = key.to_unescaped().map(|u| u.into_owned())?;
+                        let key = key.to_unescaped().map(|u| super::super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
                         let value = super::super::protocol_serde::shape_package_group_origin_restriction::de_package_group_origin_restriction(tokens, _value, depth + 1)?;
                         match value {
                             Some(value) => {
