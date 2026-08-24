@@ -44,7 +44,6 @@ fn install_generated(
         source,
     })?;
     copy_tree(&generated, &install_root.join("generated"))?;
-    write_consumer_loaders(&install_root.join("generated"))?;
     if let Some(state) = state {
         fs::write(install_root.join(".aws-sdk-builder-state.json"), state).map_err(|source| {
             BuildError::OutputWrite {
@@ -126,45 +125,6 @@ fn install_generated(
         generated_root: final_root,
         operations,
     })
-}
-
-fn write_consumer_loaders(generated: &Path) -> Result<(), BuildError> {
-    let entries = fs::read_dir(generated).map_err(|source| BuildError::Install {
-        path: generated.to_owned(),
-        source,
-    })?;
-    for entry in entries {
-        let entry = entry.map_err(|source| BuildError::Install {
-            path: generated.to_owned(),
-            source,
-        })?;
-        let service = entry.path();
-        if !entry
-            .file_type()
-            .map_err(|source| BuildError::Install {
-                path: service.clone(),
-                source,
-            })?
-            .is_dir()
-        {
-            continue;
-        }
-        let Some(service_name) = service.file_name().and_then(|name| name.to_str()) else {
-            continue;
-        };
-        if !service.join(crate::ORIGINAL_FILE).is_file() {
-            continue;
-        }
-        let module = format!("__aws_sdk_builder_{service_name}_generated");
-        let loader = format!("#[path = \"original.rs\"]\nmod {module};\npub use {module}::*;\n");
-        fs::write(service.join("consumer.rs"), loader).map_err(|source| {
-            BuildError::OutputWrite {
-                path: service.join("consumer.rs"),
-                source,
-            }
-        })?;
-    }
-    Ok(())
 }
 
 pub(crate) fn install_snapshot(stage: &Path, output_dir: &Path) -> Result<(), BuildError> {

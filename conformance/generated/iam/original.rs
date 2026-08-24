@@ -1,3 +1,4 @@
+mod __aws_sdk_builder_generated {
 #![allow(deprecated)]
 #![allow(unknown_lints)]
 #![allow(clippy::module_inception)]
@@ -169331,3 +169332,5 @@ mod rest_xml_wrapped_errors;
 
 #[doc(inline)]
 pub use client::Client;
+}
+pub use __aws_sdk_builder_generated::*;

@@ -1,3 +1,4 @@
+mod __aws_sdk_builder_generated {
 #![allow(deprecated)]
 #![allow(unknown_lints)]
 #![allow(clippy::module_inception)]
@@ -161004,3 +161005,5 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for StartLiveTailRespons
 
 #[doc(inline)]
 pub use client::Client;
+}
+pub use __aws_sdk_builder_generated::*;

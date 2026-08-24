@@ -29,7 +29,7 @@ macro_rules! include_sdk {
     () => {
         include!(concat!(
             env!("OUT_DIR"),
-            "/generated/cognitoidentityprovider/consumer.rs"
+            "/generated/cognitoidentityprovider/original.rs"
         ));
     };
 }

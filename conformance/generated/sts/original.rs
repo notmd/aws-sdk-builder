@@ -1,3 +1,4 @@
+mod __aws_sdk_builder_generated {
 #![allow(deprecated)]
 #![allow(unknown_lints)]
 #![allow(clippy::module_inception)]
@@ -16461,3 +16462,5 @@ pub(crate) fn federated_user_correct_errors(
 
 #[doc(inline)]
 pub use client::Client;
+}
+pub use __aws_sdk_builder_generated::*;

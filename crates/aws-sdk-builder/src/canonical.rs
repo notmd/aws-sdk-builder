@@ -7,13 +7,18 @@ use std::{
 use crate::error::BuildError;
 
 pub const ORIGINAL_FILE: &str = "original.rs";
+const CANONICAL_MODULE: &str = "__aws_sdk_builder_generated";
 
 type Files = BTreeMap<String, String>;
 
 /// Compose the generated module tree into one inline-module Rust artifact.
 pub(crate) fn compose(files: &Files) -> Result<String, BuildError> {
     validate_file_plan(files)?;
-    let source = compose_module("src/lib.rs", files, &mut BTreeSet::new())?;
+    let body = compose_module("src/lib.rs", files, &mut BTreeSet::new())?;
+    // `include!` expands at the caller's item position. Keeping the generated
+    // crate attributes and crate documentation inside a real module makes the
+    // same canonical file valid both at a crate root and in a caller wrapper.
+    let source = format!("mod {CANONICAL_MODULE} {{\n{body}}}\npub use {CANONICAL_MODULE}::*;\n");
     syn::parse_file(&source).map_err(|error| BuildError::GeneratedSourceParse {
         path: PathBuf::from(ORIGINAL_FILE),
         message: format!("canonical original.rs does not parse: {error}"),
@@ -32,7 +37,8 @@ pub fn split(source: &str, files: &BTreeSet<String>) -> Result<BTreeMap<String, 
         .map_err(|error| format!("canonical original.rs does not parse: {error}"))?;
 
     let mut output = BTreeMap::new();
-    project_module(source, "src/lib.rs", files, &mut output)?;
+    let body = unwrap_canonical_module(source)?;
+    project_module(&body, "src/lib.rs", files, &mut output)?;
     if output.len() != files.len() {
         return Err(format!(
             "canonical projection materialized {} of {} planned files",
@@ -41,6 +47,24 @@ pub fn split(source: &str, files: &BTreeSet<String>) -> Result<BTreeMap<String, 
         ));
     }
     Ok(output)
+}
+
+fn unwrap_canonical_module(source: &str) -> Result<String, String> {
+    let file = syn::parse_file(source)
+        .map_err(|error| format!("canonical original.rs does not parse: {error}"))?;
+    let item = top_level_module(&file, CANONICAL_MODULE).ok_or_else(|| {
+        format!("canonical original.rs has no module declaration for {CANONICAL_MODULE}")
+    })?;
+    let Some((brace, _)) = &item.content else {
+        return Err(format!(
+            "canonical module `{CANONICAL_MODULE}` is not inline"
+        ));
+    };
+    let body_start = source_offset(source, brace.span.open().end(), ORIGINAL_FILE)?;
+    let body_end = source_offset(source, brace.span.close().start(), ORIGINAL_FILE)?;
+    Ok(normalize_source(strip_leading_newline(
+        &source[body_start..body_end],
+    )))
 }
 
 fn validate_file_plan(files: &Files) -> Result<(), BuildError> {

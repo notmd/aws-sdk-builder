@@ -1,3 +1,4 @@
+mod __aws_sdk_builder_generated {
 #![allow(deprecated)]
 #![allow(unknown_lints)]
 #![allow(clippy::module_inception)]
@@ -51303,3 +51304,5 @@ pub fn parse_error_metadata(
 
 #[doc(inline)]
 pub use client::Client;
+}
+pub use __aws_sdk_builder_generated::*;

@@ -9,8 +9,10 @@ full audit trail.
 - Changed: each generated service now has one canonical `original.rs` artifact under
   `generated/<service>/` and each conformance snapshot has the corresponding
   `conformance/generated/<service>/original.rs`. Provider `include_sdk!()` macros
-  load that artifact through a generated module loader, while conformance derives its
-  normalized physical module tree from the same source. Consumer/conformance renderer
+  include that artifact directly. The canonical artifact wraps its generated crate
+  contents in a private inline module so inner attributes and crate documentation remain
+  valid inside caller-owned wrappers; conformance derives its normalized physical module
+  tree from that same source. Consumer/conformance renderer
   flags and the obsolete consumer renderer paths were removed. The example consumers
   use Rust edition 2024; generated reference projections retain the pinned 2021
   rustfmt layout for conformance.
@@ -28,12 +30,31 @@ full audit trail.
   broader generator parity remains incomplete.
 - Verification: both example consumers compile under edition 2024; focused canonical
   and normalization tests pass; the mandatory conformance regeneration completed.
-  Full workspace tests, clippy, and final diff checks are the remaining verification
-  steps for this checkpoint.
+  Full workspace tests, clippy, formatting, and final diff checks pass.
 - Blocker: remaining conformance differences are generator parity gaps, not canonical
   artifact ownership or normalization projection.
-- Next action: run the complete workspace verification suite and inspect the final
-  diff for stale renderer flags or generated backup artifacts.
+- Next action: preserve this direct-inclusion fix in a follow-up commit.
+
+### Checkpoint: 2026-08-24 — Resolve direct canonical inclusion
+- State: completed
+- Changed: removed the generated `consumer.rs` indirection from build output and changed
+  all 15 provider `include_sdk!()` macros to include exactly their service-owned
+  `generated/<service>/original.rs`. `original.rs` now owns a private inline module and
+  re-export so its inner crate attributes and `//!` documentation compile at crate root
+  and inside any caller-owned wrapper.
+- Evidence: canonical splitting unwraps that private module with `syn` spans before
+  projecting the original physical module tree; canonical tests pass, and both
+  `examples/my_aws_sdk` and `examples/multi_service` compile under Rust edition 2024.
+  The pinned Smithy-RS reference remains `/tmp/smithy-rs` at
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` generated 15 services and 1,133 operations, formatted
+  12,577 normalized Rust files, and retained `10,628/13,301` exact matches
+  (`1,815` mismatches, `724` missing, `134` extra; `77.18%`). S3 remains exact at
+  `1,281/1,281`; the command exits 1 only for the existing parity gaps.
+- Verification: the focused canonical tests and both consumer checks pass. `cargo test
+  --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` all pass.
+- Next action: preserve this direct-inclusion fix in a follow-up commit.
 
 ### Checkpoint: 2026-08-24 — Make patch normalization and consumer ownership explicit
 - State: in progress
