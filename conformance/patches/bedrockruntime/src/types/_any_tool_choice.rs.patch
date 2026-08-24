@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -6,8 +6,8 @@
+ pub struct AnyToolChoice {}
+ impl AnyToolChoice {
+     /// Creates a new builder-style object to manufacture [`AnyToolChoice`](crate::types::AnyToolChoice).
+-    pub fn builder() -> crate::types::builders::AnyToolChoiceBuilder {
+-        crate::types::builders::AnyToolChoiceBuilder::default()
++    pub fn builder() -> super::types::builders::AnyToolChoiceBuilder {
++        super::types::builders::AnyToolChoiceBuilder::default()
+     }
+ }
+
+@@ -17,7 +17,7 @@
+ pub struct AnyToolChoiceBuilder {}
+ impl AnyToolChoiceBuilder {
+     /// Consumes the builder and constructs a [`AnyToolChoice`](crate::types::AnyToolChoice).
+-    pub fn build(self) -> crate::types::AnyToolChoice {
+-        crate::types::AnyToolChoice {}
++    pub fn build(self) -> super::types::AnyToolChoice {
++        super::types::AnyToolChoice {}
+     }
+ }

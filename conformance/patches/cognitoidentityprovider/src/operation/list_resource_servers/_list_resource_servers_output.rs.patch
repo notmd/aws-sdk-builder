@@ -1,0 +1,76 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ListResourceServersOutput {
+     /// <p>An array of resource servers and the details of their configuration. For each, the response includes names, identifiers, and custom scopes.</p>
+-    pub resource_servers: ::std::vec::Vec<crate::types::ResourceServerType>,
++    pub resource_servers: ::std::vec::Vec<super::types::ResourceServerType>,
+     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -11,7 +11,7 @@
+ }
+ impl ListResourceServersOutput {
+     /// <p>An array of resource servers and the details of their configuration. For each, the response includes names, identifiers, and custom scopes.</p>
+-    pub fn resource_servers(&self) -> &[crate::types::ResourceServerType] {
++    pub fn resource_servers(&self) -> &[super::types::ResourceServerType] {
+         use std::ops::Deref;
+         self.resource_servers.deref()
+     }
+@@ -27,8 +27,8 @@
+ }
+ impl ListResourceServersOutput {
+     /// Creates a new builder-style object to manufacture [`ListResourceServersOutput`](crate::operation::list_resource_servers::ListResourceServersOutput).
+-    pub fn builder() -> crate::operation::list_resource_servers::builders::ListResourceServersOutputBuilder {
+-        crate::operation::list_resource_servers::builders::ListResourceServersOutputBuilder::default()
++    pub fn builder() -> super::operation::list_resource_servers::builders::ListResourceServersOutputBuilder {
++        super::operation::list_resource_servers::builders::ListResourceServersOutputBuilder::default()
+     }
+ }
+
+@@ -36,7 +36,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ListResourceServersOutputBuilder {
+-    pub(crate) resource_servers: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerType>>,
++    pub(crate) resource_servers: ::std::option::Option<::std::vec::Vec<super::types::ResourceServerType>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -46,7 +46,7 @@
+     /// To override the contents of this collection use [`set_resource_servers`](Self::set_resource_servers).
+     ///
+     /// <p>An array of resource servers and the details of their configuration. For each, the response includes names, identifiers, and custom scopes.</p>
+-    pub fn resource_servers(mut self, input: crate::types::ResourceServerType) -> Self {
++    pub fn resource_servers(mut self, input: super::types::ResourceServerType) -> Self {
+         let mut v = self.resource_servers.unwrap_or_default();
+         v.push(input);
+         self.resource_servers = ::std::option::Option::Some(v);
+@@ -53,12 +53,12 @@
+         self
+     }
+     /// <p>An array of resource servers and the details of their configuration. For each, the response includes names, identifiers, and custom scopes.</p>
+-    pub fn set_resource_servers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerType>>) -> Self {
++    pub fn set_resource_servers(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ResourceServerType>>) -> Self {
+         self.resource_servers = input;
+         self
+     }
+     /// <p>An array of resource servers and the details of their configuration. For each, the response includes names, identifiers, and custom scopes.</p>
+-    pub fn get_resource_servers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerType>> {
++    pub fn get_resource_servers(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ResourceServerType>> {
+         &self.resource_servers
+     }
+     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
+@@ -89,9 +89,9 @@
+     /// - [`resource_servers`](crate::operation::list_resource_servers::builders::ListResourceServersOutputBuilder::resource_servers)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_resource_servers::ListResourceServersOutput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::list_resource_servers::ListResourceServersOutput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::list_resource_servers::ListResourceServersOutput {
++        ::std::result::Result::Ok(super::operation::list_resource_servers::ListResourceServersOutput {
+             resource_servers: self.resource_servers.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "resource_servers",

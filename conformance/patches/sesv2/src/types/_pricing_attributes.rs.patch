@@ -1,0 +1,85 @@
+--- original
++++ modified
+@@ -5,24 +5,24 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct PricingAttributes {
+     /// <p>The pricing plan that is currently active on your Amazon SES account.</p>
+-    pub current_plan: ::std::option::Option<crate::types::PricingPlan>,
++    pub current_plan: ::std::option::Option<super::types::PricingPlan>,
+     /// <p>The pricing plan that will become active at the start of the next monthly cycle, if a scheduled change has been requested. This field is empty when no scheduled change is pending.</p>
+-    pub next_plan: ::std::option::Option<crate::types::PricingPlan>,
++    pub next_plan: ::std::option::Option<super::types::PricingPlan>,
+ }
+ impl PricingAttributes {
+     /// <p>The pricing plan that is currently active on your Amazon SES account.</p>
+-    pub fn current_plan(&self) -> ::std::option::Option<&crate::types::PricingPlan> {
++    pub fn current_plan(&self) -> ::std::option::Option<&super::types::PricingPlan> {
+         self.current_plan.as_ref()
+     }
+     /// <p>The pricing plan that will become active at the start of the next monthly cycle, if a scheduled change has been requested. This field is empty when no scheduled change is pending.</p>
+-    pub fn next_plan(&self) -> ::std::option::Option<&crate::types::PricingPlan> {
++    pub fn next_plan(&self) -> ::std::option::Option<&super::types::PricingPlan> {
+         self.next_plan.as_ref()
+     }
+ }
+ impl PricingAttributes {
+     /// Creates a new builder-style object to manufacture [`PricingAttributes`](crate::types::PricingAttributes).
+-    pub fn builder() -> crate::types::builders::PricingAttributesBuilder {
+-        crate::types::builders::PricingAttributesBuilder::default()
++    pub fn builder() -> super::types::builders::PricingAttributesBuilder {
++        super::types::builders::PricingAttributesBuilder::default()
+     }
+ }
+
+@@ -30,41 +30,41 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct PricingAttributesBuilder {
+-    pub(crate) current_plan: ::std::option::Option<crate::types::PricingPlan>,
+-    pub(crate) next_plan: ::std::option::Option<crate::types::PricingPlan>,
++    pub(crate) current_plan: ::std::option::Option<super::types::PricingPlan>,
++    pub(crate) next_plan: ::std::option::Option<super::types::PricingPlan>,
+ }
+ impl PricingAttributesBuilder {
+     /// <p>The pricing plan that is currently active on your Amazon SES account.</p>
+-    pub fn current_plan(mut self, input: crate::types::PricingPlan) -> Self {
++    pub fn current_plan(mut self, input: super::types::PricingPlan) -> Self {
+         self.current_plan = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The pricing plan that is currently active on your Amazon SES account.</p>
+-    pub fn set_current_plan(mut self, input: ::std::option::Option<crate::types::PricingPlan>) -> Self {
++    pub fn set_current_plan(mut self, input: ::std::option::Option<super::types::PricingPlan>) -> Self {
+         self.current_plan = input;
+         self
+     }
+     /// <p>The pricing plan that is currently active on your Amazon SES account.</p>
+-    pub fn get_current_plan(&self) -> &::std::option::Option<crate::types::PricingPlan> {
++    pub fn get_current_plan(&self) -> &::std::option::Option<super::types::PricingPlan> {
+         &self.current_plan
+     }
+     /// <p>The pricing plan that will become active at the start of the next monthly cycle, if a scheduled change has been requested. This field is empty when no scheduled change is pending.</p>
+-    pub fn next_plan(mut self, input: crate::types::PricingPlan) -> Self {
++    pub fn next_plan(mut self, input: super::types::PricingPlan) -> Self {
+         self.next_plan = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The pricing plan that will become active at the start of the next monthly cycle, if a scheduled change has been requested. This field is empty when no scheduled change is pending.</p>
+-    pub fn set_next_plan(mut self, input: ::std::option::Option<crate::types::PricingPlan>) -> Self {
++    pub fn set_next_plan(mut self, input: ::std::option::Option<super::types::PricingPlan>) -> Self {
+         self.next_plan = input;
+         self
+     }
+     /// <p>The pricing plan that will become active at the start of the next monthly cycle, if a scheduled change has been requested. This field is empty when no scheduled change is pending.</p>
+-    pub fn get_next_plan(&self) -> &::std::option::Option<crate::types::PricingPlan> {
++    pub fn get_next_plan(&self) -> &::std::option::Option<super::types::PricingPlan> {
+         &self.next_plan
+     }
+     /// Consumes the builder and constructs a [`PricingAttributes`](crate::types::PricingAttributes).
+-    pub fn build(self) -> crate::types::PricingAttributes {
+-        crate::types::PricingAttributes {
++    pub fn build(self) -> super::types::PricingAttributes {
++        super::types::PricingAttributes {
+             current_plan: self.current_plan,
+             next_plan: self.next_plan,
+         }

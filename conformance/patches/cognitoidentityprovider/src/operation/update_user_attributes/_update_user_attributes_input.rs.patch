@@ -1,0 +1,79 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>An array of name-value pairs representing user attributes.</p>
+     /// <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name.</p>
+     /// <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
+-    pub user_attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
++    pub user_attributes: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>,
+     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+     pub access_token: ::std::option::Option<::std::string::String>,
+     /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p>
+@@ -31,7 +31,7 @@
+     /// <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.user_attributes.is_none()`.
+-    pub fn user_attributes(&self) -> &[crate::types::AttributeType] {
++    pub fn user_attributes(&self) -> &[super::types::AttributeType] {
+         self.user_attributes.as_deref().unwrap_or_default()
+     }
+     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+@@ -66,8 +66,8 @@
+ }
+ impl UpdateUserAttributesInput {
+     /// Creates a new builder-style object to manufacture [`UpdateUserAttributesInput`](crate::operation::update_user_attributes::UpdateUserAttributesInput).
+-    pub fn builder() -> crate::operation::update_user_attributes::builders::UpdateUserAttributesInputBuilder {
+-        crate::operation::update_user_attributes::builders::UpdateUserAttributesInputBuilder::default()
++    pub fn builder() -> super::operation::update_user_attributes::builders::UpdateUserAttributesInputBuilder {
++        super::operation::update_user_attributes::builders::UpdateUserAttributesInputBuilder::default()
+     }
+ }
+
+@@ -75,7 +75,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+ #[non_exhaustive]
+ pub struct UpdateUserAttributesInputBuilder {
+-    pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
++    pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>,
+     pub(crate) access_token: ::std::option::Option<::std::string::String>,
+     pub(crate) client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+ }
+@@ -87,7 +87,7 @@
+     /// <p>An array of name-value pairs representing user attributes.</p>
+     /// <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name.</p>
+     /// <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
+-    pub fn user_attributes(mut self, input: crate::types::AttributeType) -> Self {
++    pub fn user_attributes(mut self, input: super::types::AttributeType) -> Self {
+         let mut v = self.user_attributes.unwrap_or_default();
+         v.push(input);
+         self.user_attributes = ::std::option::Option::Some(v);
+@@ -96,7 +96,7 @@
+     /// <p>An array of name-value pairs representing user attributes.</p>
+     /// <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name.</p>
+     /// <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
+-    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
++    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>) -> Self {
+         self.user_attributes = input;
+         self
+     }
+@@ -103,7 +103,7 @@
+     /// <p>An array of name-value pairs representing user attributes.</p>
+     /// <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name.</p>
+     /// <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
+-    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
++    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AttributeType>> {
+         &self.user_attributes
+     }
+     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+@@ -187,9 +187,9 @@
+     /// Consumes the builder and constructs a [`UpdateUserAttributesInput`](crate::operation::update_user_attributes::UpdateUserAttributesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::update_user_attributes::UpdateUserAttributesInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::update_user_attributes::UpdateUserAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::update_user_attributes::UpdateUserAttributesInput {
++        ::std::result::Result::Ok(super::operation::update_user_attributes::UpdateUserAttributesInput {
+             user_attributes: self.user_attributes,
+             access_token: self.access_token,
+             client_metadata: self.client_metadata,

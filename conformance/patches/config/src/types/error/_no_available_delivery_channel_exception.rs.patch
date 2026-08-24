@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for NoAvailableDeliveryChannelException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::NoAvailableDeliveryChannelException {
++impl ::aws_types::request_id::RequestId for super::types::error::NoAvailableDeliveryChannelException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl NoAvailableDeliveryChannelException {
+     /// Creates a new builder-style object to manufacture [`NoAvailableDeliveryChannelException`](crate::types::error::NoAvailableDeliveryChannelException).
+-    pub fn builder() -> crate::types::error::builders::NoAvailableDeliveryChannelExceptionBuilder {
+-        crate::types::error::builders::NoAvailableDeliveryChannelExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::NoAvailableDeliveryChannelExceptionBuilder {
++        super::types::error::builders::NoAvailableDeliveryChannelExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`NoAvailableDeliveryChannelException`](crate::types::error::NoAvailableDeliveryChannelException).
+-    pub fn build(self) -> crate::types::error::NoAvailableDeliveryChannelException {
+-        crate::types::error::NoAvailableDeliveryChannelException {
++    pub fn build(self) -> super::types::error::NoAvailableDeliveryChannelException {
++        super::types::error::NoAvailableDeliveryChannelException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

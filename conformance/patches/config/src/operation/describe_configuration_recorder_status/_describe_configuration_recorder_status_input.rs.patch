@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -33,8 +33,8 @@
+ }
+ impl DescribeConfigurationRecorderStatusInput {
+     /// Creates a new builder-style object to manufacture [`DescribeConfigurationRecorderStatusInput`](crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusInput).
+-    pub fn builder() -> crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder {
+-        crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder::default()
++    pub fn builder() -> super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder {
++        super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder::default()
+     }
+ }
+
+@@ -105,11 +105,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusInput,
++        super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusInput {
++            super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusInput {
+                 configuration_recorder_names: self.configuration_recorder_names,
+                 service_principal: self.service_principal,
+                 arn: self.arn,

@@ -1,0 +1,100 @@
+--- original
++++ modified
+@@ -5,29 +5,29 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_custom_rule_policy::GetCustomRulePolicyOutput,
+-    crate::operation::get_custom_rule_policy::GetCustomRulePolicyError,
++    super::operation::get_custom_rule_policy::GetCustomRulePolicyOutput,
++    super::operation::get_custom_rule_policy::GetCustomRulePolicyError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::get_custom_rule_policy::GetCustomRulePolicyError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::get_custom_rule_policy::GetCustomRulePolicyError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::get_custom_rule_policy::GetCustomRulePolicyError::unhandled(generic)),
++        None => return Err(super::operation::get_custom_rule_policy::GetCustomRulePolicyError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "NoSuchConfigRuleException" => crate::operation::get_custom_rule_policy::GetCustomRulePolicyError::NoSuchConfigRuleException({
++        "NoSuchConfigRuleException" => super::operation::get_custom_rule_policy::GetCustomRulePolicyError::NoSuchConfigRuleException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
++                let mut output = super::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
+                 output =
+-                    crate::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::get_custom_rule_policy::GetCustomRulePolicyError::unhandled)?;
++                    super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(_response_body, output)
++                        .map_err(super::operation::get_custom_rule_policy::GetCustomRulePolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -36,7 +36,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::get_custom_rule_policy::GetCustomRulePolicyError::generic(generic),
++        _ => super::operation::get_custom_rule_policy::GetCustomRulePolicyError::generic(generic),
+     })
+ }
+
+@@ -46,14 +46,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_custom_rule_policy::GetCustomRulePolicyOutput,
+-    crate::operation::get_custom_rule_policy::GetCustomRulePolicyError,
++    super::operation::get_custom_rule_policy::GetCustomRulePolicyOutput,
++    super::operation::get_custom_rule_policy::GetCustomRulePolicyError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyOutputBuilder::default();
+-        output = crate::protocol_serde::shape_get_custom_rule_policy::de_get_custom_rule_policy(_response_body, output)
+-            .map_err(crate::operation::get_custom_rule_policy::GetCustomRulePolicyError::unhandled)?;
++        let mut output = super::operation::get_custom_rule_policy::builders::GetCustomRulePolicyOutputBuilder::default();
++        output = super::protocol_serde::shape_get_custom_rule_policy::de_get_custom_rule_policy(_response_body, output)
++            .map_err(super::operation::get_custom_rule_policy::GetCustomRulePolicyError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -60,11 +60,11 @@
+ }
+
+ pub fn ser_get_custom_rule_policy_input(
+-    input: &crate::operation::get_custom_rule_policy::GetCustomRulePolicyInput,
++    input: &super::operation::get_custom_rule_policy::GetCustomRulePolicyInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_get_custom_rule_policy_input::ser_get_custom_rule_policy_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_custom_rule_policy_input::ser_get_custom_rule_policy_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -71,12 +71,12 @@
+
+ pub(crate) fn de_get_custom_rule_policy(
+     _value: &[u8],
+-    mut builder: crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyOutputBuilder,
++    mut builder: super::operation::get_custom_rule_policy::builders::GetCustomRulePolicyOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyOutputBuilder,
++    super::operation::get_custom_rule_policy::builders::GetCustomRulePolicyOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl GuardrailChecksSensitiveInformationUsage {
+     /// Creates a new builder-style object to manufacture [`GuardrailChecksSensitiveInformationUsage`](crate::types::GuardrailChecksSensitiveInformationUsage).
+-    pub fn builder() -> crate::types::builders::GuardrailChecksSensitiveInformationUsageBuilder {
+-        crate::types::builders::GuardrailChecksSensitiveInformationUsageBuilder::default()
++    pub fn builder() -> super::types::builders::GuardrailChecksSensitiveInformationUsageBuilder {
++        super::types::builders::GuardrailChecksSensitiveInformationUsageBuilder::default()
+     }
+ }
+
+@@ -47,8 +47,8 @@
+     /// - [`text_units`](crate::types::builders::GuardrailChecksSensitiveInformationUsageBuilder::text_units)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::types::GuardrailChecksSensitiveInformationUsage, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::GuardrailChecksSensitiveInformationUsage {
++    ) -> ::std::result::Result<super::types::GuardrailChecksSensitiveInformationUsage, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::GuardrailChecksSensitiveInformationUsage {
+             text_units: self.text_units.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "text_units",

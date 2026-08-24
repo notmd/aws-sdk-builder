@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     /// - On failure, responds with [`SdkError<PutConfigurationSetVdmOptionsError>`](crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError)
+     pub fn put_configuration_set_vdm_options(
+         &self,
+-    ) -> crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsFluentBuilder {
+-        crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsFluentBuilder {
++        super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsFluentBuilder::new(self.handle.clone())
+     }
+ }

@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ListTenantsOutput {
+     /// <p>An array that contains basic information about each tenant.</p>
+-    pub tenants: ::std::option::Option<::std::vec::Vec<crate::types::TenantInfo>>,
++    pub tenants: ::std::option::Option<::std::vec::Vec<super::types::TenantInfo>>,
+     /// <p>A token that indicates that there are additional tenants to list. To view additional tenants, issue another request to <code>ListTenants</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -14,7 +14,7 @@
+     /// <p>An array that contains basic information about each tenant.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tenants.is_none()`.
+-    pub fn tenants(&self) -> &[crate::types::TenantInfo] {
++    pub fn tenants(&self) -> &[super::types::TenantInfo] {
+         self.tenants.as_deref().unwrap_or_default()
+     }
+     /// <p>A token that indicates that there are additional tenants to list. To view additional tenants, issue another request to <code>ListTenants</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+@@ -29,8 +29,8 @@
+ }
+ impl ListTenantsOutput {
+     /// Creates a new builder-style object to manufacture [`ListTenantsOutput`](crate::operation::list_tenants::ListTenantsOutput).
+-    pub fn builder() -> crate::operation::list_tenants::builders::ListTenantsOutputBuilder {
+-        crate::operation::list_tenants::builders::ListTenantsOutputBuilder::default()
++    pub fn builder() -> super::operation::list_tenants::builders::ListTenantsOutputBuilder {
++        super::operation::list_tenants::builders::ListTenantsOutputBuilder::default()
+     }
+ }
+
+@@ -38,7 +38,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ListTenantsOutputBuilder {
+-    pub(crate) tenants: ::std::option::Option<::std::vec::Vec<crate::types::TenantInfo>>,
++    pub(crate) tenants: ::std::option::Option<::std::vec::Vec<super::types::TenantInfo>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -48,7 +48,7 @@
+     /// To override the contents of this collection use [`set_tenants`](Self::set_tenants).
+     ///
+     /// <p>An array that contains basic information about each tenant.</p>
+-    pub fn tenants(mut self, input: crate::types::TenantInfo) -> Self {
++    pub fn tenants(mut self, input: super::types::TenantInfo) -> Self {
+         let mut v = self.tenants.unwrap_or_default();
+         v.push(input);
+         self.tenants = ::std::option::Option::Some(v);
+@@ -55,12 +55,12 @@
+         self
+     }
+     /// <p>An array that contains basic information about each tenant.</p>
+-    pub fn set_tenants(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TenantInfo>>) -> Self {
++    pub fn set_tenants(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::TenantInfo>>) -> Self {
+         self.tenants = input;
+         self
+     }
+     /// <p>An array that contains basic information about each tenant.</p>
+-    pub fn get_tenants(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TenantInfo>> {
++    pub fn get_tenants(&self) -> &::std::option::Option<::std::vec::Vec<super::types::TenantInfo>> {
+         &self.tenants
+     }
+     /// <p>A token that indicates that there are additional tenants to list. To view additional tenants, issue another request to <code>ListTenants</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+@@ -87,8 +87,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListTenantsOutput`](crate::operation::list_tenants::ListTenantsOutput).
+-    pub fn build(self) -> crate::operation::list_tenants::ListTenantsOutput {
+-        crate::operation::list_tenants::ListTenantsOutput {
++    pub fn build(self) -> super::operation::list_tenants::ListTenantsOutput {
++        super::operation::list_tenants::ListTenantsOutput {
+             tenants: self.tenants,
+             next_token: self.next_token,
+             _request_id: self._request_id,

@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -26,8 +26,8 @@
+ }
+ impl ListLogGroupsForQueryInput {
+     /// Creates a new builder-style object to manufacture [`ListLogGroupsForQueryInput`](crate::operation::list_log_groups_for_query::ListLogGroupsForQueryInput).
+-    pub fn builder() -> crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryInputBuilder {
+-        crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryInputBuilder::default()
++    pub fn builder() -> super::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryInputBuilder {
++        super::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryInputBuilder::default()
+     }
+ }
+
+@@ -87,10 +87,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::list_log_groups_for_query::ListLogGroupsForQueryInput,
++        super::operation::list_log_groups_for_query::ListLogGroupsForQueryInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::list_log_groups_for_query::ListLogGroupsForQueryInput {
++        ::std::result::Result::Ok(super::operation::list_log_groups_for_query::ListLogGroupsForQueryInput {
+             query_id: self.query_id,
+             next_token: self.next_token,
+             max_results: self.max_results,

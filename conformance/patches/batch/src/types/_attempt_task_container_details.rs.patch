@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -13,7 +13,7 @@
+     /// <p>The name of the Amazon CloudWatch Logs log stream that's associated with the container. The log group for Batch jobs is <code>/aws/batch/job</code>. Each container attempt receives a log stream name when they reach the <code>RUNNING</code> status.</p>
+     pub log_stream_name: ::std::option::Option<::std::string::String>,
+     /// <p>The network interfaces that are associated with the job attempt.</p>
+-    pub network_interfaces: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
++    pub network_interfaces: ::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>>,
+ }
+ impl AttemptTaskContainerDetails {
+     /// <p>The exit code for the container’s attempt. A non-zero exit code is considered failed.</p>
+@@ -35,14 +35,14 @@
+     /// <p>The network interfaces that are associated with the job attempt.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.network_interfaces.is_none()`.
+-    pub fn network_interfaces(&self) -> &[crate::types::NetworkInterface] {
++    pub fn network_interfaces(&self) -> &[super::types::NetworkInterface] {
+         self.network_interfaces.as_deref().unwrap_or_default()
+     }
+ }
+ impl AttemptTaskContainerDetails {
+     /// Creates a new builder-style object to manufacture [`AttemptTaskContainerDetails`](crate::types::AttemptTaskContainerDetails).
+-    pub fn builder() -> crate::types::builders::AttemptTaskContainerDetailsBuilder {
+-        crate::types::builders::AttemptTaskContainerDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::AttemptTaskContainerDetailsBuilder {
++        super::types::builders::AttemptTaskContainerDetailsBuilder::default()
+     }
+ }
+
+@@ -54,7 +54,7 @@
+     pub(crate) name: ::std::option::Option<::std::string::String>,
+     pub(crate) reason: ::std::option::Option<::std::string::String>,
+     pub(crate) log_stream_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) network_interfaces: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
++    pub(crate) network_interfaces: ::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>>,
+ }
+ impl AttemptTaskContainerDetailsBuilder {
+     /// <p>The exit code for the container’s attempt. A non-zero exit code is considered failed.</p>
+@@ -118,7 +118,7 @@
+     /// To override the contents of this collection use [`set_network_interfaces`](Self::set_network_interfaces).
+     ///
+     /// <p>The network interfaces that are associated with the job attempt.</p>
+-    pub fn network_interfaces(mut self, input: crate::types::NetworkInterface) -> Self {
++    pub fn network_interfaces(mut self, input: super::types::NetworkInterface) -> Self {
+         let mut v = self.network_interfaces.unwrap_or_default();
+         v.push(input);
+         self.network_interfaces = ::std::option::Option::Some(v);
+@@ -125,17 +125,17 @@
+         self
+     }
+     /// <p>The network interfaces that are associated with the job attempt.</p>
+-    pub fn set_network_interfaces(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>) -> Self {
++    pub fn set_network_interfaces(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>>) -> Self {
+         self.network_interfaces = input;
+         self
+     }
+     /// <p>The network interfaces that are associated with the job attempt.</p>
+-    pub fn get_network_interfaces(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>> {
++    pub fn get_network_interfaces(&self) -> &::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>> {
+         &self.network_interfaces
+     }
+     /// Consumes the builder and constructs a [`AttemptTaskContainerDetails`](crate::types::AttemptTaskContainerDetails).
+-    pub fn build(self) -> crate::types::AttemptTaskContainerDetails {
+-        crate::types::AttemptTaskContainerDetails {
++    pub fn build(self) -> super::types::AttemptTaskContainerDetails {
++        super::types::AttemptTaskContainerDetails {
+             exit_code: self.exit_code,
+             name: self.name,
+             reason: self.reason,

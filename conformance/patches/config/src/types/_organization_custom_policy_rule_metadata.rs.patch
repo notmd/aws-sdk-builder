@@ -1,0 +1,116 @@
+--- original
++++ modified
+@@ -13,11 +13,11 @@
+     /// <li>
+     /// <p><code>OversizedConfigurationItemChangeNotification</code> - Initiates an evaluation when Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.</p></li>
+     /// </ul>
+-    pub organization_config_rule_trigger_types: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerTypeNoSn>>,
++    pub organization_config_rule_trigger_types: ::std::option::Option<::std::vec::Vec<super::types::OrganizationConfigRuleTriggerTypeNoSn>>,
+     /// <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
+     pub input_parameters: ::std::option::Option<::std::string::String>,
+     /// <p>The maximum frequency with which Config runs evaluations for a rule. Your Config Custom Policy rule is triggered when Config delivers the configuration snapshot. For more information, see <code>ConfigSnapshotDeliveryProperties</code>.</p>
+-    pub maximum_execution_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
++    pub maximum_execution_frequency: ::std::option::Option<super::types::MaximumExecutionFrequency>,
+     /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
+     pub resource_types_scope: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     /// <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+@@ -47,7 +47,7 @@
+     /// </ul>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.organization_config_rule_trigger_types.is_none()`.
+-    pub fn organization_config_rule_trigger_types(&self) -> &[crate::types::OrganizationConfigRuleTriggerTypeNoSn] {
++    pub fn organization_config_rule_trigger_types(&self) -> &[super::types::OrganizationConfigRuleTriggerTypeNoSn] {
+         self.organization_config_rule_trigger_types.as_deref().unwrap_or_default()
+     }
+     /// <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
+@@ -55,7 +55,7 @@
+         self.input_parameters.as_deref()
+     }
+     /// <p>The maximum frequency with which Config runs evaluations for a rule. Your Config Custom Policy rule is triggered when Config delivers the configuration snapshot. For more information, see <code>ConfigSnapshotDeliveryProperties</code>.</p>
+-    pub fn maximum_execution_frequency(&self) -> ::std::option::Option<&crate::types::MaximumExecutionFrequency> {
++    pub fn maximum_execution_frequency(&self) -> ::std::option::Option<&super::types::MaximumExecutionFrequency> {
+         self.maximum_execution_frequency.as_ref()
+     }
+     /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
+@@ -95,8 +95,8 @@
+ }
+ impl OrganizationCustomPolicyRuleMetadata {
+     /// Creates a new builder-style object to manufacture [`OrganizationCustomPolicyRuleMetadata`](crate::types::OrganizationCustomPolicyRuleMetadata).
+-    pub fn builder() -> crate::types::builders::OrganizationCustomPolicyRuleMetadataBuilder {
+-        crate::types::builders::OrganizationCustomPolicyRuleMetadataBuilder::default()
++    pub fn builder() -> super::types::builders::OrganizationCustomPolicyRuleMetadataBuilder {
++        super::types::builders::OrganizationCustomPolicyRuleMetadataBuilder::default()
+     }
+ }
+
+@@ -105,9 +105,9 @@
+ #[non_exhaustive]
+ pub struct OrganizationCustomPolicyRuleMetadataBuilder {
+     pub(crate) description: ::std::option::Option<::std::string::String>,
+-    pub(crate) organization_config_rule_trigger_types: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerTypeNoSn>>,
++    pub(crate) organization_config_rule_trigger_types: ::std::option::Option<::std::vec::Vec<super::types::OrganizationConfigRuleTriggerTypeNoSn>>,
+     pub(crate) input_parameters: ::std::option::Option<::std::string::String>,
+-    pub(crate) maximum_execution_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
++    pub(crate) maximum_execution_frequency: ::std::option::Option<super::types::MaximumExecutionFrequency>,
+     pub(crate) resource_types_scope: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     pub(crate) resource_id_scope: ::std::option::Option<::std::string::String>,
+     pub(crate) tag_key_scope: ::std::option::Option<::std::string::String>,
+@@ -142,7 +142,7 @@
+     /// <li>
+     /// <p><code>OversizedConfigurationItemChangeNotification</code> - Initiates an evaluation when Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.</p></li>
+     /// </ul>
+-    pub fn organization_config_rule_trigger_types(mut self, input: crate::types::OrganizationConfigRuleTriggerTypeNoSn) -> Self {
++    pub fn organization_config_rule_trigger_types(mut self, input: super::types::OrganizationConfigRuleTriggerTypeNoSn) -> Self {
+         let mut v = self.organization_config_rule_trigger_types.unwrap_or_default();
+         v.push(input);
+         self.organization_config_rule_trigger_types = ::std::option::Option::Some(v);
+@@ -157,7 +157,7 @@
+     /// </ul>
+     pub fn set_organization_config_rule_trigger_types(
+         mut self,
+-        input: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerTypeNoSn>>,
++        input: ::std::option::Option<::std::vec::Vec<super::types::OrganizationConfigRuleTriggerTypeNoSn>>,
+     ) -> Self {
+         self.organization_config_rule_trigger_types = input;
+         self
+@@ -171,7 +171,7 @@
+     /// </ul>
+     pub fn get_organization_config_rule_trigger_types(
+         &self,
+-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerTypeNoSn>> {
++    ) -> &::std::option::Option<::std::vec::Vec<super::types::OrganizationConfigRuleTriggerTypeNoSn>> {
+         &self.organization_config_rule_trigger_types
+     }
+     /// <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
+@@ -189,17 +189,17 @@
+         &self.input_parameters
+     }
+     /// <p>The maximum frequency with which Config runs evaluations for a rule. Your Config Custom Policy rule is triggered when Config delivers the configuration snapshot. For more information, see <code>ConfigSnapshotDeliveryProperties</code>.</p>
+-    pub fn maximum_execution_frequency(mut self, input: crate::types::MaximumExecutionFrequency) -> Self {
++    pub fn maximum_execution_frequency(mut self, input: super::types::MaximumExecutionFrequency) -> Self {
+         self.maximum_execution_frequency = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The maximum frequency with which Config runs evaluations for a rule. Your Config Custom Policy rule is triggered when Config delivers the configuration snapshot. For more information, see <code>ConfigSnapshotDeliveryProperties</code>.</p>
+-    pub fn set_maximum_execution_frequency(mut self, input: ::std::option::Option<crate::types::MaximumExecutionFrequency>) -> Self {
++    pub fn set_maximum_execution_frequency(mut self, input: ::std::option::Option<super::types::MaximumExecutionFrequency>) -> Self {
+         self.maximum_execution_frequency = input;
+         self
+     }
+     /// <p>The maximum frequency with which Config runs evaluations for a rule. Your Config Custom Policy rule is triggered when Config delivers the configuration snapshot. For more information, see <code>ConfigSnapshotDeliveryProperties</code>.</p>
+-    pub fn get_maximum_execution_frequency(&self) -> &::std::option::Option<crate::types::MaximumExecutionFrequency> {
++    pub fn get_maximum_execution_frequency(&self) -> &::std::option::Option<super::types::MaximumExecutionFrequency> {
+         &self.maximum_execution_frequency
+     }
+     /// Appends an item to `resource_types_scope`.
+@@ -320,8 +320,8 @@
+     /// - [`policy_text`](crate::types::builders::OrganizationCustomPolicyRuleMetadataBuilder::policy_text)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::types::OrganizationCustomPolicyRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::OrganizationCustomPolicyRuleMetadata {
++    ) -> ::std::result::Result<super::types::OrganizationCustomPolicyRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::OrganizationCustomPolicyRuleMetadata {
+             description: self.description,
+             organization_config_rule_trigger_types: self.organization_config_rule_trigger_types,
+             input_parameters: self.input_parameters,

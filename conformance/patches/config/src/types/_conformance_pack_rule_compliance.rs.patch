@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>Name of the Config rule.</p>
+     pub config_rule_name: ::std::option::Option<::std::string::String>,
+     /// <p>Compliance of the Config rule.</p>
+-    pub compliance_type: ::std::option::Option<crate::types::ConformancePackComplianceType>,
++    pub compliance_type: ::std::option::Option<super::types::ConformancePackComplianceType>,
+     /// <p>Controls for the conformance pack. A control is a process to prevent or detect problems while meeting objectives. A control can align with a specific compliance regime or map to internal controls defined by an organization.</p>
+     pub controls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+ }
+@@ -17,7 +17,7 @@
+         self.config_rule_name.as_deref()
+     }
+     /// <p>Compliance of the Config rule.</p>
+-    pub fn compliance_type(&self) -> ::std::option::Option<&crate::types::ConformancePackComplianceType> {
++    pub fn compliance_type(&self) -> ::std::option::Option<&super::types::ConformancePackComplianceType> {
+         self.compliance_type.as_ref()
+     }
+     /// <p>Controls for the conformance pack. A control is a process to prevent or detect problems while meeting objectives. A control can align with a specific compliance regime or map to internal controls defined by an organization.</p>
+@@ -29,8 +29,8 @@
+ }
+ impl ConformancePackRuleCompliance {
+     /// Creates a new builder-style object to manufacture [`ConformancePackRuleCompliance`](crate::types::ConformancePackRuleCompliance).
+-    pub fn builder() -> crate::types::builders::ConformancePackRuleComplianceBuilder {
+-        crate::types::builders::ConformancePackRuleComplianceBuilder::default()
++    pub fn builder() -> super::types::builders::ConformancePackRuleComplianceBuilder {
++        super::types::builders::ConformancePackRuleComplianceBuilder::default()
+     }
+ }
+
+@@ -39,7 +39,7 @@
+ #[non_exhaustive]
+ pub struct ConformancePackRuleComplianceBuilder {
+     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) compliance_type: ::std::option::Option<crate::types::ConformancePackComplianceType>,
++    pub(crate) compliance_type: ::std::option::Option<super::types::ConformancePackComplianceType>,
+     pub(crate) controls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+ }
+ impl ConformancePackRuleComplianceBuilder {
+@@ -58,17 +58,17 @@
+         &self.config_rule_name
+     }
+     /// <p>Compliance of the Config rule.</p>
+-    pub fn compliance_type(mut self, input: crate::types::ConformancePackComplianceType) -> Self {
++    pub fn compliance_type(mut self, input: super::types::ConformancePackComplianceType) -> Self {
+         self.compliance_type = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Compliance of the Config rule.</p>
+-    pub fn set_compliance_type(mut self, input: ::std::option::Option<crate::types::ConformancePackComplianceType>) -> Self {
++    pub fn set_compliance_type(mut self, input: ::std::option::Option<super::types::ConformancePackComplianceType>) -> Self {
+         self.compliance_type = input;
+         self
+     }
+     /// <p>Compliance of the Config rule.</p>
+-    pub fn get_compliance_type(&self) -> &::std::option::Option<crate::types::ConformancePackComplianceType> {
++    pub fn get_compliance_type(&self) -> &::std::option::Option<super::types::ConformancePackComplianceType> {
+         &self.compliance_type
+     }
+     /// Appends an item to `controls`.
+@@ -92,8 +92,8 @@
+         &self.controls
+     }
+     /// Consumes the builder and constructs a [`ConformancePackRuleCompliance`](crate::types::ConformancePackRuleCompliance).
+-    pub fn build(self) -> crate::types::ConformancePackRuleCompliance {
+-        crate::types::ConformancePackRuleCompliance {
++    pub fn build(self) -> super::types::ConformancePackRuleCompliance {
++        super::types::ConformancePackRuleCompliance {
+             config_rule_name: self.config_rule_name,
+             compliance_type: self.compliance_type,
+             controls: self.controls,

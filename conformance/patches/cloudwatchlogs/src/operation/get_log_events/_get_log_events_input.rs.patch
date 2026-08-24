@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -78,8 +78,8 @@
+ }
+ impl GetLogEventsInput {
+     /// Creates a new builder-style object to manufacture [`GetLogEventsInput`](crate::operation::get_log_events::GetLogEventsInput).
+-    pub fn builder() -> crate::operation::get_log_events::builders::GetLogEventsInputBuilder {
+-        crate::operation::get_log_events::builders::GetLogEventsInputBuilder::default()
++    pub fn builder() -> super::operation::get_log_events::builders::GetLogEventsInputBuilder {
++        super::operation::get_log_events::builders::GetLogEventsInputBuilder::default()
+     }
+ }
+
+@@ -252,8 +252,8 @@
+     /// Consumes the builder and constructs a [`GetLogEventsInput`](crate::operation::get_log_events::GetLogEventsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_log_events::GetLogEventsInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::get_log_events::GetLogEventsInput {
++    ) -> ::std::result::Result<super::operation::get_log_events::GetLogEventsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::get_log_events::GetLogEventsInput {
+             log_group_name: self.log_group_name,
+             log_group_identifier: self.log_group_identifier,
+             log_stream_name: self.log_stream_name,

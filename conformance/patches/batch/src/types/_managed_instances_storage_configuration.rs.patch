@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl ManagedInstancesStorageConfiguration {
+     /// Creates a new builder-style object to manufacture [`ManagedInstancesStorageConfiguration`](crate::types::ManagedInstancesStorageConfiguration).
+-    pub fn builder() -> crate::types::builders::ManagedInstancesStorageConfigurationBuilder {
+-        crate::types::builders::ManagedInstancesStorageConfigurationBuilder::default()
++    pub fn builder() -> super::types::builders::ManagedInstancesStorageConfigurationBuilder {
++        super::types::builders::ManagedInstancesStorageConfigurationBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+         &self.storage_size_gib
+     }
+     /// Consumes the builder and constructs a [`ManagedInstancesStorageConfiguration`](crate::types::ManagedInstancesStorageConfiguration).
+-    pub fn build(self) -> crate::types::ManagedInstancesStorageConfiguration {
+-        crate::types::ManagedInstancesStorageConfiguration {
++    pub fn build(self) -> super::types::ManagedInstancesStorageConfiguration {
++        super::types::ManagedInstancesStorageConfiguration {
+             storage_size_gib: self.storage_size_gib,
+         }
+     }

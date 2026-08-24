@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl PutConfigurationSetSendingOptionsInput {
+     /// Creates a new builder-style object to manufacture [`PutConfigurationSetSendingOptionsInput`](crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput).
+-    pub fn builder() -> crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder {
+-        crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder::default()
++    pub fn builder() -> super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder {
++        super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder::default()
+     }
+ }
+
+@@ -67,11 +67,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput,
++        super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput {
++            super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput {
+                 configuration_set_name: self.configuration_set_name,
+                 sending_enabled: self.sending_enabled,
+             },

@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     /// <p>The ID of the user pool where you want to configure logging.</p>
+     pub user_pool_id: ::std::option::Option<::std::string::String>,
+     /// <p>A collection of the logging configurations for a user pool.</p>
+-    pub log_configurations: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
++    pub log_configurations: ::std::option::Option<::std::vec::Vec<super::types::LogConfigurationType>>,
+ }
+ impl SetLogDeliveryConfigurationInput {
+     /// <p>The ID of the user pool where you want to configure logging.</p>
+@@ -16,14 +16,14 @@
+     /// <p>A collection of the logging configurations for a user pool.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.log_configurations.is_none()`.
+-    pub fn log_configurations(&self) -> &[crate::types::LogConfigurationType] {
++    pub fn log_configurations(&self) -> &[super::types::LogConfigurationType] {
+         self.log_configurations.as_deref().unwrap_or_default()
+     }
+ }
+ impl SetLogDeliveryConfigurationInput {
+     /// Creates a new builder-style object to manufacture [`SetLogDeliveryConfigurationInput`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput).
+-    pub fn builder() -> crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder {
+-        crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder::default()
++    pub fn builder() -> super::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder {
++        super::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder::default()
+     }
+ }
+
+@@ -32,7 +32,7 @@
+ #[non_exhaustive]
+ pub struct SetLogDeliveryConfigurationInputBuilder {
+     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) log_configurations: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
++    pub(crate) log_configurations: ::std::option::Option<::std::vec::Vec<super::types::LogConfigurationType>>,
+ }
+ impl SetLogDeliveryConfigurationInputBuilder {
+     /// <p>The ID of the user pool where you want to configure logging.</p>
+@@ -55,7 +55,7 @@
+     /// To override the contents of this collection use [`set_log_configurations`](Self::set_log_configurations).
+     ///
+     /// <p>A collection of the logging configurations for a user pool.</p>
+-    pub fn log_configurations(mut self, input: crate::types::LogConfigurationType) -> Self {
++    pub fn log_configurations(mut self, input: super::types::LogConfigurationType) -> Self {
+         let mut v = self.log_configurations.unwrap_or_default();
+         v.push(input);
+         self.log_configurations = ::std::option::Option::Some(v);
+@@ -62,12 +62,12 @@
+         self
+     }
+     /// <p>A collection of the logging configurations for a user pool.</p>
+-    pub fn set_log_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>) -> Self {
++    pub fn set_log_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::LogConfigurationType>>) -> Self {
+         self.log_configurations = input;
+         self
+     }
+     /// <p>A collection of the logging configurations for a user pool.</p>
+-    pub fn get_log_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>> {
++    pub fn get_log_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::LogConfigurationType>> {
+         &self.log_configurations
+     }
+     /// Consumes the builder and constructs a [`SetLogDeliveryConfigurationInput`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput).
+@@ -74,10 +74,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput,
++        super::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput {
++        ::std::result::Result::Ok(super::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput {
+             user_pool_id: self.user_pool_id,
+             log_configurations: self.log_configurations,
+         })

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl UpdateLogAnomalyDetectorOutput {
+     /// Creates a new builder-style object to manufacture [`UpdateLogAnomalyDetectorOutput`](crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput).
+-    pub fn builder() -> crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorOutputBuilder {
+-        crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorOutputBuilder::default()
++    pub fn builder() -> super::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorOutputBuilder {
++        super::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UpdateLogAnomalyDetectorOutput`](crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput).
+-    pub fn build(self) -> crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput {
+-        crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput {
++    pub fn build(self) -> super::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput {
++        super::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput {
+             _request_id: self._request_id,
+         }
+     }

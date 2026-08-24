@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl TestMetricFilterInput {
+     /// Creates a new builder-style object to manufacture [`TestMetricFilterInput`](crate::operation::test_metric_filter::TestMetricFilterInput).
+-    pub fn builder() -> crate::operation::test_metric_filter::builders::TestMetricFilterInputBuilder {
+-        crate::operation::test_metric_filter::builders::TestMetricFilterInputBuilder::default()
++    pub fn builder() -> super::operation::test_metric_filter::builders::TestMetricFilterInputBuilder {
++        super::operation::test_metric_filter::builders::TestMetricFilterInputBuilder::default()
+     }
+ }
+
+@@ -73,8 +73,8 @@
+     /// Consumes the builder and constructs a [`TestMetricFilterInput`](crate::operation::test_metric_filter::TestMetricFilterInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::test_metric_filter::TestMetricFilterInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::test_metric_filter::TestMetricFilterInput {
++    ) -> ::std::result::Result<super::operation::test_metric_filter::TestMetricFilterInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::test_metric_filter::TestMetricFilterInput {
+             filter_pattern: self.filter_pattern,
+             log_event_messages: self.log_event_messages,
+         })

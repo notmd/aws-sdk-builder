@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl PutDeliverabilityDashboardOptionOutput {
+     /// Creates a new builder-style object to manufacture [`PutDeliverabilityDashboardOptionOutput`](crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput).
+-    pub fn builder() -> crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder {
+-        crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder::default()
++    pub fn builder() -> super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder {
++        super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutDeliverabilityDashboardOptionOutput`](crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput).
+-    pub fn build(self) -> crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput {
+-        crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput {
++    pub fn build(self) -> super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput {
++        super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput {
+             _request_id: self._request_id,
+         }
+     }

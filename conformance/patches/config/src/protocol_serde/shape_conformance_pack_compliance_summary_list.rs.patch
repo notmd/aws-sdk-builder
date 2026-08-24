@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+     _value: &'a [u8],
+     depth: u32,
+ ) -> ::std::result::Result<
+-    Option<::std::vec::Vec<crate::types::ConformancePackComplianceSummary>>,
++    Option<::std::vec::Vec<super::types::ConformancePackComplianceSummary>>,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ >
+ where
+@@ -26,7 +26,7 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = crate::protocol_serde::shape_conformance_pack_compliance_summary::de_conformance_pack_compliance_summary(
++                        let value = super::protocol_serde::shape_conformance_pack_compliance_summary::de_conformance_pack_compliance_summary(
+                             tokens,
+                             _value,
+                             depth + 1,

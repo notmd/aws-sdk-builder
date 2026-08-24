@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl DescribeQuotaShareInput {
+     /// Creates a new builder-style object to manufacture [`DescribeQuotaShareInput`](crate::operation::describe_quota_share::DescribeQuotaShareInput).
+-    pub fn builder() -> crate::operation::describe_quota_share::builders::DescribeQuotaShareInputBuilder {
+-        crate::operation::describe_quota_share::builders::DescribeQuotaShareInputBuilder::default()
++    pub fn builder() -> super::operation::describe_quota_share::builders::DescribeQuotaShareInputBuilder {
++        super::operation::describe_quota_share::builders::DescribeQuotaShareInputBuilder::default()
+     }
+ }
+
+@@ -44,9 +44,9 @@
+     /// Consumes the builder and constructs a [`DescribeQuotaShareInput`](crate::operation::describe_quota_share::DescribeQuotaShareInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::describe_quota_share::DescribeQuotaShareInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::describe_quota_share::DescribeQuotaShareInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::describe_quota_share::DescribeQuotaShareInput {
++        ::std::result::Result::Ok(super::operation::describe_quota_share::DescribeQuotaShareInput {
+             quota_share_arn: self.quota_share_arn,
+         })
+     }

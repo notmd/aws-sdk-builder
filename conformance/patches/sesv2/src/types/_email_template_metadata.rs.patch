@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl EmailTemplateMetadata {
+     /// Creates a new builder-style object to manufacture [`EmailTemplateMetadata`](crate::types::EmailTemplateMetadata).
+-    pub fn builder() -> crate::types::builders::EmailTemplateMetadataBuilder {
+-        crate::types::builders::EmailTemplateMetadataBuilder::default()
++    pub fn builder() -> super::types::builders::EmailTemplateMetadataBuilder {
++        super::types::builders::EmailTemplateMetadataBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.created_timestamp
+     }
+     /// Consumes the builder and constructs a [`EmailTemplateMetadata`](crate::types::EmailTemplateMetadata).
+-    pub fn build(self) -> crate::types::EmailTemplateMetadata {
+-        crate::types::EmailTemplateMetadata {
++    pub fn build(self) -> super::types::EmailTemplateMetadata {
++        super::types::EmailTemplateMetadata {
+             template_name: self.template_name,
+             created_timestamp: self.created_timestamp,
+         }

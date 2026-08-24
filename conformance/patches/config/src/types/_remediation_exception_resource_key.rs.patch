@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl RemediationExceptionResourceKey {
+     /// Creates a new builder-style object to manufacture [`RemediationExceptionResourceKey`](crate::types::RemediationExceptionResourceKey).
+-    pub fn builder() -> crate::types::builders::RemediationExceptionResourceKeyBuilder {
+-        crate::types::builders::RemediationExceptionResourceKeyBuilder::default()
++    pub fn builder() -> super::types::builders::RemediationExceptionResourceKeyBuilder {
++        super::types::builders::RemediationExceptionResourceKeyBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.resource_id
+     }
+     /// Consumes the builder and constructs a [`RemediationExceptionResourceKey`](crate::types::RemediationExceptionResourceKey).
+-    pub fn build(self) -> crate::types::RemediationExceptionResourceKey {
+-        crate::types::RemediationExceptionResourceKey {
++    pub fn build(self) -> super::types::RemediationExceptionResourceKey {
++        super::types::RemediationExceptionResourceKey {
+             resource_type: self.resource_type,
+             resource_id: self.resource_id,
+         }

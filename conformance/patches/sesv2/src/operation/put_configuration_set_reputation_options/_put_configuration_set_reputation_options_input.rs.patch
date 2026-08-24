@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl PutConfigurationSetReputationOptionsInput {
+     /// Creates a new builder-style object to manufacture [`PutConfigurationSetReputationOptionsInput`](crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput).
+-    pub fn builder() -> crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder {
+-        crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder::default()
++    pub fn builder() -> super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder {
++        super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder::default()
+     }
+ }
+
+@@ -67,11 +67,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput,
++        super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput {
++            super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput {
+                 configuration_set_name: self.configuration_set_name,
+                 reputation_metrics_enabled: self.reputation_metrics_enabled,
+             },

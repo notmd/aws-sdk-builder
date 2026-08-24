@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -39,8 +39,8 @@
+ }
+ impl ListDomainDeliverabilityCampaignsInput {
+     /// Creates a new builder-style object to manufacture [`ListDomainDeliverabilityCampaignsInput`](crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput).
+-    pub fn builder() -> crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder {
+-        crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder::default()
++    pub fn builder() -> super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder {
++        super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder::default()
+     }
+ }
+
+@@ -132,11 +132,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput,
++        super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput {
++            super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput {
+                 start_date: self.start_date,
+                 end_date: self.end_date,
+                 subscribed_domain: self.subscribed_domain,

@@ -1,0 +1,68 @@
+--- original
++++ modified
+@@ -5,15 +5,15 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub enum CitationLocation {
+     /// <p>The character-level location within the document where the cited content is found.</p>
+-    DocumentChar(crate::types::DocumentCharLocation),
++    DocumentChar(super::types::DocumentCharLocation),
+     /// <p>The chunk-level location within the document where the cited content is found, typically used for documents that have been segmented into logical chunks.</p>
+-    DocumentChunk(crate::types::DocumentChunkLocation),
++    DocumentChunk(super::types::DocumentChunkLocation),
+     /// <p>The page-level location within the document where the cited content is found.</p>
+-    DocumentPage(crate::types::DocumentPageLocation),
++    DocumentPage(super::types::DocumentPageLocation),
+     /// <p>The search result location where the cited content is found, including the search result index and block positions within the content array.</p>
+-    SearchResultLocation(crate::types::SearchResultLocation),
++    SearchResultLocation(super::types::SearchResultLocation),
+     /// <p>The web URL that was cited for this reference.</p>
+-    Web(crate::types::WebLocation),
++    Web(super::types::WebLocation),
+     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
+     /// An unknown enum variant
+     ///
+@@ -27,7 +27,7 @@
+ impl CitationLocation {
+     /// Tries to convert the enum instance into [`DocumentChar`](crate::types::CitationLocation::DocumentChar), extracting the inner [`DocumentCharLocation`](crate::types::DocumentCharLocation).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_document_char(&self) -> ::std::result::Result<&crate::types::DocumentCharLocation, &Self> {
++    pub fn as_document_char(&self) -> ::std::result::Result<&super::types::DocumentCharLocation, &Self> {
+         if let CitationLocation::DocumentChar(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -40,7 +40,7 @@
+     }
+     /// Tries to convert the enum instance into [`DocumentChunk`](crate::types::CitationLocation::DocumentChunk), extracting the inner [`DocumentChunkLocation`](crate::types::DocumentChunkLocation).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_document_chunk(&self) -> ::std::result::Result<&crate::types::DocumentChunkLocation, &Self> {
++    pub fn as_document_chunk(&self) -> ::std::result::Result<&super::types::DocumentChunkLocation, &Self> {
+         if let CitationLocation::DocumentChunk(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -53,7 +53,7 @@
+     }
+     /// Tries to convert the enum instance into [`DocumentPage`](crate::types::CitationLocation::DocumentPage), extracting the inner [`DocumentPageLocation`](crate::types::DocumentPageLocation).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_document_page(&self) -> ::std::result::Result<&crate::types::DocumentPageLocation, &Self> {
++    pub fn as_document_page(&self) -> ::std::result::Result<&super::types::DocumentPageLocation, &Self> {
+         if let CitationLocation::DocumentPage(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -66,7 +66,7 @@
+     }
+     /// Tries to convert the enum instance into [`SearchResultLocation`](crate::types::CitationLocation::SearchResultLocation), extracting the inner [`SearchResultLocation`](crate::types::SearchResultLocation).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_search_result_location(&self) -> ::std::result::Result<&crate::types::SearchResultLocation, &Self> {
++    pub fn as_search_result_location(&self) -> ::std::result::Result<&super::types::SearchResultLocation, &Self> {
+         if let CitationLocation::SearchResultLocation(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -79,7 +79,7 @@
+     }
+     /// Tries to convert the enum instance into [`Web`](crate::types::CitationLocation::Web), extracting the inner [`WebLocation`](crate::types::WebLocation).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_web(&self) -> ::std::result::Result<&crate::types::WebLocation, &Self> {
++    pub fn as_web(&self) -> ::std::result::Result<&super::types::WebLocation, &Self> {
+         if let CitationLocation::Web(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {

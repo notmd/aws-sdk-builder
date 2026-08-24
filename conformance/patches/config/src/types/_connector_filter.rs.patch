@@ -1,0 +1,67 @@
+--- original
++++ modified
+@@ -5,13 +5,13 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ConnectorFilter {
+     /// <p>The name of the filter. Currently, only <code>provider</code> is supported.</p>
+-    pub filter_name: ::std::option::Option<crate::types::ConnectorFilterName>,
++    pub filter_name: ::std::option::Option<super::types::ConnectorFilterName>,
+     /// <p>The value of the filter. For <code>provider</code>, valid values include: <code>AZURE</code>.</p>
+     pub filter_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+ }
+ impl ConnectorFilter {
+     /// <p>The name of the filter. Currently, only <code>provider</code> is supported.</p>
+-    pub fn filter_name(&self) -> ::std::option::Option<&crate::types::ConnectorFilterName> {
++    pub fn filter_name(&self) -> ::std::option::Option<&super::types::ConnectorFilterName> {
+         self.filter_name.as_ref()
+     }
+     /// <p>The value of the filter. For <code>provider</code>, valid values include: <code>AZURE</code>.</p>
+@@ -23,8 +23,8 @@
+ }
+ impl ConnectorFilter {
+     /// Creates a new builder-style object to manufacture [`ConnectorFilter`](crate::types::ConnectorFilter).
+-    pub fn builder() -> crate::types::builders::ConnectorFilterBuilder {
+-        crate::types::builders::ConnectorFilterBuilder::default()
++    pub fn builder() -> super::types::builders::ConnectorFilterBuilder {
++        super::types::builders::ConnectorFilterBuilder::default()
+     }
+ }
+
+@@ -32,22 +32,22 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ConnectorFilterBuilder {
+-    pub(crate) filter_name: ::std::option::Option<crate::types::ConnectorFilterName>,
++    pub(crate) filter_name: ::std::option::Option<super::types::ConnectorFilterName>,
+     pub(crate) filter_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+ }
+ impl ConnectorFilterBuilder {
+     /// <p>The name of the filter. Currently, only <code>provider</code> is supported.</p>
+-    pub fn filter_name(mut self, input: crate::types::ConnectorFilterName) -> Self {
++    pub fn filter_name(mut self, input: super::types::ConnectorFilterName) -> Self {
+         self.filter_name = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The name of the filter. Currently, only <code>provider</code> is supported.</p>
+-    pub fn set_filter_name(mut self, input: ::std::option::Option<crate::types::ConnectorFilterName>) -> Self {
++    pub fn set_filter_name(mut self, input: ::std::option::Option<super::types::ConnectorFilterName>) -> Self {
+         self.filter_name = input;
+         self
+     }
+     /// <p>The name of the filter. Currently, only <code>provider</code> is supported.</p>
+-    pub fn get_filter_name(&self) -> &::std::option::Option<crate::types::ConnectorFilterName> {
++    pub fn get_filter_name(&self) -> &::std::option::Option<super::types::ConnectorFilterName> {
+         &self.filter_name
+     }
+     /// Appends an item to `filter_values`.
+@@ -71,8 +71,8 @@
+         &self.filter_values
+     }
+     /// Consumes the builder and constructs a [`ConnectorFilter`](crate::types::ConnectorFilter).
+-    pub fn build(self) -> crate::types::ConnectorFilter {
+-        crate::types::ConnectorFilter {
++    pub fn build(self) -> super::types::ConnectorFilter {
++        super::types::ConnectorFilter {
+             filter_name: self.filter_name,
+             filter_values: self.filter_values,
+         }

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl EmailMfaSettingsType {
+     /// Creates a new builder-style object to manufacture [`EmailMfaSettingsType`](crate::types::EmailMfaSettingsType).
+-    pub fn builder() -> crate::types::builders::EmailMfaSettingsTypeBuilder {
+-        crate::types::builders::EmailMfaSettingsTypeBuilder::default()
++    pub fn builder() -> super::types::builders::EmailMfaSettingsTypeBuilder {
++        super::types::builders::EmailMfaSettingsTypeBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.preferred_mfa
+     }
+     /// Consumes the builder and constructs a [`EmailMfaSettingsType`](crate::types::EmailMfaSettingsType).
+-    pub fn build(self) -> crate::types::EmailMfaSettingsType {
+-        crate::types::EmailMfaSettingsType {
++    pub fn build(self) -> super::types::EmailMfaSettingsType {
++        super::types::EmailMfaSettingsType {
+             enabled: self.enabled.unwrap_or_default(),
+             preferred_mfa: self.preferred_mfa.unwrap_or_default(),
+         }

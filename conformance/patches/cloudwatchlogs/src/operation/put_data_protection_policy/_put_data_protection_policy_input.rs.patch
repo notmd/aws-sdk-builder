@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -48,8 +48,8 @@
+ }
+ impl PutDataProtectionPolicyInput {
+     /// Creates a new builder-style object to manufacture [`PutDataProtectionPolicyInput`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput).
+-    pub fn builder() -> crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder {
+-        crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder::default()
++    pub fn builder() -> super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder {
++        super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder::default()
+     }
+ }
+
+@@ -137,10 +137,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput,
++        super::operation::put_data_protection_policy::PutDataProtectionPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput {
++        ::std::result::Result::Ok(super::operation::put_data_protection_policy::PutDataProtectionPolicyInput {
+             log_group_identifier: self.log_group_identifier,
+             policy_document: self.policy_document,
+         })

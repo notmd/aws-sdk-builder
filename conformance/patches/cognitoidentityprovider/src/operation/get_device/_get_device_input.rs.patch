@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -29,8 +29,8 @@
+ }
+ impl GetDeviceInput {
+     /// Creates a new builder-style object to manufacture [`GetDeviceInput`](crate::operation::get_device::GetDeviceInput).
+-    pub fn builder() -> crate::operation::get_device::builders::GetDeviceInputBuilder {
+-        crate::operation::get_device::builders::GetDeviceInputBuilder::default()
++    pub fn builder() -> super::operation::get_device::builders::GetDeviceInputBuilder {
++        super::operation::get_device::builders::GetDeviceInputBuilder::default()
+     }
+ }
+
+@@ -72,8 +72,8 @@
+         &self.access_token
+     }
+     /// Consumes the builder and constructs a [`GetDeviceInput`](crate::operation::get_device::GetDeviceInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::get_device::GetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::get_device::GetDeviceInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::get_device::GetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::get_device::GetDeviceInput {
+             device_key: self.device_key,
+             access_token: self.access_token,
+         })

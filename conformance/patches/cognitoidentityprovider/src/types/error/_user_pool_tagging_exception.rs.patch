@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for UserPoolTaggingException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::UserPoolTaggingException {
++impl ::aws_types::request_id::RequestId for super::types::error::UserPoolTaggingException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl UserPoolTaggingException {
+     /// Creates a new builder-style object to manufacture [`UserPoolTaggingException`](crate::types::error::UserPoolTaggingException).
+-    pub fn builder() -> crate::types::error::builders::UserPoolTaggingExceptionBuilder {
+-        crate::types::error::builders::UserPoolTaggingExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::UserPoolTaggingExceptionBuilder {
++        super::types::error::builders::UserPoolTaggingExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UserPoolTaggingException`](crate::types::error::UserPoolTaggingException).
+-    pub fn build(self) -> crate::types::error::UserPoolTaggingException {
+-        crate::types::error::UserPoolTaggingException {
++    pub fn build(self) -> super::types::error::UserPoolTaggingException {
++        super::types::error::UserPoolTaggingException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

@@ -87,13 +87,7 @@ pub fn run(arguments: &[OsString]) -> Result<(), String> {
         if let Some(parent) = staged_model.parent() {
             fs::create_dir_all(parent).map_err(|error| format!("{}: {error}", parent.display()))?;
         }
-        fs::copy(&model_source, &staged_model).map_err(|error| {
-            format!(
-                "{} -> {}: {error}",
-                model_source.display(),
-                staged_model.display()
-            )
-        })?;
+        compact_json_model(&model_source, &staged_model)?;
         model_targets.push((
             staged_model,
             repository_root.join(&service.model_destination),
@@ -122,6 +116,19 @@ pub fn run(arguments: &[OsString]) -> Result<(), String> {
     atomic_install(&installs, workspace.path())?;
     println!("updated conformance reference and service models");
     Ok(())
+}
+
+fn compact_json_model(source: &Path, destination: &Path) -> Result<(), String> {
+    let bytes = fs::read(source).map_err(|error| format!("{}: {error}", source.display()))?;
+    let value = serde_json::from_slice::<serde_json::Value>(&bytes)
+        .map_err(|error| format!("{}: invalid JSON: {error}", source.display()))?;
+    let compact = serde_json::to_vec(&value).map_err(|error| {
+        format!(
+            "{}: failed to serialize compact JSON: {error}",
+            source.display()
+        )
+    })?;
+    fs::write(destination, compact).map_err(|error| format!("{}: {error}", destination.display()))
 }
 
 fn prepare_upstream(manifest: &ServicesManifest, workspace: &Path) -> Result<PathBuf, String> {
@@ -336,6 +343,21 @@ mod tests {
         assert_eq!(
             single_directory(root.path()).unwrap(),
             root.path().join("aws-sdk-rust-commit")
+        );
+    }
+
+    #[test]
+    fn compacts_json_without_reordering_object_members() {
+        let root = tempdir().unwrap();
+        let source = root.path().join("source.json");
+        let destination = root.path().join("destination.json");
+        fs::write(&source, b"{\n  \"second\": 2,\n  \"first\": 1\n}\n").unwrap();
+
+        compact_json_model(&source, &destination).unwrap();
+
+        assert_eq!(
+            fs::read_to_string(destination).unwrap(),
+            r#"{"second":2,"first":1}"#
         );
     }
 }

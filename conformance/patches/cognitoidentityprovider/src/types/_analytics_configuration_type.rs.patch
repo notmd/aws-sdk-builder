@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -40,8 +40,8 @@
+ }
+ impl AnalyticsConfigurationType {
+     /// Creates a new builder-style object to manufacture [`AnalyticsConfigurationType`](crate::types::AnalyticsConfigurationType).
+-    pub fn builder() -> crate::types::builders::AnalyticsConfigurationTypeBuilder {
+-        crate::types::builders::AnalyticsConfigurationTypeBuilder::default()
++    pub fn builder() -> super::types::builders::AnalyticsConfigurationTypeBuilder {
++        super::types::builders::AnalyticsConfigurationTypeBuilder::default()
+     }
+ }
+
+@@ -127,8 +127,8 @@
+         &self.user_data_shared
+     }
+     /// Consumes the builder and constructs a [`AnalyticsConfigurationType`](crate::types::AnalyticsConfigurationType).
+-    pub fn build(self) -> crate::types::AnalyticsConfigurationType {
+-        crate::types::AnalyticsConfigurationType {
++    pub fn build(self) -> super::types::AnalyticsConfigurationType {
++        super::types::AnalyticsConfigurationType {
+             application_id: self.application_id,
+             application_arn: self.application_arn,
+             role_arn: self.role_arn,

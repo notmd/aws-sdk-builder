@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl TagLogGroupOutput {
+     /// Creates a new builder-style object to manufacture [`TagLogGroupOutput`](crate::operation::tag_log_group::TagLogGroupOutput).
+-    pub fn builder() -> crate::operation::tag_log_group::builders::TagLogGroupOutputBuilder {
+-        crate::operation::tag_log_group::builders::TagLogGroupOutputBuilder::default()
++    pub fn builder() -> super::operation::tag_log_group::builders::TagLogGroupOutputBuilder {
++        super::operation::tag_log_group::builders::TagLogGroupOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`TagLogGroupOutput`](crate::operation::tag_log_group::TagLogGroupOutput).
+-    pub fn build(self) -> crate::operation::tag_log_group::TagLogGroupOutput {
+-        crate::operation::tag_log_group::TagLogGroupOutput {
++    pub fn build(self) -> super::operation::tag_log_group::TagLogGroupOutput {
++        super::operation::tag_log_group::TagLogGroupOutput {
+             _request_id: self._request_id,
+         }
+     }

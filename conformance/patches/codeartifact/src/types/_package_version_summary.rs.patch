@@ -1,0 +1,97 @@
+--- original
++++ modified
+@@ -9,9 +9,9 @@
+     /// <p>The revision associated with a package version.</p>
+     pub revision: ::std::option::Option<::std::string::String>,
+     /// <p>A string that contains the status of the package version. It can be one of the following:</p>
+-    pub status: crate::types::PackageVersionStatus,
++    pub status: super::types::PackageVersionStatus,
+     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains information about how the package version was added to the repository.</p>
+-    pub origin: ::std::option::Option<crate::types::PackageVersionOrigin>,
++    pub origin: ::std::option::Option<super::types::PackageVersionOrigin>,
+ }
+ impl PackageVersionSummary {
+     /// <p>Information about a package version.</p>
+@@ -24,18 +24,18 @@
+         self.revision.as_deref()
+     }
+     /// <p>A string that contains the status of the package version. It can be one of the following:</p>
+-    pub fn status(&self) -> &crate::types::PackageVersionStatus {
++    pub fn status(&self) -> &super::types::PackageVersionStatus {
+         &self.status
+     }
+     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains information about how the package version was added to the repository.</p>
+-    pub fn origin(&self) -> ::std::option::Option<&crate::types::PackageVersionOrigin> {
++    pub fn origin(&self) -> ::std::option::Option<&super::types::PackageVersionOrigin> {
+         self.origin.as_ref()
+     }
+ }
+ impl PackageVersionSummary {
+     /// Creates a new builder-style object to manufacture [`PackageVersionSummary`](crate::types::PackageVersionSummary).
+-    pub fn builder() -> crate::types::builders::PackageVersionSummaryBuilder {
+-        crate::types::builders::PackageVersionSummaryBuilder::default()
++    pub fn builder() -> super::types::builders::PackageVersionSummaryBuilder {
++        super::types::builders::PackageVersionSummaryBuilder::default()
+     }
+ }
+
+@@ -45,8 +45,8 @@
+ pub struct PackageVersionSummaryBuilder {
+     pub(crate) version: ::std::option::Option<::std::string::String>,
+     pub(crate) revision: ::std::option::Option<::std::string::String>,
+-    pub(crate) status: ::std::option::Option<crate::types::PackageVersionStatus>,
+-    pub(crate) origin: ::std::option::Option<crate::types::PackageVersionOrigin>,
++    pub(crate) status: ::std::option::Option<super::types::PackageVersionStatus>,
++    pub(crate) origin: ::std::option::Option<super::types::PackageVersionOrigin>,
+ }
+ impl PackageVersionSummaryBuilder {
+     /// <p>Information about a package version.</p>
+@@ -80,31 +80,31 @@
+     }
+     /// <p>A string that contains the status of the package version. It can be one of the following:</p>
+     /// This field is required.
+-    pub fn status(mut self, input: crate::types::PackageVersionStatus) -> Self {
++    pub fn status(mut self, input: super::types::PackageVersionStatus) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>A string that contains the status of the package version. It can be one of the following:</p>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::PackageVersionStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::PackageVersionStatus>) -> Self {
+         self.status = input;
+         self
+     }
+     /// <p>A string that contains the status of the package version. It can be one of the following:</p>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::PackageVersionStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::PackageVersionStatus> {
+         &self.status
+     }
+     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains information about how the package version was added to the repository.</p>
+-    pub fn origin(mut self, input: crate::types::PackageVersionOrigin) -> Self {
++    pub fn origin(mut self, input: super::types::PackageVersionOrigin) -> Self {
+         self.origin = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains information about how the package version was added to the repository.</p>
+-    pub fn set_origin(mut self, input: ::std::option::Option<crate::types::PackageVersionOrigin>) -> Self {
++    pub fn set_origin(mut self, input: ::std::option::Option<super::types::PackageVersionOrigin>) -> Self {
+         self.origin = input;
+         self
+     }
+     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains information about how the package version was added to the repository.</p>
+-    pub fn get_origin(&self) -> &::std::option::Option<crate::types::PackageVersionOrigin> {
++    pub fn get_origin(&self) -> &::std::option::Option<super::types::PackageVersionOrigin> {
+         &self.origin
+     }
+     /// Consumes the builder and constructs a [`PackageVersionSummary`](crate::types::PackageVersionSummary).
+@@ -111,8 +111,8 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`version`](crate::types::builders::PackageVersionSummaryBuilder::version)
+     /// - [`status`](crate::types::builders::PackageVersionSummaryBuilder::status)
+-    pub fn build(self) -> ::std::result::Result<crate::types::PackageVersionSummary, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::PackageVersionSummary {
++    pub fn build(self) -> ::std::result::Result<super::types::PackageVersionSummary, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::PackageVersionSummary {
+             version: self.version.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "version",

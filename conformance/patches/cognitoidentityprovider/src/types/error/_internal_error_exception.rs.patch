@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for InternalErrorException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::InternalErrorException {
++impl ::aws_types::request_id::RequestId for super::types::error::InternalErrorException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl InternalErrorException {
+     /// Creates a new builder-style object to manufacture [`InternalErrorException`](crate::types::error::InternalErrorException).
+-    pub fn builder() -> crate::types::error::builders::InternalErrorExceptionBuilder {
+-        crate::types::error::builders::InternalErrorExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::InternalErrorExceptionBuilder {
++        super::types::error::builders::InternalErrorExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`InternalErrorException`](crate::types::error::InternalErrorException).
+-    pub fn build(self) -> crate::types::error::InternalErrorException {
+-        crate::types::error::InternalErrorException {
++    pub fn build(self) -> super::types::error::InternalErrorException {
++        super::types::error::InternalErrorException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

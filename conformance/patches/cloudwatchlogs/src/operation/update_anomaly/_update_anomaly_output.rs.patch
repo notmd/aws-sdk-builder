@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl UpdateAnomalyOutput {
+     /// Creates a new builder-style object to manufacture [`UpdateAnomalyOutput`](crate::operation::update_anomaly::UpdateAnomalyOutput).
+-    pub fn builder() -> crate::operation::update_anomaly::builders::UpdateAnomalyOutputBuilder {
+-        crate::operation::update_anomaly::builders::UpdateAnomalyOutputBuilder::default()
++    pub fn builder() -> super::operation::update_anomaly::builders::UpdateAnomalyOutputBuilder {
++        super::operation::update_anomaly::builders::UpdateAnomalyOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UpdateAnomalyOutput`](crate::operation::update_anomaly::UpdateAnomalyOutput).
+-    pub fn build(self) -> crate::operation::update_anomaly::UpdateAnomalyOutput {
+-        crate::operation::update_anomaly::UpdateAnomalyOutput {
++    pub fn build(self) -> super::operation::update_anomaly::UpdateAnomalyOutput {
++        super::operation::update_anomaly::UpdateAnomalyOutput {
+             _request_id: self._request_id,
+         }
+     }

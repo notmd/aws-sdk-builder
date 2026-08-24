@@ -1,0 +1,153 @@
+--- original
++++ modified
+@@ -4,13 +4,13 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+ pub struct AdminSetUserMfaPreferenceInput {
+     /// <p>User preferences for SMS message MFA. Activates or deactivates SMS MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+-    pub sms_mfa_settings: ::std::option::Option<crate::types::SmsMfaSettingsType>,
++    pub sms_mfa_settings: ::std::option::Option<super::types::SmsMfaSettingsType>,
+     /// <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates TOTP MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+-    pub software_token_mfa_settings: ::std::option::Option<crate::types::SoftwareTokenMfaSettingsType>,
++    pub software_token_mfa_settings: ::std::option::Option<super::types::SoftwareTokenMfaSettingsType>,
+     /// <p>User preferences for email message MFA. Activates or deactivates email MFA and sets it as the preferred MFA method when multiple methods are available. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
+-    pub email_mfa_settings: ::std::option::Option<crate::types::EmailMfaSettingsType>,
++    pub email_mfa_settings: ::std::option::Option<super::types::EmailMfaSettingsType>,
+     /// <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user. When activated, passkey authentication requires user verification, and passkey sign-in is available when MFA is required. To activate this setting, the <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code> must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
+-    pub web_authn_mfa_settings: ::std::option::Option<crate::types::WebAuthnMfaSettingsType>,
++    pub web_authn_mfa_settings: ::std::option::Option<super::types::WebAuthnMfaSettingsType>,
+     /// <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+     pub username: ::std::option::Option<::std::string::String>,
+     /// <p>The ID of the user pool where you want to set a user's MFA preferences.</p>
+@@ -18,19 +18,19 @@
+ }
+ impl AdminSetUserMfaPreferenceInput {
+     /// <p>User preferences for SMS message MFA. Activates or deactivates SMS MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+-    pub fn sms_mfa_settings(&self) -> ::std::option::Option<&crate::types::SmsMfaSettingsType> {
++    pub fn sms_mfa_settings(&self) -> ::std::option::Option<&super::types::SmsMfaSettingsType> {
+         self.sms_mfa_settings.as_ref()
+     }
+     /// <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates TOTP MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+-    pub fn software_token_mfa_settings(&self) -> ::std::option::Option<&crate::types::SoftwareTokenMfaSettingsType> {
++    pub fn software_token_mfa_settings(&self) -> ::std::option::Option<&super::types::SoftwareTokenMfaSettingsType> {
+         self.software_token_mfa_settings.as_ref()
+     }
+     /// <p>User preferences for email message MFA. Activates or deactivates email MFA and sets it as the preferred MFA method when multiple methods are available. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
+-    pub fn email_mfa_settings(&self) -> ::std::option::Option<&crate::types::EmailMfaSettingsType> {
++    pub fn email_mfa_settings(&self) -> ::std::option::Option<&super::types::EmailMfaSettingsType> {
+         self.email_mfa_settings.as_ref()
+     }
+     /// <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user. When activated, passkey authentication requires user verification, and passkey sign-in is available when MFA is required. To activate this setting, the <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code> must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
+-    pub fn web_authn_mfa_settings(&self) -> ::std::option::Option<&crate::types::WebAuthnMfaSettingsType> {
++    pub fn web_authn_mfa_settings(&self) -> ::std::option::Option<&super::types::WebAuthnMfaSettingsType> {
+         self.web_authn_mfa_settings.as_ref()
+     }
+     /// <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+@@ -56,8 +56,8 @@
+ }
+ impl AdminSetUserMfaPreferenceInput {
+     /// Creates a new builder-style object to manufacture [`AdminSetUserMfaPreferenceInput`](crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput).
+-    pub fn builder() -> crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceInputBuilder {
+-        crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceInputBuilder::default()
++    pub fn builder() -> super::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceInputBuilder {
++        super::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceInputBuilder::default()
+     }
+ }
+
+@@ -65,68 +65,68 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+ #[non_exhaustive]
+ pub struct AdminSetUserMfaPreferenceInputBuilder {
+-    pub(crate) sms_mfa_settings: ::std::option::Option<crate::types::SmsMfaSettingsType>,
+-    pub(crate) software_token_mfa_settings: ::std::option::Option<crate::types::SoftwareTokenMfaSettingsType>,
+-    pub(crate) email_mfa_settings: ::std::option::Option<crate::types::EmailMfaSettingsType>,
+-    pub(crate) web_authn_mfa_settings: ::std::option::Option<crate::types::WebAuthnMfaSettingsType>,
++    pub(crate) sms_mfa_settings: ::std::option::Option<super::types::SmsMfaSettingsType>,
++    pub(crate) software_token_mfa_settings: ::std::option::Option<super::types::SoftwareTokenMfaSettingsType>,
++    pub(crate) email_mfa_settings: ::std::option::Option<super::types::EmailMfaSettingsType>,
++    pub(crate) web_authn_mfa_settings: ::std::option::Option<super::types::WebAuthnMfaSettingsType>,
+     pub(crate) username: ::std::option::Option<::std::string::String>,
+     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
+ }
+ impl AdminSetUserMfaPreferenceInputBuilder {
+     /// <p>User preferences for SMS message MFA. Activates or deactivates SMS MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+-    pub fn sms_mfa_settings(mut self, input: crate::types::SmsMfaSettingsType) -> Self {
++    pub fn sms_mfa_settings(mut self, input: super::types::SmsMfaSettingsType) -> Self {
+         self.sms_mfa_settings = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>User preferences for SMS message MFA. Activates or deactivates SMS MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+-    pub fn set_sms_mfa_settings(mut self, input: ::std::option::Option<crate::types::SmsMfaSettingsType>) -> Self {
++    pub fn set_sms_mfa_settings(mut self, input: ::std::option::Option<super::types::SmsMfaSettingsType>) -> Self {
+         self.sms_mfa_settings = input;
+         self
+     }
+     /// <p>User preferences for SMS message MFA. Activates or deactivates SMS MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+-    pub fn get_sms_mfa_settings(&self) -> &::std::option::Option<crate::types::SmsMfaSettingsType> {
++    pub fn get_sms_mfa_settings(&self) -> &::std::option::Option<super::types::SmsMfaSettingsType> {
+         &self.sms_mfa_settings
+     }
+     /// <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates TOTP MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+-    pub fn software_token_mfa_settings(mut self, input: crate::types::SoftwareTokenMfaSettingsType) -> Self {
++    pub fn software_token_mfa_settings(mut self, input: super::types::SoftwareTokenMfaSettingsType) -> Self {
+         self.software_token_mfa_settings = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates TOTP MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+-    pub fn set_software_token_mfa_settings(mut self, input: ::std::option::Option<crate::types::SoftwareTokenMfaSettingsType>) -> Self {
++    pub fn set_software_token_mfa_settings(mut self, input: ::std::option::Option<super::types::SoftwareTokenMfaSettingsType>) -> Self {
+         self.software_token_mfa_settings = input;
+         self
+     }
+     /// <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates TOTP MFA and sets it as the preferred MFA method when multiple methods are available.</p>
+-    pub fn get_software_token_mfa_settings(&self) -> &::std::option::Option<crate::types::SoftwareTokenMfaSettingsType> {
++    pub fn get_software_token_mfa_settings(&self) -> &::std::option::Option<super::types::SoftwareTokenMfaSettingsType> {
+         &self.software_token_mfa_settings
+     }
+     /// <p>User preferences for email message MFA. Activates or deactivates email MFA and sets it as the preferred MFA method when multiple methods are available. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
+-    pub fn email_mfa_settings(mut self, input: crate::types::EmailMfaSettingsType) -> Self {
++    pub fn email_mfa_settings(mut self, input: super::types::EmailMfaSettingsType) -> Self {
+         self.email_mfa_settings = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>User preferences for email message MFA. Activates or deactivates email MFA and sets it as the preferred MFA method when multiple methods are available. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
+-    pub fn set_email_mfa_settings(mut self, input: ::std::option::Option<crate::types::EmailMfaSettingsType>) -> Self {
++    pub fn set_email_mfa_settings(mut self, input: ::std::option::Option<super::types::EmailMfaSettingsType>) -> Self {
+         self.email_mfa_settings = input;
+         self
+     }
+     /// <p>User preferences for email message MFA. Activates or deactivates email MFA and sets it as the preferred MFA method when multiple methods are available. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
+-    pub fn get_email_mfa_settings(&self) -> &::std::option::Option<crate::types::EmailMfaSettingsType> {
++    pub fn get_email_mfa_settings(&self) -> &::std::option::Option<super::types::EmailMfaSettingsType> {
+         &self.email_mfa_settings
+     }
+     /// <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user. When activated, passkey authentication requires user verification, and passkey sign-in is available when MFA is required. To activate this setting, the <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code> must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
+-    pub fn web_authn_mfa_settings(mut self, input: crate::types::WebAuthnMfaSettingsType) -> Self {
++    pub fn web_authn_mfa_settings(mut self, input: super::types::WebAuthnMfaSettingsType) -> Self {
+         self.web_authn_mfa_settings = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user. When activated, passkey authentication requires user verification, and passkey sign-in is available when MFA is required. To activate this setting, the <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code> must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
+-    pub fn set_web_authn_mfa_settings(mut self, input: ::std::option::Option<crate::types::WebAuthnMfaSettingsType>) -> Self {
++    pub fn set_web_authn_mfa_settings(mut self, input: ::std::option::Option<super::types::WebAuthnMfaSettingsType>) -> Self {
+         self.web_authn_mfa_settings = input;
+         self
+     }
+     /// <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user. When activated, passkey authentication requires user verification, and passkey sign-in is available when MFA is required. To activate this setting, the <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code> must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
+-    pub fn get_web_authn_mfa_settings(&self) -> &::std::option::Option<crate::types::WebAuthnMfaSettingsType> {
++    pub fn get_web_authn_mfa_settings(&self) -> &::std::option::Option<super::types::WebAuthnMfaSettingsType> {
+         &self.web_authn_mfa_settings
+     }
+     /// <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+@@ -163,10 +163,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput,
++        super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput {
++        ::std::result::Result::Ok(super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput {
+             sms_mfa_settings: self.sms_mfa_settings,
+             software_token_mfa_settings: self.software_token_mfa_settings,
+             email_mfa_settings: self.email_mfa_settings,

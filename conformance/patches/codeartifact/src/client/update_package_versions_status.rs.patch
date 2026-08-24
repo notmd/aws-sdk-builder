@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -19,7 +19,7 @@
+     /// - On failure, responds with [`SdkError<UpdatePackageVersionsStatusError>`](crate::operation::update_package_versions_status::UpdatePackageVersionsStatusError)
+     pub fn update_package_versions_status(
+         &self,
+-    ) -> crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusFluentBuilder {
+-        crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusFluentBuilder {
++        super::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusFluentBuilder::new(self.handle.clone())
+     }
+ }

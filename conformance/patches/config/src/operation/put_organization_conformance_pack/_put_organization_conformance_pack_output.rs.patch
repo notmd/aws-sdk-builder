@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl PutOrganizationConformancePackOutput {
+     /// Creates a new builder-style object to manufacture [`PutOrganizationConformancePackOutput`](crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput).
+-    pub fn builder() -> crate::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder {
+-        crate::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder::default()
++    pub fn builder() -> super::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder {
++        super::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackOutputBuilder::default()
+     }
+ }
+
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutOrganizationConformancePackOutput`](crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput).
+-    pub fn build(self) -> crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput {
+-        crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput {
++    pub fn build(self) -> super::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput {
++        super::operation::put_organization_conformance_pack::PutOrganizationConformancePackOutput {
+             organization_conformance_pack_arn: self.organization_conformance_pack_arn,
+             _request_id: self._request_id,
+         }

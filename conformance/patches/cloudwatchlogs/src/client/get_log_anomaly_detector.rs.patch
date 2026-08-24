@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -15,7 +15,7 @@
+     ///   - [`last_modified_time_stamp(i64)`](crate::operation::get_log_anomaly_detector::GetLogAnomalyDetectorOutput::last_modified_time_stamp): <p>The date and time when this anomaly detector was most recently modified.</p>
+     ///   - [`anomaly_visibility_time(Option<i64>)`](crate::operation::get_log_anomaly_detector::GetLogAnomalyDetectorOutput::anomaly_visibility_time): <p>The number of days used as the life cycle of anomalies. After this time, anomalies are automatically baselined and the anomaly detector model will treat new occurrences of similar event as normal.</p>
+     /// - On failure, responds with [`SdkError<GetLogAnomalyDetectorError>`](crate::operation::get_log_anomaly_detector::GetLogAnomalyDetectorError)
+-    pub fn get_log_anomaly_detector(&self) -> crate::operation::get_log_anomaly_detector::builders::GetLogAnomalyDetectorFluentBuilder {
+-        crate::operation::get_log_anomaly_detector::builders::GetLogAnomalyDetectorFluentBuilder::new(self.handle.clone())
++    pub fn get_log_anomaly_detector(&self) -> super::operation::get_log_anomaly_detector::builders::GetLogAnomalyDetectorFluentBuilder {
++        super::operation::get_log_anomaly_detector::builders::GetLogAnomalyDetectorFluentBuilder::new(self.handle.clone())
+     }
+ }

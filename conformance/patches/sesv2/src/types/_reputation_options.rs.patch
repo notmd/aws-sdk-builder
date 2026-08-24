@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl ReputationOptions {
+     /// Creates a new builder-style object to manufacture [`ReputationOptions`](crate::types::ReputationOptions).
+-    pub fn builder() -> crate::types::builders::ReputationOptionsBuilder {
+-        crate::types::builders::ReputationOptionsBuilder::default()
++    pub fn builder() -> super::types::builders::ReputationOptionsBuilder {
++        super::types::builders::ReputationOptionsBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.last_fresh_start
+     }
+     /// Consumes the builder and constructs a [`ReputationOptions`](crate::types::ReputationOptions).
+-    pub fn build(self) -> crate::types::ReputationOptions {
+-        crate::types::ReputationOptions {
++    pub fn build(self) -> super::types::ReputationOptions {
++        super::types::ReputationOptions {
+             reputation_metrics_enabled: self.reputation_metrics_enabled.unwrap_or_default(),
+             last_fresh_start: self.last_fresh_start,
+         }

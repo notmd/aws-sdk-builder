@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -4,12 +4,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct PutDeliverySourceOutput {
+     /// <p>A structure containing information about the delivery source that was just created or updated.</p>
+-    pub delivery_source: ::std::option::Option<crate::types::DeliverySource>,
++    pub delivery_source: ::std::option::Option<super::types::DeliverySource>,
+     _request_id: Option<String>,
+ }
+ impl PutDeliverySourceOutput {
+     /// <p>A structure containing information about the delivery source that was just created or updated.</p>
+-    pub fn delivery_source(&self) -> ::std::option::Option<&crate::types::DeliverySource> {
++    pub fn delivery_source(&self) -> ::std::option::Option<&super::types::DeliverySource> {
+         self.delivery_source.as_ref()
+     }
+ }
+@@ -20,8 +20,8 @@
+ }
+ impl PutDeliverySourceOutput {
+     /// Creates a new builder-style object to manufacture [`PutDeliverySourceOutput`](crate::operation::put_delivery_source::PutDeliverySourceOutput).
+-    pub fn builder() -> crate::operation::put_delivery_source::builders::PutDeliverySourceOutputBuilder {
+-        crate::operation::put_delivery_source::builders::PutDeliverySourceOutputBuilder::default()
++    pub fn builder() -> super::operation::put_delivery_source::builders::PutDeliverySourceOutputBuilder {
++        super::operation::put_delivery_source::builders::PutDeliverySourceOutputBuilder::default()
+     }
+ }
+
+@@ -29,22 +29,22 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct PutDeliverySourceOutputBuilder {
+-    pub(crate) delivery_source: ::std::option::Option<crate::types::DeliverySource>,
++    pub(crate) delivery_source: ::std::option::Option<super::types::DeliverySource>,
+     _request_id: Option<String>,
+ }
+ impl PutDeliverySourceOutputBuilder {
+     /// <p>A structure containing information about the delivery source that was just created or updated.</p>
+-    pub fn delivery_source(mut self, input: crate::types::DeliverySource) -> Self {
++    pub fn delivery_source(mut self, input: super::types::DeliverySource) -> Self {
+         self.delivery_source = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>A structure containing information about the delivery source that was just created or updated.</p>
+-    pub fn set_delivery_source(mut self, input: ::std::option::Option<crate::types::DeliverySource>) -> Self {
++    pub fn set_delivery_source(mut self, input: ::std::option::Option<super::types::DeliverySource>) -> Self {
+         self.delivery_source = input;
+         self
+     }
+     /// <p>A structure containing information about the delivery source that was just created or updated.</p>
+-    pub fn get_delivery_source(&self) -> &::std::option::Option<crate::types::DeliverySource> {
++    pub fn get_delivery_source(&self) -> &::std::option::Option<super::types::DeliverySource> {
+         &self.delivery_source
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutDeliverySourceOutput`](crate::operation::put_delivery_source::PutDeliverySourceOutput).
+-    pub fn build(self) -> crate::operation::put_delivery_source::PutDeliverySourceOutput {
+-        crate::operation::put_delivery_source::PutDeliverySourceOutput {
++    pub fn build(self) -> super::operation::put_delivery_source::PutDeliverySourceOutput {
++        super::operation::put_delivery_source::PutDeliverySourceOutput {
+             delivery_source: self.delivery_source,
+             _request_id: self._request_id,
+         }

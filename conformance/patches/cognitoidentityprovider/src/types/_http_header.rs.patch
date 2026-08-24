@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl HttpHeader {
+     /// Creates a new builder-style object to manufacture [`HttpHeader`](crate::types::HttpHeader).
+-    pub fn builder() -> crate::types::builders::HttpHeaderBuilder {
+-        crate::types::builders::HttpHeaderBuilder::default()
++    pub fn builder() -> super::types::builders::HttpHeaderBuilder {
++        super::types::builders::HttpHeaderBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.header_value
+     }
+     /// Consumes the builder and constructs a [`HttpHeader`](crate::types::HttpHeader).
+-    pub fn build(self) -> crate::types::HttpHeader {
+-        crate::types::HttpHeader {
++    pub fn build(self) -> super::types::HttpHeader {
++        super::types::HttpHeader {
+             header_name: self.header_name,
+             header_value: self.header_value,
+         }

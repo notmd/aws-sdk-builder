@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl GetConnectorInput {
+     /// Creates a new builder-style object to manufacture [`GetConnectorInput`](crate::operation::get_connector::GetConnectorInput).
+-    pub fn builder() -> crate::operation::get_connector::builders::GetConnectorInputBuilder {
+-        crate::operation::get_connector::builders::GetConnectorInputBuilder::default()
++    pub fn builder() -> super::operation::get_connector::builders::GetConnectorInputBuilder {
++        super::operation::get_connector::builders::GetConnectorInputBuilder::default()
+     }
+ }
+
+@@ -44,7 +44,7 @@
+     /// Consumes the builder and constructs a [`GetConnectorInput`](crate::operation::get_connector::GetConnectorInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_connector::GetConnectorInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::get_connector::GetConnectorInput { arn: self.arn })
++    ) -> ::std::result::Result<super::operation::get_connector::GetConnectorInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::get_connector::GetConnectorInput { arn: self.arn })
+     }
+ }

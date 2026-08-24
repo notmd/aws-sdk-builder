@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl RecordField {
+     /// Creates a new builder-style object to manufacture [`RecordField`](crate::types::RecordField).
+-    pub fn builder() -> crate::types::builders::RecordFieldBuilder {
+-        crate::types::builders::RecordFieldBuilder::default()
++    pub fn builder() -> super::types::builders::RecordFieldBuilder {
++        super::types::builders::RecordFieldBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.mandatory
+     }
+     /// Consumes the builder and constructs a [`RecordField`](crate::types::RecordField).
+-    pub fn build(self) -> crate::types::RecordField {
+-        crate::types::RecordField {
++    pub fn build(self) -> super::types::RecordField {
++        super::types::RecordField {
+             name: self.name,
+             mandatory: self.mandatory,
+         }

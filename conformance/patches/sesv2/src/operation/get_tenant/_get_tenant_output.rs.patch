@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -5,12 +5,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GetTenantOutput {
+     /// <p>A structure that contains details about the tenant.</p>
+-    pub tenant: ::std::option::Option<crate::types::Tenant>,
++    pub tenant: ::std::option::Option<super::types::Tenant>,
+     _request_id: Option<String>,
+ }
+ impl GetTenantOutput {
+     /// <p>A structure that contains details about the tenant.</p>
+-    pub fn tenant(&self) -> ::std::option::Option<&crate::types::Tenant> {
++    pub fn tenant(&self) -> ::std::option::Option<&super::types::Tenant> {
+         self.tenant.as_ref()
+     }
+ }
+@@ -21,8 +21,8 @@
+ }
+ impl GetTenantOutput {
+     /// Creates a new builder-style object to manufacture [`GetTenantOutput`](crate::operation::get_tenant::GetTenantOutput).
+-    pub fn builder() -> crate::operation::get_tenant::builders::GetTenantOutputBuilder {
+-        crate::operation::get_tenant::builders::GetTenantOutputBuilder::default()
++    pub fn builder() -> super::operation::get_tenant::builders::GetTenantOutputBuilder {
++        super::operation::get_tenant::builders::GetTenantOutputBuilder::default()
+     }
+ }
+
+@@ -30,22 +30,22 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GetTenantOutputBuilder {
+-    pub(crate) tenant: ::std::option::Option<crate::types::Tenant>,
++    pub(crate) tenant: ::std::option::Option<super::types::Tenant>,
+     _request_id: Option<String>,
+ }
+ impl GetTenantOutputBuilder {
+     /// <p>A structure that contains details about the tenant.</p>
+-    pub fn tenant(mut self, input: crate::types::Tenant) -> Self {
++    pub fn tenant(mut self, input: super::types::Tenant) -> Self {
+         self.tenant = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>A structure that contains details about the tenant.</p>
+-    pub fn set_tenant(mut self, input: ::std::option::Option<crate::types::Tenant>) -> Self {
++    pub fn set_tenant(mut self, input: ::std::option::Option<super::types::Tenant>) -> Self {
+         self.tenant = input;
+         self
+     }
+     /// <p>A structure that contains details about the tenant.</p>
+-    pub fn get_tenant(&self) -> &::std::option::Option<crate::types::Tenant> {
++    pub fn get_tenant(&self) -> &::std::option::Option<super::types::Tenant> {
+         &self.tenant
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -58,8 +58,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetTenantOutput`](crate::operation::get_tenant::GetTenantOutput).
+-    pub fn build(self) -> crate::operation::get_tenant::GetTenantOutput {
+-        crate::operation::get_tenant::GetTenantOutput {
++    pub fn build(self) -> super::operation::get_tenant::GetTenantOutput {
++        super::operation::get_tenant::GetTenantOutput {
+             tenant: self.tenant,
+             _request_id: self._request_id,
+         }

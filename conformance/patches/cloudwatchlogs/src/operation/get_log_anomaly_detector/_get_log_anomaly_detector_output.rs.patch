@@ -1,0 +1,110 @@
+--- original
++++ modified
+@@ -8,11 +8,11 @@
+     /// <p>An array of structures, where each structure contains the ARN of a log group associated with this anomaly detector.</p>
+     pub log_group_arn_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     /// <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
+-    pub evaluation_frequency: ::std::option::Option<crate::types::EvaluationFrequency>,
++    pub evaluation_frequency: ::std::option::Option<super::types::EvaluationFrequency>,
+     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
+     pub filter_pattern: ::std::option::Option<::std::string::String>,
+     /// <p>Specifies whether the anomaly detector is currently active. To change its status, use the <code>enabled</code> parameter in the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">UpdateLogAnomalyDetector</a> operation.</p>
+-    pub anomaly_detector_status: ::std::option::Option<crate::types::AnomalyDetectorStatus>,
++    pub anomaly_detector_status: ::std::option::Option<super::types::AnomalyDetectorStatus>,
+     /// <p>The ARN of the KMS key assigned to this anomaly detector, if any.</p>
+     pub kms_key_id: ::std::option::Option<::std::string::String>,
+     /// <p>The date and time when this anomaly detector was created.</p>
+@@ -35,7 +35,7 @@
+         self.log_group_arn_list.as_deref().unwrap_or_default()
+     }
+     /// <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
+-    pub fn evaluation_frequency(&self) -> ::std::option::Option<&crate::types::EvaluationFrequency> {
++    pub fn evaluation_frequency(&self) -> ::std::option::Option<&super::types::EvaluationFrequency> {
+         self.evaluation_frequency.as_ref()
+     }
+     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
+@@ -43,7 +43,7 @@
+         self.filter_pattern.as_deref()
+     }
+     /// <p>Specifies whether the anomaly detector is currently active. To change its status, use the <code>enabled</code> parameter in the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">UpdateLogAnomalyDetector</a> operation.</p>
+-    pub fn anomaly_detector_status(&self) -> ::std::option::Option<&crate::types::AnomalyDetectorStatus> {
++    pub fn anomaly_detector_status(&self) -> ::std::option::Option<&super::types::AnomalyDetectorStatus> {
+         self.anomaly_detector_status.as_ref()
+     }
+     /// <p>The ARN of the KMS key assigned to this anomaly detector, if any.</p>
+@@ -70,8 +70,8 @@
+ }
+ impl GetLogAnomalyDetectorOutput {
+     /// Creates a new builder-style object to manufacture [`GetLogAnomalyDetectorOutput`](crate::operation::get_log_anomaly_detector::GetLogAnomalyDetectorOutput).
+-    pub fn builder() -> crate::operation::get_log_anomaly_detector::builders::GetLogAnomalyDetectorOutputBuilder {
+-        crate::operation::get_log_anomaly_detector::builders::GetLogAnomalyDetectorOutputBuilder::default()
++    pub fn builder() -> super::operation::get_log_anomaly_detector::builders::GetLogAnomalyDetectorOutputBuilder {
++        super::operation::get_log_anomaly_detector::builders::GetLogAnomalyDetectorOutputBuilder::default()
+     }
+ }
+
+@@ -81,9 +81,9 @@
+ pub struct GetLogAnomalyDetectorOutputBuilder {
+     pub(crate) detector_name: ::std::option::Option<::std::string::String>,
+     pub(crate) log_group_arn_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+-    pub(crate) evaluation_frequency: ::std::option::Option<crate::types::EvaluationFrequency>,
++    pub(crate) evaluation_frequency: ::std::option::Option<super::types::EvaluationFrequency>,
+     pub(crate) filter_pattern: ::std::option::Option<::std::string::String>,
+-    pub(crate) anomaly_detector_status: ::std::option::Option<crate::types::AnomalyDetectorStatus>,
++    pub(crate) anomaly_detector_status: ::std::option::Option<super::types::AnomalyDetectorStatus>,
+     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
+     pub(crate) creation_time_stamp: ::std::option::Option<i64>,
+     pub(crate) last_modified_time_stamp: ::std::option::Option<i64>,
+@@ -126,17 +126,17 @@
+         &self.log_group_arn_list
+     }
+     /// <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
+-    pub fn evaluation_frequency(mut self, input: crate::types::EvaluationFrequency) -> Self {
++    pub fn evaluation_frequency(mut self, input: super::types::EvaluationFrequency) -> Self {
+         self.evaluation_frequency = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
+-    pub fn set_evaluation_frequency(mut self, input: ::std::option::Option<crate::types::EvaluationFrequency>) -> Self {
++    pub fn set_evaluation_frequency(mut self, input: ::std::option::Option<super::types::EvaluationFrequency>) -> Self {
+         self.evaluation_frequency = input;
+         self
+     }
+     /// <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
+-    pub fn get_evaluation_frequency(&self) -> &::std::option::Option<crate::types::EvaluationFrequency> {
++    pub fn get_evaluation_frequency(&self) -> &::std::option::Option<super::types::EvaluationFrequency> {
+         &self.evaluation_frequency
+     }
+     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
+@@ -154,17 +154,17 @@
+         &self.filter_pattern
+     }
+     /// <p>Specifies whether the anomaly detector is currently active. To change its status, use the <code>enabled</code> parameter in the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">UpdateLogAnomalyDetector</a> operation.</p>
+-    pub fn anomaly_detector_status(mut self, input: crate::types::AnomalyDetectorStatus) -> Self {
++    pub fn anomaly_detector_status(mut self, input: super::types::AnomalyDetectorStatus) -> Self {
+         self.anomaly_detector_status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Specifies whether the anomaly detector is currently active. To change its status, use the <code>enabled</code> parameter in the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">UpdateLogAnomalyDetector</a> operation.</p>
+-    pub fn set_anomaly_detector_status(mut self, input: ::std::option::Option<crate::types::AnomalyDetectorStatus>) -> Self {
++    pub fn set_anomaly_detector_status(mut self, input: ::std::option::Option<super::types::AnomalyDetectorStatus>) -> Self {
+         self.anomaly_detector_status = input;
+         self
+     }
+     /// <p>Specifies whether the anomaly detector is currently active. To change its status, use the <code>enabled</code> parameter in the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">UpdateLogAnomalyDetector</a> operation.</p>
+-    pub fn get_anomaly_detector_status(&self) -> &::std::option::Option<crate::types::AnomalyDetectorStatus> {
++    pub fn get_anomaly_detector_status(&self) -> &::std::option::Option<super::types::AnomalyDetectorStatus> {
+         &self.anomaly_detector_status
+     }
+     /// <p>The ARN of the KMS key assigned to this anomaly detector, if any.</p>
+@@ -233,8 +233,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetLogAnomalyDetectorOutput`](crate::operation::get_log_anomaly_detector::GetLogAnomalyDetectorOutput).
+-    pub fn build(self) -> crate::operation::get_log_anomaly_detector::GetLogAnomalyDetectorOutput {
+-        crate::operation::get_log_anomaly_detector::GetLogAnomalyDetectorOutput {
++    pub fn build(self) -> super::operation::get_log_anomaly_detector::GetLogAnomalyDetectorOutput {
++        super::operation::get_log_anomaly_detector::GetLogAnomalyDetectorOutput {
+             detector_name: self.detector_name,
+             log_group_arn_list: self.log_group_arn_list,
+             evaluation_frequency: self.evaluation_frequency,

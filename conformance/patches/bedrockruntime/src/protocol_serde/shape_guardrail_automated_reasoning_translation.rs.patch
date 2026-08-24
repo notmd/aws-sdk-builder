@@ -1,0 +1,47 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::GuardrailAutomatedReasoningTranslation>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::GuardrailAutomatedReasoningTranslation>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::GuardrailAutomatedReasoningTranslationBuilder::default();
++            let mut builder = super::types::builders::GuardrailAutomatedReasoningTranslationBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -23,22 +23,22 @@
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "premises" => {
+                             builder = builder.set_premises(
+-                                    crate::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
++                                    super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
+                                 );
+                         }
+                         "claims" => {
+                             builder = builder.set_claims(
+-                                    crate::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
++                                    super::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
+                                 );
+                         }
+                         "untranslatedPremises" => {
+                             builder = builder.set_untranslated_premises(
+-                                    crate::protocol_serde::shape_guardrail_automated_reasoning_input_text_reference_list::de_guardrail_automated_reasoning_input_text_reference_list(tokens, _value, depth + 1)?
++                                    super::protocol_serde::shape_guardrail_automated_reasoning_input_text_reference_list::de_guardrail_automated_reasoning_input_text_reference_list(tokens, _value, depth + 1)?
+                                 );
+                         }
+                         "untranslatedClaims" => {
+                             builder = builder.set_untranslated_claims(
+-                                    crate::protocol_serde::shape_guardrail_automated_reasoning_input_text_reference_list::de_guardrail_automated_reasoning_input_text_reference_list(tokens, _value, depth + 1)?
++                                    super::protocol_serde::shape_guardrail_automated_reasoning_input_text_reference_list::de_guardrail_automated_reasoning_input_text_reference_list(tokens, _value, depth + 1)?
+                                 );
+                         }
+                         "confidence" => {

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl DeleteDestinationInput {
+     /// Creates a new builder-style object to manufacture [`DeleteDestinationInput`](crate::operation::delete_destination::DeleteDestinationInput).
+-    pub fn builder() -> crate::operation::delete_destination::builders::DeleteDestinationInputBuilder {
+-        crate::operation::delete_destination::builders::DeleteDestinationInputBuilder::default()
++    pub fn builder() -> super::operation::delete_destination::builders::DeleteDestinationInputBuilder {
++        super::operation::delete_destination::builders::DeleteDestinationInputBuilder::default()
+     }
+ }
+
+@@ -44,8 +44,8 @@
+     /// Consumes the builder and constructs a [`DeleteDestinationInput`](crate::operation::delete_destination::DeleteDestinationInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::delete_destination::DeleteDestinationInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::delete_destination::DeleteDestinationInput {
++    ) -> ::std::result::Result<super::operation::delete_destination::DeleteDestinationInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::delete_destination::DeleteDestinationInput {
+             destination_name: self.destination_name,
+         })
+     }

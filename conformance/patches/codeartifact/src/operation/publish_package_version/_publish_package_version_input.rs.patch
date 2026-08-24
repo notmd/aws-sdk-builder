@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     pub repository: ::std::option::Option<::std::string::String>,
+     /// <p>A format that specifies the type of the package version with the requested asset file.</p>
+     /// <p>The only supported value is <code>generic</code>.</p>
+-    pub format: ::std::option::Option<crate::types::PackageFormat>,
++    pub format: ::std::option::Option<super::types::PackageFormat>,
+     /// <p>The namespace of the package version to publish.</p>
+     pub namespace: ::std::option::Option<::std::string::String>,
+     /// <p>The name of the package version to publish.</p>
+@@ -44,7 +44,7 @@
+     }
+     /// <p>A format that specifies the type of the package version with the requested asset file.</p>
+     /// <p>The only supported value is <code>generic</code>.</p>
+-    pub fn format(&self) -> ::std::option::Option<&crate::types::PackageFormat> {
++    pub fn format(&self) -> ::std::option::Option<&super::types::PackageFormat> {
+         self.format.as_ref()
+     }
+     /// <p>The namespace of the package version to publish.</p>
+@@ -80,8 +80,8 @@
+ }
+ impl PublishPackageVersionInput {
+     /// Creates a new builder-style object to manufacture [`PublishPackageVersionInput`](crate::operation::publish_package_version::PublishPackageVersionInput).
+-    pub fn builder() -> crate::operation::publish_package_version::builders::PublishPackageVersionInputBuilder {
+-        crate::operation::publish_package_version::builders::PublishPackageVersionInputBuilder::default()
++    pub fn builder() -> super::operation::publish_package_version::builders::PublishPackageVersionInputBuilder {
++        super::operation::publish_package_version::builders::PublishPackageVersionInputBuilder::default()
+     }
+ }
+
+@@ -92,7 +92,7 @@
+     pub(crate) domain: ::std::option::Option<::std::string::String>,
+     pub(crate) domain_owner: ::std::option::Option<::std::string::String>,
+     pub(crate) repository: ::std::option::Option<::std::string::String>,
+-    pub(crate) format: ::std::option::Option<crate::types::PackageFormat>,
++    pub(crate) format: ::std::option::Option<super::types::PackageFormat>,
+     pub(crate) namespace: ::std::option::Option<::std::string::String>,
+     pub(crate) package: ::std::option::Option<::std::string::String>,
+     pub(crate) package_version: ::std::option::Option<::std::string::String>,
+@@ -149,19 +149,19 @@
+     /// <p>A format that specifies the type of the package version with the requested asset file.</p>
+     /// <p>The only supported value is <code>generic</code>.</p>
+     /// This field is required.
+-    pub fn format(mut self, input: crate::types::PackageFormat) -> Self {
++    pub fn format(mut self, input: super::types::PackageFormat) -> Self {
+         self.format = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>A format that specifies the type of the package version with the requested asset file.</p>
+     /// <p>The only supported value is <code>generic</code>.</p>
+-    pub fn set_format(mut self, input: ::std::option::Option<crate::types::PackageFormat>) -> Self {
++    pub fn set_format(mut self, input: ::std::option::Option<super::types::PackageFormat>) -> Self {
+         self.format = input;
+         self
+     }
+     /// <p>A format that specifies the type of the package version with the requested asset file.</p>
+     /// <p>The only supported value is <code>generic</code>.</p>
+-    pub fn get_format(&self) -> &::std::option::Option<crate::types::PackageFormat> {
++    pub fn get_format(&self) -> &::std::option::Option<super::types::PackageFormat> {
+         &self.format
+     }
+     /// <p>The namespace of the package version to publish.</p>
+@@ -276,9 +276,9 @@
+     /// Consumes the builder and constructs a [`PublishPackageVersionInput`](crate::operation::publish_package_version::PublishPackageVersionInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::publish_package_version::PublishPackageVersionInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::publish_package_version::PublishPackageVersionInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::publish_package_version::PublishPackageVersionInput {
++        ::std::result::Result::Ok(super::operation::publish_package_version::PublishPackageVersionInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+             repository: self.repository,

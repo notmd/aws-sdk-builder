@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub enum ResourceConfig {
+     /// <p>This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.</p>
+-    OpenSearchResourceConfig(crate::types::OpenSearchResourceConfig),
++    OpenSearchResourceConfig(super::types::OpenSearchResourceConfig),
+     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
+     /// An unknown enum variant
+     ///
+@@ -20,7 +20,7 @@
+     #[allow(irrefutable_let_patterns)]
+     /// Tries to convert the enum instance into [`OpenSearchResourceConfig`](crate::types::ResourceConfig::OpenSearchResourceConfig), extracting the inner [`OpenSearchResourceConfig`](crate::types::OpenSearchResourceConfig).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_open_search_resource_config(&self) -> ::std::result::Result<&crate::types::OpenSearchResourceConfig, &Self> {
++    pub fn as_open_search_resource_config(&self) -> ::std::result::Result<&super::types::OpenSearchResourceConfig, &Self> {
+         if let ResourceConfig::OpenSearchResourceConfig(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {

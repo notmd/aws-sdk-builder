@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl DeleteAggregationAuthorizationOutput {
+     /// Creates a new builder-style object to manufacture [`DeleteAggregationAuthorizationOutput`](crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationOutput).
+-    pub fn builder() -> crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationOutputBuilder {
+-        crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationOutputBuilder::default()
++    pub fn builder() -> super::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationOutputBuilder {
++        super::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DeleteAggregationAuthorizationOutput`](crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationOutput).
+-    pub fn build(self) -> crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationOutput {
+-        crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationOutput {
++    pub fn build(self) -> super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationOutput {
++        super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationOutput {
+             _request_id: self._request_id,
+         }
+     }

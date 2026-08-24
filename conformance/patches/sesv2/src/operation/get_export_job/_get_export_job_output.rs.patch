@@ -1,0 +1,221 @@
+--- original
++++ modified
+@@ -7,21 +7,21 @@
+     /// <p>The export job ID.</p>
+     pub job_id: ::std::option::Option<::std::string::String>,
+     /// <p>The type of source of the export job.</p>
+-    pub export_source_type: ::std::option::Option<crate::types::ExportSourceType>,
++    pub export_source_type: ::std::option::Option<super::types::ExportSourceType>,
+     /// <p>The status of the export job.</p>
+-    pub job_status: ::std::option::Option<crate::types::JobStatus>,
++    pub job_status: ::std::option::Option<super::types::JobStatus>,
+     /// <p>The destination of the export job.</p>
+-    pub export_destination: ::std::option::Option<crate::types::ExportDestination>,
++    pub export_destination: ::std::option::Option<super::types::ExportDestination>,
+     /// <p>The data source of the export job.</p>
+-    pub export_data_source: ::std::option::Option<crate::types::ExportDataSource>,
++    pub export_data_source: ::std::option::Option<super::types::ExportDataSource>,
+     /// <p>The timestamp of when the export job was created.</p>
+     pub created_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+     /// <p>The timestamp of when the export job was completed.</p>
+     pub completed_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+     /// <p>The failure details about an export job.</p>
+-    pub failure_info: ::std::option::Option<crate::types::FailureInfo>,
++    pub failure_info: ::std::option::Option<super::types::FailureInfo>,
+     /// <p>The statistics about the export job.</p>
+-    pub statistics: ::std::option::Option<crate::types::ExportStatistics>,
++    pub statistics: ::std::option::Option<super::types::ExportStatistics>,
+     _request_id: Option<String>,
+ }
+ impl GetExportJobOutput {
+@@ -30,19 +30,19 @@
+         self.job_id.as_deref()
+     }
+     /// <p>The type of source of the export job.</p>
+-    pub fn export_source_type(&self) -> ::std::option::Option<&crate::types::ExportSourceType> {
++    pub fn export_source_type(&self) -> ::std::option::Option<&super::types::ExportSourceType> {
+         self.export_source_type.as_ref()
+     }
+     /// <p>The status of the export job.</p>
+-    pub fn job_status(&self) -> ::std::option::Option<&crate::types::JobStatus> {
++    pub fn job_status(&self) -> ::std::option::Option<&super::types::JobStatus> {
+         self.job_status.as_ref()
+     }
+     /// <p>The destination of the export job.</p>
+-    pub fn export_destination(&self) -> ::std::option::Option<&crate::types::ExportDestination> {
++    pub fn export_destination(&self) -> ::std::option::Option<&super::types::ExportDestination> {
+         self.export_destination.as_ref()
+     }
+     /// <p>The data source of the export job.</p>
+-    pub fn export_data_source(&self) -> ::std::option::Option<&crate::types::ExportDataSource> {
++    pub fn export_data_source(&self) -> ::std::option::Option<&super::types::ExportDataSource> {
+         self.export_data_source.as_ref()
+     }
+     /// <p>The timestamp of when the export job was created.</p>
+@@ -54,11 +54,11 @@
+         self.completed_timestamp.as_ref()
+     }
+     /// <p>The failure details about an export job.</p>
+-    pub fn failure_info(&self) -> ::std::option::Option<&crate::types::FailureInfo> {
++    pub fn failure_info(&self) -> ::std::option::Option<&super::types::FailureInfo> {
+         self.failure_info.as_ref()
+     }
+     /// <p>The statistics about the export job.</p>
+-    pub fn statistics(&self) -> ::std::option::Option<&crate::types::ExportStatistics> {
++    pub fn statistics(&self) -> ::std::option::Option<&super::types::ExportStatistics> {
+         self.statistics.as_ref()
+     }
+ }
+@@ -69,8 +69,8 @@
+ }
+ impl GetExportJobOutput {
+     /// Creates a new builder-style object to manufacture [`GetExportJobOutput`](crate::operation::get_export_job::GetExportJobOutput).
+-    pub fn builder() -> crate::operation::get_export_job::builders::GetExportJobOutputBuilder {
+-        crate::operation::get_export_job::builders::GetExportJobOutputBuilder::default()
++    pub fn builder() -> super::operation::get_export_job::builders::GetExportJobOutputBuilder {
++        super::operation::get_export_job::builders::GetExportJobOutputBuilder::default()
+     }
+ }
+
+@@ -79,14 +79,14 @@
+ #[non_exhaustive]
+ pub struct GetExportJobOutputBuilder {
+     pub(crate) job_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) export_source_type: ::std::option::Option<crate::types::ExportSourceType>,
+-    pub(crate) job_status: ::std::option::Option<crate::types::JobStatus>,
+-    pub(crate) export_destination: ::std::option::Option<crate::types::ExportDestination>,
+-    pub(crate) export_data_source: ::std::option::Option<crate::types::ExportDataSource>,
++    pub(crate) export_source_type: ::std::option::Option<super::types::ExportSourceType>,
++    pub(crate) job_status: ::std::option::Option<super::types::JobStatus>,
++    pub(crate) export_destination: ::std::option::Option<super::types::ExportDestination>,
++    pub(crate) export_data_source: ::std::option::Option<super::types::ExportDataSource>,
+     pub(crate) created_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) completed_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+-    pub(crate) failure_info: ::std::option::Option<crate::types::FailureInfo>,
+-    pub(crate) statistics: ::std::option::Option<crate::types::ExportStatistics>,
++    pub(crate) failure_info: ::std::option::Option<super::types::FailureInfo>,
++    pub(crate) statistics: ::std::option::Option<super::types::ExportStatistics>,
+     _request_id: Option<String>,
+ }
+ impl GetExportJobOutputBuilder {
+@@ -105,59 +105,59 @@
+         &self.job_id
+     }
+     /// <p>The type of source of the export job.</p>
+-    pub fn export_source_type(mut self, input: crate::types::ExportSourceType) -> Self {
++    pub fn export_source_type(mut self, input: super::types::ExportSourceType) -> Self {
+         self.export_source_type = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The type of source of the export job.</p>
+-    pub fn set_export_source_type(mut self, input: ::std::option::Option<crate::types::ExportSourceType>) -> Self {
++    pub fn set_export_source_type(mut self, input: ::std::option::Option<super::types::ExportSourceType>) -> Self {
+         self.export_source_type = input;
+         self
+     }
+     /// <p>The type of source of the export job.</p>
+-    pub fn get_export_source_type(&self) -> &::std::option::Option<crate::types::ExportSourceType> {
++    pub fn get_export_source_type(&self) -> &::std::option::Option<super::types::ExportSourceType> {
+         &self.export_source_type
+     }
+     /// <p>The status of the export job.</p>
+-    pub fn job_status(mut self, input: crate::types::JobStatus) -> Self {
++    pub fn job_status(mut self, input: super::types::JobStatus) -> Self {
+         self.job_status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The status of the export job.</p>
+-    pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::JobStatus>) -> Self {
++    pub fn set_job_status(mut self, input: ::std::option::Option<super::types::JobStatus>) -> Self {
+         self.job_status = input;
+         self
+     }
+     /// <p>The status of the export job.</p>
+-    pub fn get_job_status(&self) -> &::std::option::Option<crate::types::JobStatus> {
++    pub fn get_job_status(&self) -> &::std::option::Option<super::types::JobStatus> {
+         &self.job_status
+     }
+     /// <p>The destination of the export job.</p>
+-    pub fn export_destination(mut self, input: crate::types::ExportDestination) -> Self {
++    pub fn export_destination(mut self, input: super::types::ExportDestination) -> Self {
+         self.export_destination = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The destination of the export job.</p>
+-    pub fn set_export_destination(mut self, input: ::std::option::Option<crate::types::ExportDestination>) -> Self {
++    pub fn set_export_destination(mut self, input: ::std::option::Option<super::types::ExportDestination>) -> Self {
+         self.export_destination = input;
+         self
+     }
+     /// <p>The destination of the export job.</p>
+-    pub fn get_export_destination(&self) -> &::std::option::Option<crate::types::ExportDestination> {
++    pub fn get_export_destination(&self) -> &::std::option::Option<super::types::ExportDestination> {
+         &self.export_destination
+     }
+     /// <p>The data source of the export job.</p>
+-    pub fn export_data_source(mut self, input: crate::types::ExportDataSource) -> Self {
++    pub fn export_data_source(mut self, input: super::types::ExportDataSource) -> Self {
+         self.export_data_source = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The data source of the export job.</p>
+-    pub fn set_export_data_source(mut self, input: ::std::option::Option<crate::types::ExportDataSource>) -> Self {
++    pub fn set_export_data_source(mut self, input: ::std::option::Option<super::types::ExportDataSource>) -> Self {
+         self.export_data_source = input;
+         self
+     }
+     /// <p>The data source of the export job.</p>
+-    pub fn get_export_data_source(&self) -> &::std::option::Option<crate::types::ExportDataSource> {
++    pub fn get_export_data_source(&self) -> &::std::option::Option<super::types::ExportDataSource> {
+         &self.export_data_source
+     }
+     /// <p>The timestamp of when the export job was created.</p>
+@@ -189,31 +189,31 @@
+         &self.completed_timestamp
+     }
+     /// <p>The failure details about an export job.</p>
+-    pub fn failure_info(mut self, input: crate::types::FailureInfo) -> Self {
++    pub fn failure_info(mut self, input: super::types::FailureInfo) -> Self {
+         self.failure_info = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The failure details about an export job.</p>
+-    pub fn set_failure_info(mut self, input: ::std::option::Option<crate::types::FailureInfo>) -> Self {
++    pub fn set_failure_info(mut self, input: ::std::option::Option<super::types::FailureInfo>) -> Self {
+         self.failure_info = input;
+         self
+     }
+     /// <p>The failure details about an export job.</p>
+-    pub fn get_failure_info(&self) -> &::std::option::Option<crate::types::FailureInfo> {
++    pub fn get_failure_info(&self) -> &::std::option::Option<super::types::FailureInfo> {
+         &self.failure_info
+     }
+     /// <p>The statistics about the export job.</p>
+-    pub fn statistics(mut self, input: crate::types::ExportStatistics) -> Self {
++    pub fn statistics(mut self, input: super::types::ExportStatistics) -> Self {
+         self.statistics = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The statistics about the export job.</p>
+-    pub fn set_statistics(mut self, input: ::std::option::Option<crate::types::ExportStatistics>) -> Self {
++    pub fn set_statistics(mut self, input: ::std::option::Option<super::types::ExportStatistics>) -> Self {
+         self.statistics = input;
+         self
+     }
+     /// <p>The statistics about the export job.</p>
+-    pub fn get_statistics(&self) -> &::std::option::Option<crate::types::ExportStatistics> {
++    pub fn get_statistics(&self) -> &::std::option::Option<super::types::ExportStatistics> {
+         &self.statistics
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -226,8 +226,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetExportJobOutput`](crate::operation::get_export_job::GetExportJobOutput).
+-    pub fn build(self) -> crate::operation::get_export_job::GetExportJobOutput {
+-        crate::operation::get_export_job::GetExportJobOutput {
++    pub fn build(self) -> super::operation::get_export_job::GetExportJobOutput {
++        super::operation::get_export_job::GetExportJobOutput {
+             job_id: self.job_id,
+             export_source_type: self.export_source_type,
+             job_status: self.job_status,

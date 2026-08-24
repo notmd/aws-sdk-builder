@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// - On failure, responds with [`SdkError<DeleteConfigurationAggregatorError>`](crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError)
+     pub fn delete_configuration_aggregator(
+         &self,
+-    ) -> crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder {
+-        crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder {
++        super::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder::new(self.handle.clone())
+     }
+ }

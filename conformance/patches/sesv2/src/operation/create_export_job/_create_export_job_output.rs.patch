@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl CreateExportJobOutput {
+     /// Creates a new builder-style object to manufacture [`CreateExportJobOutput`](crate::operation::create_export_job::CreateExportJobOutput).
+-    pub fn builder() -> crate::operation::create_export_job::builders::CreateExportJobOutputBuilder {
+-        crate::operation::create_export_job::builders::CreateExportJobOutputBuilder::default()
++    pub fn builder() -> super::operation::create_export_job::builders::CreateExportJobOutputBuilder {
++        super::operation::create_export_job::builders::CreateExportJobOutputBuilder::default()
+     }
+ }
+
+@@ -58,8 +58,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CreateExportJobOutput`](crate::operation::create_export_job::CreateExportJobOutput).
+-    pub fn build(self) -> crate::operation::create_export_job::CreateExportJobOutput {
+-        crate::operation::create_export_job::CreateExportJobOutput {
++    pub fn build(self) -> super::operation::create_export_job::CreateExportJobOutput {
++        super::operation::create_export_job::CreateExportJobOutput {
+             job_id: self.job_id,
+             _request_id: self._request_id,
+         }

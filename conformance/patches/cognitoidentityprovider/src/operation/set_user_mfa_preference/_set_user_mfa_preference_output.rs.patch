@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl SetUserMfaPreferenceOutput {
+     /// Creates a new builder-style object to manufacture [`SetUserMfaPreferenceOutput`](crate::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput).
+-    pub fn builder() -> crate::operation::set_user_mfa_preference::builders::SetUserMfaPreferenceOutputBuilder {
+-        crate::operation::set_user_mfa_preference::builders::SetUserMfaPreferenceOutputBuilder::default()
++    pub fn builder() -> super::operation::set_user_mfa_preference::builders::SetUserMfaPreferenceOutputBuilder {
++        super::operation::set_user_mfa_preference::builders::SetUserMfaPreferenceOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`SetUserMfaPreferenceOutput`](crate::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput).
+-    pub fn build(self) -> crate::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput {
+-        crate::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput {
++    pub fn build(self) -> super::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput {
++        super::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput {
+             _request_id: self._request_id,
+         }
+     }

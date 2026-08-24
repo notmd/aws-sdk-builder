@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     /// <p>Returns the results for the SQL query.</p>
+     pub results: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     /// <p>Returns the <code>QueryInfo</code> object.</p>
+-    pub query_info: ::std::option::Option<crate::types::QueryInfo>,
++    pub query_info: ::std::option::Option<super::types::QueryInfo>,
+     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -19,7 +19,7 @@
+         self.results.as_deref().unwrap_or_default()
+     }
+     /// <p>Returns the <code>QueryInfo</code> object.</p>
+-    pub fn query_info(&self) -> ::std::option::Option<&crate::types::QueryInfo> {
++    pub fn query_info(&self) -> ::std::option::Option<&super::types::QueryInfo> {
+         self.query_info.as_ref()
+     }
+     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+@@ -34,8 +34,8 @@
+ }
+ impl SelectResourceConfigOutput {
+     /// Creates a new builder-style object to manufacture [`SelectResourceConfigOutput`](crate::operation::select_resource_config::SelectResourceConfigOutput).
+-    pub fn builder() -> crate::operation::select_resource_config::builders::SelectResourceConfigOutputBuilder {
+-        crate::operation::select_resource_config::builders::SelectResourceConfigOutputBuilder::default()
++    pub fn builder() -> super::operation::select_resource_config::builders::SelectResourceConfigOutputBuilder {
++        super::operation::select_resource_config::builders::SelectResourceConfigOutputBuilder::default()
+     }
+ }
+
+@@ -44,7 +44,7 @@
+ #[non_exhaustive]
+ pub struct SelectResourceConfigOutputBuilder {
+     pub(crate) results: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+-    pub(crate) query_info: ::std::option::Option<crate::types::QueryInfo>,
++    pub(crate) query_info: ::std::option::Option<super::types::QueryInfo>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -70,17 +70,17 @@
+         &self.results
+     }
+     /// <p>Returns the <code>QueryInfo</code> object.</p>
+-    pub fn query_info(mut self, input: crate::types::QueryInfo) -> Self {
++    pub fn query_info(mut self, input: super::types::QueryInfo) -> Self {
+         self.query_info = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Returns the <code>QueryInfo</code> object.</p>
+-    pub fn set_query_info(mut self, input: ::std::option::Option<crate::types::QueryInfo>) -> Self {
++    pub fn set_query_info(mut self, input: ::std::option::Option<super::types::QueryInfo>) -> Self {
+         self.query_info = input;
+         self
+     }
+     /// <p>Returns the <code>QueryInfo</code> object.</p>
+-    pub fn get_query_info(&self) -> &::std::option::Option<crate::types::QueryInfo> {
++    pub fn get_query_info(&self) -> &::std::option::Option<super::types::QueryInfo> {
+         &self.query_info
+     }
+     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+@@ -107,8 +107,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`SelectResourceConfigOutput`](crate::operation::select_resource_config::SelectResourceConfigOutput).
+-    pub fn build(self) -> crate::operation::select_resource_config::SelectResourceConfigOutput {
+-        crate::operation::select_resource_config::SelectResourceConfigOutput {
++    pub fn build(self) -> super::operation::select_resource_config::SelectResourceConfigOutput {
++        super::operation::select_resource_config::SelectResourceConfigOutput {
+             results: self.results,
+             query_info: self.query_info,
+             next_token: self.next_token,

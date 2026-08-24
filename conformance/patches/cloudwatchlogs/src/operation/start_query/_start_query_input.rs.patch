@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct StartQueryInput {
+     /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+-    pub query_language: ::std::option::Option<crate::types::QueryLanguage>,
++    pub query_language: ::std::option::Option<super::types::QueryLanguage>,
+     /// <p>The log group on which to perform the query.</p><note>
+     /// <p>A <code>StartQuery</code> operation must include exactly one of the following parameters: <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>. The exception is queries using the OpenSearch Service SQL query language, where you specify the log group names inside the <code>querystring</code> instead of here.</p>
+     /// </note>
+@@ -29,7 +29,7 @@
+ }
+ impl StartQueryInput {
+     /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+-    pub fn query_language(&self) -> ::std::option::Option<&crate::types::QueryLanguage> {
++    pub fn query_language(&self) -> ::std::option::Option<&super::types::QueryLanguage> {
+         self.query_language.as_ref()
+     }
+     /// <p>The log group on which to perform the query.</p><note>
+@@ -74,8 +74,8 @@
+ }
+ impl StartQueryInput {
+     /// Creates a new builder-style object to manufacture [`StartQueryInput`](crate::operation::start_query::StartQueryInput).
+-    pub fn builder() -> crate::operation::start_query::builders::StartQueryInputBuilder {
+-        crate::operation::start_query::builders::StartQueryInputBuilder::default()
++    pub fn builder() -> super::operation::start_query::builders::StartQueryInputBuilder {
++        super::operation::start_query::builders::StartQueryInputBuilder::default()
+     }
+ }
+
+@@ -83,7 +83,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct StartQueryInputBuilder {
+-    pub(crate) query_language: ::std::option::Option<crate::types::QueryLanguage>,
++    pub(crate) query_language: ::std::option::Option<super::types::QueryLanguage>,
+     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
+     pub(crate) log_group_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     pub(crate) log_group_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+@@ -94,17 +94,17 @@
+ }
+ impl StartQueryInputBuilder {
+     /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+-    pub fn query_language(mut self, input: crate::types::QueryLanguage) -> Self {
++    pub fn query_language(mut self, input: super::types::QueryLanguage) -> Self {
+         self.query_language = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+-    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
++    pub fn set_query_language(mut self, input: ::std::option::Option<super::types::QueryLanguage>) -> Self {
+         self.query_language = input;
+         self
+     }
+     /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+-    pub fn get_query_language(&self) -> &::std::option::Option<crate::types::QueryLanguage> {
++    pub fn get_query_language(&self) -> &::std::option::Option<super::types::QueryLanguage> {
+         &self.query_language
+     }
+     /// <p>The log group on which to perform the query.</p><note>
+@@ -242,8 +242,8 @@
+         &self.limit
+     }
+     /// Consumes the builder and constructs a [`StartQueryInput`](crate::operation::start_query::StartQueryInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::start_query::StartQueryInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::start_query::StartQueryInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::start_query::StartQueryInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::start_query::StartQueryInput {
+             query_language: self.query_language,
+             log_group_name: self.log_group_name,
+             log_group_names: self.log_group_names,

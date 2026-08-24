@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl AdminUpdateDeviceStatusOutput {
+     /// Creates a new builder-style object to manufacture [`AdminUpdateDeviceStatusOutput`](crate::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput).
+-    pub fn builder() -> crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusOutputBuilder {
+-        crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusOutputBuilder::default()
++    pub fn builder() -> super::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusOutputBuilder {
++        super::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`AdminUpdateDeviceStatusOutput`](crate::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput).
+-    pub fn build(self) -> crate::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput {
+-        crate::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput {
++    pub fn build(self) -> super::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput {
++        super::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput {
+             _request_id: self._request_id,
+         }
+     }

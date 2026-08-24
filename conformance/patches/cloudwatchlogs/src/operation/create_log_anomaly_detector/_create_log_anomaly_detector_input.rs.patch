@@ -1,0 +1,74 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// <p>A name for this anomaly detector.</p>
+     pub detector_name: ::std::option::Option<::std::string::String>,
+     /// <p>Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for <code>evaluationFrequency</code> .</p>
+-    pub evaluation_frequency: ::std::option::Option<crate::types::EvaluationFrequency>,
++    pub evaluation_frequency: ::std::option::Option<super::types::EvaluationFrequency>,
+     /// <p>You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
+     pub filter_pattern: ::std::option::Option<::std::string::String>,
+     /// <p>Optionally assigns a KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.</p>
+@@ -32,7 +32,7 @@
+         self.detector_name.as_deref()
+     }
+     /// <p>Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for <code>evaluationFrequency</code> .</p>
+-    pub fn evaluation_frequency(&self) -> ::std::option::Option<&crate::types::EvaluationFrequency> {
++    pub fn evaluation_frequency(&self) -> ::std::option::Option<&super::types::EvaluationFrequency> {
+         self.evaluation_frequency.as_ref()
+     }
+     /// <p>You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
+@@ -56,8 +56,8 @@
+ }
+ impl CreateLogAnomalyDetectorInput {
+     /// Creates a new builder-style object to manufacture [`CreateLogAnomalyDetectorInput`](crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput).
+-    pub fn builder() -> crate::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorInputBuilder {
+-        crate::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorInputBuilder::default()
++    pub fn builder() -> super::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorInputBuilder {
++        super::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorInputBuilder::default()
+     }
+ }
+
+@@ -67,7 +67,7 @@
+ pub struct CreateLogAnomalyDetectorInputBuilder {
+     pub(crate) log_group_arn_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     pub(crate) detector_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) evaluation_frequency: ::std::option::Option<crate::types::EvaluationFrequency>,
++    pub(crate) evaluation_frequency: ::std::option::Option<super::types::EvaluationFrequency>,
+     pub(crate) filter_pattern: ::std::option::Option<::std::string::String>,
+     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
+     pub(crate) anomaly_visibility_time: ::std::option::Option<i64>,
+@@ -109,17 +109,17 @@
+         &self.detector_name
+     }
+     /// <p>Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for <code>evaluationFrequency</code> .</p>
+-    pub fn evaluation_frequency(mut self, input: crate::types::EvaluationFrequency) -> Self {
++    pub fn evaluation_frequency(mut self, input: super::types::EvaluationFrequency) -> Self {
+         self.evaluation_frequency = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for <code>evaluationFrequency</code> .</p>
+-    pub fn set_evaluation_frequency(mut self, input: ::std::option::Option<crate::types::EvaluationFrequency>) -> Self {
++    pub fn set_evaluation_frequency(mut self, input: ::std::option::Option<super::types::EvaluationFrequency>) -> Self {
+         self.evaluation_frequency = input;
+         self
+     }
+     /// <p>Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for <code>evaluationFrequency</code> .</p>
+-    pub fn get_evaluation_frequency(&self) -> &::std::option::Option<crate::types::EvaluationFrequency> {
++    pub fn get_evaluation_frequency(&self) -> &::std::option::Option<super::types::EvaluationFrequency> {
+         &self.evaluation_frequency
+     }
+     /// <p>You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
+@@ -194,10 +194,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput,
++        super::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput {
++        ::std::result::Result::Ok(super::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput {
+             log_group_arn_list: self.log_group_arn_list,
+             detector_name: self.detector_name,
+             evaluation_frequency: self.evaluation_frequency,

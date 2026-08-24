@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl DeleteTenantOutput {
+     /// Creates a new builder-style object to manufacture [`DeleteTenantOutput`](crate::operation::delete_tenant::DeleteTenantOutput).
+-    pub fn builder() -> crate::operation::delete_tenant::builders::DeleteTenantOutputBuilder {
+-        crate::operation::delete_tenant::builders::DeleteTenantOutputBuilder::default()
++    pub fn builder() -> super::operation::delete_tenant::builders::DeleteTenantOutputBuilder {
++        super::operation::delete_tenant::builders::DeleteTenantOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DeleteTenantOutput`](crate::operation::delete_tenant::DeleteTenantOutput).
+-    pub fn build(self) -> crate::operation::delete_tenant::DeleteTenantOutput {
+-        crate::operation::delete_tenant::DeleteTenantOutput {
++    pub fn build(self) -> super::operation::delete_tenant::DeleteTenantOutput {
++        super::operation::delete_tenant::DeleteTenantOutput {
+             _request_id: self._request_id,
+         }
+     }

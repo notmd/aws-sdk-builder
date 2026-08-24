@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl Complaint {
+     /// Creates a new builder-style object to manufacture [`Complaint`](crate::types::Complaint).
+-    pub fn builder() -> crate::types::builders::ComplaintBuilder {
+-        crate::types::builders::ComplaintBuilder::default()
++    pub fn builder() -> super::types::builders::ComplaintBuilder {
++        super::types::builders::ComplaintBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.complaint_feedback_type
+     }
+     /// Consumes the builder and constructs a [`Complaint`](crate::types::Complaint).
+-    pub fn build(self) -> crate::types::Complaint {
+-        crate::types::Complaint {
++    pub fn build(self) -> super::types::Complaint {
++        super::types::Complaint {
+             complaint_sub_type: self.complaint_sub_type,
+             complaint_feedback_type: self.complaint_feedback_type,
+         }

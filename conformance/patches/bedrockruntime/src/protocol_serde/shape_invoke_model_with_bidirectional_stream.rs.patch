@@ -1,0 +1,264 @@
+--- original
++++ modified
+@@ -3,8 +3,8 @@
+ pub fn de_invoke_model_with_bidirectional_stream_http_response(
+     response: &mut ::aws_smithy_runtime_api::http::Response,
+ ) -> std::result::Result<
+-    crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
+-    crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
++    super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
++    super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
+ > {
+     let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+     std::mem::swap(&mut _response_body, response.body_mut());
+@@ -15,14 +15,14 @@
+     Ok({
+         #[allow(unused_mut)]
+         let mut output =
+-            crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
++            super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
+         output = output.set_body(Some(
+-            crate::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?,
++            super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?,
+         ));
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output
+             .build()
+-            .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
++            .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
+     })
+ }
+
+@@ -32,29 +32,29 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
+-    crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
++    super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
++    super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled(generic)),
++        None => return Err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+         "AccessDeniedException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::AccessDeniedException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::AccessDeniedException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    let mut output = super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                    output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                        .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -65,13 +65,13 @@
+             })
+         }
+         "InternalServerException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::InternalServerException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::InternalServerException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InternalServerExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    let mut output = super::types::error::builders::InternalServerExceptionBuilder::default();
++                    output = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
++                        .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -82,13 +82,13 @@
+             })
+         }
+         "ModelErrorException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ModelErrorException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ModelErrorException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ModelErrorExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    let mut output = super::types::error::builders::ModelErrorExceptionBuilder::default();
++                    output = super::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(_response_body, output)
++                        .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -99,13 +99,13 @@
+             })
+         }
+         "ModelNotReadyException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ModelNotReadyException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ModelNotReadyException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ModelNotReadyExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    let mut output = super::types::error::builders::ModelNotReadyExceptionBuilder::default();
++                    output = super::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
++                        .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -116,14 +116,14 @@
+             })
+         }
+         "ModelStreamErrorException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ModelStreamErrorException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ModelStreamErrorException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ModelStreamErrorExceptionBuilder::default();
++                    let mut output = super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
+                     output =
+-                        crate::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output)
+-                            .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                        super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output)
++                            .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -134,13 +134,13 @@
+             })
+         }
+         "ModelTimeoutException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ModelTimeoutException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ModelTimeoutException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ModelTimeoutExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    let mut output = super::types::error::builders::ModelTimeoutExceptionBuilder::default();
++                    output = super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(_response_body, output)
++                        .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -151,14 +151,14 @@
+             })
+         }
+         "ResourceNotFoundException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ResourceNotFoundException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                     output =
+-                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                        super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                            .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -169,16 +169,16 @@
+             })
+         }
+         "ServiceQuotaExceededException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ServiceQuotaExceededException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ServiceQuotaExceededException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
++                    let mut output = super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
++                    output = super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -189,14 +189,14 @@
+             })
+         }
+         "ServiceUnavailableException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ServiceUnavailableException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ServiceUnavailableException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ServiceUnavailableExceptionBuilder::default();
++                    let mut output = super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+                     output =
+-                        crate::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                            .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                        super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
++                            .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -207,13 +207,13 @@
+             })
+         }
+         "ThrottlingException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ThrottlingException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ThrottlingException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ThrottlingExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    let mut output = super::types::error::builders::ThrottlingExceptionBuilder::default();
++                    output = super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
++                        .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -224,13 +224,13 @@
+             })
+         }
+         "ValidationException" => {
+-            crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ValidationException({
++            super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::ValidationException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
++                    let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                        .map_err(super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -240,6 +240,6 @@
+                 tmp
+             })
+         }
+-        _ => crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::generic(generic),
++        _ => super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::generic(generic),
+     })
+ }

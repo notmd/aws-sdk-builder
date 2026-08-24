@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -18,7 +18,7 @@
+     ///   - [`user_sub(String)`](crate::operation::sign_up::SignUpOutput::user_sub): <p>The unique identifier of the new user, for example <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+     ///   - [`session(Option<String>)`](crate::operation::sign_up::SignUpOutput::session): <p>A session Id that you can pass to <code>ConfirmSignUp</code> when you want to immediately sign in your user with the <code>USER_AUTH</code> flow after they complete sign-up.</p>
+     /// - On failure, responds with [`SdkError<SignUpError>`](crate::operation::sign_up::SignUpError)
+-    pub fn sign_up(&self) -> crate::operation::sign_up::builders::SignUpFluentBuilder {
+-        crate::operation::sign_up::builders::SignUpFluentBuilder::new(self.handle.clone())
++    pub fn sign_up(&self) -> super::operation::sign_up::builders::SignUpFluentBuilder {
++        super::operation::sign_up::builders::SignUpFluentBuilder::new(self.handle.clone())
+     }
+ }

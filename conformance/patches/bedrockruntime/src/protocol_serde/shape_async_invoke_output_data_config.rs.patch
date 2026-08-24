@@ -1,0 +1,52 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::AsyncInvokeOutputDataConfig>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::AsyncInvokeOutputDataConfig>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -36,8 +36,8 @@
+                         ));
+                     }
+                     variant = match key.as_ref() {
+-                        "s3OutputDataConfig" => Some(crate::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(
+-                            crate::protocol_serde::shape_async_invoke_s3_output_data_config::de_async_invoke_s3_output_data_config(
++                        "s3OutputDataConfig" => Some(super::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(
++                            super::protocol_serde::shape_async_invoke_s3_output_data_config::de_async_invoke_s3_output_data_config(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -48,7 +48,7 @@
+                         )),
+                         _ => {
+                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
+-                            Some(crate::types::AsyncInvokeOutputDataConfig::Unknown)
++                            Some(super::types::AsyncInvokeOutputDataConfig::Unknown)
+                         }
+                     };
+                 }
+@@ -75,16 +75,16 @@
+
+ pub fn ser_async_invoke_output_data_config(
+     object_5: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
+-    input: &crate::types::AsyncInvokeOutputDataConfig,
++    input: &super::types::AsyncInvokeOutputDataConfig,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     match input {
+-        crate::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(inner) => {
++        super::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(inner) => {
+             #[allow(unused_mut)]
+             let mut object_1 = object_5.key("s3OutputDataConfig").start_object();
+-            crate::protocol_serde::shape_async_invoke_s3_output_data_config::ser_async_invoke_s3_output_data_config(&mut object_1, inner)?;
++            super::protocol_serde::shape_async_invoke_s3_output_data_config::ser_async_invoke_s3_output_data_config(&mut object_1, inner)?;
+             object_1.finish();
+         }
+-        crate::types::AsyncInvokeOutputDataConfig::Unknown => {
++        super::types::AsyncInvokeOutputDataConfig::Unknown => {
+             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
+                 "AsyncInvokeOutputDataConfig",
+             ))

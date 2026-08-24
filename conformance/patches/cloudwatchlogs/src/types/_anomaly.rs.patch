@@ -1,0 +1,148 @@
+--- original
++++ modified
+@@ -26,13 +26,13 @@
+     /// <p>Specifies whether this anomaly is still ongoing.</p>
+     pub active: bool,
+     /// <p>Indicates the current state of this anomaly. If it is still being treated as an anomaly, the value is <code>Active</code>. If you have suppressed this anomaly by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">UpdateAnomaly</a> operation, the value is <code>Suppressed</code>. If this behavior is now considered to be normal, the value is <code>Baseline</code>.</p>
+-    pub state: crate::types::State,
++    pub state: super::types::State,
+     /// <p>A map showing times when the anomaly detector ran, and the number of occurrences of this anomaly that were detected at each of those runs. The times are specified in epoch time, which is the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
+     pub histogram: ::std::collections::HashMap<::std::string::String, i64>,
+     /// <p>An array of sample log event messages that are considered to be part of this anomaly.</p>
+-    pub log_samples: ::std::vec::Vec<crate::types::LogEvent>,
++    pub log_samples: ::std::vec::Vec<super::types::LogEvent>,
+     /// <p>An array of structures where each structure contains information about one token that makes up the pattern.</p>
+-    pub pattern_tokens: ::std::vec::Vec<crate::types::PatternToken>,
++    pub pattern_tokens: ::std::vec::Vec<super::types::PatternToken>,
+     /// <p>An array of ARNS of the log groups that contained log events considered to be part of this anomaly.</p>
+     pub log_group_arn_list: ::std::vec::Vec<::std::string::String>,
+     /// <p>Indicates whether this anomaly is currently suppressed. To suppress an anomaly, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">UpdateAnomaly</a>.</p>
+@@ -91,7 +91,7 @@
+         self.active
+     }
+     /// <p>Indicates the current state of this anomaly. If it is still being treated as an anomaly, the value is <code>Active</code>. If you have suppressed this anomaly by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">UpdateAnomaly</a> operation, the value is <code>Suppressed</code>. If this behavior is now considered to be normal, the value is <code>Baseline</code>.</p>
+-    pub fn state(&self) -> &crate::types::State {
++    pub fn state(&self) -> &super::types::State {
+         &self.state
+     }
+     /// <p>A map showing times when the anomaly detector ran, and the number of occurrences of this anomaly that were detected at each of those runs. The times are specified in epoch time, which is the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
+@@ -99,12 +99,12 @@
+         &self.histogram
+     }
+     /// <p>An array of sample log event messages that are considered to be part of this anomaly.</p>
+-    pub fn log_samples(&self) -> &[crate::types::LogEvent] {
++    pub fn log_samples(&self) -> &[super::types::LogEvent] {
+         use std::ops::Deref;
+         self.log_samples.deref()
+     }
+     /// <p>An array of structures where each structure contains information about one token that makes up the pattern.</p>
+-    pub fn pattern_tokens(&self) -> &[crate::types::PatternToken] {
++    pub fn pattern_tokens(&self) -> &[super::types::PatternToken] {
+         use std::ops::Deref;
+         self.pattern_tokens.deref()
+     }
+@@ -132,8 +132,8 @@
+ }
+ impl Anomaly {
+     /// Creates a new builder-style object to manufacture [`Anomaly`](crate::types::Anomaly).
+-    pub fn builder() -> crate::types::builders::AnomalyBuilder {
+-        crate::types::builders::AnomalyBuilder::default()
++    pub fn builder() -> super::types::builders::AnomalyBuilder {
++        super::types::builders::AnomalyBuilder::default()
+     }
+ }
+
+@@ -151,10 +151,10 @@
+     pub(crate) last_seen: ::std::option::Option<i64>,
+     pub(crate) description: ::std::option::Option<::std::string::String>,
+     pub(crate) active: ::std::option::Option<bool>,
+-    pub(crate) state: ::std::option::Option<crate::types::State>,
++    pub(crate) state: ::std::option::Option<super::types::State>,
+     pub(crate) histogram: ::std::option::Option<::std::collections::HashMap<::std::string::String, i64>>,
+-    pub(crate) log_samples: ::std::option::Option<::std::vec::Vec<crate::types::LogEvent>>,
+-    pub(crate) pattern_tokens: ::std::option::Option<::std::vec::Vec<crate::types::PatternToken>>,
++    pub(crate) log_samples: ::std::option::Option<::std::vec::Vec<super::types::LogEvent>>,
++    pub(crate) pattern_tokens: ::std::option::Option<::std::vec::Vec<super::types::PatternToken>>,
+     pub(crate) log_group_arn_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     pub(crate) suppressed: ::std::option::Option<bool>,
+     pub(crate) suppressed_date: ::std::option::Option<i64>,
+@@ -312,17 +312,17 @@
+     }
+     /// <p>Indicates the current state of this anomaly. If it is still being treated as an anomaly, the value is <code>Active</code>. If you have suppressed this anomaly by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">UpdateAnomaly</a> operation, the value is <code>Suppressed</code>. If this behavior is now considered to be normal, the value is <code>Baseline</code>.</p>
+     /// This field is required.
+-    pub fn state(mut self, input: crate::types::State) -> Self {
++    pub fn state(mut self, input: super::types::State) -> Self {
+         self.state = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Indicates the current state of this anomaly. If it is still being treated as an anomaly, the value is <code>Active</code>. If you have suppressed this anomaly by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">UpdateAnomaly</a> operation, the value is <code>Suppressed</code>. If this behavior is now considered to be normal, the value is <code>Baseline</code>.</p>
+-    pub fn set_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::types::State>) -> Self {
+         self.state = input;
+         self
+     }
+     /// <p>Indicates the current state of this anomaly. If it is still being treated as an anomaly, the value is <code>Active</code>. If you have suppressed this anomaly by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">UpdateAnomaly</a> operation, the value is <code>Suppressed</code>. If this behavior is now considered to be normal, the value is <code>Baseline</code>.</p>
+-    pub fn get_state(&self) -> &::std::option::Option<crate::types::State> {
++    pub fn get_state(&self) -> &::std::option::Option<super::types::State> {
+         &self.state
+     }
+     /// Adds a key-value pair to `histogram`.
+@@ -350,7 +350,7 @@
+     /// To override the contents of this collection use [`set_log_samples`](Self::set_log_samples).
+     ///
+     /// <p>An array of sample log event messages that are considered to be part of this anomaly.</p>
+-    pub fn log_samples(mut self, input: crate::types::LogEvent) -> Self {
++    pub fn log_samples(mut self, input: super::types::LogEvent) -> Self {
+         let mut v = self.log_samples.unwrap_or_default();
+         v.push(input);
+         self.log_samples = ::std::option::Option::Some(v);
+@@ -357,12 +357,12 @@
+         self
+     }
+     /// <p>An array of sample log event messages that are considered to be part of this anomaly.</p>
+-    pub fn set_log_samples(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LogEvent>>) -> Self {
++    pub fn set_log_samples(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::LogEvent>>) -> Self {
+         self.log_samples = input;
+         self
+     }
+     /// <p>An array of sample log event messages that are considered to be part of this anomaly.</p>
+-    pub fn get_log_samples(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogEvent>> {
++    pub fn get_log_samples(&self) -> &::std::option::Option<::std::vec::Vec<super::types::LogEvent>> {
+         &self.log_samples
+     }
+     /// Appends an item to `pattern_tokens`.
+@@ -370,7 +370,7 @@
+     /// To override the contents of this collection use [`set_pattern_tokens`](Self::set_pattern_tokens).
+     ///
+     /// <p>An array of structures where each structure contains information about one token that makes up the pattern.</p>
+-    pub fn pattern_tokens(mut self, input: crate::types::PatternToken) -> Self {
++    pub fn pattern_tokens(mut self, input: super::types::PatternToken) -> Self {
+         let mut v = self.pattern_tokens.unwrap_or_default();
+         v.push(input);
+         self.pattern_tokens = ::std::option::Option::Some(v);
+@@ -377,12 +377,12 @@
+         self
+     }
+     /// <p>An array of structures where each structure contains information about one token that makes up the pattern.</p>
+-    pub fn set_pattern_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PatternToken>>) -> Self {
++    pub fn set_pattern_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PatternToken>>) -> Self {
+         self.pattern_tokens = input;
+         self
+     }
+     /// <p>An array of structures where each structure contains information about one token that makes up the pattern.</p>
+-    pub fn get_pattern_tokens(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PatternToken>> {
++    pub fn get_pattern_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PatternToken>> {
+         &self.pattern_tokens
+     }
+     /// Appends an item to `log_group_arn_list`.
+@@ -474,8 +474,8 @@
+     /// - [`log_samples`](crate::types::builders::AnomalyBuilder::log_samples)
+     /// - [`pattern_tokens`](crate::types::builders::AnomalyBuilder::pattern_tokens)
+     /// - [`log_group_arn_list`](crate::types::builders::AnomalyBuilder::log_group_arn_list)
+-    pub fn build(self) -> ::std::result::Result<crate::types::Anomaly, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::Anomaly {
++    pub fn build(self) -> ::std::result::Result<super::types::Anomaly, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::Anomaly {
+             anomaly_id: self.anomaly_id.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "anomaly_id",

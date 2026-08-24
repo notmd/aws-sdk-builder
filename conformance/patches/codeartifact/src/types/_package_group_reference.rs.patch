@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl PackageGroupReference {
+     /// Creates a new builder-style object to manufacture [`PackageGroupReference`](crate::types::PackageGroupReference).
+-    pub fn builder() -> crate::types::builders::PackageGroupReferenceBuilder {
+-        crate::types::builders::PackageGroupReferenceBuilder::default()
++    pub fn builder() -> super::types::builders::PackageGroupReferenceBuilder {
++        super::types::builders::PackageGroupReferenceBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.pattern
+     }
+     /// Consumes the builder and constructs a [`PackageGroupReference`](crate::types::PackageGroupReference).
+-    pub fn build(self) -> crate::types::PackageGroupReference {
+-        crate::types::PackageGroupReference {
++    pub fn build(self) -> super::types::PackageGroupReference {
++        super::types::PackageGroupReference {
+             arn: self.arn,
+             pattern: self.pattern,
+         }

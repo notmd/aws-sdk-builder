@@ -1,0 +1,22 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+     _value: &'a [u8],
+     depth: u32,
+ ) -> ::std::result::Result<
+-    Option<::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>>,
++    Option<::std::collections::HashMap<super::types::PackageGroupOriginRestrictionType, super::types::PackageGroupOriginRestriction>>,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ >
+ where
+@@ -25,8 +25,8 @@
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                         let key = key
+                             .to_unescaped()
+-                            .map(|u| crate::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
+-                        let value = crate::protocol_serde::shape_package_group_origin_restriction::de_package_group_origin_restriction(
++                            .map(|u| super::types::PackageGroupOriginRestrictionType::from(u.as_ref()))?;
++                        let value = super::protocol_serde::shape_package_group_origin_restriction::de_package_group_origin_restriction(
+                             tokens,
+                             _value,
+                             depth + 1,

@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -28,7 +28,7 @@
+     /// <li>
+     /// <p><code>UPDATE_FAILED</code> when an organization conformance pack update failed in one or more member accounts within that organization.</p></li>
+     /// </ul>
+-    pub status: crate::types::OrganizationResourceStatus,
++    pub status: super::types::OrganizationResourceStatus,
+     /// <p>An error code that is returned when organization conformance pack creation or deletion has failed in a member account.</p>
+     pub error_code: ::std::option::Option<::std::string::String>,
+     /// <p>An error message indicating that organization conformance pack creation or deletion failed due to an error.</p>
+@@ -64,7 +64,7 @@
+     /// <li>
+     /// <p><code>UPDATE_FAILED</code> when an organization conformance pack update failed in one or more member accounts within that organization.</p></li>
+     /// </ul>
+-    pub fn status(&self) -> &crate::types::OrganizationResourceStatus {
++    pub fn status(&self) -> &super::types::OrganizationResourceStatus {
+         &self.status
+     }
+     /// <p>An error code that is returned when organization conformance pack creation or deletion has failed in a member account.</p>
+@@ -82,8 +82,8 @@
+ }
+ impl OrganizationConformancePackStatus {
+     /// Creates a new builder-style object to manufacture [`OrganizationConformancePackStatus`](crate::types::OrganizationConformancePackStatus).
+-    pub fn builder() -> crate::types::builders::OrganizationConformancePackStatusBuilder {
+-        crate::types::builders::OrganizationConformancePackStatusBuilder::default()
++    pub fn builder() -> super::types::builders::OrganizationConformancePackStatusBuilder {
++        super::types::builders::OrganizationConformancePackStatusBuilder::default()
+     }
+ }
+
+@@ -92,7 +92,7 @@
+ #[non_exhaustive]
+ pub struct OrganizationConformancePackStatusBuilder {
+     pub(crate) organization_conformance_pack_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) status: ::std::option::Option<crate::types::OrganizationResourceStatus>,
++    pub(crate) status: ::std::option::Option<super::types::OrganizationResourceStatus>,
+     pub(crate) error_code: ::std::option::Option<::std::string::String>,
+     pub(crate) error_message: ::std::option::Option<::std::string::String>,
+     pub(crate) last_update_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+@@ -136,7 +136,7 @@
+     /// <p><code>UPDATE_FAILED</code> when an organization conformance pack update failed in one or more member accounts within that organization.</p></li>
+     /// </ul>
+     /// This field is required.
+-    pub fn status(mut self, input: crate::types::OrganizationResourceStatus) -> Self {
++    pub fn status(mut self, input: super::types::OrganizationResourceStatus) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+@@ -162,7 +162,7 @@
+     /// <li>
+     /// <p><code>UPDATE_FAILED</code> when an organization conformance pack update failed in one or more member accounts within that organization.</p></li>
+     /// </ul>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OrganizationResourceStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::OrganizationResourceStatus>) -> Self {
+         self.status = input;
+         self
+     }
+@@ -188,7 +188,7 @@
+     /// <li>
+     /// <p><code>UPDATE_FAILED</code> when an organization conformance pack update failed in one or more member accounts within that organization.</p></li>
+     /// </ul>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::OrganizationResourceStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::OrganizationResourceStatus> {
+         &self.status
+     }
+     /// <p>An error code that is returned when organization conformance pack creation or deletion has failed in a member account.</p>
+@@ -237,8 +237,8 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`organization_conformance_pack_name`](crate::types::builders::OrganizationConformancePackStatusBuilder::organization_conformance_pack_name)
+     /// - [`status`](crate::types::builders::OrganizationConformancePackStatusBuilder::status)
+-    pub fn build(self) -> ::std::result::Result<crate::types::OrganizationConformancePackStatus, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::OrganizationConformancePackStatus {
++    pub fn build(self) -> ::std::result::Result<super::types::OrganizationConformancePackStatus, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::OrganizationConformancePackStatus {
+             organization_conformance_pack_name: self.organization_conformance_pack_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "organization_conformance_pack_name",

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl PutDeliveryChannelOutput {
+     /// Creates a new builder-style object to manufacture [`PutDeliveryChannelOutput`](crate::operation::put_delivery_channel::PutDeliveryChannelOutput).
+-    pub fn builder() -> crate::operation::put_delivery_channel::builders::PutDeliveryChannelOutputBuilder {
+-        crate::operation::put_delivery_channel::builders::PutDeliveryChannelOutputBuilder::default()
++    pub fn builder() -> super::operation::put_delivery_channel::builders::PutDeliveryChannelOutputBuilder {
++        super::operation::put_delivery_channel::builders::PutDeliveryChannelOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutDeliveryChannelOutput`](crate::operation::put_delivery_channel::PutDeliveryChannelOutput).
+-    pub fn build(self) -> crate::operation::put_delivery_channel::PutDeliveryChannelOutput {
+-        crate::operation::put_delivery_channel::PutDeliveryChannelOutput {
++    pub fn build(self) -> super::operation::put_delivery_channel::PutDeliveryChannelOutput {
++        super::operation::put_delivery_channel::PutDeliveryChannelOutput {
+             _request_id: self._request_id,
+         }
+     }

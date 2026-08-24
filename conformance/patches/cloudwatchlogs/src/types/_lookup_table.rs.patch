@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -59,8 +59,8 @@
+ }
+ impl LookupTable {
+     /// Creates a new builder-style object to manufacture [`LookupTable`](crate::types::LookupTable).
+-    pub fn builder() -> crate::types::builders::LookupTableBuilder {
+-        crate::types::builders::LookupTableBuilder::default()
++    pub fn builder() -> super::types::builders::LookupTableBuilder {
++        super::types::builders::LookupTableBuilder::default()
+     }
+ }
+
+@@ -197,8 +197,8 @@
+         &self.kms_key_id
+     }
+     /// Consumes the builder and constructs a [`LookupTable`](crate::types::LookupTable).
+-    pub fn build(self) -> crate::types::LookupTable {
+-        crate::types::LookupTable {
++    pub fn build(self) -> super::types::LookupTable {
++        super::types::LookupTable {
+             lookup_table_arn: self.lookup_table_arn,
+             lookup_table_name: self.lookup_table_name,
+             description: self.description,

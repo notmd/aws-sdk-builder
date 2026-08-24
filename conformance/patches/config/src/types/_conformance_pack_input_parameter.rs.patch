@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -23,8 +23,8 @@
+ }
+ impl ConformancePackInputParameter {
+     /// Creates a new builder-style object to manufacture [`ConformancePackInputParameter`](crate::types::ConformancePackInputParameter).
+-    pub fn builder() -> crate::types::builders::ConformancePackInputParameterBuilder {
+-        crate::types::builders::ConformancePackInputParameterBuilder::default()
++    pub fn builder() -> super::types::builders::ConformancePackInputParameterBuilder {
++        super::types::builders::ConformancePackInputParameterBuilder::default()
+     }
+ }
+
+@@ -70,8 +70,8 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`parameter_name`](crate::types::builders::ConformancePackInputParameterBuilder::parameter_name)
+     /// - [`parameter_value`](crate::types::builders::ConformancePackInputParameterBuilder::parameter_value)
+-    pub fn build(self) -> ::std::result::Result<crate::types::ConformancePackInputParameter, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::ConformancePackInputParameter {
++    pub fn build(self) -> ::std::result::Result<super::types::ConformancePackInputParameter, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::ConformancePackInputParameter {
+             parameter_name: self.parameter_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "parameter_name",

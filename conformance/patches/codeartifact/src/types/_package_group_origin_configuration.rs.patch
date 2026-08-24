@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+ pub struct PackageGroupOriginConfiguration {
+     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
+     pub restrictions: ::std::option::Option<
+-        ::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>,
++        ::std::collections::HashMap<super::types::PackageGroupOriginRestrictionType, super::types::PackageGroupOriginRestriction>,
+     >,
+ }
+ impl PackageGroupOriginConfiguration {
+@@ -14,7 +14,7 @@
+     pub fn restrictions(
+         &self,
+     ) -> ::std::option::Option<
+-        &::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>,
++        &::std::collections::HashMap<super::types::PackageGroupOriginRestrictionType, super::types::PackageGroupOriginRestriction>,
+     > {
+         self.restrictions.as_ref()
+     }
+@@ -21,8 +21,8 @@
+ }
+ impl PackageGroupOriginConfiguration {
+     /// Creates a new builder-style object to manufacture [`PackageGroupOriginConfiguration`](crate::types::PackageGroupOriginConfiguration).
+-    pub fn builder() -> crate::types::builders::PackageGroupOriginConfigurationBuilder {
+-        crate::types::builders::PackageGroupOriginConfigurationBuilder::default()
++    pub fn builder() -> super::types::builders::PackageGroupOriginConfigurationBuilder {
++        super::types::builders::PackageGroupOriginConfigurationBuilder::default()
+     }
+ }
+
+@@ -31,7 +31,7 @@
+ #[non_exhaustive]
+ pub struct PackageGroupOriginConfigurationBuilder {
+     pub(crate) restrictions: ::std::option::Option<
+-        ::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>,
++        ::std::collections::HashMap<super::types::PackageGroupOriginRestrictionType, super::types::PackageGroupOriginRestriction>,
+     >,
+ }
+ impl PackageGroupOriginConfigurationBuilder {
+@@ -40,7 +40,7 @@
+     /// To override the contents of this collection use [`set_restrictions`](Self::set_restrictions).
+     ///
+     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
+-    pub fn restrictions(mut self, k: crate::types::PackageGroupOriginRestrictionType, v: crate::types::PackageGroupOriginRestriction) -> Self {
++    pub fn restrictions(mut self, k: super::types::PackageGroupOriginRestrictionType, v: super::types::PackageGroupOriginRestriction) -> Self {
+         let mut hash_map = self.restrictions.unwrap_or_default();
+         hash_map.insert(k, v);
+         self.restrictions = ::std::option::Option::Some(hash_map);
+@@ -50,7 +50,7 @@
+     pub fn set_restrictions(
+         mut self,
+         input: ::std::option::Option<
+-            ::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>,
++            ::std::collections::HashMap<super::types::PackageGroupOriginRestrictionType, super::types::PackageGroupOriginRestriction>,
+         >,
+     ) -> Self {
+         self.restrictions = input;
+@@ -60,13 +60,13 @@
+     pub fn get_restrictions(
+         &self,
+     ) -> &::std::option::Option<
+-        ::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>,
++        ::std::collections::HashMap<super::types::PackageGroupOriginRestrictionType, super::types::PackageGroupOriginRestriction>,
+     > {
+         &self.restrictions
+     }
+     /// Consumes the builder and constructs a [`PackageGroupOriginConfiguration`](crate::types::PackageGroupOriginConfiguration).
+-    pub fn build(self) -> crate::types::PackageGroupOriginConfiguration {
+-        crate::types::PackageGroupOriginConfiguration {
++    pub fn build(self) -> super::types::PackageGroupOriginConfiguration {
++        super::types::PackageGroupOriginConfiguration {
+             restrictions: self.restrictions,
+         }
+     }

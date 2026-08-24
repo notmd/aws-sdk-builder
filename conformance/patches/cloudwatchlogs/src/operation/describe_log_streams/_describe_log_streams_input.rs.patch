@@ -1,0 +1,79 @@
+--- original
++++ modified
+@@ -17,7 +17,7 @@
+     /// <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p>
+     /// <p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p>
+     /// <p><code>lastEventTimestamp</code> represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. <code>lastEventTimestamp</code> updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.</p>
+-    pub order_by: ::std::option::Option<crate::types::OrderBy>,
++    pub order_by: ::std::option::Option<super::types::OrderBy>,
+     /// <p>If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.</p>
+     pub descending: ::std::option::Option<bool>,
+     /// <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+@@ -46,7 +46,7 @@
+     /// <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p>
+     /// <p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p>
+     /// <p><code>lastEventTimestamp</code> represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. <code>lastEventTimestamp</code> updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.</p>
+-    pub fn order_by(&self) -> ::std::option::Option<&crate::types::OrderBy> {
++    pub fn order_by(&self) -> ::std::option::Option<&super::types::OrderBy> {
+         self.order_by.as_ref()
+     }
+     /// <p>If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.</p>
+@@ -64,8 +64,8 @@
+ }
+ impl DescribeLogStreamsInput {
+     /// Creates a new builder-style object to manufacture [`DescribeLogStreamsInput`](crate::operation::describe_log_streams::DescribeLogStreamsInput).
+-    pub fn builder() -> crate::operation::describe_log_streams::builders::DescribeLogStreamsInputBuilder {
+-        crate::operation::describe_log_streams::builders::DescribeLogStreamsInputBuilder::default()
++    pub fn builder() -> super::operation::describe_log_streams::builders::DescribeLogStreamsInputBuilder {
++        super::operation::describe_log_streams::builders::DescribeLogStreamsInputBuilder::default()
+     }
+ }
+
+@@ -76,7 +76,7 @@
+     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
+     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
+     pub(crate) log_stream_name_prefix: ::std::option::Option<::std::string::String>,
+-    pub(crate) order_by: ::std::option::Option<crate::types::OrderBy>,
++    pub(crate) order_by: ::std::option::Option<super::types::OrderBy>,
+     pub(crate) descending: ::std::option::Option<bool>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     pub(crate) limit: ::std::option::Option<i32>,
+@@ -142,7 +142,7 @@
+     /// <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p>
+     /// <p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p>
+     /// <p><code>lastEventTimestamp</code> represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. <code>lastEventTimestamp</code> updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.</p>
+-    pub fn order_by(mut self, input: crate::types::OrderBy) -> Self {
++    pub fn order_by(mut self, input: super::types::OrderBy) -> Self {
+         self.order_by = ::std::option::Option::Some(input);
+         self
+     }
+@@ -149,7 +149,7 @@
+     /// <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p>
+     /// <p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p>
+     /// <p><code>lastEventTimestamp</code> represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. <code>lastEventTimestamp</code> updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.</p>
+-    pub fn set_order_by(mut self, input: ::std::option::Option<crate::types::OrderBy>) -> Self {
++    pub fn set_order_by(mut self, input: ::std::option::Option<super::types::OrderBy>) -> Self {
+         self.order_by = input;
+         self
+     }
+@@ -156,7 +156,7 @@
+     /// <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p>
+     /// <p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p>
+     /// <p><code>lastEventTimestamp</code> represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. <code>lastEventTimestamp</code> updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.</p>
+-    pub fn get_order_by(&self) -> &::std::option::Option<crate::types::OrderBy> {
++    pub fn get_order_by(&self) -> &::std::option::Option<super::types::OrderBy> {
+         &self.order_by
+     }
+     /// <p>If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.</p>
+@@ -204,9 +204,9 @@
+     /// Consumes the builder and constructs a [`DescribeLogStreamsInput`](crate::operation::describe_log_streams::DescribeLogStreamsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::describe_log_streams::DescribeLogStreamsInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::describe_log_streams::DescribeLogStreamsInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::describe_log_streams::DescribeLogStreamsInput {
++        ::std::result::Result::Ok(super::operation::describe_log_streams::DescribeLogStreamsInput {
+             log_group_name: self.log_group_name,
+             log_group_identifier: self.log_group_identifier,
+             log_stream_name_prefix: self.log_stream_name_prefix,

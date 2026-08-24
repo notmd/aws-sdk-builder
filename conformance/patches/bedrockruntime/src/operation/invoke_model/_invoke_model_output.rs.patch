@@ -1,0 +1,99 @@
+--- original
++++ modified
+@@ -8,9 +8,9 @@
+     /// <p>The MIME type of the inference result.</p>
+     pub content_type: ::std::string::String,
+     /// <p>Model performance settings for the request.</p>
+-    pub performance_config_latency: ::std::option::Option<crate::types::PerformanceConfigLatency>,
++    pub performance_config_latency: ::std::option::Option<super::types::PerformanceConfigLatency>,
+     /// <p>Specifies the processing tier type used for serving the request.</p>
+-    pub service_tier: ::std::option::Option<crate::types::ServiceTierType>,
++    pub service_tier: ::std::option::Option<super::types::ServiceTierType>,
+     _request_id: Option<String>,
+ }
+ impl InvokeModelOutput {
+@@ -24,11 +24,11 @@
+         self.content_type.deref()
+     }
+     /// <p>Model performance settings for the request.</p>
+-    pub fn performance_config_latency(&self) -> ::std::option::Option<&crate::types::PerformanceConfigLatency> {
++    pub fn performance_config_latency(&self) -> ::std::option::Option<&super::types::PerformanceConfigLatency> {
+         self.performance_config_latency.as_ref()
+     }
+     /// <p>Specifies the processing tier type used for serving the request.</p>
+-    pub fn service_tier(&self) -> ::std::option::Option<&crate::types::ServiceTierType> {
++    pub fn service_tier(&self) -> ::std::option::Option<&super::types::ServiceTierType> {
+         self.service_tier.as_ref()
+     }
+ }
+@@ -50,8 +50,8 @@
+ }
+ impl InvokeModelOutput {
+     /// Creates a new builder-style object to manufacture [`InvokeModelOutput`](crate::operation::invoke_model::InvokeModelOutput).
+-    pub fn builder() -> crate::operation::invoke_model::builders::InvokeModelOutputBuilder {
+-        crate::operation::invoke_model::builders::InvokeModelOutputBuilder::default()
++    pub fn builder() -> super::operation::invoke_model::builders::InvokeModelOutputBuilder {
++        super::operation::invoke_model::builders::InvokeModelOutputBuilder::default()
+     }
+ }
+
+@@ -61,8 +61,8 @@
+ pub struct InvokeModelOutputBuilder {
+     pub(crate) body: ::std::option::Option<::aws_smithy_types::Blob>,
+     pub(crate) content_type: ::std::option::Option<::std::string::String>,
+-    pub(crate) performance_config_latency: ::std::option::Option<crate::types::PerformanceConfigLatency>,
+-    pub(crate) service_tier: ::std::option::Option<crate::types::ServiceTierType>,
++    pub(crate) performance_config_latency: ::std::option::Option<super::types::PerformanceConfigLatency>,
++    pub(crate) service_tier: ::std::option::Option<super::types::ServiceTierType>,
+     _request_id: Option<String>,
+ }
+ impl InvokeModelOutputBuilder {
+@@ -97,31 +97,31 @@
+         &self.content_type
+     }
+     /// <p>Model performance settings for the request.</p>
+-    pub fn performance_config_latency(mut self, input: crate::types::PerformanceConfigLatency) -> Self {
++    pub fn performance_config_latency(mut self, input: super::types::PerformanceConfigLatency) -> Self {
+         self.performance_config_latency = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Model performance settings for the request.</p>
+-    pub fn set_performance_config_latency(mut self, input: ::std::option::Option<crate::types::PerformanceConfigLatency>) -> Self {
++    pub fn set_performance_config_latency(mut self, input: ::std::option::Option<super::types::PerformanceConfigLatency>) -> Self {
+         self.performance_config_latency = input;
+         self
+     }
+     /// <p>Model performance settings for the request.</p>
+-    pub fn get_performance_config_latency(&self) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
++    pub fn get_performance_config_latency(&self) -> &::std::option::Option<super::types::PerformanceConfigLatency> {
+         &self.performance_config_latency
+     }
+     /// <p>Specifies the processing tier type used for serving the request.</p>
+-    pub fn service_tier(mut self, input: crate::types::ServiceTierType) -> Self {
++    pub fn service_tier(mut self, input: super::types::ServiceTierType) -> Self {
+         self.service_tier = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Specifies the processing tier type used for serving the request.</p>
+-    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTierType>) -> Self {
++    pub fn set_service_tier(mut self, input: ::std::option::Option<super::types::ServiceTierType>) -> Self {
+         self.service_tier = input;
+         self
+     }
+     /// <p>Specifies the processing tier type used for serving the request.</p>
+-    pub fn get_service_tier(&self) -> &::std::option::Option<crate::types::ServiceTierType> {
++    pub fn get_service_tier(&self) -> &::std::option::Option<super::types::ServiceTierType> {
+         &self.service_tier
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -137,8 +137,8 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`body`](crate::operation::invoke_model::builders::InvokeModelOutputBuilder::body)
+     /// - [`content_type`](crate::operation::invoke_model::builders::InvokeModelOutputBuilder::content_type)
+-    pub fn build(self) -> ::std::result::Result<crate::operation::invoke_model::InvokeModelOutput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::invoke_model::InvokeModelOutput {
++    pub fn build(self) -> ::std::result::Result<super::operation::invoke_model::InvokeModelOutput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::invoke_model::InvokeModelOutput {
+             body: self.body.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "body",

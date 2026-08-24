@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>Returns a failure message for delete remediation exception. For example, Config creates an exception due to an internal error.</p>
+     pub failure_message: ::std::option::Option<::std::string::String>,
+     /// <p>Returns remediation exception resource key object of the failed items.</p>
+-    pub failed_items: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
++    pub failed_items: ::std::option::Option<::std::vec::Vec<super::types::RemediationExceptionResourceKey>>,
+ }
+ impl FailedDeleteRemediationExceptionsBatch {
+     /// <p>Returns a failure message for delete remediation exception. For example, Config creates an exception due to an internal error.</p>
+@@ -17,14 +17,14 @@
+     /// <p>Returns remediation exception resource key object of the failed items.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.failed_items.is_none()`.
+-    pub fn failed_items(&self) -> &[crate::types::RemediationExceptionResourceKey] {
++    pub fn failed_items(&self) -> &[super::types::RemediationExceptionResourceKey] {
+         self.failed_items.as_deref().unwrap_or_default()
+     }
+ }
+ impl FailedDeleteRemediationExceptionsBatch {
+     /// Creates a new builder-style object to manufacture [`FailedDeleteRemediationExceptionsBatch`](crate::types::FailedDeleteRemediationExceptionsBatch).
+-    pub fn builder() -> crate::types::builders::FailedDeleteRemediationExceptionsBatchBuilder {
+-        crate::types::builders::FailedDeleteRemediationExceptionsBatchBuilder::default()
++    pub fn builder() -> super::types::builders::FailedDeleteRemediationExceptionsBatchBuilder {
++        super::types::builders::FailedDeleteRemediationExceptionsBatchBuilder::default()
+     }
+ }
+
+@@ -33,7 +33,7 @@
+ #[non_exhaustive]
+ pub struct FailedDeleteRemediationExceptionsBatchBuilder {
+     pub(crate) failure_message: ::std::option::Option<::std::string::String>,
+-    pub(crate) failed_items: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
++    pub(crate) failed_items: ::std::option::Option<::std::vec::Vec<super::types::RemediationExceptionResourceKey>>,
+ }
+ impl FailedDeleteRemediationExceptionsBatchBuilder {
+     /// <p>Returns a failure message for delete remediation exception. For example, Config creates an exception due to an internal error.</p>
+@@ -55,7 +55,7 @@
+     /// To override the contents of this collection use [`set_failed_items`](Self::set_failed_items).
+     ///
+     /// <p>Returns remediation exception resource key object of the failed items.</p>
+-    pub fn failed_items(mut self, input: crate::types::RemediationExceptionResourceKey) -> Self {
++    pub fn failed_items(mut self, input: super::types::RemediationExceptionResourceKey) -> Self {
+         let mut v = self.failed_items.unwrap_or_default();
+         v.push(input);
+         self.failed_items = ::std::option::Option::Some(v);
+@@ -62,17 +62,17 @@
+         self
+     }
+     /// <p>Returns remediation exception resource key object of the failed items.</p>
+-    pub fn set_failed_items(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>) -> Self {
++    pub fn set_failed_items(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::RemediationExceptionResourceKey>>) -> Self {
+         self.failed_items = input;
+         self
+     }
+     /// <p>Returns remediation exception resource key object of the failed items.</p>
+-    pub fn get_failed_items(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>> {
++    pub fn get_failed_items(&self) -> &::std::option::Option<::std::vec::Vec<super::types::RemediationExceptionResourceKey>> {
+         &self.failed_items
+     }
+     /// Consumes the builder and constructs a [`FailedDeleteRemediationExceptionsBatch`](crate::types::FailedDeleteRemediationExceptionsBatch).
+-    pub fn build(self) -> crate::types::FailedDeleteRemediationExceptionsBatch {
+-        crate::types::FailedDeleteRemediationExceptionsBatch {
++    pub fn build(self) -> super::types::FailedDeleteRemediationExceptionsBatch {
++        super::types::FailedDeleteRemediationExceptionsBatch {
+             failure_message: self.failure_message,
+             failed_items: self.failed_items,
+         }

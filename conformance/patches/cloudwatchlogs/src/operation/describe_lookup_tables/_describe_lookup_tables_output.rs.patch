@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DescribeLookupTablesOutput {
+     /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
+-    pub lookup_tables: ::std::option::Option<::std::vec::Vec<crate::types::LookupTable>>,
++    pub lookup_tables: ::std::option::Option<::std::vec::Vec<super::types::LookupTable>>,
+     /// <p>The token to use when requesting the next set of items.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -13,7 +13,7 @@
+     /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.lookup_tables.is_none()`.
+-    pub fn lookup_tables(&self) -> &[crate::types::LookupTable] {
++    pub fn lookup_tables(&self) -> &[super::types::LookupTable] {
+         self.lookup_tables.as_deref().unwrap_or_default()
+     }
+     /// <p>The token to use when requesting the next set of items.</p>
+@@ -28,8 +28,8 @@
+ }
+ impl DescribeLookupTablesOutput {
+     /// Creates a new builder-style object to manufacture [`DescribeLookupTablesOutput`](crate::operation::describe_lookup_tables::DescribeLookupTablesOutput).
+-    pub fn builder() -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder {
+-        crate::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder::default()
++    pub fn builder() -> super::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder {
++        super::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder::default()
+     }
+ }
+
+@@ -37,7 +37,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct DescribeLookupTablesOutputBuilder {
+-    pub(crate) lookup_tables: ::std::option::Option<::std::vec::Vec<crate::types::LookupTable>>,
++    pub(crate) lookup_tables: ::std::option::Option<::std::vec::Vec<super::types::LookupTable>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -47,7 +47,7 @@
+     /// To override the contents of this collection use [`set_lookup_tables`](Self::set_lookup_tables).
+     ///
+     /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
+-    pub fn lookup_tables(mut self, input: crate::types::LookupTable) -> Self {
++    pub fn lookup_tables(mut self, input: super::types::LookupTable) -> Self {
+         let mut v = self.lookup_tables.unwrap_or_default();
+         v.push(input);
+         self.lookup_tables = ::std::option::Option::Some(v);
+@@ -54,12 +54,12 @@
+         self
+     }
+     /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
+-    pub fn set_lookup_tables(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LookupTable>>) -> Self {
++    pub fn set_lookup_tables(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::LookupTable>>) -> Self {
+         self.lookup_tables = input;
+         self
+     }
+     /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
+-    pub fn get_lookup_tables(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LookupTable>> {
++    pub fn get_lookup_tables(&self) -> &::std::option::Option<::std::vec::Vec<super::types::LookupTable>> {
+         &self.lookup_tables
+     }
+     /// <p>The token to use when requesting the next set of items.</p>
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DescribeLookupTablesOutput`](crate::operation::describe_lookup_tables::DescribeLookupTablesOutput).
+-    pub fn build(self) -> crate::operation::describe_lookup_tables::DescribeLookupTablesOutput {
+-        crate::operation::describe_lookup_tables::DescribeLookupTablesOutput {
++    pub fn build(self) -> super::operation::describe_lookup_tables::DescribeLookupTablesOutput {
++        super::operation::describe_lookup_tables::DescribeLookupTablesOutput {
+             lookup_tables: self.lookup_tables,
+             next_token: self.next_token,
+             _request_id: self._request_id,

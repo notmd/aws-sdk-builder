@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>The 12-digit account ID or region based on the GroupByKey value.</p>
+     pub group_name: ::std::option::Option<::std::string::String>,
+     /// <p>The number of compliant and noncompliant Config rules.</p>
+-    pub compliance_summary: ::std::option::Option<crate::types::ComplianceSummary>,
++    pub compliance_summary: ::std::option::Option<super::types::ComplianceSummary>,
+ }
+ impl AggregateComplianceCount {
+     /// <p>The 12-digit account ID or region based on the GroupByKey value.</p>
+@@ -15,14 +15,14 @@
+         self.group_name.as_deref()
+     }
+     /// <p>The number of compliant and noncompliant Config rules.</p>
+-    pub fn compliance_summary(&self) -> ::std::option::Option<&crate::types::ComplianceSummary> {
++    pub fn compliance_summary(&self) -> ::std::option::Option<&super::types::ComplianceSummary> {
+         self.compliance_summary.as_ref()
+     }
+ }
+ impl AggregateComplianceCount {
+     /// Creates a new builder-style object to manufacture [`AggregateComplianceCount`](crate::types::AggregateComplianceCount).
+-    pub fn builder() -> crate::types::builders::AggregateComplianceCountBuilder {
+-        crate::types::builders::AggregateComplianceCountBuilder::default()
++    pub fn builder() -> super::types::builders::AggregateComplianceCountBuilder {
++        super::types::builders::AggregateComplianceCountBuilder::default()
+     }
+ }
+
+@@ -31,7 +31,7 @@
+ #[non_exhaustive]
+ pub struct AggregateComplianceCountBuilder {
+     pub(crate) group_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) compliance_summary: ::std::option::Option<crate::types::ComplianceSummary>,
++    pub(crate) compliance_summary: ::std::option::Option<super::types::ComplianceSummary>,
+ }
+ impl AggregateComplianceCountBuilder {
+     /// <p>The 12-digit account ID or region based on the GroupByKey value.</p>
+@@ -49,22 +49,22 @@
+         &self.group_name
+     }
+     /// <p>The number of compliant and noncompliant Config rules.</p>
+-    pub fn compliance_summary(mut self, input: crate::types::ComplianceSummary) -> Self {
++    pub fn compliance_summary(mut self, input: super::types::ComplianceSummary) -> Self {
+         self.compliance_summary = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The number of compliant and noncompliant Config rules.</p>
+-    pub fn set_compliance_summary(mut self, input: ::std::option::Option<crate::types::ComplianceSummary>) -> Self {
++    pub fn set_compliance_summary(mut self, input: ::std::option::Option<super::types::ComplianceSummary>) -> Self {
+         self.compliance_summary = input;
+         self
+     }
+     /// <p>The number of compliant and noncompliant Config rules.</p>
+-    pub fn get_compliance_summary(&self) -> &::std::option::Option<crate::types::ComplianceSummary> {
++    pub fn get_compliance_summary(&self) -> &::std::option::Option<super::types::ComplianceSummary> {
+         &self.compliance_summary
+     }
+     /// Consumes the builder and constructs a [`AggregateComplianceCount`](crate::types::AggregateComplianceCount).
+-    pub fn build(self) -> crate::types::AggregateComplianceCount {
+-        crate::types::AggregateComplianceCount {
++    pub fn build(self) -> super::types::AggregateComplianceCount {
++        super::types::AggregateComplianceCount {
+             group_name: self.group_name,
+             compliance_summary: self.compliance_summary,
+         }

@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl DescribeRemediationConfigurationsInput {
+     /// Creates a new builder-style object to manufacture [`DescribeRemediationConfigurationsInput`](crate::operation::describe_remediation_configurations::DescribeRemediationConfigurationsInput).
+-    pub fn builder() -> crate::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsInputBuilder {
+-        crate::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsInputBuilder::default()
++    pub fn builder() -> super::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsInputBuilder {
++        super::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsInputBuilder::default()
+     }
+ }
+
+@@ -52,11 +52,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_remediation_configurations::DescribeRemediationConfigurationsInput,
++        super::operation::describe_remediation_configurations::DescribeRemediationConfigurationsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::describe_remediation_configurations::DescribeRemediationConfigurationsInput {
++            super::operation::describe_remediation_configurations::DescribeRemediationConfigurationsInput {
+                 config_rule_names: self.config_rule_names,
+             },
+         )

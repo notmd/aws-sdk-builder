@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -39,8 +39,8 @@
+ }
+ impl EventContextDataType {
+     /// Creates a new builder-style object to manufacture [`EventContextDataType`](crate::types::EventContextDataType).
+-    pub fn builder() -> crate::types::builders::EventContextDataTypeBuilder {
+-        crate::types::builders::EventContextDataTypeBuilder::default()
++    pub fn builder() -> super::types::builders::EventContextDataTypeBuilder {
++        super::types::builders::EventContextDataTypeBuilder::default()
+     }
+ }
+
+@@ -126,8 +126,8 @@
+         &self.country
+     }
+     /// Consumes the builder and constructs a [`EventContextDataType`](crate::types::EventContextDataType).
+-    pub fn build(self) -> crate::types::EventContextDataType {
+-        crate::types::EventContextDataType {
++    pub fn build(self) -> super::types::EventContextDataType {
++        super::types::EventContextDataType {
+             ip_address: self.ip_address,
+             device_name: self.device_name,
+             timezone: self.timezone,

@@ -9876,12 +9876,13 @@ fn json_protocol_mark_role(
     // collection and map values are serialized inline by their containing
     // serializer. Deserializers, however, need helpers for all compound
     // shapes so they can recursively build collection/map values.
-    if matches!(role, ProtocolSerdeRole::Serialize)
-        && matches!(kind, "structure" | "union")
-        && !(kind == "structure" && members(shape).is_empty())
-        || matches!(role, ProtocolSerdeRole::Deserialize)
-            && matches!(kind, "structure" | "union" | "list" | "map")
-            && !(kind == "structure" && members(shape).is_empty())
+    if !shape_is_streaming(shape)
+        && ((matches!(role, ProtocolSerdeRole::Serialize)
+            && matches!(kind, "structure" | "union")
+            && !(kind == "structure" && members(shape).is_empty()))
+            || (matches!(role, ProtocolSerdeRole::Deserialize)
+                && matches!(kind, "structure" | "union" | "list" | "map")
+                && !(kind == "structure" && members(shape).is_empty())))
     {
         record_protocol_role(roles, shape_id, role);
     }
@@ -16947,6 +16948,7 @@ fn sorted_members(shape: &Value) -> BTreeMap<String, &Value> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::{ServiceMetadata, ServiceSource};
 
     #[test]
     fn normalize_model_documentation_preserves_malformed_html_structure() {
@@ -17006,5 +17008,65 @@ mod tests {
         assert!(!is_xml_body_member(&response_code));
         assert!(!is_xml_body_member(&streaming_payload));
         assert!(is_xml_body_member(&document_body));
+    }
+
+    #[test]
+    fn streaming_json_unions_are_left_to_event_stream_codegen() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "events": {
+                                "target": "example#InputEvents",
+                                "traits": {"smithy.api#httpPayload": {}}
+                            }
+                        }
+                    },
+                    "example#InputEvents": {
+                        "type": "union",
+                        "members": {"chunk": {"target": "example#Chunk"}},
+                        "traits": {"smithy.api#streaming": {}}
+                    },
+                    "example#Chunk": {
+                        "type": "structure",
+                        "members": {"data": {"target": "smithy.api#Blob"}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let roles = json_protocol_serde_roles(&selected);
+
+        assert!(
+            !roles
+                .get("example#InputEvents")
+                .is_some_and(|roles| roles.serialize || roles.deserialize)
+        );
+        assert!(
+            roles
+                .get("example#Chunk")
+                .is_some_and(|roles| roles.serialize)
+        );
     }
 }

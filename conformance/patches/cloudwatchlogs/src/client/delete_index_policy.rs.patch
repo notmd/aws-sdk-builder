@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     ///   - [`log_group_identifier(impl Into<String>)`](crate::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder::log_group_identifier) / [`set_log_group_identifier(Option<String>)`](crate::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder::set_log_group_identifier):<br>required: **true**<br><p>The log group to delete the index policy for. You can specify either the name or the ARN of the log group.</p><br>
+     /// - On success, responds with [`DeleteIndexPolicyOutput`](crate::operation::delete_index_policy::DeleteIndexPolicyOutput)
+     /// - On failure, responds with [`SdkError<DeleteIndexPolicyError>`](crate::operation::delete_index_policy::DeleteIndexPolicyError)
+-    pub fn delete_index_policy(&self) -> crate::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder {
+-        crate::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder::new(self.handle.clone())
++    pub fn delete_index_policy(&self) -> super::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder {
++        super::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder::new(self.handle.clone())
+     }
+ }

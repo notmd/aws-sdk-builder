@@ -1,0 +1,219 @@
+--- original
++++ modified
+@@ -10,11 +10,11 @@
+     }
+     pub(crate) async fn orchestrate(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
++        input: super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
+     ) -> ::std::result::Result<
+-        crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput,
++        super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput,
+         ::aws_smithy_runtime_api::client::result::SdkError<
+-            crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
++            super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >,
+     > {
+@@ -23,7 +23,7 @@
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >| {
+             err.map_service_error(|err| {
+-                err.downcast::<crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError>()
++                err.downcast::<super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError>()
+                     .expect("correct error type")
+             })
+         };
+@@ -33,7 +33,7 @@
+         let output = context.finalize().map_err(map_err)?;
+         ::std::result::Result::Ok(
+             output
+-                .downcast::<crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput>()
++                .downcast::<super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput>()
+                 .expect("correct output type"),
+         )
+     }
+@@ -40,7 +40,7 @@
+
+     pub(crate) async fn orchestrate_with_stop_point(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
++        input: super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
+         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+     ) -> ::std::result::Result<
+         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
+@@ -72,8 +72,8 @@
+
+     pub(crate) fn operation_runtime_plugins(
+         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        client_config: &crate::config::Config,
+-        config_override: ::std::option::Option<crate::config::Builder>,
++        client_config: &super::config::Config,
++        config_override: ::std::option::Option<super::config::Builder>,
+     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+
+@@ -81,7 +81,7 @@
+             for plugin in config_override.runtime_plugins.iter().cloned() {
+                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+             }
+-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
++            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
+                 config_override,
+                 client_config.config.clone(),
+                 &client_config.runtime_components,
+@@ -102,7 +102,7 @@
+         ));
+
+         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+-            crate::config::auth::Params::builder()
++            super::config::auth::Params::builder()
+                 .operation_name("DeleteConfigurationSetEventDestination")
+                 .build()
+                 .expect("required fields set"),
+@@ -142,13 +142,13 @@
+                 DeleteConfigurationSetEventDestinationEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+-                crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
++                super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
+             >::new())
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+-                crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
++                super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
+             >::new())
+             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+-                crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
++                super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
+             >::new());
+
+         ::std::borrow::Cow::Owned(rcb)
+@@ -218,15 +218,15 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            crate::protocol_serde::shape_delete_configuration_set_event_destination::de_delete_configuration_set_event_destination_http_error(
++            super::protocol_serde::shape_delete_configuration_set_event_destination::de_delete_configuration_set_event_destination_http_error(
+                 status, headers, body,
+             )
+         } else {
+-            crate::protocol_serde::shape_delete_configuration_set_event_destination::de_delete_configuration_set_event_destination_http_response(
++            super::protocol_serde::shape_delete_configuration_set_event_destination::de_delete_configuration_set_event_destination_http_response(
+                 status, headers, body,
+             )
+         };
+-        crate::protocol_serde::type_erase_result(parse_result)
++        super::protocol_serde::type_erase_result(parse_result)
+     }
+ }
+ #[derive(Debug)]
+@@ -239,16 +239,16 @@
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+         let input = input
+-            .downcast::<crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput>()
++            .downcast::<super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput>()
+             .expect("correct type");
+         let _header_serialization_settings = _cfg
+-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
++            .load::<super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
+             .unwrap_or_default();
+         let mut request_builder = {
+             #[allow(clippy::uninlined_format_args)]
+             fn uri_base(
+-                _input: &crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
++                _input: &super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
+                 output: &mut ::std::string::String,
+             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+                 use ::std::fmt::Write as _;
+@@ -285,7 +285,7 @@
+             }
+             #[allow(clippy::unnecessary_wraps)]
+             fn update_http_builder(
+-                input: &crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
++                input: &super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
+                 builder: ::http_1x::request::Builder,
+             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+                 let mut uri = ::std::string::String::new();
+@@ -324,7 +324,7 @@
+             .downcast_ref::<DeleteConfigurationSetEventDestinationInput>()
+             .ok_or("failed to downcast to DeleteConfigurationSetEventDestinationInput")?;
+
+-        let params = crate::config::endpoint::Params::builder()
++        let params = super::config::endpoint::Params::builder()
+             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+@@ -347,11 +347,11 @@
+ #[derive(::std::fmt::Debug)]
+ pub enum DeleteConfigurationSetEventDestinationError {
+     /// <p>The input you provided is invalid.</p>
+-    BadRequestException(crate::types::error::BadRequestException),
++    BadRequestException(super::types::error::BadRequestException),
+     /// <p>The resource you attempted to access doesn't exist.</p>
+-    NotFoundException(crate::types::error::NotFoundException),
++    NotFoundException(super::types::error::NotFoundException),
+     /// <p>Too many requests have been made to the operation.</p>
+-    TooManyRequestsException(crate::types::error::TooManyRequestsException),
++    TooManyRequestsException(super::types::error::TooManyRequestsException),
+     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+     variable wildcard pattern and check `.code()`:
+@@ -359,7 +359,7 @@
+     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+      \
+     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeleteConfigurationSetEventDestinationError) for what information is available for the error.")]
+-    Unhandled(crate::error::sealed_unhandled::Unhandled),
++    Unhandled(super::error::sealed_unhandled::Unhandled),
+ }
+ impl DeleteConfigurationSetEventDestinationError {
+     /// Creates the `DeleteConfigurationSetEventDestinationError::Unhandled` variant from any error type.
+@@ -366,7 +366,7 @@
+     pub fn unhandled(
+         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.into(),
+             meta: ::std::default::Default::default(),
+         })
+@@ -374,7 +374,7 @@
+
+     /// Creates the `DeleteConfigurationSetEventDestinationError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.clone().into(),
+             meta: err,
+         })
+@@ -453,7 +453,7 @@
+         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source,
+             meta: meta.unwrap_or_default(),
+         })
+@@ -460,7 +460,7 @@
+     }
+ }
+ impl ::aws_types::request_id::RequestId
+-    for crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError
++    for super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError
+ {
+     fn request_id(&self) -> Option<&str> {
+         self.meta().request_id()
+@@ -467,9 +467,9 @@
+     }
+ }
+
+-pub use crate::operation::delete_configuration_set_event_destination::_delete_configuration_set_event_destination_input::DeleteConfigurationSetEventDestinationInput;
++pub use super::operation::delete_configuration_set_event_destination::_delete_configuration_set_event_destination_input::DeleteConfigurationSetEventDestinationInput;
+
+-pub use crate::operation::delete_configuration_set_event_destination::_delete_configuration_set_event_destination_output::DeleteConfigurationSetEventDestinationOutput;
++pub use super::operation::delete_configuration_set_event_destination::_delete_configuration_set_event_destination_output::DeleteConfigurationSetEventDestinationOutput;
+
+ mod _delete_configuration_set_event_destination_input;
+

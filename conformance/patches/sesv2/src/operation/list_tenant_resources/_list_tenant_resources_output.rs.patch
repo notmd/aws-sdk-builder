@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ListTenantResourcesOutput {
+     /// <p>An array that contains information about each resource associated with the tenant.</p>
+-    pub tenant_resources: ::std::option::Option<::std::vec::Vec<crate::types::TenantResource>>,
++    pub tenant_resources: ::std::option::Option<::std::vec::Vec<super::types::TenantResource>>,
+     /// <p>A token that indicates that there are additional resources to list. To view additional resources, issue another request to <code>ListTenantResources</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -14,7 +14,7 @@
+     /// <p>An array that contains information about each resource associated with the tenant.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tenant_resources.is_none()`.
+-    pub fn tenant_resources(&self) -> &[crate::types::TenantResource] {
++    pub fn tenant_resources(&self) -> &[super::types::TenantResource] {
+         self.tenant_resources.as_deref().unwrap_or_default()
+     }
+     /// <p>A token that indicates that there are additional resources to list. To view additional resources, issue another request to <code>ListTenantResources</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+@@ -29,8 +29,8 @@
+ }
+ impl ListTenantResourcesOutput {
+     /// Creates a new builder-style object to manufacture [`ListTenantResourcesOutput`](crate::operation::list_tenant_resources::ListTenantResourcesOutput).
+-    pub fn builder() -> crate::operation::list_tenant_resources::builders::ListTenantResourcesOutputBuilder {
+-        crate::operation::list_tenant_resources::builders::ListTenantResourcesOutputBuilder::default()
++    pub fn builder() -> super::operation::list_tenant_resources::builders::ListTenantResourcesOutputBuilder {
++        super::operation::list_tenant_resources::builders::ListTenantResourcesOutputBuilder::default()
+     }
+ }
+
+@@ -38,7 +38,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ListTenantResourcesOutputBuilder {
+-    pub(crate) tenant_resources: ::std::option::Option<::std::vec::Vec<crate::types::TenantResource>>,
++    pub(crate) tenant_resources: ::std::option::Option<::std::vec::Vec<super::types::TenantResource>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -48,7 +48,7 @@
+     /// To override the contents of this collection use [`set_tenant_resources`](Self::set_tenant_resources).
+     ///
+     /// <p>An array that contains information about each resource associated with the tenant.</p>
+-    pub fn tenant_resources(mut self, input: crate::types::TenantResource) -> Self {
++    pub fn tenant_resources(mut self, input: super::types::TenantResource) -> Self {
+         let mut v = self.tenant_resources.unwrap_or_default();
+         v.push(input);
+         self.tenant_resources = ::std::option::Option::Some(v);
+@@ -55,12 +55,12 @@
+         self
+     }
+     /// <p>An array that contains information about each resource associated with the tenant.</p>
+-    pub fn set_tenant_resources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TenantResource>>) -> Self {
++    pub fn set_tenant_resources(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::TenantResource>>) -> Self {
+         self.tenant_resources = input;
+         self
+     }
+     /// <p>An array that contains information about each resource associated with the tenant.</p>
+-    pub fn get_tenant_resources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TenantResource>> {
++    pub fn get_tenant_resources(&self) -> &::std::option::Option<::std::vec::Vec<super::types::TenantResource>> {
+         &self.tenant_resources
+     }
+     /// <p>A token that indicates that there are additional resources to list. To view additional resources, issue another request to <code>ListTenantResources</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+@@ -87,8 +87,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListTenantResourcesOutput`](crate::operation::list_tenant_resources::ListTenantResourcesOutput).
+-    pub fn build(self) -> crate::operation::list_tenant_resources::ListTenantResourcesOutput {
+-        crate::operation::list_tenant_resources::ListTenantResourcesOutput {
++    pub fn build(self) -> super::operation::list_tenant_resources::ListTenantResourcesOutput {
++        super::operation::list_tenant_resources::ListTenantResourcesOutput {
+             tenant_resources: self.tenant_resources,
+             next_token: self.next_token,
+             _request_id: self._request_id,

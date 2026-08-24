@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     ///   - [`configuration_recorder_summaries(Vec::<ConfigurationRecorderSummary>)`](crate::operation::list_configuration_recorders::ListConfigurationRecordersOutput::configuration_recorder_summaries): <p>A list of <code>ConfigurationRecorderSummary</code> objects that includes.</p>
+     ///   - [`next_token(Option<String>)`](crate::operation::list_configuration_recorders::ListConfigurationRecordersOutput::next_token): <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+     /// - On failure, responds with [`SdkError<ListConfigurationRecordersError>`](crate::operation::list_configuration_recorders::ListConfigurationRecordersError)
+-    pub fn list_configuration_recorders(&self) -> crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersFluentBuilder {
+-        crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersFluentBuilder::new(self.handle.clone())
++    pub fn list_configuration_recorders(&self) -> super::operation::list_configuration_recorders::builders::ListConfigurationRecordersFluentBuilder {
++        super::operation::list_configuration_recorders::builders::ListConfigurationRecordersFluentBuilder::new(self.handle.clone())
+     }
+ }

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -54,8 +54,8 @@
+ }
+ impl CreateExportTaskInput {
+     /// Creates a new builder-style object to manufacture [`CreateExportTaskInput`](crate::operation::create_export_task::CreateExportTaskInput).
+-    pub fn builder() -> crate::operation::create_export_task::builders::CreateExportTaskInputBuilder {
+-        crate::operation::create_export_task::builders::CreateExportTaskInputBuilder::default()
++    pub fn builder() -> super::operation::create_export_task::builders::CreateExportTaskInputBuilder {
++        super::operation::create_export_task::builders::CreateExportTaskInputBuilder::default()
+     }
+ }
+
+@@ -183,8 +183,8 @@
+     /// Consumes the builder and constructs a [`CreateExportTaskInput`](crate::operation::create_export_task::CreateExportTaskInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::create_export_task::CreateExportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::create_export_task::CreateExportTaskInput {
++    ) -> ::std::result::Result<super::operation::create_export_task::CreateExportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::create_export_task::CreateExportTaskInput {
+             task_name: self.task_name,
+             log_group_name: self.log_group_name,
+             log_stream_name_prefix: self.log_stream_name_prefix,

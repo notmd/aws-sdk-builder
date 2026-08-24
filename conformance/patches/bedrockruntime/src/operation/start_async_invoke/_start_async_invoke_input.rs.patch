@@ -1,0 +1,106 @@
+--- original
++++ modified
+@@ -10,9 +10,9 @@
+     /// <p>Input to send to the model.</p>
+     pub model_input: ::std::option::Option<::aws_smithy_types::Document>,
+     /// <p>Where to store the output.</p>
+-    pub output_data_config: ::std::option::Option<crate::types::AsyncInvokeOutputDataConfig>,
++    pub output_data_config: ::std::option::Option<super::types::AsyncInvokeOutputDataConfig>,
+     /// <p>Tags to apply to the invocation.</p>
+-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+ }
+ impl StartAsyncInvokeInput {
+     /// <p>Specify idempotency token to ensure that requests are not duplicated.</p>
+@@ -28,13 +28,13 @@
+         self.model_input.as_ref()
+     }
+     /// <p>Where to store the output.</p>
+-    pub fn output_data_config(&self) -> ::std::option::Option<&crate::types::AsyncInvokeOutputDataConfig> {
++    pub fn output_data_config(&self) -> ::std::option::Option<&super::types::AsyncInvokeOutputDataConfig> {
+         self.output_data_config.as_ref()
+     }
+     /// <p>Tags to apply to the invocation.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
+-    pub fn tags(&self) -> &[crate::types::Tag] {
++    pub fn tags(&self) -> &[super::types::Tag] {
+         self.tags.as_deref().unwrap_or_default()
+     }
+ }
+@@ -51,8 +51,8 @@
+ }
+ impl StartAsyncInvokeInput {
+     /// Creates a new builder-style object to manufacture [`StartAsyncInvokeInput`](crate::operation::start_async_invoke::StartAsyncInvokeInput).
+-    pub fn builder() -> crate::operation::start_async_invoke::builders::StartAsyncInvokeInputBuilder {
+-        crate::operation::start_async_invoke::builders::StartAsyncInvokeInputBuilder::default()
++    pub fn builder() -> super::operation::start_async_invoke::builders::StartAsyncInvokeInputBuilder {
++        super::operation::start_async_invoke::builders::StartAsyncInvokeInputBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+     pub(crate) client_request_token: ::std::option::Option<::std::string::String>,
+     pub(crate) model_id: ::std::option::Option<::std::string::String>,
+     pub(crate) model_input: ::std::option::Option<::aws_smithy_types::Document>,
+-    pub(crate) output_data_config: ::std::option::Option<crate::types::AsyncInvokeOutputDataConfig>,
+-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
++    pub(crate) output_data_config: ::std::option::Option<super::types::AsyncInvokeOutputDataConfig>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+ }
+ impl StartAsyncInvokeInputBuilder {
+     /// <p>Specify idempotency token to ensure that requests are not duplicated.</p>
+@@ -113,17 +113,17 @@
+     }
+     /// <p>Where to store the output.</p>
+     /// This field is required.
+-    pub fn output_data_config(mut self, input: crate::types::AsyncInvokeOutputDataConfig) -> Self {
++    pub fn output_data_config(mut self, input: super::types::AsyncInvokeOutputDataConfig) -> Self {
+         self.output_data_config = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Where to store the output.</p>
+-    pub fn set_output_data_config(mut self, input: ::std::option::Option<crate::types::AsyncInvokeOutputDataConfig>) -> Self {
++    pub fn set_output_data_config(mut self, input: ::std::option::Option<super::types::AsyncInvokeOutputDataConfig>) -> Self {
+         self.output_data_config = input;
+         self
+     }
+     /// <p>Where to store the output.</p>
+-    pub fn get_output_data_config(&self) -> &::std::option::Option<crate::types::AsyncInvokeOutputDataConfig> {
++    pub fn get_output_data_config(&self) -> &::std::option::Option<super::types::AsyncInvokeOutputDataConfig> {
+         &self.output_data_config
+     }
+     /// Appends an item to `tags`.
+@@ -131,7 +131,7 @@
+     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+     ///
+     /// <p>Tags to apply to the invocation.</p>
+-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::types::Tag) -> Self {
+         let mut v = self.tags.unwrap_or_default();
+         v.push(input);
+         self.tags = ::std::option::Option::Some(v);
+@@ -138,19 +138,19 @@
+         self
+     }
+     /// <p>Tags to apply to the invocation.</p>
+-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
+         self.tags = input;
+         self
+     }
+     /// <p>Tags to apply to the invocation.</p>
+-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
+         &self.tags
+     }
+     /// Consumes the builder and constructs a [`StartAsyncInvokeInput`](crate::operation::start_async_invoke::StartAsyncInvokeInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::start_async_invoke::StartAsyncInvokeInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::start_async_invoke::StartAsyncInvokeInput {
++    ) -> ::std::result::Result<super::operation::start_async_invoke::StartAsyncInvokeInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::start_async_invoke::StartAsyncInvokeInput {
+             client_request_token: self.client_request_token,
+             model_id: self.model_id,
+             model_input: self.model_input,

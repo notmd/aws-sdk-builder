@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     /// <p>The name of the Config rule.</p>
+     pub config_rule_name: ::std::option::Option<::std::string::String>,
+     /// <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
+-    pub external_evaluation: ::std::option::Option<crate::types::ExternalEvaluation>,
++    pub external_evaluation: ::std::option::Option<super::types::ExternalEvaluation>,
+ }
+ impl PutExternalEvaluationInput {
+     /// <p>The name of the Config rule.</p>
+@@ -14,14 +14,14 @@
+         self.config_rule_name.as_deref()
+     }
+     /// <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
+-    pub fn external_evaluation(&self) -> ::std::option::Option<&crate::types::ExternalEvaluation> {
++    pub fn external_evaluation(&self) -> ::std::option::Option<&super::types::ExternalEvaluation> {
+         self.external_evaluation.as_ref()
+     }
+ }
+ impl PutExternalEvaluationInput {
+     /// Creates a new builder-style object to manufacture [`PutExternalEvaluationInput`](crate::operation::put_external_evaluation::PutExternalEvaluationInput).
+-    pub fn builder() -> crate::operation::put_external_evaluation::builders::PutExternalEvaluationInputBuilder {
+-        crate::operation::put_external_evaluation::builders::PutExternalEvaluationInputBuilder::default()
++    pub fn builder() -> super::operation::put_external_evaluation::builders::PutExternalEvaluationInputBuilder {
++        super::operation::put_external_evaluation::builders::PutExternalEvaluationInputBuilder::default()
+     }
+ }
+
+@@ -30,7 +30,7 @@
+ #[non_exhaustive]
+ pub struct PutExternalEvaluationInputBuilder {
+     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) external_evaluation: ::std::option::Option<crate::types::ExternalEvaluation>,
++    pub(crate) external_evaluation: ::std::option::Option<super::types::ExternalEvaluation>,
+ }
+ impl PutExternalEvaluationInputBuilder {
+     /// <p>The name of the Config rule.</p>
+@@ -50,25 +50,25 @@
+     }
+     /// <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
+     /// This field is required.
+-    pub fn external_evaluation(mut self, input: crate::types::ExternalEvaluation) -> Self {
++    pub fn external_evaluation(mut self, input: super::types::ExternalEvaluation) -> Self {
+         self.external_evaluation = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
+-    pub fn set_external_evaluation(mut self, input: ::std::option::Option<crate::types::ExternalEvaluation>) -> Self {
++    pub fn set_external_evaluation(mut self, input: ::std::option::Option<super::types::ExternalEvaluation>) -> Self {
+         self.external_evaluation = input;
+         self
+     }
+     /// <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
+-    pub fn get_external_evaluation(&self) -> &::std::option::Option<crate::types::ExternalEvaluation> {
++    pub fn get_external_evaluation(&self) -> &::std::option::Option<super::types::ExternalEvaluation> {
+         &self.external_evaluation
+     }
+     /// Consumes the builder and constructs a [`PutExternalEvaluationInput`](crate::operation::put_external_evaluation::PutExternalEvaluationInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::put_external_evaluation::PutExternalEvaluationInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::put_external_evaluation::PutExternalEvaluationInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::put_external_evaluation::PutExternalEvaluationInput {
++        ::std::result::Result::Ok(super::operation::put_external_evaluation::PutExternalEvaluationInput {
+             config_rule_name: self.config_rule_name,
+             external_evaluation: self.external_evaluation,
+         })

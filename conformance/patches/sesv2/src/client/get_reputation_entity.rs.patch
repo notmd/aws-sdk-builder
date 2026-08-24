@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// - On success, responds with [`GetReputationEntityOutput`](crate::operation::get_reputation_entity::GetReputationEntityOutput) with field(s):
+     ///   - [`reputation_entity(Option<ReputationEntity>)`](crate::operation::get_reputation_entity::GetReputationEntityOutput::reputation_entity): <p>The reputation entity information, including status records, policy configuration, and reputation impact.</p>
+     /// - On failure, responds with [`SdkError<GetReputationEntityError>`](crate::operation::get_reputation_entity::GetReputationEntityError)
+-    pub fn get_reputation_entity(&self) -> crate::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder {
+-        crate::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder::new(self.handle.clone())
++    pub fn get_reputation_entity(&self) -> super::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder {
++        super::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder::new(self.handle.clone())
+     }
+ }

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -64,8 +64,8 @@
+ }
+ impl UiCustomizationType {
+     /// Creates a new builder-style object to manufacture [`UiCustomizationType`](crate::types::UiCustomizationType).
+-    pub fn builder() -> crate::types::builders::UiCustomizationTypeBuilder {
+-        crate::types::builders::UiCustomizationTypeBuilder::default()
++    pub fn builder() -> super::types::builders::UiCustomizationTypeBuilder {
++        super::types::builders::UiCustomizationTypeBuilder::default()
+     }
+ }
+
+@@ -181,8 +181,8 @@
+         &self.creation_date
+     }
+     /// Consumes the builder and constructs a [`UiCustomizationType`](crate::types::UiCustomizationType).
+-    pub fn build(self) -> crate::types::UiCustomizationType {
+-        crate::types::UiCustomizationType {
++    pub fn build(self) -> super::types::UiCustomizationType {
++        super::types::UiCustomizationType {
+             user_pool_id: self.user_pool_id,
+             client_id: self.client_id,
+             image_url: self.image_url,

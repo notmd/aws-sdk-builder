@@ -1,0 +1,334 @@
+--- original
++++ modified
+@@ -19,20 +19,20 @@
+     /// <p>The Converse API doesn't support <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported models</a>.</p>
+     pub model_id: ::std::option::Option<::std::string::String>,
+     /// <p>The messages that you want to send to the model.</p>
+-    pub messages: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
++    pub messages: ::std::option::Option<::std::vec::Vec<super::types::Message>>,
+     /// <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
+-    pub system: ::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>>,
++    pub system: ::std::option::Option<::std::vec::Vec<super::types::SystemContentBlock>>,
+     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
+-    pub inference_config: ::std::option::Option<crate::types::InferenceConfiguration>,
++    pub inference_config: ::std::option::Option<super::types::InferenceConfiguration>,
+     /// <p>Configuration information for the tools that the model can use when generating a response.</p>
+     /// <p>For information about models that support tool use, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html#conversation-inference-supported-models-features">Supported models and model features</a>.</p>
+-    pub tool_config: ::std::option::Option<crate::types::ToolConfiguration>,
++    pub tool_config: ::std::option::Option<super::types::ToolConfiguration>,
+     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
+-    pub guardrail_config: ::std::option::Option<crate::types::GuardrailConfiguration>,
++    pub guardrail_config: ::std::option::Option<super::types::GuardrailConfiguration>,
+     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
+     pub additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
+     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+-    pub prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>>,
++    pub prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PromptVariableValues>>,
+     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
+     /// <p><code>\[ "/stop_sequence" \]</code></p>
+     /// <p>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
+@@ -41,11 +41,11 @@
+     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
+     pub request_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+     /// <p>Model performance settings for the request.</p>
+-    pub performance_config: ::std::option::Option<crate::types::PerformanceConfiguration>,
++    pub performance_config: ::std::option::Option<super::types::PerformanceConfiguration>,
+     /// <p>Specifies the processing tier configuration used for serving the request.</p>
+-    pub service_tier: ::std::option::Option<crate::types::ServiceTier>,
++    pub service_tier: ::std::option::Option<super::types::ServiceTier>,
+     /// <p>Output configuration for a model response.</p>
+-    pub output_config: ::std::option::Option<crate::types::OutputConfig>,
++    pub output_config: ::std::option::Option<super::types::OutputConfig>,
+ }
+ impl ConverseInput {
+     /// <p>Specifies the model or throughput with which to run inference, or the prompt resource to use in inference. The value depends on the resource that you use:</p>
+@@ -68,26 +68,26 @@
+     /// <p>The messages that you want to send to the model.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.messages.is_none()`.
+-    pub fn messages(&self) -> &[crate::types::Message] {
++    pub fn messages(&self) -> &[super::types::Message] {
+         self.messages.as_deref().unwrap_or_default()
+     }
+     /// <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.system.is_none()`.
+-    pub fn system(&self) -> &[crate::types::SystemContentBlock] {
++    pub fn system(&self) -> &[super::types::SystemContentBlock] {
+         self.system.as_deref().unwrap_or_default()
+     }
+     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
+-    pub fn inference_config(&self) -> ::std::option::Option<&crate::types::InferenceConfiguration> {
++    pub fn inference_config(&self) -> ::std::option::Option<&super::types::InferenceConfiguration> {
+         self.inference_config.as_ref()
+     }
+     /// <p>Configuration information for the tools that the model can use when generating a response.</p>
+     /// <p>For information about models that support tool use, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html#conversation-inference-supported-models-features">Supported models and model features</a>.</p>
+-    pub fn tool_config(&self) -> ::std::option::Option<&crate::types::ToolConfiguration> {
++    pub fn tool_config(&self) -> ::std::option::Option<&super::types::ToolConfiguration> {
+         self.tool_config.as_ref()
+     }
+     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
+-    pub fn guardrail_config(&self) -> ::std::option::Option<&crate::types::GuardrailConfiguration> {
++    pub fn guardrail_config(&self) -> ::std::option::Option<&super::types::GuardrailConfiguration> {
+         self.guardrail_config.as_ref()
+     }
+     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
+@@ -95,7 +95,7 @@
+         self.additional_model_request_fields.as_ref()
+     }
+     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+-    pub fn prompt_variables(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>> {
++    pub fn prompt_variables(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::PromptVariableValues>> {
+         self.prompt_variables.as_ref()
+     }
+     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
+@@ -112,15 +112,15 @@
+         self.request_metadata.as_ref()
+     }
+     /// <p>Model performance settings for the request.</p>
+-    pub fn performance_config(&self) -> ::std::option::Option<&crate::types::PerformanceConfiguration> {
++    pub fn performance_config(&self) -> ::std::option::Option<&super::types::PerformanceConfiguration> {
+         self.performance_config.as_ref()
+     }
+     /// <p>Specifies the processing tier configuration used for serving the request.</p>
+-    pub fn service_tier(&self) -> ::std::option::Option<&crate::types::ServiceTier> {
++    pub fn service_tier(&self) -> ::std::option::Option<&super::types::ServiceTier> {
+         self.service_tier.as_ref()
+     }
+     /// <p>Output configuration for a model response.</p>
+-    pub fn output_config(&self) -> ::std::option::Option<&crate::types::OutputConfig> {
++    pub fn output_config(&self) -> ::std::option::Option<&super::types::OutputConfig> {
+         self.output_config.as_ref()
+     }
+ }
+@@ -145,8 +145,8 @@
+ }
+ impl ConverseInput {
+     /// Creates a new builder-style object to manufacture [`ConverseInput`](crate::operation::converse::ConverseInput).
+-    pub fn builder() -> crate::operation::converse::builders::ConverseInputBuilder {
+-        crate::operation::converse::builders::ConverseInputBuilder::default()
++    pub fn builder() -> super::operation::converse::builders::ConverseInputBuilder {
++        super::operation::converse::builders::ConverseInputBuilder::default()
+     }
+ }
+
+@@ -155,18 +155,18 @@
+ #[non_exhaustive]
+ pub struct ConverseInputBuilder {
+     pub(crate) model_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) messages: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
+-    pub(crate) system: ::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>>,
+-    pub(crate) inference_config: ::std::option::Option<crate::types::InferenceConfiguration>,
+-    pub(crate) tool_config: ::std::option::Option<crate::types::ToolConfiguration>,
+-    pub(crate) guardrail_config: ::std::option::Option<crate::types::GuardrailConfiguration>,
++    pub(crate) messages: ::std::option::Option<::std::vec::Vec<super::types::Message>>,
++    pub(crate) system: ::std::option::Option<::std::vec::Vec<super::types::SystemContentBlock>>,
++    pub(crate) inference_config: ::std::option::Option<super::types::InferenceConfiguration>,
++    pub(crate) tool_config: ::std::option::Option<super::types::ToolConfiguration>,
++    pub(crate) guardrail_config: ::std::option::Option<super::types::GuardrailConfiguration>,
+     pub(crate) additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
+-    pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>>,
++    pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PromptVariableValues>>,
+     pub(crate) additional_model_response_field_paths: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     pub(crate) request_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+-    pub(crate) performance_config: ::std::option::Option<crate::types::PerformanceConfiguration>,
+-    pub(crate) service_tier: ::std::option::Option<crate::types::ServiceTier>,
+-    pub(crate) output_config: ::std::option::Option<crate::types::OutputConfig>,
++    pub(crate) performance_config: ::std::option::Option<super::types::PerformanceConfiguration>,
++    pub(crate) service_tier: ::std::option::Option<super::types::ServiceTier>,
++    pub(crate) output_config: ::std::option::Option<super::types::OutputConfig>,
+ }
+ impl ConverseInputBuilder {
+     /// <p>Specifies the model or throughput with which to run inference, or the prompt resource to use in inference. The value depends on the resource that you use:</p>
+@@ -228,7 +228,7 @@
+     /// To override the contents of this collection use [`set_messages`](Self::set_messages).
+     ///
+     /// <p>The messages that you want to send to the model.</p>
+-    pub fn messages(mut self, input: crate::types::Message) -> Self {
++    pub fn messages(mut self, input: super::types::Message) -> Self {
+         let mut v = self.messages.unwrap_or_default();
+         v.push(input);
+         self.messages = ::std::option::Option::Some(v);
+@@ -235,12 +235,12 @@
+         self
+     }
+     /// <p>The messages that you want to send to the model.</p>
+-    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>) -> Self {
++    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Message>>) -> Self {
+         self.messages = input;
+         self
+     }
+     /// <p>The messages that you want to send to the model.</p>
+-    pub fn get_messages(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Message>> {
++    pub fn get_messages(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Message>> {
+         &self.messages
+     }
+     /// Appends an item to `system`.
+@@ -248,7 +248,7 @@
+     /// To override the contents of this collection use [`set_system`](Self::set_system).
+     ///
+     /// <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
+-    pub fn system(mut self, input: crate::types::SystemContentBlock) -> Self {
++    pub fn system(mut self, input: super::types::SystemContentBlock) -> Self {
+         let mut v = self.system.unwrap_or_default();
+         v.push(input);
+         self.system = ::std::option::Option::Some(v);
+@@ -255,57 +255,57 @@
+         self
+     }
+     /// <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
+-    pub fn set_system(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>>) -> Self {
++    pub fn set_system(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SystemContentBlock>>) -> Self {
+         self.system = input;
+         self
+     }
+     /// <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
+-    pub fn get_system(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>> {
++    pub fn get_system(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SystemContentBlock>> {
+         &self.system
+     }
+     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
+-    pub fn inference_config(mut self, input: crate::types::InferenceConfiguration) -> Self {
++    pub fn inference_config(mut self, input: super::types::InferenceConfiguration) -> Self {
+         self.inference_config = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
+-    pub fn set_inference_config(mut self, input: ::std::option::Option<crate::types::InferenceConfiguration>) -> Self {
++    pub fn set_inference_config(mut self, input: ::std::option::Option<super::types::InferenceConfiguration>) -> Self {
+         self.inference_config = input;
+         self
+     }
+     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
+-    pub fn get_inference_config(&self) -> &::std::option::Option<crate::types::InferenceConfiguration> {
++    pub fn get_inference_config(&self) -> &::std::option::Option<super::types::InferenceConfiguration> {
+         &self.inference_config
+     }
+     /// <p>Configuration information for the tools that the model can use when generating a response.</p>
+     /// <p>For information about models that support tool use, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html#conversation-inference-supported-models-features">Supported models and model features</a>.</p>
+-    pub fn tool_config(mut self, input: crate::types::ToolConfiguration) -> Self {
++    pub fn tool_config(mut self, input: super::types::ToolConfiguration) -> Self {
+         self.tool_config = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Configuration information for the tools that the model can use when generating a response.</p>
+     /// <p>For information about models that support tool use, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html#conversation-inference-supported-models-features">Supported models and model features</a>.</p>
+-    pub fn set_tool_config(mut self, input: ::std::option::Option<crate::types::ToolConfiguration>) -> Self {
++    pub fn set_tool_config(mut self, input: ::std::option::Option<super::types::ToolConfiguration>) -> Self {
+         self.tool_config = input;
+         self
+     }
+     /// <p>Configuration information for the tools that the model can use when generating a response.</p>
+     /// <p>For information about models that support tool use, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html#conversation-inference-supported-models-features">Supported models and model features</a>.</p>
+-    pub fn get_tool_config(&self) -> &::std::option::Option<crate::types::ToolConfiguration> {
++    pub fn get_tool_config(&self) -> &::std::option::Option<super::types::ToolConfiguration> {
+         &self.tool_config
+     }
+     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
+-    pub fn guardrail_config(mut self, input: crate::types::GuardrailConfiguration) -> Self {
++    pub fn guardrail_config(mut self, input: super::types::GuardrailConfiguration) -> Self {
+         self.guardrail_config = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
+-    pub fn set_guardrail_config(mut self, input: ::std::option::Option<crate::types::GuardrailConfiguration>) -> Self {
++    pub fn set_guardrail_config(mut self, input: ::std::option::Option<super::types::GuardrailConfiguration>) -> Self {
+         self.guardrail_config = input;
+         self
+     }
+     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
+-    pub fn get_guardrail_config(&self) -> &::std::option::Option<crate::types::GuardrailConfiguration> {
++    pub fn get_guardrail_config(&self) -> &::std::option::Option<super::types::GuardrailConfiguration> {
+         &self.guardrail_config
+     }
+     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
+@@ -327,7 +327,7 @@
+     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
+     ///
+     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+-    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::PromptVariableValues) -> Self {
++    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::PromptVariableValues) -> Self {
+         let mut hash_map = self.prompt_variables.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.prompt_variables = ::std::option::Option::Some(hash_map);
+@@ -336,7 +336,7 @@
+     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+     pub fn set_prompt_variables(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PromptVariableValues>>,
+     ) -> Self {
+         self.prompt_variables = input;
+         self
+@@ -344,7 +344,7 @@
+     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
+     pub fn get_prompt_variables(
+         &self,
+-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PromptVariableValues>> {
+         &self.prompt_variables
+     }
+     /// Appends an item to `additional_model_response_field_paths`.
+@@ -404,50 +404,50 @@
+         &self.request_metadata
+     }
+     /// <p>Model performance settings for the request.</p>
+-    pub fn performance_config(mut self, input: crate::types::PerformanceConfiguration) -> Self {
++    pub fn performance_config(mut self, input: super::types::PerformanceConfiguration) -> Self {
+         self.performance_config = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Model performance settings for the request.</p>
+-    pub fn set_performance_config(mut self, input: ::std::option::Option<crate::types::PerformanceConfiguration>) -> Self {
++    pub fn set_performance_config(mut self, input: ::std::option::Option<super::types::PerformanceConfiguration>) -> Self {
+         self.performance_config = input;
+         self
+     }
+     /// <p>Model performance settings for the request.</p>
+-    pub fn get_performance_config(&self) -> &::std::option::Option<crate::types::PerformanceConfiguration> {
++    pub fn get_performance_config(&self) -> &::std::option::Option<super::types::PerformanceConfiguration> {
+         &self.performance_config
+     }
+     /// <p>Specifies the processing tier configuration used for serving the request.</p>
+-    pub fn service_tier(mut self, input: crate::types::ServiceTier) -> Self {
++    pub fn service_tier(mut self, input: super::types::ServiceTier) -> Self {
+         self.service_tier = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Specifies the processing tier configuration used for serving the request.</p>
+-    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTier>) -> Self {
++    pub fn set_service_tier(mut self, input: ::std::option::Option<super::types::ServiceTier>) -> Self {
+         self.service_tier = input;
+         self
+     }
+     /// <p>Specifies the processing tier configuration used for serving the request.</p>
+-    pub fn get_service_tier(&self) -> &::std::option::Option<crate::types::ServiceTier> {
++    pub fn get_service_tier(&self) -> &::std::option::Option<super::types::ServiceTier> {
+         &self.service_tier
+     }
+     /// <p>Output configuration for a model response.</p>
+-    pub fn output_config(mut self, input: crate::types::OutputConfig) -> Self {
++    pub fn output_config(mut self, input: super::types::OutputConfig) -> Self {
+         self.output_config = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Output configuration for a model response.</p>
+-    pub fn set_output_config(mut self, input: ::std::option::Option<crate::types::OutputConfig>) -> Self {
++    pub fn set_output_config(mut self, input: ::std::option::Option<super::types::OutputConfig>) -> Self {
+         self.output_config = input;
+         self
+     }
+     /// <p>Output configuration for a model response.</p>
+-    pub fn get_output_config(&self) -> &::std::option::Option<crate::types::OutputConfig> {
++    pub fn get_output_config(&self) -> &::std::option::Option<super::types::OutputConfig> {
+         &self.output_config
+     }
+     /// Consumes the builder and constructs a [`ConverseInput`](crate::operation::converse::ConverseInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::converse::ConverseInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::converse::ConverseInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::converse::ConverseInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::converse::ConverseInput {
+             model_id: self.model_id,
+             messages: self.messages,
+             system: self.system,

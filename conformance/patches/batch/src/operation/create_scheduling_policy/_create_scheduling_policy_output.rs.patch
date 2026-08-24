@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -26,8 +26,8 @@
+ }
+ impl CreateSchedulingPolicyOutput {
+     /// Creates a new builder-style object to manufacture [`CreateSchedulingPolicyOutput`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyOutput).
+-    pub fn builder() -> crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyOutputBuilder {
+-        crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyOutputBuilder::default()
++    pub fn builder() -> super::operation::create_scheduling_policy::builders::CreateSchedulingPolicyOutputBuilder {
++        super::operation::create_scheduling_policy::builders::CreateSchedulingPolicyOutputBuilder::default()
+     }
+ }
+
+@@ -80,8 +80,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CreateSchedulingPolicyOutput`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyOutput).
+-    pub fn build(self) -> crate::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
+-        crate::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
++    pub fn build(self) -> super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
++        super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
+             name: self.name,
+             arn: self.arn,
+             _request_id: self._request_id,

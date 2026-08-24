@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -40,8 +40,8 @@
+ }
+ impl StoredQuery {
+     /// Creates a new builder-style object to manufacture [`StoredQuery`](crate::types::StoredQuery).
+-    pub fn builder() -> crate::types::builders::StoredQueryBuilder {
+-        crate::types::builders::StoredQueryBuilder::default()
++    pub fn builder() -> super::types::builders::StoredQueryBuilder {
++        super::types::builders::StoredQueryBuilder::default()
+     }
+ }
+
+@@ -130,8 +130,8 @@
+     /// Consumes the builder and constructs a [`StoredQuery`](crate::types::StoredQuery).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`query_name`](crate::types::builders::StoredQueryBuilder::query_name)
+-    pub fn build(self) -> ::std::result::Result<crate::types::StoredQuery, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::StoredQuery {
++    pub fn build(self) -> ::std::result::Result<super::types::StoredQuery, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::StoredQuery {
+             query_id: self.query_id,
+             query_arn: self.query_arn,
+             query_name: self.query_name.ok_or_else(|| {

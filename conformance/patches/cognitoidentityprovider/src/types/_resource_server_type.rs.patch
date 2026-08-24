@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -12,7 +12,7 @@
+     /// <p>The name of the resource server.</p>
+     pub name: ::std::option::Option<::std::string::String>,
+     /// <p>A list of scopes that are defined for the resource server.</p>
+-    pub scopes: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>>,
++    pub scopes: ::std::option::Option<::std::vec::Vec<super::types::ResourceServerScopeType>>,
+ }
+ impl ResourceServerType {
+     /// <p>The ID of the user pool that contains the resource server configuration.</p>
+@@ -31,14 +31,14 @@
+     /// <p>A list of scopes that are defined for the resource server.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.scopes.is_none()`.
+-    pub fn scopes(&self) -> &[crate::types::ResourceServerScopeType] {
++    pub fn scopes(&self) -> &[super::types::ResourceServerScopeType] {
+         self.scopes.as_deref().unwrap_or_default()
+     }
+ }
+ impl ResourceServerType {
+     /// Creates a new builder-style object to manufacture [`ResourceServerType`](crate::types::ResourceServerType).
+-    pub fn builder() -> crate::types::builders::ResourceServerTypeBuilder {
+-        crate::types::builders::ResourceServerTypeBuilder::default()
++    pub fn builder() -> super::types::builders::ResourceServerTypeBuilder {
++        super::types::builders::ResourceServerTypeBuilder::default()
+     }
+ }
+
+@@ -49,7 +49,7 @@
+     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
+     pub(crate) identifier: ::std::option::Option<::std::string::String>,
+     pub(crate) name: ::std::option::Option<::std::string::String>,
+-    pub(crate) scopes: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>>,
++    pub(crate) scopes: ::std::option::Option<::std::vec::Vec<super::types::ResourceServerScopeType>>,
+ }
+ impl ResourceServerTypeBuilder {
+     /// <p>The ID of the user pool that contains the resource server configuration.</p>
+@@ -102,7 +102,7 @@
+     /// To override the contents of this collection use [`set_scopes`](Self::set_scopes).
+     ///
+     /// <p>A list of scopes that are defined for the resource server.</p>
+-    pub fn scopes(mut self, input: crate::types::ResourceServerScopeType) -> Self {
++    pub fn scopes(mut self, input: super::types::ResourceServerScopeType) -> Self {
+         let mut v = self.scopes.unwrap_or_default();
+         v.push(input);
+         self.scopes = ::std::option::Option::Some(v);
+@@ -109,17 +109,17 @@
+         self
+     }
+     /// <p>A list of scopes that are defined for the resource server.</p>
+-    pub fn set_scopes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>>) -> Self {
++    pub fn set_scopes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ResourceServerScopeType>>) -> Self {
+         self.scopes = input;
+         self
+     }
+     /// <p>A list of scopes that are defined for the resource server.</p>
+-    pub fn get_scopes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
++    pub fn get_scopes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ResourceServerScopeType>> {
+         &self.scopes
+     }
+     /// Consumes the builder and constructs a [`ResourceServerType`](crate::types::ResourceServerType).
+-    pub fn build(self) -> crate::types::ResourceServerType {
+-        crate::types::ResourceServerType {
++    pub fn build(self) -> super::types::ResourceServerType {
++        super::types::ResourceServerType {
+             user_pool_id: self.user_pool_id,
+             identifier: self.identifier,
+             name: self.name,

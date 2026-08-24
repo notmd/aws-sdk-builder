@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>The raw image bytes for the image. If you use an AWS SDK, you don't need to encode the image bytes in base64.</p>
+     Bytes(::aws_smithy_types::Blob),
+     /// <p>The location of an image object in an Amazon S3 bucket. To see which models support S3 uploads, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html">Supported models and features for Converse</a>.</p>
+-    S3Location(crate::types::S3Location),
++    S3Location(super::types::S3Location),
+     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
+     /// An unknown enum variant
+     ///
+@@ -34,7 +34,7 @@
+     }
+     /// Tries to convert the enum instance into [`S3Location`](crate::types::ImageSource::S3Location), extracting the inner [`S3Location`](crate::types::S3Location).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_s3_location(&self) -> ::std::result::Result<&crate::types::S3Location, &Self> {
++    pub fn as_s3_location(&self) -> ::std::result::Result<&super::types::S3Location, &Self> {
+         if let ImageSource::S3Location(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {

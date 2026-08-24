@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -32,8 +32,8 @@
+ }
+ impl UpdateServiceJobOutput {
+     /// Creates a new builder-style object to manufacture [`UpdateServiceJobOutput`](crate::operation::update_service_job::UpdateServiceJobOutput).
+-    pub fn builder() -> crate::operation::update_service_job::builders::UpdateServiceJobOutputBuilder {
+-        crate::operation::update_service_job::builders::UpdateServiceJobOutputBuilder::default()
++    pub fn builder() -> super::operation::update_service_job::builders::UpdateServiceJobOutputBuilder {
++        super::operation::update_service_job::builders::UpdateServiceJobOutputBuilder::default()
+     }
+ }
+
+@@ -99,8 +99,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UpdateServiceJobOutput`](crate::operation::update_service_job::UpdateServiceJobOutput).
+-    pub fn build(self) -> crate::operation::update_service_job::UpdateServiceJobOutput {
+-        crate::operation::update_service_job::UpdateServiceJobOutput {
++    pub fn build(self) -> super::operation::update_service_job::UpdateServiceJobOutput {
++        super::operation::update_service_job::UpdateServiceJobOutput {
+             job_arn: self.job_arn,
+             job_name: self.job_name,
+             job_id: self.job_id,

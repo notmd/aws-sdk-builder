@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl GetImportJobInput {
+     /// Creates a new builder-style object to manufacture [`GetImportJobInput`](crate::operation::get_import_job::GetImportJobInput).
+-    pub fn builder() -> crate::operation::get_import_job::builders::GetImportJobInputBuilder {
+-        crate::operation::get_import_job::builders::GetImportJobInputBuilder::default()
++    pub fn builder() -> super::operation::get_import_job::builders::GetImportJobInputBuilder {
++        super::operation::get_import_job::builders::GetImportJobInputBuilder::default()
+     }
+ }
+
+@@ -45,7 +45,7 @@
+     /// Consumes the builder and constructs a [`GetImportJobInput`](crate::operation::get_import_job::GetImportJobInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_import_job::GetImportJobInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::get_import_job::GetImportJobInput { job_id: self.job_id })
++    ) -> ::std::result::Result<super::operation::get_import_job::GetImportJobInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::get_import_job::GetImportJobInput { job_id: self.job_id })
+     }
+ }

@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl DescribeIndexPoliciesInput {
+     /// Creates a new builder-style object to manufacture [`DescribeIndexPoliciesInput`](crate::operation::describe_index_policies::DescribeIndexPoliciesInput).
+-    pub fn builder() -> crate::operation::describe_index_policies::builders::DescribeIndexPoliciesInputBuilder {
+-        crate::operation::describe_index_policies::builders::DescribeIndexPoliciesInputBuilder::default()
++    pub fn builder() -> super::operation::describe_index_policies::builders::DescribeIndexPoliciesInputBuilder {
++        super::operation::describe_index_policies::builders::DescribeIndexPoliciesInputBuilder::default()
+     }
+ }
+
+@@ -72,9 +72,9 @@
+     /// Consumes the builder and constructs a [`DescribeIndexPoliciesInput`](crate::operation::describe_index_policies::DescribeIndexPoliciesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::describe_index_policies::DescribeIndexPoliciesInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::describe_index_policies::DescribeIndexPoliciesInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::describe_index_policies::DescribeIndexPoliciesInput {
++        ::std::result::Result::Ok(super::operation::describe_index_policies::DescribeIndexPoliciesInput {
+             log_group_identifiers: self.log_group_identifiers,
+             next_token: self.next_token,
+         })

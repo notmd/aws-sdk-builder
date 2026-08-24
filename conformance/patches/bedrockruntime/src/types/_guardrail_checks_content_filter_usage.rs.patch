@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl GuardrailChecksContentFilterUsage {
+     /// Creates a new builder-style object to manufacture [`GuardrailChecksContentFilterUsage`](crate::types::GuardrailChecksContentFilterUsage).
+-    pub fn builder() -> crate::types::builders::GuardrailChecksContentFilterUsageBuilder {
+-        crate::types::builders::GuardrailChecksContentFilterUsageBuilder::default()
++    pub fn builder() -> super::types::builders::GuardrailChecksContentFilterUsageBuilder {
++        super::types::builders::GuardrailChecksContentFilterUsageBuilder::default()
+     }
+ }
+
+@@ -45,8 +45,8 @@
+     /// Consumes the builder and constructs a [`GuardrailChecksContentFilterUsage`](crate::types::GuardrailChecksContentFilterUsage).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`text_units`](crate::types::builders::GuardrailChecksContentFilterUsageBuilder::text_units)
+-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailChecksContentFilterUsage, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::GuardrailChecksContentFilterUsage {
++    pub fn build(self) -> ::std::result::Result<super::types::GuardrailChecksContentFilterUsage, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::GuardrailChecksContentFilterUsage {
+             text_units: self.text_units.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "text_units",

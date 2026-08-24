@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl GetRepositoryEndpointOutput {
+     /// Creates a new builder-style object to manufacture [`GetRepositoryEndpointOutput`](crate::operation::get_repository_endpoint::GetRepositoryEndpointOutput).
+-    pub fn builder() -> crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder {
+-        crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder::default()
++    pub fn builder() -> super::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder {
++        super::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder::default()
+     }
+ }
+
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetRepositoryEndpointOutput`](crate::operation::get_repository_endpoint::GetRepositoryEndpointOutput).
+-    pub fn build(self) -> crate::operation::get_repository_endpoint::GetRepositoryEndpointOutput {
+-        crate::operation::get_repository_endpoint::GetRepositoryEndpointOutput {
++    pub fn build(self) -> super::operation::get_repository_endpoint::GetRepositoryEndpointOutput {
++        super::operation::get_repository_endpoint::GetRepositoryEndpointOutput {
+             repository_endpoint: self.repository_endpoint,
+             _request_id: self._request_id,
+         }

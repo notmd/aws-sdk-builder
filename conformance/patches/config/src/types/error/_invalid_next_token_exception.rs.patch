@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for InvalidNextTokenException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidNextTokenException {
++impl ::aws_types::request_id::RequestId for super::types::error::InvalidNextTokenException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl InvalidNextTokenException {
+     /// Creates a new builder-style object to manufacture [`InvalidNextTokenException`](crate::types::error::InvalidNextTokenException).
+-    pub fn builder() -> crate::types::error::builders::InvalidNextTokenExceptionBuilder {
+-        crate::types::error::builders::InvalidNextTokenExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::InvalidNextTokenExceptionBuilder {
++        super::types::error::builders::InvalidNextTokenExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`InvalidNextTokenException`](crate::types::error::InvalidNextTokenException).
+-    pub fn build(self) -> crate::types::error::InvalidNextTokenException {
+-        crate::types::error::InvalidNextTokenException {
++    pub fn build(self) -> super::types::error::InvalidNextTokenException {
++        super::types::error::InvalidNextTokenException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

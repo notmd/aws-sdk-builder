@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -19,7 +19,7 @@
+     /// - On success, responds with [`SendEmailOutput`](crate::operation::send_email::SendEmailOutput) with field(s):
+     ///   - [`message_id(Option<String>)`](crate::operation::send_email::SendEmailOutput::message_id): <p>A unique identifier for the message that is generated when the message is accepted.</p><note>  <p>It's possible for Amazon SES to accept a message without sending it. For example, this can happen when the message that you're trying to send has an attachment that contains a virus, or when you send a templated email that contains invalid personalization content.</p> </note>
+     /// - On failure, responds with [`SdkError<SendEmailError>`](crate::operation::send_email::SendEmailError)
+-    pub fn send_email(&self) -> crate::operation::send_email::builders::SendEmailFluentBuilder {
+-        crate::operation::send_email::builders::SendEmailFluentBuilder::new(self.handle.clone())
++    pub fn send_email(&self) -> super::operation::send_email::builders::SendEmailFluentBuilder {
++        super::operation::send_email::builders::SendEmailFluentBuilder::new(self.handle.clone())
+     }
+ }

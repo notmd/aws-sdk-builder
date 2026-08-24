@@ -1,0 +1,68 @@
+--- original
++++ modified
+@@ -5,13 +5,13 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct LimitDefinitionType {
+     /// <p>The class of the limit. For API rate limits, this is <code>API_CATEGORY</code>.</p>
+-    pub limit_class: crate::types::LimitClass,
++    pub limit_class: super::types::LimitClass,
+     /// <p>The attributes that identify the specific limit. For API rate limits, specify the <code>Category</code> key with a value like <code>UserAuthentication</code> or <code>UserCreation</code>.</p>
+     pub attributes: ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+ }
+ impl LimitDefinitionType {
+     /// <p>The class of the limit. For API rate limits, this is <code>API_CATEGORY</code>.</p>
+-    pub fn limit_class(&self) -> &crate::types::LimitClass {
++    pub fn limit_class(&self) -> &super::types::LimitClass {
+         &self.limit_class
+     }
+     /// <p>The attributes that identify the specific limit. For API rate limits, specify the <code>Category</code> key with a value like <code>UserAuthentication</code> or <code>UserCreation</code>.</p>
+@@ -21,8 +21,8 @@
+ }
+ impl LimitDefinitionType {
+     /// Creates a new builder-style object to manufacture [`LimitDefinitionType`](crate::types::LimitDefinitionType).
+-    pub fn builder() -> crate::types::builders::LimitDefinitionTypeBuilder {
+-        crate::types::builders::LimitDefinitionTypeBuilder::default()
++    pub fn builder() -> super::types::builders::LimitDefinitionTypeBuilder {
++        super::types::builders::LimitDefinitionTypeBuilder::default()
+     }
+ }
+
+@@ -30,23 +30,23 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct LimitDefinitionTypeBuilder {
+-    pub(crate) limit_class: ::std::option::Option<crate::types::LimitClass>,
++    pub(crate) limit_class: ::std::option::Option<super::types::LimitClass>,
+     pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+ }
+ impl LimitDefinitionTypeBuilder {
+     /// <p>The class of the limit. For API rate limits, this is <code>API_CATEGORY</code>.</p>
+     /// This field is required.
+-    pub fn limit_class(mut self, input: crate::types::LimitClass) -> Self {
++    pub fn limit_class(mut self, input: super::types::LimitClass) -> Self {
+         self.limit_class = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The class of the limit. For API rate limits, this is <code>API_CATEGORY</code>.</p>
+-    pub fn set_limit_class(mut self, input: ::std::option::Option<crate::types::LimitClass>) -> Self {
++    pub fn set_limit_class(mut self, input: ::std::option::Option<super::types::LimitClass>) -> Self {
+         self.limit_class = input;
+         self
+     }
+     /// <p>The class of the limit. For API rate limits, this is <code>API_CATEGORY</code>.</p>
+-    pub fn get_limit_class(&self) -> &::std::option::Option<crate::types::LimitClass> {
++    pub fn get_limit_class(&self) -> &::std::option::Option<super::types::LimitClass> {
+         &self.limit_class
+     }
+     /// Adds a key-value pair to `attributes`.
+@@ -73,8 +73,8 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`limit_class`](crate::types::builders::LimitDefinitionTypeBuilder::limit_class)
+     /// - [`attributes`](crate::types::builders::LimitDefinitionTypeBuilder::attributes)
+-    pub fn build(self) -> ::std::result::Result<crate::types::LimitDefinitionType, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::LimitDefinitionType {
++    pub fn build(self) -> ::std::result::Result<super::types::LimitDefinitionType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::LimitDefinitionType {
+             limit_class: self.limit_class.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "limit_class",

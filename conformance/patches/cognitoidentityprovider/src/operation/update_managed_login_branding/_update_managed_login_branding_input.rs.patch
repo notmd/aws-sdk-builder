@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -24,7 +24,7 @@
+     /// </ul>
+     pub settings: ::std::option::Option<::aws_smithy_types::Document>,
+     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
+-    pub assets: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>,
++    pub assets: ::std::option::Option<::std::vec::Vec<super::types::AssetType>>,
+ }
+ impl UpdateManagedLoginBrandingInput {
+     /// <p>The ID of the user pool that contains the managed login branding style that you want to update.</p>
+@@ -58,14 +58,14 @@
+     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.assets.is_none()`.
+-    pub fn assets(&self) -> &[crate::types::AssetType] {
++    pub fn assets(&self) -> &[super::types::AssetType] {
+         self.assets.as_deref().unwrap_or_default()
+     }
+ }
+ impl UpdateManagedLoginBrandingInput {
+     /// Creates a new builder-style object to manufacture [`UpdateManagedLoginBrandingInput`](crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput).
+-    pub fn builder() -> crate::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingInputBuilder {
+-        crate::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingInputBuilder::default()
++    pub fn builder() -> super::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingInputBuilder {
++        super::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingInputBuilder::default()
+     }
+ }
+
+@@ -77,7 +77,7 @@
+     pub(crate) managed_login_branding_id: ::std::option::Option<::std::string::String>,
+     pub(crate) use_cognito_provided_values: ::std::option::Option<bool>,
+     pub(crate) settings: ::std::option::Option<::aws_smithy_types::Document>,
+-    pub(crate) assets: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>,
++    pub(crate) assets: ::std::option::Option<::std::vec::Vec<super::types::AssetType>>,
+ }
+ impl UpdateManagedLoginBrandingInputBuilder {
+     /// <p>The ID of the user pool that contains the managed login branding style that you want to update.</p>
+@@ -177,7 +177,7 @@
+     /// To override the contents of this collection use [`set_assets`](Self::set_assets).
+     ///
+     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
+-    pub fn assets(mut self, input: crate::types::AssetType) -> Self {
++    pub fn assets(mut self, input: super::types::AssetType) -> Self {
+         let mut v = self.assets.unwrap_or_default();
+         v.push(input);
+         self.assets = ::std::option::Option::Some(v);
+@@ -184,12 +184,12 @@
+         self
+     }
+     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
+-    pub fn set_assets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>) -> Self {
++    pub fn set_assets(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AssetType>>) -> Self {
+         self.assets = input;
+         self
+     }
+     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
+-    pub fn get_assets(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssetType>> {
++    pub fn get_assets(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AssetType>> {
+         &self.assets
+     }
+     /// Consumes the builder and constructs a [`UpdateManagedLoginBrandingInput`](crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput).
+@@ -196,10 +196,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput,
++        super::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput {
++        ::std::result::Result::Ok(super::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput {
+             user_pool_id: self.user_pool_id,
+             managed_login_branding_id: self.managed_login_branding_id,
+             use_cognito_provided_values: self.use_cognito_provided_values,

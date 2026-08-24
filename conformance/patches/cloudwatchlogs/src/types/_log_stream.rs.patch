@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -69,8 +69,8 @@
+ }
+ impl LogStream {
+     /// Creates a new builder-style object to manufacture [`LogStream`](crate::types::LogStream).
+-    pub fn builder() -> crate::types::builders::LogStreamBuilder {
+-        crate::types::builders::LogStreamBuilder::default()
++    pub fn builder() -> super::types::builders::LogStreamBuilder {
++        super::types::builders::LogStreamBuilder::default()
+     }
+ }
+
+@@ -219,8 +219,8 @@
+         &self.stored_bytes
+     }
+     /// Consumes the builder and constructs a [`LogStream`](crate::types::LogStream).
+-    pub fn build(self) -> crate::types::LogStream {
+-        crate::types::LogStream {
++    pub fn build(self) -> super::types::LogStream {
++        super::types::LogStream {
+             log_stream_name: self.log_stream_name,
+             creation_time: self.creation_time,
+             first_event_timestamp: self.first_event_timestamp,

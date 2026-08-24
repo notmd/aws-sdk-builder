@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ConfigExportDeliveryInfo {
+     /// <p>Status of the last attempted delivery.</p>
+-    pub last_status: ::std::option::Option<crate::types::DeliveryStatus>,
++    pub last_status: ::std::option::Option<super::types::DeliveryStatus>,
+     /// <p>The error code from the last attempted delivery.</p>
+     pub last_error_code: ::std::option::Option<::std::string::String>,
+     /// <p>The error message from the last attempted delivery.</p>
+@@ -19,7 +19,7 @@
+ }
+ impl ConfigExportDeliveryInfo {
+     /// <p>Status of the last attempted delivery.</p>
+-    pub fn last_status(&self) -> ::std::option::Option<&crate::types::DeliveryStatus> {
++    pub fn last_status(&self) -> ::std::option::Option<&super::types::DeliveryStatus> {
+         self.last_status.as_ref()
+     }
+     /// <p>The error code from the last attempted delivery.</p>
+@@ -45,8 +45,8 @@
+ }
+ impl ConfigExportDeliveryInfo {
+     /// Creates a new builder-style object to manufacture [`ConfigExportDeliveryInfo`](crate::types::ConfigExportDeliveryInfo).
+-    pub fn builder() -> crate::types::builders::ConfigExportDeliveryInfoBuilder {
+-        crate::types::builders::ConfigExportDeliveryInfoBuilder::default()
++    pub fn builder() -> super::types::builders::ConfigExportDeliveryInfoBuilder {
++        super::types::builders::ConfigExportDeliveryInfoBuilder::default()
+     }
+ }
+
+@@ -54,7 +54,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ConfigExportDeliveryInfoBuilder {
+-    pub(crate) last_status: ::std::option::Option<crate::types::DeliveryStatus>,
++    pub(crate) last_status: ::std::option::Option<super::types::DeliveryStatus>,
+     pub(crate) last_error_code: ::std::option::Option<::std::string::String>,
+     pub(crate) last_error_message: ::std::option::Option<::std::string::String>,
+     pub(crate) last_attempt_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+@@ -63,17 +63,17 @@
+ }
+ impl ConfigExportDeliveryInfoBuilder {
+     /// <p>Status of the last attempted delivery.</p>
+-    pub fn last_status(mut self, input: crate::types::DeliveryStatus) -> Self {
++    pub fn last_status(mut self, input: super::types::DeliveryStatus) -> Self {
+         self.last_status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Status of the last attempted delivery.</p>
+-    pub fn set_last_status(mut self, input: ::std::option::Option<crate::types::DeliveryStatus>) -> Self {
++    pub fn set_last_status(mut self, input: ::std::option::Option<super::types::DeliveryStatus>) -> Self {
+         self.last_status = input;
+         self
+     }
+     /// <p>Status of the last attempted delivery.</p>
+-    pub fn get_last_status(&self) -> &::std::option::Option<crate::types::DeliveryStatus> {
++    pub fn get_last_status(&self) -> &::std::option::Option<super::types::DeliveryStatus> {
+         &self.last_status
+     }
+     /// <p>The error code from the last attempted delivery.</p>
+@@ -147,8 +147,8 @@
+         &self.next_delivery_time
+     }
+     /// Consumes the builder and constructs a [`ConfigExportDeliveryInfo`](crate::types::ConfigExportDeliveryInfo).
+-    pub fn build(self) -> crate::types::ConfigExportDeliveryInfo {
+-        crate::types::ConfigExportDeliveryInfo {
++    pub fn build(self) -> super::types::ConfigExportDeliveryInfo {
++        super::types::ConfigExportDeliveryInfo {
+             last_status: self.last_status,
+             last_error_code: self.last_error_code,
+             last_error_message: self.last_error_message,

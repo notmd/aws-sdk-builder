@@ -1,0 +1,162 @@
+--- original
++++ modified
+@@ -5,28 +5,28 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::list_tags_for_resource::ListTagsForResourceOutput,
+-    crate::operation::list_tags_for_resource::ListTagsForResourceError,
++    super::operation::list_tags_for_resource::ListTagsForResourceOutput,
++    super::operation::list_tags_for_resource::ListTagsForResourceError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(generic)),
++        None => return Err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidLimitException" => crate::operation::list_tags_for_resource::ListTagsForResourceError::InvalidLimitException({
++        "InvalidLimitException" => super::operation::list_tags_for_resource::ListTagsForResourceError::InvalidLimitException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidLimitExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidLimitExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
++                    .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InvalidNextTokenException" => crate::operation::list_tags_for_resource::ListTagsForResourceError::InvalidNextTokenException({
++        "InvalidNextTokenException" => super::operation::list_tags_for_resource::ListTagsForResourceError::InvalidNextTokenException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidNextTokenExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
++                    .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "ResourceNotFoundException" => crate::operation::list_tags_for_resource::ListTagsForResourceError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::operation::list_tags_for_resource::ListTagsForResourceError::ResourceNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
++                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,13 +65,13 @@
+             }
+             tmp
+         }),
+-        "ValidationException" => crate::operation::list_tags_for_resource::ListTagsForResourceError::ValidationException({
++        "ValidationException" => super::operation::list_tags_for_resource::ListTagsForResourceError::ValidationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
++                let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
++                output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                    .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -80,7 +80,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
++        _ => super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
+     })
+ }
+
+@@ -90,14 +90,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::list_tags_for_resource::ListTagsForResourceOutput,
+-    crate::operation::list_tags_for_resource::ListTagsForResourceError,
++    super::operation::list_tags_for_resource::ListTagsForResourceOutput,
++    super::operation::list_tags_for_resource::ListTagsForResourceError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::default();
+-        output = crate::protocol_serde::shape_list_tags_for_resource::de_list_tags_for_resource(_response_body, output)
+-            .map_err(crate::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
++        let mut output = super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::default();
++        output = super::protocol_serde::shape_list_tags_for_resource::de_list_tags_for_resource(_response_body, output)
++            .map_err(super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -104,11 +104,11 @@
+ }
+
+ pub fn ser_list_tags_for_resource_input(
+-    input: &crate::operation::list_tags_for_resource::ListTagsForResourceInput,
++    input: &super::operation::list_tags_for_resource::ListTagsForResourceInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -115,12 +115,12 @@
+
+ pub(crate) fn de_list_tags_for_resource(
+     _value: &[u8],
+-    mut builder: crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,
++    mut builder: super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,
++    super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;
+@@ -130,7 +130,7 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "Tags" => {
+-                    builder = builder.set_tags(crate::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
++                    builder = builder.set_tags(super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                 }
+                 "NextToken" => {
+                     builder = builder.set_next_token(

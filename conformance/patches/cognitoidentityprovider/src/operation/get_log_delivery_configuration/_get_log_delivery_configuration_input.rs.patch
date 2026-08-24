@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl GetLogDeliveryConfigurationInput {
+     /// Creates a new builder-style object to manufacture [`GetLogDeliveryConfigurationInput`](crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationInput).
+-    pub fn builder() -> crate::operation::get_log_delivery_configuration::builders::GetLogDeliveryConfigurationInputBuilder {
+-        crate::operation::get_log_delivery_configuration::builders::GetLogDeliveryConfigurationInputBuilder::default()
++    pub fn builder() -> super::operation::get_log_delivery_configuration::builders::GetLogDeliveryConfigurationInputBuilder {
++        super::operation::get_log_delivery_configuration::builders::GetLogDeliveryConfigurationInputBuilder::default()
+     }
+ }
+
+@@ -45,10 +45,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationInput,
++        super::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationInput {
++        ::std::result::Result::Ok(super::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationInput {
+             user_pool_id: self.user_pool_id,
+         })
+     }

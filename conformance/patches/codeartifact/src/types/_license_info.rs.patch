@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl LicenseInfo {
+     /// Creates a new builder-style object to manufacture [`LicenseInfo`](crate::types::LicenseInfo).
+-    pub fn builder() -> crate::types::builders::LicenseInfoBuilder {
+-        crate::types::builders::LicenseInfoBuilder::default()
++    pub fn builder() -> super::types::builders::LicenseInfoBuilder {
++        super::types::builders::LicenseInfoBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.url
+     }
+     /// Consumes the builder and constructs a [`LicenseInfo`](crate::types::LicenseInfo).
+-    pub fn build(self) -> crate::types::LicenseInfo {
+-        crate::types::LicenseInfo {
++    pub fn build(self) -> super::types::LicenseInfo {
++        super::types::LicenseInfo {
+             name: self.name,
+             url: self.url,
+         }

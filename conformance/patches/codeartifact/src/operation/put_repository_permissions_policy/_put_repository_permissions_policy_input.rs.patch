@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -38,8 +38,8 @@
+ }
+ impl PutRepositoryPermissionsPolicyInput {
+     /// Creates a new builder-style object to manufacture [`PutRepositoryPermissionsPolicyInput`](crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput).
+-    pub fn builder() -> crate::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyInputBuilder {
+-        crate::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyInputBuilder::default()
++    pub fn builder() -> super::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyInputBuilder {
++        super::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyInputBuilder::default()
+     }
+ }
+
+@@ -131,10 +131,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput,
++        super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput {
++        ::std::result::Result::Ok(super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+             repository: self.repository,

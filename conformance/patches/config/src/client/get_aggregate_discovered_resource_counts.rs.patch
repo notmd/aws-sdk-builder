@@ -1,0 +1,13 @@
+--- original
++++ modified
+@@ -17,8 +17,8 @@
+     /// - On failure, responds with [`SdkError<GetAggregateDiscoveredResourceCountsError>`](crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError)
+     pub fn get_aggregate_discovered_resource_counts(
+         &self,
+-    ) -> crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder {
+-        crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::new(
++    ) -> super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder {
++        super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::new(
+             self.handle.clone(),
+         )
+     }

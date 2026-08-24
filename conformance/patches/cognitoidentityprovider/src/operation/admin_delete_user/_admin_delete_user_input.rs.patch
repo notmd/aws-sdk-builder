@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -29,8 +29,8 @@
+ }
+ impl AdminDeleteUserInput {
+     /// Creates a new builder-style object to manufacture [`AdminDeleteUserInput`](crate::operation::admin_delete_user::AdminDeleteUserInput).
+-    pub fn builder() -> crate::operation::admin_delete_user::builders::AdminDeleteUserInputBuilder {
+-        crate::operation::admin_delete_user::builders::AdminDeleteUserInputBuilder::default()
++    pub fn builder() -> super::operation::admin_delete_user::builders::AdminDeleteUserInputBuilder {
++        super::operation::admin_delete_user::builders::AdminDeleteUserInputBuilder::default()
+     }
+ }
+
+@@ -75,8 +75,8 @@
+     /// Consumes the builder and constructs a [`AdminDeleteUserInput`](crate::operation::admin_delete_user::AdminDeleteUserInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::admin_delete_user::AdminDeleteUserInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::admin_delete_user::AdminDeleteUserInput {
++    ) -> ::std::result::Result<super::operation::admin_delete_user::AdminDeleteUserInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::admin_delete_user::AdminDeleteUserInput {
+             user_pool_id: self.user_pool_id,
+             username: self.username,
+         })

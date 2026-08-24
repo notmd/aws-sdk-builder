@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -4,12 +4,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GetTokensFromRefreshTokenOutput {
+     /// <p>The object that your application receives after authentication. Contains tokens and information for device authentication.</p>
+-    pub authentication_result: ::std::option::Option<crate::types::AuthenticationResultType>,
++    pub authentication_result: ::std::option::Option<super::types::AuthenticationResultType>,
+     _request_id: Option<String>,
+ }
+ impl GetTokensFromRefreshTokenOutput {
+     /// <p>The object that your application receives after authentication. Contains tokens and information for device authentication.</p>
+-    pub fn authentication_result(&self) -> ::std::option::Option<&crate::types::AuthenticationResultType> {
++    pub fn authentication_result(&self) -> ::std::option::Option<&super::types::AuthenticationResultType> {
+         self.authentication_result.as_ref()
+     }
+ }
+@@ -20,8 +20,8 @@
+ }
+ impl GetTokensFromRefreshTokenOutput {
+     /// Creates a new builder-style object to manufacture [`GetTokensFromRefreshTokenOutput`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput).
+-    pub fn builder() -> crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenOutputBuilder {
+-        crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenOutputBuilder::default()
++    pub fn builder() -> super::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenOutputBuilder {
++        super::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenOutputBuilder::default()
+     }
+ }
+
+@@ -29,22 +29,22 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GetTokensFromRefreshTokenOutputBuilder {
+-    pub(crate) authentication_result: ::std::option::Option<crate::types::AuthenticationResultType>,
++    pub(crate) authentication_result: ::std::option::Option<super::types::AuthenticationResultType>,
+     _request_id: Option<String>,
+ }
+ impl GetTokensFromRefreshTokenOutputBuilder {
+     /// <p>The object that your application receives after authentication. Contains tokens and information for device authentication.</p>
+-    pub fn authentication_result(mut self, input: crate::types::AuthenticationResultType) -> Self {
++    pub fn authentication_result(mut self, input: super::types::AuthenticationResultType) -> Self {
+         self.authentication_result = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The object that your application receives after authentication. Contains tokens and information for device authentication.</p>
+-    pub fn set_authentication_result(mut self, input: ::std::option::Option<crate::types::AuthenticationResultType>) -> Self {
++    pub fn set_authentication_result(mut self, input: ::std::option::Option<super::types::AuthenticationResultType>) -> Self {
+         self.authentication_result = input;
+         self
+     }
+     /// <p>The object that your application receives after authentication. Contains tokens and information for device authentication.</p>
+-    pub fn get_authentication_result(&self) -> &::std::option::Option<crate::types::AuthenticationResultType> {
++    pub fn get_authentication_result(&self) -> &::std::option::Option<super::types::AuthenticationResultType> {
+         &self.authentication_result
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetTokensFromRefreshTokenOutput`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput).
+-    pub fn build(self) -> crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput {
+-        crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput {
++    pub fn build(self) -> super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput {
++        super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput {
+             authentication_result: self.authentication_result,
+             _request_id: self._request_id,
+         }

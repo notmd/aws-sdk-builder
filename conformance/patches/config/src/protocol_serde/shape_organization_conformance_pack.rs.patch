@@ -1,0 +1,47 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::OrganizationConformancePack>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::OrganizationConformancePack>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::OrganizationConformancePackBuilder::default();
++            let mut builder = super::types::builders::OrganizationConformancePackBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -51,7 +51,7 @@
+                         }
+                         "ConformancePackInputParameters" => {
+                             builder = builder.set_conformance_pack_input_parameters(
+-                                crate::protocol_serde::shape_conformance_pack_input_parameters::de_conformance_pack_input_parameters(
++                                super::protocol_serde::shape_conformance_pack_input_parameters::de_conformance_pack_input_parameters(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -59,7 +59,7 @@
+                             );
+                         }
+                         "ExcludedAccounts" => {
+-                            builder = builder.set_excluded_accounts(crate::protocol_serde::shape_excluded_accounts::de_excluded_accounts(
++                            builder = builder.set_excluded_accounts(super::protocol_serde::shape_excluded_accounts::de_excluded_accounts(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -81,7 +81,7 @@
+                 }
+             }
+             Ok(Some(
+-                crate::serde_util::organization_conformance_pack_correct_errors(builder)
++                super::serde_util::organization_conformance_pack_correct_errors(builder)
+                     .build()
+                     .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
+             ))

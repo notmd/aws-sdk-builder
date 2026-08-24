@@ -1,0 +1,38 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::ServiceResourceId>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::ServiceResourceId>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::ServiceResourceIdBuilder::default();
++            let mut builder = super::types::builders::ServiceResourceIdBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -24,7 +24,7 @@
+                         "name" => {
+                             builder = builder.set_name(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ServiceResourceIdName::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::ServiceResourceIdName::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+@@ -44,7 +44,7 @@
+                     }
+                 }
+             }
+-            Ok(Some(crate::serde_util::service_resource_id_correct_errors(builder).build()))
++            Ok(Some(super::serde_util::service_resource_id_correct_errors(builder).build()))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",

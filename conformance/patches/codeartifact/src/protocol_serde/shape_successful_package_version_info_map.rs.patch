@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+     _value: &'a [u8],
+     depth: u32,
+ ) -> ::std::result::Result<
+-    Option<::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>>,
++    Option<::std::collections::HashMap<::std::string::String, super::types::SuccessfulPackageVersionInfo>>,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ >
+ where
+@@ -24,7 +24,7 @@
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                         let key = key.to_unescaped().map(|u| u.into_owned())?;
+-                        let value = crate::protocol_serde::shape_successful_package_version_info::de_successful_package_version_info(
++                        let value = super::protocol_serde::shape_successful_package_version_info::de_successful_package_version_info(
+                             tokens,
+                             _value,
+                             depth + 1,

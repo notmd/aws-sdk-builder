@@ -1,0 +1,146 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     /// <li>
+     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
+     /// </ul>
+-    pub suppressed_reasons: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
++    pub suppressed_reasons: ::std::option::Option<::std::vec::Vec<super::types::SuppressionListReason>>,
+     /// <p>The suppression scope for the configuration set. This overrides the tenant or account suppression scope for emails sent using this configuration set. Can be one of the following:</p>
+     /// <ul>
+     /// <li>
+@@ -19,9 +19,9 @@
+     /// <li>
+     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
+     /// </ul>
+-    pub suppression_scope: ::std::option::Option<crate::types::SuppressionListScope>,
++    pub suppression_scope: ::std::option::Option<super::types::SuppressionListScope>,
+     /// <p>Contains validation options for email address suppression.</p>
+-    pub validation_options: ::std::option::Option<crate::types::SuppressionValidationOptions>,
++    pub validation_options: ::std::option::Option<super::types::SuppressionValidationOptions>,
+ }
+ impl SuppressionOptions {
+     /// <p>A list that contains the reasons that email addresses are automatically added to the suppression list for your account or for a specific tenant. This list can contain any or all of the following:</p>
+@@ -33,7 +33,7 @@
+     /// </ul>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.suppressed_reasons.is_none()`.
+-    pub fn suppressed_reasons(&self) -> &[crate::types::SuppressionListReason] {
++    pub fn suppressed_reasons(&self) -> &[super::types::SuppressionListReason] {
+         self.suppressed_reasons.as_deref().unwrap_or_default()
+     }
+     /// <p>The suppression scope for the configuration set. This overrides the tenant or account suppression scope for emails sent using this configuration set. Can be one of the following:</p>
+@@ -43,18 +43,18 @@
+     /// <li>
+     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
+     /// </ul>
+-    pub fn suppression_scope(&self) -> ::std::option::Option<&crate::types::SuppressionListScope> {
++    pub fn suppression_scope(&self) -> ::std::option::Option<&super::types::SuppressionListScope> {
+         self.suppression_scope.as_ref()
+     }
+     /// <p>Contains validation options for email address suppression.</p>
+-    pub fn validation_options(&self) -> ::std::option::Option<&crate::types::SuppressionValidationOptions> {
++    pub fn validation_options(&self) -> ::std::option::Option<&super::types::SuppressionValidationOptions> {
+         self.validation_options.as_ref()
+     }
+ }
+ impl SuppressionOptions {
+     /// Creates a new builder-style object to manufacture [`SuppressionOptions`](crate::types::SuppressionOptions).
+-    pub fn builder() -> crate::types::builders::SuppressionOptionsBuilder {
+-        crate::types::builders::SuppressionOptionsBuilder::default()
++    pub fn builder() -> super::types::builders::SuppressionOptionsBuilder {
++        super::types::builders::SuppressionOptionsBuilder::default()
+     }
+ }
+
+@@ -62,9 +62,9 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct SuppressionOptionsBuilder {
+-    pub(crate) suppressed_reasons: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
+-    pub(crate) suppression_scope: ::std::option::Option<crate::types::SuppressionListScope>,
+-    pub(crate) validation_options: ::std::option::Option<crate::types::SuppressionValidationOptions>,
++    pub(crate) suppressed_reasons: ::std::option::Option<::std::vec::Vec<super::types::SuppressionListReason>>,
++    pub(crate) suppression_scope: ::std::option::Option<super::types::SuppressionListScope>,
++    pub(crate) validation_options: ::std::option::Option<super::types::SuppressionValidationOptions>,
+ }
+ impl SuppressionOptionsBuilder {
+     /// Appends an item to `suppressed_reasons`.
+@@ -78,7 +78,7 @@
+     /// <li>
+     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
+     /// </ul>
+-    pub fn suppressed_reasons(mut self, input: crate::types::SuppressionListReason) -> Self {
++    pub fn suppressed_reasons(mut self, input: super::types::SuppressionListReason) -> Self {
+         let mut v = self.suppressed_reasons.unwrap_or_default();
+         v.push(input);
+         self.suppressed_reasons = ::std::option::Option::Some(v);
+@@ -91,7 +91,7 @@
+     /// <li>
+     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
+     /// </ul>
+-    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>) -> Self {
++    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SuppressionListReason>>) -> Self {
+         self.suppressed_reasons = input;
+         self
+     }
+@@ -102,7 +102,7 @@
+     /// <li>
+     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
+     /// </ul>
+-    pub fn get_suppressed_reasons(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>> {
++    pub fn get_suppressed_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SuppressionListReason>> {
+         &self.suppressed_reasons
+     }
+     /// <p>The suppression scope for the configuration set. This overrides the tenant or account suppression scope for emails sent using this configuration set. Can be one of the following:</p>
+@@ -112,7 +112,7 @@
+     /// <li>
+     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
+     /// </ul>
+-    pub fn suppression_scope(mut self, input: crate::types::SuppressionListScope) -> Self {
++    pub fn suppression_scope(mut self, input: super::types::SuppressionListScope) -> Self {
+         self.suppression_scope = ::std::option::Option::Some(input);
+         self
+     }
+@@ -123,7 +123,7 @@
+     /// <li>
+     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
+     /// </ul>
+-    pub fn set_suppression_scope(mut self, input: ::std::option::Option<crate::types::SuppressionListScope>) -> Self {
++    pub fn set_suppression_scope(mut self, input: ::std::option::Option<super::types::SuppressionListScope>) -> Self {
+         self.suppression_scope = input;
+         self
+     }
+@@ -134,26 +134,26 @@
+     /// <li>
+     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
+     /// </ul>
+-    pub fn get_suppression_scope(&self) -> &::std::option::Option<crate::types::SuppressionListScope> {
++    pub fn get_suppression_scope(&self) -> &::std::option::Option<super::types::SuppressionListScope> {
+         &self.suppression_scope
+     }
+     /// <p>Contains validation options for email address suppression.</p>
+-    pub fn validation_options(mut self, input: crate::types::SuppressionValidationOptions) -> Self {
++    pub fn validation_options(mut self, input: super::types::SuppressionValidationOptions) -> Self {
+         self.validation_options = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Contains validation options for email address suppression.</p>
+-    pub fn set_validation_options(mut self, input: ::std::option::Option<crate::types::SuppressionValidationOptions>) -> Self {
++    pub fn set_validation_options(mut self, input: ::std::option::Option<super::types::SuppressionValidationOptions>) -> Self {
+         self.validation_options = input;
+         self
+     }
+     /// <p>Contains validation options for email address suppression.</p>
+-    pub fn get_validation_options(&self) -> &::std::option::Option<crate::types::SuppressionValidationOptions> {
++    pub fn get_validation_options(&self) -> &::std::option::Option<super::types::SuppressionValidationOptions> {
+         &self.validation_options
+     }
+     /// Consumes the builder and constructs a [`SuppressionOptions`](crate::types::SuppressionOptions).
+-    pub fn build(self) -> crate::types::SuppressionOptions {
+-        crate::types::SuppressionOptions {
++    pub fn build(self) -> super::types::SuppressionOptions {
++        super::types::SuppressionOptions {
+             suppressed_reasons: self.suppressed_reasons,
+             suppression_scope: self.suppression_scope,
+             validation_options: self.validation_options,

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl ImportStatistics {
+     /// Creates a new builder-style object to manufacture [`ImportStatistics`](crate::types::ImportStatistics).
+-    pub fn builder() -> crate::types::builders::ImportStatisticsBuilder {
+-        crate::types::builders::ImportStatisticsBuilder::default()
++    pub fn builder() -> super::types::builders::ImportStatisticsBuilder {
++        super::types::builders::ImportStatisticsBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+         &self.bytes_imported
+     }
+     /// Consumes the builder and constructs a [`ImportStatistics`](crate::types::ImportStatistics).
+-    pub fn build(self) -> crate::types::ImportStatistics {
+-        crate::types::ImportStatistics {
++    pub fn build(self) -> super::types::ImportStatistics {
++        super::types::ImportStatistics {
+             bytes_imported: self.bytes_imported,
+         }
+     }

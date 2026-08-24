@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -26,8 +26,8 @@
+ }
+ impl UpdateServiceEnvironmentOutput {
+     /// Creates a new builder-style object to manufacture [`UpdateServiceEnvironmentOutput`](crate::operation::update_service_environment::UpdateServiceEnvironmentOutput).
+-    pub fn builder() -> crate::operation::update_service_environment::builders::UpdateServiceEnvironmentOutputBuilder {
+-        crate::operation::update_service_environment::builders::UpdateServiceEnvironmentOutputBuilder::default()
++    pub fn builder() -> super::operation::update_service_environment::builders::UpdateServiceEnvironmentOutputBuilder {
++        super::operation::update_service_environment::builders::UpdateServiceEnvironmentOutputBuilder::default()
+     }
+ }
+
+@@ -80,8 +80,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UpdateServiceEnvironmentOutput`](crate::operation::update_service_environment::UpdateServiceEnvironmentOutput).
+-    pub fn build(self) -> crate::operation::update_service_environment::UpdateServiceEnvironmentOutput {
+-        crate::operation::update_service_environment::UpdateServiceEnvironmentOutput {
++    pub fn build(self) -> super::operation::update_service_environment::UpdateServiceEnvironmentOutput {
++        super::operation::update_service_environment::UpdateServiceEnvironmentOutput {
+             service_environment_name: self.service_environment_name,
+             service_environment_arn: self.service_environment_arn,
+             _request_id: self._request_id,

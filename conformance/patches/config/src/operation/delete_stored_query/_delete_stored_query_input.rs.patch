@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl DeleteStoredQueryInput {
+     /// Creates a new builder-style object to manufacture [`DeleteStoredQueryInput`](crate::operation::delete_stored_query::DeleteStoredQueryInput).
+-    pub fn builder() -> crate::operation::delete_stored_query::builders::DeleteStoredQueryInputBuilder {
+-        crate::operation::delete_stored_query::builders::DeleteStoredQueryInputBuilder::default()
++    pub fn builder() -> super::operation::delete_stored_query::builders::DeleteStoredQueryInputBuilder {
++        super::operation::delete_stored_query::builders::DeleteStoredQueryInputBuilder::default()
+     }
+ }
+
+@@ -44,7 +44,7 @@
+     /// Consumes the builder and constructs a [`DeleteStoredQueryInput`](crate::operation::delete_stored_query::DeleteStoredQueryInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::delete_stored_query::DeleteStoredQueryInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::delete_stored_query::DeleteStoredQueryInput { query_name: self.query_name })
++    ) -> ::std::result::Result<super::operation::delete_stored_query::DeleteStoredQueryInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::delete_stored_query::DeleteStoredQueryInput { query_name: self.query_name })
+     }
+ }

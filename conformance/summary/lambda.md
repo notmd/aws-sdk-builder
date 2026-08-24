@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1131/1131` files compared · `821` matched · `251` mismatches · `4` missing · `55` extra · `72.59%` match (100.00% means fully matched)
+**Progress:** `1130/1130` files compared · `821` matched · `251` mismatches · `4` missing · `54` extra · `72.65%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -14431,7 +14431,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_invalid_code_signature_exception;
 
  pub(crate) mod shape_invalid_parameter_value_exception;
-@@ -295,10 +347,12 @@
+@@ -295,9 +347,11 @@
 
  pub(crate) mod shape_invalid_zip_file_exception;
 
@@ -14440,12 +14440,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 -pub(crate) mod shape_invoke_with_response_stream_output;
 +pub(crate) mod shape_invoke_input;
-
-+pub(crate) mod shape_invoke_with_response_stream_input;
 +
++pub(crate) mod shape_invoke_with_response_stream_input;
+
  pub(crate) mod shape_kms_access_denied_exception;
 
- pub(crate) mod shape_kms_disabled_exception;
 @@ -307,6 +361,36 @@
 
  pub(crate) mod shape_kms_not_found_exception;
@@ -14538,25 +14537,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_account_limit;
 
  pub(crate) mod shape_account_usage;
-@@ -505,6 +597,8 @@
+@@ -505,6 +597,10 @@
 
  pub(crate) mod shape_instance_requirements;
 
-+pub(crate) mod shape_invoke_with_response_stream_response_event;
++pub(crate) mod shape_invoke_response_stream_update;
++
++pub(crate) mod shape_invoke_with_response_stream_complete_event;
 +
  pub(crate) mod shape_layer_version_content_input;
 
  pub(crate) mod shape_layer_version_content_output;
-@@ -609,6 +703,8 @@
+@@ -609,8 +705,6 @@
 
  pub(crate) mod shape_image_config_error;
 
-+pub(crate) mod shape_invoke_response_stream_update;
-+
- pub(crate) mod shape_invoke_with_response_stream_complete_event;
-
+-pub(crate) mod shape_invoke_with_response_stream_complete_event;
+-
  pub(crate) mod shape_kafka_schema_registry_config;
-@@ -677,8 +773,6 @@
+
+ pub(crate) mod shape_lambda_managed_instances_capacity_provider_config;
+@@ -677,8 +771,6 @@
 
  pub(crate) mod shape_context_failed_details;
 
@@ -14565,7 +14566,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_context_succeeded_details;
 
  pub(crate) mod shape_endpoint_lists;
-@@ -713,8 +807,6 @@
+@@ -713,8 +805,6 @@
 
  pub(crate) mod shape_step_failed_details;
 
@@ -15471,7 +15472,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_get_resource_policy_input.rs`
 - `src/protocol_serde/shape_get_runtime_management_config_input.rs`
 - `src/protocol_serde/shape_invoke_response_stream_update.rs`
-- `src/protocol_serde/shape_invoke_with_response_stream_response_event.rs`
 - `src/protocol_serde/shape_list_aliases_input.rs`
 - `src/protocol_serde/shape_list_capacity_providers_input.rs`
 - `src/protocol_serde/shape_list_code_signing_configs_input.rs`

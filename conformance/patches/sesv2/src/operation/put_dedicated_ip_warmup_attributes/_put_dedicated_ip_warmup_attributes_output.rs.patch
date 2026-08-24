@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl PutDedicatedIpWarmupAttributesOutput {
+     /// Creates a new builder-style object to manufacture [`PutDedicatedIpWarmupAttributesOutput`](crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesOutput).
+-    pub fn builder() -> crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesOutputBuilder {
+-        crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesOutputBuilder::default()
++    pub fn builder() -> super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesOutputBuilder {
++        super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutDedicatedIpWarmupAttributesOutput`](crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesOutput).
+-    pub fn build(self) -> crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesOutput {
+-        crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesOutput {
++    pub fn build(self) -> super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesOutput {
++        super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesOutput {
+             _request_id: self._request_id,
+         }
+     }

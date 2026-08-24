@@ -1,0 +1,47 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::SmsMfaConfigType>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::SmsMfaConfigType>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::SmsMfaConfigTypeBuilder::default();
++            let mut builder = super::types::builders::SmsMfaConfigTypeBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -31,7 +31,7 @@
+                             }
+                             "SmsConfiguration" => {
+                                 builder = builder.set_sms_configuration(
+-                                    crate::protocol_serde::shape_sms_configuration_type::de_sms_configuration_type(tokens, _value, depth + 1)?,
++                                    super::protocol_serde::shape_sms_configuration_type::de_sms_configuration_type(tokens, _value, depth + 1)?,
+                                 );
+                             }
+                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+@@ -54,7 +54,7 @@
+
+ pub fn ser_sms_mfa_config_type(
+     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
+-    input: &crate::types::SmsMfaConfigType,
++    input: &super::types::SmsMfaConfigType,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     if let Some(var_1) = &input.sms_authentication_message {
+         object.key("SmsAuthenticationMessage").string(var_1.as_str());
+@@ -62,7 +62,7 @@
+     if let Some(var_2) = &input.sms_configuration {
+         #[allow(unused_mut)]
+         let mut object_3 = object.key("SmsConfiguration").start_object();
+-        crate::protocol_serde::shape_sms_configuration_type::ser_sms_configuration_type(&mut object_3, var_2)?;
++        super::protocol_serde::shape_sms_configuration_type::ser_sms_configuration_type(&mut object_3, var_2)?;
+         object_3.finish();
+     }
+     Ok(())

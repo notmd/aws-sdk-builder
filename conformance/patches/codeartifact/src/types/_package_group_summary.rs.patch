@@ -1,0 +1,93 @@
+--- original
++++ modified
+@@ -19,9 +19,9 @@
+     /// <p>The description of the package group.</p>
+     pub description: ::std::option::Option<::std::string::String>,
+     /// <p>Details about the package origin configuration of a package group.</p>
+-    pub origin_configuration: ::std::option::Option<crate::types::PackageGroupOriginConfiguration>,
++    pub origin_configuration: ::std::option::Option<super::types::PackageGroupOriginConfiguration>,
+     /// <p>The direct parent package group of the package group.</p>
+-    pub parent: ::std::option::Option<crate::types::PackageGroupReference>,
++    pub parent: ::std::option::Option<super::types::PackageGroupReference>,
+ }
+ impl PackageGroupSummary {
+     /// <p>The ARN of the package group.</p>
+@@ -53,18 +53,18 @@
+         self.description.as_deref()
+     }
+     /// <p>Details about the package origin configuration of a package group.</p>
+-    pub fn origin_configuration(&self) -> ::std::option::Option<&crate::types::PackageGroupOriginConfiguration> {
++    pub fn origin_configuration(&self) -> ::std::option::Option<&super::types::PackageGroupOriginConfiguration> {
+         self.origin_configuration.as_ref()
+     }
+     /// <p>The direct parent package group of the package group.</p>
+-    pub fn parent(&self) -> ::std::option::Option<&crate::types::PackageGroupReference> {
++    pub fn parent(&self) -> ::std::option::Option<&super::types::PackageGroupReference> {
+         self.parent.as_ref()
+     }
+ }
+ impl PackageGroupSummary {
+     /// Creates a new builder-style object to manufacture [`PackageGroupSummary`](crate::types::PackageGroupSummary).
+-    pub fn builder() -> crate::types::builders::PackageGroupSummaryBuilder {
+-        crate::types::builders::PackageGroupSummaryBuilder::default()
++    pub fn builder() -> super::types::builders::PackageGroupSummaryBuilder {
++        super::types::builders::PackageGroupSummaryBuilder::default()
+     }
+ }
+
+@@ -79,8 +79,8 @@
+     pub(crate) created_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) contact_info: ::std::option::Option<::std::string::String>,
+     pub(crate) description: ::std::option::Option<::std::string::String>,
+-    pub(crate) origin_configuration: ::std::option::Option<crate::types::PackageGroupOriginConfiguration>,
+-    pub(crate) parent: ::std::option::Option<crate::types::PackageGroupReference>,
++    pub(crate) origin_configuration: ::std::option::Option<super::types::PackageGroupOriginConfiguration>,
++    pub(crate) parent: ::std::option::Option<super::types::PackageGroupReference>,
+ }
+ impl PackageGroupSummaryBuilder {
+     /// <p>The ARN of the package group.</p>
+@@ -182,36 +182,36 @@
+         &self.description
+     }
+     /// <p>Details about the package origin configuration of a package group.</p>
+-    pub fn origin_configuration(mut self, input: crate::types::PackageGroupOriginConfiguration) -> Self {
++    pub fn origin_configuration(mut self, input: super::types::PackageGroupOriginConfiguration) -> Self {
+         self.origin_configuration = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Details about the package origin configuration of a package group.</p>
+-    pub fn set_origin_configuration(mut self, input: ::std::option::Option<crate::types::PackageGroupOriginConfiguration>) -> Self {
++    pub fn set_origin_configuration(mut self, input: ::std::option::Option<super::types::PackageGroupOriginConfiguration>) -> Self {
+         self.origin_configuration = input;
+         self
+     }
+     /// <p>Details about the package origin configuration of a package group.</p>
+-    pub fn get_origin_configuration(&self) -> &::std::option::Option<crate::types::PackageGroupOriginConfiguration> {
++    pub fn get_origin_configuration(&self) -> &::std::option::Option<super::types::PackageGroupOriginConfiguration> {
+         &self.origin_configuration
+     }
+     /// <p>The direct parent package group of the package group.</p>
+-    pub fn parent(mut self, input: crate::types::PackageGroupReference) -> Self {
++    pub fn parent(mut self, input: super::types::PackageGroupReference) -> Self {
+         self.parent = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The direct parent package group of the package group.</p>
+-    pub fn set_parent(mut self, input: ::std::option::Option<crate::types::PackageGroupReference>) -> Self {
++    pub fn set_parent(mut self, input: ::std::option::Option<super::types::PackageGroupReference>) -> Self {
+         self.parent = input;
+         self
+     }
+     /// <p>The direct parent package group of the package group.</p>
+-    pub fn get_parent(&self) -> &::std::option::Option<crate::types::PackageGroupReference> {
++    pub fn get_parent(&self) -> &::std::option::Option<super::types::PackageGroupReference> {
+         &self.parent
+     }
+     /// Consumes the builder and constructs a [`PackageGroupSummary`](crate::types::PackageGroupSummary).
+-    pub fn build(self) -> crate::types::PackageGroupSummary {
+-        crate::types::PackageGroupSummary {
++    pub fn build(self) -> super::types::PackageGroupSummary {
++        super::types::PackageGroupSummary {
+             arn: self.arn,
+             pattern: self.pattern,
+             domain_name: self.domain_name,

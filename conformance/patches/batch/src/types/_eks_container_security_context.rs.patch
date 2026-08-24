@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -45,8 +45,8 @@
+ }
+ impl EksContainerSecurityContext {
+     /// Creates a new builder-style object to manufacture [`EksContainerSecurityContext`](crate::types::EksContainerSecurityContext).
+-    pub fn builder() -> crate::types::builders::EksContainerSecurityContextBuilder {
+-        crate::types::builders::EksContainerSecurityContextBuilder::default()
++    pub fn builder() -> super::types::builders::EksContainerSecurityContextBuilder {
++        super::types::builders::EksContainerSecurityContextBuilder::default()
+     }
+ }
+
+@@ -147,8 +147,8 @@
+         &self.run_as_non_root
+     }
+     /// Consumes the builder and constructs a [`EksContainerSecurityContext`](crate::types::EksContainerSecurityContext).
+-    pub fn build(self) -> crate::types::EksContainerSecurityContext {
+-        crate::types::EksContainerSecurityContext {
++    pub fn build(self) -> super::types::EksContainerSecurityContext {
++        super::types::EksContainerSecurityContext {
+             run_as_user: self.run_as_user,
+             run_as_group: self.run_as_group,
+             privileged: self.privileged,

@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+     _value: &'a [u8],
+     depth: u32,
+ ) -> ::std::result::Result<
+-    Option<::std::vec::Vec<crate::types::GuardrailConverseContentQualifier>>,
++    Option<::std::vec::Vec<super::types::GuardrailConverseContentQualifier>>,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ >
+ where
+@@ -29,7 +29,7 @@
+                         let value = ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                             .map(|s| {
+                                 s.to_unescaped()
+-                                    .map(|u| crate::types::GuardrailConverseContentQualifier::from(u.as_ref()))
++                                    .map(|u| super::types::GuardrailConverseContentQualifier::from(u.as_ref()))
+                             })
+                             .transpose()?;
+                         if let Some(value) = value {

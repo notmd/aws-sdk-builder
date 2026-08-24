@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl ResultField {
+     /// Creates a new builder-style object to manufacture [`ResultField`](crate::types::ResultField).
+-    pub fn builder() -> crate::types::builders::ResultFieldBuilder {
+-        crate::types::builders::ResultFieldBuilder::default()
++    pub fn builder() -> super::types::builders::ResultFieldBuilder {
++        super::types::builders::ResultFieldBuilder::default()
+     }
+ }
+
+@@ -64,8 +64,8 @@
+         &self.value
+     }
+     /// Consumes the builder and constructs a [`ResultField`](crate::types::ResultField).
+-    pub fn build(self) -> crate::types::ResultField {
+-        crate::types::ResultField {
++    pub fn build(self) -> super::types::ResultField {
++        super::types::ResultField {
+             field: self.field,
+             value: self.value,
+         }

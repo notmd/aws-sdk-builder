@@ -1,0 +1,70 @@
+--- original
++++ modified
+@@ -4,13 +4,13 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct UpdateProvisionedLimitInput {
+     /// <p>The limit to update. Specify the limit class and the attributes that identify the limit.</p>
+-    pub limit_definition: ::std::option::Option<crate::types::LimitDefinitionType>,
++    pub limit_definition: ::std::option::Option<super::types::LimitDefinitionType>,
+     /// <p>The provisioned rate to set, in requests per second (RPS).</p>
+     pub requested_limit_value: ::std::option::Option<i32>,
+ }
+ impl UpdateProvisionedLimitInput {
+     /// <p>The limit to update. Specify the limit class and the attributes that identify the limit.</p>
+-    pub fn limit_definition(&self) -> ::std::option::Option<&crate::types::LimitDefinitionType> {
++    pub fn limit_definition(&self) -> ::std::option::Option<&super::types::LimitDefinitionType> {
+         self.limit_definition.as_ref()
+     }
+     /// <p>The provisioned rate to set, in requests per second (RPS).</p>
+@@ -20,8 +20,8 @@
+ }
+ impl UpdateProvisionedLimitInput {
+     /// Creates a new builder-style object to manufacture [`UpdateProvisionedLimitInput`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitInput).
+-    pub fn builder() -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitInputBuilder {
+-        crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitInputBuilder::default()
++    pub fn builder() -> super::operation::update_provisioned_limit::builders::UpdateProvisionedLimitInputBuilder {
++        super::operation::update_provisioned_limit::builders::UpdateProvisionedLimitInputBuilder::default()
+     }
+ }
+
+@@ -29,23 +29,23 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct UpdateProvisionedLimitInputBuilder {
+-    pub(crate) limit_definition: ::std::option::Option<crate::types::LimitDefinitionType>,
++    pub(crate) limit_definition: ::std::option::Option<super::types::LimitDefinitionType>,
+     pub(crate) requested_limit_value: ::std::option::Option<i32>,
+ }
+ impl UpdateProvisionedLimitInputBuilder {
+     /// <p>The limit to update. Specify the limit class and the attributes that identify the limit.</p>
+     /// This field is required.
+-    pub fn limit_definition(mut self, input: crate::types::LimitDefinitionType) -> Self {
++    pub fn limit_definition(mut self, input: super::types::LimitDefinitionType) -> Self {
+         self.limit_definition = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The limit to update. Specify the limit class and the attributes that identify the limit.</p>
+-    pub fn set_limit_definition(mut self, input: ::std::option::Option<crate::types::LimitDefinitionType>) -> Self {
++    pub fn set_limit_definition(mut self, input: ::std::option::Option<super::types::LimitDefinitionType>) -> Self {
+         self.limit_definition = input;
+         self
+     }
+     /// <p>The limit to update. Specify the limit class and the attributes that identify the limit.</p>
+-    pub fn get_limit_definition(&self) -> &::std::option::Option<crate::types::LimitDefinitionType> {
++    pub fn get_limit_definition(&self) -> &::std::option::Option<super::types::LimitDefinitionType> {
+         &self.limit_definition
+     }
+     /// <p>The provisioned rate to set, in requests per second (RPS).</p>
+@@ -67,10 +67,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::update_provisioned_limit::UpdateProvisionedLimitInput,
++        super::operation::update_provisioned_limit::UpdateProvisionedLimitInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::update_provisioned_limit::UpdateProvisionedLimitInput {
++        ::std::result::Result::Ok(super::operation::update_provisioned_limit::UpdateProvisionedLimitInput {
+             limit_definition: self.limit_definition,
+             requested_limit_value: self.requested_limit_value,
+         })

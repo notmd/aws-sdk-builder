@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for BadRequestException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::BadRequestException {
++impl ::aws_types::request_id::RequestId for super::types::error::BadRequestException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl BadRequestException {
+     /// Creates a new builder-style object to manufacture [`BadRequestException`](crate::types::error::BadRequestException).
+-    pub fn builder() -> crate::types::error::builders::BadRequestExceptionBuilder {
+-        crate::types::error::builders::BadRequestExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::BadRequestExceptionBuilder {
++        super::types::error::builders::BadRequestExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`BadRequestException`](crate::types::error::BadRequestException).
+-    pub fn build(self) -> crate::types::error::BadRequestException {
+-        crate::types::error::BadRequestException {
++    pub fn build(self) -> super::types::error::BadRequestException {
++        super::types::error::BadRequestException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

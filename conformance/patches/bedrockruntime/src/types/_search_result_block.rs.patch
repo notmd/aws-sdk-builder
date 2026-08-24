@@ -1,0 +1,101 @@
+--- original
++++ modified
+@@ -11,9 +11,9 @@
+     /// <p>A descriptive title for the search result.</p>
+     pub title: ::std::string::String,
+     /// <p>An array of search result content block.</p>
+-    pub content: ::std::vec::Vec<crate::types::SearchResultContentBlock>,
++    pub content: ::std::vec::Vec<super::types::SearchResultContentBlock>,
+     /// <p>Configuration setting for citations</p>
+-    pub citations: ::std::option::Option<crate::types::CitationsConfig>,
++    pub citations: ::std::option::Option<super::types::CitationsConfig>,
+ }
+ impl SearchResultBlock {
+     /// <p>The source URL or identifier for the content.</p>
+@@ -27,19 +27,19 @@
+         self.title.deref()
+     }
+     /// <p>An array of search result content block.</p>
+-    pub fn content(&self) -> &[crate::types::SearchResultContentBlock] {
++    pub fn content(&self) -> &[super::types::SearchResultContentBlock] {
+         use std::ops::Deref;
+         self.content.deref()
+     }
+     /// <p>Configuration setting for citations</p>
+-    pub fn citations(&self) -> ::std::option::Option<&crate::types::CitationsConfig> {
++    pub fn citations(&self) -> ::std::option::Option<&super::types::CitationsConfig> {
+         self.citations.as_ref()
+     }
+ }
+ impl SearchResultBlock {
+     /// Creates a new builder-style object to manufacture [`SearchResultBlock`](crate::types::SearchResultBlock).
+-    pub fn builder() -> crate::types::builders::SearchResultBlockBuilder {
+-        crate::types::builders::SearchResultBlockBuilder::default()
++    pub fn builder() -> super::types::builders::SearchResultBlockBuilder {
++        super::types::builders::SearchResultBlockBuilder::default()
+     }
+ }
+
+@@ -49,8 +49,8 @@
+ pub struct SearchResultBlockBuilder {
+     pub(crate) source: ::std::option::Option<::std::string::String>,
+     pub(crate) title: ::std::option::Option<::std::string::String>,
+-    pub(crate) content: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultContentBlock>>,
+-    pub(crate) citations: ::std::option::Option<crate::types::CitationsConfig>,
++    pub(crate) content: ::std::option::Option<::std::vec::Vec<super::types::SearchResultContentBlock>>,
++    pub(crate) citations: ::std::option::Option<super::types::CitationsConfig>,
+ }
+ impl SearchResultBlockBuilder {
+     /// <p>The source URL or identifier for the content.</p>
+@@ -88,7 +88,7 @@
+     /// To override the contents of this collection use [`set_content`](Self::set_content).
+     ///
+     /// <p>An array of search result content block.</p>
+-    pub fn content(mut self, input: crate::types::SearchResultContentBlock) -> Self {
++    pub fn content(mut self, input: super::types::SearchResultContentBlock) -> Self {
+         let mut v = self.content.unwrap_or_default();
+         v.push(input);
+         self.content = ::std::option::Option::Some(v);
+@@ -95,26 +95,26 @@
+         self
+     }
+     /// <p>An array of search result content block.</p>
+-    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultContentBlock>>) -> Self {
++    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SearchResultContentBlock>>) -> Self {
+         self.content = input;
+         self
+     }
+     /// <p>An array of search result content block.</p>
+-    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchResultContentBlock>> {
++    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SearchResultContentBlock>> {
+         &self.content
+     }
+     /// <p>Configuration setting for citations</p>
+-    pub fn citations(mut self, input: crate::types::CitationsConfig) -> Self {
++    pub fn citations(mut self, input: super::types::CitationsConfig) -> Self {
+         self.citations = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Configuration setting for citations</p>
+-    pub fn set_citations(mut self, input: ::std::option::Option<crate::types::CitationsConfig>) -> Self {
++    pub fn set_citations(mut self, input: ::std::option::Option<super::types::CitationsConfig>) -> Self {
+         self.citations = input;
+         self
+     }
+     /// <p>Configuration setting for citations</p>
+-    pub fn get_citations(&self) -> &::std::option::Option<crate::types::CitationsConfig> {
++    pub fn get_citations(&self) -> &::std::option::Option<super::types::CitationsConfig> {
+         &self.citations
+     }
+     /// Consumes the builder and constructs a [`SearchResultBlock`](crate::types::SearchResultBlock).
+@@ -122,8 +122,8 @@
+     /// - [`source`](crate::types::builders::SearchResultBlockBuilder::source)
+     /// - [`title`](crate::types::builders::SearchResultBlockBuilder::title)
+     /// - [`content`](crate::types::builders::SearchResultBlockBuilder::content)
+-    pub fn build(self) -> ::std::result::Result<crate::types::SearchResultBlock, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::SearchResultBlock {
++    pub fn build(self) -> ::std::result::Result<super::types::SearchResultBlock, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::SearchResultBlock {
+             source: self.source.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "source",

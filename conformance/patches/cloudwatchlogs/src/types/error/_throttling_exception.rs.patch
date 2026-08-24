@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for ThrottlingException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::ThrottlingException {
++impl ::aws_types::request_id::RequestId for super::types::error::ThrottlingException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl ThrottlingException {
+     /// Creates a new builder-style object to manufacture [`ThrottlingException`](crate::types::error::ThrottlingException).
+-    pub fn builder() -> crate::types::error::builders::ThrottlingExceptionBuilder {
+-        crate::types::error::builders::ThrottlingExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::ThrottlingExceptionBuilder {
++        super::types::error::builders::ThrottlingExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ThrottlingException`](crate::types::error::ThrottlingException).
+-    pub fn build(self) -> crate::types::error::ThrottlingException {
+-        crate::types::error::ThrottlingException {
++    pub fn build(self) -> super::types::error::ThrottlingException {
++        super::types::error::ThrottlingException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

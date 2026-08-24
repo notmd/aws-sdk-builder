@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -13,7 +13,7 @@
+     ///   - [`job_summary_list(Option<Vec::<ServiceJobSummary>>)`](crate::operation::list_service_jobs::ListServiceJobsOutput::job_summary_list): <p>A list of service job summaries.</p>
+     ///   - [`next_token(Option<String>)`](crate::operation::list_service_jobs::ListServiceJobsOutput::next_token): <p>The <code>nextToken</code> value to include in a future <code>ListServiceJobs</code> request. When the results of a <code>ListServiceJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+     /// - On failure, responds with [`SdkError<ListServiceJobsError>`](crate::operation::list_service_jobs::ListServiceJobsError)
+-    pub fn list_service_jobs(&self) -> crate::operation::list_service_jobs::builders::ListServiceJobsFluentBuilder {
+-        crate::operation::list_service_jobs::builders::ListServiceJobsFluentBuilder::new(self.handle.clone())
++    pub fn list_service_jobs(&self) -> super::operation::list_service_jobs::builders::ListServiceJobsFluentBuilder {
++        super::operation::list_service_jobs::builders::ListServiceJobsFluentBuilder::new(self.handle.clone())
+     }
+ }

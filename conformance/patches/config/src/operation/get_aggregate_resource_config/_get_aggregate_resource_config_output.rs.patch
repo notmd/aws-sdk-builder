@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -4,12 +4,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GetAggregateResourceConfigOutput {
+     /// <p>Returns a <code>ConfigurationItem</code> object.</p>
+-    pub configuration_item: ::std::option::Option<crate::types::ConfigurationItem>,
++    pub configuration_item: ::std::option::Option<super::types::ConfigurationItem>,
+     _request_id: Option<String>,
+ }
+ impl GetAggregateResourceConfigOutput {
+     /// <p>Returns a <code>ConfigurationItem</code> object.</p>
+-    pub fn configuration_item(&self) -> ::std::option::Option<&crate::types::ConfigurationItem> {
++    pub fn configuration_item(&self) -> ::std::option::Option<&super::types::ConfigurationItem> {
+         self.configuration_item.as_ref()
+     }
+ }
+@@ -20,8 +20,8 @@
+ }
+ impl GetAggregateResourceConfigOutput {
+     /// Creates a new builder-style object to manufacture [`GetAggregateResourceConfigOutput`](crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput).
+-    pub fn builder() -> crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigOutputBuilder {
+-        crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigOutputBuilder::default()
++    pub fn builder() -> super::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigOutputBuilder {
++        super::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigOutputBuilder::default()
+     }
+ }
+
+@@ -29,22 +29,22 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GetAggregateResourceConfigOutputBuilder {
+-    pub(crate) configuration_item: ::std::option::Option<crate::types::ConfigurationItem>,
++    pub(crate) configuration_item: ::std::option::Option<super::types::ConfigurationItem>,
+     _request_id: Option<String>,
+ }
+ impl GetAggregateResourceConfigOutputBuilder {
+     /// <p>Returns a <code>ConfigurationItem</code> object.</p>
+-    pub fn configuration_item(mut self, input: crate::types::ConfigurationItem) -> Self {
++    pub fn configuration_item(mut self, input: super::types::ConfigurationItem) -> Self {
+         self.configuration_item = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Returns a <code>ConfigurationItem</code> object.</p>
+-    pub fn set_configuration_item(mut self, input: ::std::option::Option<crate::types::ConfigurationItem>) -> Self {
++    pub fn set_configuration_item(mut self, input: ::std::option::Option<super::types::ConfigurationItem>) -> Self {
+         self.configuration_item = input;
+         self
+     }
+     /// <p>Returns a <code>ConfigurationItem</code> object.</p>
+-    pub fn get_configuration_item(&self) -> &::std::option::Option<crate::types::ConfigurationItem> {
++    pub fn get_configuration_item(&self) -> &::std::option::Option<super::types::ConfigurationItem> {
+         &self.configuration_item
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetAggregateResourceConfigOutput`](crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput).
+-    pub fn build(self) -> crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput {
+-        crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput {
++    pub fn build(self) -> super::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput {
++        super::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput {
+             configuration_item: self.configuration_item,
+             _request_id: self._request_id,
+         }

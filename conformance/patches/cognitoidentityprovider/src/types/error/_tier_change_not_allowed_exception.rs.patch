@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for TierChangeNotAllowedException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::TierChangeNotAllowedException {
++impl ::aws_types::request_id::RequestId for super::types::error::TierChangeNotAllowedException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl TierChangeNotAllowedException {
+     /// Creates a new builder-style object to manufacture [`TierChangeNotAllowedException`](crate::types::error::TierChangeNotAllowedException).
+-    pub fn builder() -> crate::types::error::builders::TierChangeNotAllowedExceptionBuilder {
+-        crate::types::error::builders::TierChangeNotAllowedExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::TierChangeNotAllowedExceptionBuilder {
++        super::types::error::builders::TierChangeNotAllowedExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`TierChangeNotAllowedException`](crate::types::error::TierChangeNotAllowedException).
+-    pub fn build(self) -> crate::types::error::TierChangeNotAllowedException {
+-        crate::types::error::TierChangeNotAllowedException {
++    pub fn build(self) -> super::types::error::TierChangeNotAllowedException {
++        super::types::error::TierChangeNotAllowedException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

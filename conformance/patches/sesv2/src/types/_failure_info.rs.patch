@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl FailureInfo {
+     /// Creates a new builder-style object to manufacture [`FailureInfo`](crate::types::FailureInfo).
+-    pub fn builder() -> crate::types::builders::FailureInfoBuilder {
+-        crate::types::builders::FailureInfoBuilder::default()
++    pub fn builder() -> super::types::builders::FailureInfoBuilder {
++        super::types::builders::FailureInfoBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.error_message
+     }
+     /// Consumes the builder and constructs a [`FailureInfo`](crate::types::FailureInfo).
+-    pub fn build(self) -> crate::types::FailureInfo {
+-        crate::types::FailureInfo {
++    pub fn build(self) -> super::types::FailureInfo {
++        super::types::FailureInfo {
+             failed_records_s3_url: self.failed_records_s3_url,
+             error_message: self.error_message,
+         }

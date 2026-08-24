@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     ///   - [`client_id(impl Into<String>)`](crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientFluentBuilder::client_id) / [`set_client_id(Option<String>)`](crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientFluentBuilder::set_client_id):<br>required: **true**<br><p>The ID of the user pool app client that you want to delete.</p><br>
+     /// - On success, responds with [`DeleteUserPoolClientOutput`](crate::operation::delete_user_pool_client::DeleteUserPoolClientOutput)
+     /// - On failure, responds with [`SdkError<DeleteUserPoolClientError>`](crate::operation::delete_user_pool_client::DeleteUserPoolClientError)
+-    pub fn delete_user_pool_client(&self) -> crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientFluentBuilder {
+-        crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientFluentBuilder::new(self.handle.clone())
++    pub fn delete_user_pool_client(&self) -> super::operation::delete_user_pool_client::builders::DeleteUserPoolClientFluentBuilder {
++        super::operation::delete_user_pool_client::builders::DeleteUserPoolClientFluentBuilder::new(self.handle.clone())
+     }
+ }

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl PayloadPart {
+     /// Creates a new builder-style object to manufacture [`PayloadPart`](crate::types::PayloadPart).
+-    pub fn builder() -> crate::types::builders::PayloadPartBuilder {
+-        crate::types::builders::PayloadPartBuilder::default()
++    pub fn builder() -> super::types::builders::PayloadPartBuilder {
++        super::types::builders::PayloadPartBuilder::default()
+     }
+ }
+
+@@ -49,8 +49,8 @@
+         &self.bytes
+     }
+     /// Consumes the builder and constructs a [`PayloadPart`](crate::types::PayloadPart).
+-    pub fn build(self) -> crate::types::PayloadPart {
+-        crate::types::PayloadPart { bytes: self.bytes }
++    pub fn build(self) -> super::types::PayloadPart {
++        super::types::PayloadPart { bytes: self.bytes }
+     }
+ }
+ impl ::std::fmt::Debug for PayloadPartBuilder {

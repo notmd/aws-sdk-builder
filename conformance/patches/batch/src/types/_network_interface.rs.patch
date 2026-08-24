@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -27,8 +27,8 @@
+ }
+ impl NetworkInterface {
+     /// Creates a new builder-style object to manufacture [`NetworkInterface`](crate::types::NetworkInterface).
+-    pub fn builder() -> crate::types::builders::NetworkInterfaceBuilder {
+-        crate::types::builders::NetworkInterfaceBuilder::default()
++    pub fn builder() -> super::types::builders::NetworkInterfaceBuilder {
++        super::types::builders::NetworkInterfaceBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         &self.private_ipv4_address
+     }
+     /// Consumes the builder and constructs a [`NetworkInterface`](crate::types::NetworkInterface).
+-    pub fn build(self) -> crate::types::NetworkInterface {
+-        crate::types::NetworkInterface {
++    pub fn build(self) -> super::types::NetworkInterface {
++        super::types::NetworkInterface {
+             attachment_id: self.attachment_id,
+             ipv6_address: self.ipv6_address,
+             private_ipv4_address: self.private_ipv4_address,

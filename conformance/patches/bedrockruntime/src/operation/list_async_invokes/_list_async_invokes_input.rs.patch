@@ -1,0 +1,136 @@
+--- original
++++ modified
+@@ -8,15 +8,15 @@
+     /// <p>Include invocations submitted before this time.</p>
+     pub submit_time_before: ::std::option::Option<::aws_smithy_types::DateTime>,
+     /// <p>Filter invocations by status.</p>
+-    pub status_equals: ::std::option::Option<crate::types::AsyncInvokeStatus>,
++    pub status_equals: ::std::option::Option<super::types::AsyncInvokeStatus>,
+     /// <p>The maximum number of invocations to return in one page of results.</p>
+     pub max_results: ::std::option::Option<i32>,
+     /// <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     /// <p>How to sort the response.</p>
+-    pub sort_by: ::std::option::Option<crate::types::SortAsyncInvocationBy>,
++    pub sort_by: ::std::option::Option<super::types::SortAsyncInvocationBy>,
+     /// <p>The sorting order for the response.</p>
+-    pub sort_order: ::std::option::Option<crate::types::SortOrder>,
++    pub sort_order: ::std::option::Option<super::types::SortOrder>,
+ }
+ impl ListAsyncInvokesInput {
+     /// <p>Include invocations submitted after this time.</p>
+@@ -28,7 +28,7 @@
+         self.submit_time_before.as_ref()
+     }
+     /// <p>Filter invocations by status.</p>
+-    pub fn status_equals(&self) -> ::std::option::Option<&crate::types::AsyncInvokeStatus> {
++    pub fn status_equals(&self) -> ::std::option::Option<&super::types::AsyncInvokeStatus> {
+         self.status_equals.as_ref()
+     }
+     /// <p>The maximum number of invocations to return in one page of results.</p>
+@@ -40,18 +40,18 @@
+         self.next_token.as_deref()
+     }
+     /// <p>How to sort the response.</p>
+-    pub fn sort_by(&self) -> ::std::option::Option<&crate::types::SortAsyncInvocationBy> {
++    pub fn sort_by(&self) -> ::std::option::Option<&super::types::SortAsyncInvocationBy> {
+         self.sort_by.as_ref()
+     }
+     /// <p>The sorting order for the response.</p>
+-    pub fn sort_order(&self) -> ::std::option::Option<&crate::types::SortOrder> {
++    pub fn sort_order(&self) -> ::std::option::Option<&super::types::SortOrder> {
+         self.sort_order.as_ref()
+     }
+ }
+ impl ListAsyncInvokesInput {
+     /// Creates a new builder-style object to manufacture [`ListAsyncInvokesInput`](crate::operation::list_async_invokes::ListAsyncInvokesInput).
+-    pub fn builder() -> crate::operation::list_async_invokes::builders::ListAsyncInvokesInputBuilder {
+-        crate::operation::list_async_invokes::builders::ListAsyncInvokesInputBuilder::default()
++    pub fn builder() -> super::operation::list_async_invokes::builders::ListAsyncInvokesInputBuilder {
++        super::operation::list_async_invokes::builders::ListAsyncInvokesInputBuilder::default()
+     }
+ }
+
+@@ -61,11 +61,11 @@
+ pub struct ListAsyncInvokesInputBuilder {
+     pub(crate) submit_time_after: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) submit_time_before: ::std::option::Option<::aws_smithy_types::DateTime>,
+-    pub(crate) status_equals: ::std::option::Option<crate::types::AsyncInvokeStatus>,
++    pub(crate) status_equals: ::std::option::Option<super::types::AsyncInvokeStatus>,
+     pub(crate) max_results: ::std::option::Option<i32>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+-    pub(crate) sort_by: ::std::option::Option<crate::types::SortAsyncInvocationBy>,
+-    pub(crate) sort_order: ::std::option::Option<crate::types::SortOrder>,
++    pub(crate) sort_by: ::std::option::Option<super::types::SortAsyncInvocationBy>,
++    pub(crate) sort_order: ::std::option::Option<super::types::SortOrder>,
+ }
+ impl ListAsyncInvokesInputBuilder {
+     /// <p>Include invocations submitted after this time.</p>
+@@ -97,17 +97,17 @@
+         &self.submit_time_before
+     }
+     /// <p>Filter invocations by status.</p>
+-    pub fn status_equals(mut self, input: crate::types::AsyncInvokeStatus) -> Self {
++    pub fn status_equals(mut self, input: super::types::AsyncInvokeStatus) -> Self {
+         self.status_equals = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Filter invocations by status.</p>
+-    pub fn set_status_equals(mut self, input: ::std::option::Option<crate::types::AsyncInvokeStatus>) -> Self {
++    pub fn set_status_equals(mut self, input: ::std::option::Option<super::types::AsyncInvokeStatus>) -> Self {
+         self.status_equals = input;
+         self
+     }
+     /// <p>Filter invocations by status.</p>
+-    pub fn get_status_equals(&self) -> &::std::option::Option<crate::types::AsyncInvokeStatus> {
++    pub fn get_status_equals(&self) -> &::std::option::Option<super::types::AsyncInvokeStatus> {
+         &self.status_equals
+     }
+     /// <p>The maximum number of invocations to return in one page of results.</p>
+@@ -139,38 +139,38 @@
+         &self.next_token
+     }
+     /// <p>How to sort the response.</p>
+-    pub fn sort_by(mut self, input: crate::types::SortAsyncInvocationBy) -> Self {
++    pub fn sort_by(mut self, input: super::types::SortAsyncInvocationBy) -> Self {
+         self.sort_by = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>How to sort the response.</p>
+-    pub fn set_sort_by(mut self, input: ::std::option::Option<crate::types::SortAsyncInvocationBy>) -> Self {
++    pub fn set_sort_by(mut self, input: ::std::option::Option<super::types::SortAsyncInvocationBy>) -> Self {
+         self.sort_by = input;
+         self
+     }
+     /// <p>How to sort the response.</p>
+-    pub fn get_sort_by(&self) -> &::std::option::Option<crate::types::SortAsyncInvocationBy> {
++    pub fn get_sort_by(&self) -> &::std::option::Option<super::types::SortAsyncInvocationBy> {
+         &self.sort_by
+     }
+     /// <p>The sorting order for the response.</p>
+-    pub fn sort_order(mut self, input: crate::types::SortOrder) -> Self {
++    pub fn sort_order(mut self, input: super::types::SortOrder) -> Self {
+         self.sort_order = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The sorting order for the response.</p>
+-    pub fn set_sort_order(mut self, input: ::std::option::Option<crate::types::SortOrder>) -> Self {
++    pub fn set_sort_order(mut self, input: ::std::option::Option<super::types::SortOrder>) -> Self {
+         self.sort_order = input;
+         self
+     }
+     /// <p>The sorting order for the response.</p>
+-    pub fn get_sort_order(&self) -> &::std::option::Option<crate::types::SortOrder> {
++    pub fn get_sort_order(&self) -> &::std::option::Option<super::types::SortOrder> {
+         &self.sort_order
+     }
+     /// Consumes the builder and constructs a [`ListAsyncInvokesInput`](crate::operation::list_async_invokes::ListAsyncInvokesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_async_invokes::ListAsyncInvokesInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_async_invokes::ListAsyncInvokesInput {
++    ) -> ::std::result::Result<super::operation::list_async_invokes::ListAsyncInvokesInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_async_invokes::ListAsyncInvokesInput {
+             submit_time_after: self.submit_time_after,
+             submit_time_before: self.submit_time_before,
+             status_equals: self.status_equals,

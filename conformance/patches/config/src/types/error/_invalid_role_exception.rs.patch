@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for InvalidRoleException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidRoleException {
++impl ::aws_types::request_id::RequestId for super::types::error::InvalidRoleException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl InvalidRoleException {
+     /// Creates a new builder-style object to manufacture [`InvalidRoleException`](crate::types::error::InvalidRoleException).
+-    pub fn builder() -> crate::types::error::builders::InvalidRoleExceptionBuilder {
+-        crate::types::error::builders::InvalidRoleExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::InvalidRoleExceptionBuilder {
++        super::types::error::builders::InvalidRoleExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`InvalidRoleException`](crate::types::error::InvalidRoleException).
+-    pub fn build(self) -> crate::types::error::InvalidRoleException {
+-        crate::types::error::InvalidRoleException {
++    pub fn build(self) -> super::types::error::InvalidRoleException {
++        super::types::error::InvalidRoleException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

@@ -1,0 +1,13 @@
+--- original
++++ modified
+@@ -10,8 +10,8 @@
+     /// - On failure, responds with [`SdkError<CreateConfigurationSetEventDestinationError>`](crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError)
+     pub fn create_configuration_set_event_destination(
+         &self,
+-    ) -> crate::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationFluentBuilder {
+-        crate::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationFluentBuilder::new(
++    ) -> super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationFluentBuilder {
++        super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationFluentBuilder::new(
+             self.handle.clone(),
+         )
+     }

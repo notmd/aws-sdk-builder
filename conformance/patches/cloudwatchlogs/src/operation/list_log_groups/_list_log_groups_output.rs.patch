@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ListLogGroupsOutput {
+     /// <p>An array of structures, where each structure contains the information about one log group.</p>
+-    pub log_groups: ::std::option::Option<::std::vec::Vec<crate::types::LogGroupSummary>>,
++    pub log_groups: ::std::option::Option<::std::vec::Vec<super::types::LogGroupSummary>>,
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -13,7 +13,7 @@
+     /// <p>An array of structures, where each structure contains the information about one log group.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.log_groups.is_none()`.
+-    pub fn log_groups(&self) -> &[crate::types::LogGroupSummary] {
++    pub fn log_groups(&self) -> &[super::types::LogGroupSummary] {
+         self.log_groups.as_deref().unwrap_or_default()
+     }
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+@@ -28,8 +28,8 @@
+ }
+ impl ListLogGroupsOutput {
+     /// Creates a new builder-style object to manufacture [`ListLogGroupsOutput`](crate::operation::list_log_groups::ListLogGroupsOutput).
+-    pub fn builder() -> crate::operation::list_log_groups::builders::ListLogGroupsOutputBuilder {
+-        crate::operation::list_log_groups::builders::ListLogGroupsOutputBuilder::default()
++    pub fn builder() -> super::operation::list_log_groups::builders::ListLogGroupsOutputBuilder {
++        super::operation::list_log_groups::builders::ListLogGroupsOutputBuilder::default()
+     }
+ }
+
+@@ -37,7 +37,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ListLogGroupsOutputBuilder {
+-    pub(crate) log_groups: ::std::option::Option<::std::vec::Vec<crate::types::LogGroupSummary>>,
++    pub(crate) log_groups: ::std::option::Option<::std::vec::Vec<super::types::LogGroupSummary>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -47,7 +47,7 @@
+     /// To override the contents of this collection use [`set_log_groups`](Self::set_log_groups).
+     ///
+     /// <p>An array of structures, where each structure contains the information about one log group.</p>
+-    pub fn log_groups(mut self, input: crate::types::LogGroupSummary) -> Self {
++    pub fn log_groups(mut self, input: super::types::LogGroupSummary) -> Self {
+         let mut v = self.log_groups.unwrap_or_default();
+         v.push(input);
+         self.log_groups = ::std::option::Option::Some(v);
+@@ -54,12 +54,12 @@
+         self
+     }
+     /// <p>An array of structures, where each structure contains the information about one log group.</p>
+-    pub fn set_log_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LogGroupSummary>>) -> Self {
++    pub fn set_log_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::LogGroupSummary>>) -> Self {
+         self.log_groups = input;
+         self
+     }
+     /// <p>An array of structures, where each structure contains the information about one log group.</p>
+-    pub fn get_log_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogGroupSummary>> {
++    pub fn get_log_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::types::LogGroupSummary>> {
+         &self.log_groups
+     }
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListLogGroupsOutput`](crate::operation::list_log_groups::ListLogGroupsOutput).
+-    pub fn build(self) -> crate::operation::list_log_groups::ListLogGroupsOutput {
+-        crate::operation::list_log_groups::ListLogGroupsOutput {
++    pub fn build(self) -> super::operation::list_log_groups::ListLogGroupsOutput {
++        super::operation::list_log_groups::ListLogGroupsOutput {
+             log_groups: self.log_groups,
+             next_token: self.next_token,
+             _request_id: self._request_id,

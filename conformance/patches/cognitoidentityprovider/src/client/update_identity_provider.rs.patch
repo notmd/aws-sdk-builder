@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     /// - On success, responds with [`UpdateIdentityProviderOutput`](crate::operation::update_identity_provider::UpdateIdentityProviderOutput) with field(s):
+     ///   - [`identity_provider(Option<IdentityProviderType>)`](crate::operation::update_identity_provider::UpdateIdentityProviderOutput::identity_provider): <p>The identity provider details.</p>
+     /// - On failure, responds with [`SdkError<UpdateIdentityProviderError>`](crate::operation::update_identity_provider::UpdateIdentityProviderError)
+-    pub fn update_identity_provider(&self) -> crate::operation::update_identity_provider::builders::UpdateIdentityProviderFluentBuilder {
+-        crate::operation::update_identity_provider::builders::UpdateIdentityProviderFluentBuilder::new(self.handle.clone())
++    pub fn update_identity_provider(&self) -> super::operation::update_identity_provider::builders::UpdateIdentityProviderFluentBuilder {
++        super::operation::update_identity_provider::builders::UpdateIdentityProviderFluentBuilder::new(self.handle.clone())
+     }
+ }

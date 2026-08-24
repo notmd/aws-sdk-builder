@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+     _value: &'a [u8],
+     depth: u32,
+ ) -> ::std::result::Result<
+-    Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
++    Option<::std::vec::Vec<super::types::RemediationExceptionResourceKey>>,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ >
+ where
+@@ -26,7 +26,7 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = crate::protocol_serde::shape_remediation_exception_resource_key::de_remediation_exception_resource_key(
++                        let value = super::protocol_serde::shape_remediation_exception_resource_key::de_remediation_exception_resource_key(
+                             tokens,
+                             _value,
+                             depth + 1,

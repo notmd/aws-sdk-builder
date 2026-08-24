@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     ///   - [`groups(Option<Vec::<GroupType>>)`](crate::operation::list_groups::ListGroupsOutput::groups): <p>An array of groups and their details. Each entry that's returned includes description, precedence, and IAM role values.</p>
+     ///   - [`next_token(Option<String>)`](crate::operation::list_groups::ListGroupsOutput::next_token): <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
+     /// - On failure, responds with [`SdkError<ListGroupsError>`](crate::operation::list_groups::ListGroupsError)
+-    pub fn list_groups(&self) -> crate::operation::list_groups::builders::ListGroupsFluentBuilder {
+-        crate::operation::list_groups::builders::ListGroupsFluentBuilder::new(self.handle.clone())
++    pub fn list_groups(&self) -> super::operation::list_groups::builders::ListGroupsFluentBuilder {
++        super::operation::list_groups::builders::ListGroupsFluentBuilder::new(self.handle.clone())
+     }
+ }

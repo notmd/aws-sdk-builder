@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl DataSource {
+     /// Creates a new builder-style object to manufacture [`DataSource`](crate::types::DataSource).
+-    pub fn builder() -> crate::types::builders::DataSourceBuilder {
+-        crate::types::builders::DataSourceBuilder::default()
++    pub fn builder() -> super::types::builders::DataSourceBuilder {
++        super::types::builders::DataSourceBuilder::default()
+     }
+ }
+
+@@ -67,8 +67,8 @@
+     /// Consumes the builder and constructs a [`DataSource`](crate::types::DataSource).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`name`](crate::types::builders::DataSourceBuilder::name)
+-    pub fn build(self) -> ::std::result::Result<crate::types::DataSource, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::DataSource {
++    pub fn build(self) -> ::std::result::Result<super::types::DataSource, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::DataSource {
+             name: self.name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "name",

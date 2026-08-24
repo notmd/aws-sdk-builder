@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl PutConnectorOutput {
+     /// Creates a new builder-style object to manufacture [`PutConnectorOutput`](crate::operation::put_connector::PutConnectorOutput).
+-    pub fn builder() -> crate::operation::put_connector::builders::PutConnectorOutputBuilder {
+-        crate::operation::put_connector::builders::PutConnectorOutputBuilder::default()
++    pub fn builder() -> super::operation::put_connector::builders::PutConnectorOutputBuilder {
++        super::operation::put_connector::builders::PutConnectorOutputBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+     /// - [`arn`](crate::operation::put_connector::builders::PutConnectorOutputBuilder::arn)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::put_connector::PutConnectorOutput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::put_connector::PutConnectorOutput {
++    ) -> ::std::result::Result<super::operation::put_connector::PutConnectorOutput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::put_connector::PutConnectorOutput {
+             arn: self.arn.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "arn",

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl AdminDisableUserOutput {
+     /// Creates a new builder-style object to manufacture [`AdminDisableUserOutput`](crate::operation::admin_disable_user::AdminDisableUserOutput).
+-    pub fn builder() -> crate::operation::admin_disable_user::builders::AdminDisableUserOutputBuilder {
+-        crate::operation::admin_disable_user::builders::AdminDisableUserOutputBuilder::default()
++    pub fn builder() -> super::operation::admin_disable_user::builders::AdminDisableUserOutputBuilder {
++        super::operation::admin_disable_user::builders::AdminDisableUserOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`AdminDisableUserOutput`](crate::operation::admin_disable_user::AdminDisableUserOutput).
+-    pub fn build(self) -> crate::operation::admin_disable_user::AdminDisableUserOutput {
+-        crate::operation::admin_disable_user::AdminDisableUserOutput {
++    pub fn build(self) -> super::operation::admin_disable_user::AdminDisableUserOutput {
++        super::operation::admin_disable_user::AdminDisableUserOutput {
+             _request_id: self._request_id,
+         }
+     }

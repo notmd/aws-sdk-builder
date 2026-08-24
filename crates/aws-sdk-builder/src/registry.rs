@@ -32,11 +32,22 @@ macro_rules! metadata {
 }
 
 static ENTRIES: &[ServiceMetadata] = &[
+    metadata!("batch", "aws_sdk_batch", Some("1.124.0")),
+    metadata!("bedrockruntime", "aws_sdk_bedrockruntime", Some("1.141.0")),
+    metadata!("cloudwatchlogs", "aws_sdk_cloudwatchlogs", Some("1.147.0")),
+    metadata!("codeartifact", "aws_sdk_codeartifact", Some("1.110.0")),
+    metadata!(
+        "cognitoidentityprovider",
+        "aws_sdk_cognitoidentityprovider",
+        Some("1.129.0")
+    ),
+    metadata!("config", "aws_sdk_config", Some("1.119.0")),
     metadata!("dynamodb", "aws_sdk_dynamodb", Some("1.122.0")),
     metadata!("iam", "aws_sdk_iam", Some("1.121.0")),
     metadata!("kms", "aws_sdk_kms", Some("1.116.0")),
     metadata!("lambda", "aws_sdk_lambda", Some("1.140.0")),
     metadata!("s3", "aws_sdk_s3", Some("1.143.0")),
+    metadata!("sesv2", "aws_sdk_sesv2", Some("1.130.0")),
     metadata!("sns", "aws_sdk_sns", Some("1.109.0")),
     metadata!("sqs", "aws_sdk_sqs", Some("1.107.0")),
     metadata!("sts", "aws_sdk_sts", Some("1.112.0")),

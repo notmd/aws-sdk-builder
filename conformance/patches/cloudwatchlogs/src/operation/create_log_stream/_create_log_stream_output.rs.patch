@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl CreateLogStreamOutput {
+     /// Creates a new builder-style object to manufacture [`CreateLogStreamOutput`](crate::operation::create_log_stream::CreateLogStreamOutput).
+-    pub fn builder() -> crate::operation::create_log_stream::builders::CreateLogStreamOutputBuilder {
+-        crate::operation::create_log_stream::builders::CreateLogStreamOutputBuilder::default()
++    pub fn builder() -> super::operation::create_log_stream::builders::CreateLogStreamOutputBuilder {
++        super::operation::create_log_stream::builders::CreateLogStreamOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CreateLogStreamOutput`](crate::operation::create_log_stream::CreateLogStreamOutput).
+-    pub fn build(self) -> crate::operation::create_log_stream::CreateLogStreamOutput {
+-        crate::operation::create_log_stream::CreateLogStreamOutput {
++    pub fn build(self) -> super::operation::create_log_stream::CreateLogStreamOutput {
++        super::operation::create_log_stream::CreateLogStreamOutput {
+             _request_id: self._request_id,
+         }
+     }

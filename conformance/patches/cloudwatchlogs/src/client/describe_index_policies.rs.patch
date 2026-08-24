@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     ///   - [`index_policies(Option<Vec::<IndexPolicy>>)`](crate::operation::describe_index_policies::DescribeIndexPoliciesOutput::index_policies): <p>An array containing the field index policies.</p>
+     ///   - [`next_token(Option<String>)`](crate::operation::describe_index_policies::DescribeIndexPoliciesOutput::next_token): <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+     /// - On failure, responds with [`SdkError<DescribeIndexPoliciesError>`](crate::operation::describe_index_policies::DescribeIndexPoliciesError)
+-    pub fn describe_index_policies(&self) -> crate::operation::describe_index_policies::builders::DescribeIndexPoliciesFluentBuilder {
+-        crate::operation::describe_index_policies::builders::DescribeIndexPoliciesFluentBuilder::new(self.handle.clone())
++    pub fn describe_index_policies(&self) -> super::operation::describe_index_policies::builders::DescribeIndexPoliciesFluentBuilder {
++        super::operation::describe_index_policies::builders::DescribeIndexPoliciesFluentBuilder::new(self.handle.clone())
+     }
+ }

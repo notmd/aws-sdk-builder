@@ -1,0 +1,38 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::AppliedGuardrailDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::AppliedGuardrailDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::AppliedGuardrailDetailsBuilder::default();
++            let mut builder = super::types::builders::AppliedGuardrailDetailsBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -43,7 +43,7 @@
+                             );
+                         }
+                         "guardrailOrigin" => {
+-                            builder = builder.set_guardrail_origin(crate::protocol_serde::shape_guardrail_origin_list::de_guardrail_origin_list(
++                            builder = builder.set_guardrail_origin(super::protocol_serde::shape_guardrail_origin_list::de_guardrail_origin_list(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -52,7 +52,7 @@
+                         "guardrailOwnership" => {
+                             builder = builder.set_guardrail_ownership(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::GuardrailOwnership::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::GuardrailOwnership::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }

@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -13,7 +13,7 @@
+     /// - On failure, responds with [`SdkError<CreateManagedLoginBrandingError>`](crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError)
+     pub fn create_managed_login_branding(
+         &self,
+-    ) -> crate::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingFluentBuilder {
+-        crate::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingFluentBuilder {
++        super::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingFluentBuilder::new(self.handle.clone())
+     }
+ }

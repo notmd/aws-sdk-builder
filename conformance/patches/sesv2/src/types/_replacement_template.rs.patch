@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl ReplacementTemplate {
+     /// Creates a new builder-style object to manufacture [`ReplacementTemplate`](crate::types::ReplacementTemplate).
+-    pub fn builder() -> crate::types::builders::ReplacementTemplateBuilder {
+-        crate::types::builders::ReplacementTemplateBuilder::default()
++    pub fn builder() -> super::types::builders::ReplacementTemplateBuilder {
++        super::types::builders::ReplacementTemplateBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+         &self.replacement_template_data
+     }
+     /// Consumes the builder and constructs a [`ReplacementTemplate`](crate::types::ReplacementTemplate).
+-    pub fn build(self) -> crate::types::ReplacementTemplate {
+-        crate::types::ReplacementTemplate {
++    pub fn build(self) -> super::types::ReplacementTemplate {
++        super::types::ReplacementTemplate {
+             replacement_template_data: self.replacement_template_data,
+         }
+     }

@@ -1,0 +1,68 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// <p>The ARN of the IAM role that grants CloudWatch Logs permission to import from the CloudTrail Lake Event Data Store.</p>
+     pub import_role_arn: ::std::option::Option<::std::string::String>,
+     /// <p>Optional filters to constrain the import by CloudTrail event time. Times are specified in Unix timestamp milliseconds. The range of data being imported must be within the specified source's retention period.</p>
+-    pub import_filter: ::std::option::Option<crate::types::ImportFilter>,
++    pub import_filter: ::std::option::Option<super::types::ImportFilter>,
+ }
+ impl CreateImportTaskInput {
+     /// <p>The ARN of the source to import from.</p>
+@@ -20,14 +20,14 @@
+         self.import_role_arn.as_deref()
+     }
+     /// <p>Optional filters to constrain the import by CloudTrail event time. Times are specified in Unix timestamp milliseconds. The range of data being imported must be within the specified source's retention period.</p>
+-    pub fn import_filter(&self) -> ::std::option::Option<&crate::types::ImportFilter> {
++    pub fn import_filter(&self) -> ::std::option::Option<&super::types::ImportFilter> {
+         self.import_filter.as_ref()
+     }
+ }
+ impl CreateImportTaskInput {
+     /// Creates a new builder-style object to manufacture [`CreateImportTaskInput`](crate::operation::create_import_task::CreateImportTaskInput).
+-    pub fn builder() -> crate::operation::create_import_task::builders::CreateImportTaskInputBuilder {
+-        crate::operation::create_import_task::builders::CreateImportTaskInputBuilder::default()
++    pub fn builder() -> super::operation::create_import_task::builders::CreateImportTaskInputBuilder {
++        super::operation::create_import_task::builders::CreateImportTaskInputBuilder::default()
+     }
+ }
+
+@@ -37,7 +37,7 @@
+ pub struct CreateImportTaskInputBuilder {
+     pub(crate) import_source_arn: ::std::option::Option<::std::string::String>,
+     pub(crate) import_role_arn: ::std::option::Option<::std::string::String>,
+-    pub(crate) import_filter: ::std::option::Option<crate::types::ImportFilter>,
++    pub(crate) import_filter: ::std::option::Option<super::types::ImportFilter>,
+ }
+ impl CreateImportTaskInputBuilder {
+     /// <p>The ARN of the source to import from.</p>
+@@ -71,24 +71,24 @@
+         &self.import_role_arn
+     }
+     /// <p>Optional filters to constrain the import by CloudTrail event time. Times are specified in Unix timestamp milliseconds. The range of data being imported must be within the specified source's retention period.</p>
+-    pub fn import_filter(mut self, input: crate::types::ImportFilter) -> Self {
++    pub fn import_filter(mut self, input: super::types::ImportFilter) -> Self {
+         self.import_filter = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Optional filters to constrain the import by CloudTrail event time. Times are specified in Unix timestamp milliseconds. The range of data being imported must be within the specified source's retention period.</p>
+-    pub fn set_import_filter(mut self, input: ::std::option::Option<crate::types::ImportFilter>) -> Self {
++    pub fn set_import_filter(mut self, input: ::std::option::Option<super::types::ImportFilter>) -> Self {
+         self.import_filter = input;
+         self
+     }
+     /// <p>Optional filters to constrain the import by CloudTrail event time. Times are specified in Unix timestamp milliseconds. The range of data being imported must be within the specified source's retention period.</p>
+-    pub fn get_import_filter(&self) -> &::std::option::Option<crate::types::ImportFilter> {
++    pub fn get_import_filter(&self) -> &::std::option::Option<super::types::ImportFilter> {
+         &self.import_filter
+     }
+     /// Consumes the builder and constructs a [`CreateImportTaskInput`](crate::operation::create_import_task::CreateImportTaskInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::create_import_task::CreateImportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::create_import_task::CreateImportTaskInput {
++    ) -> ::std::result::Result<super::operation::create_import_task::CreateImportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::create_import_task::CreateImportTaskInput {
+             import_source_arn: self.import_source_arn,
+             import_role_arn: self.import_role_arn,
+             import_filter: self.import_filter,

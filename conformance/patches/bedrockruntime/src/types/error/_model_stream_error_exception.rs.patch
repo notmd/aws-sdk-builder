@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -40,7 +40,7 @@
+     }
+ }
+ impl ::std::error::Error for ModelStreamErrorException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::ModelStreamErrorException {
++impl ::aws_types::request_id::RequestId for super::types::error::ModelStreamErrorException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -53,8 +53,8 @@
+ }
+ impl ModelStreamErrorException {
+     /// Creates a new builder-style object to manufacture [`ModelStreamErrorException`](crate::types::error::ModelStreamErrorException).
+-    pub fn builder() -> crate::types::error::builders::ModelStreamErrorExceptionBuilder {
+-        crate::types::error::builders::ModelStreamErrorExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::ModelStreamErrorExceptionBuilder {
++        super::types::error::builders::ModelStreamErrorExceptionBuilder::default()
+     }
+ }
+
+@@ -122,8 +122,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ModelStreamErrorException`](crate::types::error::ModelStreamErrorException).
+-    pub fn build(self) -> crate::types::error::ModelStreamErrorException {
+-        crate::types::error::ModelStreamErrorException {
++    pub fn build(self) -> super::types::error::ModelStreamErrorException {
++        super::types::error::ModelStreamErrorException {
+             message: self.message,
+             original_status_code: self.original_status_code,
+             original_message: self.original_message,

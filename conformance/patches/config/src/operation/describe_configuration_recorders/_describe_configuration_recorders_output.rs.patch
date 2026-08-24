@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DescribeConfigurationRecordersOutput {
+     /// <p>A list that contains the descriptions of the specified configuration recorders.</p>
+-    pub configuration_recorders: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorder>>,
++    pub configuration_recorders: ::std::option::Option<::std::vec::Vec<super::types::ConfigurationRecorder>>,
+     _request_id: Option<String>,
+ }
+ impl DescribeConfigurationRecordersOutput {
+@@ -12,7 +12,7 @@
+     /// <p>A list that contains the descriptions of the specified configuration recorders.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.configuration_recorders.is_none()`.
+-    pub fn configuration_recorders(&self) -> &[crate::types::ConfigurationRecorder] {
++    pub fn configuration_recorders(&self) -> &[super::types::ConfigurationRecorder] {
+         self.configuration_recorders.as_deref().unwrap_or_default()
+     }
+ }
+@@ -23,8 +23,8 @@
+ }
+ impl DescribeConfigurationRecordersOutput {
+     /// Creates a new builder-style object to manufacture [`DescribeConfigurationRecordersOutput`](crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput).
+-    pub fn builder() -> crate::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersOutputBuilder {
+-        crate::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersOutputBuilder::default()
++    pub fn builder() -> super::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersOutputBuilder {
++        super::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersOutputBuilder::default()
+     }
+ }
+
+@@ -32,7 +32,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct DescribeConfigurationRecordersOutputBuilder {
+-    pub(crate) configuration_recorders: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorder>>,
++    pub(crate) configuration_recorders: ::std::option::Option<::std::vec::Vec<super::types::ConfigurationRecorder>>,
+     _request_id: Option<String>,
+ }
+ impl DescribeConfigurationRecordersOutputBuilder {
+@@ -41,7 +41,7 @@
+     /// To override the contents of this collection use [`set_configuration_recorders`](Self::set_configuration_recorders).
+     ///
+     /// <p>A list that contains the descriptions of the specified configuration recorders.</p>
+-    pub fn configuration_recorders(mut self, input: crate::types::ConfigurationRecorder) -> Self {
++    pub fn configuration_recorders(mut self, input: super::types::ConfigurationRecorder) -> Self {
+         let mut v = self.configuration_recorders.unwrap_or_default();
+         v.push(input);
+         self.configuration_recorders = ::std::option::Option::Some(v);
+@@ -48,12 +48,12 @@
+         self
+     }
+     /// <p>A list that contains the descriptions of the specified configuration recorders.</p>
+-    pub fn set_configuration_recorders(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorder>>) -> Self {
++    pub fn set_configuration_recorders(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ConfigurationRecorder>>) -> Self {
+         self.configuration_recorders = input;
+         self
+     }
+     /// <p>A list that contains the descriptions of the specified configuration recorders.</p>
+-    pub fn get_configuration_recorders(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorder>> {
++    pub fn get_configuration_recorders(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ConfigurationRecorder>> {
+         &self.configuration_recorders
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -66,8 +66,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DescribeConfigurationRecordersOutput`](crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput).
+-    pub fn build(self) -> crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput {
+-        crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput {
++    pub fn build(self) -> super::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput {
++        super::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput {
+             configuration_recorders: self.configuration_recorders,
+             _request_id: self._request_id,
+         }

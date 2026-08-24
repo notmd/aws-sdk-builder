@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl DeleteMetricFilterInput {
+     /// Creates a new builder-style object to manufacture [`DeleteMetricFilterInput`](crate::operation::delete_metric_filter::DeleteMetricFilterInput).
+-    pub fn builder() -> crate::operation::delete_metric_filter::builders::DeleteMetricFilterInputBuilder {
+-        crate::operation::delete_metric_filter::builders::DeleteMetricFilterInputBuilder::default()
++    pub fn builder() -> super::operation::delete_metric_filter::builders::DeleteMetricFilterInputBuilder {
++        super::operation::delete_metric_filter::builders::DeleteMetricFilterInputBuilder::default()
+     }
+ }
+
+@@ -66,9 +66,9 @@
+     /// Consumes the builder and constructs a [`DeleteMetricFilterInput`](crate::operation::delete_metric_filter::DeleteMetricFilterInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::delete_metric_filter::DeleteMetricFilterInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::delete_metric_filter::DeleteMetricFilterInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::delete_metric_filter::DeleteMetricFilterInput {
++        ::std::result::Result::Ok(super::operation::delete_metric_filter::DeleteMetricFilterInput {
+             log_group_name: self.log_group_name,
+             filter_name: self.filter_name,
+         })

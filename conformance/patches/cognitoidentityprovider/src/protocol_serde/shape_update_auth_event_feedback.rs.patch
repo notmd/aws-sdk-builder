@@ -1,0 +1,213 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackOutput,
+-    crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError,
++    super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackOutput,
++    super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled(
++            return Err(super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,13 +24,13 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InternalErrorException" => crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::InternalErrorException({
++        "InternalErrorException" => super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
++                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -39,13 +39,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameterException" => crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::InvalidParameterException({
++        "InvalidParameterException" => super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -54,13 +54,13 @@
+             }
+             tmp
+         }),
+-        "NotAuthorizedException" => crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::NotAuthorizedException({
++        "NotAuthorizedException" => super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::NotAuthorizedException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
++                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -69,14 +69,14 @@
+             }
+             tmp
+         }),
+-        "OperationNotEnabledException" => crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::OperationNotEnabledException({
++        "OperationNotEnabledException" => super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::OperationNotEnabledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                 output =
+-                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
++                    super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
++                        .map_err(super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -85,13 +85,13 @@
+             }
+             tmp
+         }),
+-        "ResourceNotFoundException" => crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::ResourceNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
++                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -100,13 +100,13 @@
+             }
+             tmp
+         }),
+-        "TooManyRequestsException" => crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::TooManyRequestsException({
++        "TooManyRequestsException" => super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::TooManyRequestsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
++                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -115,13 +115,13 @@
+             }
+             tmp
+         }),
+-        "UserNotFoundException" => crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::UserNotFoundException({
++        "UserNotFoundException" => super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::UserNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
++                let mut output = super::types::error::builders::UserNotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -131,16 +131,16 @@
+             tmp
+         }),
+         "UserPoolAddOnNotEnabledException" => {
+-            crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::UserPoolAddOnNotEnabledException({
++            super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::UserPoolAddOnNotEnabledException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::UserPoolAddOnNotEnabledExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_user_pool_add_on_not_enabled_exception::de_user_pool_add_on_not_enabled_exception_json_err(
++                    let mut output = super::types::error::builders::UserPoolAddOnNotEnabledExceptionBuilder::default();
++                    output = super::protocol_serde::shape_user_pool_add_on_not_enabled_exception::de_user_pool_add_on_not_enabled_exception_json_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
++                    .map_err(super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -150,7 +150,7 @@
+                 tmp
+             })
+         }
+-        _ => crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::generic(generic),
++        _ => super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::generic(generic),
+     })
+ }
+
+@@ -160,12 +160,12 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackOutput,
+-    crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError,
++    super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackOutput,
++    super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::update_auth_event_feedback::builders::UpdateAuthEventFeedbackOutputBuilder::default();
++        let mut output = super::operation::update_auth_event_feedback::builders::UpdateAuthEventFeedbackOutputBuilder::default();
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -172,11 +172,11 @@
+ }
+
+ pub fn ser_update_auth_event_feedback_input(
+-    input: &crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackInput,
++    input: &super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_update_auth_event_feedback_input::ser_update_auth_event_feedback_input_input(&mut object, input)?;
++    super::protocol_serde::shape_update_auth_event_feedback_input::ser_update_auth_event_feedback_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }

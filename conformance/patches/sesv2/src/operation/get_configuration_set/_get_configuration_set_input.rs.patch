@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl GetConfigurationSetInput {
+     /// Creates a new builder-style object to manufacture [`GetConfigurationSetInput`](crate::operation::get_configuration_set::GetConfigurationSetInput).
+-    pub fn builder() -> crate::operation::get_configuration_set::builders::GetConfigurationSetInputBuilder {
+-        crate::operation::get_configuration_set::builders::GetConfigurationSetInputBuilder::default()
++    pub fn builder() -> super::operation::get_configuration_set::builders::GetConfigurationSetInputBuilder {
++        super::operation::get_configuration_set::builders::GetConfigurationSetInputBuilder::default()
+     }
+ }
+
+@@ -45,9 +45,9 @@
+     /// Consumes the builder and constructs a [`GetConfigurationSetInput`](crate::operation::get_configuration_set::GetConfigurationSetInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_configuration_set::GetConfigurationSetInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::get_configuration_set::GetConfigurationSetInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::get_configuration_set::GetConfigurationSetInput {
++        ::std::result::Result::Ok(super::operation::get_configuration_set::GetConfigurationSetInput {
+             configuration_set_name: self.configuration_set_name,
+         })
+     }

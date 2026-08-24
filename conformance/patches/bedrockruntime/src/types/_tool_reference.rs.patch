@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -27,8 +27,8 @@
+ }
+ impl ToolReference {
+     /// Creates a new builder-style object to manufacture [`ToolReference`](crate::types::ToolReference).
+-    pub fn builder() -> crate::types::builders::ToolReferenceBuilder {
+-        crate::types::builders::ToolReferenceBuilder::default()
++    pub fn builder() -> super::types::builders::ToolReferenceBuilder {
++        super::types::builders::ToolReferenceBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         &self.server_name
+     }
+     /// Consumes the builder and constructs a [`ToolReference`](crate::types::ToolReference).
+-    pub fn build(self) -> crate::types::ToolReference {
+-        crate::types::ToolReference {
++    pub fn build(self) -> super::types::ToolReference {
++        super::types::ToolReference {
+             r#type: self.r#type,
+             name: self.name,
+             server_name: self.server_name,

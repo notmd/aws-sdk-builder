@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -31,8 +31,8 @@
+ }
+ impl UpdateEmailIdentityPolicyInput {
+     /// Creates a new builder-style object to manufacture [`UpdateEmailIdentityPolicyInput`](crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyInput).
+-    pub fn builder() -> crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyInputBuilder {
+-        crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyInputBuilder::default()
++    pub fn builder() -> super::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyInputBuilder {
++        super::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyInputBuilder::default()
+     }
+ }
+
+@@ -100,10 +100,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyInput,
++        super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyInput {
++        ::std::result::Result::Ok(super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyInput {
+             email_identity: self.email_identity,
+             policy_name: self.policy_name,
+             policy: self.policy,

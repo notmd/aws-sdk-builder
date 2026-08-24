@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -7,12 +7,12 @@
+     #[allow(missing_docs)] // documentation missing in model
+     pub message: ::std::string::String,
+     /// <p></p>
+-    pub reason: ::std::option::Option<crate::types::ValidationExceptionReason>,
++    pub reason: ::std::option::Option<super::types::ValidationExceptionReason>,
+     pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
+ }
+ impl ValidationException {
+     /// <p></p>
+-    pub fn reason(&self) -> ::std::option::Option<&crate::types::ValidationExceptionReason> {
++    pub fn reason(&self) -> ::std::option::Option<&super::types::ValidationExceptionReason> {
+         self.reason.as_ref()
+     }
+ }
+@@ -32,7 +32,7 @@
+     }
+ }
+ impl ::std::error::Error for ValidationException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::ValidationException {
++impl ::aws_types::request_id::RequestId for super::types::error::ValidationException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -45,8 +45,8 @@
+ }
+ impl ValidationException {
+     /// Creates a new builder-style object to manufacture [`ValidationException`](crate::types::error::ValidationException).
+-    pub fn builder() -> crate::types::error::builders::ValidationExceptionBuilder {
+-        crate::types::error::builders::ValidationExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::ValidationExceptionBuilder {
++        super::types::error::builders::ValidationExceptionBuilder::default()
+     }
+ }
+
+@@ -55,7 +55,7 @@
+ #[non_exhaustive]
+ pub struct ValidationExceptionBuilder {
+     pub(crate) message: ::std::option::Option<::std::string::String>,
+-    pub(crate) reason: ::std::option::Option<crate::types::ValidationExceptionReason>,
++    pub(crate) reason: ::std::option::Option<super::types::ValidationExceptionReason>,
+     meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+ }
+ impl ValidationExceptionBuilder {
+@@ -75,17 +75,17 @@
+         &self.message
+     }
+     /// <p></p>
+-    pub fn reason(mut self, input: crate::types::ValidationExceptionReason) -> Self {
++    pub fn reason(mut self, input: super::types::ValidationExceptionReason) -> Self {
+         self.reason = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p></p>
+-    pub fn set_reason(mut self, input: ::std::option::Option<crate::types::ValidationExceptionReason>) -> Self {
++    pub fn set_reason(mut self, input: ::std::option::Option<super::types::ValidationExceptionReason>) -> Self {
+         self.reason = input;
+         self
+     }
+     /// <p></p>
+-    pub fn get_reason(&self) -> &::std::option::Option<crate::types::ValidationExceptionReason> {
++    pub fn get_reason(&self) -> &::std::option::Option<super::types::ValidationExceptionReason> {
+         &self.reason
+     }
+     /// Sets error metadata
+@@ -102,8 +102,8 @@
+     /// Consumes the builder and constructs a [`ValidationException`](crate::types::error::ValidationException).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`message`](crate::types::error::builders::ValidationExceptionBuilder::message)
+-    pub fn build(self) -> ::std::result::Result<crate::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::error::ValidationException {
++    pub fn build(self) -> ::std::result::Result<super::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::error::ValidationException {
+             message: self.message.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "message",

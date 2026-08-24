@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl QuotaShareCapacityLimit {
+     /// Creates a new builder-style object to manufacture [`QuotaShareCapacityLimit`](crate::types::QuotaShareCapacityLimit).
+-    pub fn builder() -> crate::types::builders::QuotaShareCapacityLimitBuilder {
+-        crate::types::builders::QuotaShareCapacityLimitBuilder::default()
++    pub fn builder() -> super::types::builders::QuotaShareCapacityLimitBuilder {
++        super::types::builders::QuotaShareCapacityLimitBuilder::default()
+     }
+ }
+
+@@ -65,8 +65,8 @@
+         &self.capacity_unit
+     }
+     /// Consumes the builder and constructs a [`QuotaShareCapacityLimit`](crate::types::QuotaShareCapacityLimit).
+-    pub fn build(self) -> crate::types::QuotaShareCapacityLimit {
+-        crate::types::QuotaShareCapacityLimit {
++    pub fn build(self) -> super::types::QuotaShareCapacityLimit {
++        super::types::QuotaShareCapacityLimit {
+             max_capacity: self.max_capacity,
+             capacity_unit: self.capacity_unit,
+         }

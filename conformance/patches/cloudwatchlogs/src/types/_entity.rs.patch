@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -27,8 +27,8 @@
+ }
+ impl Entity {
+     /// Creates a new builder-style object to manufacture [`Entity`](crate::types::Entity).
+-    pub fn builder() -> crate::types::builders::EntityBuilder {
+-        crate::types::builders::EntityBuilder::default()
++    pub fn builder() -> super::types::builders::EntityBuilder {
++        super::types::builders::EntityBuilder::default()
+     }
+ }
+
+@@ -97,8 +97,8 @@
+         &self.attributes
+     }
+     /// Consumes the builder and constructs a [`Entity`](crate::types::Entity).
+-    pub fn build(self) -> crate::types::Entity {
+-        crate::types::Entity {
++    pub fn build(self) -> super::types::Entity {
++        super::types::Entity {
+             key_attributes: self.key_attributes,
+             attributes: self.attributes,
+         }

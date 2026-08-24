@@ -1,0 +1,11 @@
+[package]
+name = "aws-sdk-builder-bedrockruntime"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Build-time AWS SDK model provider for bedrockruntime."
+include = ["Cargo.toml", "src/**", "model.json"]
+
+[dependencies]
+aws-sdk-builder = { path = "../aws-sdk-builder" }

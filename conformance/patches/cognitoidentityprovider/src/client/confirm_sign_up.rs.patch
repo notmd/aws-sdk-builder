@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -15,7 +15,7 @@
+     /// - On success, responds with [`ConfirmSignUpOutput`](crate::operation::confirm_sign_up::ConfirmSignUpOutput) with field(s):
+     ///   - [`session(Option<String>)`](crate::operation::confirm_sign_up::ConfirmSignUpOutput::session): <p>A session identifier that you can use to immediately sign in the confirmed user. You can automatically sign users in with the one-time password that they provided in a successful <code>ConfirmSignUp</code> request.</p>
+     /// - On failure, responds with [`SdkError<ConfirmSignUpError>`](crate::operation::confirm_sign_up::ConfirmSignUpError)
+-    pub fn confirm_sign_up(&self) -> crate::operation::confirm_sign_up::builders::ConfirmSignUpFluentBuilder {
+-        crate::operation::confirm_sign_up::builders::ConfirmSignUpFluentBuilder::new(self.handle.clone())
++    pub fn confirm_sign_up(&self) -> super::operation::confirm_sign_up::builders::ConfirmSignUpFluentBuilder {
++        super::operation::confirm_sign_up::builders::ConfirmSignUpFluentBuilder::new(self.handle.clone())
+     }
+ }

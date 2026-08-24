@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -23,8 +23,8 @@
+ }
+ impl KeyValuesPair {
+     /// Creates a new builder-style object to manufacture [`KeyValuesPair`](crate::types::KeyValuesPair).
+-    pub fn builder() -> crate::types::builders::KeyValuesPairBuilder {
+-        crate::types::builders::KeyValuesPairBuilder::default()
++    pub fn builder() -> super::types::builders::KeyValuesPairBuilder {
++        super::types::builders::KeyValuesPairBuilder::default()
+     }
+ }
+
+@@ -71,8 +71,8 @@
+         &self.values
+     }
+     /// Consumes the builder and constructs a [`KeyValuesPair`](crate::types::KeyValuesPair).
+-    pub fn build(self) -> crate::types::KeyValuesPair {
+-        crate::types::KeyValuesPair {
++    pub fn build(self) -> super::types::KeyValuesPair {
++        super::types::KeyValuesPair {
+             name: self.name,
+             values: self.values,
+         }

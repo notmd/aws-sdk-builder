@@ -1,0 +1,169 @@
+--- original
++++ modified
+@@ -5,36 +5,36 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+ pub enum ContentBlock {
+     /// <p>An audio content block containing audio data in the conversation.</p>
+-    Audio(crate::types::AudioBlock),
++    Audio(super::types::AudioBlock),
+     /// <p>CachePoint to include in the message.</p>
+-    CachePoint(crate::types::CachePointBlock),
++    CachePoint(super::types::CachePointBlock),
+     /// <p>A content block that contains both generated text and associated citation information, providing traceability between the response and source documents.</p>
+-    CitationsContent(crate::types::CitationsContentBlock),
++    CitationsContent(super::types::CitationsContentBlock),
+     /// <p>A document to include in the message.</p>
+-    Document(crate::types::DocumentBlock),
++    Document(super::types::DocumentBlock),
+     /// <p>Contains the content to assess with the guardrail. If you don't specify <code>guardContent</code> in a call to the Converse API, the guardrail (if passed in the Converse API) assesses the entire message.</p>
+     /// <p>For more information, see <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.</p>
+-    GuardContent(crate::types::GuardrailConverseContentBlock),
++    GuardContent(super::types::GuardrailConverseContentBlock),
+     /// <p>Image to include in the message.</p><note>
+     /// <p>This field is only supported by Anthropic Claude 3 models.</p>
+     /// </note>
+-    Image(crate::types::ImageBlock),
++    Image(super::types::ImageBlock),
+     /// <p>Contains content regarding the reasoning that is carried out by the model. Reasoning refers to a Chain of Thought (CoT) that the model generates to enhance the accuracy of its final response.</p>
+-    ReasoningContent(crate::types::ReasoningContentBlock),
++    ReasoningContent(super::types::ReasoningContentBlock),
+     /// <p>Search result to include in the message.</p>
+-    SearchResult(crate::types::SearchResultBlock),
++    SearchResult(super::types::SearchResultBlock),
+     /// <p>Text to include in the message.</p>
+     Text(::std::string::String),
+     /// <p>A content block for adding a tool to the available tool set mid-conversation. Each block references a single tool via its <code>tool</code> field. Use within a <code>system</code> role message to make a tool available without re-sending the full tool configuration.</p>
+-    ToolAddition(crate::types::ToolAdditionBlock),
++    ToolAddition(super::types::ToolAdditionBlock),
+     /// <p>A content block for removing a tool from the available tool set mid-conversation. Each block references a single tool via its <code>tool</code> field. Use within a <code>system</code> role message to remove a tool without re-sending the full tool configuration.</p>
+-    ToolRemoval(crate::types::ToolRemovalBlock),
++    ToolRemoval(super::types::ToolRemovalBlock),
+     /// <p>The result for a tool request that a model makes.</p>
+-    ToolResult(crate::types::ToolResultBlock),
++    ToolResult(super::types::ToolResultBlock),
+     /// <p>Information about a tool use request from a model.</p>
+-    ToolUse(crate::types::ToolUseBlock),
++    ToolUse(super::types::ToolUseBlock),
+     /// <p>Video to include in the message.</p>
+-    Video(crate::types::VideoBlock),
++    Video(super::types::VideoBlock),
+     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
+     /// An unknown enum variant
+     ///
+@@ -48,7 +48,7 @@
+ impl ContentBlock {
+     /// Tries to convert the enum instance into [`Audio`](crate::types::ContentBlock::Audio), extracting the inner [`AudioBlock`](crate::types::AudioBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_audio(&self) -> ::std::result::Result<&crate::types::AudioBlock, &Self> {
++    pub fn as_audio(&self) -> ::std::result::Result<&super::types::AudioBlock, &Self> {
+         if let ContentBlock::Audio(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -61,7 +61,7 @@
+     }
+     /// Tries to convert the enum instance into [`CachePoint`](crate::types::ContentBlock::CachePoint), extracting the inner [`CachePointBlock`](crate::types::CachePointBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_cache_point(&self) -> ::std::result::Result<&crate::types::CachePointBlock, &Self> {
++    pub fn as_cache_point(&self) -> ::std::result::Result<&super::types::CachePointBlock, &Self> {
+         if let ContentBlock::CachePoint(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -74,7 +74,7 @@
+     }
+     /// Tries to convert the enum instance into [`CitationsContent`](crate::types::ContentBlock::CitationsContent), extracting the inner [`CitationsContentBlock`](crate::types::CitationsContentBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_citations_content(&self) -> ::std::result::Result<&crate::types::CitationsContentBlock, &Self> {
++    pub fn as_citations_content(&self) -> ::std::result::Result<&super::types::CitationsContentBlock, &Self> {
+         if let ContentBlock::CitationsContent(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -87,7 +87,7 @@
+     }
+     /// Tries to convert the enum instance into [`Document`](crate::types::ContentBlock::Document), extracting the inner [`DocumentBlock`](crate::types::DocumentBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_document(&self) -> ::std::result::Result<&crate::types::DocumentBlock, &Self> {
++    pub fn as_document(&self) -> ::std::result::Result<&super::types::DocumentBlock, &Self> {
+         if let ContentBlock::Document(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -100,7 +100,7 @@
+     }
+     /// Tries to convert the enum instance into [`GuardContent`](crate::types::ContentBlock::GuardContent), extracting the inner [`GuardrailConverseContentBlock`](crate::types::GuardrailConverseContentBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_guard_content(&self) -> ::std::result::Result<&crate::types::GuardrailConverseContentBlock, &Self> {
++    pub fn as_guard_content(&self) -> ::std::result::Result<&super::types::GuardrailConverseContentBlock, &Self> {
+         if let ContentBlock::GuardContent(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -113,7 +113,7 @@
+     }
+     /// Tries to convert the enum instance into [`Image`](crate::types::ContentBlock::Image), extracting the inner [`ImageBlock`](crate::types::ImageBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_image(&self) -> ::std::result::Result<&crate::types::ImageBlock, &Self> {
++    pub fn as_image(&self) -> ::std::result::Result<&super::types::ImageBlock, &Self> {
+         if let ContentBlock::Image(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -126,7 +126,7 @@
+     }
+     /// Tries to convert the enum instance into [`ReasoningContent`](crate::types::ContentBlock::ReasoningContent), extracting the inner [`ReasoningContentBlock`](crate::types::ReasoningContentBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_reasoning_content(&self) -> ::std::result::Result<&crate::types::ReasoningContentBlock, &Self> {
++    pub fn as_reasoning_content(&self) -> ::std::result::Result<&super::types::ReasoningContentBlock, &Self> {
+         if let ContentBlock::ReasoningContent(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -139,7 +139,7 @@
+     }
+     /// Tries to convert the enum instance into [`SearchResult`](crate::types::ContentBlock::SearchResult), extracting the inner [`SearchResultBlock`](crate::types::SearchResultBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_search_result(&self) -> ::std::result::Result<&crate::types::SearchResultBlock, &Self> {
++    pub fn as_search_result(&self) -> ::std::result::Result<&super::types::SearchResultBlock, &Self> {
+         if let ContentBlock::SearchResult(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -165,7 +165,7 @@
+     }
+     /// Tries to convert the enum instance into [`ToolAddition`](crate::types::ContentBlock::ToolAddition), extracting the inner [`ToolAdditionBlock`](crate::types::ToolAdditionBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_tool_addition(&self) -> ::std::result::Result<&crate::types::ToolAdditionBlock, &Self> {
++    pub fn as_tool_addition(&self) -> ::std::result::Result<&super::types::ToolAdditionBlock, &Self> {
+         if let ContentBlock::ToolAddition(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -178,7 +178,7 @@
+     }
+     /// Tries to convert the enum instance into [`ToolRemoval`](crate::types::ContentBlock::ToolRemoval), extracting the inner [`ToolRemovalBlock`](crate::types::ToolRemovalBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_tool_removal(&self) -> ::std::result::Result<&crate::types::ToolRemovalBlock, &Self> {
++    pub fn as_tool_removal(&self) -> ::std::result::Result<&super::types::ToolRemovalBlock, &Self> {
+         if let ContentBlock::ToolRemoval(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -191,7 +191,7 @@
+     }
+     /// Tries to convert the enum instance into [`ToolResult`](crate::types::ContentBlock::ToolResult), extracting the inner [`ToolResultBlock`](crate::types::ToolResultBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_tool_result(&self) -> ::std::result::Result<&crate::types::ToolResultBlock, &Self> {
++    pub fn as_tool_result(&self) -> ::std::result::Result<&super::types::ToolResultBlock, &Self> {
+         if let ContentBlock::ToolResult(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -204,7 +204,7 @@
+     }
+     /// Tries to convert the enum instance into [`ToolUse`](crate::types::ContentBlock::ToolUse), extracting the inner [`ToolUseBlock`](crate::types::ToolUseBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_tool_use(&self) -> ::std::result::Result<&crate::types::ToolUseBlock, &Self> {
++    pub fn as_tool_use(&self) -> ::std::result::Result<&super::types::ToolUseBlock, &Self> {
+         if let ContentBlock::ToolUse(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -217,7 +217,7 @@
+     }
+     /// Tries to convert the enum instance into [`Video`](crate::types::ContentBlock::Video), extracting the inner [`VideoBlock`](crate::types::VideoBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_video(&self) -> ::std::result::Result<&crate::types::VideoBlock, &Self> {
++    pub fn as_video(&self) -> ::std::result::Result<&super::types::VideoBlock, &Self> {
+         if let ContentBlock::Video(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {

@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl DeleteDeliveryChannelInput {
+     /// Creates a new builder-style object to manufacture [`DeleteDeliveryChannelInput`](crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput).
+-    pub fn builder() -> crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelInputBuilder {
+-        crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelInputBuilder::default()
++    pub fn builder() -> super::operation::delete_delivery_channel::builders::DeleteDeliveryChannelInputBuilder {
++        super::operation::delete_delivery_channel::builders::DeleteDeliveryChannelInputBuilder::default()
+     }
+ }
+
+@@ -45,9 +45,9 @@
+     /// Consumes the builder and constructs a [`DeleteDeliveryChannelInput`](crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::delete_delivery_channel::DeleteDeliveryChannelInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput {
++        ::std::result::Result::Ok(super::operation::delete_delivery_channel::DeleteDeliveryChannelInput {
+             delivery_channel_name: self.delivery_channel_name,
+         })
+     }

@@ -1,0 +1,47 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::UserPoolDescriptionType>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::UserPoolDescriptionType>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::UserPoolDescriptionTypeBuilder::default();
++            let mut builder = super::types::builders::UserPoolDescriptionTypeBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -36,7 +36,7 @@
+                             );
+                         }
+                         "LambdaConfig" => {
+-                            builder = builder.set_lambda_config(crate::protocol_serde::shape_lambda_config_type::de_lambda_config_type(
++                            builder = builder.set_lambda_config(super::protocol_serde::shape_lambda_config_type::de_lambda_config_type(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -45,7 +45,7 @@
+                         "Status" => {
+                             builder = builder.set_status(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::StatusType::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::StatusType::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+@@ -62,7 +62,7 @@
+                             )?);
+                         }
+                         "ReplicaRegions" => {
+-                            builder = builder.set_replica_regions(crate::protocol_serde::shape_replica_regions_type::de_replica_regions_type(
++                            builder = builder.set_replica_regions(super::protocol_serde::shape_replica_regions_type::de_replica_regions_type(
+                                 tokens,
+                                 _value,
+                                 depth + 1,

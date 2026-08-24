@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl FrontOfQuotaShareJobSummary {
+     /// Creates a new builder-style object to manufacture [`FrontOfQuotaShareJobSummary`](crate::types::FrontOfQuotaShareJobSummary).
+-    pub fn builder() -> crate::types::builders::FrontOfQuotaShareJobSummaryBuilder {
+-        crate::types::builders::FrontOfQuotaShareJobSummaryBuilder::default()
++    pub fn builder() -> super::types::builders::FrontOfQuotaShareJobSummaryBuilder {
++        super::types::builders::FrontOfQuotaShareJobSummaryBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.earliest_time_at_position
+     }
+     /// Consumes the builder and constructs a [`FrontOfQuotaShareJobSummary`](crate::types::FrontOfQuotaShareJobSummary).
+-    pub fn build(self) -> crate::types::FrontOfQuotaShareJobSummary {
+-        crate::types::FrontOfQuotaShareJobSummary {
++    pub fn build(self) -> super::types::FrontOfQuotaShareJobSummary {
++        super::types::FrontOfQuotaShareJobSummary {
+             job_arn: self.job_arn,
+             earliest_time_at_position: self.earliest_time_at_position,
+         }

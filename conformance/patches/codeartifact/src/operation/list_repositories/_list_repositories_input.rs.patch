@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -26,8 +26,8 @@
+ }
+ impl ListRepositoriesInput {
+     /// Creates a new builder-style object to manufacture [`ListRepositoriesInput`](crate::operation::list_repositories::ListRepositoriesInput).
+-    pub fn builder() -> crate::operation::list_repositories::builders::ListRepositoriesInputBuilder {
+-        crate::operation::list_repositories::builders::ListRepositoriesInputBuilder::default()
++    pub fn builder() -> super::operation::list_repositories::builders::ListRepositoriesInputBuilder {
++        super::operation::list_repositories::builders::ListRepositoriesInputBuilder::default()
+     }
+ }
+
+@@ -85,8 +85,8 @@
+     /// Consumes the builder and constructs a [`ListRepositoriesInput`](crate::operation::list_repositories::ListRepositoriesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_repositories::ListRepositoriesInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_repositories::ListRepositoriesInput {
++    ) -> ::std::result::Result<super::operation::list_repositories::ListRepositoriesInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_repositories::ListRepositoriesInput {
+             repository_prefix: self.repository_prefix,
+             max_results: self.max_results,
+             next_token: self.next_token,

@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -45,8 +45,8 @@
+ }
+ impl UpdateCustomVerificationEmailTemplateInput {
+     /// Creates a new builder-style object to manufacture [`UpdateCustomVerificationEmailTemplateInput`](crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateInput).
+-    pub fn builder() -> crate::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateInputBuilder {
+-        crate::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateInputBuilder::default()
++    pub fn builder() -> super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateInputBuilder {
++        super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateInputBuilder::default()
+     }
+ }
+
+@@ -156,11 +156,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateInput,
++        super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateInput {
++            super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateInput {
+                 template_name: self.template_name,
+                 from_email_address: self.from_email_address,
+                 template_subject: self.template_subject,

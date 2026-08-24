@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl NodeDetails {
+     /// Creates a new builder-style object to manufacture [`NodeDetails`](crate::types::NodeDetails).
+-    pub fn builder() -> crate::types::builders::NodeDetailsBuilder {
+-        crate::types::builders::NodeDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::NodeDetailsBuilder {
++        super::types::builders::NodeDetailsBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.is_main_node
+     }
+     /// Consumes the builder and constructs a [`NodeDetails`](crate::types::NodeDetails).
+-    pub fn build(self) -> crate::types::NodeDetails {
+-        crate::types::NodeDetails {
++    pub fn build(self) -> super::types::NodeDetails {
++        super::types::NodeDetails {
+             node_index: self.node_index,
+             is_main_node: self.is_main_node,
+         }

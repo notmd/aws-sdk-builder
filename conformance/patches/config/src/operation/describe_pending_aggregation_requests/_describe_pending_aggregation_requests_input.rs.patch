@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl DescribePendingAggregationRequestsInput {
+     /// Creates a new builder-style object to manufacture [`DescribePendingAggregationRequestsInput`](crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput).
+-    pub fn builder() -> crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder {
+-        crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder::default()
++    pub fn builder() -> super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder {
++        super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder::default()
+     }
+ }
+
+@@ -65,11 +65,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput,
++        super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput {
++            super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput {
+                 limit: self.limit,
+                 next_token: self.next_token,
+             },

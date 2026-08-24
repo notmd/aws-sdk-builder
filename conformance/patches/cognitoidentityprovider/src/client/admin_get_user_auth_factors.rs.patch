@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     ///   - [`user_mfa_setting_list(Option<Vec::<String>>)`](crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsOutput::user_mfa_setting_list): <p>The MFA options that are activated for the user. The possible values in this list are <code>SMS_MFA</code>, <code>EMAIL_OTP</code>, and <code>SOFTWARE_TOKEN_MFA</code>.</p>
+     ///   - [`configured_user_auth_factors(Option<Vec::<AuthFactorType>>)`](crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsOutput::configured_user_auth_factors): <p>The authentication types that are available to the user with <code>USER_AUTH</code> sign-in, for example <code>\["PASSWORD", "WEB_AUTHN"\]</code>.</p> <p><code>PASSWORD</code> can only be used as a first authentication factor. <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor. <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code> is available as an MFA factor only when passkey MFA is enabled at the user pool level.</p>
+     /// - On failure, responds with [`SdkError<AdminGetUserAuthFactorsError>`](crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError)
+-    pub fn admin_get_user_auth_factors(&self) -> crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder {
+-        crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder::new(self.handle.clone())
++    pub fn admin_get_user_auth_factors(&self) -> super::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder {
++        super::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder::new(self.handle.clone())
+     }
+ }

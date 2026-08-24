@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl StopUserImportJobInput {
+     /// Creates a new builder-style object to manufacture [`StopUserImportJobInput`](crate::operation::stop_user_import_job::StopUserImportJobInput).
+-    pub fn builder() -> crate::operation::stop_user_import_job::builders::StopUserImportJobInputBuilder {
+-        crate::operation::stop_user_import_job::builders::StopUserImportJobInputBuilder::default()
++    pub fn builder() -> super::operation::stop_user_import_job::builders::StopUserImportJobInputBuilder {
++        super::operation::stop_user_import_job::builders::StopUserImportJobInputBuilder::default()
+     }
+ }
+
+@@ -67,8 +67,8 @@
+     /// Consumes the builder and constructs a [`StopUserImportJobInput`](crate::operation::stop_user_import_job::StopUserImportJobInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::stop_user_import_job::StopUserImportJobInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::stop_user_import_job::StopUserImportJobInput {
++    ) -> ::std::result::Result<super::operation::stop_user_import_job::StopUserImportJobInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::stop_user_import_job::StopUserImportJobInput {
+             user_pool_id: self.user_pool_id,
+             job_id: self.job_id,
+         })

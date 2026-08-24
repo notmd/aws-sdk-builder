@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl Route {
+     /// Creates a new builder-style object to manufacture [`Route`](crate::types::Route).
+-    pub fn builder() -> crate::types::builders::RouteBuilder {
+-        crate::types::builders::RouteBuilder::default()
++    pub fn builder() -> super::types::builders::RouteBuilder {
++        super::types::builders::RouteBuilder::default()
+     }
+ }
+
+@@ -46,8 +46,8 @@
+     /// Consumes the builder and constructs a [`Route`](crate::types::Route).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`region`](crate::types::builders::RouteBuilder::region)
+-    pub fn build(self) -> ::std::result::Result<crate::types::Route, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::Route {
++    pub fn build(self) -> ::std::result::Result<super::types::Route, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::Route {
+             region: self.region.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "region",

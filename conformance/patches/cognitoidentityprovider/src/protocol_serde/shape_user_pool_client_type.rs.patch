@@ -1,0 +1,119 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::UserPoolClientType>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::UserPoolClientType>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::UserPoolClientTypeBuilder::default();
++            let mut builder = super::types::builders::UserPoolClientTypeBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -84,22 +84,22 @@
+                         }
+                         "TokenValidityUnits" => {
+                             builder = builder.set_token_validity_units(
+-                                crate::protocol_serde::shape_token_validity_units_type::de_token_validity_units_type(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_token_validity_units_type::de_token_validity_units_type(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "ReadAttributes" => {
+                             builder = builder.set_read_attributes(
+-                                crate::protocol_serde::shape_client_permission_list_type::de_client_permission_list_type(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_client_permission_list_type::de_client_permission_list_type(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "WriteAttributes" => {
+                             builder = builder.set_write_attributes(
+-                                crate::protocol_serde::shape_client_permission_list_type::de_client_permission_list_type(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_client_permission_list_type::de_client_permission_list_type(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "ExplicitAuthFlows" => {
+                             builder = builder.set_explicit_auth_flows(
+-                                crate::protocol_serde::shape_explicit_auth_flows_list_type::de_explicit_auth_flows_list_type(
++                                super::protocol_serde::shape_explicit_auth_flows_list_type::de_explicit_auth_flows_list_type(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -108,7 +108,7 @@
+                         }
+                         "SupportedIdentityProviders" => {
+                             builder = builder.set_supported_identity_providers(
+-                                crate::protocol_serde::shape_supported_identity_providers_list_type::de_supported_identity_providers_list_type(
++                                super::protocol_serde::shape_supported_identity_providers_list_type::de_supported_identity_providers_list_type(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -116,7 +116,7 @@
+                             );
+                         }
+                         "CallbackURLs" => {
+-                            builder = builder.set_callback_urls(crate::protocol_serde::shape_callback_urls_list_type::de_callback_urls_list_type(
++                            builder = builder.set_callback_urls(super::protocol_serde::shape_callback_urls_list_type::de_callback_urls_list_type(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -123,7 +123,7 @@
+                             )?);
+                         }
+                         "LogoutURLs" => {
+-                            builder = builder.set_logout_urls(crate::protocol_serde::shape_logout_urls_list_type::de_logout_urls_list_type(
++                            builder = builder.set_logout_urls(super::protocol_serde::shape_logout_urls_list_type::de_logout_urls_list_type(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -137,7 +137,7 @@
+                             );
+                         }
+                         "AllowedOAuthFlows" => {
+-                            builder = builder.set_allowed_o_auth_flows(crate::protocol_serde::shape_o_auth_flows_type::de_o_auth_flows_type(
++                            builder = builder.set_allowed_o_auth_flows(super::protocol_serde::shape_o_auth_flows_type::de_o_auth_flows_type(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -144,7 +144,7 @@
+                             )?);
+                         }
+                         "AllowedOAuthScopes" => {
+-                            builder = builder.set_allowed_o_auth_scopes(crate::protocol_serde::shape_scope_list_type::de_scope_list_type(
++                            builder = builder.set_allowed_o_auth_scopes(super::protocol_serde::shape_scope_list_type::de_scope_list_type(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -157,7 +157,7 @@
+                         }
+                         "AnalyticsConfiguration" => {
+                             builder = builder.set_analytics_configuration(
+-                                crate::protocol_serde::shape_analytics_configuration_type::de_analytics_configuration_type(
++                                super::protocol_serde::shape_analytics_configuration_type::de_analytics_configuration_type(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -167,7 +167,7 @@
+                         "PreventUserExistenceErrors" => {
+                             builder = builder.set_prevent_user_existence_errors(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::PreventUserExistenceErrorTypes::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::PreventUserExistenceErrorTypes::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+@@ -188,7 +188,7 @@
+                         }
+                         "RefreshTokenRotation" => {
+                             builder = builder.set_refresh_token_rotation(
+-                                crate::protocol_serde::shape_refresh_token_rotation_type::de_refresh_token_rotation_type(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_refresh_token_rotation_type::de_refresh_token_rotation_type(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -1,0 +1,67 @@
+--- original
++++ modified
+@@ -5,20 +5,20 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GuardrailAutomatedReasoningTranslationOption {
+     /// <p>Example translations that provide this possible interpretation of the input.</p>
+-    pub translations: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>>,
++    pub translations: ::std::option::Option<::std::vec::Vec<super::types::GuardrailAutomatedReasoningTranslation>>,
+ }
+ impl GuardrailAutomatedReasoningTranslationOption {
+     /// <p>Example translations that provide this possible interpretation of the input.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.translations.is_none()`.
+-    pub fn translations(&self) -> &[crate::types::GuardrailAutomatedReasoningTranslation] {
++    pub fn translations(&self) -> &[super::types::GuardrailAutomatedReasoningTranslation] {
+         self.translations.as_deref().unwrap_or_default()
+     }
+ }
+ impl GuardrailAutomatedReasoningTranslationOption {
+     /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningTranslationOption`](crate::types::GuardrailAutomatedReasoningTranslationOption).
+-    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningTranslationOptionBuilder {
+-        crate::types::builders::GuardrailAutomatedReasoningTranslationOptionBuilder::default()
++    pub fn builder() -> super::types::builders::GuardrailAutomatedReasoningTranslationOptionBuilder {
++        super::types::builders::GuardrailAutomatedReasoningTranslationOptionBuilder::default()
+     }
+ }
+
+@@ -26,7 +26,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GuardrailAutomatedReasoningTranslationOptionBuilder {
+-    pub(crate) translations: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>>,
++    pub(crate) translations: ::std::option::Option<::std::vec::Vec<super::types::GuardrailAutomatedReasoningTranslation>>,
+ }
+ impl GuardrailAutomatedReasoningTranslationOptionBuilder {
+     /// Appends an item to `translations`.
+@@ -34,7 +34,7 @@
+     /// To override the contents of this collection use [`set_translations`](Self::set_translations).
+     ///
+     /// <p>Example translations that provide this possible interpretation of the input.</p>
+-    pub fn translations(mut self, input: crate::types::GuardrailAutomatedReasoningTranslation) -> Self {
++    pub fn translations(mut self, input: super::types::GuardrailAutomatedReasoningTranslation) -> Self {
+         let mut v = self.translations.unwrap_or_default();
+         v.push(input);
+         self.translations = ::std::option::Option::Some(v);
+@@ -41,17 +41,17 @@
+         self
+     }
+     /// <p>Example translations that provide this possible interpretation of the input.</p>
+-    pub fn set_translations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>>) -> Self {
++    pub fn set_translations(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailAutomatedReasoningTranslation>>) -> Self {
+         self.translations = input;
+         self
+     }
+     /// <p>Example translations that provide this possible interpretation of the input.</p>
+-    pub fn get_translations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>> {
++    pub fn get_translations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailAutomatedReasoningTranslation>> {
+         &self.translations
+     }
+     /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningTranslationOption`](crate::types::GuardrailAutomatedReasoningTranslationOption).
+-    pub fn build(self) -> crate::types::GuardrailAutomatedReasoningTranslationOption {
+-        crate::types::GuardrailAutomatedReasoningTranslationOption {
++    pub fn build(self) -> super::types::GuardrailAutomatedReasoningTranslationOption {
++        super::types::GuardrailAutomatedReasoningTranslationOption {
+             translations: self.translations,
+         }
+     }

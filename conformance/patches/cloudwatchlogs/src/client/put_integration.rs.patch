@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -10,7 +10,7 @@
+     ///   - [`integration_name(Option<String>)`](crate::operation::put_integration::PutIntegrationOutput::integration_name): <p>The name of the integration that you just created.</p>
+     ///   - [`integration_status(Option<IntegrationStatus>)`](crate::operation::put_integration::PutIntegrationOutput::integration_status): <p>The status of the integration that you just created.</p> <p>After you create an integration, it takes a few minutes to complete. During this time, you'll see the status as <code>PROVISIONING</code>.</p>
+     /// - On failure, responds with [`SdkError<PutIntegrationError>`](crate::operation::put_integration::PutIntegrationError)
+-    pub fn put_integration(&self) -> crate::operation::put_integration::builders::PutIntegrationFluentBuilder {
+-        crate::operation::put_integration::builders::PutIntegrationFluentBuilder::new(self.handle.clone())
++    pub fn put_integration(&self) -> super::operation::put_integration::builders::PutIntegrationFluentBuilder {
++        super::operation::put_integration::builders::PutIntegrationFluentBuilder::new(self.handle.clone())
+     }
+ }

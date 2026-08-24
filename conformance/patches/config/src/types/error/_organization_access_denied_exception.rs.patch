@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -37,7 +37,7 @@
+     }
+ }
+ impl ::std::error::Error for OrganizationAccessDeniedException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::OrganizationAccessDeniedException {
++impl ::aws_types::request_id::RequestId for super::types::error::OrganizationAccessDeniedException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -50,8 +50,8 @@
+ }
+ impl OrganizationAccessDeniedException {
+     /// Creates a new builder-style object to manufacture [`OrganizationAccessDeniedException`](crate::types::error::OrganizationAccessDeniedException).
+-    pub fn builder() -> crate::types::error::builders::OrganizationAccessDeniedExceptionBuilder {
+-        crate::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::OrganizationAccessDeniedExceptionBuilder {
++        super::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default()
+     }
+ }
+
+@@ -89,8 +89,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`OrganizationAccessDeniedException`](crate::types::error::OrganizationAccessDeniedException).
+-    pub fn build(self) -> crate::types::error::OrganizationAccessDeniedException {
+-        crate::types::error::OrganizationAccessDeniedException {
++    pub fn build(self) -> super::types::error::OrganizationAccessDeniedException {
++        super::types::error::OrganizationAccessDeniedException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

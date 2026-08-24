@@ -1,0 +1,36 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::ConverseStreamTrace>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::ConverseStreamTrace>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,13 +16,13 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::ConverseStreamTraceBuilder::default();
++            let mut builder = super::types::builders::ConverseStreamTraceBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "guardrail" => {
+-                            builder = builder.set_guardrail(crate::protocol_serde::shape_guardrail_trace_assessment::de_guardrail_trace_assessment(
++                            builder = builder.set_guardrail(super::protocol_serde::shape_guardrail_trace_assessment::de_guardrail_trace_assessment(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -29,7 +29,7 @@
+                             )?);
+                         }
+                         "promptRouter" => {
+-                            builder = builder.set_prompt_router(crate::protocol_serde::shape_prompt_router_trace::de_prompt_router_trace(
++                            builder = builder.set_prompt_router(super::protocol_serde::shape_prompt_router_trace::de_prompt_router_trace(
+                                 tokens,
+                                 _value,
+                                 depth + 1,

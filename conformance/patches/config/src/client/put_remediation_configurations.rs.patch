@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     /// - On failure, responds with [`SdkError<PutRemediationConfigurationsError>`](crate::operation::put_remediation_configurations::PutRemediationConfigurationsError)
+     pub fn put_remediation_configurations(
+         &self,
+-    ) -> crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsFluentBuilder {
+-        crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::put_remediation_configurations::builders::PutRemediationConfigurationsFluentBuilder {
++        super::operation::put_remediation_configurations::builders::PutRemediationConfigurationsFluentBuilder::new(self.handle.clone())
+     }
+ }

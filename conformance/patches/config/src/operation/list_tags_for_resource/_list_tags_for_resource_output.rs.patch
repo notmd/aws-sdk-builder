@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ListTagsForResourceOutput {
+     /// <p>The tags for the resource.</p>
+-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -13,7 +13,7 @@
+     /// <p>The tags for the resource.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
+-    pub fn tags(&self) -> &[crate::types::Tag] {
++    pub fn tags(&self) -> &[super::types::Tag] {
+         self.tags.as_deref().unwrap_or_default()
+     }
+     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+@@ -28,8 +28,8 @@
+ }
+ impl ListTagsForResourceOutput {
+     /// Creates a new builder-style object to manufacture [`ListTagsForResourceOutput`](crate::operation::list_tags_for_resource::ListTagsForResourceOutput).
+-    pub fn builder() -> crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder {
+-        crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::default()
++    pub fn builder() -> super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder {
++        super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::default()
+     }
+ }
+
+@@ -37,7 +37,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ListTagsForResourceOutputBuilder {
+-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -47,7 +47,7 @@
+     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+     ///
+     /// <p>The tags for the resource.</p>
+-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::types::Tag) -> Self {
+         let mut v = self.tags.unwrap_or_default();
+         v.push(input);
+         self.tags = ::std::option::Option::Some(v);
+@@ -54,12 +54,12 @@
+         self
+     }
+     /// <p>The tags for the resource.</p>
+-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
+         self.tags = input;
+         self
+     }
+     /// <p>The tags for the resource.</p>
+-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
+         &self.tags
+     }
+     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListTagsForResourceOutput`](crate::operation::list_tags_for_resource::ListTagsForResourceOutput).
+-    pub fn build(self) -> crate::operation::list_tags_for_resource::ListTagsForResourceOutput {
+-        crate::operation::list_tags_for_resource::ListTagsForResourceOutput {
++    pub fn build(self) -> super::operation::list_tags_for_resource::ListTagsForResourceOutput {
++        super::operation::list_tags_for_resource::ListTagsForResourceOutput {
+             tags: self.tags,
+             next_token: self.next_token,
+             _request_id: self._request_id,

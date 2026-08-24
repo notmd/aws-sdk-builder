@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -16,7 +16,7 @@
+     /// <p>Specifies whether or not the recorder is currently recording.</p>
+     pub recording: bool,
+     /// <p>The status of the latest recording event processed by the recorder.</p>
+-    pub last_status: ::std::option::Option<crate::types::RecorderStatus>,
++    pub last_status: ::std::option::Option<super::types::RecorderStatus>,
+     /// <p>The latest error code from when the recorder last failed.</p>
+     pub last_error_code: ::std::option::Option<::std::string::String>,
+     /// <p>The latest error message from when the recorder last failed.</p>
+@@ -48,7 +48,7 @@
+         self.recording
+     }
+     /// <p>The status of the latest recording event processed by the recorder.</p>
+-    pub fn last_status(&self) -> ::std::option::Option<&crate::types::RecorderStatus> {
++    pub fn last_status(&self) -> ::std::option::Option<&super::types::RecorderStatus> {
+         self.last_status.as_ref()
+     }
+     /// <p>The latest error code from when the recorder last failed.</p>
+@@ -70,8 +70,8 @@
+ }
+ impl ConfigurationRecorderStatus {
+     /// Creates a new builder-style object to manufacture [`ConfigurationRecorderStatus`](crate::types::ConfigurationRecorderStatus).
+-    pub fn builder() -> crate::types::builders::ConfigurationRecorderStatusBuilder {
+-        crate::types::builders::ConfigurationRecorderStatusBuilder::default()
++    pub fn builder() -> super::types::builders::ConfigurationRecorderStatusBuilder {
++        super::types::builders::ConfigurationRecorderStatusBuilder::default()
+     }
+ }
+
+@@ -84,7 +84,7 @@
+     pub(crate) last_start_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) last_stop_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) recording: ::std::option::Option<bool>,
+-    pub(crate) last_status: ::std::option::Option<crate::types::RecorderStatus>,
++    pub(crate) last_status: ::std::option::Option<super::types::RecorderStatus>,
+     pub(crate) last_error_code: ::std::option::Option<::std::string::String>,
+     pub(crate) last_error_message: ::std::option::Option<::std::string::String>,
+     pub(crate) last_status_change_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+@@ -162,17 +162,17 @@
+         &self.recording
+     }
+     /// <p>The status of the latest recording event processed by the recorder.</p>
+-    pub fn last_status(mut self, input: crate::types::RecorderStatus) -> Self {
++    pub fn last_status(mut self, input: super::types::RecorderStatus) -> Self {
+         self.last_status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The status of the latest recording event processed by the recorder.</p>
+-    pub fn set_last_status(mut self, input: ::std::option::Option<crate::types::RecorderStatus>) -> Self {
++    pub fn set_last_status(mut self, input: ::std::option::Option<super::types::RecorderStatus>) -> Self {
+         self.last_status = input;
+         self
+     }
+     /// <p>The status of the latest recording event processed by the recorder.</p>
+-    pub fn get_last_status(&self) -> &::std::option::Option<crate::types::RecorderStatus> {
++    pub fn get_last_status(&self) -> &::std::option::Option<super::types::RecorderStatus> {
+         &self.last_status
+     }
+     /// <p>The latest error code from when the recorder last failed.</p>
+@@ -232,8 +232,8 @@
+         &self.service_principal
+     }
+     /// Consumes the builder and constructs a [`ConfigurationRecorderStatus`](crate::types::ConfigurationRecorderStatus).
+-    pub fn build(self) -> crate::types::ConfigurationRecorderStatus {
+-        crate::types::ConfigurationRecorderStatus {
++    pub fn build(self) -> super::types::ConfigurationRecorderStatus {
++        super::types::ConfigurationRecorderStatus {
+             arn: self.arn,
+             name: self.name,
+             last_start_time: self.last_start_time,

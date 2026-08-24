@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DescribeLogStreamsOutput {
+     /// <p>The log streams.</p>
+-    pub log_streams: ::std::option::Option<::std::vec::Vec<crate::types::LogStream>>,
++    pub log_streams: ::std::option::Option<::std::vec::Vec<super::types::LogStream>>,
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -13,7 +13,7 @@
+     /// <p>The log streams.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.log_streams.is_none()`.
+-    pub fn log_streams(&self) -> &[crate::types::LogStream] {
++    pub fn log_streams(&self) -> &[super::types::LogStream] {
+         self.log_streams.as_deref().unwrap_or_default()
+     }
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+@@ -28,8 +28,8 @@
+ }
+ impl DescribeLogStreamsOutput {
+     /// Creates a new builder-style object to manufacture [`DescribeLogStreamsOutput`](crate::operation::describe_log_streams::DescribeLogStreamsOutput).
+-    pub fn builder() -> crate::operation::describe_log_streams::builders::DescribeLogStreamsOutputBuilder {
+-        crate::operation::describe_log_streams::builders::DescribeLogStreamsOutputBuilder::default()
++    pub fn builder() -> super::operation::describe_log_streams::builders::DescribeLogStreamsOutputBuilder {
++        super::operation::describe_log_streams::builders::DescribeLogStreamsOutputBuilder::default()
+     }
+ }
+
+@@ -37,7 +37,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct DescribeLogStreamsOutputBuilder {
+-    pub(crate) log_streams: ::std::option::Option<::std::vec::Vec<crate::types::LogStream>>,
++    pub(crate) log_streams: ::std::option::Option<::std::vec::Vec<super::types::LogStream>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -47,7 +47,7 @@
+     /// To override the contents of this collection use [`set_log_streams`](Self::set_log_streams).
+     ///
+     /// <p>The log streams.</p>
+-    pub fn log_streams(mut self, input: crate::types::LogStream) -> Self {
++    pub fn log_streams(mut self, input: super::types::LogStream) -> Self {
+         let mut v = self.log_streams.unwrap_or_default();
+         v.push(input);
+         self.log_streams = ::std::option::Option::Some(v);
+@@ -54,12 +54,12 @@
+         self
+     }
+     /// <p>The log streams.</p>
+-    pub fn set_log_streams(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LogStream>>) -> Self {
++    pub fn set_log_streams(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::LogStream>>) -> Self {
+         self.log_streams = input;
+         self
+     }
+     /// <p>The log streams.</p>
+-    pub fn get_log_streams(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogStream>> {
++    pub fn get_log_streams(&self) -> &::std::option::Option<::std::vec::Vec<super::types::LogStream>> {
+         &self.log_streams
+     }
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DescribeLogStreamsOutput`](crate::operation::describe_log_streams::DescribeLogStreamsOutput).
+-    pub fn build(self) -> crate::operation::describe_log_streams::DescribeLogStreamsOutput {
+-        crate::operation::describe_log_streams::DescribeLogStreamsOutput {
++    pub fn build(self) -> super::operation::describe_log_streams::DescribeLogStreamsOutput {
++        super::operation::describe_log_streams::DescribeLogStreamsOutput {
+             log_streams: self.log_streams,
+             next_token: self.next_token,
+             _request_id: self._request_id,

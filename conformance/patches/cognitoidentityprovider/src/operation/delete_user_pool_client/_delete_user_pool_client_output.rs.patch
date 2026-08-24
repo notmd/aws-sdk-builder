@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl DeleteUserPoolClientOutput {
+     /// Creates a new builder-style object to manufacture [`DeleteUserPoolClientOutput`](crate::operation::delete_user_pool_client::DeleteUserPoolClientOutput).
+-    pub fn builder() -> crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientOutputBuilder {
+-        crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientOutputBuilder::default()
++    pub fn builder() -> super::operation::delete_user_pool_client::builders::DeleteUserPoolClientOutputBuilder {
++        super::operation::delete_user_pool_client::builders::DeleteUserPoolClientOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DeleteUserPoolClientOutput`](crate::operation::delete_user_pool_client::DeleteUserPoolClientOutput).
+-    pub fn build(self) -> crate::operation::delete_user_pool_client::DeleteUserPoolClientOutput {
+-        crate::operation::delete_user_pool_client::DeleteUserPoolClientOutput {
++    pub fn build(self) -> super::operation::delete_user_pool_client::DeleteUserPoolClientOutput {
++        super::operation::delete_user_pool_client::DeleteUserPoolClientOutput {
+             _request_id: self._request_id,
+         }
+     }

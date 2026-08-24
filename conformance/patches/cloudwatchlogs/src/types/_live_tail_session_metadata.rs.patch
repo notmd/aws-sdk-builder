@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -17,8 +17,8 @@
+ }
+ impl LiveTailSessionMetadata {
+     /// Creates a new builder-style object to manufacture [`LiveTailSessionMetadata`](crate::types::LiveTailSessionMetadata).
+-    pub fn builder() -> crate::types::builders::LiveTailSessionMetadataBuilder {
+-        crate::types::builders::LiveTailSessionMetadataBuilder::default()
++    pub fn builder() -> super::types::builders::LiveTailSessionMetadataBuilder {
++        super::types::builders::LiveTailSessionMetadataBuilder::default()
+     }
+ }
+
+@@ -47,8 +47,8 @@
+         &self.sampled
+     }
+     /// Consumes the builder and constructs a [`LiveTailSessionMetadata`](crate::types::LiveTailSessionMetadata).
+-    pub fn build(self) -> crate::types::LiveTailSessionMetadata {
+-        crate::types::LiveTailSessionMetadata {
++    pub fn build(self) -> super::types::LiveTailSessionMetadata {
++        super::types::LiveTailSessionMetadata {
+             sampled: self.sampled.unwrap_or_default(),
+         }
+     }

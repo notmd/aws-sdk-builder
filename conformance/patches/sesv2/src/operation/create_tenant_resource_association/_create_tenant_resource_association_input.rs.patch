@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl CreateTenantResourceAssociationInput {
+     /// Creates a new builder-style object to manufacture [`CreateTenantResourceAssociationInput`](crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationInput).
+-    pub fn builder() -> crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder {
+-        crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder::default()
++    pub fn builder() -> super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder {
++        super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder::default()
+     }
+ }
+
+@@ -69,11 +69,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationInput,
++        super::operation::create_tenant_resource_association::CreateTenantResourceAssociationInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationInput {
++            super::operation::create_tenant_resource_association::CreateTenantResourceAssociationInput {
+                 tenant_name: self.tenant_name,
+                 resource_arn: self.resource_arn,
+             },

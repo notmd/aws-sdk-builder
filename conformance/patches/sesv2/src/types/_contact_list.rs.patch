@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl ContactList {
+     /// Creates a new builder-style object to manufacture [`ContactList`](crate::types::ContactList).
+-    pub fn builder() -> crate::types::builders::ContactListBuilder {
+-        crate::types::builders::ContactListBuilder::default()
++    pub fn builder() -> super::types::builders::ContactListBuilder {
++        super::types::builders::ContactListBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.last_updated_timestamp
+     }
+     /// Consumes the builder and constructs a [`ContactList`](crate::types::ContactList).
+-    pub fn build(self) -> crate::types::ContactList {
+-        crate::types::ContactList {
++    pub fn build(self) -> super::types::ContactList {
++        super::types::ContactList {
+             contact_list_name: self.contact_list_name,
+             last_updated_timestamp: self.last_updated_timestamp,
+         }

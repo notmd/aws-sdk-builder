@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl DataSourceFilter {
+     /// Creates a new builder-style object to manufacture [`DataSourceFilter`](crate::types::DataSourceFilter).
+-    pub fn builder() -> crate::types::builders::DataSourceFilterBuilder {
+-        crate::types::builders::DataSourceFilterBuilder::default()
++    pub fn builder() -> super::types::builders::DataSourceFilterBuilder {
++        super::types::builders::DataSourceFilterBuilder::default()
+     }
+ }
+
+@@ -67,8 +67,8 @@
+     /// Consumes the builder and constructs a [`DataSourceFilter`](crate::types::DataSourceFilter).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`name`](crate::types::builders::DataSourceFilterBuilder::name)
+-    pub fn build(self) -> ::std::result::Result<crate::types::DataSourceFilter, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::DataSourceFilter {
++    pub fn build(self) -> ::std::result::Result<super::types::DataSourceFilter, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::DataSourceFilter {
+             name: self.name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "name",

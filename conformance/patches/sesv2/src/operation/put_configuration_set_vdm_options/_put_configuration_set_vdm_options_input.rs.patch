@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>The name of the configuration set.</p>
+     pub configuration_set_name: ::std::option::Option<::std::string::String>,
+     /// <p>The VDM options to apply to the configuration set.</p>
+-    pub vdm_options: ::std::option::Option<crate::types::VdmOptions>,
++    pub vdm_options: ::std::option::Option<super::types::VdmOptions>,
+ }
+ impl PutConfigurationSetVdmOptionsInput {
+     /// <p>The name of the configuration set.</p>
+@@ -15,14 +15,14 @@
+         self.configuration_set_name.as_deref()
+     }
+     /// <p>The VDM options to apply to the configuration set.</p>
+-    pub fn vdm_options(&self) -> ::std::option::Option<&crate::types::VdmOptions> {
++    pub fn vdm_options(&self) -> ::std::option::Option<&super::types::VdmOptions> {
+         self.vdm_options.as_ref()
+     }
+ }
+ impl PutConfigurationSetVdmOptionsInput {
+     /// Creates a new builder-style object to manufacture [`PutConfigurationSetVdmOptionsInput`](crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput).
+-    pub fn builder() -> crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder {
+-        crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder::default()
++    pub fn builder() -> super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder {
++        super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder::default()
+     }
+ }
+
+@@ -31,7 +31,7 @@
+ #[non_exhaustive]
+ pub struct PutConfigurationSetVdmOptionsInputBuilder {
+     pub(crate) configuration_set_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) vdm_options: ::std::option::Option<crate::types::VdmOptions>,
++    pub(crate) vdm_options: ::std::option::Option<super::types::VdmOptions>,
+ }
+ impl PutConfigurationSetVdmOptionsInputBuilder {
+     /// <p>The name of the configuration set.</p>
+@@ -50,17 +50,17 @@
+         &self.configuration_set_name
+     }
+     /// <p>The VDM options to apply to the configuration set.</p>
+-    pub fn vdm_options(mut self, input: crate::types::VdmOptions) -> Self {
++    pub fn vdm_options(mut self, input: super::types::VdmOptions) -> Self {
+         self.vdm_options = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The VDM options to apply to the configuration set.</p>
+-    pub fn set_vdm_options(mut self, input: ::std::option::Option<crate::types::VdmOptions>) -> Self {
++    pub fn set_vdm_options(mut self, input: ::std::option::Option<super::types::VdmOptions>) -> Self {
+         self.vdm_options = input;
+         self
+     }
+     /// <p>The VDM options to apply to the configuration set.</p>
+-    pub fn get_vdm_options(&self) -> &::std::option::Option<crate::types::VdmOptions> {
++    pub fn get_vdm_options(&self) -> &::std::option::Option<super::types::VdmOptions> {
+         &self.vdm_options
+     }
+     /// Consumes the builder and constructs a [`PutConfigurationSetVdmOptionsInput`](crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput).
+@@ -67,10 +67,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput,
++        super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput {
++        ::std::result::Result::Ok(super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput {
+             configuration_set_name: self.configuration_set_name,
+             vdm_options: self.vdm_options,
+         })

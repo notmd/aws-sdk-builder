@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>The name of the data access policy.</p>
+     pub policy_name: ::std::option::Option<::std::string::String>,
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub status: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
++    pub status: ::std::option::Option<super::types::OpenSearchResourceStatus>,
+ }
+ impl OpenSearchDataAccessPolicy {
+     /// <p>The name of the data access policy.</p>
+@@ -15,14 +15,14 @@
+         self.policy_name.as_deref()
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn status(&self) -> ::std::option::Option<&crate::types::OpenSearchResourceStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::types::OpenSearchResourceStatus> {
+         self.status.as_ref()
+     }
+ }
+ impl OpenSearchDataAccessPolicy {
+     /// Creates a new builder-style object to manufacture [`OpenSearchDataAccessPolicy`](crate::types::OpenSearchDataAccessPolicy).
+-    pub fn builder() -> crate::types::builders::OpenSearchDataAccessPolicyBuilder {
+-        crate::types::builders::OpenSearchDataAccessPolicyBuilder::default()
++    pub fn builder() -> super::types::builders::OpenSearchDataAccessPolicyBuilder {
++        super::types::builders::OpenSearchDataAccessPolicyBuilder::default()
+     }
+ }
+
+@@ -31,7 +31,7 @@
+ #[non_exhaustive]
+ pub struct OpenSearchDataAccessPolicyBuilder {
+     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) status: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
++    pub(crate) status: ::std::option::Option<super::types::OpenSearchResourceStatus>,
+ }
+ impl OpenSearchDataAccessPolicyBuilder {
+     /// <p>The name of the data access policy.</p>
+@@ -49,22 +49,22 @@
+         &self.policy_name
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn status(mut self, input: crate::types::OpenSearchResourceStatus) -> Self {
++    pub fn status(mut self, input: super::types::OpenSearchResourceStatus) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OpenSearchResourceStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::OpenSearchResourceStatus>) -> Self {
+         self.status = input;
+         self
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::OpenSearchResourceStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::OpenSearchResourceStatus> {
+         &self.status
+     }
+     /// Consumes the builder and constructs a [`OpenSearchDataAccessPolicy`](crate::types::OpenSearchDataAccessPolicy).
+-    pub fn build(self) -> crate::types::OpenSearchDataAccessPolicy {
+-        crate::types::OpenSearchDataAccessPolicy {
++    pub fn build(self) -> super::types::OpenSearchDataAccessPolicy {
++        super::types::OpenSearchDataAccessPolicy {
+             policy_name: self.policy_name,
+             status: self.status,
+         }

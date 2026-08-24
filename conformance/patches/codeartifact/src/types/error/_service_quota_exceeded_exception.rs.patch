@@ -1,0 +1,81 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     /// <p>The ID of the resource.</p>
+     pub resource_id: ::std::option::Option<::std::string::String>,
+     /// <p>The type of Amazon Web Services resource.</p>
+-    pub resource_type: ::std::option::Option<crate::types::ResourceType>,
++    pub resource_type: ::std::option::Option<super::types::ResourceType>,
+     pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
+ }
+ impl ServiceQuotaExceededException {
+@@ -18,7 +18,7 @@
+         self.resource_id.as_deref()
+     }
+     /// <p>The type of Amazon Web Services resource.</p>
+-    pub fn resource_type(&self) -> ::std::option::Option<&crate::types::ResourceType> {
++    pub fn resource_type(&self) -> ::std::option::Option<&super::types::ResourceType> {
+         self.resource_type.as_ref()
+     }
+ }
+@@ -38,7 +38,7 @@
+     }
+ }
+ impl ::std::error::Error for ServiceQuotaExceededException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::ServiceQuotaExceededException {
++impl ::aws_types::request_id::RequestId for super::types::error::ServiceQuotaExceededException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -51,8 +51,8 @@
+ }
+ impl ServiceQuotaExceededException {
+     /// Creates a new builder-style object to manufacture [`ServiceQuotaExceededException`](crate::types::error::ServiceQuotaExceededException).
+-    pub fn builder() -> crate::types::error::builders::ServiceQuotaExceededExceptionBuilder {
+-        crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::ServiceQuotaExceededExceptionBuilder {
++        super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default()
+     }
+ }
+
+@@ -62,7 +62,7 @@
+ pub struct ServiceQuotaExceededExceptionBuilder {
+     pub(crate) message: ::std::option::Option<::std::string::String>,
+     pub(crate) resource_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) resource_type: ::std::option::Option<crate::types::ResourceType>,
++    pub(crate) resource_type: ::std::option::Option<super::types::ResourceType>,
+     meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+ }
+ impl ServiceQuotaExceededExceptionBuilder {
+@@ -96,17 +96,17 @@
+         &self.resource_id
+     }
+     /// <p>The type of Amazon Web Services resource.</p>
+-    pub fn resource_type(mut self, input: crate::types::ResourceType) -> Self {
++    pub fn resource_type(mut self, input: super::types::ResourceType) -> Self {
+         self.resource_type = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The type of Amazon Web Services resource.</p>
+-    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
++    pub fn set_resource_type(mut self, input: ::std::option::Option<super::types::ResourceType>) -> Self {
+         self.resource_type = input;
+         self
+     }
+     /// <p>The type of Amazon Web Services resource.</p>
+-    pub fn get_resource_type(&self) -> &::std::option::Option<crate::types::ResourceType> {
++    pub fn get_resource_type(&self) -> &::std::option::Option<super::types::ResourceType> {
+         &self.resource_type
+     }
+     /// Sets error metadata
+@@ -125,8 +125,8 @@
+     /// - [`message`](crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::message)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::types::error::ServiceQuotaExceededException, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::error::ServiceQuotaExceededException {
++    ) -> ::std::result::Result<super::types::error::ServiceQuotaExceededException, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::error::ServiceQuotaExceededException {
+             message: self.message.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "message",

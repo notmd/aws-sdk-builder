@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl PutAccountPricingAttributesOutput {
+     /// Creates a new builder-style object to manufacture [`PutAccountPricingAttributesOutput`](crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput).
+-    pub fn builder() -> crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesOutputBuilder {
+-        crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesOutputBuilder::default()
++    pub fn builder() -> super::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesOutputBuilder {
++        super::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutAccountPricingAttributesOutput`](crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput).
+-    pub fn build(self) -> crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput {
+-        crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput {
++    pub fn build(self) -> super::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput {
++        super::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput {
+             _request_id: self._request_id,
+         }
+     }

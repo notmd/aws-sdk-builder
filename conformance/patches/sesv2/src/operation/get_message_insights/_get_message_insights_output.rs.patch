@@ -1,0 +1,111 @@
+--- original
++++ modified
+@@ -11,9 +11,9 @@
+     /// <p>The subject line of the message.</p>
+     pub subject: ::std::option::Option<::std::string::String>,
+     /// <p>A list of tags, in the form of name/value pairs, that were applied to the email you sent, along with Amazon SES <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-using-event-publishing.html">Auto-Tags</a>.</p>
+-    pub email_tags: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>,
++    pub email_tags: ::std::option::Option<::std::vec::Vec<super::types::MessageTag>>,
+     /// <p>A set of insights associated with the message.</p>
+-    pub insights: ::std::option::Option<::std::vec::Vec<crate::types::EmailInsights>>,
++    pub insights: ::std::option::Option<::std::vec::Vec<super::types::EmailInsights>>,
+     _request_id: Option<String>,
+ }
+ impl GetMessageInsightsOutput {
+@@ -32,13 +32,13 @@
+     /// <p>A list of tags, in the form of name/value pairs, that were applied to the email you sent, along with Amazon SES <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-using-event-publishing.html">Auto-Tags</a>.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.email_tags.is_none()`.
+-    pub fn email_tags(&self) -> &[crate::types::MessageTag] {
++    pub fn email_tags(&self) -> &[super::types::MessageTag] {
+         self.email_tags.as_deref().unwrap_or_default()
+     }
+     /// <p>A set of insights associated with the message.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.insights.is_none()`.
+-    pub fn insights(&self) -> &[crate::types::EmailInsights] {
++    pub fn insights(&self) -> &[super::types::EmailInsights] {
+         self.insights.as_deref().unwrap_or_default()
+     }
+ }
+@@ -61,8 +61,8 @@
+ }
+ impl GetMessageInsightsOutput {
+     /// Creates a new builder-style object to manufacture [`GetMessageInsightsOutput`](crate::operation::get_message_insights::GetMessageInsightsOutput).
+-    pub fn builder() -> crate::operation::get_message_insights::builders::GetMessageInsightsOutputBuilder {
+-        crate::operation::get_message_insights::builders::GetMessageInsightsOutputBuilder::default()
++    pub fn builder() -> super::operation::get_message_insights::builders::GetMessageInsightsOutputBuilder {
++        super::operation::get_message_insights::builders::GetMessageInsightsOutputBuilder::default()
+     }
+ }
+
+@@ -73,8 +73,8 @@
+     pub(crate) message_id: ::std::option::Option<::std::string::String>,
+     pub(crate) from_email_address: ::std::option::Option<::std::string::String>,
+     pub(crate) subject: ::std::option::Option<::std::string::String>,
+-    pub(crate) email_tags: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>,
+-    pub(crate) insights: ::std::option::Option<::std::vec::Vec<crate::types::EmailInsights>>,
++    pub(crate) email_tags: ::std::option::Option<::std::vec::Vec<super::types::MessageTag>>,
++    pub(crate) insights: ::std::option::Option<::std::vec::Vec<super::types::EmailInsights>>,
+     _request_id: Option<String>,
+ }
+ impl GetMessageInsightsOutputBuilder {
+@@ -125,7 +125,7 @@
+     /// To override the contents of this collection use [`set_email_tags`](Self::set_email_tags).
+     ///
+     /// <p>A list of tags, in the form of name/value pairs, that were applied to the email you sent, along with Amazon SES <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-using-event-publishing.html">Auto-Tags</a>.</p>
+-    pub fn email_tags(mut self, input: crate::types::MessageTag) -> Self {
++    pub fn email_tags(mut self, input: super::types::MessageTag) -> Self {
+         let mut v = self.email_tags.unwrap_or_default();
+         v.push(input);
+         self.email_tags = ::std::option::Option::Some(v);
+@@ -132,12 +132,12 @@
+         self
+     }
+     /// <p>A list of tags, in the form of name/value pairs, that were applied to the email you sent, along with Amazon SES <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-using-event-publishing.html">Auto-Tags</a>.</p>
+-    pub fn set_email_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>) -> Self {
++    pub fn set_email_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MessageTag>>) -> Self {
+         self.email_tags = input;
+         self
+     }
+     /// <p>A list of tags, in the form of name/value pairs, that were applied to the email you sent, along with Amazon SES <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-using-event-publishing.html">Auto-Tags</a>.</p>
+-    pub fn get_email_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageTag>> {
++    pub fn get_email_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MessageTag>> {
+         &self.email_tags
+     }
+     /// Appends an item to `insights`.
+@@ -145,7 +145,7 @@
+     /// To override the contents of this collection use [`set_insights`](Self::set_insights).
+     ///
+     /// <p>A set of insights associated with the message.</p>
+-    pub fn insights(mut self, input: crate::types::EmailInsights) -> Self {
++    pub fn insights(mut self, input: super::types::EmailInsights) -> Self {
+         let mut v = self.insights.unwrap_or_default();
+         v.push(input);
+         self.insights = ::std::option::Option::Some(v);
+@@ -152,12 +152,12 @@
+         self
+     }
+     /// <p>A set of insights associated with the message.</p>
+-    pub fn set_insights(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EmailInsights>>) -> Self {
++    pub fn set_insights(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EmailInsights>>) -> Self {
+         self.insights = input;
+         self
+     }
+     /// <p>A set of insights associated with the message.</p>
+-    pub fn get_insights(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EmailInsights>> {
++    pub fn get_insights(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EmailInsights>> {
+         &self.insights
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -170,8 +170,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetMessageInsightsOutput`](crate::operation::get_message_insights::GetMessageInsightsOutput).
+-    pub fn build(self) -> crate::operation::get_message_insights::GetMessageInsightsOutput {
+-        crate::operation::get_message_insights::GetMessageInsightsOutput {
++    pub fn build(self) -> super::operation::get_message_insights::GetMessageInsightsOutput {
++        super::operation::get_message_insights::GetMessageInsightsOutput {
+             message_id: self.message_id,
+             from_email_address: self.from_email_address,
+             subject: self.subject,

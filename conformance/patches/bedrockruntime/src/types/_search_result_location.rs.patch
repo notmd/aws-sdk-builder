@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -27,8 +27,8 @@
+ }
+ impl SearchResultLocation {
+     /// Creates a new builder-style object to manufacture [`SearchResultLocation`](crate::types::SearchResultLocation).
+-    pub fn builder() -> crate::types::builders::SearchResultLocationBuilder {
+-        crate::types::builders::SearchResultLocationBuilder::default()
++    pub fn builder() -> super::types::builders::SearchResultLocationBuilder {
++        super::types::builders::SearchResultLocationBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         &self.end
+     }
+     /// Consumes the builder and constructs a [`SearchResultLocation`](crate::types::SearchResultLocation).
+-    pub fn build(self) -> crate::types::SearchResultLocation {
+-        crate::types::SearchResultLocation {
++    pub fn build(self) -> super::types::SearchResultLocation {
++        super::types::SearchResultLocation {
+             search_result_index: self.search_result_index,
+             start: self.start,
+             end: self.end,

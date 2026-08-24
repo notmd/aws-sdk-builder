@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl ListTagsLogGroupOutput {
+     /// Creates a new builder-style object to manufacture [`ListTagsLogGroupOutput`](crate::operation::list_tags_log_group::ListTagsLogGroupOutput).
+-    pub fn builder() -> crate::operation::list_tags_log_group::builders::ListTagsLogGroupOutputBuilder {
+-        crate::operation::list_tags_log_group::builders::ListTagsLogGroupOutputBuilder::default()
++    pub fn builder() -> super::operation::list_tags_log_group::builders::ListTagsLogGroupOutputBuilder {
++        super::operation::list_tags_log_group::builders::ListTagsLogGroupOutputBuilder::default()
+     }
+ }
+
+@@ -64,8 +64,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListTagsLogGroupOutput`](crate::operation::list_tags_log_group::ListTagsLogGroupOutput).
+-    pub fn build(self) -> crate::operation::list_tags_log_group::ListTagsLogGroupOutput {
+-        crate::operation::list_tags_log_group::ListTagsLogGroupOutput {
++    pub fn build(self) -> super::operation::list_tags_log_group::ListTagsLogGroupOutput {
++        super::operation::list_tags_log_group::ListTagsLogGroupOutput {
+             tags: self.tags,
+             _request_id: self._request_id,
+         }

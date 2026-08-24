@@ -1,0 +1,153 @@
+--- original
++++ modified
+@@ -41,7 +41,7 @@
+     /// <p>Server-side username-password authentication with the password sent directly in the request. For more information about client-side and server-side authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-public-server-side.html">SDK authorization models</a>.</p>
+     /// </dd>
+     /// </dl>
+-    pub auth_flow: ::std::option::Option<crate::types::AuthFlowType>,
++    pub auth_flow: ::std::option::Option<super::types::AuthFlowType>,
+     /// <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you're invoking.</p>
+     /// <p>The following are some authentication flows and their parameters. Add a <code>SECRET_HASH</code> parameter if your app client has a client secret. Add <code>DEVICE_KEY</code> if you want to bypass multi-factor authentication with a remembered device.</p>
+     /// <dl>
+@@ -144,10 +144,10 @@
+     /// </note>
+     pub client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+-    pub analytics_metadata: ::std::option::Option<crate::types::AnalyticsMetadataType>,
++    pub analytics_metadata: ::std::option::Option<super::types::AnalyticsMetadataType>,
+     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
+-    pub context_data: ::std::option::Option<crate::types::ContextDataType>,
++    pub context_data: ::std::option::Option<super::types::ContextDataType>,
+     /// <p>The optional session ID from a <code>ConfirmSignUp</code> API request. You can sign in a user directly from the sign-up process with an <code>AuthFlow</code> of <code>USER_AUTH</code> and <code>AuthParameters</code> of <code>EMAIL_OTP</code> or <code>SMS_OTP</code>, depending on how your user pool sent the confirmation-code message.</p>
+     pub session: ::std::option::Option<::std::string::String>,
+ }
+@@ -193,7 +193,7 @@
+     /// <p>Server-side username-password authentication with the password sent directly in the request. For more information about client-side and server-side authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-public-server-side.html">SDK authorization models</a>.</p>
+     /// </dd>
+     /// </dl>
+-    pub fn auth_flow(&self) -> ::std::option::Option<&crate::types::AuthFlowType> {
++    pub fn auth_flow(&self) -> ::std::option::Option<&super::types::AuthFlowType> {
+         self.auth_flow.as_ref()
+     }
+     /// <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you're invoking.</p>
+@@ -302,12 +302,12 @@
+         self.client_metadata.as_ref()
+     }
+     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+-    pub fn analytics_metadata(&self) -> ::std::option::Option<&crate::types::AnalyticsMetadataType> {
++    pub fn analytics_metadata(&self) -> ::std::option::Option<&super::types::AnalyticsMetadataType> {
+         self.analytics_metadata.as_ref()
+     }
+     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
+-    pub fn context_data(&self) -> ::std::option::Option<&crate::types::ContextDataType> {
++    pub fn context_data(&self) -> ::std::option::Option<&super::types::ContextDataType> {
+         self.context_data.as_ref()
+     }
+     /// <p>The optional session ID from a <code>ConfirmSignUp</code> API request. You can sign in a user directly from the sign-up process with an <code>AuthFlow</code> of <code>USER_AUTH</code> and <code>AuthParameters</code> of <code>EMAIL_OTP</code> or <code>SMS_OTP</code>, depending on how your user pool sent the confirmation-code message.</p>
+@@ -331,8 +331,8 @@
+ }
+ impl AdminInitiateAuthInput {
+     /// Creates a new builder-style object to manufacture [`AdminInitiateAuthInput`](crate::operation::admin_initiate_auth::AdminInitiateAuthInput).
+-    pub fn builder() -> crate::operation::admin_initiate_auth::builders::AdminInitiateAuthInputBuilder {
+-        crate::operation::admin_initiate_auth::builders::AdminInitiateAuthInputBuilder::default()
++    pub fn builder() -> super::operation::admin_initiate_auth::builders::AdminInitiateAuthInputBuilder {
++        super::operation::admin_initiate_auth::builders::AdminInitiateAuthInputBuilder::default()
+     }
+ }
+
+@@ -342,11 +342,11 @@
+ pub struct AdminInitiateAuthInputBuilder {
+     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
+     pub(crate) client_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) auth_flow: ::std::option::Option<crate::types::AuthFlowType>,
++    pub(crate) auth_flow: ::std::option::Option<super::types::AuthFlowType>,
+     pub(crate) auth_parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+     pub(crate) client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+-    pub(crate) analytics_metadata: ::std::option::Option<crate::types::AnalyticsMetadataType>,
+-    pub(crate) context_data: ::std::option::Option<crate::types::ContextDataType>,
++    pub(crate) analytics_metadata: ::std::option::Option<super::types::AnalyticsMetadataType>,
++    pub(crate) context_data: ::std::option::Option<super::types::ContextDataType>,
+     pub(crate) session: ::std::option::Option<::std::string::String>,
+ }
+ impl AdminInitiateAuthInputBuilder {
+@@ -414,7 +414,7 @@
+     /// </dd>
+     /// </dl>
+     /// This field is required.
+-    pub fn auth_flow(mut self, input: crate::types::AuthFlowType) -> Self {
++    pub fn auth_flow(mut self, input: super::types::AuthFlowType) -> Self {
+         self.auth_flow = ::std::option::Option::Some(input);
+         self
+     }
+@@ -451,7 +451,7 @@
+     /// <p>Server-side username-password authentication with the password sent directly in the request. For more information about client-side and server-side authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-public-server-side.html">SDK authorization models</a>.</p>
+     /// </dd>
+     /// </dl>
+-    pub fn set_auth_flow(mut self, input: ::std::option::Option<crate::types::AuthFlowType>) -> Self {
++    pub fn set_auth_flow(mut self, input: ::std::option::Option<super::types::AuthFlowType>) -> Self {
+         self.auth_flow = input;
+         self
+     }
+@@ -488,7 +488,7 @@
+     /// <p>Server-side username-password authentication with the password sent directly in the request. For more information about client-side and server-side authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-public-server-side.html">SDK authorization models</a>.</p>
+     /// </dd>
+     /// </dl>
+-    pub fn get_auth_flow(&self) -> &::std::option::Option<crate::types::AuthFlowType> {
++    pub fn get_auth_flow(&self) -> &::std::option::Option<super::types::AuthFlowType> {
+         &self.auth_flow
+     }
+     /// Adds a key-value pair to `auth_parameters`.
+@@ -837,34 +837,34 @@
+         &self.client_metadata
+     }
+     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+-    pub fn analytics_metadata(mut self, input: crate::types::AnalyticsMetadataType) -> Self {
++    pub fn analytics_metadata(mut self, input: super::types::AnalyticsMetadataType) -> Self {
+         self.analytics_metadata = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+-    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<crate::types::AnalyticsMetadataType>) -> Self {
++    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<super::types::AnalyticsMetadataType>) -> Self {
+         self.analytics_metadata = input;
+         self
+     }
+     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
+-    pub fn get_analytics_metadata(&self) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
++    pub fn get_analytics_metadata(&self) -> &::std::option::Option<super::types::AnalyticsMetadataType> {
+         &self.analytics_metadata
+     }
+     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
+-    pub fn context_data(mut self, input: crate::types::ContextDataType) -> Self {
++    pub fn context_data(mut self, input: super::types::ContextDataType) -> Self {
+         self.context_data = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
+-    pub fn set_context_data(mut self, input: ::std::option::Option<crate::types::ContextDataType>) -> Self {
++    pub fn set_context_data(mut self, input: ::std::option::Option<super::types::ContextDataType>) -> Self {
+         self.context_data = input;
+         self
+     }
+     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
+-    pub fn get_context_data(&self) -> &::std::option::Option<crate::types::ContextDataType> {
++    pub fn get_context_data(&self) -> &::std::option::Option<super::types::ContextDataType> {
+         &self.context_data
+     }
+     /// <p>The optional session ID from a <code>ConfirmSignUp</code> API request. You can sign in a user directly from the sign-up process with an <code>AuthFlow</code> of <code>USER_AUTH</code> and <code>AuthParameters</code> of <code>EMAIL_OTP</code> or <code>SMS_OTP</code>, depending on how your user pool sent the confirmation-code message.</p>
+@@ -884,8 +884,8 @@
+     /// Consumes the builder and constructs a [`AdminInitiateAuthInput`](crate::operation::admin_initiate_auth::AdminInitiateAuthInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::admin_initiate_auth::AdminInitiateAuthInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::admin_initiate_auth::AdminInitiateAuthInput {
++    ) -> ::std::result::Result<super::operation::admin_initiate_auth::AdminInitiateAuthInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::admin_initiate_auth::AdminInitiateAuthInput {
+             user_pool_id: self.user_pool_id,
+             client_id: self.client_id,
+             auth_flow: self.auth_flow,

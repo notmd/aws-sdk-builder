@@ -1,0 +1,161 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>The username of the user that you requested.</p>
+     pub username: ::std::string::String,
+     /// <p>An array of name-value pairs of user attributes and their values, for example <code>"email": "testuser@example.com"</code>.</p>
+-    pub user_attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
++    pub user_attributes: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>,
+     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
+     pub user_create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
+@@ -29,9 +29,9 @@
+     /// <li>
+     /// <p>EXTERNAL_PROVIDER - The user signed in with a third-party identity provider.</p></li>
+     /// </ul>
+-    pub user_status: ::std::option::Option<crate::types::UserStatusType>,
++    pub user_status: ::std::option::Option<super::types::UserStatusType>,
+     /// <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about time-based one-time password (TOTP) software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
+-    pub mfa_options: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>,
++    pub mfa_options: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>,
+     /// <p>The user's preferred MFA. Users can prefer SMS message, email message, or TOTP MFA.</p>
+     pub preferred_mfa_setting: ::std::option::Option<::std::string::String>,
+     /// <p>The MFA options that are activated for the user. The possible values in this list are <code>SMS_MFA</code>, <code>EMAIL_OTP</code>, and <code>SOFTWARE_TOKEN_MFA</code>.</p>
+@@ -47,7 +47,7 @@
+     /// <p>An array of name-value pairs of user attributes and their values, for example <code>"email": "testuser@example.com"</code>.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.user_attributes.is_none()`.
+-    pub fn user_attributes(&self) -> &[crate::types::AttributeType] {
++    pub fn user_attributes(&self) -> &[super::types::AttributeType] {
+         self.user_attributes.as_deref().unwrap_or_default()
+     }
+     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
+@@ -77,13 +77,13 @@
+     /// <li>
+     /// <p>EXTERNAL_PROVIDER - The user signed in with a third-party identity provider.</p></li>
+     /// </ul>
+-    pub fn user_status(&self) -> ::std::option::Option<&crate::types::UserStatusType> {
++    pub fn user_status(&self) -> ::std::option::Option<&super::types::UserStatusType> {
+         self.user_status.as_ref()
+     }
+     /// <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about time-based one-time password (TOTP) software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.mfa_options.is_none()`.
+-    pub fn mfa_options(&self) -> &[crate::types::MfaOptionType] {
++    pub fn mfa_options(&self) -> &[super::types::MfaOptionType] {
+         self.mfa_options.as_deref().unwrap_or_default()
+     }
+     /// <p>The user's preferred MFA. Users can prefer SMS message, email message, or TOTP MFA.</p>
+@@ -120,8 +120,8 @@
+ }
+ impl AdminGetUserOutput {
+     /// Creates a new builder-style object to manufacture [`AdminGetUserOutput`](crate::operation::admin_get_user::AdminGetUserOutput).
+-    pub fn builder() -> crate::operation::admin_get_user::builders::AdminGetUserOutputBuilder {
+-        crate::operation::admin_get_user::builders::AdminGetUserOutputBuilder::default()
++    pub fn builder() -> super::operation::admin_get_user::builders::AdminGetUserOutputBuilder {
++        super::operation::admin_get_user::builders::AdminGetUserOutputBuilder::default()
+     }
+ }
+
+@@ -130,12 +130,12 @@
+ #[non_exhaustive]
+ pub struct AdminGetUserOutputBuilder {
+     pub(crate) username: ::std::option::Option<::std::string::String>,
+-    pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
++    pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>,
+     pub(crate) user_create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) user_last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) enabled: ::std::option::Option<bool>,
+-    pub(crate) user_status: ::std::option::Option<crate::types::UserStatusType>,
+-    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>,
++    pub(crate) user_status: ::std::option::Option<super::types::UserStatusType>,
++    pub(crate) mfa_options: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>,
+     pub(crate) preferred_mfa_setting: ::std::option::Option<::std::string::String>,
+     pub(crate) user_mfa_setting_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     _request_id: Option<String>,
+@@ -161,7 +161,7 @@
+     /// To override the contents of this collection use [`set_user_attributes`](Self::set_user_attributes).
+     ///
+     /// <p>An array of name-value pairs of user attributes and their values, for example <code>"email": "testuser@example.com"</code>.</p>
+-    pub fn user_attributes(mut self, input: crate::types::AttributeType) -> Self {
++    pub fn user_attributes(mut self, input: super::types::AttributeType) -> Self {
+         let mut v = self.user_attributes.unwrap_or_default();
+         v.push(input);
+         self.user_attributes = ::std::option::Option::Some(v);
+@@ -168,12 +168,12 @@
+         self
+     }
+     /// <p>An array of name-value pairs of user attributes and their values, for example <code>"email": "testuser@example.com"</code>.</p>
+-    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
++    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AttributeType>>) -> Self {
+         self.user_attributes = input;
+         self
+     }
+     /// <p>An array of name-value pairs of user attributes and their values, for example <code>"email": "testuser@example.com"</code>.</p>
+-    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
++    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AttributeType>> {
+         &self.user_attributes
+     }
+     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
+@@ -233,7 +233,7 @@
+     /// <li>
+     /// <p>EXTERNAL_PROVIDER - The user signed in with a third-party identity provider.</p></li>
+     /// </ul>
+-    pub fn user_status(mut self, input: crate::types::UserStatusType) -> Self {
++    pub fn user_status(mut self, input: super::types::UserStatusType) -> Self {
+         self.user_status = ::std::option::Option::Some(input);
+         self
+     }
+@@ -252,7 +252,7 @@
+     /// <li>
+     /// <p>EXTERNAL_PROVIDER - The user signed in with a third-party identity provider.</p></li>
+     /// </ul>
+-    pub fn set_user_status(mut self, input: ::std::option::Option<crate::types::UserStatusType>) -> Self {
++    pub fn set_user_status(mut self, input: ::std::option::Option<super::types::UserStatusType>) -> Self {
+         self.user_status = input;
+         self
+     }
+@@ -271,7 +271,7 @@
+     /// <li>
+     /// <p>EXTERNAL_PROVIDER - The user signed in with a third-party identity provider.</p></li>
+     /// </ul>
+-    pub fn get_user_status(&self) -> &::std::option::Option<crate::types::UserStatusType> {
++    pub fn get_user_status(&self) -> &::std::option::Option<super::types::UserStatusType> {
+         &self.user_status
+     }
+     /// Appends an item to `mfa_options`.
+@@ -279,7 +279,7 @@
+     /// To override the contents of this collection use [`set_mfa_options`](Self::set_mfa_options).
+     ///
+     /// <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about time-based one-time password (TOTP) software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
+-    pub fn mfa_options(mut self, input: crate::types::MfaOptionType) -> Self {
++    pub fn mfa_options(mut self, input: super::types::MfaOptionType) -> Self {
+         let mut v = self.mfa_options.unwrap_or_default();
+         v.push(input);
+         self.mfa_options = ::std::option::Option::Some(v);
+@@ -286,12 +286,12 @@
+         self
+     }
+     /// <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about time-based one-time password (TOTP) software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
+-    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>>) -> Self {
++    pub fn set_mfa_options(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>>) -> Self {
+         self.mfa_options = input;
+         self
+     }
+     /// <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about time-based one-time password (TOTP) software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
+-    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>> {
++    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MfaOptionType>> {
+         &self.mfa_options
+     }
+     /// <p>The user's preferred MFA. Users can prefer SMS message, email message, or TOTP MFA.</p>
+@@ -342,8 +342,8 @@
+     /// - [`username`](crate::operation::admin_get_user::builders::AdminGetUserOutputBuilder::username)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::admin_get_user::AdminGetUserOutput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::admin_get_user::AdminGetUserOutput {
++    ) -> ::std::result::Result<super::operation::admin_get_user::AdminGetUserOutput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::admin_get_user::AdminGetUserOutput {
+             username: self.username.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "username",

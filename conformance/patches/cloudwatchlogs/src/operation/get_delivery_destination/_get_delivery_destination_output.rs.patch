@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -4,12 +4,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GetDeliveryDestinationOutput {
+     /// <p>A structure containing information about the delivery destination.</p>
+-    pub delivery_destination: ::std::option::Option<crate::types::DeliveryDestination>,
++    pub delivery_destination: ::std::option::Option<super::types::DeliveryDestination>,
+     _request_id: Option<String>,
+ }
+ impl GetDeliveryDestinationOutput {
+     /// <p>A structure containing information about the delivery destination.</p>
+-    pub fn delivery_destination(&self) -> ::std::option::Option<&crate::types::DeliveryDestination> {
++    pub fn delivery_destination(&self) -> ::std::option::Option<&super::types::DeliveryDestination> {
+         self.delivery_destination.as_ref()
+     }
+ }
+@@ -20,8 +20,8 @@
+ }
+ impl GetDeliveryDestinationOutput {
+     /// Creates a new builder-style object to manufacture [`GetDeliveryDestinationOutput`](crate::operation::get_delivery_destination::GetDeliveryDestinationOutput).
+-    pub fn builder() -> crate::operation::get_delivery_destination::builders::GetDeliveryDestinationOutputBuilder {
+-        crate::operation::get_delivery_destination::builders::GetDeliveryDestinationOutputBuilder::default()
++    pub fn builder() -> super::operation::get_delivery_destination::builders::GetDeliveryDestinationOutputBuilder {
++        super::operation::get_delivery_destination::builders::GetDeliveryDestinationOutputBuilder::default()
+     }
+ }
+
+@@ -29,22 +29,22 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GetDeliveryDestinationOutputBuilder {
+-    pub(crate) delivery_destination: ::std::option::Option<crate::types::DeliveryDestination>,
++    pub(crate) delivery_destination: ::std::option::Option<super::types::DeliveryDestination>,
+     _request_id: Option<String>,
+ }
+ impl GetDeliveryDestinationOutputBuilder {
+     /// <p>A structure containing information about the delivery destination.</p>
+-    pub fn delivery_destination(mut self, input: crate::types::DeliveryDestination) -> Self {
++    pub fn delivery_destination(mut self, input: super::types::DeliveryDestination) -> Self {
+         self.delivery_destination = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>A structure containing information about the delivery destination.</p>
+-    pub fn set_delivery_destination(mut self, input: ::std::option::Option<crate::types::DeliveryDestination>) -> Self {
++    pub fn set_delivery_destination(mut self, input: ::std::option::Option<super::types::DeliveryDestination>) -> Self {
+         self.delivery_destination = input;
+         self
+     }
+     /// <p>A structure containing information about the delivery destination.</p>
+-    pub fn get_delivery_destination(&self) -> &::std::option::Option<crate::types::DeliveryDestination> {
++    pub fn get_delivery_destination(&self) -> &::std::option::Option<super::types::DeliveryDestination> {
+         &self.delivery_destination
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetDeliveryDestinationOutput`](crate::operation::get_delivery_destination::GetDeliveryDestinationOutput).
+-    pub fn build(self) -> crate::operation::get_delivery_destination::GetDeliveryDestinationOutput {
+-        crate::operation::get_delivery_destination::GetDeliveryDestinationOutput {
++    pub fn build(self) -> super::operation::get_delivery_destination::GetDeliveryDestinationOutput {
++        super::operation::get_delivery_destination::GetDeliveryDestinationOutput {
+             delivery_destination: self.delivery_destination,
+             _request_id: self._request_id,
+         }

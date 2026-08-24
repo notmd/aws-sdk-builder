@@ -1,0 +1,50 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::Delivery>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::Delivery>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::DeliveryBuilder::default();
++            let mut builder = super::types::builders::DeliveryBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -52,13 +52,13 @@
+                         "deliveryDestinationType" => {
+                             builder = builder.set_delivery_destination_type(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::DeliveryDestinationType::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::DeliveryDestinationType::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+                         "recordFields" => {
+                             builder =
+-                                builder.set_record_fields(crate::protocol_serde::shape_record_fields::de_record_fields(tokens, _value, depth + 1)?);
++                                builder.set_record_fields(super::protocol_serde::shape_record_fields::de_record_fields(tokens, _value, depth + 1)?);
+                         }
+                         "fieldDelimiter" => {
+                             builder = builder.set_field_delimiter(
+@@ -69,11 +69,11 @@
+                         }
+                         "s3DeliveryConfiguration" => {
+                             builder = builder.set_s3_delivery_configuration(
+-                                crate::protocol_serde::shape_s3_delivery_configuration::de_s3_delivery_configuration(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_s3_delivery_configuration::de_s3_delivery_configuration(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "tags" => {
+-                            builder = builder.set_tags(crate::protocol_serde::shape_tags::de_tags(tokens, _value, depth + 1)?);
++                            builder = builder.set_tags(super::protocol_serde::shape_tags::de_tags(tokens, _value, depth + 1)?);
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                     },

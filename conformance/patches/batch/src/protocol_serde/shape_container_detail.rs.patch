@@ -1,0 +1,139 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::ContainerDetail>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::ContainerDetail>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::ContainerDetailBuilder::default();
++            let mut builder = super::types::builders::ContainerDetailBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -43,7 +43,7 @@
+                             );
+                         }
+                         "command" => {
+-                            builder = builder.set_command(crate::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_command(super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
+                         }
+                         "jobRoleArn" => {
+                             builder = builder.set_job_role_arn(
+@@ -60,10 +60,10 @@
+                             );
+                         }
+                         "volumes" => {
+-                            builder = builder.set_volumes(crate::protocol_serde::shape_volumes::de_volumes(tokens, _value, depth + 1)?);
++                            builder = builder.set_volumes(super::protocol_serde::shape_volumes::de_volumes(tokens, _value, depth + 1)?);
+                         }
+                         "environment" => {
+-                            builder = builder.set_environment(crate::protocol_serde::shape_environment_variables::de_environment_variables(
++                            builder = builder.set_environment(super::protocol_serde::shape_environment_variables::de_environment_variables(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -71,7 +71,7 @@
+                         }
+                         "mountPoints" => {
+                             builder =
+-                                builder.set_mount_points(crate::protocol_serde::shape_mount_points::de_mount_points(tokens, _value, depth + 1)?);
++                                builder.set_mount_points(super::protocol_serde::shape_mount_points::de_mount_points(tokens, _value, depth + 1)?);
+                         }
+                         "readonlyRootFilesystem" => {
+                             builder =
+@@ -78,7 +78,7 @@
+                                 builder.set_readonly_root_filesystem(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                         }
+                         "ulimits" => {
+-                            builder = builder.set_ulimits(crate::protocol_serde::shape_ulimits::de_ulimits(tokens, _value, depth + 1)?);
++                            builder = builder.set_ulimits(super::protocol_serde::shape_ulimits::de_ulimits(tokens, _value, depth + 1)?);
+                         }
+                         "privileged" => {
+                             builder = builder.set_privileged(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+@@ -133,7 +133,7 @@
+                             );
+                         }
+                         "networkInterfaces" => {
+-                            builder = builder.set_network_interfaces(crate::protocol_serde::shape_network_interface_list::de_network_interface_list(
++                            builder = builder.set_network_interfaces(super::protocol_serde::shape_network_interface_list::de_network_interface_list(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -141,11 +141,11 @@
+                         }
+                         "resourceRequirements" => {
+                             builder = builder.set_resource_requirements(
+-                                crate::protocol_serde::shape_resource_requirements::de_resource_requirements(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_resource_requirements::de_resource_requirements(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "linuxParameters" => {
+-                            builder = builder.set_linux_parameters(crate::protocol_serde::shape_linux_parameters::de_linux_parameters(
++                            builder = builder.set_linux_parameters(super::protocol_serde::shape_linux_parameters::de_linux_parameters(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -152,7 +152,7 @@
+                             )?);
+                         }
+                         "logConfiguration" => {
+-                            builder = builder.set_log_configuration(crate::protocol_serde::shape_log_configuration::de_log_configuration(
++                            builder = builder.set_log_configuration(super::protocol_serde::shape_log_configuration::de_log_configuration(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -159,16 +159,16 @@
+                             )?);
+                         }
+                         "secrets" => {
+-                            builder = builder.set_secrets(crate::protocol_serde::shape_secret_list::de_secret_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_secrets(super::protocol_serde::shape_secret_list::de_secret_list(tokens, _value, depth + 1)?);
+                         }
+                         "networkConfiguration" => {
+                             builder = builder.set_network_configuration(
+-                                crate::protocol_serde::shape_network_configuration::de_network_configuration(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_network_configuration::de_network_configuration(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "fargatePlatformConfiguration" => {
+                             builder = builder.set_fargate_platform_configuration(
+-                                crate::protocol_serde::shape_fargate_platform_configuration::de_fargate_platform_configuration(
++                                super::protocol_serde::shape_fargate_platform_configuration::de_fargate_platform_configuration(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -176,7 +176,7 @@
+                             );
+                         }
+                         "ephemeralStorage" => {
+-                            builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                            builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -183,7 +183,7 @@
+                             )?);
+                         }
+                         "runtimePlatform" => {
+-                            builder = builder.set_runtime_platform(crate::protocol_serde::shape_runtime_platform::de_runtime_platform(
++                            builder = builder.set_runtime_platform(super::protocol_serde::shape_runtime_platform::de_runtime_platform(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -191,7 +191,7 @@
+                         }
+                         "repositoryCredentials" => {
+                             builder = builder.set_repository_credentials(
+-                                crate::protocol_serde::shape_repository_credentials::de_repository_credentials(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_repository_credentials::de_repository_credentials(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "enableExecuteCommand" => {

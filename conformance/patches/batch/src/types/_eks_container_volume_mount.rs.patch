@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -33,8 +33,8 @@
+ }
+ impl EksContainerVolumeMount {
+     /// Creates a new builder-style object to manufacture [`EksContainerVolumeMount`](crate::types::EksContainerVolumeMount).
+-    pub fn builder() -> crate::types::builders::EksContainerVolumeMountBuilder {
+-        crate::types::builders::EksContainerVolumeMountBuilder::default()
++    pub fn builder() -> super::types::builders::EksContainerVolumeMountBuilder {
++        super::types::builders::EksContainerVolumeMountBuilder::default()
+     }
+ }
+
+@@ -105,8 +105,8 @@
+         &self.read_only
+     }
+     /// Consumes the builder and constructs a [`EksContainerVolumeMount`](crate::types::EksContainerVolumeMount).
+-    pub fn build(self) -> crate::types::EksContainerVolumeMount {
+-        crate::types::EksContainerVolumeMount {
++    pub fn build(self) -> super::types::EksContainerVolumeMount {
++        super::types::EksContainerVolumeMount {
+             name: self.name,
+             mount_path: self.mount_path,
+             sub_path: self.sub_path,

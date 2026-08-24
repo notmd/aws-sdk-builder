@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GetLogEventsOutput {
+     /// <p>The events.</p>
+-    pub events: ::std::option::Option<::std::vec::Vec<crate::types::OutputLogEvent>>,
++    pub events: ::std::option::Option<::std::vec::Vec<super::types::OutputLogEvent>>,
+     /// <p>The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it returns the same token you passed in.</p>
+     pub next_forward_token: ::std::option::Option<::std::string::String>,
+     /// <p>The token for the next set of items in the backward direction. The token expires after 24 hours. This token is not null. If you have reached the end of the stream, it returns the same token you passed in.</p>
+@@ -15,7 +15,7 @@
+     /// <p>The events.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.events.is_none()`.
+-    pub fn events(&self) -> &[crate::types::OutputLogEvent] {
++    pub fn events(&self) -> &[super::types::OutputLogEvent] {
+         self.events.as_deref().unwrap_or_default()
+     }
+     /// <p>The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it returns the same token you passed in.</p>
+@@ -34,8 +34,8 @@
+ }
+ impl GetLogEventsOutput {
+     /// Creates a new builder-style object to manufacture [`GetLogEventsOutput`](crate::operation::get_log_events::GetLogEventsOutput).
+-    pub fn builder() -> crate::operation::get_log_events::builders::GetLogEventsOutputBuilder {
+-        crate::operation::get_log_events::builders::GetLogEventsOutputBuilder::default()
++    pub fn builder() -> super::operation::get_log_events::builders::GetLogEventsOutputBuilder {
++        super::operation::get_log_events::builders::GetLogEventsOutputBuilder::default()
+     }
+ }
+
+@@ -43,7 +43,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GetLogEventsOutputBuilder {
+-    pub(crate) events: ::std::option::Option<::std::vec::Vec<crate::types::OutputLogEvent>>,
++    pub(crate) events: ::std::option::Option<::std::vec::Vec<super::types::OutputLogEvent>>,
+     pub(crate) next_forward_token: ::std::option::Option<::std::string::String>,
+     pub(crate) next_backward_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -54,7 +54,7 @@
+     /// To override the contents of this collection use [`set_events`](Self::set_events).
+     ///
+     /// <p>The events.</p>
+-    pub fn events(mut self, input: crate::types::OutputLogEvent) -> Self {
++    pub fn events(mut self, input: super::types::OutputLogEvent) -> Self {
+         let mut v = self.events.unwrap_or_default();
+         v.push(input);
+         self.events = ::std::option::Option::Some(v);
+@@ -61,12 +61,12 @@
+         self
+     }
+     /// <p>The events.</p>
+-    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OutputLogEvent>>) -> Self {
++    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::OutputLogEvent>>) -> Self {
+         self.events = input;
+         self
+     }
+     /// <p>The events.</p>
+-    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OutputLogEvent>> {
++    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<super::types::OutputLogEvent>> {
+         &self.events
+     }
+     /// <p>The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it returns the same token you passed in.</p>
+@@ -107,8 +107,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetLogEventsOutput`](crate::operation::get_log_events::GetLogEventsOutput).
+-    pub fn build(self) -> crate::operation::get_log_events::GetLogEventsOutput {
+-        crate::operation::get_log_events::GetLogEventsOutput {
++    pub fn build(self) -> super::operation::get_log_events::GetLogEventsOutput {
++        super::operation::get_log_events::GetLogEventsOutput {
+             events: self.events,
+             next_forward_token: self.next_forward_token,
+             next_backward_token: self.next_backward_token,

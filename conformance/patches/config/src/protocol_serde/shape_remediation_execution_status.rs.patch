@@ -1,0 +1,42 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::RemediationExecutionStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::RemediationExecutionStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::RemediationExecutionStatusBuilder::default();
++            let mut builder = super::types::builders::RemediationExecutionStatusBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -23,18 +23,18 @@
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "ResourceKey" => {
+                             builder =
+-                                builder.set_resource_key(crate::protocol_serde::shape_resource_key::de_resource_key(tokens, _value, depth + 1)?);
++                                builder.set_resource_key(super::protocol_serde::shape_resource_key::de_resource_key(tokens, _value, depth + 1)?);
+                         }
+                         "State" => {
+                             builder = builder.set_state(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::RemediationExecutionState::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::RemediationExecutionState::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+                         "StepDetails" => {
+                             builder = builder.set_step_details(
+-                                crate::protocol_serde::shape_remediation_execution_steps::de_remediation_execution_steps(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_remediation_execution_steps::de_remediation_execution_steps(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "InvocationTime" => {

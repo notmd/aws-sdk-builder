@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<crate::types::KeyValuePair>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<::std::vec::Vec<super::types::KeyValuePair>>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +23,7 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = crate::protocol_serde::shape_key_value_pair::de_key_value_pair(tokens, _value, depth + 1)?;
++                        let value = super::protocol_serde::shape_key_value_pair::de_key_value_pair(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {

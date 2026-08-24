@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -38,8 +38,8 @@
+ }
+ impl ListPackageGroupsInput {
+     /// Creates a new builder-style object to manufacture [`ListPackageGroupsInput`](crate::operation::list_package_groups::ListPackageGroupsInput).
+-    pub fn builder() -> crate::operation::list_package_groups::builders::ListPackageGroupsInputBuilder {
+-        crate::operation::list_package_groups::builders::ListPackageGroupsInputBuilder::default()
++    pub fn builder() -> super::operation::list_package_groups::builders::ListPackageGroupsInputBuilder {
++        super::operation::list_package_groups::builders::ListPackageGroupsInputBuilder::default()
+     }
+ }
+
+@@ -128,8 +128,8 @@
+     /// Consumes the builder and constructs a [`ListPackageGroupsInput`](crate::operation::list_package_groups::ListPackageGroupsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_package_groups::ListPackageGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_package_groups::ListPackageGroupsInput {
++    ) -> ::std::result::Result<super::operation::list_package_groups::ListPackageGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_package_groups::ListPackageGroupsInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+             max_results: self.max_results,

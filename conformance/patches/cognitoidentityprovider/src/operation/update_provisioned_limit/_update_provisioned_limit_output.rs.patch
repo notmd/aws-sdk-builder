@@ -1,0 +1,67 @@
+--- original
++++ modified
+@@ -4,12 +4,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct UpdateProvisionedLimitOutput {
+     /// <p>The updated provisioned and default limit values.</p>
+-    pub limit: ::std::option::Option<crate::types::LimitType>,
++    pub limit: ::std::option::Option<super::types::LimitType>,
+     _request_id: Option<String>,
+ }
+ impl UpdateProvisionedLimitOutput {
+     /// <p>The updated provisioned and default limit values.</p>
+-    pub fn limit(&self) -> ::std::option::Option<&crate::types::LimitType> {
++    pub fn limit(&self) -> ::std::option::Option<&super::types::LimitType> {
+         self.limit.as_ref()
+     }
+ }
+@@ -20,8 +20,8 @@
+ }
+ impl UpdateProvisionedLimitOutput {
+     /// Creates a new builder-style object to manufacture [`UpdateProvisionedLimitOutput`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitOutput).
+-    pub fn builder() -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitOutputBuilder {
+-        crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitOutputBuilder::default()
++    pub fn builder() -> super::operation::update_provisioned_limit::builders::UpdateProvisionedLimitOutputBuilder {
++        super::operation::update_provisioned_limit::builders::UpdateProvisionedLimitOutputBuilder::default()
+     }
+ }
+
+@@ -29,23 +29,23 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct UpdateProvisionedLimitOutputBuilder {
+-    pub(crate) limit: ::std::option::Option<crate::types::LimitType>,
++    pub(crate) limit: ::std::option::Option<super::types::LimitType>,
+     _request_id: Option<String>,
+ }
+ impl UpdateProvisionedLimitOutputBuilder {
+     /// <p>The updated provisioned and default limit values.</p>
+     /// This field is required.
+-    pub fn limit(mut self, input: crate::types::LimitType) -> Self {
++    pub fn limit(mut self, input: super::types::LimitType) -> Self {
+         self.limit = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The updated provisioned and default limit values.</p>
+-    pub fn set_limit(mut self, input: ::std::option::Option<crate::types::LimitType>) -> Self {
++    pub fn set_limit(mut self, input: ::std::option::Option<super::types::LimitType>) -> Self {
+         self.limit = input;
+         self
+     }
+     /// <p>The updated provisioned and default limit values.</p>
+-    pub fn get_limit(&self) -> &::std::option::Option<crate::types::LimitType> {
++    pub fn get_limit(&self) -> &::std::option::Option<super::types::LimitType> {
+         &self.limit
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -58,8 +58,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UpdateProvisionedLimitOutput`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitOutput).
+-    pub fn build(self) -> crate::operation::update_provisioned_limit::UpdateProvisionedLimitOutput {
+-        crate::operation::update_provisioned_limit::UpdateProvisionedLimitOutput {
++    pub fn build(self) -> super::operation::update_provisioned_limit::UpdateProvisionedLimitOutput {
++        super::operation::update_provisioned_limit::UpdateProvisionedLimitOutput {
+             limit: self.limit,
+             _request_id: self._request_id,
+         }

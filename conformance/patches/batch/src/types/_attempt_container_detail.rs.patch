@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -15,7 +15,7 @@
+     /// <p>The name of the CloudWatch Logs log stream that's associated with the container. The log group for Batch jobs is <code>/aws/batch/job</code>. Each container attempt receives a log stream name when they reach the <code>RUNNING</code> status.</p>
+     pub log_stream_name: ::std::option::Option<::std::string::String>,
+     /// <p>The network interfaces that are associated with the job attempt.</p>
+-    pub network_interfaces: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
++    pub network_interfaces: ::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>>,
+ }
+ impl AttemptContainerDetail {
+     /// <p>The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.</p>
+@@ -41,14 +41,14 @@
+     /// <p>The network interfaces that are associated with the job attempt.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.network_interfaces.is_none()`.
+-    pub fn network_interfaces(&self) -> &[crate::types::NetworkInterface] {
++    pub fn network_interfaces(&self) -> &[super::types::NetworkInterface] {
+         self.network_interfaces.as_deref().unwrap_or_default()
+     }
+ }
+ impl AttemptContainerDetail {
+     /// Creates a new builder-style object to manufacture [`AttemptContainerDetail`](crate::types::AttemptContainerDetail).
+-    pub fn builder() -> crate::types::builders::AttemptContainerDetailBuilder {
+-        crate::types::builders::AttemptContainerDetailBuilder::default()
++    pub fn builder() -> super::types::builders::AttemptContainerDetailBuilder {
++        super::types::builders::AttemptContainerDetailBuilder::default()
+     }
+ }
+
+@@ -61,7 +61,7 @@
+     pub(crate) exit_code: ::std::option::Option<i32>,
+     pub(crate) reason: ::std::option::Option<::std::string::String>,
+     pub(crate) log_stream_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) network_interfaces: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
++    pub(crate) network_interfaces: ::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>>,
+ }
+ impl AttemptContainerDetailBuilder {
+     /// <p>The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.</p>
+@@ -139,7 +139,7 @@
+     /// To override the contents of this collection use [`set_network_interfaces`](Self::set_network_interfaces).
+     ///
+     /// <p>The network interfaces that are associated with the job attempt.</p>
+-    pub fn network_interfaces(mut self, input: crate::types::NetworkInterface) -> Self {
++    pub fn network_interfaces(mut self, input: super::types::NetworkInterface) -> Self {
+         let mut v = self.network_interfaces.unwrap_or_default();
+         v.push(input);
+         self.network_interfaces = ::std::option::Option::Some(v);
+@@ -146,17 +146,17 @@
+         self
+     }
+     /// <p>The network interfaces that are associated with the job attempt.</p>
+-    pub fn set_network_interfaces(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>) -> Self {
++    pub fn set_network_interfaces(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>>) -> Self {
+         self.network_interfaces = input;
+         self
+     }
+     /// <p>The network interfaces that are associated with the job attempt.</p>
+-    pub fn get_network_interfaces(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>> {
++    pub fn get_network_interfaces(&self) -> &::std::option::Option<::std::vec::Vec<super::types::NetworkInterface>> {
+         &self.network_interfaces
+     }
+     /// Consumes the builder and constructs a [`AttemptContainerDetail`](crate::types::AttemptContainerDetail).
+-    pub fn build(self) -> crate::types::AttemptContainerDetail {
+-        crate::types::AttemptContainerDetail {
++    pub fn build(self) -> super::types::AttemptContainerDetail {
++        super::types::AttemptContainerDetail {
+             container_instance_arn: self.container_instance_arn,
+             task_arn: self.task_arn,
+             exit_code: self.exit_code,

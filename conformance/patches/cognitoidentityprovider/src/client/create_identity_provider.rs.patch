@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -12,7 +12,7 @@
+     /// - On success, responds with [`CreateIdentityProviderOutput`](crate::operation::create_identity_provider::CreateIdentityProviderOutput) with field(s):
+     ///   - [`identity_provider(Option<IdentityProviderType>)`](crate::operation::create_identity_provider::CreateIdentityProviderOutput::identity_provider): <p>The details of the new user pool IdP.</p>
+     /// - On failure, responds with [`SdkError<CreateIdentityProviderError>`](crate::operation::create_identity_provider::CreateIdentityProviderError)
+-    pub fn create_identity_provider(&self) -> crate::operation::create_identity_provider::builders::CreateIdentityProviderFluentBuilder {
+-        crate::operation::create_identity_provider::builders::CreateIdentityProviderFluentBuilder::new(self.handle.clone())
++    pub fn create_identity_provider(&self) -> super::operation::create_identity_provider::builders::CreateIdentityProviderFluentBuilder {
++        super::operation::create_identity_provider::builders::CreateIdentityProviderFluentBuilder::new(self.handle.clone())
+     }
+ }

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl ServiceJobCapacityUsageDetail {
+     /// Creates a new builder-style object to manufacture [`ServiceJobCapacityUsageDetail`](crate::types::ServiceJobCapacityUsageDetail).
+-    pub fn builder() -> crate::types::builders::ServiceJobCapacityUsageDetailBuilder {
+-        crate::types::builders::ServiceJobCapacityUsageDetailBuilder::default()
++    pub fn builder() -> super::types::builders::ServiceJobCapacityUsageDetailBuilder {
++        super::types::builders::ServiceJobCapacityUsageDetailBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.quantity
+     }
+     /// Consumes the builder and constructs a [`ServiceJobCapacityUsageDetail`](crate::types::ServiceJobCapacityUsageDetail).
+-    pub fn build(self) -> crate::types::ServiceJobCapacityUsageDetail {
+-        crate::types::ServiceJobCapacityUsageDetail {
++    pub fn build(self) -> super::types::ServiceJobCapacityUsageDetail {
++        super::types::ServiceJobCapacityUsageDetail {
+             capacity_unit: self.capacity_unit,
+             quantity: self.quantity,
+         }

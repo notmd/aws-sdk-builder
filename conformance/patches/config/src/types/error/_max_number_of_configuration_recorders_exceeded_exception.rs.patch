@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for MaxNumberOfConfigurationRecordersExceededException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::MaxNumberOfConfigurationRecordersExceededException {
++impl ::aws_types::request_id::RequestId for super::types::error::MaxNumberOfConfigurationRecordersExceededException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl MaxNumberOfConfigurationRecordersExceededException {
+     /// Creates a new builder-style object to manufacture [`MaxNumberOfConfigurationRecordersExceededException`](crate::types::error::MaxNumberOfConfigurationRecordersExceededException).
+-    pub fn builder() -> crate::types::error::builders::MaxNumberOfConfigurationRecordersExceededExceptionBuilder {
+-        crate::types::error::builders::MaxNumberOfConfigurationRecordersExceededExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::MaxNumberOfConfigurationRecordersExceededExceptionBuilder {
++        super::types::error::builders::MaxNumberOfConfigurationRecordersExceededExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`MaxNumberOfConfigurationRecordersExceededException`](crate::types::error::MaxNumberOfConfigurationRecordersExceededException).
+-    pub fn build(self) -> crate::types::error::MaxNumberOfConfigurationRecordersExceededException {
+-        crate::types::error::MaxNumberOfConfigurationRecordersExceededException {
++    pub fn build(self) -> super::types::error::MaxNumberOfConfigurationRecordersExceededException {
++        super::types::error::MaxNumberOfConfigurationRecordersExceededException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for NoSuchOrganizationConfigRuleException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::NoSuchOrganizationConfigRuleException {
++impl ::aws_types::request_id::RequestId for super::types::error::NoSuchOrganizationConfigRuleException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl NoSuchOrganizationConfigRuleException {
+     /// Creates a new builder-style object to manufacture [`NoSuchOrganizationConfigRuleException`](crate::types::error::NoSuchOrganizationConfigRuleException).
+-    pub fn builder() -> crate::types::error::builders::NoSuchOrganizationConfigRuleExceptionBuilder {
+-        crate::types::error::builders::NoSuchOrganizationConfigRuleExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::NoSuchOrganizationConfigRuleExceptionBuilder {
++        super::types::error::builders::NoSuchOrganizationConfigRuleExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`NoSuchOrganizationConfigRuleException`](crate::types::error::NoSuchOrganizationConfigRuleException).
+-    pub fn build(self) -> crate::types::error::NoSuchOrganizationConfigRuleException {
+-        crate::types::error::NoSuchOrganizationConfigRuleException {
++    pub fn build(self) -> super::types::error::NoSuchOrganizationConfigRuleException {
++        super::types::error::NoSuchOrganizationConfigRuleException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

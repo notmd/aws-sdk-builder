@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -29,8 +29,8 @@
+ }
+ impl AdminUserGlobalSignOutInput {
+     /// Creates a new builder-style object to manufacture [`AdminUserGlobalSignOutInput`](crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutInput).
+-    pub fn builder() -> crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder {
+-        crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder::default()
++    pub fn builder() -> super::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder {
++        super::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder::default()
+     }
+ }
+
+@@ -76,10 +76,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutInput,
++        super::operation::admin_user_global_sign_out::AdminUserGlobalSignOutInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutInput {
++        ::std::result::Result::Ok(super::operation::admin_user_global_sign_out::AdminUserGlobalSignOutInput {
+             user_pool_id: self.user_pool_id,
+             username: self.username,
+         })

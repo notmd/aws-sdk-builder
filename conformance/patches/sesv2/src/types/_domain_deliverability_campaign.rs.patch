@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -97,8 +97,8 @@
+ }
+ impl DomainDeliverabilityCampaign {
+     /// Creates a new builder-style object to manufacture [`DomainDeliverabilityCampaign`](crate::types::DomainDeliverabilityCampaign).
+-    pub fn builder() -> crate::types::builders::DomainDeliverabilityCampaignBuilder {
+-        crate::types::builders::DomainDeliverabilityCampaignBuilder::default()
++    pub fn builder() -> super::types::builders::DomainDeliverabilityCampaignBuilder {
++        super::types::builders::DomainDeliverabilityCampaignBuilder::default()
+     }
+ }
+
+@@ -331,8 +331,8 @@
+         &self.esps
+     }
+     /// Consumes the builder and constructs a [`DomainDeliverabilityCampaign`](crate::types::DomainDeliverabilityCampaign).
+-    pub fn build(self) -> crate::types::DomainDeliverabilityCampaign {
+-        crate::types::DomainDeliverabilityCampaign {
++    pub fn build(self) -> super::types::DomainDeliverabilityCampaign {
++        super::types::DomainDeliverabilityCampaign {
+             campaign_id: self.campaign_id,
+             image_url: self.image_url,
+             subject: self.subject,

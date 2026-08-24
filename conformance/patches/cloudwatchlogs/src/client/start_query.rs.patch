@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -14,7 +14,7 @@
+     /// - On success, responds with [`StartQueryOutput`](crate::operation::start_query::StartQueryOutput) with field(s):
+     ///   - [`query_id(Option<String>)`](crate::operation::start_query::StartQueryOutput::query_id): <p>The unique ID of the query.</p>
+     /// - On failure, responds with [`SdkError<StartQueryError>`](crate::operation::start_query::StartQueryError)
+-    pub fn start_query(&self) -> crate::operation::start_query::builders::StartQueryFluentBuilder {
+-        crate::operation::start_query::builders::StartQueryFluentBuilder::new(self.handle.clone())
++    pub fn start_query(&self) -> super::operation::start_query::builders::StartQueryFluentBuilder {
++        super::operation::start_query::builders::StartQueryFluentBuilder::new(self.handle.clone())
+     }
+ }

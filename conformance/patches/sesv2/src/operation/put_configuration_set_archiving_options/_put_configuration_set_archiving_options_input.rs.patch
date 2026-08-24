@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl PutConfigurationSetArchivingOptionsInput {
+     /// Creates a new builder-style object to manufacture [`PutConfigurationSetArchivingOptionsInput`](crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsInput).
+-    pub fn builder() -> crate::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder {
+-        crate::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder::default()
++    pub fn builder() -> super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder {
++        super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder::default()
+     }
+ }
+
+@@ -67,11 +67,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsInput,
++        super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsInput {
++            super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsInput {
+                 configuration_set_name: self.configuration_set_name,
+                 archive_arn: self.archive_arn,
+             },

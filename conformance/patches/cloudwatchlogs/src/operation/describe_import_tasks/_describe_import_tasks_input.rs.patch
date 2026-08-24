@@ -1,0 +1,73 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     /// <p>Optional filter to describe a specific import task by its ID.</p>
+     pub import_id: ::std::option::Option<::std::string::String>,
+     /// <p>Optional filter to list imports by their status. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
+-    pub import_status: ::std::option::Option<crate::types::ImportStatus>,
++    pub import_status: ::std::option::Option<super::types::ImportStatus>,
+     /// <p>Optional filter to list imports from a specific source</p>
+     pub import_source_arn: ::std::option::Option<::std::string::String>,
+     /// <p>The maximum number of import tasks to return in the response. Default: 50</p>
+@@ -20,7 +20,7 @@
+         self.import_id.as_deref()
+     }
+     /// <p>Optional filter to list imports by their status. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
+-    pub fn import_status(&self) -> ::std::option::Option<&crate::types::ImportStatus> {
++    pub fn import_status(&self) -> ::std::option::Option<&super::types::ImportStatus> {
+         self.import_status.as_ref()
+     }
+     /// <p>Optional filter to list imports from a specific source</p>
+@@ -38,8 +38,8 @@
+ }
+ impl DescribeImportTasksInput {
+     /// Creates a new builder-style object to manufacture [`DescribeImportTasksInput`](crate::operation::describe_import_tasks::DescribeImportTasksInput).
+-    pub fn builder() -> crate::operation::describe_import_tasks::builders::DescribeImportTasksInputBuilder {
+-        crate::operation::describe_import_tasks::builders::DescribeImportTasksInputBuilder::default()
++    pub fn builder() -> super::operation::describe_import_tasks::builders::DescribeImportTasksInputBuilder {
++        super::operation::describe_import_tasks::builders::DescribeImportTasksInputBuilder::default()
+     }
+ }
+
+@@ -48,7 +48,7 @@
+ #[non_exhaustive]
+ pub struct DescribeImportTasksInputBuilder {
+     pub(crate) import_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) import_status: ::std::option::Option<crate::types::ImportStatus>,
++    pub(crate) import_status: ::std::option::Option<super::types::ImportStatus>,
+     pub(crate) import_source_arn: ::std::option::Option<::std::string::String>,
+     pub(crate) limit: ::std::option::Option<i32>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+@@ -69,17 +69,17 @@
+         &self.import_id
+     }
+     /// <p>Optional filter to list imports by their status. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
+-    pub fn import_status(mut self, input: crate::types::ImportStatus) -> Self {
++    pub fn import_status(mut self, input: super::types::ImportStatus) -> Self {
+         self.import_status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Optional filter to list imports by their status. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
+-    pub fn set_import_status(mut self, input: ::std::option::Option<crate::types::ImportStatus>) -> Self {
++    pub fn set_import_status(mut self, input: ::std::option::Option<super::types::ImportStatus>) -> Self {
+         self.import_status = input;
+         self
+     }
+     /// <p>Optional filter to list imports by their status. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
+-    pub fn get_import_status(&self) -> &::std::option::Option<crate::types::ImportStatus> {
++    pub fn get_import_status(&self) -> &::std::option::Option<super::types::ImportStatus> {
+         &self.import_status
+     }
+     /// <p>Optional filter to list imports from a specific source</p>
+@@ -127,9 +127,9 @@
+     /// Consumes the builder and constructs a [`DescribeImportTasksInput`](crate::operation::describe_import_tasks::DescribeImportTasksInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::describe_import_tasks::DescribeImportTasksInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::describe_import_tasks::DescribeImportTasksInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::describe_import_tasks::DescribeImportTasksInput {
++        ::std::result::Result::Ok(super::operation::describe_import_tasks::DescribeImportTasksInput {
+             import_id: self.import_id,
+             import_status: self.import_status,
+             import_source_arn: self.import_source_arn,

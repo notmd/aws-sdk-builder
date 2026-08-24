@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl GetResourceEvaluationSummaryInput {
+     /// Creates a new builder-style object to manufacture [`GetResourceEvaluationSummaryInput`](crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryInput).
+-    pub fn builder() -> crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryInputBuilder {
+-        crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryInputBuilder::default()
++    pub fn builder() -> super::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryInputBuilder {
++        super::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryInputBuilder::default()
+     }
+ }
+
+@@ -45,10 +45,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryInput,
++        super::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryInput {
++        ::std::result::Result::Ok(super::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryInput {
+             resource_evaluation_id: self.resource_evaluation_id,
+         })
+     }

@@ -1,0 +1,68 @@
+--- original
++++ modified
+@@ -15,7 +15,7 @@
+     /// <p>Your user's ID token.</p>
+     pub id_token: ::std::option::Option<::std::string::String>,
+     /// <p>The new device metadata from an authentication result.</p>
+-    pub new_device_metadata: ::std::option::Option<crate::types::NewDeviceMetadataType>,
++    pub new_device_metadata: ::std::option::Option<super::types::NewDeviceMetadataType>,
+ }
+ impl AuthenticationResultType {
+     /// <p>Your user's access token.</p>
+@@ -39,7 +39,7 @@
+         self.id_token.as_deref()
+     }
+     /// <p>The new device metadata from an authentication result.</p>
+-    pub fn new_device_metadata(&self) -> ::std::option::Option<&crate::types::NewDeviceMetadataType> {
++    pub fn new_device_metadata(&self) -> ::std::option::Option<&super::types::NewDeviceMetadataType> {
+         self.new_device_metadata.as_ref()
+     }
+ }
+@@ -57,8 +57,8 @@
+ }
+ impl AuthenticationResultType {
+     /// Creates a new builder-style object to manufacture [`AuthenticationResultType`](crate::types::AuthenticationResultType).
+-    pub fn builder() -> crate::types::builders::AuthenticationResultTypeBuilder {
+-        crate::types::builders::AuthenticationResultTypeBuilder::default()
++    pub fn builder() -> super::types::builders::AuthenticationResultTypeBuilder {
++        super::types::builders::AuthenticationResultTypeBuilder::default()
+     }
+ }
+
+@@ -71,7 +71,7 @@
+     pub(crate) token_type: ::std::option::Option<::std::string::String>,
+     pub(crate) refresh_token: ::std::option::Option<::std::string::String>,
+     pub(crate) id_token: ::std::option::Option<::std::string::String>,
+-    pub(crate) new_device_metadata: ::std::option::Option<crate::types::NewDeviceMetadataType>,
++    pub(crate) new_device_metadata: ::std::option::Option<super::types::NewDeviceMetadataType>,
+ }
+ impl AuthenticationResultTypeBuilder {
+     /// <p>Your user's access token.</p>
+@@ -145,22 +145,22 @@
+         &self.id_token
+     }
+     /// <p>The new device metadata from an authentication result.</p>
+-    pub fn new_device_metadata(mut self, input: crate::types::NewDeviceMetadataType) -> Self {
++    pub fn new_device_metadata(mut self, input: super::types::NewDeviceMetadataType) -> Self {
+         self.new_device_metadata = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The new device metadata from an authentication result.</p>
+-    pub fn set_new_device_metadata(mut self, input: ::std::option::Option<crate::types::NewDeviceMetadataType>) -> Self {
++    pub fn set_new_device_metadata(mut self, input: ::std::option::Option<super::types::NewDeviceMetadataType>) -> Self {
+         self.new_device_metadata = input;
+         self
+     }
+     /// <p>The new device metadata from an authentication result.</p>
+-    pub fn get_new_device_metadata(&self) -> &::std::option::Option<crate::types::NewDeviceMetadataType> {
++    pub fn get_new_device_metadata(&self) -> &::std::option::Option<super::types::NewDeviceMetadataType> {
+         &self.new_device_metadata
+     }
+     /// Consumes the builder and constructs a [`AuthenticationResultType`](crate::types::AuthenticationResultType).
+-    pub fn build(self) -> crate::types::AuthenticationResultType {
+-        crate::types::AuthenticationResultType {
++    pub fn build(self) -> super::types::AuthenticationResultType {
++        super::types::AuthenticationResultType {
+             access_token: self.access_token,
+             expires_in: self.expires_in.unwrap_or_default(),
+             token_type: self.token_type,

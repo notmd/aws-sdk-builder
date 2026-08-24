@@ -1,0 +1,67 @@
+--- original
++++ modified
+@@ -4,12 +4,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DescribeResourceServerOutput {
+     /// <p>The details of the requested resource server.</p>
+-    pub resource_server: ::std::option::Option<crate::types::ResourceServerType>,
++    pub resource_server: ::std::option::Option<super::types::ResourceServerType>,
+     _request_id: Option<String>,
+ }
+ impl DescribeResourceServerOutput {
+     /// <p>The details of the requested resource server.</p>
+-    pub fn resource_server(&self) -> ::std::option::Option<&crate::types::ResourceServerType> {
++    pub fn resource_server(&self) -> ::std::option::Option<&super::types::ResourceServerType> {
+         self.resource_server.as_ref()
+     }
+ }
+@@ -20,8 +20,8 @@
+ }
+ impl DescribeResourceServerOutput {
+     /// Creates a new builder-style object to manufacture [`DescribeResourceServerOutput`](crate::operation::describe_resource_server::DescribeResourceServerOutput).
+-    pub fn builder() -> crate::operation::describe_resource_server::builders::DescribeResourceServerOutputBuilder {
+-        crate::operation::describe_resource_server::builders::DescribeResourceServerOutputBuilder::default()
++    pub fn builder() -> super::operation::describe_resource_server::builders::DescribeResourceServerOutputBuilder {
++        super::operation::describe_resource_server::builders::DescribeResourceServerOutputBuilder::default()
+     }
+ }
+
+@@ -29,23 +29,23 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct DescribeResourceServerOutputBuilder {
+-    pub(crate) resource_server: ::std::option::Option<crate::types::ResourceServerType>,
++    pub(crate) resource_server: ::std::option::Option<super::types::ResourceServerType>,
+     _request_id: Option<String>,
+ }
+ impl DescribeResourceServerOutputBuilder {
+     /// <p>The details of the requested resource server.</p>
+     /// This field is required.
+-    pub fn resource_server(mut self, input: crate::types::ResourceServerType) -> Self {
++    pub fn resource_server(mut self, input: super::types::ResourceServerType) -> Self {
+         self.resource_server = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The details of the requested resource server.</p>
+-    pub fn set_resource_server(mut self, input: ::std::option::Option<crate::types::ResourceServerType>) -> Self {
++    pub fn set_resource_server(mut self, input: ::std::option::Option<super::types::ResourceServerType>) -> Self {
+         self.resource_server = input;
+         self
+     }
+     /// <p>The details of the requested resource server.</p>
+-    pub fn get_resource_server(&self) -> &::std::option::Option<crate::types::ResourceServerType> {
++    pub fn get_resource_server(&self) -> &::std::option::Option<super::types::ResourceServerType> {
+         &self.resource_server
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -58,8 +58,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DescribeResourceServerOutput`](crate::operation::describe_resource_server::DescribeResourceServerOutput).
+-    pub fn build(self) -> crate::operation::describe_resource_server::DescribeResourceServerOutput {
+-        crate::operation::describe_resource_server::DescribeResourceServerOutput {
++    pub fn build(self) -> super::operation::describe_resource_server::DescribeResourceServerOutput {
++        super::operation::describe_resource_server::DescribeResourceServerOutput {
+             resource_server: self.resource_server,
+             _request_id: self._request_id,
+         }

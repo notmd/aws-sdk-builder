@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -15,7 +15,7 @@
+     /// <li>
+     /// <p><code>FAILED</code> – An internal error occurred and we didn't receive your appeal. You can submit your appeal again.</p></li>
+     /// </ul>
+-    pub status: ::std::option::Option<crate::types::ReviewStatus>,
++    pub status: ::std::option::Option<super::types::ReviewStatus>,
+     /// <p>The associated support center case ID (if any).</p>
+     pub case_id: ::std::option::Option<::std::string::String>,
+ }
+@@ -31,7 +31,7 @@
+     /// <li>
+     /// <p><code>FAILED</code> – An internal error occurred and we didn't receive your appeal. You can submit your appeal again.</p></li>
+     /// </ul>
+-    pub fn status(&self) -> ::std::option::Option<&crate::types::ReviewStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::types::ReviewStatus> {
+         self.status.as_ref()
+     }
+     /// <p>The associated support center case ID (if any).</p>
+@@ -41,8 +41,8 @@
+ }
+ impl ReviewDetails {
+     /// Creates a new builder-style object to manufacture [`ReviewDetails`](crate::types::ReviewDetails).
+-    pub fn builder() -> crate::types::builders::ReviewDetailsBuilder {
+-        crate::types::builders::ReviewDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::ReviewDetailsBuilder {
++        super::types::builders::ReviewDetailsBuilder::default()
+     }
+ }
+
+@@ -50,7 +50,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ReviewDetailsBuilder {
+-    pub(crate) status: ::std::option::Option<crate::types::ReviewStatus>,
++    pub(crate) status: ::std::option::Option<super::types::ReviewStatus>,
+     pub(crate) case_id: ::std::option::Option<::std::string::String>,
+ }
+ impl ReviewDetailsBuilder {
+@@ -65,7 +65,7 @@
+     /// <li>
+     /// <p><code>FAILED</code> – An internal error occurred and we didn't receive your appeal. You can submit your appeal again.</p></li>
+     /// </ul>
+-    pub fn status(mut self, input: crate::types::ReviewStatus) -> Self {
++    pub fn status(mut self, input: super::types::ReviewStatus) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+@@ -80,7 +80,7 @@
+     /// <li>
+     /// <p><code>FAILED</code> – An internal error occurred and we didn't receive your appeal. You can submit your appeal again.</p></li>
+     /// </ul>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReviewStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::ReviewStatus>) -> Self {
+         self.status = input;
+         self
+     }
+@@ -95,7 +95,7 @@
+     /// <li>
+     /// <p><code>FAILED</code> – An internal error occurred and we didn't receive your appeal. You can submit your appeal again.</p></li>
+     /// </ul>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::ReviewStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::ReviewStatus> {
+         &self.status
+     }
+     /// <p>The associated support center case ID (if any).</p>
+@@ -113,8 +113,8 @@
+         &self.case_id
+     }
+     /// Consumes the builder and constructs a [`ReviewDetails`](crate::types::ReviewDetails).
+-    pub fn build(self) -> crate::types::ReviewDetails {
+-        crate::types::ReviewDetails {
++    pub fn build(self) -> super::types::ReviewDetails {
++        super::types::ReviewDetails {
+             status: self.status,
+             case_id: self.case_id,
+         }

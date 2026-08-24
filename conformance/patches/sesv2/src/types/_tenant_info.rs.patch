@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -33,8 +33,8 @@
+ }
+ impl TenantInfo {
+     /// Creates a new builder-style object to manufacture [`TenantInfo`](crate::types::TenantInfo).
+-    pub fn builder() -> crate::types::builders::TenantInfoBuilder {
+-        crate::types::builders::TenantInfoBuilder::default()
++    pub fn builder() -> super::types::builders::TenantInfoBuilder {
++        super::types::builders::TenantInfoBuilder::default()
+     }
+ }
+
+@@ -105,8 +105,8 @@
+         &self.created_timestamp
+     }
+     /// Consumes the builder and constructs a [`TenantInfo`](crate::types::TenantInfo).
+-    pub fn build(self) -> crate::types::TenantInfo {
+-        crate::types::TenantInfo {
++    pub fn build(self) -> super::types::TenantInfo {
++        super::types::TenantInfo {
+             tenant_name: self.tenant_name,
+             tenant_id: self.tenant_id,
+             tenant_arn: self.tenant_arn,

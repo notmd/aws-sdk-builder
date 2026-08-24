@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// <p>The contact's email address.</p>
+     pub email_address: ::std::option::Option<::std::string::String>,
+     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
+-    pub topic_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
++    pub topic_preferences: ::std::option::Option<::std::vec::Vec<super::types::TopicPreference>>,
+     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
+     pub unsubscribe_all: ::std::option::Option<bool>,
+     /// <p>The attribute data attached to a contact.</p>
+@@ -26,7 +26,7 @@
+     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.topic_preferences.is_none()`.
+-    pub fn topic_preferences(&self) -> &[crate::types::TopicPreference] {
++    pub fn topic_preferences(&self) -> &[super::types::TopicPreference] {
+         self.topic_preferences.as_deref().unwrap_or_default()
+     }
+     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
+@@ -40,8 +40,8 @@
+ }
+ impl UpdateContactInput {
+     /// Creates a new builder-style object to manufacture [`UpdateContactInput`](crate::operation::update_contact::UpdateContactInput).
+-    pub fn builder() -> crate::operation::update_contact::builders::UpdateContactInputBuilder {
+-        crate::operation::update_contact::builders::UpdateContactInputBuilder::default()
++    pub fn builder() -> super::operation::update_contact::builders::UpdateContactInputBuilder {
++        super::operation::update_contact::builders::UpdateContactInputBuilder::default()
+     }
+ }
+
+@@ -51,7 +51,7 @@
+ pub struct UpdateContactInputBuilder {
+     pub(crate) contact_list_name: ::std::option::Option<::std::string::String>,
+     pub(crate) email_address: ::std::option::Option<::std::string::String>,
+-    pub(crate) topic_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
++    pub(crate) topic_preferences: ::std::option::Option<::std::vec::Vec<super::types::TopicPreference>>,
+     pub(crate) unsubscribe_all: ::std::option::Option<bool>,
+     pub(crate) attributes_data: ::std::option::Option<::std::string::String>,
+ }
+@@ -91,7 +91,7 @@
+     /// To override the contents of this collection use [`set_topic_preferences`](Self::set_topic_preferences).
+     ///
+     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
+-    pub fn topic_preferences(mut self, input: crate::types::TopicPreference) -> Self {
++    pub fn topic_preferences(mut self, input: super::types::TopicPreference) -> Self {
+         let mut v = self.topic_preferences.unwrap_or_default();
+         v.push(input);
+         self.topic_preferences = ::std::option::Option::Some(v);
+@@ -98,12 +98,12 @@
+         self
+     }
+     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
+-    pub fn set_topic_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>) -> Self {
++    pub fn set_topic_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::TopicPreference>>) -> Self {
+         self.topic_preferences = input;
+         self
+     }
+     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
+-    pub fn get_topic_preferences(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
++    pub fn get_topic_preferences(&self) -> &::std::option::Option<::std::vec::Vec<super::types::TopicPreference>> {
+         &self.topic_preferences
+     }
+     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
+@@ -137,8 +137,8 @@
+     /// Consumes the builder and constructs a [`UpdateContactInput`](crate::operation::update_contact::UpdateContactInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::update_contact::UpdateContactInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::update_contact::UpdateContactInput {
++    ) -> ::std::result::Result<super::operation::update_contact::UpdateContactInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::update_contact::UpdateContactInput {
+             contact_list_name: self.contact_list_name,
+             email_address: self.email_address,
+             topic_preferences: self.topic_preferences,

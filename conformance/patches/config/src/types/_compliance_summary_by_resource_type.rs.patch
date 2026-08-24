@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>The type of Amazon Web Services resource.</p>
+     pub resource_type: ::std::option::Option<::std::string::String>,
+     /// <p>The number of Amazon Web Services resources that are compliant or noncompliant, up to a maximum of 100 for each.</p>
+-    pub compliance_summary: ::std::option::Option<crate::types::ComplianceSummary>,
++    pub compliance_summary: ::std::option::Option<super::types::ComplianceSummary>,
+ }
+ impl ComplianceSummaryByResourceType {
+     /// <p>The type of Amazon Web Services resource.</p>
+@@ -15,14 +15,14 @@
+         self.resource_type.as_deref()
+     }
+     /// <p>The number of Amazon Web Services resources that are compliant or noncompliant, up to a maximum of 100 for each.</p>
+-    pub fn compliance_summary(&self) -> ::std::option::Option<&crate::types::ComplianceSummary> {
++    pub fn compliance_summary(&self) -> ::std::option::Option<&super::types::ComplianceSummary> {
+         self.compliance_summary.as_ref()
+     }
+ }
+ impl ComplianceSummaryByResourceType {
+     /// Creates a new builder-style object to manufacture [`ComplianceSummaryByResourceType`](crate::types::ComplianceSummaryByResourceType).
+-    pub fn builder() -> crate::types::builders::ComplianceSummaryByResourceTypeBuilder {
+-        crate::types::builders::ComplianceSummaryByResourceTypeBuilder::default()
++    pub fn builder() -> super::types::builders::ComplianceSummaryByResourceTypeBuilder {
++        super::types::builders::ComplianceSummaryByResourceTypeBuilder::default()
+     }
+ }
+
+@@ -31,7 +31,7 @@
+ #[non_exhaustive]
+ pub struct ComplianceSummaryByResourceTypeBuilder {
+     pub(crate) resource_type: ::std::option::Option<::std::string::String>,
+-    pub(crate) compliance_summary: ::std::option::Option<crate::types::ComplianceSummary>,
++    pub(crate) compliance_summary: ::std::option::Option<super::types::ComplianceSummary>,
+ }
+ impl ComplianceSummaryByResourceTypeBuilder {
+     /// <p>The type of Amazon Web Services resource.</p>
+@@ -49,22 +49,22 @@
+         &self.resource_type
+     }
+     /// <p>The number of Amazon Web Services resources that are compliant or noncompliant, up to a maximum of 100 for each.</p>
+-    pub fn compliance_summary(mut self, input: crate::types::ComplianceSummary) -> Self {
++    pub fn compliance_summary(mut self, input: super::types::ComplianceSummary) -> Self {
+         self.compliance_summary = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The number of Amazon Web Services resources that are compliant or noncompliant, up to a maximum of 100 for each.</p>
+-    pub fn set_compliance_summary(mut self, input: ::std::option::Option<crate::types::ComplianceSummary>) -> Self {
++    pub fn set_compliance_summary(mut self, input: ::std::option::Option<super::types::ComplianceSummary>) -> Self {
+         self.compliance_summary = input;
+         self
+     }
+     /// <p>The number of Amazon Web Services resources that are compliant or noncompliant, up to a maximum of 100 for each.</p>
+-    pub fn get_compliance_summary(&self) -> &::std::option::Option<crate::types::ComplianceSummary> {
++    pub fn get_compliance_summary(&self) -> &::std::option::Option<super::types::ComplianceSummary> {
+         &self.compliance_summary
+     }
+     /// Consumes the builder and constructs a [`ComplianceSummaryByResourceType`](crate::types::ComplianceSummaryByResourceType).
+-    pub fn build(self) -> crate::types::ComplianceSummaryByResourceType {
+-        crate::types::ComplianceSummaryByResourceType {
++    pub fn build(self) -> super::types::ComplianceSummaryByResourceType {
++        super::types::ComplianceSummaryByResourceType {
+             resource_type: self.resource_type,
+             compliance_summary: self.compliance_summary,
+         }

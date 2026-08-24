@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for NoSuchConfigRuleInConformancePackException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::NoSuchConfigRuleInConformancePackException {
++impl ::aws_types::request_id::RequestId for super::types::error::NoSuchConfigRuleInConformancePackException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl NoSuchConfigRuleInConformancePackException {
+     /// Creates a new builder-style object to manufacture [`NoSuchConfigRuleInConformancePackException`](crate::types::error::NoSuchConfigRuleInConformancePackException).
+-    pub fn builder() -> crate::types::error::builders::NoSuchConfigRuleInConformancePackExceptionBuilder {
+-        crate::types::error::builders::NoSuchConfigRuleInConformancePackExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::NoSuchConfigRuleInConformancePackExceptionBuilder {
++        super::types::error::builders::NoSuchConfigRuleInConformancePackExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`NoSuchConfigRuleInConformancePackException`](crate::types::error::NoSuchConfigRuleInConformancePackException).
+-    pub fn build(self) -> crate::types::error::NoSuchConfigRuleInConformancePackException {
+-        crate::types::error::NoSuchConfigRuleInConformancePackException {
++    pub fn build(self) -> super::types::error::NoSuchConfigRuleInConformancePackException {
++        super::types::error::NoSuchConfigRuleInConformancePackException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

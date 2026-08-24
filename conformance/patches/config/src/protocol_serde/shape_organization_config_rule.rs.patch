@@ -1,0 +1,65 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::OrganizationConfigRule>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::OrganizationConfigRule>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::OrganizationConfigRuleBuilder::default();
++            let mut builder = super::types::builders::OrganizationConfigRuleBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -37,7 +37,7 @@
+                         }
+                         "OrganizationManagedRuleMetadata" => {
+                             builder = builder.set_organization_managed_rule_metadata(
+-                                crate::protocol_serde::shape_organization_managed_rule_metadata::de_organization_managed_rule_metadata(
++                                super::protocol_serde::shape_organization_managed_rule_metadata::de_organization_managed_rule_metadata(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -46,7 +46,7 @@
+                         }
+                         "OrganizationCustomRuleMetadata" => {
+                             builder = builder.set_organization_custom_rule_metadata(
+-                                crate::protocol_serde::shape_organization_custom_rule_metadata::de_organization_custom_rule_metadata(
++                                super::protocol_serde::shape_organization_custom_rule_metadata::de_organization_custom_rule_metadata(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -54,7 +54,7 @@
+                             );
+                         }
+                         "ExcludedAccounts" => {
+-                            builder = builder.set_excluded_accounts(crate::protocol_serde::shape_excluded_accounts::de_excluded_accounts(
++                            builder = builder.set_excluded_accounts(super::protocol_serde::shape_excluded_accounts::de_excluded_accounts(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -68,7 +68,7 @@
+                         }
+                         "OrganizationCustomPolicyRuleMetadata" => {
+                             builder = builder.set_organization_custom_policy_rule_metadata(
+-                                    crate::protocol_serde::shape_organization_custom_policy_rule_metadata_no_policy::de_organization_custom_policy_rule_metadata_no_policy(tokens, _value, depth + 1)?
++                                    super::protocol_serde::shape_organization_custom_policy_rule_metadata_no_policy::de_organization_custom_policy_rule_metadata_no_policy(tokens, _value, depth + 1)?
+                                 );
+                         }
+                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+@@ -81,7 +81,7 @@
+                 }
+             }
+             Ok(Some(
+-                crate::serde_util::organization_config_rule_correct_errors(builder)
++                super::serde_util::organization_config_rule_correct_errors(builder)
+                     .build()
+                     .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
+             ))

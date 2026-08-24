@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl ServiceJobTimeout {
+     /// Creates a new builder-style object to manufacture [`ServiceJobTimeout`](crate::types::ServiceJobTimeout).
+-    pub fn builder() -> crate::types::builders::ServiceJobTimeoutBuilder {
+-        crate::types::builders::ServiceJobTimeoutBuilder::default()
++    pub fn builder() -> super::types::builders::ServiceJobTimeoutBuilder {
++        super::types::builders::ServiceJobTimeoutBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+         &self.attempt_duration_seconds
+     }
+     /// Consumes the builder and constructs a [`ServiceJobTimeout`](crate::types::ServiceJobTimeout).
+-    pub fn build(self) -> crate::types::ServiceJobTimeout {
+-        crate::types::ServiceJobTimeout {
++    pub fn build(self) -> super::types::ServiceJobTimeout {
++        super::types::ServiceJobTimeout {
+             attempt_duration_seconds: self.attempt_duration_seconds,
+         }
+     }

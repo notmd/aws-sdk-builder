@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl FirehoseConfigurationType {
+     /// Creates a new builder-style object to manufacture [`FirehoseConfigurationType`](crate::types::FirehoseConfigurationType).
+-    pub fn builder() -> crate::types::builders::FirehoseConfigurationTypeBuilder {
+-        crate::types::builders::FirehoseConfigurationTypeBuilder::default()
++    pub fn builder() -> super::types::builders::FirehoseConfigurationTypeBuilder {
++        super::types::builders::FirehoseConfigurationTypeBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+         &self.stream_arn
+     }
+     /// Consumes the builder and constructs a [`FirehoseConfigurationType`](crate::types::FirehoseConfigurationType).
+-    pub fn build(self) -> crate::types::FirehoseConfigurationType {
+-        crate::types::FirehoseConfigurationType { stream_arn: self.stream_arn }
++    pub fn build(self) -> super::types::FirehoseConfigurationType {
++        super::types::FirehoseConfigurationType { stream_arn: self.stream_arn }
+     }
+ }

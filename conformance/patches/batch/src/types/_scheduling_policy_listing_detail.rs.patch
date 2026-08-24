@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl SchedulingPolicyListingDetail {
+     /// Creates a new builder-style object to manufacture [`SchedulingPolicyListingDetail`](crate::types::SchedulingPolicyListingDetail).
+-    pub fn builder() -> crate::types::builders::SchedulingPolicyListingDetailBuilder {
+-        crate::types::builders::SchedulingPolicyListingDetailBuilder::default()
++    pub fn builder() -> super::types::builders::SchedulingPolicyListingDetailBuilder {
++        super::types::builders::SchedulingPolicyListingDetailBuilder::default()
+     }
+ }
+
+@@ -43,7 +43,7 @@
+         &self.arn
+     }
+     /// Consumes the builder and constructs a [`SchedulingPolicyListingDetail`](crate::types::SchedulingPolicyListingDetail).
+-    pub fn build(self) -> crate::types::SchedulingPolicyListingDetail {
+-        crate::types::SchedulingPolicyListingDetail { arn: self.arn }
++    pub fn build(self) -> super::types::SchedulingPolicyListingDetail {
++        super::types::SchedulingPolicyListingDetail { arn: self.arn }
+     }
+ }

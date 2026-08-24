@@ -1,0 +1,253 @@
+--- original
++++ modified
+@@ -10,11 +10,11 @@
+     }
+     pub(crate) async fn orchestrate(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
++        input: super::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
+     ) -> ::std::result::Result<
+-        crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput,
++        super::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput,
+         ::aws_smithy_runtime_api::client::result::SdkError<
+-            crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
++            super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >,
+     > {
+@@ -23,7 +23,7 @@
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >| {
+             err.map_service_error(|err| {
+-                err.downcast::<crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError>()
++                err.downcast::<super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError>()
+                     .expect("correct error type")
+             })
+         };
+@@ -33,7 +33,7 @@
+         let output = context.finalize().map_err(map_err)?;
+         ::std::result::Result::Ok(
+             output
+-                .downcast::<crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput>()
++                .downcast::<super::operation::admin_update_user_attributes::AdminUpdateUserAttributesOutput>()
+                 .expect("correct output type"),
+         )
+     }
+@@ -40,7 +40,7 @@
+
+     pub(crate) async fn orchestrate_with_stop_point(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
++        input: super::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
+         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+     ) -> ::std::result::Result<
+         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
+@@ -72,8 +72,8 @@
+
+     pub(crate) fn operation_runtime_plugins(
+         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        client_config: &crate::config::Config,
+-        config_override: ::std::option::Option<crate::config::Builder>,
++        client_config: &super::config::Config,
++        config_override: ::std::option::Option<super::config::Builder>,
+     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+
+@@ -81,7 +81,7 @@
+             for plugin in config_override.runtime_plugins.iter().cloned() {
+                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+             }
+-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
++            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
+                 config_override,
+                 client_config.config.clone(),
+                 &client_config.runtime_components,
+@@ -102,7 +102,7 @@
+         ));
+
+         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+-            crate::config::auth::Params::builder()
++            super::config::auth::Params::builder()
+                 .operation_name("AdminUpdateUserAttributes")
+                 .build()
+                 .expect("required fields set"),
+@@ -142,13 +142,13 @@
+                 AdminUpdateUserAttributesEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+-                crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
++                super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
+             >::new())
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+-                crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
++                super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
+             >::new())
+             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+-                crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
++                super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
+             >::new());
+
+         ::std::borrow::Cow::Owned(rcb)
+@@ -213,11 +213,11 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            crate::protocol_serde::shape_admin_update_user_attributes::de_admin_update_user_attributes_http_error(status, headers, body)
++            super::protocol_serde::shape_admin_update_user_attributes::de_admin_update_user_attributes_http_error(status, headers, body)
+         } else {
+-            crate::protocol_serde::shape_admin_update_user_attributes::de_admin_update_user_attributes_http_response(status, headers, body)
++            super::protocol_serde::shape_admin_update_user_attributes::de_admin_update_user_attributes_http_response(status, headers, body)
+         };
+-        crate::protocol_serde::type_erase_result(parse_result)
++        super::protocol_serde::type_erase_result(parse_result)
+     }
+ }
+ #[derive(Debug)]
+@@ -230,16 +230,16 @@
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+         let input = input
+-            .downcast::<crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput>()
++            .downcast::<super::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput>()
+             .expect("correct type");
+         let _header_serialization_settings = _cfg
+-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
++            .load::<super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
+             .unwrap_or_default();
+         let mut request_builder = {
+             #[allow(clippy::uninlined_format_args)]
+             fn uri_base(
+-                _input: &crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
++                _input: &super::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
+                 output: &mut ::std::string::String,
+             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+                 use ::std::fmt::Write as _;
+@@ -248,7 +248,7 @@
+             }
+             #[allow(clippy::unnecessary_wraps)]
+             fn update_http_builder(
+-                input: &crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
++                input: &super::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
+                 builder: ::http_1x::request::Builder,
+             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+                 let mut uri = ::std::string::String::new();
+@@ -265,7 +265,7 @@
+             builder
+         };
+         let body = ::aws_smithy_types::body::SdkBody::from(
+-            crate::protocol_serde::shape_admin_update_user_attributes::ser_admin_update_user_attributes_input(&input)?,
++            super::protocol_serde::shape_admin_update_user_attributes::ser_admin_update_user_attributes_input(&input)?,
+         );
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+@@ -298,7 +298,7 @@
+             .downcast_ref::<AdminUpdateUserAttributesInput>()
+             .ok_or("failed to downcast to AdminUpdateUserAttributesInput")?;
+
+-        let params = crate::config::endpoint::Params::builder()
++        let params = super::config::endpoint::Params::builder()
+             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+@@ -321,33 +321,33 @@
+ #[derive(::std::fmt::Debug)]
+ pub enum AdminUpdateUserAttributesError {
+     /// <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
+-    AliasExistsException(crate::types::error::AliasExistsException),
++    AliasExistsException(super::types::error::AliasExistsException),
+     /// <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+-    InternalErrorException(crate::types::error::InternalErrorException),
++    InternalErrorException(super::types::error::InternalErrorException),
+     /// <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+-    InvalidEmailRoleAccessPolicyException(crate::types::error::InvalidEmailRoleAccessPolicyException),
++    InvalidEmailRoleAccessPolicyException(super::types::error::InvalidEmailRoleAccessPolicyException),
+     /// <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+-    InvalidLambdaResponseException(crate::types::error::InvalidLambdaResponseException),
++    InvalidLambdaResponseException(super::types::error::InvalidLambdaResponseException),
+     /// <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+-    InvalidParameterException(crate::types::error::InvalidParameterException),
++    InvalidParameterException(super::types::error::InvalidParameterException),
+     /// <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+-    InvalidSmsRoleAccessPolicyException(crate::types::error::InvalidSmsRoleAccessPolicyException),
++    InvalidSmsRoleAccessPolicyException(super::types::error::InvalidSmsRoleAccessPolicyException),
+     /// <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+-    InvalidSmsRoleTrustRelationshipException(crate::types::error::InvalidSmsRoleTrustRelationshipException),
++    InvalidSmsRoleTrustRelationshipException(super::types::error::InvalidSmsRoleTrustRelationshipException),
+     /// <p>This exception is thrown when a user isn't authorized.</p>
+-    NotAuthorizedException(crate::types::error::NotAuthorizedException),
++    NotAuthorizedException(super::types::error::NotAuthorizedException),
+     /// <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+-    OperationNotEnabledException(crate::types::error::OperationNotEnabledException),
++    OperationNotEnabledException(super::types::error::OperationNotEnabledException),
+     /// <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
++    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
+     /// <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+-    TooManyRequestsException(crate::types::error::TooManyRequestsException),
++    TooManyRequestsException(super::types::error::TooManyRequestsException),
+     /// <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+-    UnexpectedLambdaException(crate::types::error::UnexpectedLambdaException),
++    UnexpectedLambdaException(super::types::error::UnexpectedLambdaException),
+     /// <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+-    UserLambdaValidationException(crate::types::error::UserLambdaValidationException),
++    UserLambdaValidationException(super::types::error::UserLambdaValidationException),
+     /// <p>This exception is thrown when a user isn't found.</p>
+-    UserNotFoundException(crate::types::error::UserNotFoundException),
++    UserNotFoundException(super::types::error::UserNotFoundException),
+     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+     variable wildcard pattern and check `.code()`:
+@@ -355,7 +355,7 @@
+     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+      \
+     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-AdminUpdateUserAttributesError) for what information is available for the error.")]
+-    Unhandled(crate::error::sealed_unhandled::Unhandled),
++    Unhandled(super::error::sealed_unhandled::Unhandled),
+ }
+ impl AdminUpdateUserAttributesError {
+     /// Creates the `AdminUpdateUserAttributesError::Unhandled` variant from any error type.
+@@ -362,7 +362,7 @@
+     pub fn unhandled(
+         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.into(),
+             meta: ::std::default::Default::default(),
+         })
+@@ -370,7 +370,7 @@
+
+     /// Creates the `AdminUpdateUserAttributesError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.clone().into(),
+             meta: err,
+         })
+@@ -537,21 +537,21 @@
+         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source,
+             meta: meta.unwrap_or_default(),
+         })
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError {
++impl ::aws_types::request_id::RequestId for super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError {
+     fn request_id(&self) -> Option<&str> {
+         self.meta().request_id()
+     }
+ }
+
+-pub use crate::operation::admin_update_user_attributes::_admin_update_user_attributes_input::AdminUpdateUserAttributesInput;
++pub use super::operation::admin_update_user_attributes::_admin_update_user_attributes_input::AdminUpdateUserAttributesInput;
+
+-pub use crate::operation::admin_update_user_attributes::_admin_update_user_attributes_output::AdminUpdateUserAttributesOutput;
++pub use super::operation::admin_update_user_attributes::_admin_update_user_attributes_output::AdminUpdateUserAttributesOutput;
+
+ mod _admin_update_user_attributes_input;
+

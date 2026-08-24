@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl ListDedicatedIpPoolsInput {
+     /// Creates a new builder-style object to manufacture [`ListDedicatedIpPoolsInput`](crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput).
+-    pub fn builder() -> crate::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsInputBuilder {
+-        crate::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsInputBuilder::default()
++    pub fn builder() -> super::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsInputBuilder {
++        super::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsInputBuilder::default()
+     }
+ }
+
+@@ -65,9 +65,9 @@
+     /// Consumes the builder and constructs a [`ListDedicatedIpPoolsInput`](crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput {
++        ::std::result::Result::Ok(super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput {
+             next_token: self.next_token,
+             page_size: self.page_size,
+         })

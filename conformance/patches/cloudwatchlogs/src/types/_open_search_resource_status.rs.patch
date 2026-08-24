@@ -1,0 +1,67 @@
+--- original
++++ modified
+@@ -5,13 +5,13 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct OpenSearchResourceStatus {
+     /// <p>The current status of this resource.</p>
+-    pub status: ::std::option::Option<crate::types::OpenSearchResourceStatusType>,
++    pub status: ::std::option::Option<super::types::OpenSearchResourceStatusType>,
+     /// <p>A message with additional information about the status of this resource.</p>
+     pub status_message: ::std::option::Option<::std::string::String>,
+ }
+ impl OpenSearchResourceStatus {
+     /// <p>The current status of this resource.</p>
+-    pub fn status(&self) -> ::std::option::Option<&crate::types::OpenSearchResourceStatusType> {
++    pub fn status(&self) -> ::std::option::Option<&super::types::OpenSearchResourceStatusType> {
+         self.status.as_ref()
+     }
+     /// <p>A message with additional information about the status of this resource.</p>
+@@ -21,8 +21,8 @@
+ }
+ impl OpenSearchResourceStatus {
+     /// Creates a new builder-style object to manufacture [`OpenSearchResourceStatus`](crate::types::OpenSearchResourceStatus).
+-    pub fn builder() -> crate::types::builders::OpenSearchResourceStatusBuilder {
+-        crate::types::builders::OpenSearchResourceStatusBuilder::default()
++    pub fn builder() -> super::types::builders::OpenSearchResourceStatusBuilder {
++        super::types::builders::OpenSearchResourceStatusBuilder::default()
+     }
+ }
+
+@@ -30,22 +30,22 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct OpenSearchResourceStatusBuilder {
+-    pub(crate) status: ::std::option::Option<crate::types::OpenSearchResourceStatusType>,
++    pub(crate) status: ::std::option::Option<super::types::OpenSearchResourceStatusType>,
+     pub(crate) status_message: ::std::option::Option<::std::string::String>,
+ }
+ impl OpenSearchResourceStatusBuilder {
+     /// <p>The current status of this resource.</p>
+-    pub fn status(mut self, input: crate::types::OpenSearchResourceStatusType) -> Self {
++    pub fn status(mut self, input: super::types::OpenSearchResourceStatusType) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The current status of this resource.</p>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OpenSearchResourceStatusType>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::OpenSearchResourceStatusType>) -> Self {
+         self.status = input;
+         self
+     }
+     /// <p>The current status of this resource.</p>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::OpenSearchResourceStatusType> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::OpenSearchResourceStatusType> {
+         &self.status
+     }
+     /// <p>A message with additional information about the status of this resource.</p>
+@@ -63,8 +63,8 @@
+         &self.status_message
+     }
+     /// Consumes the builder and constructs a [`OpenSearchResourceStatus`](crate::types::OpenSearchResourceStatus).
+-    pub fn build(self) -> crate::types::OpenSearchResourceStatus {
+-        crate::types::OpenSearchResourceStatus {
++    pub fn build(self) -> super::types::OpenSearchResourceStatus {
++        super::types::OpenSearchResourceStatus {
+             status: self.status,
+             status_message: self.status_message,
+         }

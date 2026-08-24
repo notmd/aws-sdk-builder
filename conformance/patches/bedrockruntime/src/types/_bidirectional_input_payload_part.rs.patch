@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl BidirectionalInputPayloadPart {
+     /// Creates a new builder-style object to manufacture [`BidirectionalInputPayloadPart`](crate::types::BidirectionalInputPayloadPart).
+-    pub fn builder() -> crate::types::builders::BidirectionalInputPayloadPartBuilder {
+-        crate::types::builders::BidirectionalInputPayloadPartBuilder::default()
++    pub fn builder() -> super::types::builders::BidirectionalInputPayloadPartBuilder {
++        super::types::builders::BidirectionalInputPayloadPartBuilder::default()
+     }
+ }
+
+@@ -49,8 +49,8 @@
+         &self.bytes
+     }
+     /// Consumes the builder and constructs a [`BidirectionalInputPayloadPart`](crate::types::BidirectionalInputPayloadPart).
+-    pub fn build(self) -> crate::types::BidirectionalInputPayloadPart {
+-        crate::types::BidirectionalInputPayloadPart { bytes: self.bytes }
++    pub fn build(self) -> super::types::BidirectionalInputPayloadPart {
++        super::types::BidirectionalInputPayloadPart { bytes: self.bytes }
+     }
+ }
+ impl ::std::fmt::Debug for BidirectionalInputPayloadPartBuilder {

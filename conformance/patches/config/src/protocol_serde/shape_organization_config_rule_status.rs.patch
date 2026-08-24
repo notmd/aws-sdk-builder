@@ -1,0 +1,38 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::OrganizationConfigRuleStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::OrganizationConfigRuleStatus>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::OrganizationConfigRuleStatusBuilder::default();
++            let mut builder = super::types::builders::OrganizationConfigRuleStatusBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -31,7 +31,7 @@
+                         "OrganizationRuleStatus" => {
+                             builder = builder.set_organization_rule_status(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::OrganizationRuleStatus::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::OrganizationRuleStatus::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+@@ -65,7 +65,7 @@
+                 }
+             }
+             Ok(Some(
+-                crate::serde_util::organization_config_rule_status_correct_errors(builder)
++                super::serde_util::organization_config_rule_status_correct_errors(builder)
+                     .build()
+                     .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
+             ))

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl StopConfigurationRecorderOutput {
+     /// Creates a new builder-style object to manufacture [`StopConfigurationRecorderOutput`](crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput).
+-    pub fn builder() -> crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderOutputBuilder {
+-        crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderOutputBuilder::default()
++    pub fn builder() -> super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderOutputBuilder {
++        super::operation::stop_configuration_recorder::builders::StopConfigurationRecorderOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`StopConfigurationRecorderOutput`](crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput).
+-    pub fn build(self) -> crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput {
+-        crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput {
++    pub fn build(self) -> super::operation::stop_configuration_recorder::StopConfigurationRecorderOutput {
++        super::operation::stop_configuration_recorder::StopConfigurationRecorderOutput {
+             _request_id: self._request_id,
+         }
+     }

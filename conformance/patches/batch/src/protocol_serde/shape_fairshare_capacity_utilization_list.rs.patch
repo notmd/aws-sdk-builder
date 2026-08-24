@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<::std::vec::Vec<crate::types::FairshareCapacityUtilization>>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<::std::vec::Vec<super::types::FairshareCapacityUtilization>>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -23,7 +23,7 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = crate::protocol_serde::shape_fairshare_capacity_utilization::de_fairshare_capacity_utilization(
++                        let value = super::protocol_serde::shape_fairshare_capacity_utilization::de_fairshare_capacity_utilization(
+                             tokens,
+                             _value,
+                             depth + 1,

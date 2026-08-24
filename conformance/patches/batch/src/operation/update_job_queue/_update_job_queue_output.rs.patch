@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -26,8 +26,8 @@
+ }
+ impl UpdateJobQueueOutput {
+     /// Creates a new builder-style object to manufacture [`UpdateJobQueueOutput`](crate::operation::update_job_queue::UpdateJobQueueOutput).
+-    pub fn builder() -> crate::operation::update_job_queue::builders::UpdateJobQueueOutputBuilder {
+-        crate::operation::update_job_queue::builders::UpdateJobQueueOutputBuilder::default()
++    pub fn builder() -> super::operation::update_job_queue::builders::UpdateJobQueueOutputBuilder {
++        super::operation::update_job_queue::builders::UpdateJobQueueOutputBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UpdateJobQueueOutput`](crate::operation::update_job_queue::UpdateJobQueueOutput).
+-    pub fn build(self) -> crate::operation::update_job_queue::UpdateJobQueueOutput {
+-        crate::operation::update_job_queue::UpdateJobQueueOutput {
++    pub fn build(self) -> super::operation::update_job_queue::UpdateJobQueueOutput {
++        super::operation::update_job_queue::UpdateJobQueueOutput {
+             job_queue_name: self.job_queue_name,
+             job_queue_arn: self.job_queue_arn,
+             _request_id: self._request_id,

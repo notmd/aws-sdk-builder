@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -13,7 +13,7 @@
+     /// <p>The minimum value is 0 and the maximum value is 99.</p>
+     pub compute_reservation: ::std::option::Option<i32>,
+     /// <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the share identifiers for the fair-share policy. Share identifiers that aren't included have a default weight of <code>1.0</code>.</p>
+-    pub share_distribution: ::std::option::Option<::std::vec::Vec<crate::types::ShareAttributes>>,
++    pub share_distribution: ::std::option::Option<::std::vec::Vec<super::types::ShareAttributes>>,
+ }
+ impl FairsharePolicy {
+     /// <p>The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).</p>
+@@ -31,14 +31,14 @@
+     /// <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the share identifiers for the fair-share policy. Share identifiers that aren't included have a default weight of <code>1.0</code>.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.share_distribution.is_none()`.
+-    pub fn share_distribution(&self) -> &[crate::types::ShareAttributes] {
++    pub fn share_distribution(&self) -> &[super::types::ShareAttributes] {
+         self.share_distribution.as_deref().unwrap_or_default()
+     }
+ }
+ impl FairsharePolicy {
+     /// Creates a new builder-style object to manufacture [`FairsharePolicy`](crate::types::FairsharePolicy).
+-    pub fn builder() -> crate::types::builders::FairsharePolicyBuilder {
+-        crate::types::builders::FairsharePolicyBuilder::default()
++    pub fn builder() -> super::types::builders::FairsharePolicyBuilder {
++        super::types::builders::FairsharePolicyBuilder::default()
+     }
+ }
+
+@@ -48,7 +48,7 @@
+ pub struct FairsharePolicyBuilder {
+     pub(crate) share_decay_seconds: ::std::option::Option<i32>,
+     pub(crate) compute_reservation: ::std::option::Option<i32>,
+-    pub(crate) share_distribution: ::std::option::Option<::std::vec::Vec<crate::types::ShareAttributes>>,
++    pub(crate) share_distribution: ::std::option::Option<::std::vec::Vec<super::types::ShareAttributes>>,
+ }
+ impl FairsharePolicyBuilder {
+     /// <p>The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).</p>
+@@ -96,7 +96,7 @@
+     /// To override the contents of this collection use [`set_share_distribution`](Self::set_share_distribution).
+     ///
+     /// <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the share identifiers for the fair-share policy. Share identifiers that aren't included have a default weight of <code>1.0</code>.</p>
+-    pub fn share_distribution(mut self, input: crate::types::ShareAttributes) -> Self {
++    pub fn share_distribution(mut self, input: super::types::ShareAttributes) -> Self {
+         let mut v = self.share_distribution.unwrap_or_default();
+         v.push(input);
+         self.share_distribution = ::std::option::Option::Some(v);
+@@ -103,17 +103,17 @@
+         self
+     }
+     /// <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the share identifiers for the fair-share policy. Share identifiers that aren't included have a default weight of <code>1.0</code>.</p>
+-    pub fn set_share_distribution(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ShareAttributes>>) -> Self {
++    pub fn set_share_distribution(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ShareAttributes>>) -> Self {
+         self.share_distribution = input;
+         self
+     }
+     /// <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the share identifiers for the fair-share policy. Share identifiers that aren't included have a default weight of <code>1.0</code>.</p>
+-    pub fn get_share_distribution(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ShareAttributes>> {
++    pub fn get_share_distribution(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ShareAttributes>> {
+         &self.share_distribution
+     }
+     /// Consumes the builder and constructs a [`FairsharePolicy`](crate::types::FairsharePolicy).
+-    pub fn build(self) -> crate::types::FairsharePolicy {
+-        crate::types::FairsharePolicy {
++    pub fn build(self) -> super::types::FairsharePolicy {
++        super::types::FairsharePolicy {
+             share_decay_seconds: self.share_decay_seconds,
+             compute_reservation: self.compute_reservation,
+             share_distribution: self.share_distribution,

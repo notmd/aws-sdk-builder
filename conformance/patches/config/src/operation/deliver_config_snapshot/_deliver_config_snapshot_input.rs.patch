@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl DeliverConfigSnapshotInput {
+     /// Creates a new builder-style object to manufacture [`DeliverConfigSnapshotInput`](crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput).
+-    pub fn builder() -> crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotInputBuilder {
+-        crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotInputBuilder::default()
++    pub fn builder() -> super::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotInputBuilder {
++        super::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotInputBuilder::default()
+     }
+ }
+
+@@ -45,9 +45,9 @@
+     /// Consumes the builder and constructs a [`DeliverConfigSnapshotInput`](crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::deliver_config_snapshot::DeliverConfigSnapshotInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput {
++        ::std::result::Result::Ok(super::operation::deliver_config_snapshot::DeliverConfigSnapshotInput {
+             delivery_channel_name: self.delivery_channel_name,
+         })
+     }

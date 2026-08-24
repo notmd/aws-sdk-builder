@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     /// <p>The ARN of the collection.</p>
+     pub collection_arn: ::std::option::Option<::std::string::String>,
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub status: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
++    pub status: ::std::option::Option<super::types::OpenSearchResourceStatus>,
+ }
+ impl OpenSearchCollection {
+     /// <p>The endpoint of the collection.</p>
+@@ -21,14 +21,14 @@
+         self.collection_arn.as_deref()
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn status(&self) -> ::std::option::Option<&crate::types::OpenSearchResourceStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::types::OpenSearchResourceStatus> {
+         self.status.as_ref()
+     }
+ }
+ impl OpenSearchCollection {
+     /// Creates a new builder-style object to manufacture [`OpenSearchCollection`](crate::types::OpenSearchCollection).
+-    pub fn builder() -> crate::types::builders::OpenSearchCollectionBuilder {
+-        crate::types::builders::OpenSearchCollectionBuilder::default()
++    pub fn builder() -> super::types::builders::OpenSearchCollectionBuilder {
++        super::types::builders::OpenSearchCollectionBuilder::default()
+     }
+ }
+
+@@ -38,7 +38,7 @@
+ pub struct OpenSearchCollectionBuilder {
+     pub(crate) collection_endpoint: ::std::option::Option<::std::string::String>,
+     pub(crate) collection_arn: ::std::option::Option<::std::string::String>,
+-    pub(crate) status: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
++    pub(crate) status: ::std::option::Option<super::types::OpenSearchResourceStatus>,
+ }
+ impl OpenSearchCollectionBuilder {
+     /// <p>The endpoint of the collection.</p>
+@@ -70,22 +70,22 @@
+         &self.collection_arn
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn status(mut self, input: crate::types::OpenSearchResourceStatus) -> Self {
++    pub fn status(mut self, input: super::types::OpenSearchResourceStatus) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OpenSearchResourceStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::OpenSearchResourceStatus>) -> Self {
+         self.status = input;
+         self
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::OpenSearchResourceStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::OpenSearchResourceStatus> {
+         &self.status
+     }
+     /// Consumes the builder and constructs a [`OpenSearchCollection`](crate::types::OpenSearchCollection).
+-    pub fn build(self) -> crate::types::OpenSearchCollection {
+-        crate::types::OpenSearchCollection {
++    pub fn build(self) -> super::types::OpenSearchCollection {
++        super::types::OpenSearchCollection {
+             collection_endpoint: self.collection_endpoint,
+             collection_arn: self.collection_arn,
+             status: self.status,

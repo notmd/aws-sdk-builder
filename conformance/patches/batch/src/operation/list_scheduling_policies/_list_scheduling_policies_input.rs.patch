@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -25,8 +25,8 @@
+ }
+ impl ListSchedulingPoliciesInput {
+     /// Creates a new builder-style object to manufacture [`ListSchedulingPoliciesInput`](crate::operation::list_scheduling_policies::ListSchedulingPoliciesInput).
+-    pub fn builder() -> crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder {
+-        crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder::default()
++    pub fn builder() -> super::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder {
++        super::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder::default()
+     }
+ }
+
+@@ -76,10 +76,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::list_scheduling_policies::ListSchedulingPoliciesInput,
++        super::operation::list_scheduling_policies::ListSchedulingPoliciesInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::list_scheduling_policies::ListSchedulingPoliciesInput {
++        ::std::result::Result::Ok(super::operation::list_scheduling_policies::ListSchedulingPoliciesInput {
+             max_results: self.max_results,
+             next_token: self.next_token,
+         })

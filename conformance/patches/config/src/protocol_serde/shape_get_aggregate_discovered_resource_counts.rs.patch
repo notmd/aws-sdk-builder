@@ -1,0 +1,164 @@
+--- original
++++ modified
+@@ -5,30 +5,30 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput,
+-    crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError,
++    super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput,
++    super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled(generic))
++            return Err(super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled(generic))
+         }
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidLimitException" => crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::InvalidLimitException({
++        "InvalidLimitException" => super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::InvalidLimitException({
+             #[allow(unused_mut)]
+             let mut tmp =
+                  {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidLimitExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output).map_err(crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
++                    let mut output = super::types::error::builders::InvalidLimitExceptionBuilder::default();
++                    output = super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output).map_err(super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 }
+@@ -38,13 +38,13 @@
+                                                         }
+             tmp
+         }),
+-        "InvalidNextTokenException" => crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::InvalidNextTokenException({
++        "InvalidNextTokenException" => super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::InvalidNextTokenException({
+             #[allow(unused_mut)]
+             let mut tmp =
+                  {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidNextTokenExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output).map_err(crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
++                    let mut output = super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
++                    output = super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output).map_err(super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 }
+@@ -54,13 +54,13 @@
+                                                         }
+             tmp
+         }),
+-        "NoSuchConfigurationAggregatorException" => crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::NoSuchConfigurationAggregatorException({
++        "NoSuchConfigurationAggregatorException" => super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::NoSuchConfigurationAggregatorException({
+             #[allow(unused_mut)]
+             let mut tmp =
+                  {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
++                    let mut output = super::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
++                    output = super::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 }
+@@ -70,13 +70,13 @@
+                                                         }
+             tmp
+         }),
+-        "ValidationException" => crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::ValidationException({
++        "ValidationException" => super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::ValidationException({
+             #[allow(unused_mut)]
+             let mut tmp =
+                  {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
++                    let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 }
+@@ -86,7 +86,7 @@
+                                                         }
+             tmp
+         }),
+-        _ => crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::generic(generic)
++        _ => super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::generic(generic)
+     })
+ }
+
+@@ -96,29 +96,29 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput,
+-    crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError,
++    super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput,
++    super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output =
+-            crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder::default();
+-        output = crate::protocol_serde::shape_get_aggregate_discovered_resource_counts::de_get_aggregate_discovered_resource_counts(
++            super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder::default();
++        output = super::protocol_serde::shape_get_aggregate_discovered_resource_counts::de_get_aggregate_discovered_resource_counts(
+             _response_body,
+             output,
+         )
+-        .map_err(crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
++        .map_err(super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+-        crate::serde_util::get_aggregate_discovered_resource_counts_output_output_correct_errors(output).build()
++        super::serde_util::get_aggregate_discovered_resource_counts_output_output_correct_errors(output).build()
+     })
+ }
+
+ pub fn ser_get_aggregate_discovered_resource_counts_input(
+-    input: &crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsInput,
++    input: &super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_get_aggregate_discovered_resource_counts_input::ser_get_aggregate_discovered_resource_counts_input_input(
++    super::protocol_serde::shape_get_aggregate_discovered_resource_counts_input::ser_get_aggregate_discovered_resource_counts_input_input(
+         &mut object,
+         input,
+     )?;
+@@ -128,12 +128,12 @@
+
+ pub(crate) fn de_get_aggregate_discovered_resource_counts(
+     _value: &[u8],
+-    mut builder: crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder,
++    mut builder: super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder,
++    super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;
+@@ -158,7 +158,7 @@
+                 }
+                 "GroupedResourceCounts" => {
+                     builder = builder.set_grouped_resource_counts(
+-                        crate::protocol_serde::shape_grouped_resource_count_list::de_grouped_resource_count_list(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_grouped_resource_count_list::de_grouped_resource_count_list(tokens, _value, depth + 1)?,
+                     );
+                 }
+                 "NextToken" => {

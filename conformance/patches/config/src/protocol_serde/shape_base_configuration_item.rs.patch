@@ -1,0 +1,54 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::BaseConfigurationItem>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::BaseConfigurationItem>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::BaseConfigurationItemBuilder::default();
++            let mut builder = super::types::builders::BaseConfigurationItemBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -44,7 +44,7 @@
+                         "configurationItemStatus" => {
+                             builder = builder.set_configuration_item_status(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ConfigurationItemStatus::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::ConfigurationItemStatus::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+@@ -65,7 +65,7 @@
+                         "resourceType" => {
+                             builder = builder.set_resource_type(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ResourceType::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::ResourceType::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+@@ -112,13 +112,13 @@
+                         }
+                         "supplementaryConfiguration" => {
+                             builder = builder.set_supplementary_configuration(
+-                                crate::protocol_serde::shape_supplementary_configuration::de_supplementary_configuration(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_supplementary_configuration::de_supplementary_configuration(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "recordingFrequency" => {
+                             builder = builder.set_recording_frequency(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::RecordingFrequency::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::RecordingFrequency::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }

@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -4,12 +4,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GetGroupOutput {
+     /// <p>A container for the requested group. Includes description, precedence, and IAM role values.</p>
+-    pub group: ::std::option::Option<crate::types::GroupType>,
++    pub group: ::std::option::Option<super::types::GroupType>,
+     _request_id: Option<String>,
+ }
+ impl GetGroupOutput {
+     /// <p>A container for the requested group. Includes description, precedence, and IAM role values.</p>
+-    pub fn group(&self) -> ::std::option::Option<&crate::types::GroupType> {
++    pub fn group(&self) -> ::std::option::Option<&super::types::GroupType> {
+         self.group.as_ref()
+     }
+ }
+@@ -20,8 +20,8 @@
+ }
+ impl GetGroupOutput {
+     /// Creates a new builder-style object to manufacture [`GetGroupOutput`](crate::operation::get_group::GetGroupOutput).
+-    pub fn builder() -> crate::operation::get_group::builders::GetGroupOutputBuilder {
+-        crate::operation::get_group::builders::GetGroupOutputBuilder::default()
++    pub fn builder() -> super::operation::get_group::builders::GetGroupOutputBuilder {
++        super::operation::get_group::builders::GetGroupOutputBuilder::default()
+     }
+ }
+
+@@ -29,22 +29,22 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GetGroupOutputBuilder {
+-    pub(crate) group: ::std::option::Option<crate::types::GroupType>,
++    pub(crate) group: ::std::option::Option<super::types::GroupType>,
+     _request_id: Option<String>,
+ }
+ impl GetGroupOutputBuilder {
+     /// <p>A container for the requested group. Includes description, precedence, and IAM role values.</p>
+-    pub fn group(mut self, input: crate::types::GroupType) -> Self {
++    pub fn group(mut self, input: super::types::GroupType) -> Self {
+         self.group = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>A container for the requested group. Includes description, precedence, and IAM role values.</p>
+-    pub fn set_group(mut self, input: ::std::option::Option<crate::types::GroupType>) -> Self {
++    pub fn set_group(mut self, input: ::std::option::Option<super::types::GroupType>) -> Self {
+         self.group = input;
+         self
+     }
+     /// <p>A container for the requested group. Includes description, precedence, and IAM role values.</p>
+-    pub fn get_group(&self) -> &::std::option::Option<crate::types::GroupType> {
++    pub fn get_group(&self) -> &::std::option::Option<super::types::GroupType> {
+         &self.group
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetGroupOutput`](crate::operation::get_group::GetGroupOutput).
+-    pub fn build(self) -> crate::operation::get_group::GetGroupOutput {
+-        crate::operation::get_group::GetGroupOutput {
++    pub fn build(self) -> super::operation::get_group::GetGroupOutput {
++        super::operation::get_group::GetGroupOutput {
+             group: self.group,
+             _request_id: self._request_id,
+         }

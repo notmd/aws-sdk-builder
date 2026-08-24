@@ -1,0 +1,74 @@
+--- original
++++ modified
+@@ -15,7 +15,7 @@
+     /// <li>
+     /// <p><code>TLS_V1</code> (strongly discouraged): Permits fallback to TLS 1.0. It offers the broadest compatibility, including support for legacy clients that are more than a decade old. This compatibility comes at the expense of allowing TLS versions and cryptographic algorithms that are no longer considered safe for commercial use. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers for TLSv1</a>.</p></li>
+     /// </ul>
+-    pub security_policy: ::std::option::Option<crate::types::SecurityPolicyType>,
++    pub security_policy: ::std::option::Option<super::types::SecurityPolicyType>,
+ }
+ impl CustomDomainConfigType {
+     /// <p>The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.</p>
+@@ -32,14 +32,14 @@
+     /// <li>
+     /// <p><code>TLS_V1</code> (strongly discouraged): Permits fallback to TLS 1.0. It offers the broadest compatibility, including support for legacy clients that are more than a decade old. This compatibility comes at the expense of allowing TLS versions and cryptographic algorithms that are no longer considered safe for commercial use. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers for TLSv1</a>.</p></li>
+     /// </ul>
+-    pub fn security_policy(&self) -> ::std::option::Option<&crate::types::SecurityPolicyType> {
++    pub fn security_policy(&self) -> ::std::option::Option<&super::types::SecurityPolicyType> {
+         self.security_policy.as_ref()
+     }
+ }
+ impl CustomDomainConfigType {
+     /// Creates a new builder-style object to manufacture [`CustomDomainConfigType`](crate::types::CustomDomainConfigType).
+-    pub fn builder() -> crate::types::builders::CustomDomainConfigTypeBuilder {
+-        crate::types::builders::CustomDomainConfigTypeBuilder::default()
++    pub fn builder() -> super::types::builders::CustomDomainConfigTypeBuilder {
++        super::types::builders::CustomDomainConfigTypeBuilder::default()
+     }
+ }
+
+@@ -48,7 +48,7 @@
+ #[non_exhaustive]
+ pub struct CustomDomainConfigTypeBuilder {
+     pub(crate) certificate_arn: ::std::option::Option<::std::string::String>,
+-    pub(crate) security_policy: ::std::option::Option<crate::types::SecurityPolicyType>,
++    pub(crate) security_policy: ::std::option::Option<super::types::SecurityPolicyType>,
+ }
+ impl CustomDomainConfigTypeBuilder {
+     /// <p>The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.</p>
+@@ -75,7 +75,7 @@
+     /// <li>
+     /// <p><code>TLS_V1</code> (strongly discouraged): Permits fallback to TLS 1.0. It offers the broadest compatibility, including support for legacy clients that are more than a decade old. This compatibility comes at the expense of allowing TLS versions and cryptographic algorithms that are no longer considered safe for commercial use. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers for TLSv1</a>.</p></li>
+     /// </ul>
+-    pub fn security_policy(mut self, input: crate::types::SecurityPolicyType) -> Self {
++    pub fn security_policy(mut self, input: super::types::SecurityPolicyType) -> Self {
+         self.security_policy = ::std::option::Option::Some(input);
+         self
+     }
+@@ -88,7 +88,7 @@
+     /// <li>
+     /// <p><code>TLS_V1</code> (strongly discouraged): Permits fallback to TLS 1.0. It offers the broadest compatibility, including support for legacy clients that are more than a decade old. This compatibility comes at the expense of allowing TLS versions and cryptographic algorithms that are no longer considered safe for commercial use. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers for TLSv1</a>.</p></li>
+     /// </ul>
+-    pub fn set_security_policy(mut self, input: ::std::option::Option<crate::types::SecurityPolicyType>) -> Self {
++    pub fn set_security_policy(mut self, input: ::std::option::Option<super::types::SecurityPolicyType>) -> Self {
+         self.security_policy = input;
+         self
+     }
+@@ -101,14 +101,14 @@
+     /// <li>
+     /// <p><code>TLS_V1</code> (strongly discouraged): Permits fallback to TLS 1.0. It offers the broadest compatibility, including support for legacy clients that are more than a decade old. This compatibility comes at the expense of allowing TLS versions and cryptographic algorithms that are no longer considered safe for commercial use. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers for TLSv1</a>.</p></li>
+     /// </ul>
+-    pub fn get_security_policy(&self) -> &::std::option::Option<crate::types::SecurityPolicyType> {
++    pub fn get_security_policy(&self) -> &::std::option::Option<super::types::SecurityPolicyType> {
+         &self.security_policy
+     }
+     /// Consumes the builder and constructs a [`CustomDomainConfigType`](crate::types::CustomDomainConfigType).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`certificate_arn`](crate::types::builders::CustomDomainConfigTypeBuilder::certificate_arn)
+-    pub fn build(self) -> ::std::result::Result<crate::types::CustomDomainConfigType, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::CustomDomainConfigType {
++    pub fn build(self) -> ::std::result::Result<super::types::CustomDomainConfigType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::CustomDomainConfigType {
+             certificate_arn: self.certificate_arn.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "certificate_arn",

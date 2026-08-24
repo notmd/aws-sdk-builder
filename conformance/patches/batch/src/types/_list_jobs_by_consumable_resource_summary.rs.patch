@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -41,7 +41,7 @@
+     /// <p>The Unix timestamp (in milliseconds) for when the consumable resource was created.</p>
+     pub created_at: ::std::option::Option<i64>,
+     /// <p>Contains a list of consumable resources required by the job.</p>
+-    pub consumable_resource_properties: ::std::option::Option<crate::types::ConsumableResourceProperties>,
++    pub consumable_resource_properties: ::std::option::Option<super::types::ConsumableResourceProperties>,
+ }
+ impl ListJobsByConsumableResourceSummary {
+     /// <p>The Amazon Resource Name (ARN) of the job.</p>
+@@ -101,14 +101,14 @@
+         self.created_at
+     }
+     /// <p>Contains a list of consumable resources required by the job.</p>
+-    pub fn consumable_resource_properties(&self) -> ::std::option::Option<&crate::types::ConsumableResourceProperties> {
++    pub fn consumable_resource_properties(&self) -> ::std::option::Option<&super::types::ConsumableResourceProperties> {
+         self.consumable_resource_properties.as_ref()
+     }
+ }
+ impl ListJobsByConsumableResourceSummary {
+     /// Creates a new builder-style object to manufacture [`ListJobsByConsumableResourceSummary`](crate::types::ListJobsByConsumableResourceSummary).
+-    pub fn builder() -> crate::types::builders::ListJobsByConsumableResourceSummaryBuilder {
+-        crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::default()
++    pub fn builder() -> super::types::builders::ListJobsByConsumableResourceSummaryBuilder {
++        super::types::builders::ListJobsByConsumableResourceSummaryBuilder::default()
+     }
+ }
+
+@@ -126,7 +126,7 @@
+     pub(crate) status_reason: ::std::option::Option<::std::string::String>,
+     pub(crate) started_at: ::std::option::Option<i64>,
+     pub(crate) created_at: ::std::option::Option<i64>,
+-    pub(crate) consumable_resource_properties: ::std::option::Option<crate::types::ConsumableResourceProperties>,
++    pub(crate) consumable_resource_properties: ::std::option::Option<super::types::ConsumableResourceProperties>,
+ }
+ impl ListJobsByConsumableResourceSummaryBuilder {
+     /// <p>The Amazon Resource Name (ARN) of the job.</p>
+@@ -325,22 +325,22 @@
+     }
+     /// <p>Contains a list of consumable resources required by the job.</p>
+     /// This field is required.
+-    pub fn consumable_resource_properties(mut self, input: crate::types::ConsumableResourceProperties) -> Self {
++    pub fn consumable_resource_properties(mut self, input: super::types::ConsumableResourceProperties) -> Self {
+         self.consumable_resource_properties = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Contains a list of consumable resources required by the job.</p>
+-    pub fn set_consumable_resource_properties(mut self, input: ::std::option::Option<crate::types::ConsumableResourceProperties>) -> Self {
++    pub fn set_consumable_resource_properties(mut self, input: ::std::option::Option<super::types::ConsumableResourceProperties>) -> Self {
+         self.consumable_resource_properties = input;
+         self
+     }
+     /// <p>Contains a list of consumable resources required by the job.</p>
+-    pub fn get_consumable_resource_properties(&self) -> &::std::option::Option<crate::types::ConsumableResourceProperties> {
++    pub fn get_consumable_resource_properties(&self) -> &::std::option::Option<super::types::ConsumableResourceProperties> {
+         &self.consumable_resource_properties
+     }
+     /// Consumes the builder and constructs a [`ListJobsByConsumableResourceSummary`](crate::types::ListJobsByConsumableResourceSummary).
+-    pub fn build(self) -> crate::types::ListJobsByConsumableResourceSummary {
+-        crate::types::ListJobsByConsumableResourceSummary {
++    pub fn build(self) -> super::types::ListJobsByConsumableResourceSummary {
++        super::types::ListJobsByConsumableResourceSummary {
+             job_arn: self.job_arn,
+             job_queue_arn: self.job_queue_arn,
+             job_name: self.job_name,

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -44,8 +44,8 @@
+ }
+ impl Csv {
+     /// Creates a new builder-style object to manufacture [`Csv`](crate::types::Csv).
+-    pub fn builder() -> crate::types::builders::CsvBuilder {
+-        crate::types::builders::CsvBuilder::default()
++    pub fn builder() -> super::types::builders::CsvBuilder {
++        super::types::builders::CsvBuilder::default()
+     }
+ }
+
+@@ -140,8 +140,8 @@
+         &self.destination
+     }
+     /// Consumes the builder and constructs a [`Csv`](crate::types::Csv).
+-    pub fn build(self) -> crate::types::Csv {
+-        crate::types::Csv {
++    pub fn build(self) -> super::types::Csv {
++        super::types::Csv {
+             quote_character: self.quote_character,
+             delimiter: self.delimiter,
+             columns: self.columns,

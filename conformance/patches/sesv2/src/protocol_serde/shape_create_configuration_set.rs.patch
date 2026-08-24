@@ -1,0 +1,176 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::create_configuration_set::CreateConfigurationSetOutput,
+-    crate::operation::create_configuration_set::CreateConfigurationSetError,
++    super::operation::create_configuration_set::CreateConfigurationSetOutput,
++    super::operation::create_configuration_set::CreateConfigurationSetError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled(
++            return Err(super::operation::create_configuration_set::CreateConfigurationSetError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,13 +24,13 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AlreadyExistsException" => crate::operation::create_configuration_set::CreateConfigurationSetError::AlreadyExistsException({
++        "AlreadyExistsException" => super::operation::create_configuration_set::CreateConfigurationSetError::AlreadyExistsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::AlreadyExistsExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
++                let mut output = super::types::error::builders::AlreadyExistsExceptionBuilder::default();
++                output = super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
++                    .map_err(super::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -39,13 +39,13 @@
+             }
+             tmp
+         }),
+-        "BadRequestException" => crate::operation::create_configuration_set::CreateConfigurationSetError::BadRequestException({
++        "BadRequestException" => super::operation::create_configuration_set::CreateConfigurationSetError::BadRequestException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
++                let mut output = super::types::error::builders::BadRequestExceptionBuilder::default();
++                output = super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
++                    .map_err(super::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -55,16 +55,16 @@
+             tmp
+         }),
+         "ConcurrentModificationException" => {
+-            crate::operation::create_configuration_set::CreateConfigurationSetError::ConcurrentModificationException({
++            super::operation::create_configuration_set::CreateConfigurationSetError::ConcurrentModificationException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
++                    let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                    output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
++                    .map_err(super::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -74,13 +74,13 @@
+                 tmp
+             })
+         }
+-        "LimitExceededException" => crate::operation::create_configuration_set::CreateConfigurationSetError::LimitExceededException({
++        "LimitExceededException" => super::operation::create_configuration_set::CreateConfigurationSetError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
++                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
++                    .map_err(super::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -89,13 +89,13 @@
+             }
+             tmp
+         }),
+-        "NotFoundException" => crate::operation::create_configuration_set::CreateConfigurationSetError::NotFoundException({
++        "NotFoundException" => super::operation::create_configuration_set::CreateConfigurationSetError::NotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
++                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -104,13 +104,13 @@
+             }
+             tmp
+         }),
+-        "TooManyRequestsException" => crate::operation::create_configuration_set::CreateConfigurationSetError::TooManyRequestsException({
++        "TooManyRequestsException" => super::operation::create_configuration_set::CreateConfigurationSetError::TooManyRequestsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
++                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -119,7 +119,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::create_configuration_set::CreateConfigurationSetError::generic(generic),
++        _ => super::operation::create_configuration_set::CreateConfigurationSetError::generic(generic),
+     })
+ }
+
+@@ -129,12 +129,12 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::create_configuration_set::CreateConfigurationSetOutput,
+-    crate::operation::create_configuration_set::CreateConfigurationSetError,
++    super::operation::create_configuration_set::CreateConfigurationSetOutput,
++    super::operation::create_configuration_set::CreateConfigurationSetError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::create_configuration_set::builders::CreateConfigurationSetOutputBuilder::default();
++        let mut output = super::operation::create_configuration_set::builders::CreateConfigurationSetOutputBuilder::default();
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -141,11 +141,11 @@
+ }
+
+ pub fn ser_create_configuration_set_input(
+-    input: &crate::operation::create_configuration_set::CreateConfigurationSetInput,
++    input: &super::operation::create_configuration_set::CreateConfigurationSetInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_create_configuration_set_input::ser_create_configuration_set_input_input(&mut object, input)?;
++    super::protocol_serde::shape_create_configuration_set_input::ser_create_configuration_set_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }

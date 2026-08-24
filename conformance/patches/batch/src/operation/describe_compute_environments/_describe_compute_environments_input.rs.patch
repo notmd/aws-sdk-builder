@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -33,8 +33,8 @@
+ }
+ impl DescribeComputeEnvironmentsInput {
+     /// Creates a new builder-style object to manufacture [`DescribeComputeEnvironmentsInput`](crate::operation::describe_compute_environments::DescribeComputeEnvironmentsInput).
+-    pub fn builder() -> crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsInputBuilder {
+-        crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsInputBuilder::default()
++    pub fn builder() -> super::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsInputBuilder {
++        super::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsInputBuilder::default()
+     }
+ }
+
+@@ -105,10 +105,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_compute_environments::DescribeComputeEnvironmentsInput,
++        super::operation::describe_compute_environments::DescribeComputeEnvironmentsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::describe_compute_environments::DescribeComputeEnvironmentsInput {
++        ::std::result::Result::Ok(super::operation::describe_compute_environments::DescribeComputeEnvironmentsInput {
+             compute_environments: self.compute_environments,
+             max_results: self.max_results,
+             next_token: self.next_token,

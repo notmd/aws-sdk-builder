@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -43,8 +43,8 @@
+ }
+ impl AdminListDevicesInput {
+     /// Creates a new builder-style object to manufacture [`AdminListDevicesInput`](crate::operation::admin_list_devices::AdminListDevicesInput).
+-    pub fn builder() -> crate::operation::admin_list_devices::builders::AdminListDevicesInputBuilder {
+-        crate::operation::admin_list_devices::builders::AdminListDevicesInputBuilder::default()
++    pub fn builder() -> super::operation::admin_list_devices::builders::AdminListDevicesInputBuilder {
++        super::operation::admin_list_devices::builders::AdminListDevicesInputBuilder::default()
+     }
+ }
+
+@@ -119,8 +119,8 @@
+     /// Consumes the builder and constructs a [`AdminListDevicesInput`](crate::operation::admin_list_devices::AdminListDevicesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::admin_list_devices::AdminListDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::admin_list_devices::AdminListDevicesInput {
++    ) -> ::std::result::Result<super::operation::admin_list_devices::AdminListDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::admin_list_devices::AdminListDevicesInput {
+             user_pool_id: self.user_pool_id,
+             username: self.username,
+             limit: self.limit,

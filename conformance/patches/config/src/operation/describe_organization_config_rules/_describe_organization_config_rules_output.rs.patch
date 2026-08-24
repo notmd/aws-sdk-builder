@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DescribeOrganizationConfigRulesOutput {
+     /// <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
+-    pub organization_config_rules: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRule>>,
++    pub organization_config_rules: ::std::option::Option<::std::vec::Vec<super::types::OrganizationConfigRule>>,
+     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -13,7 +13,7 @@
+     /// <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.organization_config_rules.is_none()`.
+-    pub fn organization_config_rules(&self) -> &[crate::types::OrganizationConfigRule] {
++    pub fn organization_config_rules(&self) -> &[super::types::OrganizationConfigRule] {
+         self.organization_config_rules.as_deref().unwrap_or_default()
+     }
+     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+@@ -28,8 +28,8 @@
+ }
+ impl DescribeOrganizationConfigRulesOutput {
+     /// Creates a new builder-style object to manufacture [`DescribeOrganizationConfigRulesOutput`](crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesOutput).
+-    pub fn builder() -> crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesOutputBuilder {
+-        crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesOutputBuilder::default()
++    pub fn builder() -> super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesOutputBuilder {
++        super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesOutputBuilder::default()
+     }
+ }
+
+@@ -37,7 +37,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct DescribeOrganizationConfigRulesOutputBuilder {
+-    pub(crate) organization_config_rules: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRule>>,
++    pub(crate) organization_config_rules: ::std::option::Option<::std::vec::Vec<super::types::OrganizationConfigRule>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -47,7 +47,7 @@
+     /// To override the contents of this collection use [`set_organization_config_rules`](Self::set_organization_config_rules).
+     ///
+     /// <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
+-    pub fn organization_config_rules(mut self, input: crate::types::OrganizationConfigRule) -> Self {
++    pub fn organization_config_rules(mut self, input: super::types::OrganizationConfigRule) -> Self {
+         let mut v = self.organization_config_rules.unwrap_or_default();
+         v.push(input);
+         self.organization_config_rules = ::std::option::Option::Some(v);
+@@ -54,12 +54,12 @@
+         self
+     }
+     /// <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
+-    pub fn set_organization_config_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRule>>) -> Self {
++    pub fn set_organization_config_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::OrganizationConfigRule>>) -> Self {
+         self.organization_config_rules = input;
+         self
+     }
+     /// <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
+-    pub fn get_organization_config_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRule>> {
++    pub fn get_organization_config_rules(&self) -> &::std::option::Option<::std::vec::Vec<super::types::OrganizationConfigRule>> {
+         &self.organization_config_rules
+     }
+     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DescribeOrganizationConfigRulesOutput`](crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesOutput).
+-    pub fn build(self) -> crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesOutput {
+-        crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesOutput {
++    pub fn build(self) -> super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesOutput {
++        super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesOutput {
+             organization_config_rules: self.organization_config_rules,
+             next_token: self.next_token,
+             _request_id: self._request_id,

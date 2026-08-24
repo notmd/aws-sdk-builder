@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -17,8 +17,8 @@
+ }
+ impl DescribeDeliveryChannelsInput {
+     /// Creates a new builder-style object to manufacture [`DescribeDeliveryChannelsInput`](crate::operation::describe_delivery_channels::DescribeDeliveryChannelsInput).
+-    pub fn builder() -> crate::operation::describe_delivery_channels::builders::DescribeDeliveryChannelsInputBuilder {
+-        crate::operation::describe_delivery_channels::builders::DescribeDeliveryChannelsInputBuilder::default()
++    pub fn builder() -> super::operation::describe_delivery_channels::builders::DescribeDeliveryChannelsInputBuilder {
++        super::operation::describe_delivery_channels::builders::DescribeDeliveryChannelsInputBuilder::default()
+     }
+ }
+
+@@ -53,10 +53,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_delivery_channels::DescribeDeliveryChannelsInput,
++        super::operation::describe_delivery_channels::DescribeDeliveryChannelsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::describe_delivery_channels::DescribeDeliveryChannelsInput {
++        ::std::result::Result::Ok(super::operation::describe_delivery_channels::DescribeDeliveryChannelsInput {
+             delivery_channel_names: self.delivery_channel_names,
+         })
+     }

@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct PutEvaluationsOutput {
+     /// <p>Requests that failed because of a client or server error.</p>
+-    pub failed_evaluations: ::std::option::Option<::std::vec::Vec<crate::types::Evaluation>>,
++    pub failed_evaluations: ::std::option::Option<::std::vec::Vec<super::types::Evaluation>>,
+     _request_id: Option<String>,
+ }
+ impl PutEvaluationsOutput {
+@@ -12,7 +12,7 @@
+     /// <p>Requests that failed because of a client or server error.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.failed_evaluations.is_none()`.
+-    pub fn failed_evaluations(&self) -> &[crate::types::Evaluation] {
++    pub fn failed_evaluations(&self) -> &[super::types::Evaluation] {
+         self.failed_evaluations.as_deref().unwrap_or_default()
+     }
+ }
+@@ -23,8 +23,8 @@
+ }
+ impl PutEvaluationsOutput {
+     /// Creates a new builder-style object to manufacture [`PutEvaluationsOutput`](crate::operation::put_evaluations::PutEvaluationsOutput).
+-    pub fn builder() -> crate::operation::put_evaluations::builders::PutEvaluationsOutputBuilder {
+-        crate::operation::put_evaluations::builders::PutEvaluationsOutputBuilder::default()
++    pub fn builder() -> super::operation::put_evaluations::builders::PutEvaluationsOutputBuilder {
++        super::operation::put_evaluations::builders::PutEvaluationsOutputBuilder::default()
+     }
+ }
+
+@@ -32,7 +32,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct PutEvaluationsOutputBuilder {
+-    pub(crate) failed_evaluations: ::std::option::Option<::std::vec::Vec<crate::types::Evaluation>>,
++    pub(crate) failed_evaluations: ::std::option::Option<::std::vec::Vec<super::types::Evaluation>>,
+     _request_id: Option<String>,
+ }
+ impl PutEvaluationsOutputBuilder {
+@@ -41,7 +41,7 @@
+     /// To override the contents of this collection use [`set_failed_evaluations`](Self::set_failed_evaluations).
+     ///
+     /// <p>Requests that failed because of a client or server error.</p>
+-    pub fn failed_evaluations(mut self, input: crate::types::Evaluation) -> Self {
++    pub fn failed_evaluations(mut self, input: super::types::Evaluation) -> Self {
+         let mut v = self.failed_evaluations.unwrap_or_default();
+         v.push(input);
+         self.failed_evaluations = ::std::option::Option::Some(v);
+@@ -48,12 +48,12 @@
+         self
+     }
+     /// <p>Requests that failed because of a client or server error.</p>
+-    pub fn set_failed_evaluations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Evaluation>>) -> Self {
++    pub fn set_failed_evaluations(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Evaluation>>) -> Self {
+         self.failed_evaluations = input;
+         self
+     }
+     /// <p>Requests that failed because of a client or server error.</p>
+-    pub fn get_failed_evaluations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Evaluation>> {
++    pub fn get_failed_evaluations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Evaluation>> {
+         &self.failed_evaluations
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -66,8 +66,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutEvaluationsOutput`](crate::operation::put_evaluations::PutEvaluationsOutput).
+-    pub fn build(self) -> crate::operation::put_evaluations::PutEvaluationsOutput {
+-        crate::operation::put_evaluations::PutEvaluationsOutput {
++    pub fn build(self) -> super::operation::put_evaluations::PutEvaluationsOutput {
++        super::operation::put_evaluations::PutEvaluationsOutput {
+             failed_evaluations: self.failed_evaluations,
+             _request_id: self._request_id,
+         }

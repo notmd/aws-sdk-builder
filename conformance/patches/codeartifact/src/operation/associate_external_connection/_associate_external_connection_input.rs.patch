@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -76,8 +76,8 @@
+ }
+ impl AssociateExternalConnectionInput {
+     /// Creates a new builder-style object to manufacture [`AssociateExternalConnectionInput`](crate::operation::associate_external_connection::AssociateExternalConnectionInput).
+-    pub fn builder() -> crate::operation::associate_external_connection::builders::AssociateExternalConnectionInputBuilder {
+-        crate::operation::associate_external_connection::builders::AssociateExternalConnectionInputBuilder::default()
++    pub fn builder() -> super::operation::associate_external_connection::builders::AssociateExternalConnectionInputBuilder {
++        super::operation::associate_external_connection::builders::AssociateExternalConnectionInputBuilder::default()
+     }
+ }
+
+@@ -220,10 +220,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::associate_external_connection::AssociateExternalConnectionInput,
++        super::operation::associate_external_connection::AssociateExternalConnectionInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::associate_external_connection::AssociateExternalConnectionInput {
++        ::std::result::Result::Ok(super::operation::associate_external_connection::AssociateExternalConnectionInput {
+             domain: self.domain,
+             domain_owner: self.domain_owner,
+             repository: self.repository,

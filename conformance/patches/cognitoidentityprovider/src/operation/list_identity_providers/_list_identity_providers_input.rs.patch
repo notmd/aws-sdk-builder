@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -26,8 +26,8 @@
+ }
+ impl ListIdentityProvidersInput {
+     /// Creates a new builder-style object to manufacture [`ListIdentityProvidersInput`](crate::operation::list_identity_providers::ListIdentityProvidersInput).
+-    pub fn builder() -> crate::operation::list_identity_providers::builders::ListIdentityProvidersInputBuilder {
+-        crate::operation::list_identity_providers::builders::ListIdentityProvidersInputBuilder::default()
++    pub fn builder() -> super::operation::list_identity_providers::builders::ListIdentityProvidersInputBuilder {
++        super::operation::list_identity_providers::builders::ListIdentityProvidersInputBuilder::default()
+     }
+ }
+
+@@ -86,9 +86,9 @@
+     /// Consumes the builder and constructs a [`ListIdentityProvidersInput`](crate::operation::list_identity_providers::ListIdentityProvidersInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_identity_providers::ListIdentityProvidersInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::list_identity_providers::ListIdentityProvidersInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::list_identity_providers::ListIdentityProvidersInput {
++        ::std::result::Result::Ok(super::operation::list_identity_providers::ListIdentityProvidersInput {
+             user_pool_id: self.user_pool_id,
+             max_results: self.max_results,
+             next_token: self.next_token,

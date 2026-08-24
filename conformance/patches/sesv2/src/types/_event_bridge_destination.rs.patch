@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl EventBridgeDestination {
+     /// Creates a new builder-style object to manufacture [`EventBridgeDestination`](crate::types::EventBridgeDestination).
+-    pub fn builder() -> crate::types::builders::EventBridgeDestinationBuilder {
+-        crate::types::builders::EventBridgeDestinationBuilder::default()
++    pub fn builder() -> super::types::builders::EventBridgeDestinationBuilder {
++        super::types::builders::EventBridgeDestinationBuilder::default()
+     }
+ }
+
+@@ -46,8 +46,8 @@
+     /// Consumes the builder and constructs a [`EventBridgeDestination`](crate::types::EventBridgeDestination).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`event_bus_arn`](crate::types::builders::EventBridgeDestinationBuilder::event_bus_arn)
+-    pub fn build(self) -> ::std::result::Result<crate::types::EventBridgeDestination, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::EventBridgeDestination {
++    pub fn build(self) -> ::std::result::Result<super::types::EventBridgeDestination, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::EventBridgeDestination {
+             event_bus_arn: self.event_bus_arn.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "event_bus_arn",

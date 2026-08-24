@@ -1,0 +1,32 @@
+--- original
++++ modified
+@@ -6,9 +6,9 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+ pub enum GuardrailConverseContentBlock {
+     /// <p>Image within converse content block to be evaluated by the guardrail.</p>
+-    Image(crate::types::GuardrailConverseImageBlock),
++    Image(super::types::GuardrailConverseImageBlock),
+     /// <p>The text to guard.</p>
+-    Text(crate::types::GuardrailConverseTextBlock),
++    Text(super::types::GuardrailConverseTextBlock),
+     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
+     /// An unknown enum variant
+     ///
+@@ -22,7 +22,7 @@
+ impl GuardrailConverseContentBlock {
+     /// Tries to convert the enum instance into [`Image`](crate::types::GuardrailConverseContentBlock::Image), extracting the inner [`GuardrailConverseImageBlock`](crate::types::GuardrailConverseImageBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_image(&self) -> ::std::result::Result<&crate::types::GuardrailConverseImageBlock, &Self> {
++    pub fn as_image(&self) -> ::std::result::Result<&super::types::GuardrailConverseImageBlock, &Self> {
+         if let GuardrailConverseContentBlock::Image(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -35,7 +35,7 @@
+     }
+     /// Tries to convert the enum instance into [`Text`](crate::types::GuardrailConverseContentBlock::Text), extracting the inner [`GuardrailConverseTextBlock`](crate::types::GuardrailConverseTextBlock).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_text(&self) -> ::std::result::Result<&crate::types::GuardrailConverseTextBlock, &Self> {
++    pub fn as_text(&self) -> ::std::result::Result<&super::types::GuardrailConverseTextBlock, &Self> {
+         if let GuardrailConverseContentBlock::Text(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {

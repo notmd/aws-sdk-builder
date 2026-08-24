@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl TerminateJobOutput {
+     /// Creates a new builder-style object to manufacture [`TerminateJobOutput`](crate::operation::terminate_job::TerminateJobOutput).
+-    pub fn builder() -> crate::operation::terminate_job::builders::TerminateJobOutputBuilder {
+-        crate::operation::terminate_job::builders::TerminateJobOutputBuilder::default()
++    pub fn builder() -> super::operation::terminate_job::builders::TerminateJobOutputBuilder {
++        super::operation::terminate_job::builders::TerminateJobOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`TerminateJobOutput`](crate::operation::terminate_job::TerminateJobOutput).
+-    pub fn build(self) -> crate::operation::terminate_job::TerminateJobOutput {
+-        crate::operation::terminate_job::TerminateJobOutput {
++    pub fn build(self) -> super::operation::terminate_job::TerminateJobOutput {
++        super::operation::terminate_job::TerminateJobOutput {
+             _request_id: self._request_id,
+         }
+     }

@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     ///   - [`resource_tenants(Option<Vec::<ResourceTenantMetadata>>)`](crate::operation::list_resource_tenants::ListResourceTenantsOutput::resource_tenants): <p>An array that contains information about each tenant associated with the resource.</p>
+     ///   - [`next_token(Option<String>)`](crate::operation::list_resource_tenants::ListResourceTenantsOutput::next_token): <p>A token that indicates that there are additional tenants to list. To view additional tenants, issue another request to <code>ListResourceTenants</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+     /// - On failure, responds with [`SdkError<ListResourceTenantsError>`](crate::operation::list_resource_tenants::ListResourceTenantsError)
+-    pub fn list_resource_tenants(&self) -> crate::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder {
+-        crate::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder::new(self.handle.clone())
++    pub fn list_resource_tenants(&self) -> super::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder {
++        super::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder::new(self.handle.clone())
+     }
+ }

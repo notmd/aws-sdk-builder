@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl GetDeliverySourceInput {
+     /// Creates a new builder-style object to manufacture [`GetDeliverySourceInput`](crate::operation::get_delivery_source::GetDeliverySourceInput).
+-    pub fn builder() -> crate::operation::get_delivery_source::builders::GetDeliverySourceInputBuilder {
+-        crate::operation::get_delivery_source::builders::GetDeliverySourceInputBuilder::default()
++    pub fn builder() -> super::operation::get_delivery_source::builders::GetDeliverySourceInputBuilder {
++        super::operation::get_delivery_source::builders::GetDeliverySourceInputBuilder::default()
+     }
+ }
+
+@@ -44,7 +44,7 @@
+     /// Consumes the builder and constructs a [`GetDeliverySourceInput`](crate::operation::get_delivery_source::GetDeliverySourceInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_delivery_source::GetDeliverySourceInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::get_delivery_source::GetDeliverySourceInput { name: self.name })
++    ) -> ::std::result::Result<super::operation::get_delivery_source::GetDeliverySourceInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::get_delivery_source::GetDeliverySourceInput { name: self.name })
+     }
+ }

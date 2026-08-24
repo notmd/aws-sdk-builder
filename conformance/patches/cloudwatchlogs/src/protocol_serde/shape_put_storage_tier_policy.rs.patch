@@ -1,0 +1,181 @@
+--- original
++++ modified
+@@ -5,28 +5,28 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::put_storage_tier_policy::PutStorageTierPolicyOutput,
+-    crate::operation::put_storage_tier_policy::PutStorageTierPolicyError,
++    super::operation::put_storage_tier_policy::PutStorageTierPolicyOutput,
++    super::operation::put_storage_tier_policy::PutStorageTierPolicyError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled(generic)),
++        None => return Err(super::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AccessDeniedException" => crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::AccessDeniedException({
++        "AccessDeniedException" => super::operation::put_storage_tier_policy::PutStorageTierPolicyError::AccessDeniedException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::AccessDeniedExceptionBuilder::default();
++                output = super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
++                    .map_err(super::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameterException" => crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::InvalidParameterException({
++        "InvalidParameterException" => super::operation::put_storage_tier_policy::PutStorageTierPolicyError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "OperationAbortedException" => crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::OperationAbortedException({
++        "OperationAbortedException" => super::operation::put_storage_tier_policy::PutStorageTierPolicyError::OperationAbortedException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::OperationAbortedExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::OperationAbortedExceptionBuilder::default();
++                output = super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
++                    .map_err(super::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,13 +65,13 @@
+             }
+             tmp
+         }),
+-        "ResourceNotFoundException" => crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::operation::put_storage_tier_policy::PutStorageTierPolicyError::ResourceNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -80,14 +80,14 @@
+             }
+             tmp
+         }),
+-        "ServiceUnavailableException" => crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::ServiceUnavailableException({
++        "ServiceUnavailableException" => super::operation::put_storage_tier_policy::PutStorageTierPolicyError::ServiceUnavailableException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceUnavailableExceptionBuilder::default();
++                let mut output = super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+                 output =
+-                    crate::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
++                    super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
++                        .map_err(super::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -96,7 +96,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::generic(generic),
++        _ => super::operation::put_storage_tier_policy::PutStorageTierPolicyError::generic(generic),
+     })
+ }
+
+@@ -106,14 +106,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::put_storage_tier_policy::PutStorageTierPolicyOutput,
+-    crate::operation::put_storage_tier_policy::PutStorageTierPolicyError,
++    super::operation::put_storage_tier_policy::PutStorageTierPolicyOutput,
++    super::operation::put_storage_tier_policy::PutStorageTierPolicyError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder::default();
+-        output = crate::protocol_serde::shape_put_storage_tier_policy::de_put_storage_tier_policy(_response_body, output)
+-            .map_err(crate::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
++        let mut output = super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder::default();
++        output = super::protocol_serde::shape_put_storage_tier_policy::de_put_storage_tier_policy(_response_body, output)
++            .map_err(super::operation::put_storage_tier_policy::PutStorageTierPolicyError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -120,11 +120,11 @@
+ }
+
+ pub fn ser_put_storage_tier_policy_input(
+-    input: &crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput,
++    input: &super::operation::put_storage_tier_policy::PutStorageTierPolicyInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_put_storage_tier_policy_input::ser_put_storage_tier_policy_input_input(&mut object, input)?;
++    super::protocol_serde::shape_put_storage_tier_policy_input::ser_put_storage_tier_policy_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -131,12 +131,12 @@
+
+ pub(crate) fn de_put_storage_tier_policy(
+     _value: &[u8],
+-    mut builder: crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder,
++    mut builder: super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder,
++    super::operation::put_storage_tier_policy::builders::PutStorageTierPolicyOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;
+@@ -148,7 +148,7 @@
+                 "storageTier" => {
+                     builder = builder.set_storage_tier(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| crate::types::StorageTier::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::StorageTier::from(u.as_ref())))
+                             .transpose()?,
+                     );
+                 }

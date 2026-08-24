@@ -1,0 +1,99 @@
+--- original
++++ modified
+@@ -25,9 +25,9 @@
+     /// <li>
+     /// <p><code>cargo</code>: A Cargo package.</p></li>
+     /// </ul>
+-    pub package_format: ::std::option::Option<crate::types::PackageFormat>,
++    pub package_format: ::std::option::Option<super::types::PackageFormat>,
+     /// <p>The status of the external connection of a repository. There is one valid value, <code>Available</code>.</p>
+-    pub status: ::std::option::Option<crate::types::ExternalConnectionStatus>,
++    pub status: ::std::option::Option<super::types::ExternalConnectionStatus>,
+ }
+ impl RepositoryExternalConnectionInfo {
+     /// <p>The name of the external connection associated with a repository.</p>
+@@ -53,18 +53,18 @@
+     /// <li>
+     /// <p><code>cargo</code>: A Cargo package.</p></li>
+     /// </ul>
+-    pub fn package_format(&self) -> ::std::option::Option<&crate::types::PackageFormat> {
++    pub fn package_format(&self) -> ::std::option::Option<&super::types::PackageFormat> {
+         self.package_format.as_ref()
+     }
+     /// <p>The status of the external connection of a repository. There is one valid value, <code>Available</code>.</p>
+-    pub fn status(&self) -> ::std::option::Option<&crate::types::ExternalConnectionStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::types::ExternalConnectionStatus> {
+         self.status.as_ref()
+     }
+ }
+ impl RepositoryExternalConnectionInfo {
+     /// Creates a new builder-style object to manufacture [`RepositoryExternalConnectionInfo`](crate::types::RepositoryExternalConnectionInfo).
+-    pub fn builder() -> crate::types::builders::RepositoryExternalConnectionInfoBuilder {
+-        crate::types::builders::RepositoryExternalConnectionInfoBuilder::default()
++    pub fn builder() -> super::types::builders::RepositoryExternalConnectionInfoBuilder {
++        super::types::builders::RepositoryExternalConnectionInfoBuilder::default()
+     }
+ }
+
+@@ -73,8 +73,8 @@
+ #[non_exhaustive]
+ pub struct RepositoryExternalConnectionInfoBuilder {
+     pub(crate) external_connection_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) package_format: ::std::option::Option<crate::types::PackageFormat>,
+-    pub(crate) status: ::std::option::Option<crate::types::ExternalConnectionStatus>,
++    pub(crate) package_format: ::std::option::Option<super::types::PackageFormat>,
++    pub(crate) status: ::std::option::Option<super::types::ExternalConnectionStatus>,
+ }
+ impl RepositoryExternalConnectionInfoBuilder {
+     /// <p>The name of the external connection associated with a repository.</p>
+@@ -110,7 +110,7 @@
+     /// <li>
+     /// <p><code>cargo</code>: A Cargo package.</p></li>
+     /// </ul>
+-    pub fn package_format(mut self, input: crate::types::PackageFormat) -> Self {
++    pub fn package_format(mut self, input: super::types::PackageFormat) -> Self {
+         self.package_format = ::std::option::Option::Some(input);
+         self
+     }
+@@ -133,7 +133,7 @@
+     /// <li>
+     /// <p><code>cargo</code>: A Cargo package.</p></li>
+     /// </ul>
+-    pub fn set_package_format(mut self, input: ::std::option::Option<crate::types::PackageFormat>) -> Self {
++    pub fn set_package_format(mut self, input: ::std::option::Option<super::types::PackageFormat>) -> Self {
+         self.package_format = input;
+         self
+     }
+@@ -156,26 +156,26 @@
+     /// <li>
+     /// <p><code>cargo</code>: A Cargo package.</p></li>
+     /// </ul>
+-    pub fn get_package_format(&self) -> &::std::option::Option<crate::types::PackageFormat> {
++    pub fn get_package_format(&self) -> &::std::option::Option<super::types::PackageFormat> {
+         &self.package_format
+     }
+     /// <p>The status of the external connection of a repository. There is one valid value, <code>Available</code>.</p>
+-    pub fn status(mut self, input: crate::types::ExternalConnectionStatus) -> Self {
++    pub fn status(mut self, input: super::types::ExternalConnectionStatus) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The status of the external connection of a repository. There is one valid value, <code>Available</code>.</p>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExternalConnectionStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::ExternalConnectionStatus>) -> Self {
+         self.status = input;
+         self
+     }
+     /// <p>The status of the external connection of a repository. There is one valid value, <code>Available</code>.</p>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExternalConnectionStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::ExternalConnectionStatus> {
+         &self.status
+     }
+     /// Consumes the builder and constructs a [`RepositoryExternalConnectionInfo`](crate::types::RepositoryExternalConnectionInfo).
+-    pub fn build(self) -> crate::types::RepositoryExternalConnectionInfo {
+-        crate::types::RepositoryExternalConnectionInfo {
++    pub fn build(self) -> super::types::RepositoryExternalConnectionInfo {
++        super::types::RepositoryExternalConnectionInfo {
+             external_connection_name: self.external_connection_name,
+             package_format: self.package_format,
+             status: self.status,

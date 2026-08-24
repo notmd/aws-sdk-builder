@@ -1,0 +1,111 @@
+--- original
++++ modified
+@@ -8,13 +8,13 @@
+     /// <p>The name of the log stream.</p>
+     pub log_stream_name: ::std::option::Option<::std::string::String>,
+     /// <p>The log events.</p>
+-    pub log_events: ::std::option::Option<::std::vec::Vec<crate::types::InputLogEvent>>,
++    pub log_events: ::std::option::Option<::std::vec::Vec<super::types::InputLogEvent>>,
+     /// <p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call.</p><important>
+     /// <p>The <code>sequenceToken</code> parameter is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are now accepted and never return <code>InvalidSequenceTokenException</code> or <code>DataAlreadyAcceptedException</code> even if the sequence token is not valid.</p>
+     /// </important>
+     pub sequence_token: ::std::option::Option<::std::string::String>,
+     /// <p>The entity associated with the log events.</p>
+-    pub entity: ::std::option::Option<crate::types::Entity>,
++    pub entity: ::std::option::Option<super::types::Entity>,
+ }
+ impl PutLogEventsInput {
+     /// <p>The name of the log group.</p>
+@@ -28,7 +28,7 @@
+     /// <p>The log events.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.log_events.is_none()`.
+-    pub fn log_events(&self) -> &[crate::types::InputLogEvent] {
++    pub fn log_events(&self) -> &[super::types::InputLogEvent] {
+         self.log_events.as_deref().unwrap_or_default()
+     }
+     /// <p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call.</p><important>
+@@ -38,14 +38,14 @@
+         self.sequence_token.as_deref()
+     }
+     /// <p>The entity associated with the log events.</p>
+-    pub fn entity(&self) -> ::std::option::Option<&crate::types::Entity> {
++    pub fn entity(&self) -> ::std::option::Option<&super::types::Entity> {
+         self.entity.as_ref()
+     }
+ }
+ impl PutLogEventsInput {
+     /// Creates a new builder-style object to manufacture [`PutLogEventsInput`](crate::operation::put_log_events::PutLogEventsInput).
+-    pub fn builder() -> crate::operation::put_log_events::builders::PutLogEventsInputBuilder {
+-        crate::operation::put_log_events::builders::PutLogEventsInputBuilder::default()
++    pub fn builder() -> super::operation::put_log_events::builders::PutLogEventsInputBuilder {
++        super::operation::put_log_events::builders::PutLogEventsInputBuilder::default()
+     }
+ }
+
+@@ -55,9 +55,9 @@
+ pub struct PutLogEventsInputBuilder {
+     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
+     pub(crate) log_stream_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) log_events: ::std::option::Option<::std::vec::Vec<crate::types::InputLogEvent>>,
++    pub(crate) log_events: ::std::option::Option<::std::vec::Vec<super::types::InputLogEvent>>,
+     pub(crate) sequence_token: ::std::option::Option<::std::string::String>,
+-    pub(crate) entity: ::std::option::Option<crate::types::Entity>,
++    pub(crate) entity: ::std::option::Option<super::types::Entity>,
+ }
+ impl PutLogEventsInputBuilder {
+     /// <p>The name of the log group.</p>
+@@ -95,7 +95,7 @@
+     /// To override the contents of this collection use [`set_log_events`](Self::set_log_events).
+     ///
+     /// <p>The log events.</p>
+-    pub fn log_events(mut self, input: crate::types::InputLogEvent) -> Self {
++    pub fn log_events(mut self, input: super::types::InputLogEvent) -> Self {
+         let mut v = self.log_events.unwrap_or_default();
+         v.push(input);
+         self.log_events = ::std::option::Option::Some(v);
+@@ -102,12 +102,12 @@
+         self
+     }
+     /// <p>The log events.</p>
+-    pub fn set_log_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InputLogEvent>>) -> Self {
++    pub fn set_log_events(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::InputLogEvent>>) -> Self {
+         self.log_events = input;
+         self
+     }
+     /// <p>The log events.</p>
+-    pub fn get_log_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InputLogEvent>> {
++    pub fn get_log_events(&self) -> &::std::option::Option<::std::vec::Vec<super::types::InputLogEvent>> {
+         &self.log_events
+     }
+     /// <p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call.</p><important>
+@@ -131,24 +131,24 @@
+         &self.sequence_token
+     }
+     /// <p>The entity associated with the log events.</p>
+-    pub fn entity(mut self, input: crate::types::Entity) -> Self {
++    pub fn entity(mut self, input: super::types::Entity) -> Self {
+         self.entity = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The entity associated with the log events.</p>
+-    pub fn set_entity(mut self, input: ::std::option::Option<crate::types::Entity>) -> Self {
++    pub fn set_entity(mut self, input: ::std::option::Option<super::types::Entity>) -> Self {
+         self.entity = input;
+         self
+     }
+     /// <p>The entity associated with the log events.</p>
+-    pub fn get_entity(&self) -> &::std::option::Option<crate::types::Entity> {
++    pub fn get_entity(&self) -> &::std::option::Option<super::types::Entity> {
+         &self.entity
+     }
+     /// Consumes the builder and constructs a [`PutLogEventsInput`](crate::operation::put_log_events::PutLogEventsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::put_log_events::PutLogEventsInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::put_log_events::PutLogEventsInput {
++    ) -> ::std::result::Result<super::operation::put_log_events::PutLogEventsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::put_log_events::PutLogEventsInput {
+             log_group_name: self.log_group_name,
+             log_stream_name: self.log_stream_name,
+             log_events: self.log_events,

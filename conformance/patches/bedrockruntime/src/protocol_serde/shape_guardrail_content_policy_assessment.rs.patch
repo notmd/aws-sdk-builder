@@ -1,0 +1,38 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::GuardrailContentPolicyAssessment>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::GuardrailContentPolicyAssessment>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::GuardrailContentPolicyAssessmentBuilder::default();
++            let mut builder = super::types::builders::GuardrailContentPolicyAssessmentBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -23,7 +23,7 @@
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "filters" => {
+                             builder = builder.set_filters(
+-                                crate::protocol_serde::shape_guardrail_content_filter_list::de_guardrail_content_filter_list(
++                                super::protocol_serde::shape_guardrail_content_filter_list::de_guardrail_content_filter_list(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -40,7 +40,7 @@
+                 }
+             }
+             Ok(Some(
+-                crate::serde_util::guardrail_content_policy_assessment_correct_errors(builder)
++                super::serde_util::guardrail_content_policy_assessment_correct_errors(builder)
+                     .build()
+                     .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
+             ))

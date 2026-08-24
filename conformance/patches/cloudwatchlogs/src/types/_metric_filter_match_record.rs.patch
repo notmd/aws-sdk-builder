@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -27,8 +27,8 @@
+ }
+ impl MetricFilterMatchRecord {
+     /// Creates a new builder-style object to manufacture [`MetricFilterMatchRecord`](crate::types::MetricFilterMatchRecord).
+-    pub fn builder() -> crate::types::builders::MetricFilterMatchRecordBuilder {
+-        crate::types::builders::MetricFilterMatchRecordBuilder::default()
++    pub fn builder() -> super::types::builders::MetricFilterMatchRecordBuilder {
++        super::types::builders::MetricFilterMatchRecordBuilder::default()
+     }
+ }
+
+@@ -97,8 +97,8 @@
+         &self.extracted_values
+     }
+     /// Consumes the builder and constructs a [`MetricFilterMatchRecord`](crate::types::MetricFilterMatchRecord).
+-    pub fn build(self) -> crate::types::MetricFilterMatchRecord {
+-        crate::types::MetricFilterMatchRecord {
++    pub fn build(self) -> super::types::MetricFilterMatchRecord {
++        super::types::MetricFilterMatchRecord {
+             event_number: self.event_number.unwrap_or_default(),
+             event_message: self.event_message,
+             extracted_values: self.extracted_values,

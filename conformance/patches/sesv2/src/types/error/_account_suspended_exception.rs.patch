@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for AccountSuspendedException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::AccountSuspendedException {
++impl ::aws_types::request_id::RequestId for super::types::error::AccountSuspendedException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl AccountSuspendedException {
+     /// Creates a new builder-style object to manufacture [`AccountSuspendedException`](crate::types::error::AccountSuspendedException).
+-    pub fn builder() -> crate::types::error::builders::AccountSuspendedExceptionBuilder {
+-        crate::types::error::builders::AccountSuspendedExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::AccountSuspendedExceptionBuilder {
++        super::types::error::builders::AccountSuspendedExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`AccountSuspendedException`](crate::types::error::AccountSuspendedException).
+-    pub fn build(self) -> crate::types::error::AccountSuspendedException {
+-        crate::types::error::AccountSuspendedException {
++    pub fn build(self) -> super::types::error::AccountSuspendedException {
++        super::types::error::AccountSuspendedException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

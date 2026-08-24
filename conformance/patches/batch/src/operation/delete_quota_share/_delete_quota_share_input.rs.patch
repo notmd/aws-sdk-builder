@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl DeleteQuotaShareInput {
+     /// Creates a new builder-style object to manufacture [`DeleteQuotaShareInput`](crate::operation::delete_quota_share::DeleteQuotaShareInput).
+-    pub fn builder() -> crate::operation::delete_quota_share::builders::DeleteQuotaShareInputBuilder {
+-        crate::operation::delete_quota_share::builders::DeleteQuotaShareInputBuilder::default()
++    pub fn builder() -> super::operation::delete_quota_share::builders::DeleteQuotaShareInputBuilder {
++        super::operation::delete_quota_share::builders::DeleteQuotaShareInputBuilder::default()
+     }
+ }
+
+@@ -44,8 +44,8 @@
+     /// Consumes the builder and constructs a [`DeleteQuotaShareInput`](crate::operation::delete_quota_share::DeleteQuotaShareInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::delete_quota_share::DeleteQuotaShareInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::delete_quota_share::DeleteQuotaShareInput {
++    ) -> ::std::result::Result<super::operation::delete_quota_share::DeleteQuotaShareInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::delete_quota_share::DeleteQuotaShareInput {
+             quota_share_arn: self.quota_share_arn,
+         })
+     }

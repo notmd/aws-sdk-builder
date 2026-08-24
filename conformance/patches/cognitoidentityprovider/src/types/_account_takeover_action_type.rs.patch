@@ -1,0 +1,74 @@
+--- original
++++ modified
+@@ -17,7 +17,7 @@
+     /// <li>
+     /// <p><code>NO_ACTION</code>: Take no action. Permit sign-in.</p></li>
+     /// </ul>
+-    pub event_action: crate::types::AccountTakeoverEventActionType,
++    pub event_action: super::types::AccountTakeoverEventActionType,
+ }
+ impl AccountTakeoverActionType {
+     /// <p>Determines whether Amazon Cognito sends a user a notification message when your user pools assesses a user's session at the associated risk level.</p>
+@@ -35,14 +35,14 @@
+     /// <li>
+     /// <p><code>NO_ACTION</code>: Take no action. Permit sign-in.</p></li>
+     /// </ul>
+-    pub fn event_action(&self) -> &crate::types::AccountTakeoverEventActionType {
++    pub fn event_action(&self) -> &super::types::AccountTakeoverEventActionType {
+         &self.event_action
+     }
+ }
+ impl AccountTakeoverActionType {
+     /// Creates a new builder-style object to manufacture [`AccountTakeoverActionType`](crate::types::AccountTakeoverActionType).
+-    pub fn builder() -> crate::types::builders::AccountTakeoverActionTypeBuilder {
+-        crate::types::builders::AccountTakeoverActionTypeBuilder::default()
++    pub fn builder() -> super::types::builders::AccountTakeoverActionTypeBuilder {
++        super::types::builders::AccountTakeoverActionTypeBuilder::default()
+     }
+ }
+
+@@ -51,7 +51,7 @@
+ #[non_exhaustive]
+ pub struct AccountTakeoverActionTypeBuilder {
+     pub(crate) notify: ::std::option::Option<bool>,
+-    pub(crate) event_action: ::std::option::Option<crate::types::AccountTakeoverEventActionType>,
++    pub(crate) event_action: ::std::option::Option<super::types::AccountTakeoverEventActionType>,
+ }
+ impl AccountTakeoverActionTypeBuilder {
+     /// <p>Determines whether Amazon Cognito sends a user a notification message when your user pools assesses a user's session at the associated risk level.</p>
+@@ -81,7 +81,7 @@
+     /// <p><code>NO_ACTION</code>: Take no action. Permit sign-in.</p></li>
+     /// </ul>
+     /// This field is required.
+-    pub fn event_action(mut self, input: crate::types::AccountTakeoverEventActionType) -> Self {
++    pub fn event_action(mut self, input: super::types::AccountTakeoverEventActionType) -> Self {
+         self.event_action = ::std::option::Option::Some(input);
+         self
+     }
+@@ -96,7 +96,7 @@
+     /// <li>
+     /// <p><code>NO_ACTION</code>: Take no action. Permit sign-in.</p></li>
+     /// </ul>
+-    pub fn set_event_action(mut self, input: ::std::option::Option<crate::types::AccountTakeoverEventActionType>) -> Self {
++    pub fn set_event_action(mut self, input: ::std::option::Option<super::types::AccountTakeoverEventActionType>) -> Self {
+         self.event_action = input;
+         self
+     }
+@@ -111,14 +111,14 @@
+     /// <li>
+     /// <p><code>NO_ACTION</code>: Take no action. Permit sign-in.</p></li>
+     /// </ul>
+-    pub fn get_event_action(&self) -> &::std::option::Option<crate::types::AccountTakeoverEventActionType> {
++    pub fn get_event_action(&self) -> &::std::option::Option<super::types::AccountTakeoverEventActionType> {
+         &self.event_action
+     }
+     /// Consumes the builder and constructs a [`AccountTakeoverActionType`](crate::types::AccountTakeoverActionType).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`event_action`](crate::types::builders::AccountTakeoverActionTypeBuilder::event_action)
+-    pub fn build(self) -> ::std::result::Result<crate::types::AccountTakeoverActionType, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::AccountTakeoverActionType {
++    pub fn build(self) -> ::std::result::Result<super::types::AccountTakeoverActionType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::AccountTakeoverActionType {
+             notify: self.notify.unwrap_or_default(),
+             event_action: self.event_action.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(

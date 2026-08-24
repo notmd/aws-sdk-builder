@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     ///   - [`query_name(impl Into<String>)`](crate::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder::query_name) / [`set_query_name(Option<String>)`](crate::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder::set_query_name):<br>required: **true**<br><p>The name of the query that you want to delete.</p><br>
+     /// - On success, responds with [`DeleteStoredQueryOutput`](crate::operation::delete_stored_query::DeleteStoredQueryOutput)
+     /// - On failure, responds with [`SdkError<DeleteStoredQueryError>`](crate::operation::delete_stored_query::DeleteStoredQueryError)
+-    pub fn delete_stored_query(&self) -> crate::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder {
+-        crate::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder::new(self.handle.clone())
++    pub fn delete_stored_query(&self) -> super::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder {
++        super::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder::new(self.handle.clone())
+     }
+ }

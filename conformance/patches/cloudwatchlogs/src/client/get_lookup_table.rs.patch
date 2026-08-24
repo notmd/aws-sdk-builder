@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -13,7 +13,7 @@
+     ///   - [`last_updated_time(Option<i64>)`](crate::operation::get_lookup_table::GetLookupTableOutput::last_updated_time): <p>The time when the lookup table was last updated, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
+     ///   - [`kms_key_id(Option<String>)`](crate::operation::get_lookup_table::GetLookupTableOutput::kms_key_id): <p>The ARN of the KMS key used to encrypt the lookup table data, if applicable.</p>
+     /// - On failure, responds with [`SdkError<GetLookupTableError>`](crate::operation::get_lookup_table::GetLookupTableError)
+-    pub fn get_lookup_table(&self) -> crate::operation::get_lookup_table::builders::GetLookupTableFluentBuilder {
+-        crate::operation::get_lookup_table::builders::GetLookupTableFluentBuilder::new(self.handle.clone())
++    pub fn get_lookup_table(&self) -> super::operation::get_lookup_table::builders::GetLookupTableFluentBuilder {
++        super::operation::get_lookup_table::builders::GetLookupTableFluentBuilder::new(self.handle.clone())
+     }
+ }

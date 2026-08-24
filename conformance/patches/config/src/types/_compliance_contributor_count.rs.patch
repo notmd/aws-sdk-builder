@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl ComplianceContributorCount {
+     /// Creates a new builder-style object to manufacture [`ComplianceContributorCount`](crate::types::ComplianceContributorCount).
+-    pub fn builder() -> crate::types::builders::ComplianceContributorCountBuilder {
+-        crate::types::builders::ComplianceContributorCountBuilder::default()
++    pub fn builder() -> super::types::builders::ComplianceContributorCountBuilder {
++        super::types::builders::ComplianceContributorCountBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.cap_exceeded
+     }
+     /// Consumes the builder and constructs a [`ComplianceContributorCount`](crate::types::ComplianceContributorCount).
+-    pub fn build(self) -> crate::types::ComplianceContributorCount {
+-        crate::types::ComplianceContributorCount {
++    pub fn build(self) -> super::types::ComplianceContributorCount {
++        super::types::ComplianceContributorCount {
+             capped_count: self.capped_count.unwrap_or_default(),
+             cap_exceeded: self.cap_exceeded.unwrap_or_default(),
+         }

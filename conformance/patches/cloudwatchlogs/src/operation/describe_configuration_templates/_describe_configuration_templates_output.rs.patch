@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DescribeConfigurationTemplatesOutput {
+     /// <p>An array of objects, where each object describes one configuration template that matches the filters that you specified in the request.</p>
+-    pub configuration_templates: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>>,
++    pub configuration_templates: ::std::option::Option<::std::vec::Vec<super::types::ConfigurationTemplate>>,
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -13,7 +13,7 @@
+     /// <p>An array of objects, where each object describes one configuration template that matches the filters that you specified in the request.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.configuration_templates.is_none()`.
+-    pub fn configuration_templates(&self) -> &[crate::types::ConfigurationTemplate] {
++    pub fn configuration_templates(&self) -> &[super::types::ConfigurationTemplate] {
+         self.configuration_templates.as_deref().unwrap_or_default()
+     }
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+@@ -28,8 +28,8 @@
+ }
+ impl DescribeConfigurationTemplatesOutput {
+     /// Creates a new builder-style object to manufacture [`DescribeConfigurationTemplatesOutput`](crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput).
+-    pub fn builder() -> crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesOutputBuilder {
+-        crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesOutputBuilder::default()
++    pub fn builder() -> super::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesOutputBuilder {
++        super::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesOutputBuilder::default()
+     }
+ }
+
+@@ -37,7 +37,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct DescribeConfigurationTemplatesOutputBuilder {
+-    pub(crate) configuration_templates: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>>,
++    pub(crate) configuration_templates: ::std::option::Option<::std::vec::Vec<super::types::ConfigurationTemplate>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -47,7 +47,7 @@
+     /// To override the contents of this collection use [`set_configuration_templates`](Self::set_configuration_templates).
+     ///
+     /// <p>An array of objects, where each object describes one configuration template that matches the filters that you specified in the request.</p>
+-    pub fn configuration_templates(mut self, input: crate::types::ConfigurationTemplate) -> Self {
++    pub fn configuration_templates(mut self, input: super::types::ConfigurationTemplate) -> Self {
+         let mut v = self.configuration_templates.unwrap_or_default();
+         v.push(input);
+         self.configuration_templates = ::std::option::Option::Some(v);
+@@ -54,12 +54,12 @@
+         self
+     }
+     /// <p>An array of objects, where each object describes one configuration template that matches the filters that you specified in the request.</p>
+-    pub fn set_configuration_templates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>>) -> Self {
++    pub fn set_configuration_templates(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ConfigurationTemplate>>) -> Self {
+         self.configuration_templates = input;
+         self
+     }
+     /// <p>An array of objects, where each object describes one configuration template that matches the filters that you specified in the request.</p>
+-    pub fn get_configuration_templates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>> {
++    pub fn get_configuration_templates(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ConfigurationTemplate>> {
+         &self.configuration_templates
+     }
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DescribeConfigurationTemplatesOutput`](crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput).
+-    pub fn build(self) -> crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput {
+-        crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput {
++    pub fn build(self) -> super::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput {
++        super::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput {
+             configuration_templates: self.configuration_templates,
+             next_token: self.next_token,
+             _request_id: self._request_id,

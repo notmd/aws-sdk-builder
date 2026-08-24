@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl GetCustomRulePolicyOutput {
+     /// Creates a new builder-style object to manufacture [`GetCustomRulePolicyOutput`](crate::operation::get_custom_rule_policy::GetCustomRulePolicyOutput).
+-    pub fn builder() -> crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyOutputBuilder {
+-        crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyOutputBuilder::default()
++    pub fn builder() -> super::operation::get_custom_rule_policy::builders::GetCustomRulePolicyOutputBuilder {
++        super::operation::get_custom_rule_policy::builders::GetCustomRulePolicyOutputBuilder::default()
+     }
+ }
+
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetCustomRulePolicyOutput`](crate::operation::get_custom_rule_policy::GetCustomRulePolicyOutput).
+-    pub fn build(self) -> crate::operation::get_custom_rule_policy::GetCustomRulePolicyOutput {
+-        crate::operation::get_custom_rule_policy::GetCustomRulePolicyOutput {
++    pub fn build(self) -> super::operation::get_custom_rule_policy::GetCustomRulePolicyOutput {
++        super::operation::get_custom_rule_policy::GetCustomRulePolicyOutput {
+             policy_text: self.policy_text,
+             _request_id: self._request_id,
+         }

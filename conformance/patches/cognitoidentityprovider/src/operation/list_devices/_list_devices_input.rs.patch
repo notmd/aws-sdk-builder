@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -36,8 +36,8 @@
+ }
+ impl ListDevicesInput {
+     /// Creates a new builder-style object to manufacture [`ListDevicesInput`](crate::operation::list_devices::ListDevicesInput).
+-    pub fn builder() -> crate::operation::list_devices::builders::ListDevicesInputBuilder {
+-        crate::operation::list_devices::builders::ListDevicesInputBuilder::default()
++    pub fn builder() -> super::operation::list_devices::builders::ListDevicesInputBuilder {
++        super::operation::list_devices::builders::ListDevicesInputBuilder::default()
+     }
+ }
+
+@@ -94,8 +94,8 @@
+         &self.pagination_token
+     }
+     /// Consumes the builder and constructs a [`ListDevicesInput`](crate::operation::list_devices::ListDevicesInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::list_devices::ListDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_devices::ListDevicesInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::list_devices::ListDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_devices::ListDevicesInput {
+             access_token: self.access_token,
+             limit: self.limit,
+             pagination_token: self.pagination_token,

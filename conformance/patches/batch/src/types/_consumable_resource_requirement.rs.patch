@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl ConsumableResourceRequirement {
+     /// Creates a new builder-style object to manufacture [`ConsumableResourceRequirement`](crate::types::ConsumableResourceRequirement).
+-    pub fn builder() -> crate::types::builders::ConsumableResourceRequirementBuilder {
+-        crate::types::builders::ConsumableResourceRequirementBuilder::default()
++    pub fn builder() -> super::types::builders::ConsumableResourceRequirementBuilder {
++        super::types::builders::ConsumableResourceRequirementBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.quantity
+     }
+     /// Consumes the builder and constructs a [`ConsumableResourceRequirement`](crate::types::ConsumableResourceRequirement).
+-    pub fn build(self) -> crate::types::ConsumableResourceRequirement {
+-        crate::types::ConsumableResourceRequirement {
++    pub fn build(self) -> super::types::ConsumableResourceRequirement {
++        super::types::ConsumableResourceRequirement {
+             consumable_resource: self.consumable_resource,
+             quantity: self.quantity,
+         }

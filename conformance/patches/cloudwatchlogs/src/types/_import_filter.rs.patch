@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl ImportFilter {
+     /// Creates a new builder-style object to manufacture [`ImportFilter`](crate::types::ImportFilter).
+-    pub fn builder() -> crate::types::builders::ImportFilterBuilder {
+-        crate::types::builders::ImportFilterBuilder::default()
++    pub fn builder() -> super::types::builders::ImportFilterBuilder {
++        super::types::builders::ImportFilterBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.end_event_time
+     }
+     /// Consumes the builder and constructs a [`ImportFilter`](crate::types::ImportFilter).
+-    pub fn build(self) -> crate::types::ImportFilter {
+-        crate::types::ImportFilter {
++    pub fn build(self) -> super::types::ImportFilter {
++        super::types::ImportFilter {
+             start_event_time: self.start_event_time,
+             end_event_time: self.end_event_time,
+         }

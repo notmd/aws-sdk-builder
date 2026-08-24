@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl TestRenderEmailTemplateInput {
+     /// Creates a new builder-style object to manufacture [`TestRenderEmailTemplateInput`](crate::operation::test_render_email_template::TestRenderEmailTemplateInput).
+-    pub fn builder() -> crate::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder {
+-        crate::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder::default()
++    pub fn builder() -> super::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder {
++        super::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder::default()
+     }
+ }
+
+@@ -68,10 +68,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::test_render_email_template::TestRenderEmailTemplateInput,
++        super::operation::test_render_email_template::TestRenderEmailTemplateInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::test_render_email_template::TestRenderEmailTemplateInput {
++        ::std::result::Result::Ok(super::operation::test_render_email_template::TestRenderEmailTemplateInput {
+             template_name: self.template_name,
+             template_data: self.template_data,
+         })

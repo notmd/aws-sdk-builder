@@ -1,0 +1,68 @@
+--- original
++++ modified
+@@ -12,7 +12,7 @@
+     pub unused_account_validity_days: i32,
+     /// <p>The template for the welcome message to new users. This template must include the <code>{####}</code> temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.</p>
+     /// <p>See also <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
+-    pub invite_message_template: ::std::option::Option<crate::types::MessageTemplateType>,
++    pub invite_message_template: ::std::option::Option<super::types::MessageTemplateType>,
+ }
+ impl AdminCreateUserConfigType {
+     /// <p>The setting for allowing self-service sign-up. When <code>true</code>, only administrators can create new user profiles. When <code>false</code>, users can register themselves and create a new user profile with the <code>SignUp</code> operation.</p>
+@@ -27,14 +27,14 @@
+     }
+     /// <p>The template for the welcome message to new users. This template must include the <code>{####}</code> temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.</p>
+     /// <p>See also <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
+-    pub fn invite_message_template(&self) -> ::std::option::Option<&crate::types::MessageTemplateType> {
++    pub fn invite_message_template(&self) -> ::std::option::Option<&super::types::MessageTemplateType> {
+         self.invite_message_template.as_ref()
+     }
+ }
+ impl AdminCreateUserConfigType {
+     /// Creates a new builder-style object to manufacture [`AdminCreateUserConfigType`](crate::types::AdminCreateUserConfigType).
+-    pub fn builder() -> crate::types::builders::AdminCreateUserConfigTypeBuilder {
+-        crate::types::builders::AdminCreateUserConfigTypeBuilder::default()
++    pub fn builder() -> super::types::builders::AdminCreateUserConfigTypeBuilder {
++        super::types::builders::AdminCreateUserConfigTypeBuilder::default()
+     }
+ }
+
+@@ -44,7 +44,7 @@
+ pub struct AdminCreateUserConfigTypeBuilder {
+     pub(crate) allow_admin_create_user_only: ::std::option::Option<bool>,
+     pub(crate) unused_account_validity_days: ::std::option::Option<i32>,
+-    pub(crate) invite_message_template: ::std::option::Option<crate::types::MessageTemplateType>,
++    pub(crate) invite_message_template: ::std::option::Option<super::types::MessageTemplateType>,
+ }
+ impl AdminCreateUserConfigTypeBuilder {
+     /// <p>The setting for allowing self-service sign-up. When <code>true</code>, only administrators can create new user profiles. When <code>false</code>, users can register themselves and create a new user profile with the <code>SignUp</code> operation.</p>
+@@ -83,24 +83,24 @@
+     }
+     /// <p>The template for the welcome message to new users. This template must include the <code>{####}</code> temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.</p>
+     /// <p>See also <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
+-    pub fn invite_message_template(mut self, input: crate::types::MessageTemplateType) -> Self {
++    pub fn invite_message_template(mut self, input: super::types::MessageTemplateType) -> Self {
+         self.invite_message_template = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The template for the welcome message to new users. This template must include the <code>{####}</code> temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.</p>
+     /// <p>See also <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
+-    pub fn set_invite_message_template(mut self, input: ::std::option::Option<crate::types::MessageTemplateType>) -> Self {
++    pub fn set_invite_message_template(mut self, input: ::std::option::Option<super::types::MessageTemplateType>) -> Self {
+         self.invite_message_template = input;
+         self
+     }
+     /// <p>The template for the welcome message to new users. This template must include the <code>{####}</code> temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.</p>
+     /// <p>See also <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
+-    pub fn get_invite_message_template(&self) -> &::std::option::Option<crate::types::MessageTemplateType> {
++    pub fn get_invite_message_template(&self) -> &::std::option::Option<super::types::MessageTemplateType> {
+         &self.invite_message_template
+     }
+     /// Consumes the builder and constructs a [`AdminCreateUserConfigType`](crate::types::AdminCreateUserConfigType).
+-    pub fn build(self) -> crate::types::AdminCreateUserConfigType {
+-        crate::types::AdminCreateUserConfigType {
++    pub fn build(self) -> super::types::AdminCreateUserConfigType {
++        super::types::AdminCreateUserConfigType {
+             allow_admin_create_user_only: self.allow_admin_create_user_only.unwrap_or_default(),
+             unused_account_validity_days: self.unused_account_validity_days.unwrap_or_default(),
+             invite_message_template: self.invite_message_template,

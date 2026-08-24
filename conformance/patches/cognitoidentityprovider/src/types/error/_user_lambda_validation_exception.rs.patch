@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for UserLambdaValidationException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::UserLambdaValidationException {
++impl ::aws_types::request_id::RequestId for super::types::error::UserLambdaValidationException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl UserLambdaValidationException {
+     /// Creates a new builder-style object to manufacture [`UserLambdaValidationException`](crate::types::error::UserLambdaValidationException).
+-    pub fn builder() -> crate::types::error::builders::UserLambdaValidationExceptionBuilder {
+-        crate::types::error::builders::UserLambdaValidationExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::UserLambdaValidationExceptionBuilder {
++        super::types::error::builders::UserLambdaValidationExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UserLambdaValidationException`](crate::types::error::UserLambdaValidationException).
+-    pub fn build(self) -> crate::types::error::UserLambdaValidationException {
+-        crate::types::error::UserLambdaValidationException {
++    pub fn build(self) -> super::types::error::UserLambdaValidationException {
++        super::types::error::UserLambdaValidationException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

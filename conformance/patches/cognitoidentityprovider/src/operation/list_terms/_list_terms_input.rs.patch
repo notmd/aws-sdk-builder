@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -26,8 +26,8 @@
+ }
+ impl ListTermsInput {
+     /// Creates a new builder-style object to manufacture [`ListTermsInput`](crate::operation::list_terms::ListTermsInput).
+-    pub fn builder() -> crate::operation::list_terms::builders::ListTermsInputBuilder {
+-        crate::operation::list_terms::builders::ListTermsInputBuilder::default()
++    pub fn builder() -> super::operation::list_terms::builders::ListTermsInputBuilder {
++        super::operation::list_terms::builders::ListTermsInputBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         &self.next_token
+     }
+     /// Consumes the builder and constructs a [`ListTermsInput`](crate::operation::list_terms::ListTermsInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::list_terms::ListTermsInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_terms::ListTermsInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::list_terms::ListTermsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_terms::ListTermsInput {
+             user_pool_id: self.user_pool_id,
+             max_results: self.max_results,
+             next_token: self.next_token,

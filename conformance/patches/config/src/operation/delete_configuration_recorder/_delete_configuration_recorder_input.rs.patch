@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl DeleteConfigurationRecorderInput {
+     /// Creates a new builder-style object to manufacture [`DeleteConfigurationRecorderInput`](crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderInput).
+-    pub fn builder() -> crate::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderInputBuilder {
+-        crate::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderInputBuilder::default()
++    pub fn builder() -> super::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderInputBuilder {
++        super::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderInputBuilder::default()
+     }
+ }
+
+@@ -46,10 +46,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderInput,
++        super::operation::delete_configuration_recorder::DeleteConfigurationRecorderInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderInput {
++        ::std::result::Result::Ok(super::operation::delete_configuration_recorder::DeleteConfigurationRecorderInput {
+             configuration_recorder_name: self.configuration_recorder_name,
+         })
+     }

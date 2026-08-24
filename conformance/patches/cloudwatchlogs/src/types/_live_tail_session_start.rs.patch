@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -53,8 +53,8 @@
+ }
+ impl LiveTailSessionStart {
+     /// Creates a new builder-style object to manufacture [`LiveTailSessionStart`](crate::types::LiveTailSessionStart).
+-    pub fn builder() -> crate::types::builders::LiveTailSessionStartBuilder {
+-        crate::types::builders::LiveTailSessionStartBuilder::default()
++    pub fn builder() -> super::types::builders::LiveTailSessionStartBuilder {
++        super::types::builders::LiveTailSessionStartBuilder::default()
+     }
+ }
+
+@@ -176,8 +176,8 @@
+         &self.log_event_filter_pattern
+     }
+     /// Consumes the builder and constructs a [`LiveTailSessionStart`](crate::types::LiveTailSessionStart).
+-    pub fn build(self) -> crate::types::LiveTailSessionStart {
+-        crate::types::LiveTailSessionStart {
++    pub fn build(self) -> super::types::LiveTailSessionStart {
++        super::types::LiveTailSessionStart {
+             request_id: self.request_id,
+             session_id: self.session_id,
+             log_group_identifiers: self.log_group_identifiers,

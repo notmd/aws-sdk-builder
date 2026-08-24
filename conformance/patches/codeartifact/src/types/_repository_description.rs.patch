@@ -1,0 +1,111 @@
+--- original
++++ modified
+@@ -17,9 +17,9 @@
+     /// <p>A text description of the repository.</p>
+     pub description: ::std::option::Option<::std::string::String>,
+     /// <p>A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>.</p>
+-    pub upstreams: ::std::option::Option<::std::vec::Vec<crate::types::UpstreamRepositoryInfo>>,
++    pub upstreams: ::std::option::Option<::std::vec::Vec<super::types::UpstreamRepositoryInfo>>,
+     /// <p>An array of external connections associated with the repository.</p>
+-    pub external_connections: ::std::option::Option<::std::vec::Vec<crate::types::RepositoryExternalConnectionInfo>>,
++    pub external_connections: ::std::option::Option<::std::vec::Vec<super::types::RepositoryExternalConnectionInfo>>,
+     /// <p>A timestamp that represents the date and time the repository was created.</p>
+     pub created_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+ }
+@@ -51,13 +51,13 @@
+     /// <p>A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.upstreams.is_none()`.
+-    pub fn upstreams(&self) -> &[crate::types::UpstreamRepositoryInfo] {
++    pub fn upstreams(&self) -> &[super::types::UpstreamRepositoryInfo] {
+         self.upstreams.as_deref().unwrap_or_default()
+     }
+     /// <p>An array of external connections associated with the repository.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.external_connections.is_none()`.
+-    pub fn external_connections(&self) -> &[crate::types::RepositoryExternalConnectionInfo] {
++    pub fn external_connections(&self) -> &[super::types::RepositoryExternalConnectionInfo] {
+         self.external_connections.as_deref().unwrap_or_default()
+     }
+     /// <p>A timestamp that represents the date and time the repository was created.</p>
+@@ -67,8 +67,8 @@
+ }
+ impl RepositoryDescription {
+     /// Creates a new builder-style object to manufacture [`RepositoryDescription`](crate::types::RepositoryDescription).
+-    pub fn builder() -> crate::types::builders::RepositoryDescriptionBuilder {
+-        crate::types::builders::RepositoryDescriptionBuilder::default()
++    pub fn builder() -> super::types::builders::RepositoryDescriptionBuilder {
++        super::types::builders::RepositoryDescriptionBuilder::default()
+     }
+ }
+
+@@ -82,8 +82,8 @@
+     pub(crate) domain_owner: ::std::option::Option<::std::string::String>,
+     pub(crate) arn: ::std::option::Option<::std::string::String>,
+     pub(crate) description: ::std::option::Option<::std::string::String>,
+-    pub(crate) upstreams: ::std::option::Option<::std::vec::Vec<crate::types::UpstreamRepositoryInfo>>,
+-    pub(crate) external_connections: ::std::option::Option<::std::vec::Vec<crate::types::RepositoryExternalConnectionInfo>>,
++    pub(crate) upstreams: ::std::option::Option<::std::vec::Vec<super::types::UpstreamRepositoryInfo>>,
++    pub(crate) external_connections: ::std::option::Option<::std::vec::Vec<super::types::RepositoryExternalConnectionInfo>>,
+     pub(crate) created_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+ }
+ impl RepositoryDescriptionBuilder {
+@@ -176,7 +176,7 @@
+     /// To override the contents of this collection use [`set_upstreams`](Self::set_upstreams).
+     ///
+     /// <p>A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>.</p>
+-    pub fn upstreams(mut self, input: crate::types::UpstreamRepositoryInfo) -> Self {
++    pub fn upstreams(mut self, input: super::types::UpstreamRepositoryInfo) -> Self {
+         let mut v = self.upstreams.unwrap_or_default();
+         v.push(input);
+         self.upstreams = ::std::option::Option::Some(v);
+@@ -183,12 +183,12 @@
+         self
+     }
+     /// <p>A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>.</p>
+-    pub fn set_upstreams(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::UpstreamRepositoryInfo>>) -> Self {
++    pub fn set_upstreams(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::UpstreamRepositoryInfo>>) -> Self {
+         self.upstreams = input;
+         self
+     }
+     /// <p>A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>.</p>
+-    pub fn get_upstreams(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UpstreamRepositoryInfo>> {
++    pub fn get_upstreams(&self) -> &::std::option::Option<::std::vec::Vec<super::types::UpstreamRepositoryInfo>> {
+         &self.upstreams
+     }
+     /// Appends an item to `external_connections`.
+@@ -196,7 +196,7 @@
+     /// To override the contents of this collection use [`set_external_connections`](Self::set_external_connections).
+     ///
+     /// <p>An array of external connections associated with the repository.</p>
+-    pub fn external_connections(mut self, input: crate::types::RepositoryExternalConnectionInfo) -> Self {
++    pub fn external_connections(mut self, input: super::types::RepositoryExternalConnectionInfo) -> Self {
+         let mut v = self.external_connections.unwrap_or_default();
+         v.push(input);
+         self.external_connections = ::std::option::Option::Some(v);
+@@ -203,12 +203,12 @@
+         self
+     }
+     /// <p>An array of external connections associated with the repository.</p>
+-    pub fn set_external_connections(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RepositoryExternalConnectionInfo>>) -> Self {
++    pub fn set_external_connections(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::RepositoryExternalConnectionInfo>>) -> Self {
+         self.external_connections = input;
+         self
+     }
+     /// <p>An array of external connections associated with the repository.</p>
+-    pub fn get_external_connections(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RepositoryExternalConnectionInfo>> {
++    pub fn get_external_connections(&self) -> &::std::option::Option<::std::vec::Vec<super::types::RepositoryExternalConnectionInfo>> {
+         &self.external_connections
+     }
+     /// <p>A timestamp that represents the date and time the repository was created.</p>
+@@ -226,8 +226,8 @@
+         &self.created_time
+     }
+     /// Consumes the builder and constructs a [`RepositoryDescription`](crate::types::RepositoryDescription).
+-    pub fn build(self) -> crate::types::RepositoryDescription {
+-        crate::types::RepositoryDescription {
++    pub fn build(self) -> super::types::RepositoryDescription {
++        super::types::RepositoryDescription {
+             name: self.name,
+             administrator_account: self.administrator_account,
+             domain_name: self.domain_name,

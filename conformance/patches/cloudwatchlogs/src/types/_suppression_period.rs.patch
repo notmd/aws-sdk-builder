@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no maximum.</p>
+     pub value: i32,
+     /// <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
+-    pub suppression_unit: ::std::option::Option<crate::types::SuppressionUnit>,
++    pub suppression_unit: ::std::option::Option<super::types::SuppressionUnit>,
+ }
+ impl SuppressionPeriod {
+     /// <p>Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no maximum.</p>
+@@ -15,14 +15,14 @@
+         self.value
+     }
+     /// <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
+-    pub fn suppression_unit(&self) -> ::std::option::Option<&crate::types::SuppressionUnit> {
++    pub fn suppression_unit(&self) -> ::std::option::Option<&super::types::SuppressionUnit> {
+         self.suppression_unit.as_ref()
+     }
+ }
+ impl SuppressionPeriod {
+     /// Creates a new builder-style object to manufacture [`SuppressionPeriod`](crate::types::SuppressionPeriod).
+-    pub fn builder() -> crate::types::builders::SuppressionPeriodBuilder {
+-        crate::types::builders::SuppressionPeriodBuilder::default()
++    pub fn builder() -> super::types::builders::SuppressionPeriodBuilder {
++        super::types::builders::SuppressionPeriodBuilder::default()
+     }
+ }
+
+@@ -31,7 +31,7 @@
+ #[non_exhaustive]
+ pub struct SuppressionPeriodBuilder {
+     pub(crate) value: ::std::option::Option<i32>,
+-    pub(crate) suppression_unit: ::std::option::Option<crate::types::SuppressionUnit>,
++    pub(crate) suppression_unit: ::std::option::Option<super::types::SuppressionUnit>,
+ }
+ impl SuppressionPeriodBuilder {
+     /// <p>Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no maximum.</p>
+@@ -49,22 +49,22 @@
+         &self.value
+     }
+     /// <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
+-    pub fn suppression_unit(mut self, input: crate::types::SuppressionUnit) -> Self {
++    pub fn suppression_unit(mut self, input: super::types::SuppressionUnit) -> Self {
+         self.suppression_unit = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
+-    pub fn set_suppression_unit(mut self, input: ::std::option::Option<crate::types::SuppressionUnit>) -> Self {
++    pub fn set_suppression_unit(mut self, input: ::std::option::Option<super::types::SuppressionUnit>) -> Self {
+         self.suppression_unit = input;
+         self
+     }
+     /// <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
+-    pub fn get_suppression_unit(&self) -> &::std::option::Option<crate::types::SuppressionUnit> {
++    pub fn get_suppression_unit(&self) -> &::std::option::Option<super::types::SuppressionUnit> {
+         &self.suppression_unit
+     }
+     /// Consumes the builder and constructs a [`SuppressionPeriod`](crate::types::SuppressionPeriod).
+-    pub fn build(self) -> crate::types::SuppressionPeriod {
+-        crate::types::SuppressionPeriod {
++    pub fn build(self) -> super::types::SuppressionPeriod {
++        super::types::SuppressionPeriod {
+             value: self.value.unwrap_or_default(),
+             suppression_unit: self.suppression_unit,
+         }

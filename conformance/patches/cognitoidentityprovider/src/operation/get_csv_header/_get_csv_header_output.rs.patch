@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -29,8 +29,8 @@
+ }
+ impl GetCsvHeaderOutput {
+     /// Creates a new builder-style object to manufacture [`GetCsvHeaderOutput`](crate::operation::get_csv_header::GetCsvHeaderOutput).
+-    pub fn builder() -> crate::operation::get_csv_header::builders::GetCsvHeaderOutputBuilder {
+-        crate::operation::get_csv_header::builders::GetCsvHeaderOutputBuilder::default()
++    pub fn builder() -> super::operation::get_csv_header::builders::GetCsvHeaderOutputBuilder {
++        super::operation::get_csv_header::builders::GetCsvHeaderOutputBuilder::default()
+     }
+ }
+
+@@ -87,8 +87,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetCsvHeaderOutput`](crate::operation::get_csv_header::GetCsvHeaderOutput).
+-    pub fn build(self) -> crate::operation::get_csv_header::GetCsvHeaderOutput {
+-        crate::operation::get_csv_header::GetCsvHeaderOutput {
++    pub fn build(self) -> super::operation::get_csv_header::GetCsvHeaderOutput {
++        super::operation::get_csv_header::GetCsvHeaderOutput {
+             user_pool_id: self.user_pool_id,
+             csv_header: self.csv_header,
+             _request_id: self._request_id,

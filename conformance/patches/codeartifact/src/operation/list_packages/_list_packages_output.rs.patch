@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ListPackagesOutput {
+     /// <p>The list of returned <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a> objects.</p>
+-    pub packages: ::std::option::Option<::std::vec::Vec<crate::types::PackageSummary>>,
++    pub packages: ::std::option::Option<::std::vec::Vec<super::types::PackageSummary>>,
+     /// <p>If there are additional results, this is the token for the next set of results.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -13,7 +13,7 @@
+     /// <p>The list of returned <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a> objects.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.packages.is_none()`.
+-    pub fn packages(&self) -> &[crate::types::PackageSummary] {
++    pub fn packages(&self) -> &[super::types::PackageSummary] {
+         self.packages.as_deref().unwrap_or_default()
+     }
+     /// <p>If there are additional results, this is the token for the next set of results.</p>
+@@ -28,8 +28,8 @@
+ }
+ impl ListPackagesOutput {
+     /// Creates a new builder-style object to manufacture [`ListPackagesOutput`](crate::operation::list_packages::ListPackagesOutput).
+-    pub fn builder() -> crate::operation::list_packages::builders::ListPackagesOutputBuilder {
+-        crate::operation::list_packages::builders::ListPackagesOutputBuilder::default()
++    pub fn builder() -> super::operation::list_packages::builders::ListPackagesOutputBuilder {
++        super::operation::list_packages::builders::ListPackagesOutputBuilder::default()
+     }
+ }
+
+@@ -37,7 +37,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ListPackagesOutputBuilder {
+-    pub(crate) packages: ::std::option::Option<::std::vec::Vec<crate::types::PackageSummary>>,
++    pub(crate) packages: ::std::option::Option<::std::vec::Vec<super::types::PackageSummary>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -47,7 +47,7 @@
+     /// To override the contents of this collection use [`set_packages`](Self::set_packages).
+     ///
+     /// <p>The list of returned <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a> objects.</p>
+-    pub fn packages(mut self, input: crate::types::PackageSummary) -> Self {
++    pub fn packages(mut self, input: super::types::PackageSummary) -> Self {
+         let mut v = self.packages.unwrap_or_default();
+         v.push(input);
+         self.packages = ::std::option::Option::Some(v);
+@@ -54,12 +54,12 @@
+         self
+     }
+     /// <p>The list of returned <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a> objects.</p>
+-    pub fn set_packages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PackageSummary>>) -> Self {
++    pub fn set_packages(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PackageSummary>>) -> Self {
+         self.packages = input;
+         self
+     }
+     /// <p>The list of returned <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a> objects.</p>
+-    pub fn get_packages(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageSummary>> {
++    pub fn get_packages(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PackageSummary>> {
+         &self.packages
+     }
+     /// <p>If there are additional results, this is the token for the next set of results.</p>
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListPackagesOutput`](crate::operation::list_packages::ListPackagesOutput).
+-    pub fn build(self) -> crate::operation::list_packages::ListPackagesOutput {
+-        crate::operation::list_packages::ListPackagesOutput {
++    pub fn build(self) -> super::operation::list_packages::ListPackagesOutput {
++        super::operation::list_packages::ListPackagesOutput {
+             packages: self.packages,
+             next_token: self.next_token,
+             _request_id: self._request_id,

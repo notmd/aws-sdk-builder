@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -13,7 +13,7 @@
+     /// <p>The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom-faq">Custom verification email frequently asked questions</a> in the <i>Amazon SES Developer Guide</i>.</p>
+     pub template_content: ::std::option::Option<::std::string::String>,
+     /// <p>An array of objects that define the tags (keys and values) to associate with the custom verification email template.</p>
+-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+     /// <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
+     pub success_redirection_url: ::std::option::Option<::std::string::String>,
+     /// <p>The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.</p>
+@@ -39,7 +39,7 @@
+     /// <p>An array of objects that define the tags (keys and values) to associate with the custom verification email template.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
+-    pub fn tags(&self) -> &[crate::types::Tag] {
++    pub fn tags(&self) -> &[super::types::Tag] {
+         self.tags.as_deref().unwrap_or_default()
+     }
+     /// <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
+@@ -53,8 +53,8 @@
+ }
+ impl CreateCustomVerificationEmailTemplateInput {
+     /// Creates a new builder-style object to manufacture [`CreateCustomVerificationEmailTemplateInput`](crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateInput).
+-    pub fn builder() -> crate::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateInputBuilder {
+-        crate::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateInputBuilder::default()
++    pub fn builder() -> super::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateInputBuilder {
++        super::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateInputBuilder::default()
+     }
+ }
+
+@@ -66,7 +66,7 @@
+     pub(crate) from_email_address: ::std::option::Option<::std::string::String>,
+     pub(crate) template_subject: ::std::option::Option<::std::string::String>,
+     pub(crate) template_content: ::std::option::Option<::std::string::String>,
+-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+     pub(crate) success_redirection_url: ::std::option::Option<::std::string::String>,
+     pub(crate) failure_redirection_url: ::std::option::Option<::std::string::String>,
+ }
+@@ -136,7 +136,7 @@
+     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+     ///
+     /// <p>An array of objects that define the tags (keys and values) to associate with the custom verification email template.</p>
+-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::types::Tag) -> Self {
+         let mut v = self.tags.unwrap_or_default();
+         v.push(input);
+         self.tags = ::std::option::Option::Some(v);
+@@ -143,12 +143,12 @@
+         self
+     }
+     /// <p>An array of objects that define the tags (keys and values) to associate with the custom verification email template.</p>
+-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
+         self.tags = input;
+         self
+     }
+     /// <p>An array of objects that define the tags (keys and values) to associate with the custom verification email template.</p>
+-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
+         &self.tags
+     }
+     /// <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
+@@ -185,11 +185,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateInput,
++        super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateInput {
++            super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateInput {
+                 template_name: self.template_name,
+                 from_email_address: self.from_email_address,
+                 template_subject: self.template_subject,

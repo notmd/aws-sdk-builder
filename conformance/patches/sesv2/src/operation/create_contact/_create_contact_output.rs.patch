@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl CreateContactOutput {
+     /// Creates a new builder-style object to manufacture [`CreateContactOutput`](crate::operation::create_contact::CreateContactOutput).
+-    pub fn builder() -> crate::operation::create_contact::builders::CreateContactOutputBuilder {
+-        crate::operation::create_contact::builders::CreateContactOutputBuilder::default()
++    pub fn builder() -> super::operation::create_contact::builders::CreateContactOutputBuilder {
++        super::operation::create_contact::builders::CreateContactOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CreateContactOutput`](crate::operation::create_contact::CreateContactOutput).
+-    pub fn build(self) -> crate::operation::create_contact::CreateContactOutput {
+-        crate::operation::create_contact::CreateContactOutput {
++    pub fn build(self) -> super::operation::create_contact::CreateContactOutput {
++        super::operation::create_contact::CreateContactOutput {
+             _request_id: self._request_id,
+         }
+     }

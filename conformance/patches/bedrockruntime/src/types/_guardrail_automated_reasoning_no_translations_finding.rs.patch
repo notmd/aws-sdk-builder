@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -6,8 +6,8 @@
+ pub struct GuardrailAutomatedReasoningNoTranslationsFinding {}
+ impl GuardrailAutomatedReasoningNoTranslationsFinding {
+     /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningNoTranslationsFinding`](crate::types::GuardrailAutomatedReasoningNoTranslationsFinding).
+-    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder {
+-        crate::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder::default()
++    pub fn builder() -> super::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder {
++        super::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder::default()
+     }
+ }
+
+@@ -17,7 +17,7 @@
+ pub struct GuardrailAutomatedReasoningNoTranslationsFindingBuilder {}
+ impl GuardrailAutomatedReasoningNoTranslationsFindingBuilder {
+     /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningNoTranslationsFinding`](crate::types::GuardrailAutomatedReasoningNoTranslationsFinding).
+-    pub fn build(self) -> crate::types::GuardrailAutomatedReasoningNoTranslationsFinding {
+-        crate::types::GuardrailAutomatedReasoningNoTranslationsFinding {}
++    pub fn build(self) -> super::types::GuardrailAutomatedReasoningNoTranslationsFinding {
++        super::types::GuardrailAutomatedReasoningNoTranslationsFinding {}
+     }
+ }

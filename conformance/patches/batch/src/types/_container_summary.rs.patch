@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl ContainerSummary {
+     /// Creates a new builder-style object to manufacture [`ContainerSummary`](crate::types::ContainerSummary).
+-    pub fn builder() -> crate::types::builders::ContainerSummaryBuilder {
+-        crate::types::builders::ContainerSummaryBuilder::default()
++    pub fn builder() -> super::types::builders::ContainerSummaryBuilder {
++        super::types::builders::ContainerSummaryBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.reason
+     }
+     /// Consumes the builder and constructs a [`ContainerSummary`](crate::types::ContainerSummary).
+-    pub fn build(self) -> crate::types::ContainerSummary {
+-        crate::types::ContainerSummary {
++    pub fn build(self) -> super::types::ContainerSummary {
++        super::types::ContainerSummary {
+             exit_code: self.exit_code,
+             reason: self.reason,
+         }

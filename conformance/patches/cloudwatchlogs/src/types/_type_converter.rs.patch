@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -6,11 +6,11 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct TypeConverter {
+     /// <p>An array of <code>TypeConverterEntry</code> objects, where each object contains the information about one field to change the type of.</p>
+-    pub entries: ::std::vec::Vec<crate::types::TypeConverterEntry>,
++    pub entries: ::std::vec::Vec<super::types::TypeConverterEntry>,
+ }
+ impl TypeConverter {
+     /// <p>An array of <code>TypeConverterEntry</code> objects, where each object contains the information about one field to change the type of.</p>
+-    pub fn entries(&self) -> &[crate::types::TypeConverterEntry] {
++    pub fn entries(&self) -> &[super::types::TypeConverterEntry] {
+         use std::ops::Deref;
+         self.entries.deref()
+     }
+@@ -17,8 +17,8 @@
+ }
+ impl TypeConverter {
+     /// Creates a new builder-style object to manufacture [`TypeConverter`](crate::types::TypeConverter).
+-    pub fn builder() -> crate::types::builders::TypeConverterBuilder {
+-        crate::types::builders::TypeConverterBuilder::default()
++    pub fn builder() -> super::types::builders::TypeConverterBuilder {
++        super::types::builders::TypeConverterBuilder::default()
+     }
+ }
+
+@@ -26,7 +26,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct TypeConverterBuilder {
+-    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::TypeConverterEntry>>,
++    pub(crate) entries: ::std::option::Option<::std::vec::Vec<super::types::TypeConverterEntry>>,
+ }
+ impl TypeConverterBuilder {
+     /// Appends an item to `entries`.
+@@ -34,7 +34,7 @@
+     /// To override the contents of this collection use [`set_entries`](Self::set_entries).
+     ///
+     /// <p>An array of <code>TypeConverterEntry</code> objects, where each object contains the information about one field to change the type of.</p>
+-    pub fn entries(mut self, input: crate::types::TypeConverterEntry) -> Self {
++    pub fn entries(mut self, input: super::types::TypeConverterEntry) -> Self {
+         let mut v = self.entries.unwrap_or_default();
+         v.push(input);
+         self.entries = ::std::option::Option::Some(v);
+@@ -41,19 +41,19 @@
+         self
+     }
+     /// <p>An array of <code>TypeConverterEntry</code> objects, where each object contains the information about one field to change the type of.</p>
+-    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TypeConverterEntry>>) -> Self {
++    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::TypeConverterEntry>>) -> Self {
+         self.entries = input;
+         self
+     }
+     /// <p>An array of <code>TypeConverterEntry</code> objects, where each object contains the information about one field to change the type of.</p>
+-    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TypeConverterEntry>> {
++    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::types::TypeConverterEntry>> {
+         &self.entries
+     }
+     /// Consumes the builder and constructs a [`TypeConverter`](crate::types::TypeConverter).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`entries`](crate::types::builders::TypeConverterBuilder::entries)
+-    pub fn build(self) -> ::std::result::Result<crate::types::TypeConverter, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::TypeConverter {
++    pub fn build(self) -> ::std::result::Result<super::types::TypeConverter, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::TypeConverter {
+             entries: self.entries.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "entries",

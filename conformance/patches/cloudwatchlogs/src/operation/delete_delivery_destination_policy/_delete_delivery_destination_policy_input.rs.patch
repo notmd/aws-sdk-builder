@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl DeleteDeliveryDestinationPolicyInput {
+     /// Creates a new builder-style object to manufacture [`DeleteDeliveryDestinationPolicyInput`](crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyInput).
+-    pub fn builder() -> crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyInputBuilder {
+-        crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyInputBuilder::default()
++    pub fn builder() -> super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyInputBuilder {
++        super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyInputBuilder::default()
+     }
+ }
+
+@@ -45,11 +45,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyInput,
++        super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyInput {
++            super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyInput {
+                 delivery_destination_name: self.delivery_destination_name,
+             },
+         )

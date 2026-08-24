@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -30,8 +30,8 @@
+ }
+ impl ReasoningTextBlock {
+     /// Creates a new builder-style object to manufacture [`ReasoningTextBlock`](crate::types::ReasoningTextBlock).
+-    pub fn builder() -> crate::types::builders::ReasoningTextBlockBuilder {
+-        crate::types::builders::ReasoningTextBlockBuilder::default()
++    pub fn builder() -> super::types::builders::ReasoningTextBlockBuilder {
++        super::types::builders::ReasoningTextBlockBuilder::default()
+     }
+ }
+
+@@ -75,8 +75,8 @@
+     /// Consumes the builder and constructs a [`ReasoningTextBlock`](crate::types::ReasoningTextBlock).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`text`](crate::types::builders::ReasoningTextBlockBuilder::text)
+-    pub fn build(self) -> ::std::result::Result<crate::types::ReasoningTextBlock, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::ReasoningTextBlock {
++    pub fn build(self) -> ::std::result::Result<super::types::ReasoningTextBlock, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::ReasoningTextBlock {
+             text: self.text.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "text",

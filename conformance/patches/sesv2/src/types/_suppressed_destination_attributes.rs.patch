@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl SuppressedDestinationAttributes {
+     /// Creates a new builder-style object to manufacture [`SuppressedDestinationAttributes`](crate::types::SuppressedDestinationAttributes).
+-    pub fn builder() -> crate::types::builders::SuppressedDestinationAttributesBuilder {
+-        crate::types::builders::SuppressedDestinationAttributesBuilder::default()
++    pub fn builder() -> super::types::builders::SuppressedDestinationAttributesBuilder {
++        super::types::builders::SuppressedDestinationAttributesBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.feedback_id
+     }
+     /// Consumes the builder and constructs a [`SuppressedDestinationAttributes`](crate::types::SuppressedDestinationAttributes).
+-    pub fn build(self) -> crate::types::SuppressedDestinationAttributes {
+-        crate::types::SuppressedDestinationAttributes {
++    pub fn build(self) -> super::types::SuppressedDestinationAttributes {
++        super::types::SuppressedDestinationAttributes {
+             message_id: self.message_id,
+             feedback_id: self.feedback_id,
+         }

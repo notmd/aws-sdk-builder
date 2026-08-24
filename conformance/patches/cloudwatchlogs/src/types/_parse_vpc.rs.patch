@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -18,8 +18,8 @@
+ }
+ impl ParseVpc {
+     /// Creates a new builder-style object to manufacture [`ParseVpc`](crate::types::ParseVpc).
+-    pub fn builder() -> crate::types::builders::ParseVpcBuilder {
+-        crate::types::builders::ParseVpcBuilder::default()
++    pub fn builder() -> super::types::builders::ParseVpcBuilder {
++        super::types::builders::ParseVpcBuilder::default()
+     }
+ }
+
+@@ -45,7 +45,7 @@
+         &self.source
+     }
+     /// Consumes the builder and constructs a [`ParseVpc`](crate::types::ParseVpc).
+-    pub fn build(self) -> crate::types::ParseVpc {
+-        crate::types::ParseVpc { source: self.source }
++    pub fn build(self) -> super::types::ParseVpc {
++        super::types::ParseVpc { source: self.source }
+     }
+ }

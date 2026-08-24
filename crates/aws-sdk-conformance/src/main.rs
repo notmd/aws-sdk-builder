@@ -124,11 +124,18 @@ fn conformance_sources(services: &[String]) -> Result<Vec<aws_sdk_builder::Servi
     services
         .iter()
         .map(|service| match service.as_str() {
+            "batch" => Ok(aws_sdk_builder_batch::source()),
+            "bedrockruntime" => Ok(aws_sdk_builder_bedrockruntime::source()),
+            "cloudwatchlogs" => Ok(aws_sdk_builder_cloudwatchlogs::source()),
+            "codeartifact" => Ok(aws_sdk_builder_codeartifact::source()),
+            "cognitoidentityprovider" => Ok(aws_sdk_builder_cognitoidentityprovider::source()),
+            "config" => Ok(aws_sdk_builder_config::source()),
             "dynamodb" => Ok(aws_sdk_builder_dynamodb::source()),
             "iam" => Ok(aws_sdk_builder_iam::source()),
             "kms" => Ok(aws_sdk_builder_kms::source()),
             "lambda" => Ok(aws_sdk_builder_lambda::source()),
             "s3" => Ok(aws_sdk_builder_s3::source()),
+            "sesv2" => Ok(aws_sdk_builder_sesv2::source()),
             "sns" => Ok(aws_sdk_builder_sns::source()),
             "sqs" => Ok(aws_sdk_builder_sqs::source()),
             "sts" => Ok(aws_sdk_builder_sts::source()),
@@ -224,22 +231,24 @@ fn format_generated_sources(root: &Path) -> Result<usize, String> {
 
     // `generate_all` owns this tree, so every Rust file here is generated
     // source. Avoid reopening every file just to inspect its generated header.
-    let output = Command::new("rustfmt")
-        .args([
-            "--edition",
-            "2021",
-            "--config",
-            "max_width=150,skip_children=true",
-        ])
-        .args(&files)
-        .output()
-        .map_err(|error| format!("failed to run rustfmt: {error}"))?;
-    if !output.status.success() {
-        let mut message = String::from_utf8_lossy(&output.stderr).into_owned();
-        if message.trim().is_empty() {
-            message = format!("rustfmt exited with {}", output.status);
+    for batch in files.chunks(128) {
+        let output = Command::new("rustfmt")
+            .args([
+                "--edition",
+                "2021",
+                "--config",
+                "max_width=150,skip_children=true",
+            ])
+            .args(batch)
+            .output()
+            .map_err(|error| format!("failed to run rustfmt: {error}"))?;
+        if !output.status.success() {
+            let mut message = String::from_utf8_lossy(&output.stderr).into_owned();
+            if message.trim().is_empty() {
+                message = format!("rustfmt exited with {}", output.status);
+            }
+            return Err(format!("rustfmt failed for generated sources: {message}"));
         }
-        return Err(format!("rustfmt failed for generated sources: {message}"));
     }
 
     Ok(files.len())

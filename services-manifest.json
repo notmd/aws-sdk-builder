@@ -27,6 +27,48 @@
   },
   "services": [
     {
+      "key": "batch",
+      "upstream_path": "sdk/batch",
+      "model_path": "aws-models/batch.json",
+      "model_destination": "crates/aws-sdk-builder-batch/model.json",
+      "sdk_version": "1.124.0"
+    },
+    {
+      "key": "bedrockruntime",
+      "upstream_path": "sdk/bedrockruntime",
+      "model_path": "aws-models/bedrock-runtime.json",
+      "model_destination": "crates/aws-sdk-builder-bedrockruntime/model.json",
+      "sdk_version": "1.141.0"
+    },
+    {
+      "key": "cloudwatchlogs",
+      "upstream_path": "sdk/cloudwatchlogs",
+      "model_path": "aws-models/cloudwatch-logs.json",
+      "model_destination": "crates/aws-sdk-builder-cloudwatchlogs/model.json",
+      "sdk_version": "1.147.0"
+    },
+    {
+      "key": "codeartifact",
+      "upstream_path": "sdk/codeartifact",
+      "model_path": "aws-models/codeartifact.json",
+      "model_destination": "crates/aws-sdk-builder-codeartifact/model.json",
+      "sdk_version": "1.110.0"
+    },
+    {
+      "key": "cognitoidentityprovider",
+      "upstream_path": "sdk/cognitoidentityprovider",
+      "model_path": "aws-models/cognito-identity-provider.json",
+      "model_destination": "crates/aws-sdk-builder-cognitoidentityprovider/model.json",
+      "sdk_version": "1.129.0"
+    },
+    {
+      "key": "config",
+      "upstream_path": "sdk/config",
+      "model_path": "aws-models/config-service.json",
+      "model_destination": "crates/aws-sdk-builder-config/model.json",
+      "sdk_version": "1.119.0"
+    },
+    {
       "key": "dynamodb",
       "upstream_path": "sdk/dynamodb",
       "model_path": "aws-models/dynamodb.json",
@@ -60,6 +102,13 @@
       "model_path": "aws-models/s3.json",
       "model_destination": "crates/aws-sdk-builder-s3/model.json",
       "sdk_version": "1.143.0"
+    },
+    {
+      "key": "sesv2",
+      "upstream_path": "sdk/sesv2",
+      "model_path": "aws-models/sesv2.json",
+      "model_destination": "crates/aws-sdk-builder-sesv2/model.json",
+      "sdk_version": "1.130.0"
     },
     {
       "key": "sns",

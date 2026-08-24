@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -51,8 +51,8 @@
+ }
+ impl RepositorySummary {
+     /// Creates a new builder-style object to manufacture [`RepositorySummary`](crate::types::RepositorySummary).
+-    pub fn builder() -> crate::types::builders::RepositorySummaryBuilder {
+-        crate::types::builders::RepositorySummaryBuilder::default()
++    pub fn builder() -> super::types::builders::RepositorySummaryBuilder {
++        super::types::builders::RepositorySummaryBuilder::default()
+     }
+ }
+
+@@ -168,8 +168,8 @@
+         &self.created_time
+     }
+     /// Consumes the builder and constructs a [`RepositorySummary`](crate::types::RepositorySummary).
+-    pub fn build(self) -> crate::types::RepositorySummary {
+-        crate::types::RepositorySummary {
++    pub fn build(self) -> super::types::RepositorySummary {
++        super::types::RepositorySummary {
+             name: self.name,
+             administrator_account: self.administrator_account,
+             domain_name: self.domain_name,

@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     /// <p>The path inside the container that's used to expose the host device. By default, the <code>hostPath</code> value is used.</p>
+     pub container_path: ::std::option::Option<::std::string::String>,
+     /// <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for <code>read</code>, <code>write</code>, and <code>mknod</code> for the device.</p>
+-    pub permissions: ::std::option::Option<::std::vec::Vec<crate::types::DeviceCgroupPermission>>,
++    pub permissions: ::std::option::Option<::std::vec::Vec<super::types::DeviceCgroupPermission>>,
+ }
+ impl Device {
+     /// <p>The path for the device on the host container instance.</p>
+@@ -25,14 +25,14 @@
+     /// <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for <code>read</code>, <code>write</code>, and <code>mknod</code> for the device.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.permissions.is_none()`.
+-    pub fn permissions(&self) -> &[crate::types::DeviceCgroupPermission] {
++    pub fn permissions(&self) -> &[super::types::DeviceCgroupPermission] {
+         self.permissions.as_deref().unwrap_or_default()
+     }
+ }
+ impl Device {
+     /// Creates a new builder-style object to manufacture [`Device`](crate::types::Device).
+-    pub fn builder() -> crate::types::builders::DeviceBuilder {
+-        crate::types::builders::DeviceBuilder::default()
++    pub fn builder() -> super::types::builders::DeviceBuilder {
++        super::types::builders::DeviceBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+ pub struct DeviceBuilder {
+     pub(crate) host_path: ::std::option::Option<::std::string::String>,
+     pub(crate) container_path: ::std::option::Option<::std::string::String>,
+-    pub(crate) permissions: ::std::option::Option<::std::vec::Vec<crate::types::DeviceCgroupPermission>>,
++    pub(crate) permissions: ::std::option::Option<::std::vec::Vec<super::types::DeviceCgroupPermission>>,
+ }
+ impl DeviceBuilder {
+     /// <p>The path for the device on the host container instance.</p>
+@@ -79,7 +79,7 @@
+     /// To override the contents of this collection use [`set_permissions`](Self::set_permissions).
+     ///
+     /// <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for <code>read</code>, <code>write</code>, and <code>mknod</code> for the device.</p>
+-    pub fn permissions(mut self, input: crate::types::DeviceCgroupPermission) -> Self {
++    pub fn permissions(mut self, input: super::types::DeviceCgroupPermission) -> Self {
+         let mut v = self.permissions.unwrap_or_default();
+         v.push(input);
+         self.permissions = ::std::option::Option::Some(v);
+@@ -86,17 +86,17 @@
+         self
+     }
+     /// <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for <code>read</code>, <code>write</code>, and <code>mknod</code> for the device.</p>
+-    pub fn set_permissions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeviceCgroupPermission>>) -> Self {
++    pub fn set_permissions(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::DeviceCgroupPermission>>) -> Self {
+         self.permissions = input;
+         self
+     }
+     /// <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for <code>read</code>, <code>write</code>, and <code>mknod</code> for the device.</p>
+-    pub fn get_permissions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeviceCgroupPermission>> {
++    pub fn get_permissions(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DeviceCgroupPermission>> {
+         &self.permissions
+     }
+     /// Consumes the builder and constructs a [`Device`](crate::types::Device).
+-    pub fn build(self) -> crate::types::Device {
+-        crate::types::Device {
++    pub fn build(self) -> super::types::Device {
++        super::types::Device {
+             host_path: self.host_path,
+             container_path: self.container_path,
+             permissions: self.permissions,

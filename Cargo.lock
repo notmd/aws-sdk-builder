@@ -58,6 +58,48 @@ dependencies = [
 ]
 
 [[package]]
+name = "aws-sdk-builder-batch"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-bedrockruntime"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-cloudwatchlogs"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-codeartifact"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-cognitoidentityprovider"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-config"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
 name = "aws-sdk-builder-dynamodb"
 version = "0.1.0"
 dependencies = [
@@ -93,6 +135,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "aws-sdk-builder-sesv2"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
 name = "aws-sdk-builder-sns"
 version = "0.1.0"
 dependencies = [
@@ -118,11 +167,18 @@ name = "aws-sdk-conformance"
 version = "0.1.0"
 dependencies = [
  "aws-sdk-builder",
+ "aws-sdk-builder-batch",
+ "aws-sdk-builder-bedrockruntime",
+ "aws-sdk-builder-cloudwatchlogs",
+ "aws-sdk-builder-codeartifact",
+ "aws-sdk-builder-cognitoidentityprovider",
+ "aws-sdk-builder-config",
  "aws-sdk-builder-dynamodb",
  "aws-sdk-builder-iam",
  "aws-sdk-builder-kms",
  "aws-sdk-builder-lambda",
  "aws-sdk-builder-s3",
+ "aws-sdk-builder-sesv2",
  "aws-sdk-builder-sns",
  "aws-sdk-builder-sqs",
  "aws-sdk-builder-sts",

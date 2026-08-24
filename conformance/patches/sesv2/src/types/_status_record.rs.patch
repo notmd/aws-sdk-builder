@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -13,7 +13,7 @@
+     /// <li>
+     /// <p><code>REINSTATED</code> – Sending is allowed even with active reputation findings.</p></li>
+     /// </ul>
+-    pub status: ::std::option::Option<crate::types::SendingStatus>,
++    pub status: ::std::option::Option<super::types::SendingStatus>,
+     /// <p>A description of the reason for the current status, or null if no specific cause is available.</p>
+     pub cause: ::std::option::Option<::std::string::String>,
+     /// <p>The timestamp when this status was last updated.</p>
+@@ -29,7 +29,7 @@
+     /// <li>
+     /// <p><code>REINSTATED</code> – Sending is allowed even with active reputation findings.</p></li>
+     /// </ul>
+-    pub fn status(&self) -> ::std::option::Option<&crate::types::SendingStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::types::SendingStatus> {
+         self.status.as_ref()
+     }
+     /// <p>A description of the reason for the current status, or null if no specific cause is available.</p>
+@@ -43,8 +43,8 @@
+ }
+ impl StatusRecord {
+     /// Creates a new builder-style object to manufacture [`StatusRecord`](crate::types::StatusRecord).
+-    pub fn builder() -> crate::types::builders::StatusRecordBuilder {
+-        crate::types::builders::StatusRecordBuilder::default()
++    pub fn builder() -> super::types::builders::StatusRecordBuilder {
++        super::types::builders::StatusRecordBuilder::default()
+     }
+ }
+
+@@ -52,7 +52,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct StatusRecordBuilder {
+-    pub(crate) status: ::std::option::Option<crate::types::SendingStatus>,
++    pub(crate) status: ::std::option::Option<super::types::SendingStatus>,
+     pub(crate) cause: ::std::option::Option<::std::string::String>,
+     pub(crate) last_updated_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+ }
+@@ -66,7 +66,7 @@
+     /// <li>
+     /// <p><code>REINSTATED</code> – Sending is allowed even with active reputation findings.</p></li>
+     /// </ul>
+-    pub fn status(mut self, input: crate::types::SendingStatus) -> Self {
++    pub fn status(mut self, input: super::types::SendingStatus) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+@@ -79,7 +79,7 @@
+     /// <li>
+     /// <p><code>REINSTATED</code> – Sending is allowed even with active reputation findings.</p></li>
+     /// </ul>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::SendingStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::SendingStatus>) -> Self {
+         self.status = input;
+         self
+     }
+@@ -92,7 +92,7 @@
+     /// <li>
+     /// <p><code>REINSTATED</code> – Sending is allowed even with active reputation findings.</p></li>
+     /// </ul>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::SendingStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::SendingStatus> {
+         &self.status
+     }
+     /// <p>A description of the reason for the current status, or null if no specific cause is available.</p>
+@@ -124,8 +124,8 @@
+         &self.last_updated_timestamp
+     }
+     /// Consumes the builder and constructs a [`StatusRecord`](crate::types::StatusRecord).
+-    pub fn build(self) -> crate::types::StatusRecord {
+-        crate::types::StatusRecord {
++    pub fn build(self) -> super::types::StatusRecord {
++        super::types::StatusRecord {
+             status: self.status,
+             cause: self.cause,
+             last_updated_timestamp: self.last_updated_timestamp,

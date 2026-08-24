@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl PutSuppressedDestinationOutput {
+     /// Creates a new builder-style object to manufacture [`PutSuppressedDestinationOutput`](crate::operation::put_suppressed_destination::PutSuppressedDestinationOutput).
+-    pub fn builder() -> crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationOutputBuilder {
+-        crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationOutputBuilder::default()
++    pub fn builder() -> super::operation::put_suppressed_destination::builders::PutSuppressedDestinationOutputBuilder {
++        super::operation::put_suppressed_destination::builders::PutSuppressedDestinationOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutSuppressedDestinationOutput`](crate::operation::put_suppressed_destination::PutSuppressedDestinationOutput).
+-    pub fn build(self) -> crate::operation::put_suppressed_destination::PutSuppressedDestinationOutput {
+-        crate::operation::put_suppressed_destination::PutSuppressedDestinationOutput {
++    pub fn build(self) -> super::operation::put_suppressed_destination::PutSuppressedDestinationOutput {
++        super::operation::put_suppressed_destination::PutSuppressedDestinationOutput {
+             _request_id: self._request_id,
+         }
+     }

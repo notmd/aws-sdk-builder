@@ -174,6 +174,66 @@ string concatenation. The generator emits valid, deterministic Rust with stable
 ordering and a generator header, but does not run `rustfmt` or implement pretty-
 printing. Formatting belongs to conformance.
 
+### Smithy-RS reverse-engineering guide
+
+[`docs/smithy-codegen-design.md`](docs/smithy-codegen-design.md) is the checked-in
+reverse-engineering guide and must be read before extending the generator. It maps
+the pinned Smithy-RS Kotlin implementation to the Rust abstractions needed here. Use
+the local `/tmp/smithy-rs` checkout at the pinned commit for targeted source and test
+inspection; do not invoke its JVM build or copy generated service output by hand.
+The checkout is a full local source reference, not a generated-output cache. If it is
+missing, create it once without using GitHub API enumeration:
+
+```text
+git clone https://github.com/smithy-lang/smithy-rs /tmp/smithy-rs
+git -C /tmp/smithy-rs checkout --detach f1b64a9c0dd001d4bac4277fec4041da59c1f48d
+```
+
+If the directory already exists, preserve it and verify its remote and commit rather
+than deleting or recloning it.
+
+The upstream Smithy language repository is a second, distinct local reference at
+`/tmp/smithy`. Use it for Smithy specification, model, trait, protocol, transform,
+and validation behavior; use `/tmp/smithy-rs` for the Rust codegen implementation.
+If it is missing, create it once and record/verify the checkout commit:
+
+```text
+git clone https://github.com/smithy-lang/smithy /tmp/smithy
+git -C /tmp/smithy rev-parse HEAD
+```
+
+The currently available `/tmp/smithy` checkout is at
+`0f7323128b0606a1b94b1ac482c94d3800a22708`. Preserve an existing checkout rather than
+deleting or recloning it.
+
+Trace behavior through these reference boundaries:
+
+| Concern | Smithy-RS source map | Rust responsibility |
+| --- | --- | --- |
+| Context and model transforms | `CodegenContext`, `OperationNormalizer` | Indexed model, ordered transforms |
+| Reachability and naming | `DirectedWalker`, `RustSymbolProvider`, `ModuleProvider` | Shape closure, symbols, module paths |
+| Files and dependencies | `RustCrate`, `RustWriter`, `RustModule`, `CodegenDelegator` | Canonical writers, imports, re-exports |
+| Shapes and operations | `SchemaGenerator`, `StructureGenerator`, `BuilderGenerator`, `OperationGenerator` | Generic Rust item and operation plans |
+| Protocol/client pipeline | `ProtocolLoader`, `HttpBindingResolver`, `ClientCodegenVisitor` | Protocol bindings, runtime, serializers |
+| Services and customization | `ServiceGenerator`, `ClientCodegenDecorator`, `AwsCodegenDecorator` | Ordered generic/AWS hooks |
+| Service extension example | `aws/.../customize/s3/S3Decorator.kt` | Conditional model-driven decorator |
+
+When diagnosing a mismatch, classify it as model/index, transform, closure,
+symbol/module, shape, protocol, runtime, decorator, dependency, documentation,
+formatting, or installation. Then inspect the corresponding reference abstraction and
+tests, implement the reusable Rust rule, add a focused test, regenerate all services,
+and record the result. Do not patch a literal operation name or add a generic renderer
+branch merely because one snapshot differs. Service IDs are allowed only in isolated,
+model-justified conditional decorators. Preserve the separation:
+
+```text
+Smithy model -> normalized IR -> closure -> symbols/modules -> generic generators
+             -> ordered AWS decorators -> canonical original.rs -> normalized projection
+```
+
+The guide is architectural memory for future agents; do not remove it during prompt
+compaction. Update it when the Rust port establishes a new reusable mapping.
+
 ### Packaged models and output installation
 
 Each provider owns its model asset, for example:
@@ -312,9 +372,10 @@ endpoint and never use real credentials or a non-local endpoint accidentally.
 /goal
 Migrate this Rust AWS SDK codegen project to one canonical generated artifact per service.
 
-Read Prompt.md, docs/aws-sdk-builder-status.md, git status, the latest conformance
-summary, and the pinned Smithy-RS reference in /tmp/smithy-rs first. Preserve unrelated
-user changes.
+Read Prompt.md, docs/smithy-codegen-design.md, docs/aws-sdk-builder-status.md, git
+status, the latest conformance summary, and the pinned Smithy-RS reference in
+/tmp/smithy-rs first. Preserve unrelated user changes. Use the Smithy-RS source map
+to reverse-engineer behavior before implementing a rule.
 
 Generate exactly:
   OUT_DIR/generated/<service>/original.rs

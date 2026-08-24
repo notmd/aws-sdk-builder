@@ -1,0 +1,87 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::OpenSearchIntegrationDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::OpenSearchIntegrationDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,13 +16,13 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::OpenSearchIntegrationDetailsBuilder::default();
++            let mut builder = super::types::builders::OpenSearchIntegrationDetailsBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "dataSource" => {
+-                            builder = builder.set_data_source(crate::protocol_serde::shape_open_search_data_source::de_open_search_data_source(
++                            builder = builder.set_data_source(super::protocol_serde::shape_open_search_data_source::de_open_search_data_source(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -29,7 +29,7 @@
+                             )?);
+                         }
+                         "application" => {
+-                            builder = builder.set_application(crate::protocol_serde::shape_open_search_application::de_open_search_application(
++                            builder = builder.set_application(super::protocol_serde::shape_open_search_application::de_open_search_application(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -36,7 +36,7 @@
+                             )?);
+                         }
+                         "collection" => {
+-                            builder = builder.set_collection(crate::protocol_serde::shape_open_search_collection::de_open_search_collection(
++                            builder = builder.set_collection(super::protocol_serde::shape_open_search_collection::de_open_search_collection(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -43,7 +43,7 @@
+                             )?);
+                         }
+                         "workspace" => {
+-                            builder = builder.set_workspace(crate::protocol_serde::shape_open_search_workspace::de_open_search_workspace(
++                            builder = builder.set_workspace(super::protocol_serde::shape_open_search_workspace::de_open_search_workspace(
+                                 tokens,
+                                 _value,
+                                 depth + 1,
+@@ -51,7 +51,7 @@
+                         }
+                         "encryptionPolicy" => {
+                             builder = builder.set_encryption_policy(
+-                                crate::protocol_serde::shape_open_search_encryption_policy::de_open_search_encryption_policy(
++                                super::protocol_serde::shape_open_search_encryption_policy::de_open_search_encryption_policy(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -60,12 +60,12 @@
+                         }
+                         "networkPolicy" => {
+                             builder = builder.set_network_policy(
+-                                crate::protocol_serde::shape_open_search_network_policy::de_open_search_network_policy(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_open_search_network_policy::de_open_search_network_policy(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "accessPolicy" => {
+                             builder = builder.set_access_policy(
+-                                crate::protocol_serde::shape_open_search_data_access_policy::de_open_search_data_access_policy(
++                                super::protocol_serde::shape_open_search_data_access_policy::de_open_search_data_access_policy(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -74,7 +74,7 @@
+                         }
+                         "lifecyclePolicy" => {
+                             builder = builder.set_lifecycle_policy(
+-                                crate::protocol_serde::shape_open_search_lifecycle_policy::de_open_search_lifecycle_policy(
++                                super::protocol_serde::shape_open_search_lifecycle_policy::de_open_search_lifecycle_policy(
+                                     tokens,
+                                     _value,
+                                     depth + 1,

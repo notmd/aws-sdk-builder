@@ -1,0 +1,178 @@
+--- original
++++ modified
+@@ -9,19 +9,19 @@
+     /// <p>The name of the scheduled query.</p>
+     pub name: ::std::option::Option<::std::string::String>,
+     /// <p>The current state of the scheduled query.</p>
+-    pub state: ::std::option::Option<crate::types::ScheduledQueryState>,
++    pub state: ::std::option::Option<super::types::ScheduledQueryState>,
+     /// <p>The schedule type of the scheduled query. Valid values are <code>CUSTOMER_MANAGED</code> and <code>AWS_MANAGED</code>.</p>
+-    pub schedule_type: ::std::option::Option<crate::types::ScheduleType>,
++    pub schedule_type: ::std::option::Option<super::types::ScheduleType>,
+     /// <p>The timestamp when the scheduled query was last executed.</p>
+     pub last_triggered_time: ::std::option::Option<i64>,
+     /// <p>The status of the most recent execution.</p>
+-    pub last_execution_status: ::std::option::Option<crate::types::ExecutionStatus>,
++    pub last_execution_status: ::std::option::Option<super::types::ExecutionStatus>,
+     /// <p>The cron expression that defines when the scheduled query runs.</p>
+     pub schedule_expression: ::std::option::Option<::std::string::String>,
+     /// <p>The timezone used for evaluating the schedule expression.</p>
+     pub timezone: ::std::option::Option<::std::string::String>,
+     /// <p>Configuration for where query results are delivered.</p>
+-    pub destination_configuration: ::std::option::Option<crate::types::DestinationConfiguration>,
++    pub destination_configuration: ::std::option::Option<super::types::DestinationConfiguration>,
+     /// <p>The timestamp when the scheduled query was created.</p>
+     pub creation_time: ::std::option::Option<i64>,
+     /// <p>The timestamp when the scheduled query was last updated.</p>
+@@ -37,11 +37,11 @@
+         self.name.as_deref()
+     }
+     /// <p>The current state of the scheduled query.</p>
+-    pub fn state(&self) -> ::std::option::Option<&crate::types::ScheduledQueryState> {
++    pub fn state(&self) -> ::std::option::Option<&super::types::ScheduledQueryState> {
+         self.state.as_ref()
+     }
+     /// <p>The schedule type of the scheduled query. Valid values are <code>CUSTOMER_MANAGED</code> and <code>AWS_MANAGED</code>.</p>
+-    pub fn schedule_type(&self) -> ::std::option::Option<&crate::types::ScheduleType> {
++    pub fn schedule_type(&self) -> ::std::option::Option<&super::types::ScheduleType> {
+         self.schedule_type.as_ref()
+     }
+     /// <p>The timestamp when the scheduled query was last executed.</p>
+@@ -49,7 +49,7 @@
+         self.last_triggered_time
+     }
+     /// <p>The status of the most recent execution.</p>
+-    pub fn last_execution_status(&self) -> ::std::option::Option<&crate::types::ExecutionStatus> {
++    pub fn last_execution_status(&self) -> ::std::option::Option<&super::types::ExecutionStatus> {
+         self.last_execution_status.as_ref()
+     }
+     /// <p>The cron expression that defines when the scheduled query runs.</p>
+@@ -61,7 +61,7 @@
+         self.timezone.as_deref()
+     }
+     /// <p>Configuration for where query results are delivered.</p>
+-    pub fn destination_configuration(&self) -> ::std::option::Option<&crate::types::DestinationConfiguration> {
++    pub fn destination_configuration(&self) -> ::std::option::Option<&super::types::DestinationConfiguration> {
+         self.destination_configuration.as_ref()
+     }
+     /// <p>The timestamp when the scheduled query was created.</p>
+@@ -75,8 +75,8 @@
+ }
+ impl ScheduledQuerySummary {
+     /// Creates a new builder-style object to manufacture [`ScheduledQuerySummary`](crate::types::ScheduledQuerySummary).
+-    pub fn builder() -> crate::types::builders::ScheduledQuerySummaryBuilder {
+-        crate::types::builders::ScheduledQuerySummaryBuilder::default()
++    pub fn builder() -> super::types::builders::ScheduledQuerySummaryBuilder {
++        super::types::builders::ScheduledQuerySummaryBuilder::default()
+     }
+ }
+
+@@ -86,13 +86,13 @@
+ pub struct ScheduledQuerySummaryBuilder {
+     pub(crate) scheduled_query_arn: ::std::option::Option<::std::string::String>,
+     pub(crate) name: ::std::option::Option<::std::string::String>,
+-    pub(crate) state: ::std::option::Option<crate::types::ScheduledQueryState>,
+-    pub(crate) schedule_type: ::std::option::Option<crate::types::ScheduleType>,
++    pub(crate) state: ::std::option::Option<super::types::ScheduledQueryState>,
++    pub(crate) schedule_type: ::std::option::Option<super::types::ScheduleType>,
+     pub(crate) last_triggered_time: ::std::option::Option<i64>,
+-    pub(crate) last_execution_status: ::std::option::Option<crate::types::ExecutionStatus>,
++    pub(crate) last_execution_status: ::std::option::Option<super::types::ExecutionStatus>,
+     pub(crate) schedule_expression: ::std::option::Option<::std::string::String>,
+     pub(crate) timezone: ::std::option::Option<::std::string::String>,
+-    pub(crate) destination_configuration: ::std::option::Option<crate::types::DestinationConfiguration>,
++    pub(crate) destination_configuration: ::std::option::Option<super::types::DestinationConfiguration>,
+     pub(crate) creation_time: ::std::option::Option<i64>,
+     pub(crate) last_updated_time: ::std::option::Option<i64>,
+ }
+@@ -126,31 +126,31 @@
+         &self.name
+     }
+     /// <p>The current state of the scheduled query.</p>
+-    pub fn state(mut self, input: crate::types::ScheduledQueryState) -> Self {
++    pub fn state(mut self, input: super::types::ScheduledQueryState) -> Self {
+         self.state = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The current state of the scheduled query.</p>
+-    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
++    pub fn set_state(mut self, input: ::std::option::Option<super::types::ScheduledQueryState>) -> Self {
+         self.state = input;
+         self
+     }
+     /// <p>The current state of the scheduled query.</p>
+-    pub fn get_state(&self) -> &::std::option::Option<crate::types::ScheduledQueryState> {
++    pub fn get_state(&self) -> &::std::option::Option<super::types::ScheduledQueryState> {
+         &self.state
+     }
+     /// <p>The schedule type of the scheduled query. Valid values are <code>CUSTOMER_MANAGED</code> and <code>AWS_MANAGED</code>.</p>
+-    pub fn schedule_type(mut self, input: crate::types::ScheduleType) -> Self {
++    pub fn schedule_type(mut self, input: super::types::ScheduleType) -> Self {
+         self.schedule_type = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The schedule type of the scheduled query. Valid values are <code>CUSTOMER_MANAGED</code> and <code>AWS_MANAGED</code>.</p>
+-    pub fn set_schedule_type(mut self, input: ::std::option::Option<crate::types::ScheduleType>) -> Self {
++    pub fn set_schedule_type(mut self, input: ::std::option::Option<super::types::ScheduleType>) -> Self {
+         self.schedule_type = input;
+         self
+     }
+     /// <p>The schedule type of the scheduled query. Valid values are <code>CUSTOMER_MANAGED</code> and <code>AWS_MANAGED</code>.</p>
+-    pub fn get_schedule_type(&self) -> &::std::option::Option<crate::types::ScheduleType> {
++    pub fn get_schedule_type(&self) -> &::std::option::Option<super::types::ScheduleType> {
+         &self.schedule_type
+     }
+     /// <p>The timestamp when the scheduled query was last executed.</p>
+@@ -168,17 +168,17 @@
+         &self.last_triggered_time
+     }
+     /// <p>The status of the most recent execution.</p>
+-    pub fn last_execution_status(mut self, input: crate::types::ExecutionStatus) -> Self {
++    pub fn last_execution_status(mut self, input: super::types::ExecutionStatus) -> Self {
+         self.last_execution_status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The status of the most recent execution.</p>
+-    pub fn set_last_execution_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
++    pub fn set_last_execution_status(mut self, input: ::std::option::Option<super::types::ExecutionStatus>) -> Self {
+         self.last_execution_status = input;
+         self
+     }
+     /// <p>The status of the most recent execution.</p>
+-    pub fn get_last_execution_status(&self) -> &::std::option::Option<crate::types::ExecutionStatus> {
++    pub fn get_last_execution_status(&self) -> &::std::option::Option<super::types::ExecutionStatus> {
+         &self.last_execution_status
+     }
+     /// <p>The cron expression that defines when the scheduled query runs.</p>
+@@ -210,17 +210,17 @@
+         &self.timezone
+     }
+     /// <p>Configuration for where query results are delivered.</p>
+-    pub fn destination_configuration(mut self, input: crate::types::DestinationConfiguration) -> Self {
++    pub fn destination_configuration(mut self, input: super::types::DestinationConfiguration) -> Self {
+         self.destination_configuration = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Configuration for where query results are delivered.</p>
+-    pub fn set_destination_configuration(mut self, input: ::std::option::Option<crate::types::DestinationConfiguration>) -> Self {
++    pub fn set_destination_configuration(mut self, input: ::std::option::Option<super::types::DestinationConfiguration>) -> Self {
+         self.destination_configuration = input;
+         self
+     }
+     /// <p>Configuration for where query results are delivered.</p>
+-    pub fn get_destination_configuration(&self) -> &::std::option::Option<crate::types::DestinationConfiguration> {
++    pub fn get_destination_configuration(&self) -> &::std::option::Option<super::types::DestinationConfiguration> {
+         &self.destination_configuration
+     }
+     /// <p>The timestamp when the scheduled query was created.</p>
+@@ -252,8 +252,8 @@
+         &self.last_updated_time
+     }
+     /// Consumes the builder and constructs a [`ScheduledQuerySummary`](crate::types::ScheduledQuerySummary).
+-    pub fn build(self) -> crate::types::ScheduledQuerySummary {
+-        crate::types::ScheduledQuerySummary {
++    pub fn build(self) -> super::types::ScheduledQuerySummary {
++        super::types::ScheduledQuerySummary {
+             scheduled_query_arn: self.scheduled_query_arn,
+             name: self.name,
+             state: self.state,

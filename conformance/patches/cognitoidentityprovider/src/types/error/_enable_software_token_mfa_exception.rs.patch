@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for EnableSoftwareTokenMfaException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::EnableSoftwareTokenMfaException {
++impl ::aws_types::request_id::RequestId for super::types::error::EnableSoftwareTokenMfaException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl EnableSoftwareTokenMfaException {
+     /// Creates a new builder-style object to manufacture [`EnableSoftwareTokenMfaException`](crate::types::error::EnableSoftwareTokenMfaException).
+-    pub fn builder() -> crate::types::error::builders::EnableSoftwareTokenMfaExceptionBuilder {
+-        crate::types::error::builders::EnableSoftwareTokenMfaExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::EnableSoftwareTokenMfaExceptionBuilder {
++        super::types::error::builders::EnableSoftwareTokenMfaExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`EnableSoftwareTokenMfaException`](crate::types::error::EnableSoftwareTokenMfaException).
+-    pub fn build(self) -> crate::types::error::EnableSoftwareTokenMfaException {
+-        crate::types::error::EnableSoftwareTokenMfaException {
++    pub fn build(self) -> super::types::error::EnableSoftwareTokenMfaException {
++        super::types::error::EnableSoftwareTokenMfaException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

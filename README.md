@@ -1,8 +1,9 @@
 # aws-sdk-builder
 
 `aws-sdk-builder` is the core Rust-only generator. Service models are shipped in
-small, build-time provider crates for the eight supported services:
-DynamoDB, IAM, KMS, Lambda, S3, SNS, SQS, and STS.
+small, build-time provider crates for the fifteen supported services:
+Batch, Bedrock Runtime, CloudWatch Logs, CodeArtifact, Cognito Identity Provider,
+Config, DynamoDB, IAM, KMS, Lambda, S3, SES v2, SNS, SQS, and STS.
 
 For example, a consumer selects operations in `build.rs` through the service
 crate and includes that service inside a wrapper module:

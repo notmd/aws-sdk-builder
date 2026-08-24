@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -58,7 +58,7 @@
+     }
+ }
+ impl ::std::error::Error for ValidationException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::ValidationException {
++impl ::aws_types::request_id::RequestId for super::types::error::ValidationException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -71,8 +71,8 @@
+ }
+ impl ValidationException {
+     /// Creates a new builder-style object to manufacture [`ValidationException`](crate::types::error::ValidationException).
+-    pub fn builder() -> crate::types::error::builders::ValidationExceptionBuilder {
+-        crate::types::error::builders::ValidationExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::ValidationExceptionBuilder {
++        super::types::error::builders::ValidationExceptionBuilder::default()
+     }
+ }
+
+@@ -110,8 +110,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ValidationException`](crate::types::error::ValidationException).
+-    pub fn build(self) -> crate::types::error::ValidationException {
+-        crate::types::error::ValidationException {
++    pub fn build(self) -> super::types::error::ValidationException {
++        super::types::error::ValidationException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

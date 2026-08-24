@@ -1,0 +1,96 @@
+--- original
++++ modified
+@@ -11,9 +11,9 @@
+     /// <p>The ARN of the guardrail that was applied.</p>
+     pub guardrail_arn: ::std::option::Option<::std::string::String>,
+     /// <p>The origin of how the guardrail was applied. This can be either requested at the API level or enforced at the account or organization level as a default guardrail.</p>
+-    pub guardrail_origin: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailOrigin>>,
++    pub guardrail_origin: ::std::option::Option<::std::vec::Vec<super::types::GuardrailOrigin>>,
+     /// <p>The ownership type of the guardrail, indicating whether it is owned by the requesting account or is a cross-account guardrail shared from another AWS account.</p>
+-    pub guardrail_ownership: ::std::option::Option<crate::types::GuardrailOwnership>,
++    pub guardrail_ownership: ::std::option::Option<super::types::GuardrailOwnership>,
+ }
+ impl AppliedGuardrailDetails {
+     /// <p>The unique ID of the guardrail that was applied.</p>
+@@ -31,18 +31,18 @@
+     /// <p>The origin of how the guardrail was applied. This can be either requested at the API level or enforced at the account or organization level as a default guardrail.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.guardrail_origin.is_none()`.
+-    pub fn guardrail_origin(&self) -> &[crate::types::GuardrailOrigin] {
++    pub fn guardrail_origin(&self) -> &[super::types::GuardrailOrigin] {
+         self.guardrail_origin.as_deref().unwrap_or_default()
+     }
+     /// <p>The ownership type of the guardrail, indicating whether it is owned by the requesting account or is a cross-account guardrail shared from another AWS account.</p>
+-    pub fn guardrail_ownership(&self) -> ::std::option::Option<&crate::types::GuardrailOwnership> {
++    pub fn guardrail_ownership(&self) -> ::std::option::Option<&super::types::GuardrailOwnership> {
+         self.guardrail_ownership.as_ref()
+     }
+ }
+ impl AppliedGuardrailDetails {
+     /// Creates a new builder-style object to manufacture [`AppliedGuardrailDetails`](crate::types::AppliedGuardrailDetails).
+-    pub fn builder() -> crate::types::builders::AppliedGuardrailDetailsBuilder {
+-        crate::types::builders::AppliedGuardrailDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::AppliedGuardrailDetailsBuilder {
++        super::types::builders::AppliedGuardrailDetailsBuilder::default()
+     }
+ }
+
+@@ -53,8 +53,8 @@
+     pub(crate) guardrail_id: ::std::option::Option<::std::string::String>,
+     pub(crate) guardrail_version: ::std::option::Option<::std::string::String>,
+     pub(crate) guardrail_arn: ::std::option::Option<::std::string::String>,
+-    pub(crate) guardrail_origin: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailOrigin>>,
+-    pub(crate) guardrail_ownership: ::std::option::Option<crate::types::GuardrailOwnership>,
++    pub(crate) guardrail_origin: ::std::option::Option<::std::vec::Vec<super::types::GuardrailOrigin>>,
++    pub(crate) guardrail_ownership: ::std::option::Option<super::types::GuardrailOwnership>,
+ }
+ impl AppliedGuardrailDetailsBuilder {
+     /// <p>The unique ID of the guardrail that was applied.</p>
+@@ -104,7 +104,7 @@
+     /// To override the contents of this collection use [`set_guardrail_origin`](Self::set_guardrail_origin).
+     ///
+     /// <p>The origin of how the guardrail was applied. This can be either requested at the API level or enforced at the account or organization level as a default guardrail.</p>
+-    pub fn guardrail_origin(mut self, input: crate::types::GuardrailOrigin) -> Self {
++    pub fn guardrail_origin(mut self, input: super::types::GuardrailOrigin) -> Self {
+         let mut v = self.guardrail_origin.unwrap_or_default();
+         v.push(input);
+         self.guardrail_origin = ::std::option::Option::Some(v);
+@@ -111,31 +111,31 @@
+         self
+     }
+     /// <p>The origin of how the guardrail was applied. This can be either requested at the API level or enforced at the account or organization level as a default guardrail.</p>
+-    pub fn set_guardrail_origin(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailOrigin>>) -> Self {
++    pub fn set_guardrail_origin(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailOrigin>>) -> Self {
+         self.guardrail_origin = input;
+         self
+     }
+     /// <p>The origin of how the guardrail was applied. This can be either requested at the API level or enforced at the account or organization level as a default guardrail.</p>
+-    pub fn get_guardrail_origin(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailOrigin>> {
++    pub fn get_guardrail_origin(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailOrigin>> {
+         &self.guardrail_origin
+     }
+     /// <p>The ownership type of the guardrail, indicating whether it is owned by the requesting account or is a cross-account guardrail shared from another AWS account.</p>
+-    pub fn guardrail_ownership(mut self, input: crate::types::GuardrailOwnership) -> Self {
++    pub fn guardrail_ownership(mut self, input: super::types::GuardrailOwnership) -> Self {
+         self.guardrail_ownership = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The ownership type of the guardrail, indicating whether it is owned by the requesting account or is a cross-account guardrail shared from another AWS account.</p>
+-    pub fn set_guardrail_ownership(mut self, input: ::std::option::Option<crate::types::GuardrailOwnership>) -> Self {
++    pub fn set_guardrail_ownership(mut self, input: ::std::option::Option<super::types::GuardrailOwnership>) -> Self {
+         self.guardrail_ownership = input;
+         self
+     }
+     /// <p>The ownership type of the guardrail, indicating whether it is owned by the requesting account or is a cross-account guardrail shared from another AWS account.</p>
+-    pub fn get_guardrail_ownership(&self) -> &::std::option::Option<crate::types::GuardrailOwnership> {
++    pub fn get_guardrail_ownership(&self) -> &::std::option::Option<super::types::GuardrailOwnership> {
+         &self.guardrail_ownership
+     }
+     /// Consumes the builder and constructs a [`AppliedGuardrailDetails`](crate::types::AppliedGuardrailDetails).
+-    pub fn build(self) -> crate::types::AppliedGuardrailDetails {
+-        crate::types::AppliedGuardrailDetails {
++    pub fn build(self) -> super::types::AppliedGuardrailDetails {
++        super::types::AppliedGuardrailDetails {
+             guardrail_id: self.guardrail_id,
+             guardrail_version: self.guardrail_version,
+             guardrail_arn: self.guardrail_arn,

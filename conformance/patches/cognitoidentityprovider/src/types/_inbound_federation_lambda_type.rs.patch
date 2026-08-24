@@ -1,0 +1,74 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+ pub struct InboundFederationLambdaType {
+     /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
+     /// <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with an inbound federation function.</p>
+-    pub lambda_version: crate::types::InboundFederationLambdaVersionType,
++    pub lambda_version: super::types::InboundFederationLambdaVersionType,
+     /// <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
+     pub lambda_arn: ::std::string::String,
+ }
+@@ -13,7 +13,7 @@
+ impl InboundFederationLambdaType {
+     /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
+     /// <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with an inbound federation function.</p>
+-    pub fn lambda_version(&self) -> &crate::types::InboundFederationLambdaVersionType {
++    pub fn lambda_version(&self) -> &super::types::InboundFederationLambdaVersionType {
+         &self.lambda_version
+     }
+     /// <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
+@@ -24,8 +24,8 @@
+ }
+ impl InboundFederationLambdaType {
+     /// Creates a new builder-style object to manufacture [`InboundFederationLambdaType`](crate::types::InboundFederationLambdaType).
+-    pub fn builder() -> crate::types::builders::InboundFederationLambdaTypeBuilder {
+-        crate::types::builders::InboundFederationLambdaTypeBuilder::default()
++    pub fn builder() -> super::types::builders::InboundFederationLambdaTypeBuilder {
++        super::types::builders::InboundFederationLambdaTypeBuilder::default()
+     }
+ }
+
+@@ -33,7 +33,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct InboundFederationLambdaTypeBuilder {
+-    pub(crate) lambda_version: ::std::option::Option<crate::types::InboundFederationLambdaVersionType>,
++    pub(crate) lambda_version: ::std::option::Option<super::types::InboundFederationLambdaVersionType>,
+     pub(crate) lambda_arn: ::std::option::Option<::std::string::String>,
+ }
+ impl InboundFederationLambdaTypeBuilder {
+@@ -40,19 +40,19 @@
+     /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
+     /// <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with an inbound federation function.</p>
+     /// This field is required.
+-    pub fn lambda_version(mut self, input: crate::types::InboundFederationLambdaVersionType) -> Self {
++    pub fn lambda_version(mut self, input: super::types::InboundFederationLambdaVersionType) -> Self {
+         self.lambda_version = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
+     /// <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with an inbound federation function.</p>
+-    pub fn set_lambda_version(mut self, input: ::std::option::Option<crate::types::InboundFederationLambdaVersionType>) -> Self {
++    pub fn set_lambda_version(mut self, input: ::std::option::Option<super::types::InboundFederationLambdaVersionType>) -> Self {
+         self.lambda_version = input;
+         self
+     }
+     /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
+     /// <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with an inbound federation function.</p>
+-    pub fn get_lambda_version(&self) -> &::std::option::Option<crate::types::InboundFederationLambdaVersionType> {
++    pub fn get_lambda_version(&self) -> &::std::option::Option<super::types::InboundFederationLambdaVersionType> {
+         &self.lambda_version
+     }
+     /// <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
+@@ -74,8 +74,8 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`lambda_version`](crate::types::builders::InboundFederationLambdaTypeBuilder::lambda_version)
+     /// - [`lambda_arn`](crate::types::builders::InboundFederationLambdaTypeBuilder::lambda_arn)
+-    pub fn build(self) -> ::std::result::Result<crate::types::InboundFederationLambdaType, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::InboundFederationLambdaType {
++    pub fn build(self) -> ::std::result::Result<super::types::InboundFederationLambdaType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::InboundFederationLambdaType {
+             lambda_version: self.lambda_version.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "lambda_version",

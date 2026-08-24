@@ -1,0 +1,29 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::FairshareUtilizationDetail>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::FairshareUtilizationDetail>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::FairshareUtilizationDetailBuilder::default();
++            let mut builder = super::types::builders::FairshareUtilizationDetailBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -30,7 +30,7 @@
+                         }
+                         "topCapacityUtilization" => {
+                             builder = builder.set_top_capacity_utilization(
+-                                crate::protocol_serde::shape_fairshare_capacity_utilization_list::de_fairshare_capacity_utilization_list(
++                                super::protocol_serde::shape_fairshare_capacity_utilization_list::de_fairshare_capacity_utilization_list(
+                                     tokens,
+                                     _value,
+                                     depth + 1,

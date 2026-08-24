@@ -1,0 +1,99 @@
+--- original
++++ modified
+@@ -15,9 +15,9 @@
+     /// <p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch. Or, you can override the existing environment variables from the Docker image or the job definition.</p><note>
+     /// <p>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention is reserved for variables that Batch sets.</p>
+     /// </note>
+-    pub env: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerEnvironmentVariable>>,
++    pub env: ::std::option::Option<::std::vec::Vec<super::types::EksContainerEnvironmentVariable>>,
+     /// <p>The type and amount of resources to assign to a container. These override the settings in the job definition. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>
+-    pub resources: ::std::option::Option<crate::types::EksContainerResourceRequirements>,
++    pub resources: ::std::option::Option<super::types::EksContainerResourceRequirements>,
+ }
+ impl EksContainerOverride {
+     /// <p>A pointer to the container that you want to override. The name must match a unique container name that you wish to override.</p>
+@@ -45,18 +45,18 @@
+     /// </note>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.env.is_none()`.
+-    pub fn env(&self) -> &[crate::types::EksContainerEnvironmentVariable] {
++    pub fn env(&self) -> &[super::types::EksContainerEnvironmentVariable] {
+         self.env.as_deref().unwrap_or_default()
+     }
+     /// <p>The type and amount of resources to assign to a container. These override the settings in the job definition. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>
+-    pub fn resources(&self) -> ::std::option::Option<&crate::types::EksContainerResourceRequirements> {
++    pub fn resources(&self) -> ::std::option::Option<&super::types::EksContainerResourceRequirements> {
+         self.resources.as_ref()
+     }
+ }
+ impl EksContainerOverride {
+     /// Creates a new builder-style object to manufacture [`EksContainerOverride`](crate::types::EksContainerOverride).
+-    pub fn builder() -> crate::types::builders::EksContainerOverrideBuilder {
+-        crate::types::builders::EksContainerOverrideBuilder::default()
++    pub fn builder() -> super::types::builders::EksContainerOverrideBuilder {
++        super::types::builders::EksContainerOverrideBuilder::default()
+     }
+ }
+
+@@ -68,8 +68,8 @@
+     pub(crate) image: ::std::option::Option<::std::string::String>,
+     pub(crate) command: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     pub(crate) args: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+-    pub(crate) env: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerEnvironmentVariable>>,
+-    pub(crate) resources: ::std::option::Option<crate::types::EksContainerResourceRequirements>,
++    pub(crate) env: ::std::option::Option<::std::vec::Vec<super::types::EksContainerEnvironmentVariable>>,
++    pub(crate) resources: ::std::option::Option<super::types::EksContainerResourceRequirements>,
+ }
+ impl EksContainerOverrideBuilder {
+     /// <p>A pointer to the container that you want to override. The name must match a unique container name that you wish to override.</p>
+@@ -147,7 +147,7 @@
+     /// <p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch. Or, you can override the existing environment variables from the Docker image or the job definition.</p><note>
+     /// <p>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention is reserved for variables that Batch sets.</p>
+     /// </note>
+-    pub fn env(mut self, input: crate::types::EksContainerEnvironmentVariable) -> Self {
++    pub fn env(mut self, input: super::types::EksContainerEnvironmentVariable) -> Self {
+         let mut v = self.env.unwrap_or_default();
+         v.push(input);
+         self.env = ::std::option::Option::Some(v);
+@@ -156,7 +156,7 @@
+     /// <p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch. Or, you can override the existing environment variables from the Docker image or the job definition.</p><note>
+     /// <p>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention is reserved for variables that Batch sets.</p>
+     /// </note>
+-    pub fn set_env(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerEnvironmentVariable>>) -> Self {
++    pub fn set_env(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EksContainerEnvironmentVariable>>) -> Self {
+         self.env = input;
+         self
+     }
+@@ -163,26 +163,26 @@
+     /// <p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch. Or, you can override the existing environment variables from the Docker image or the job definition.</p><note>
+     /// <p>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention is reserved for variables that Batch sets.</p>
+     /// </note>
+-    pub fn get_env(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerEnvironmentVariable>> {
++    pub fn get_env(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EksContainerEnvironmentVariable>> {
+         &self.env
+     }
+     /// <p>The type and amount of resources to assign to a container. These override the settings in the job definition. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>
+-    pub fn resources(mut self, input: crate::types::EksContainerResourceRequirements) -> Self {
++    pub fn resources(mut self, input: super::types::EksContainerResourceRequirements) -> Self {
+         self.resources = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The type and amount of resources to assign to a container. These override the settings in the job definition. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>
+-    pub fn set_resources(mut self, input: ::std::option::Option<crate::types::EksContainerResourceRequirements>) -> Self {
++    pub fn set_resources(mut self, input: ::std::option::Option<super::types::EksContainerResourceRequirements>) -> Self {
+         self.resources = input;
+         self
+     }
+     /// <p>The type and amount of resources to assign to a container. These override the settings in the job definition. The supported resources include <code>memory</code>, <code>cpu</code>, and <code>nvidia.com/gpu</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Resource management for pods and containers</a> in the <i>Kubernetes documentation</i>.</p>
+-    pub fn get_resources(&self) -> &::std::option::Option<crate::types::EksContainerResourceRequirements> {
++    pub fn get_resources(&self) -> &::std::option::Option<super::types::EksContainerResourceRequirements> {
+         &self.resources
+     }
+     /// Consumes the builder and constructs a [`EksContainerOverride`](crate::types::EksContainerOverride).
+-    pub fn build(self) -> crate::types::EksContainerOverride {
+-        crate::types::EksContainerOverride {
++    pub fn build(self) -> super::types::EksContainerOverride {
++        super::types::EksContainerOverride {
+             name: self.name,
+             image: self.image,
+             command: self.command,

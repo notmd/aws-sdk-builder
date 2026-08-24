@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl StopQueryInput {
+     /// Creates a new builder-style object to manufacture [`StopQueryInput`](crate::operation::stop_query::StopQueryInput).
+-    pub fn builder() -> crate::operation::stop_query::builders::StopQueryInputBuilder {
+-        crate::operation::stop_query::builders::StopQueryInputBuilder::default()
++    pub fn builder() -> super::operation::stop_query::builders::StopQueryInputBuilder {
++        super::operation::stop_query::builders::StopQueryInputBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+         &self.query_id
+     }
+     /// Consumes the builder and constructs a [`StopQueryInput`](crate::operation::stop_query::StopQueryInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::stop_query::StopQueryInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::stop_query::StopQueryInput { query_id: self.query_id })
++    pub fn build(self) -> ::std::result::Result<super::operation::stop_query::StopQueryInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::stop_query::StopQueryInput { query_id: self.query_id })
+     }
+ }

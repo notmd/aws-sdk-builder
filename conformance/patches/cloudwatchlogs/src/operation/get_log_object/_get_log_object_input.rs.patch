@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl GetLogObjectInput {
+     /// Creates a new builder-style object to manufacture [`GetLogObjectInput`](crate::operation::get_log_object::GetLogObjectInput).
+-    pub fn builder() -> crate::operation::get_log_object::builders::GetLogObjectInputBuilder {
+-        crate::operation::get_log_object::builders::GetLogObjectInputBuilder::default()
++    pub fn builder() -> super::operation::get_log_object::builders::GetLogObjectInputBuilder {
++        super::operation::get_log_object::builders::GetLogObjectInputBuilder::default()
+     }
+ }
+
+@@ -66,8 +66,8 @@
+     /// Consumes the builder and constructs a [`GetLogObjectInput`](crate::operation::get_log_object::GetLogObjectInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_log_object::GetLogObjectInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::get_log_object::GetLogObjectInput {
++    ) -> ::std::result::Result<super::operation::get_log_object::GetLogObjectInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::get_log_object::GetLogObjectInput {
+             unmask: self.unmask,
+             log_object_pointer: self.log_object_pointer,
+         })

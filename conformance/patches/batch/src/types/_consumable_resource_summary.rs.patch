@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -51,8 +51,8 @@
+ }
+ impl ConsumableResourceSummary {
+     /// Creates a new builder-style object to manufacture [`ConsumableResourceSummary`](crate::types::ConsumableResourceSummary).
+-    pub fn builder() -> crate::types::builders::ConsumableResourceSummaryBuilder {
+-        crate::types::builders::ConsumableResourceSummaryBuilder::default()
++    pub fn builder() -> super::types::builders::ConsumableResourceSummaryBuilder {
++        super::types::builders::ConsumableResourceSummaryBuilder::default()
+     }
+ }
+
+@@ -158,8 +158,8 @@
+         &self.resource_type
+     }
+     /// Consumes the builder and constructs a [`ConsumableResourceSummary`](crate::types::ConsumableResourceSummary).
+-    pub fn build(self) -> crate::types::ConsumableResourceSummary {
+-        crate::types::ConsumableResourceSummary {
++    pub fn build(self) -> super::types::ConsumableResourceSummary {
++        super::types::ConsumableResourceSummary {
+             consumable_resource_arn: self.consumable_resource_arn,
+             consumable_resource_name: self.consumable_resource_name,
+             total_quantity: self.total_quantity,

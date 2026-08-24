@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl AnalyticsMetadataType {
+     /// Creates a new builder-style object to manufacture [`AnalyticsMetadataType`](crate::types::AnalyticsMetadataType).
+-    pub fn builder() -> crate::types::builders::AnalyticsMetadataTypeBuilder {
+-        crate::types::builders::AnalyticsMetadataTypeBuilder::default()
++    pub fn builder() -> super::types::builders::AnalyticsMetadataTypeBuilder {
++        super::types::builders::AnalyticsMetadataTypeBuilder::default()
+     }
+ }
+
+@@ -43,8 +43,8 @@
+         &self.analytics_endpoint_id
+     }
+     /// Consumes the builder and constructs a [`AnalyticsMetadataType`](crate::types::AnalyticsMetadataType).
+-    pub fn build(self) -> crate::types::AnalyticsMetadataType {
+-        crate::types::AnalyticsMetadataType {
++    pub fn build(self) -> super::types::AnalyticsMetadataType {
++        super::types::AnalyticsMetadataType {
+             analytics_endpoint_id: self.analytics_endpoint_id,
+         }
+     }

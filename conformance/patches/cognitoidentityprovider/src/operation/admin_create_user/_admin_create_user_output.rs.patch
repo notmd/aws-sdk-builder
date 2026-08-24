@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -5,12 +5,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct AdminCreateUserOutput {
+     /// <p>The new user's profile details.</p>
+-    pub user: ::std::option::Option<crate::types::UserType>,
++    pub user: ::std::option::Option<super::types::UserType>,
+     _request_id: Option<String>,
+ }
+ impl AdminCreateUserOutput {
+     /// <p>The new user's profile details.</p>
+-    pub fn user(&self) -> ::std::option::Option<&crate::types::UserType> {
++    pub fn user(&self) -> ::std::option::Option<&super::types::UserType> {
+         self.user.as_ref()
+     }
+ }
+@@ -21,8 +21,8 @@
+ }
+ impl AdminCreateUserOutput {
+     /// Creates a new builder-style object to manufacture [`AdminCreateUserOutput`](crate::operation::admin_create_user::AdminCreateUserOutput).
+-    pub fn builder() -> crate::operation::admin_create_user::builders::AdminCreateUserOutputBuilder {
+-        crate::operation::admin_create_user::builders::AdminCreateUserOutputBuilder::default()
++    pub fn builder() -> super::operation::admin_create_user::builders::AdminCreateUserOutputBuilder {
++        super::operation::admin_create_user::builders::AdminCreateUserOutputBuilder::default()
+     }
+ }
+
+@@ -30,22 +30,22 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct AdminCreateUserOutputBuilder {
+-    pub(crate) user: ::std::option::Option<crate::types::UserType>,
++    pub(crate) user: ::std::option::Option<super::types::UserType>,
+     _request_id: Option<String>,
+ }
+ impl AdminCreateUserOutputBuilder {
+     /// <p>The new user's profile details.</p>
+-    pub fn user(mut self, input: crate::types::UserType) -> Self {
++    pub fn user(mut self, input: super::types::UserType) -> Self {
+         self.user = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The new user's profile details.</p>
+-    pub fn set_user(mut self, input: ::std::option::Option<crate::types::UserType>) -> Self {
++    pub fn set_user(mut self, input: ::std::option::Option<super::types::UserType>) -> Self {
+         self.user = input;
+         self
+     }
+     /// <p>The new user's profile details.</p>
+-    pub fn get_user(&self) -> &::std::option::Option<crate::types::UserType> {
++    pub fn get_user(&self) -> &::std::option::Option<super::types::UserType> {
+         &self.user
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -58,8 +58,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`AdminCreateUserOutput`](crate::operation::admin_create_user::AdminCreateUserOutput).
+-    pub fn build(self) -> crate::operation::admin_create_user::AdminCreateUserOutput {
+-        crate::operation::admin_create_user::AdminCreateUserOutput {
++    pub fn build(self) -> super::operation::admin_create_user::AdminCreateUserOutput {
++        super::operation::admin_create_user::AdminCreateUserOutput {
+             user: self.user,
+             _request_id: self._request_id,
+         }

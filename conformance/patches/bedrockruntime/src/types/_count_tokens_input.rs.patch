@@ -1,0 +1,32 @@
+--- original
++++ modified
+@@ -5,9 +5,9 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub enum CountTokensInput {
+     /// <p>A <code>Converse</code> request for which to count tokens. Use this field when you want to count tokens for a conversation-based input that would be sent to the <code>Converse</code> operation.</p>
+-    Converse(crate::types::ConverseTokensRequest),
++    Converse(super::types::ConverseTokensRequest),
+     /// <p>An <code>InvokeModel</code> request for which to count tokens. Use this field when you want to count tokens for a raw text input that would be sent to the <code>InvokeModel</code> operation.</p>
+-    InvokeModel(crate::types::InvokeModelTokensRequest),
++    InvokeModel(super::types::InvokeModelTokensRequest),
+     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
+     /// An unknown enum variant
+     ///
+@@ -21,7 +21,7 @@
+ impl CountTokensInput {
+     /// Tries to convert the enum instance into [`Converse`](crate::types::CountTokensInput::Converse), extracting the inner [`ConverseTokensRequest`](crate::types::ConverseTokensRequest).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_converse(&self) -> ::std::result::Result<&crate::types::ConverseTokensRequest, &Self> {
++    pub fn as_converse(&self) -> ::std::result::Result<&super::types::ConverseTokensRequest, &Self> {
+         if let CountTokensInput::Converse(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -34,7 +34,7 @@
+     }
+     /// Tries to convert the enum instance into [`InvokeModel`](crate::types::CountTokensInput::InvokeModel), extracting the inner [`InvokeModelTokensRequest`](crate::types::InvokeModelTokensRequest).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_invoke_model(&self) -> ::std::result::Result<&crate::types::InvokeModelTokensRequest, &Self> {
++    pub fn as_invoke_model(&self) -> ::std::result::Result<&super::types::InvokeModelTokensRequest, &Self> {
+         if let CountTokensInput::InvokeModel(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {

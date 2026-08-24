@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl ListTagsLogGroupInput {
+     /// Creates a new builder-style object to manufacture [`ListTagsLogGroupInput`](crate::operation::list_tags_log_group::ListTagsLogGroupInput).
+-    pub fn builder() -> crate::operation::list_tags_log_group::builders::ListTagsLogGroupInputBuilder {
+-        crate::operation::list_tags_log_group::builders::ListTagsLogGroupInputBuilder::default()
++    pub fn builder() -> super::operation::list_tags_log_group::builders::ListTagsLogGroupInputBuilder {
++        super::operation::list_tags_log_group::builders::ListTagsLogGroupInputBuilder::default()
+     }
+ }
+
+@@ -45,8 +45,8 @@
+     /// Consumes the builder and constructs a [`ListTagsLogGroupInput`](crate::operation::list_tags_log_group::ListTagsLogGroupInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_tags_log_group::ListTagsLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_tags_log_group::ListTagsLogGroupInput {
++    ) -> ::std::result::Result<super::operation::list_tags_log_group::ListTagsLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_tags_log_group::ListTagsLogGroupInput {
+             log_group_name: self.log_group_name,
+         })
+     }

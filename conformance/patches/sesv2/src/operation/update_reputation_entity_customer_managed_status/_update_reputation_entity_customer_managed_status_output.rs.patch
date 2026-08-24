@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ impl UpdateReputationEntityCustomerManagedStatusOutput {
+     /// Creates a new builder-style object to manufacture [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
+     pub fn builder(
+-    ) -> crate::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder {
+-        crate::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder::default()
++    ) -> super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder {
++        super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder::default()
+     }
+ }
+
+@@ -36,8 +36,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
+-    pub fn build(self) -> crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
+-        crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
++    pub fn build(self) -> super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
++        super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
+             _request_id: self._request_id,
+         }
+     }

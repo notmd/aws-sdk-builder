@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -15,7 +15,7 @@
+     ///   - [`next_token(Option<String>)`](crate::operation::list_async_invokes::ListAsyncInvokesOutput::next_token): <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+     ///   - [`async_invoke_summaries(Option<Vec::<AsyncInvokeSummary>>)`](crate::operation::list_async_invokes::ListAsyncInvokesOutput::async_invoke_summaries): <p>A list of invocation summaries.</p>
+     /// - On failure, responds with [`SdkError<ListAsyncInvokesError>`](crate::operation::list_async_invokes::ListAsyncInvokesError)
+-    pub fn list_async_invokes(&self) -> crate::operation::list_async_invokes::builders::ListAsyncInvokesFluentBuilder {
+-        crate::operation::list_async_invokes::builders::ListAsyncInvokesFluentBuilder::new(self.handle.clone())
++    pub fn list_async_invokes(&self) -> super::operation::list_async_invokes::builders::ListAsyncInvokesFluentBuilder {
++        super::operation::list_async_invokes::builders::ListAsyncInvokesFluentBuilder::new(self.handle.clone())
+     }
+ }

@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl GuardrailOutputContent {
+     /// Creates a new builder-style object to manufacture [`GuardrailOutputContent`](crate::types::GuardrailOutputContent).
+-    pub fn builder() -> crate::types::builders::GuardrailOutputContentBuilder {
+-        crate::types::builders::GuardrailOutputContentBuilder::default()
++    pub fn builder() -> super::types::builders::GuardrailOutputContentBuilder {
++        super::types::builders::GuardrailOutputContentBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+         &self.text
+     }
+     /// Consumes the builder and constructs a [`GuardrailOutputContent`](crate::types::GuardrailOutputContent).
+-    pub fn build(self) -> crate::types::GuardrailOutputContent {
+-        crate::types::GuardrailOutputContent { text: self.text }
++    pub fn build(self) -> super::types::GuardrailOutputContent {
++        super::types::GuardrailOutputContent { text: self.text }
+     }
+ }

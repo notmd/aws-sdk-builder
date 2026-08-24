@@ -1,0 +1,119 @@
+--- original
++++ modified
+@@ -7,10 +7,10 @@
+     /// <p>The output from the model.</p>
+     pub model_output: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     /// <p>The input assessment.</p>
+-    pub input_assessment: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>>,
++    pub input_assessment: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::GuardrailAssessment>>,
+     /// <p>the output assessments.</p>
+     pub output_assessments:
+-        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::GuardrailAssessment>>>,
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::GuardrailAssessment>>>,
+     /// <p>Provides the reason for the action taken when harmful content is detected.</p>
+     pub action_reason: ::std::option::Option<::std::string::String>,
+ }
+@@ -22,13 +22,13 @@
+         self.model_output.as_deref().unwrap_or_default()
+     }
+     /// <p>The input assessment.</p>
+-    pub fn input_assessment(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>> {
++    pub fn input_assessment(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::GuardrailAssessment>> {
+         self.input_assessment.as_ref()
+     }
+     /// <p>the output assessments.</p>
+     pub fn output_assessments(
+         &self,
+-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::GuardrailAssessment>>> {
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::GuardrailAssessment>>> {
+         self.output_assessments.as_ref()
+     }
+     /// <p>Provides the reason for the action taken when harmful content is detected.</p>
+@@ -38,8 +38,8 @@
+ }
+ impl GuardrailTraceAssessment {
+     /// Creates a new builder-style object to manufacture [`GuardrailTraceAssessment`](crate::types::GuardrailTraceAssessment).
+-    pub fn builder() -> crate::types::builders::GuardrailTraceAssessmentBuilder {
+-        crate::types::builders::GuardrailTraceAssessmentBuilder::default()
++    pub fn builder() -> super::types::builders::GuardrailTraceAssessmentBuilder {
++        super::types::builders::GuardrailTraceAssessmentBuilder::default()
+     }
+ }
+
+@@ -48,9 +48,9 @@
+ #[non_exhaustive]
+ pub struct GuardrailTraceAssessmentBuilder {
+     pub(crate) model_output: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+-    pub(crate) input_assessment: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>>,
++    pub(crate) input_assessment: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::GuardrailAssessment>>,
+     pub(crate) output_assessments:
+-        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::GuardrailAssessment>>>,
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::GuardrailAssessment>>>,
+     pub(crate) action_reason: ::std::option::Option<::std::string::String>,
+ }
+ impl GuardrailTraceAssessmentBuilder {
+@@ -79,7 +79,7 @@
+     /// To override the contents of this collection use [`set_input_assessment`](Self::set_input_assessment).
+     ///
+     /// <p>The input assessment.</p>
+-    pub fn input_assessment(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::GuardrailAssessment) -> Self {
++    pub fn input_assessment(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::GuardrailAssessment) -> Self {
+         let mut hash_map = self.input_assessment.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.input_assessment = ::std::option::Option::Some(hash_map);
+@@ -88,7 +88,7 @@
+     /// <p>The input assessment.</p>
+     pub fn set_input_assessment(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::GuardrailAssessment>>,
+     ) -> Self {
+         self.input_assessment = input;
+         self
+@@ -96,7 +96,7 @@
+     /// <p>The input assessment.</p>
+     pub fn get_input_assessment(
+         &self,
+-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::GuardrailAssessment>> {
+         &self.input_assessment
+     }
+     /// Adds a key-value pair to `output_assessments`.
+@@ -107,7 +107,7 @@
+     pub fn output_assessments(
+         mut self,
+         k: impl ::std::convert::Into<::std::string::String>,
+-        v: ::std::vec::Vec<crate::types::GuardrailAssessment>,
++        v: ::std::vec::Vec<super::types::GuardrailAssessment>,
+     ) -> Self {
+         let mut hash_map = self.output_assessments.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+@@ -117,7 +117,7 @@
+     /// <p>the output assessments.</p>
+     pub fn set_output_assessments(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::GuardrailAssessment>>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::GuardrailAssessment>>>,
+     ) -> Self {
+         self.output_assessments = input;
+         self
+@@ -125,7 +125,7 @@
+     /// <p>the output assessments.</p>
+     pub fn get_output_assessments(
+         &self,
+-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::GuardrailAssessment>>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::GuardrailAssessment>>> {
+         &self.output_assessments
+     }
+     /// <p>Provides the reason for the action taken when harmful content is detected.</p>
+@@ -143,8 +143,8 @@
+         &self.action_reason
+     }
+     /// Consumes the builder and constructs a [`GuardrailTraceAssessment`](crate::types::GuardrailTraceAssessment).
+-    pub fn build(self) -> crate::types::GuardrailTraceAssessment {
+-        crate::types::GuardrailTraceAssessment {
++    pub fn build(self) -> super::types::GuardrailTraceAssessment {
++        super::types::GuardrailTraceAssessment {
+             model_output: self.model_output,
+             input_assessment: self.input_assessment,
+             output_assessments: self.output_assessments,

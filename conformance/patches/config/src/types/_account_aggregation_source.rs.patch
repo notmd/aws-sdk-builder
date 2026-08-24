@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -30,8 +30,8 @@
+ }
+ impl AccountAggregationSource {
+     /// Creates a new builder-style object to manufacture [`AccountAggregationSource`](crate::types::AccountAggregationSource).
+-    pub fn builder() -> crate::types::builders::AccountAggregationSourceBuilder {
+-        crate::types::builders::AccountAggregationSourceBuilder::default()
++    pub fn builder() -> super::types::builders::AccountAggregationSourceBuilder {
++        super::types::builders::AccountAggregationSourceBuilder::default()
+     }
+ }
+
+@@ -101,8 +101,8 @@
+     /// Consumes the builder and constructs a [`AccountAggregationSource`](crate::types::AccountAggregationSource).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`account_ids`](crate::types::builders::AccountAggregationSourceBuilder::account_ids)
+-    pub fn build(self) -> ::std::result::Result<crate::types::AccountAggregationSource, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::AccountAggregationSource {
++    pub fn build(self) -> ::std::result::Result<super::types::AccountAggregationSource, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::AccountAggregationSource {
+             account_ids: self.account_ids.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "account_ids",

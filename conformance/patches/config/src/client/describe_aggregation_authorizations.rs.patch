@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -12,7 +12,7 @@
+     /// - On failure, responds with [`SdkError<DescribeAggregationAuthorizationsError>`](crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsError)
+     pub fn describe_aggregation_authorizations(
+         &self,
+-    ) -> crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsFluentBuilder {
+-        crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsFluentBuilder {
++        super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsFluentBuilder::new(self.handle.clone())
+     }
+ }

@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     ///   - [`reason(impl Into<String>)`](crate::operation::terminate_service_job::builders::TerminateServiceJobFluentBuilder::reason) / [`set_reason(Option<String>)`](crate::operation::terminate_service_job::builders::TerminateServiceJobFluentBuilder::set_reason):<br>required: **true**<br><p>A message to attach to the service job that explains the reason for canceling it. This message is returned by <code>DescribeServiceJob</code> operations on the service job.</p><br>
+     /// - On success, responds with [`TerminateServiceJobOutput`](crate::operation::terminate_service_job::TerminateServiceJobOutput)
+     /// - On failure, responds with [`SdkError<TerminateServiceJobError>`](crate::operation::terminate_service_job::TerminateServiceJobError)
+-    pub fn terminate_service_job(&self) -> crate::operation::terminate_service_job::builders::TerminateServiceJobFluentBuilder {
+-        crate::operation::terminate_service_job::builders::TerminateServiceJobFluentBuilder::new(self.handle.clone())
++    pub fn terminate_service_job(&self) -> super::operation::terminate_service_job::builders::TerminateServiceJobFluentBuilder {
++        super::operation::terminate_service_job::builders::TerminateServiceJobFluentBuilder::new(self.handle.clone())
+     }
+ }

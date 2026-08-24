@@ -1,0 +1,38 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::CitationsDelta>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::CitationsDelta>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::CitationsDeltaBuilder::default();
++            let mut builder = super::types::builders::CitationsDeltaBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -37,7 +37,7 @@
+                         }
+                         "sourceContent" => {
+                             builder = builder.set_source_content(
+-                                crate::protocol_serde::shape_citation_source_content_list_delta::de_citation_source_content_list_delta(
++                                super::protocol_serde::shape_citation_source_content_list_delta::de_citation_source_content_list_delta(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -45,7 +45,7 @@
+                             );
+                         }
+                         "location" => {
+-                            builder = builder.set_location(crate::protocol_serde::shape_citation_location::de_citation_location(
++                            builder = builder.set_location(super::protocol_serde::shape_citation_location::de_citation_location(
+                                 tokens,
+                                 _value,
+                                 depth + 1,

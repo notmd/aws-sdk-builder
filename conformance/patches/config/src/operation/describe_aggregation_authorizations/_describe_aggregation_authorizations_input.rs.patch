@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl DescribeAggregationAuthorizationsInput {
+     /// Creates a new builder-style object to manufacture [`DescribeAggregationAuthorizationsInput`](crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput).
+-    pub fn builder() -> crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder {
+-        crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder::default()
++    pub fn builder() -> super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder {
++        super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder::default()
+     }
+ }
+
+@@ -65,11 +65,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput,
++        super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput {
++            super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput {
+                 limit: self.limit,
+                 next_token: self.next_token,
+             },

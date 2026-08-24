@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     /// - On success, responds with [`UpdateUserPoolReplicaOutput`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaOutput) with field(s):
+     ///   - [`user_pool_replica(Option<UserPoolReplicaType>)`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaOutput::user_pool_replica): <p>Information about the updated user pool replica.</p>
+     /// - On failure, responds with [`SdkError<UpdateUserPoolReplicaError>`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError)
+-    pub fn update_user_pool_replica(&self) -> crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder {
+-        crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder::new(self.handle.clone())
++    pub fn update_user_pool_replica(&self) -> super::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder {
++        super::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder::new(self.handle.clone())
+     }
+ }

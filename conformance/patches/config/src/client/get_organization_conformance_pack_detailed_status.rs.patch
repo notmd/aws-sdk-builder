@@ -1,0 +1,14 @@
+--- original
++++ modified
+@@ -14,9 +14,9 @@
+     /// - On failure, responds with [`SdkError<GetOrganizationConformancePackDetailedStatusError>`](crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError)
+     pub fn get_organization_conformance_pack_detailed_status(
+         &self,
+-    ) -> crate::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusFluentBuilder
++    ) -> super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusFluentBuilder
+     {
+-        crate::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusFluentBuilder::new(
++        super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusFluentBuilder::new(
+             self.handle.clone(),
+         )
+     }

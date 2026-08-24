@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -12,7 +12,7 @@
+     /// - On failure, responds with [`SdkError<ListDeliverabilityTestReportsError>`](crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError)
+     pub fn list_deliverability_test_reports(
+         &self,
+-    ) -> crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsFluentBuilder {
+-        crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsFluentBuilder {
++        super::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsFluentBuilder::new(self.handle.clone())
+     }
+ }

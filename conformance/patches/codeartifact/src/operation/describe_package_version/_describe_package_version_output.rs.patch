@@ -1,0 +1,67 @@
+--- original
++++ modified
+@@ -4,12 +4,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DescribePackageVersionOutput {
+     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a> object that contains information about the requested package version.</p>
+-    pub package_version: ::std::option::Option<crate::types::PackageVersionDescription>,
++    pub package_version: ::std::option::Option<super::types::PackageVersionDescription>,
+     _request_id: Option<String>,
+ }
+ impl DescribePackageVersionOutput {
+     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a> object that contains information about the requested package version.</p>
+-    pub fn package_version(&self) -> ::std::option::Option<&crate::types::PackageVersionDescription> {
++    pub fn package_version(&self) -> ::std::option::Option<&super::types::PackageVersionDescription> {
+         self.package_version.as_ref()
+     }
+ }
+@@ -20,8 +20,8 @@
+ }
+ impl DescribePackageVersionOutput {
+     /// Creates a new builder-style object to manufacture [`DescribePackageVersionOutput`](crate::operation::describe_package_version::DescribePackageVersionOutput).
+-    pub fn builder() -> crate::operation::describe_package_version::builders::DescribePackageVersionOutputBuilder {
+-        crate::operation::describe_package_version::builders::DescribePackageVersionOutputBuilder::default()
++    pub fn builder() -> super::operation::describe_package_version::builders::DescribePackageVersionOutputBuilder {
++        super::operation::describe_package_version::builders::DescribePackageVersionOutputBuilder::default()
+     }
+ }
+
+@@ -29,23 +29,23 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct DescribePackageVersionOutputBuilder {
+-    pub(crate) package_version: ::std::option::Option<crate::types::PackageVersionDescription>,
++    pub(crate) package_version: ::std::option::Option<super::types::PackageVersionDescription>,
+     _request_id: Option<String>,
+ }
+ impl DescribePackageVersionOutputBuilder {
+     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a> object that contains information about the requested package version.</p>
+     /// This field is required.
+-    pub fn package_version(mut self, input: crate::types::PackageVersionDescription) -> Self {
++    pub fn package_version(mut self, input: super::types::PackageVersionDescription) -> Self {
+         self.package_version = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a> object that contains information about the requested package version.</p>
+-    pub fn set_package_version(mut self, input: ::std::option::Option<crate::types::PackageVersionDescription>) -> Self {
++    pub fn set_package_version(mut self, input: ::std::option::Option<super::types::PackageVersionDescription>) -> Self {
+         self.package_version = input;
+         self
+     }
+     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a> object that contains information about the requested package version.</p>
+-    pub fn get_package_version(&self) -> &::std::option::Option<crate::types::PackageVersionDescription> {
++    pub fn get_package_version(&self) -> &::std::option::Option<super::types::PackageVersionDescription> {
+         &self.package_version
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -58,8 +58,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DescribePackageVersionOutput`](crate::operation::describe_package_version::DescribePackageVersionOutput).
+-    pub fn build(self) -> crate::operation::describe_package_version::DescribePackageVersionOutput {
+-        crate::operation::describe_package_version::DescribePackageVersionOutput {
++    pub fn build(self) -> super::operation::describe_package_version::DescribePackageVersionOutput {
++        super::operation::describe_package_version::DescribePackageVersionOutput {
+             package_version: self.package_version,
+             _request_id: self._request_id,
+         }

@@ -1,0 +1,115 @@
+--- original
++++ modified
+@@ -4,10 +4,10 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct FilterLogEventsOutput {
+     /// <p>The matched events.</p>
+-    pub events: ::std::option::Option<::std::vec::Vec<crate::types::FilteredLogEvent>>,
++    pub events: ::std::option::Option<::std::vec::Vec<super::types::FilteredLogEvent>>,
+     /// <p><b>Important</b> As of May 15, 2020, this parameter is no longer supported. This parameter returns an empty list.</p>
+     /// <p>Indicates which log streams have been searched and whether each has been searched completely.</p>
+-    pub searched_log_streams: ::std::option::Option<::std::vec::Vec<crate::types::SearchedLogStream>>,
++    pub searched_log_streams: ::std::option::Option<::std::vec::Vec<super::types::SearchedLogStream>>,
+     /// <p>The token for the next set of items in the sorting direction specified by the <code>startFromHead</code> parameter in the first request. The token expires after 24 hours.</p>
+     /// <p>If the results don't include a <code>nextToken</code>, then pagination is finished.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+@@ -17,7 +17,7 @@
+     /// <p>The matched events.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.events.is_none()`.
+-    pub fn events(&self) -> &[crate::types::FilteredLogEvent] {
++    pub fn events(&self) -> &[super::types::FilteredLogEvent] {
+         self.events.as_deref().unwrap_or_default()
+     }
+     /// <p><b>Important</b> As of May 15, 2020, this parameter is no longer supported. This parameter returns an empty list.</p>
+@@ -24,7 +24,7 @@
+     /// <p>Indicates which log streams have been searched and whether each has been searched completely.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.searched_log_streams.is_none()`.
+-    pub fn searched_log_streams(&self) -> &[crate::types::SearchedLogStream] {
++    pub fn searched_log_streams(&self) -> &[super::types::SearchedLogStream] {
+         self.searched_log_streams.as_deref().unwrap_or_default()
+     }
+     /// <p>The token for the next set of items in the sorting direction specified by the <code>startFromHead</code> parameter in the first request. The token expires after 24 hours.</p>
+@@ -40,8 +40,8 @@
+ }
+ impl FilterLogEventsOutput {
+     /// Creates a new builder-style object to manufacture [`FilterLogEventsOutput`](crate::operation::filter_log_events::FilterLogEventsOutput).
+-    pub fn builder() -> crate::operation::filter_log_events::builders::FilterLogEventsOutputBuilder {
+-        crate::operation::filter_log_events::builders::FilterLogEventsOutputBuilder::default()
++    pub fn builder() -> super::operation::filter_log_events::builders::FilterLogEventsOutputBuilder {
++        super::operation::filter_log_events::builders::FilterLogEventsOutputBuilder::default()
+     }
+ }
+
+@@ -49,8 +49,8 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct FilterLogEventsOutputBuilder {
+-    pub(crate) events: ::std::option::Option<::std::vec::Vec<crate::types::FilteredLogEvent>>,
+-    pub(crate) searched_log_streams: ::std::option::Option<::std::vec::Vec<crate::types::SearchedLogStream>>,
++    pub(crate) events: ::std::option::Option<::std::vec::Vec<super::types::FilteredLogEvent>>,
++    pub(crate) searched_log_streams: ::std::option::Option<::std::vec::Vec<super::types::SearchedLogStream>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -60,7 +60,7 @@
+     /// To override the contents of this collection use [`set_events`](Self::set_events).
+     ///
+     /// <p>The matched events.</p>
+-    pub fn events(mut self, input: crate::types::FilteredLogEvent) -> Self {
++    pub fn events(mut self, input: super::types::FilteredLogEvent) -> Self {
+         let mut v = self.events.unwrap_or_default();
+         v.push(input);
+         self.events = ::std::option::Option::Some(v);
+@@ -67,12 +67,12 @@
+         self
+     }
+     /// <p>The matched events.</p>
+-    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FilteredLogEvent>>) -> Self {
++    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FilteredLogEvent>>) -> Self {
+         self.events = input;
+         self
+     }
+     /// <p>The matched events.</p>
+-    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FilteredLogEvent>> {
++    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FilteredLogEvent>> {
+         &self.events
+     }
+     /// Appends an item to `searched_log_streams`.
+@@ -81,7 +81,7 @@
+     ///
+     /// <p><b>Important</b> As of May 15, 2020, this parameter is no longer supported. This parameter returns an empty list.</p>
+     /// <p>Indicates which log streams have been searched and whether each has been searched completely.</p>
+-    pub fn searched_log_streams(mut self, input: crate::types::SearchedLogStream) -> Self {
++    pub fn searched_log_streams(mut self, input: super::types::SearchedLogStream) -> Self {
+         let mut v = self.searched_log_streams.unwrap_or_default();
+         v.push(input);
+         self.searched_log_streams = ::std::option::Option::Some(v);
+@@ -89,13 +89,13 @@
+     }
+     /// <p><b>Important</b> As of May 15, 2020, this parameter is no longer supported. This parameter returns an empty list.</p>
+     /// <p>Indicates which log streams have been searched and whether each has been searched completely.</p>
+-    pub fn set_searched_log_streams(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchedLogStream>>) -> Self {
++    pub fn set_searched_log_streams(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SearchedLogStream>>) -> Self {
+         self.searched_log_streams = input;
+         self
+     }
+     /// <p><b>Important</b> As of May 15, 2020, this parameter is no longer supported. This parameter returns an empty list.</p>
+     /// <p>Indicates which log streams have been searched and whether each has been searched completely.</p>
+-    pub fn get_searched_log_streams(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchedLogStream>> {
++    pub fn get_searched_log_streams(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SearchedLogStream>> {
+         &self.searched_log_streams
+     }
+     /// <p>The token for the next set of items in the sorting direction specified by the <code>startFromHead</code> parameter in the first request. The token expires after 24 hours.</p>
+@@ -125,8 +125,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`FilterLogEventsOutput`](crate::operation::filter_log_events::FilterLogEventsOutput).
+-    pub fn build(self) -> crate::operation::filter_log_events::FilterLogEventsOutput {
+-        crate::operation::filter_log_events::FilterLogEventsOutput {
++    pub fn build(self) -> super::operation::filter_log_events::FilterLogEventsOutput {
++        super::operation::filter_log_events::FilterLogEventsOutput {
+             events: self.events,
+             searched_log_streams: self.searched_log_streams,
+             next_token: self.next_token,

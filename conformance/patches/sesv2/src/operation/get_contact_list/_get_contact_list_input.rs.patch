@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl GetContactListInput {
+     /// Creates a new builder-style object to manufacture [`GetContactListInput`](crate::operation::get_contact_list::GetContactListInput).
+-    pub fn builder() -> crate::operation::get_contact_list::builders::GetContactListInputBuilder {
+-        crate::operation::get_contact_list::builders::GetContactListInputBuilder::default()
++    pub fn builder() -> super::operation::get_contact_list::builders::GetContactListInputBuilder {
++        super::operation::get_contact_list::builders::GetContactListInputBuilder::default()
+     }
+ }
+
+@@ -44,8 +44,8 @@
+     /// Consumes the builder and constructs a [`GetContactListInput`](crate::operation::get_contact_list::GetContactListInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_contact_list::GetContactListInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::get_contact_list::GetContactListInput {
++    ) -> ::std::result::Result<super::operation::get_contact_list::GetContactListInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::get_contact_list::GetContactListInput {
+             contact_list_name: self.contact_list_name,
+         })
+     }

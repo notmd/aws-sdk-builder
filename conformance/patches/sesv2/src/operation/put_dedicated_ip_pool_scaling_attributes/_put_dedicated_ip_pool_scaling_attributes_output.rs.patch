@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl PutDedicatedIpPoolScalingAttributesOutput {
+     /// Creates a new builder-style object to manufacture [`PutDedicatedIpPoolScalingAttributesOutput`](crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesOutput).
+-    pub fn builder() -> crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesOutputBuilder {
+-        crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesOutputBuilder::default()
++    pub fn builder() -> super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesOutputBuilder {
++        super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutDedicatedIpPoolScalingAttributesOutput`](crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesOutput).
+-    pub fn build(self) -> crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesOutput {
+-        crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesOutput {
++    pub fn build(self) -> super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesOutput {
++        super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesOutput {
+             _request_id: self._request_id,
+         }
+     }

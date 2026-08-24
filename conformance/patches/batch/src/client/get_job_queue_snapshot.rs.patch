@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     ///   - [`front_of_quota_shares(Option<FrontOfQuotaSharesDetail>)`](crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotOutput::front_of_quota_shares): <p>The first <code>RUNNABLE</code> job in each quota share. Jobs are ordered based on their job priority and share usage.</p>
+     ///   - [`queue_utilization(Option<QueueSnapshotUtilizationDetail>)`](crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotOutput::queue_utilization): <p>The job queue's capacity utilization, including total usage and breakdown per given share.</p>
+     /// - On failure, responds with [`SdkError<GetJobQueueSnapshotError>`](crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError)
+-    pub fn get_job_queue_snapshot(&self) -> crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotFluentBuilder {
+-        crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotFluentBuilder::new(self.handle.clone())
++    pub fn get_job_queue_snapshot(&self) -> super::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotFluentBuilder {
++        super::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotFluentBuilder::new(self.handle.clone())
+     }
+ }

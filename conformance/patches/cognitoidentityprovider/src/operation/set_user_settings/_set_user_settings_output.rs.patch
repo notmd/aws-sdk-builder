@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl SetUserSettingsOutput {
+     /// Creates a new builder-style object to manufacture [`SetUserSettingsOutput`](crate::operation::set_user_settings::SetUserSettingsOutput).
+-    pub fn builder() -> crate::operation::set_user_settings::builders::SetUserSettingsOutputBuilder {
+-        crate::operation::set_user_settings::builders::SetUserSettingsOutputBuilder::default()
++    pub fn builder() -> super::operation::set_user_settings::builders::SetUserSettingsOutputBuilder {
++        super::operation::set_user_settings::builders::SetUserSettingsOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`SetUserSettingsOutput`](crate::operation::set_user_settings::SetUserSettingsOutput).
+-    pub fn build(self) -> crate::operation::set_user_settings::SetUserSettingsOutput {
+-        crate::operation::set_user_settings::SetUserSettingsOutput {
++    pub fn build(self) -> super::operation::set_user_settings::SetUserSettingsOutput {
++        super::operation::set_user_settings::SetUserSettingsOutput {
+             _request_id: self._request_id,
+         }
+     }

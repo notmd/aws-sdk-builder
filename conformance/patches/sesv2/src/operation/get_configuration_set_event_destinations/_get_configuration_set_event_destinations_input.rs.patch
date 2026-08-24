@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl GetConfigurationSetEventDestinationsInput {
+     /// Creates a new builder-style object to manufacture [`GetConfigurationSetEventDestinationsInput`](crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsInput).
+-    pub fn builder() -> crate::operation::get_configuration_set_event_destinations::builders::GetConfigurationSetEventDestinationsInputBuilder {
+-        crate::operation::get_configuration_set_event_destinations::builders::GetConfigurationSetEventDestinationsInputBuilder::default()
++    pub fn builder() -> super::operation::get_configuration_set_event_destinations::builders::GetConfigurationSetEventDestinationsInputBuilder {
++        super::operation::get_configuration_set_event_destinations::builders::GetConfigurationSetEventDestinationsInputBuilder::default()
+     }
+ }
+
+@@ -46,11 +46,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsInput,
++        super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsInput {
++            super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsInput {
+                 configuration_set_name: self.configuration_set_name,
+             },
+         )

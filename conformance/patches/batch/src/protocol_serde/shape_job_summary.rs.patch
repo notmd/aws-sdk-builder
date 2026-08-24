@@ -1,0 +1,71 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::JobSummary>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::JobSummary>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::JobSummaryBuilder::default();
++            let mut builder = super::types::builders::JobSummaryBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -45,7 +45,7 @@
+                             }
+                             "capacityUsage" => {
+                                 builder = builder.set_capacity_usage(
+-                                    crate::protocol_serde::shape_job_capacity_usage_summary_list::de_job_capacity_usage_summary_list(
++                                    super::protocol_serde::shape_job_capacity_usage_summary_list::de_job_capacity_usage_summary_list(
+                                         tokens,
+                                         _value,
+                                         depth + 1,
+@@ -76,7 +76,7 @@
+                             "status" => {
+                                 builder = builder.set_status(
+                                     ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                        .map(|s| s.to_unescaped().map(|u| crate::types::JobStatus::from(u.as_ref())))
++                                        .map(|s| s.to_unescaped().map(|u| super::types::JobStatus::from(u.as_ref())))
+                                         .transpose()?,
+                                 );
+                             }
+@@ -102,7 +102,7 @@
+                                 );
+                             }
+                             "container" => {
+-                                builder = builder.set_container(crate::protocol_serde::shape_container_summary::de_container_summary(
++                                builder = builder.set_container(super::protocol_serde::shape_container_summary::de_container_summary(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -110,12 +110,12 @@
+                             }
+                             "arrayProperties" => {
+                                 builder = builder.set_array_properties(
+-                                    crate::protocol_serde::shape_array_properties_summary::de_array_properties_summary(tokens, _value, depth + 1)?,
++                                    super::protocol_serde::shape_array_properties_summary::de_array_properties_summary(tokens, _value, depth + 1)?,
+                                 );
+                             }
+                             "nodeProperties" => {
+                                 builder = builder.set_node_properties(
+-                                    crate::protocol_serde::shape_node_properties_summary::de_node_properties_summary(tokens, _value, depth + 1)?,
++                                    super::protocol_serde::shape_node_properties_summary::de_node_properties_summary(tokens, _value, depth + 1)?,
+                                 );
+                             }
+                             "jobDefinition" => {
+@@ -135,7 +135,7 @@
+                     }
+                 }
+             }
+-            Ok(Some(crate::serde_util::job_summary_correct_errors(builder).build()))
++            Ok(Some(super::serde_util::job_summary_correct_errors(builder).build()))
+         }
+         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+             "expected start object or null",

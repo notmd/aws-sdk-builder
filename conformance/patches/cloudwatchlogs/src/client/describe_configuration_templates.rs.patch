@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -16,7 +16,7 @@
+     /// - On failure, responds with [`SdkError<DescribeConfigurationTemplatesError>`](crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesError)
+     pub fn describe_configuration_templates(
+         &self,
+-    ) -> crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder {
+-        crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder {
++        super::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder::new(self.handle.clone())
+     }
+ }

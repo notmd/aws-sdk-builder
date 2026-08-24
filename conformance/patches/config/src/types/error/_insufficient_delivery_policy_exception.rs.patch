@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for InsufficientDeliveryPolicyException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::InsufficientDeliveryPolicyException {
++impl ::aws_types::request_id::RequestId for super::types::error::InsufficientDeliveryPolicyException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl InsufficientDeliveryPolicyException {
+     /// Creates a new builder-style object to manufacture [`InsufficientDeliveryPolicyException`](crate::types::error::InsufficientDeliveryPolicyException).
+-    pub fn builder() -> crate::types::error::builders::InsufficientDeliveryPolicyExceptionBuilder {
+-        crate::types::error::builders::InsufficientDeliveryPolicyExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::InsufficientDeliveryPolicyExceptionBuilder {
++        super::types::error::builders::InsufficientDeliveryPolicyExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`InsufficientDeliveryPolicyException`](crate::types::error::InsufficientDeliveryPolicyException).
+-    pub fn build(self) -> crate::types::error::InsufficientDeliveryPolicyException {
+-        crate::types::error::InsufficientDeliveryPolicyException {
++    pub fn build(self) -> super::types::error::InsufficientDeliveryPolicyException {
++        super::types::error::InsufficientDeliveryPolicyException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

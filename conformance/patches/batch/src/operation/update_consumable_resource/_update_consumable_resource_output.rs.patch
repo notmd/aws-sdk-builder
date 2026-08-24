@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -32,8 +32,8 @@
+ }
+ impl UpdateConsumableResourceOutput {
+     /// Creates a new builder-style object to manufacture [`UpdateConsumableResourceOutput`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput).
+-    pub fn builder() -> crate::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder {
+-        crate::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder::default()
++    pub fn builder() -> super::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder {
++        super::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder::default()
+     }
+ }
+
+@@ -101,8 +101,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UpdateConsumableResourceOutput`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput).
+-    pub fn build(self) -> crate::operation::update_consumable_resource::UpdateConsumableResourceOutput {
+-        crate::operation::update_consumable_resource::UpdateConsumableResourceOutput {
++    pub fn build(self) -> super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
++        super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
+             consumable_resource_name: self.consumable_resource_name,
+             consumable_resource_arn: self.consumable_resource_arn,
+             total_quantity: self.total_quantity,

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl UpdateEmailIdentityPolicyOutput {
+     /// Creates a new builder-style object to manufacture [`UpdateEmailIdentityPolicyOutput`](crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput).
+-    pub fn builder() -> crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyOutputBuilder {
+-        crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyOutputBuilder::default()
++    pub fn builder() -> super::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyOutputBuilder {
++        super::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UpdateEmailIdentityPolicyOutput`](crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput).
+-    pub fn build(self) -> crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput {
+-        crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput {
++    pub fn build(self) -> super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput {
++        super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput {
+             _request_id: self._request_id,
+         }
+     }

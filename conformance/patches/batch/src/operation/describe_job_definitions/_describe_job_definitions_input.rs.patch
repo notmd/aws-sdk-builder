@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -45,8 +45,8 @@
+ }
+ impl DescribeJobDefinitionsInput {
+     /// Creates a new builder-style object to manufacture [`DescribeJobDefinitionsInput`](crate::operation::describe_job_definitions::DescribeJobDefinitionsInput).
+-    pub fn builder() -> crate::operation::describe_job_definitions::builders::DescribeJobDefinitionsInputBuilder {
+-        crate::operation::describe_job_definitions::builders::DescribeJobDefinitionsInputBuilder::default()
++    pub fn builder() -> super::operation::describe_job_definitions::builders::DescribeJobDefinitionsInputBuilder {
++        super::operation::describe_job_definitions::builders::DescribeJobDefinitionsInputBuilder::default()
+     }
+ }
+
+@@ -147,10 +147,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_job_definitions::DescribeJobDefinitionsInput,
++        super::operation::describe_job_definitions::DescribeJobDefinitionsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::describe_job_definitions::DescribeJobDefinitionsInput {
++        ::std::result::Result::Ok(super::operation::describe_job_definitions::DescribeJobDefinitionsInput {
+             job_definitions: self.job_definitions,
+             max_results: self.max_results,
+             job_definition_name: self.job_definition_name,

@@ -1,0 +1,270 @@
+--- original
++++ modified
+@@ -7,21 +7,21 @@
+     /// <p>The name of the configuration set.</p>
+     pub configuration_set_name: ::std::option::Option<::std::string::String>,
+     /// <p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>
+-    pub tracking_options: ::std::option::Option<crate::types::TrackingOptions>,
++    pub tracking_options: ::std::option::Option<super::types::TrackingOptions>,
+     /// <p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>
+-    pub delivery_options: ::std::option::Option<crate::types::DeliveryOptions>,
++    pub delivery_options: ::std::option::Option<super::types::DeliveryOptions>,
+     /// <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
+-    pub reputation_options: ::std::option::Option<crate::types::ReputationOptions>,
++    pub reputation_options: ::std::option::Option<super::types::ReputationOptions>,
+     /// <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
+-    pub sending_options: ::std::option::Option<crate::types::SendingOptions>,
++    pub sending_options: ::std::option::Option<super::types::SendingOptions>,
+     /// <p>An array of objects that define the tags (keys and values) that are associated with the configuration set.</p>
+-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+     /// <p>An object that contains information about the suppression list preferences for your account or for a specific tenant.</p>
+-    pub suppression_options: ::std::option::Option<crate::types::SuppressionOptions>,
++    pub suppression_options: ::std::option::Option<super::types::SuppressionOptions>,
+     /// <p>An object that contains information about the VDM preferences for your configuration set.</p>
+-    pub vdm_options: ::std::option::Option<crate::types::VdmOptions>,
++    pub vdm_options: ::std::option::Option<super::types::VdmOptions>,
+     /// <p>An object that defines the MailManager archive where sent emails are archived that you send using the configuration set.</p>
+-    pub archiving_options: ::std::option::Option<crate::types::ArchivingOptions>,
++    pub archiving_options: ::std::option::Option<super::types::ArchivingOptions>,
+     _request_id: Option<String>,
+ }
+ impl GetConfigurationSetOutput {
+@@ -30,37 +30,37 @@
+         self.configuration_set_name.as_deref()
+     }
+     /// <p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>
+-    pub fn tracking_options(&self) -> ::std::option::Option<&crate::types::TrackingOptions> {
++    pub fn tracking_options(&self) -> ::std::option::Option<&super::types::TrackingOptions> {
+         self.tracking_options.as_ref()
+     }
+     /// <p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>
+-    pub fn delivery_options(&self) -> ::std::option::Option<&crate::types::DeliveryOptions> {
++    pub fn delivery_options(&self) -> ::std::option::Option<&super::types::DeliveryOptions> {
+         self.delivery_options.as_ref()
+     }
+     /// <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
+-    pub fn reputation_options(&self) -> ::std::option::Option<&crate::types::ReputationOptions> {
++    pub fn reputation_options(&self) -> ::std::option::Option<&super::types::ReputationOptions> {
+         self.reputation_options.as_ref()
+     }
+     /// <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
+-    pub fn sending_options(&self) -> ::std::option::Option<&crate::types::SendingOptions> {
++    pub fn sending_options(&self) -> ::std::option::Option<&super::types::SendingOptions> {
+         self.sending_options.as_ref()
+     }
+     /// <p>An array of objects that define the tags (keys and values) that are associated with the configuration set.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
+-    pub fn tags(&self) -> &[crate::types::Tag] {
++    pub fn tags(&self) -> &[super::types::Tag] {
+         self.tags.as_deref().unwrap_or_default()
+     }
+     /// <p>An object that contains information about the suppression list preferences for your account or for a specific tenant.</p>
+-    pub fn suppression_options(&self) -> ::std::option::Option<&crate::types::SuppressionOptions> {
++    pub fn suppression_options(&self) -> ::std::option::Option<&super::types::SuppressionOptions> {
+         self.suppression_options.as_ref()
+     }
+     /// <p>An object that contains information about the VDM preferences for your configuration set.</p>
+-    pub fn vdm_options(&self) -> ::std::option::Option<&crate::types::VdmOptions> {
++    pub fn vdm_options(&self) -> ::std::option::Option<&super::types::VdmOptions> {
+         self.vdm_options.as_ref()
+     }
+     /// <p>An object that defines the MailManager archive where sent emails are archived that you send using the configuration set.</p>
+-    pub fn archiving_options(&self) -> ::std::option::Option<&crate::types::ArchivingOptions> {
++    pub fn archiving_options(&self) -> ::std::option::Option<&super::types::ArchivingOptions> {
+         self.archiving_options.as_ref()
+     }
+ }
+@@ -71,8 +71,8 @@
+ }
+ impl GetConfigurationSetOutput {
+     /// Creates a new builder-style object to manufacture [`GetConfigurationSetOutput`](crate::operation::get_configuration_set::GetConfigurationSetOutput).
+-    pub fn builder() -> crate::operation::get_configuration_set::builders::GetConfigurationSetOutputBuilder {
+-        crate::operation::get_configuration_set::builders::GetConfigurationSetOutputBuilder::default()
++    pub fn builder() -> super::operation::get_configuration_set::builders::GetConfigurationSetOutputBuilder {
++        super::operation::get_configuration_set::builders::GetConfigurationSetOutputBuilder::default()
+     }
+ }
+
+@@ -81,14 +81,14 @@
+ #[non_exhaustive]
+ pub struct GetConfigurationSetOutputBuilder {
+     pub(crate) configuration_set_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) tracking_options: ::std::option::Option<crate::types::TrackingOptions>,
+-    pub(crate) delivery_options: ::std::option::Option<crate::types::DeliveryOptions>,
+-    pub(crate) reputation_options: ::std::option::Option<crate::types::ReputationOptions>,
+-    pub(crate) sending_options: ::std::option::Option<crate::types::SendingOptions>,
+-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+-    pub(crate) suppression_options: ::std::option::Option<crate::types::SuppressionOptions>,
+-    pub(crate) vdm_options: ::std::option::Option<crate::types::VdmOptions>,
+-    pub(crate) archiving_options: ::std::option::Option<crate::types::ArchivingOptions>,
++    pub(crate) tracking_options: ::std::option::Option<super::types::TrackingOptions>,
++    pub(crate) delivery_options: ::std::option::Option<super::types::DeliveryOptions>,
++    pub(crate) reputation_options: ::std::option::Option<super::types::ReputationOptions>,
++    pub(crate) sending_options: ::std::option::Option<super::types::SendingOptions>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
++    pub(crate) suppression_options: ::std::option::Option<super::types::SuppressionOptions>,
++    pub(crate) vdm_options: ::std::option::Option<super::types::VdmOptions>,
++    pub(crate) archiving_options: ::std::option::Option<super::types::ArchivingOptions>,
+     _request_id: Option<String>,
+ }
+ impl GetConfigurationSetOutputBuilder {
+@@ -107,59 +107,59 @@
+         &self.configuration_set_name
+     }
+     /// <p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>
+-    pub fn tracking_options(mut self, input: crate::types::TrackingOptions) -> Self {
++    pub fn tracking_options(mut self, input: super::types::TrackingOptions) -> Self {
+         self.tracking_options = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>
+-    pub fn set_tracking_options(mut self, input: ::std::option::Option<crate::types::TrackingOptions>) -> Self {
++    pub fn set_tracking_options(mut self, input: ::std::option::Option<super::types::TrackingOptions>) -> Self {
+         self.tracking_options = input;
+         self
+     }
+     /// <p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>
+-    pub fn get_tracking_options(&self) -> &::std::option::Option<crate::types::TrackingOptions> {
++    pub fn get_tracking_options(&self) -> &::std::option::Option<super::types::TrackingOptions> {
+         &self.tracking_options
+     }
+     /// <p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>
+-    pub fn delivery_options(mut self, input: crate::types::DeliveryOptions) -> Self {
++    pub fn delivery_options(mut self, input: super::types::DeliveryOptions) -> Self {
+         self.delivery_options = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>
+-    pub fn set_delivery_options(mut self, input: ::std::option::Option<crate::types::DeliveryOptions>) -> Self {
++    pub fn set_delivery_options(mut self, input: ::std::option::Option<super::types::DeliveryOptions>) -> Self {
+         self.delivery_options = input;
+         self
+     }
+     /// <p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>
+-    pub fn get_delivery_options(&self) -> &::std::option::Option<crate::types::DeliveryOptions> {
++    pub fn get_delivery_options(&self) -> &::std::option::Option<super::types::DeliveryOptions> {
+         &self.delivery_options
+     }
+     /// <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
+-    pub fn reputation_options(mut self, input: crate::types::ReputationOptions) -> Self {
++    pub fn reputation_options(mut self, input: super::types::ReputationOptions) -> Self {
+         self.reputation_options = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
+-    pub fn set_reputation_options(mut self, input: ::std::option::Option<crate::types::ReputationOptions>) -> Self {
++    pub fn set_reputation_options(mut self, input: ::std::option::Option<super::types::ReputationOptions>) -> Self {
+         self.reputation_options = input;
+         self
+     }
+     /// <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
+-    pub fn get_reputation_options(&self) -> &::std::option::Option<crate::types::ReputationOptions> {
++    pub fn get_reputation_options(&self) -> &::std::option::Option<super::types::ReputationOptions> {
+         &self.reputation_options
+     }
+     /// <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
+-    pub fn sending_options(mut self, input: crate::types::SendingOptions) -> Self {
++    pub fn sending_options(mut self, input: super::types::SendingOptions) -> Self {
+         self.sending_options = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
+-    pub fn set_sending_options(mut self, input: ::std::option::Option<crate::types::SendingOptions>) -> Self {
++    pub fn set_sending_options(mut self, input: ::std::option::Option<super::types::SendingOptions>) -> Self {
+         self.sending_options = input;
+         self
+     }
+     /// <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
+-    pub fn get_sending_options(&self) -> &::std::option::Option<crate::types::SendingOptions> {
++    pub fn get_sending_options(&self) -> &::std::option::Option<super::types::SendingOptions> {
+         &self.sending_options
+     }
+     /// Appends an item to `tags`.
+@@ -167,7 +167,7 @@
+     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+     ///
+     /// <p>An array of objects that define the tags (keys and values) that are associated with the configuration set.</p>
+-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::types::Tag) -> Self {
+         let mut v = self.tags.unwrap_or_default();
+         v.push(input);
+         self.tags = ::std::option::Option::Some(v);
+@@ -174,54 +174,54 @@
+         self
+     }
+     /// <p>An array of objects that define the tags (keys and values) that are associated with the configuration set.</p>
+-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
+         self.tags = input;
+         self
+     }
+     /// <p>An array of objects that define the tags (keys and values) that are associated with the configuration set.</p>
+-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
+         &self.tags
+     }
+     /// <p>An object that contains information about the suppression list preferences for your account or for a specific tenant.</p>
+-    pub fn suppression_options(mut self, input: crate::types::SuppressionOptions) -> Self {
++    pub fn suppression_options(mut self, input: super::types::SuppressionOptions) -> Self {
+         self.suppression_options = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>An object that contains information about the suppression list preferences for your account or for a specific tenant.</p>
+-    pub fn set_suppression_options(mut self, input: ::std::option::Option<crate::types::SuppressionOptions>) -> Self {
++    pub fn set_suppression_options(mut self, input: ::std::option::Option<super::types::SuppressionOptions>) -> Self {
+         self.suppression_options = input;
+         self
+     }
+     /// <p>An object that contains information about the suppression list preferences for your account or for a specific tenant.</p>
+-    pub fn get_suppression_options(&self) -> &::std::option::Option<crate::types::SuppressionOptions> {
++    pub fn get_suppression_options(&self) -> &::std::option::Option<super::types::SuppressionOptions> {
+         &self.suppression_options
+     }
+     /// <p>An object that contains information about the VDM preferences for your configuration set.</p>
+-    pub fn vdm_options(mut self, input: crate::types::VdmOptions) -> Self {
++    pub fn vdm_options(mut self, input: super::types::VdmOptions) -> Self {
+         self.vdm_options = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>An object that contains information about the VDM preferences for your configuration set.</p>
+-    pub fn set_vdm_options(mut self, input: ::std::option::Option<crate::types::VdmOptions>) -> Self {
++    pub fn set_vdm_options(mut self, input: ::std::option::Option<super::types::VdmOptions>) -> Self {
+         self.vdm_options = input;
+         self
+     }
+     /// <p>An object that contains information about the VDM preferences for your configuration set.</p>
+-    pub fn get_vdm_options(&self) -> &::std::option::Option<crate::types::VdmOptions> {
++    pub fn get_vdm_options(&self) -> &::std::option::Option<super::types::VdmOptions> {
+         &self.vdm_options
+     }
+     /// <p>An object that defines the MailManager archive where sent emails are archived that you send using the configuration set.</p>
+-    pub fn archiving_options(mut self, input: crate::types::ArchivingOptions) -> Self {
++    pub fn archiving_options(mut self, input: super::types::ArchivingOptions) -> Self {
+         self.archiving_options = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>An object that defines the MailManager archive where sent emails are archived that you send using the configuration set.</p>
+-    pub fn set_archiving_options(mut self, input: ::std::option::Option<crate::types::ArchivingOptions>) -> Self {
++    pub fn set_archiving_options(mut self, input: ::std::option::Option<super::types::ArchivingOptions>) -> Self {
+         self.archiving_options = input;
+         self
+     }
+     /// <p>An object that defines the MailManager archive where sent emails are archived that you send using the configuration set.</p>
+-    pub fn get_archiving_options(&self) -> &::std::option::Option<crate::types::ArchivingOptions> {
++    pub fn get_archiving_options(&self) -> &::std::option::Option<super::types::ArchivingOptions> {
+         &self.archiving_options
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -234,8 +234,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetConfigurationSetOutput`](crate::operation::get_configuration_set::GetConfigurationSetOutput).
+-    pub fn build(self) -> crate::operation::get_configuration_set::GetConfigurationSetOutput {
+-        crate::operation::get_configuration_set::GetConfigurationSetOutput {
++    pub fn build(self) -> super::operation::get_configuration_set::GetConfigurationSetOutput {
++        super::operation::get_configuration_set::GetConfigurationSetOutput {
+             configuration_set_name: self.configuration_set_name,
+             tracking_options: self.tracking_options,
+             delivery_options: self.delivery_options,

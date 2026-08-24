@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -60,8 +60,8 @@
+ }
+ impl AdminConfirmSignUpInput {
+     /// Creates a new builder-style object to manufacture [`AdminConfirmSignUpInput`](crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput).
+-    pub fn builder() -> crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpInputBuilder {
+-        crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpInputBuilder::default()
++    pub fn builder() -> super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpInputBuilder {
++        super::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpInputBuilder::default()
+     }
+ }
+
+@@ -170,9 +170,9 @@
+     /// Consumes the builder and constructs a [`AdminConfirmSignUpInput`](crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::admin_confirm_sign_up::AdminConfirmSignUpInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput {
++        ::std::result::Result::Ok(super::operation::admin_confirm_sign_up::AdminConfirmSignUpInput {
+             user_pool_id: self.user_pool_id,
+             username: self.username,
+             client_metadata: self.client_metadata,

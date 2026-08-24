@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ListDomainsOutput {
+     /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainSummary.html">DomainSummary</a> objects.</p>
+-    pub domains: ::std::option::Option<::std::vec::Vec<crate::types::DomainSummary>>,
++    pub domains: ::std::option::Option<::std::vec::Vec<super::types::DomainSummary>>,
+     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -13,7 +13,7 @@
+     /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainSummary.html">DomainSummary</a> objects.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.domains.is_none()`.
+-    pub fn domains(&self) -> &[crate::types::DomainSummary] {
++    pub fn domains(&self) -> &[super::types::DomainSummary] {
+         self.domains.as_deref().unwrap_or_default()
+     }
+     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+@@ -28,8 +28,8 @@
+ }
+ impl ListDomainsOutput {
+     /// Creates a new builder-style object to manufacture [`ListDomainsOutput`](crate::operation::list_domains::ListDomainsOutput).
+-    pub fn builder() -> crate::operation::list_domains::builders::ListDomainsOutputBuilder {
+-        crate::operation::list_domains::builders::ListDomainsOutputBuilder::default()
++    pub fn builder() -> super::operation::list_domains::builders::ListDomainsOutputBuilder {
++        super::operation::list_domains::builders::ListDomainsOutputBuilder::default()
+     }
+ }
+
+@@ -37,7 +37,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ListDomainsOutputBuilder {
+-    pub(crate) domains: ::std::option::Option<::std::vec::Vec<crate::types::DomainSummary>>,
++    pub(crate) domains: ::std::option::Option<::std::vec::Vec<super::types::DomainSummary>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -47,7 +47,7 @@
+     /// To override the contents of this collection use [`set_domains`](Self::set_domains).
+     ///
+     /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainSummary.html">DomainSummary</a> objects.</p>
+-    pub fn domains(mut self, input: crate::types::DomainSummary) -> Self {
++    pub fn domains(mut self, input: super::types::DomainSummary) -> Self {
+         let mut v = self.domains.unwrap_or_default();
+         v.push(input);
+         self.domains = ::std::option::Option::Some(v);
+@@ -54,12 +54,12 @@
+         self
+     }
+     /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainSummary.html">DomainSummary</a> objects.</p>
+-    pub fn set_domains(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DomainSummary>>) -> Self {
++    pub fn set_domains(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::DomainSummary>>) -> Self {
+         self.domains = input;
+         self
+     }
+     /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainSummary.html">DomainSummary</a> objects.</p>
+-    pub fn get_domains(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DomainSummary>> {
++    pub fn get_domains(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DomainSummary>> {
+         &self.domains
+     }
+     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListDomainsOutput`](crate::operation::list_domains::ListDomainsOutput).
+-    pub fn build(self) -> crate::operation::list_domains::ListDomainsOutput {
+-        crate::operation::list_domains::ListDomainsOutput {
++    pub fn build(self) -> super::operation::list_domains::ListDomainsOutput {
++        super::operation::list_domains::ListDomainsOutput {
+             domains: self.domains,
+             next_token: self.next_token,
+             _request_id: self._request_id,

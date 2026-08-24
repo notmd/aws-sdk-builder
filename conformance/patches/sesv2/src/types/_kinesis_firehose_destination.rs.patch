@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -23,8 +23,8 @@
+ }
+ impl KinesisFirehoseDestination {
+     /// Creates a new builder-style object to manufacture [`KinesisFirehoseDestination`](crate::types::KinesisFirehoseDestination).
+-    pub fn builder() -> crate::types::builders::KinesisFirehoseDestinationBuilder {
+-        crate::types::builders::KinesisFirehoseDestinationBuilder::default()
++    pub fn builder() -> super::types::builders::KinesisFirehoseDestinationBuilder {
++        super::types::builders::KinesisFirehoseDestinationBuilder::default()
+     }
+ }
+
+@@ -70,8 +70,8 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`iam_role_arn`](crate::types::builders::KinesisFirehoseDestinationBuilder::iam_role_arn)
+     /// - [`delivery_stream_arn`](crate::types::builders::KinesisFirehoseDestinationBuilder::delivery_stream_arn)
+-    pub fn build(self) -> ::std::result::Result<crate::types::KinesisFirehoseDestination, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::KinesisFirehoseDestination {
++    pub fn build(self) -> ::std::result::Result<super::types::KinesisFirehoseDestination, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::KinesisFirehoseDestination {
+             iam_role_arn: self.iam_role_arn.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "iam_role_arn",

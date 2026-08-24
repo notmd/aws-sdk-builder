@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DescribeIndexPoliciesOutput {
+     /// <p>An array containing the field index policies.</p>
+-    pub index_policies: ::std::option::Option<::std::vec::Vec<crate::types::IndexPolicy>>,
++    pub index_policies: ::std::option::Option<::std::vec::Vec<super::types::IndexPolicy>>,
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -13,7 +13,7 @@
+     /// <p>An array containing the field index policies.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.index_policies.is_none()`.
+-    pub fn index_policies(&self) -> &[crate::types::IndexPolicy] {
++    pub fn index_policies(&self) -> &[super::types::IndexPolicy] {
+         self.index_policies.as_deref().unwrap_or_default()
+     }
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+@@ -28,8 +28,8 @@
+ }
+ impl DescribeIndexPoliciesOutput {
+     /// Creates a new builder-style object to manufacture [`DescribeIndexPoliciesOutput`](crate::operation::describe_index_policies::DescribeIndexPoliciesOutput).
+-    pub fn builder() -> crate::operation::describe_index_policies::builders::DescribeIndexPoliciesOutputBuilder {
+-        crate::operation::describe_index_policies::builders::DescribeIndexPoliciesOutputBuilder::default()
++    pub fn builder() -> super::operation::describe_index_policies::builders::DescribeIndexPoliciesOutputBuilder {
++        super::operation::describe_index_policies::builders::DescribeIndexPoliciesOutputBuilder::default()
+     }
+ }
+
+@@ -37,7 +37,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct DescribeIndexPoliciesOutputBuilder {
+-    pub(crate) index_policies: ::std::option::Option<::std::vec::Vec<crate::types::IndexPolicy>>,
++    pub(crate) index_policies: ::std::option::Option<::std::vec::Vec<super::types::IndexPolicy>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -47,7 +47,7 @@
+     /// To override the contents of this collection use [`set_index_policies`](Self::set_index_policies).
+     ///
+     /// <p>An array containing the field index policies.</p>
+-    pub fn index_policies(mut self, input: crate::types::IndexPolicy) -> Self {
++    pub fn index_policies(mut self, input: super::types::IndexPolicy) -> Self {
+         let mut v = self.index_policies.unwrap_or_default();
+         v.push(input);
+         self.index_policies = ::std::option::Option::Some(v);
+@@ -54,12 +54,12 @@
+         self
+     }
+     /// <p>An array containing the field index policies.</p>
+-    pub fn set_index_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::IndexPolicy>>) -> Self {
++    pub fn set_index_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::IndexPolicy>>) -> Self {
+         self.index_policies = input;
+         self
+     }
+     /// <p>An array containing the field index policies.</p>
+-    pub fn get_index_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::IndexPolicy>> {
++    pub fn get_index_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::types::IndexPolicy>> {
+         &self.index_policies
+     }
+     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DescribeIndexPoliciesOutput`](crate::operation::describe_index_policies::DescribeIndexPoliciesOutput).
+-    pub fn build(self) -> crate::operation::describe_index_policies::DescribeIndexPoliciesOutput {
+-        crate::operation::describe_index_policies::DescribeIndexPoliciesOutput {
++    pub fn build(self) -> super::operation::describe_index_policies::DescribeIndexPoliciesOutput {
++        super::operation::describe_index_policies::DescribeIndexPoliciesOutput {
+             index_policies: self.index_policies,
+             next_token: self.next_token,
+             _request_id: self._request_id,

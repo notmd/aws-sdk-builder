@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl ConformancePackComplianceScoresFilters {
+     /// Creates a new builder-style object to manufacture [`ConformancePackComplianceScoresFilters`](crate::types::ConformancePackComplianceScoresFilters).
+-    pub fn builder() -> crate::types::builders::ConformancePackComplianceScoresFiltersBuilder {
+-        crate::types::builders::ConformancePackComplianceScoresFiltersBuilder::default()
++    pub fn builder() -> super::types::builders::ConformancePackComplianceScoresFiltersBuilder {
++        super::types::builders::ConformancePackComplianceScoresFiltersBuilder::default()
+     }
+ }
+
+@@ -53,8 +53,8 @@
+     /// - [`conformance_pack_names`](crate::types::builders::ConformancePackComplianceScoresFiltersBuilder::conformance_pack_names)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::types::ConformancePackComplianceScoresFilters, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::ConformancePackComplianceScoresFilters {
++    ) -> ::std::result::Result<super::types::ConformancePackComplianceScoresFilters, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::ConformancePackComplianceScoresFilters {
+             conformance_pack_names: self.conformance_pack_names.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "conformance_pack_names",

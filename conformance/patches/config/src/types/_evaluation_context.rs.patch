@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl EvaluationContext {
+     /// Creates a new builder-style object to manufacture [`EvaluationContext`](crate::types::EvaluationContext).
+-    pub fn builder() -> crate::types::builders::EvaluationContextBuilder {
+-        crate::types::builders::EvaluationContextBuilder::default()
++    pub fn builder() -> super::types::builders::EvaluationContextBuilder {
++        super::types::builders::EvaluationContextBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+         &self.evaluation_context_identifier
+     }
+     /// Consumes the builder and constructs a [`EvaluationContext`](crate::types::EvaluationContext).
+-    pub fn build(self) -> crate::types::EvaluationContext {
+-        crate::types::EvaluationContext {
++    pub fn build(self) -> super::types::EvaluationContext {
++        super::types::EvaluationContext {
+             evaluation_context_identifier: self.evaluation_context_identifier,
+         }
+     }

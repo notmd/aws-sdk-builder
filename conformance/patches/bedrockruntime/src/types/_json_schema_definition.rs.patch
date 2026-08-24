@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -28,8 +28,8 @@
+ }
+ impl JsonSchemaDefinition {
+     /// Creates a new builder-style object to manufacture [`JsonSchemaDefinition`](crate::types::JsonSchemaDefinition).
+-    pub fn builder() -> crate::types::builders::JsonSchemaDefinitionBuilder {
+-        crate::types::builders::JsonSchemaDefinitionBuilder::default()
++    pub fn builder() -> super::types::builders::JsonSchemaDefinitionBuilder {
++        super::types::builders::JsonSchemaDefinitionBuilder::default()
+     }
+ }
+
+@@ -88,8 +88,8 @@
+     /// Consumes the builder and constructs a [`JsonSchemaDefinition`](crate::types::JsonSchemaDefinition).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`schema`](crate::types::builders::JsonSchemaDefinitionBuilder::schema)
+-    pub fn build(self) -> ::std::result::Result<crate::types::JsonSchemaDefinition, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::JsonSchemaDefinition {
++    pub fn build(self) -> ::std::result::Result<super::types::JsonSchemaDefinition, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::JsonSchemaDefinition {
+             schema: self.schema.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "schema",

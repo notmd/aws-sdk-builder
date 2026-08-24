@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// <p>The name of the OpenSearch Service data source.</p>
+     pub data_source_name: ::std::option::Option<::std::string::String>,
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub status: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
++    pub status: ::std::option::Option<super::types::OpenSearchResourceStatus>,
+ }
+ impl OpenSearchDataSource {
+     /// <p>The name of the OpenSearch Service data source.</p>
+@@ -16,14 +16,14 @@
+         self.data_source_name.as_deref()
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn status(&self) -> ::std::option::Option<&crate::types::OpenSearchResourceStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::types::OpenSearchResourceStatus> {
+         self.status.as_ref()
+     }
+ }
+ impl OpenSearchDataSource {
+     /// Creates a new builder-style object to manufacture [`OpenSearchDataSource`](crate::types::OpenSearchDataSource).
+-    pub fn builder() -> crate::types::builders::OpenSearchDataSourceBuilder {
+-        crate::types::builders::OpenSearchDataSourceBuilder::default()
++    pub fn builder() -> super::types::builders::OpenSearchDataSourceBuilder {
++        super::types::builders::OpenSearchDataSourceBuilder::default()
+     }
+ }
+
+@@ -32,7 +32,7 @@
+ #[non_exhaustive]
+ pub struct OpenSearchDataSourceBuilder {
+     pub(crate) data_source_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) status: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
++    pub(crate) status: ::std::option::Option<super::types::OpenSearchResourceStatus>,
+ }
+ impl OpenSearchDataSourceBuilder {
+     /// <p>The name of the OpenSearch Service data source.</p>
+@@ -50,22 +50,22 @@
+         &self.data_source_name
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn status(mut self, input: crate::types::OpenSearchResourceStatus) -> Self {
++    pub fn status(mut self, input: super::types::OpenSearchResourceStatus) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OpenSearchResourceStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::OpenSearchResourceStatus>) -> Self {
+         self.status = input;
+         self
+     }
+     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::OpenSearchResourceStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::OpenSearchResourceStatus> {
+         &self.status
+     }
+     /// Consumes the builder and constructs a [`OpenSearchDataSource`](crate::types::OpenSearchDataSource).
+-    pub fn build(self) -> crate::types::OpenSearchDataSource {
+-        crate::types::OpenSearchDataSource {
++    pub fn build(self) -> super::types::OpenSearchDataSource {
++        super::types::OpenSearchDataSource {
+             data_source_name: self.data_source_name,
+             status: self.status,
+         }

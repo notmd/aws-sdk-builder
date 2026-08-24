@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     ///   - [`mfa_configuration(Option<UserPoolMfaType>)`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigOutput::mfa_configuration): <p>Displays the state of multi-factor authentication (MFA) as on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p> <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.</p>
+     ///   - [`web_authn_configuration(Option<WebAuthnConfigurationType>)`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigOutput::web_authn_configuration): <p>Shows user pool configuration for sign-in with passkey authenticators such as biometric devices and security keys. Includes relying-party configuration, user-verification requirements, and whether passkeys can satisfy MFA requirements.</p>
+     /// - On failure, responds with [`SdkError<GetUserPoolMfaConfigError>`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError)
+-    pub fn get_user_pool_mfa_config(&self) -> crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder {
+-        crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder::new(self.handle.clone())
++    pub fn get_user_pool_mfa_config(&self) -> super::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder {
++        super::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder::new(self.handle.clone())
+     }
+ }

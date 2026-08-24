@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -29,8 +29,8 @@
+ }
+ impl GuardrailAutomatedReasoningStatement {
+     /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningStatement`](crate::types::GuardrailAutomatedReasoningStatement).
+-    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningStatementBuilder {
+-        crate::types::builders::GuardrailAutomatedReasoningStatementBuilder::default()
++    pub fn builder() -> super::types::builders::GuardrailAutomatedReasoningStatementBuilder {
++        super::types::builders::GuardrailAutomatedReasoningStatementBuilder::default()
+     }
+ }
+
+@@ -71,8 +71,8 @@
+         &self.natural_language
+     }
+     /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningStatement`](crate::types::GuardrailAutomatedReasoningStatement).
+-    pub fn build(self) -> crate::types::GuardrailAutomatedReasoningStatement {
+-        crate::types::GuardrailAutomatedReasoningStatement {
++    pub fn build(self) -> super::types::GuardrailAutomatedReasoningStatement {
++        super::types::GuardrailAutomatedReasoningStatement {
+             logic: self.logic,
+             natural_language: self.natural_language,
+         }

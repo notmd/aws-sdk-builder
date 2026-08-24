@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -28,8 +28,8 @@
+ }
+ impl PutDestinationPolicyInput {
+     /// Creates a new builder-style object to manufacture [`PutDestinationPolicyInput`](crate::operation::put_destination_policy::PutDestinationPolicyInput).
+-    pub fn builder() -> crate::operation::put_destination_policy::builders::PutDestinationPolicyInputBuilder {
+-        crate::operation::put_destination_policy::builders::PutDestinationPolicyInputBuilder::default()
++    pub fn builder() -> super::operation::put_destination_policy::builders::PutDestinationPolicyInputBuilder {
++        super::operation::put_destination_policy::builders::PutDestinationPolicyInputBuilder::default()
+     }
+ }
+
+@@ -92,9 +92,9 @@
+     /// Consumes the builder and constructs a [`PutDestinationPolicyInput`](crate::operation::put_destination_policy::PutDestinationPolicyInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::put_destination_policy::PutDestinationPolicyInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::put_destination_policy::PutDestinationPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::put_destination_policy::PutDestinationPolicyInput {
++        ::std::result::Result::Ok(super::operation::put_destination_policy::PutDestinationPolicyInput {
+             destination_name: self.destination_name,
+             access_policy: self.access_policy,
+             force_update: self.force_update,

@@ -1,0 +1,58 @@
+--- original
++++ modified
+@@ -25,18 +25,18 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ConfigSnapshotDeliveryProperties {
+     /// <p>The frequency with which Config delivers configuration snapshots.</p>
+-    pub delivery_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
++    pub delivery_frequency: ::std::option::Option<super::types::MaximumExecutionFrequency>,
+ }
+ impl ConfigSnapshotDeliveryProperties {
+     /// <p>The frequency with which Config delivers configuration snapshots.</p>
+-    pub fn delivery_frequency(&self) -> ::std::option::Option<&crate::types::MaximumExecutionFrequency> {
++    pub fn delivery_frequency(&self) -> ::std::option::Option<&super::types::MaximumExecutionFrequency> {
+         self.delivery_frequency.as_ref()
+     }
+ }
+ impl ConfigSnapshotDeliveryProperties {
+     /// Creates a new builder-style object to manufacture [`ConfigSnapshotDeliveryProperties`](crate::types::ConfigSnapshotDeliveryProperties).
+-    pub fn builder() -> crate::types::builders::ConfigSnapshotDeliveryPropertiesBuilder {
+-        crate::types::builders::ConfigSnapshotDeliveryPropertiesBuilder::default()
++    pub fn builder() -> super::types::builders::ConfigSnapshotDeliveryPropertiesBuilder {
++        super::types::builders::ConfigSnapshotDeliveryPropertiesBuilder::default()
+     }
+ }
+
+@@ -44,26 +44,26 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ConfigSnapshotDeliveryPropertiesBuilder {
+-    pub(crate) delivery_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
++    pub(crate) delivery_frequency: ::std::option::Option<super::types::MaximumExecutionFrequency>,
+ }
+ impl ConfigSnapshotDeliveryPropertiesBuilder {
+     /// <p>The frequency with which Config delivers configuration snapshots.</p>
+-    pub fn delivery_frequency(mut self, input: crate::types::MaximumExecutionFrequency) -> Self {
++    pub fn delivery_frequency(mut self, input: super::types::MaximumExecutionFrequency) -> Self {
+         self.delivery_frequency = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The frequency with which Config delivers configuration snapshots.</p>
+-    pub fn set_delivery_frequency(mut self, input: ::std::option::Option<crate::types::MaximumExecutionFrequency>) -> Self {
++    pub fn set_delivery_frequency(mut self, input: ::std::option::Option<super::types::MaximumExecutionFrequency>) -> Self {
+         self.delivery_frequency = input;
+         self
+     }
+     /// <p>The frequency with which Config delivers configuration snapshots.</p>
+-    pub fn get_delivery_frequency(&self) -> &::std::option::Option<crate::types::MaximumExecutionFrequency> {
++    pub fn get_delivery_frequency(&self) -> &::std::option::Option<super::types::MaximumExecutionFrequency> {
+         &self.delivery_frequency
+     }
+     /// Consumes the builder and constructs a [`ConfigSnapshotDeliveryProperties`](crate::types::ConfigSnapshotDeliveryProperties).
+-    pub fn build(self) -> crate::types::ConfigSnapshotDeliveryProperties {
+-        crate::types::ConfigSnapshotDeliveryProperties {
++    pub fn build(self) -> super::types::ConfigSnapshotDeliveryProperties {
++        super::types::ConfigSnapshotDeliveryProperties {
+             delivery_frequency: self.delivery_frequency,
+         }
+     }

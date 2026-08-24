@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -13,7 +13,7 @@
+     /// - On failure, responds with [`SdkError<DescribeConformancePackStatusError>`](crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusError)
+     pub fn describe_conformance_pack_status(
+         &self,
+-    ) -> crate::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusFluentBuilder {
+-        crate::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusFluentBuilder {
++        super::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusFluentBuilder::new(self.handle.clone())
+     }
+ }

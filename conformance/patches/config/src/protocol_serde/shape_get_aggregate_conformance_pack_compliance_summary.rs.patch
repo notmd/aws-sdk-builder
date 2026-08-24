@@ -1,0 +1,169 @@
+--- original
++++ modified
+@@ -5,12 +5,12 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput,
+-    crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError,
++    super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput,
++    super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+@@ -17,7 +17,7 @@
+         Some(code) => code,
+         None => {
+             return Err(
+-                crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled(
++                super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled(
+                     generic,
+                 ),
+             )
+@@ -26,13 +26,13 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidLimitException" => crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::InvalidLimitException({
++        "InvalidLimitException" => super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::InvalidLimitException({
+             #[allow(unused_mut)]
+             let mut tmp =
+                  {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidLimitExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output).map_err(crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
++                    let mut output = super::types::error::builders::InvalidLimitExceptionBuilder::default();
++                    output = super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output).map_err(super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 }
+@@ -42,13 +42,13 @@
+                                                         }
+             tmp
+         }),
+-        "InvalidNextTokenException" => crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::InvalidNextTokenException({
++        "InvalidNextTokenException" => super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::InvalidNextTokenException({
+             #[allow(unused_mut)]
+             let mut tmp =
+                  {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidNextTokenExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output).map_err(crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
++                    let mut output = super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
++                    output = super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output).map_err(super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 }
+@@ -58,13 +58,13 @@
+                                                         }
+             tmp
+         }),
+-        "NoSuchConfigurationAggregatorException" => crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::NoSuchConfigurationAggregatorException({
++        "NoSuchConfigurationAggregatorException" => super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::NoSuchConfigurationAggregatorException({
+             #[allow(unused_mut)]
+             let mut tmp =
+                  {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
++                    let mut output = super::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
++                    output = super::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 }
+@@ -74,13 +74,13 @@
+                                                         }
+             tmp
+         }),
+-        "ValidationException" => crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::ValidationException({
++        "ValidationException" => super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::ValidationException({
+             #[allow(unused_mut)]
+             let mut tmp =
+                  {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
++                    let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
++                    output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 }
+@@ -90,7 +90,7 @@
+                                                         }
+             tmp
+         }),
+-        _ => crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::generic(generic)
++        _ => super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::generic(generic)
+     })
+ }
+
+@@ -100,19 +100,19 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput,
+-    crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError,
++    super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput,
++    super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryOutputBuilder::default();
++        let mut output = super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryOutputBuilder::default();
+         output =
+-            crate::protocol_serde::shape_get_aggregate_conformance_pack_compliance_summary::de_get_aggregate_conformance_pack_compliance_summary(
++            super::protocol_serde::shape_get_aggregate_conformance_pack_compliance_summary::de_get_aggregate_conformance_pack_compliance_summary(
+                 _response_body,
+                 output,
+             )
+             .map_err(
+-                crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled,
++                super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled,
+             )?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+@@ -120,11 +120,11 @@
+ }
+
+ pub fn ser_get_aggregate_conformance_pack_compliance_summary_input(
+-    input: &crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryInput,
++    input: &super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_get_aggregate_conformance_pack_compliance_summary_input::ser_get_aggregate_conformance_pack_compliance_summary_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_aggregate_conformance_pack_compliance_summary_input::ser_get_aggregate_conformance_pack_compliance_summary_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -131,12 +131,12 @@
+
+ pub(crate) fn de_get_aggregate_conformance_pack_compliance_summary(
+     _value: &[u8],
+-    mut builder: crate::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryOutputBuilder,
++    mut builder: super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryOutputBuilder,
++    super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;
+@@ -147,7 +147,7 @@
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "AggregateConformancePackComplianceSummaries" => {
+                     builder = builder.set_aggregate_conformance_pack_compliance_summaries(
+-                            crate::protocol_serde::shape_aggregate_conformance_pack_compliance_summary_list::de_aggregate_conformance_pack_compliance_summary_list(tokens, _value, depth + 1)?
++                            super::protocol_serde::shape_aggregate_conformance_pack_compliance_summary_list::de_aggregate_conformance_pack_compliance_summary_list(tokens, _value, depth + 1)?
+                         );
+                 }
+                 "GroupByKey" => {

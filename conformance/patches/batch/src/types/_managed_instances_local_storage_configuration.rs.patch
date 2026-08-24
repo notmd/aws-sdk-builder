@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl ManagedInstancesLocalStorageConfiguration {
+     /// Creates a new builder-style object to manufacture [`ManagedInstancesLocalStorageConfiguration`](crate::types::ManagedInstancesLocalStorageConfiguration).
+-    pub fn builder() -> crate::types::builders::ManagedInstancesLocalStorageConfigurationBuilder {
+-        crate::types::builders::ManagedInstancesLocalStorageConfigurationBuilder::default()
++    pub fn builder() -> super::types::builders::ManagedInstancesLocalStorageConfigurationBuilder {
++        super::types::builders::ManagedInstancesLocalStorageConfigurationBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+         &self.use_local_storage
+     }
+     /// Consumes the builder and constructs a [`ManagedInstancesLocalStorageConfiguration`](crate::types::ManagedInstancesLocalStorageConfiguration).
+-    pub fn build(self) -> crate::types::ManagedInstancesLocalStorageConfiguration {
+-        crate::types::ManagedInstancesLocalStorageConfiguration {
++    pub fn build(self) -> super::types::ManagedInstancesLocalStorageConfiguration {
++        super::types::ManagedInstancesLocalStorageConfiguration {
+             use_local_storage: self.use_local_storage,
+         }
+     }

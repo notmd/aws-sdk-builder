@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -5,8 +5,8 @@
+ pub struct GetStorageTierPolicyInput {}
+ impl GetStorageTierPolicyInput {
+     /// Creates a new builder-style object to manufacture [`GetStorageTierPolicyInput`](crate::operation::get_storage_tier_policy::GetStorageTierPolicyInput).
+-    pub fn builder() -> crate::operation::get_storage_tier_policy::builders::GetStorageTierPolicyInputBuilder {
+-        crate::operation::get_storage_tier_policy::builders::GetStorageTierPolicyInputBuilder::default()
++    pub fn builder() -> super::operation::get_storage_tier_policy::builders::GetStorageTierPolicyInputBuilder {
++        super::operation::get_storage_tier_policy::builders::GetStorageTierPolicyInputBuilder::default()
+     }
+ }
+
+@@ -18,8 +18,8 @@
+     /// Consumes the builder and constructs a [`GetStorageTierPolicyInput`](crate::operation::get_storage_tier_policy::GetStorageTierPolicyInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_storage_tier_policy::GetStorageTierPolicyInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::get_storage_tier_policy::GetStorageTierPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::get_storage_tier_policy::GetStorageTierPolicyInput {})
++        ::std::result::Result::Ok(super::operation::get_storage_tier_policy::GetStorageTierPolicyInput {})
+     }
+ }

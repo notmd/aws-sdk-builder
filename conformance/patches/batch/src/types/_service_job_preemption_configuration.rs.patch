@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl ServiceJobPreemptionConfiguration {
+     /// Creates a new builder-style object to manufacture [`ServiceJobPreemptionConfiguration`](crate::types::ServiceJobPreemptionConfiguration).
+-    pub fn builder() -> crate::types::builders::ServiceJobPreemptionConfigurationBuilder {
+-        crate::types::builders::ServiceJobPreemptionConfigurationBuilder::default()
++    pub fn builder() -> super::types::builders::ServiceJobPreemptionConfigurationBuilder {
++        super::types::builders::ServiceJobPreemptionConfigurationBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+         &self.preemption_retries_before_termination
+     }
+     /// Consumes the builder and constructs a [`ServiceJobPreemptionConfiguration`](crate::types::ServiceJobPreemptionConfiguration).
+-    pub fn build(self) -> crate::types::ServiceJobPreemptionConfiguration {
+-        crate::types::ServiceJobPreemptionConfiguration {
++    pub fn build(self) -> super::types::ServiceJobPreemptionConfiguration {
++        super::types::ServiceJobPreemptionConfiguration {
+             preemption_retries_before_termination: self.preemption_retries_before_termination,
+         }
+     }

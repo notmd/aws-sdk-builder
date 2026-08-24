@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -17,8 +17,8 @@
+ }
+ impl ParseCloudfront {
+     /// Creates a new builder-style object to manufacture [`ParseCloudfront`](crate::types::ParseCloudfront).
+-    pub fn builder() -> crate::types::builders::ParseCloudfrontBuilder {
+-        crate::types::builders::ParseCloudfrontBuilder::default()
++    pub fn builder() -> super::types::builders::ParseCloudfrontBuilder {
++        super::types::builders::ParseCloudfrontBuilder::default()
+     }
+ }
+
+@@ -44,7 +44,7 @@
+         &self.source
+     }
+     /// Consumes the builder and constructs a [`ParseCloudfront`](crate::types::ParseCloudfront).
+-    pub fn build(self) -> crate::types::ParseCloudfront {
+-        crate::types::ParseCloudfront { source: self.source }
++    pub fn build(self) -> super::types::ParseCloudfront {
++        super::types::ParseCloudfront { source: self.source }
+     }
+ }

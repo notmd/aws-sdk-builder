@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// - On success, responds with [`DescribeResourceServerOutput`](crate::operation::describe_resource_server::DescribeResourceServerOutput) with field(s):
+     ///   - [`resource_server(Option<ResourceServerType>)`](crate::operation::describe_resource_server::DescribeResourceServerOutput::resource_server): <p>The details of the requested resource server.</p>
+     /// - On failure, responds with [`SdkError<DescribeResourceServerError>`](crate::operation::describe_resource_server::DescribeResourceServerError)
+-    pub fn describe_resource_server(&self) -> crate::operation::describe_resource_server::builders::DescribeResourceServerFluentBuilder {
+-        crate::operation::describe_resource_server::builders::DescribeResourceServerFluentBuilder::new(self.handle.clone())
++    pub fn describe_resource_server(&self) -> super::operation::describe_resource_server::builders::DescribeResourceServerFluentBuilder {
++        super::operation::describe_resource_server::builders::DescribeResourceServerFluentBuilder::new(self.handle.clone())
+     }
+ }

@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -35,8 +35,8 @@
+ }
+ impl DescribeManagedLoginBrandingByClientInput {
+     /// Creates a new builder-style object to manufacture [`DescribeManagedLoginBrandingByClientInput`](crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput).
+-    pub fn builder() -> crate::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientInputBuilder {
+-        crate::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientInputBuilder::default()
++    pub fn builder() -> super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientInputBuilder {
++        super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientInputBuilder::default()
+     }
+ }
+
+@@ -97,11 +97,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput,
++        super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput {
++            super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput {
+                 user_pool_id: self.user_pool_id,
+                 client_id: self.client_id,
+                 return_merged_resources: self.return_merged_resources,

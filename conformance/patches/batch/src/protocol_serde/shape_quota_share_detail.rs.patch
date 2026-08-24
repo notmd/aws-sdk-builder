@@ -1,0 +1,59 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::QuotaShareDetail>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::QuotaShareDetail>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::QuotaShareDetailBuilder::default();
++            let mut builder = super::types::builders::QuotaShareDetailBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -44,17 +44,17 @@
+                         }
+                         "capacityLimits" => {
+                             builder = builder.set_capacity_limits(
+-                                crate::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "resourceSharingConfiguration" => {
+                             builder = builder.set_resource_sharing_configuration(
+-                                    crate::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(tokens, _value, depth + 1)?
++                                    super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(tokens, _value, depth + 1)?
+                                 );
+                         }
+                         "preemptionConfiguration" => {
+                             builder = builder.set_preemption_configuration(
+-                                crate::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(
++                                super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(
+                                     tokens,
+                                     _value,
+                                     depth + 1,
+@@ -64,7 +64,7 @@
+                         "state" => {
+                             builder = builder.set_state(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::QuotaShareState::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::QuotaShareState::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+@@ -71,7 +71,7 @@
+                         "status" => {
+                             builder = builder.set_status(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::QuotaShareStatus::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::QuotaShareStatus::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }

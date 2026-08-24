@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -36,7 +36,7 @@
+     /// <li>
+     /// <p>FAILED: Amazon SES was unable to process your request. See the error message for additional information.</p></li>
+     /// </ul>
+-    pub status: ::std::option::Option<crate::types::BulkEmailStatus>,
++    pub status: ::std::option::Option<super::types::BulkEmailStatus>,
+     /// <p>A description of an error that prevented a message being sent using the <code>SendBulkTemplatedEmail</code> operation.</p>
+     pub error: ::std::option::Option<::std::string::String>,
+     /// <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code> operation.</p>
+@@ -75,7 +75,7 @@
+     /// <li>
+     /// <p>FAILED: Amazon SES was unable to process your request. See the error message for additional information.</p></li>
+     /// </ul>
+-    pub fn status(&self) -> ::std::option::Option<&crate::types::BulkEmailStatus> {
++    pub fn status(&self) -> ::std::option::Option<&super::types::BulkEmailStatus> {
+         self.status.as_ref()
+     }
+     /// <p>A description of an error that prevented a message being sent using the <code>SendBulkTemplatedEmail</code> operation.</p>
+@@ -89,8 +89,8 @@
+ }
+ impl BulkEmailEntryResult {
+     /// Creates a new builder-style object to manufacture [`BulkEmailEntryResult`](crate::types::BulkEmailEntryResult).
+-    pub fn builder() -> crate::types::builders::BulkEmailEntryResultBuilder {
+-        crate::types::builders::BulkEmailEntryResultBuilder::default()
++    pub fn builder() -> super::types::builders::BulkEmailEntryResultBuilder {
++        super::types::builders::BulkEmailEntryResultBuilder::default()
+     }
+ }
+
+@@ -98,7 +98,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct BulkEmailEntryResultBuilder {
+-    pub(crate) status: ::std::option::Option<crate::types::BulkEmailStatus>,
++    pub(crate) status: ::std::option::Option<super::types::BulkEmailStatus>,
+     pub(crate) error: ::std::option::Option<::std::string::String>,
+     pub(crate) message_id: ::std::option::Option<::std::string::String>,
+ }
+@@ -135,7 +135,7 @@
+     /// <li>
+     /// <p>FAILED: Amazon SES was unable to process your request. See the error message for additional information.</p></li>
+     /// </ul>
+-    pub fn status(mut self, input: crate::types::BulkEmailStatus) -> Self {
++    pub fn status(mut self, input: super::types::BulkEmailStatus) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+@@ -171,7 +171,7 @@
+     /// <li>
+     /// <p>FAILED: Amazon SES was unable to process your request. See the error message for additional information.</p></li>
+     /// </ul>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::BulkEmailStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::BulkEmailStatus>) -> Self {
+         self.status = input;
+         self
+     }
+@@ -207,7 +207,7 @@
+     /// <li>
+     /// <p>FAILED: Amazon SES was unable to process your request. See the error message for additional information.</p></li>
+     /// </ul>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::BulkEmailStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::BulkEmailStatus> {
+         &self.status
+     }
+     /// <p>A description of an error that prevented a message being sent using the <code>SendBulkTemplatedEmail</code> operation.</p>
+@@ -239,8 +239,8 @@
+         &self.message_id
+     }
+     /// Consumes the builder and constructs a [`BulkEmailEntryResult`](crate::types::BulkEmailEntryResult).
+-    pub fn build(self) -> crate::types::BulkEmailEntryResult {
+-        crate::types::BulkEmailEntryResult {
++    pub fn build(self) -> super::types::BulkEmailEntryResult {
++        super::types::BulkEmailEntryResult {
+             status: self.status,
+             error: self.error,
+             message_id: self.message_id,

@@ -1,0 +1,101 @@
+--- original
++++ modified
+@@ -7,9 +7,9 @@
+     /// <p>The name of the fair-share scheduling policy. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
+     pub name: ::std::option::Option<::std::string::String>,
+     /// <p>The quota share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a fairSharePolicy.</p>
+-    pub quota_share_policy: ::std::option::Option<crate::types::QuotaSharePolicy>,
++    pub quota_share_policy: ::std::option::Option<super::types::QuotaSharePolicy>,
+     /// <p>The fair-share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a quotaSharePolicy.</p>
+-    pub fairshare_policy: ::std::option::Option<crate::types::FairsharePolicy>,
++    pub fairshare_policy: ::std::option::Option<super::types::FairsharePolicy>,
+     /// <p>The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
+     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
+     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+@@ -20,11 +20,11 @@
+         self.name.as_deref()
+     }
+     /// <p>The quota share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a fairSharePolicy.</p>
+-    pub fn quota_share_policy(&self) -> ::std::option::Option<&crate::types::QuotaSharePolicy> {
++    pub fn quota_share_policy(&self) -> ::std::option::Option<&super::types::QuotaSharePolicy> {
+         self.quota_share_policy.as_ref()
+     }
+     /// <p>The fair-share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a quotaSharePolicy.</p>
+-    pub fn fairshare_policy(&self) -> ::std::option::Option<&crate::types::FairsharePolicy> {
++    pub fn fairshare_policy(&self) -> ::std::option::Option<&super::types::FairsharePolicy> {
+         self.fairshare_policy.as_ref()
+     }
+     /// <p>The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
+@@ -35,8 +35,8 @@
+ }
+ impl CreateSchedulingPolicyInput {
+     /// Creates a new builder-style object to manufacture [`CreateSchedulingPolicyInput`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyInput).
+-    pub fn builder() -> crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder {
+-        crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder::default()
++    pub fn builder() -> super::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder {
++        super::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder::default()
+     }
+ }
+
+@@ -45,8 +45,8 @@
+ #[non_exhaustive]
+ pub struct CreateSchedulingPolicyInputBuilder {
+     pub(crate) name: ::std::option::Option<::std::string::String>,
+-    pub(crate) quota_share_policy: ::std::option::Option<crate::types::QuotaSharePolicy>,
+-    pub(crate) fairshare_policy: ::std::option::Option<crate::types::FairsharePolicy>,
++    pub(crate) quota_share_policy: ::std::option::Option<super::types::QuotaSharePolicy>,
++    pub(crate) fairshare_policy: ::std::option::Option<super::types::FairsharePolicy>,
+     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+ }
+ impl CreateSchedulingPolicyInputBuilder {
+@@ -66,31 +66,31 @@
+         &self.name
+     }
+     /// <p>The quota share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a fairSharePolicy.</p>
+-    pub fn quota_share_policy(mut self, input: crate::types::QuotaSharePolicy) -> Self {
++    pub fn quota_share_policy(mut self, input: super::types::QuotaSharePolicy) -> Self {
+         self.quota_share_policy = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The quota share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a fairSharePolicy.</p>
+-    pub fn set_quota_share_policy(mut self, input: ::std::option::Option<crate::types::QuotaSharePolicy>) -> Self {
++    pub fn set_quota_share_policy(mut self, input: ::std::option::Option<super::types::QuotaSharePolicy>) -> Self {
+         self.quota_share_policy = input;
+         self
+     }
+     /// <p>The quota share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a fairSharePolicy.</p>
+-    pub fn get_quota_share_policy(&self) -> &::std::option::Option<crate::types::QuotaSharePolicy> {
++    pub fn get_quota_share_policy(&self) -> &::std::option::Option<super::types::QuotaSharePolicy> {
+         &self.quota_share_policy
+     }
+     /// <p>The fair-share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a quotaSharePolicy.</p>
+-    pub fn fairshare_policy(mut self, input: crate::types::FairsharePolicy) -> Self {
++    pub fn fairshare_policy(mut self, input: super::types::FairsharePolicy) -> Self {
+         self.fairshare_policy = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The fair-share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a quotaSharePolicy.</p>
+-    pub fn set_fairshare_policy(mut self, input: ::std::option::Option<crate::types::FairsharePolicy>) -> Self {
++    pub fn set_fairshare_policy(mut self, input: ::std::option::Option<super::types::FairsharePolicy>) -> Self {
+         self.fairshare_policy = input;
+         self
+     }
+     /// <p>The fair-share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a quotaSharePolicy.</p>
+-    pub fn get_fairshare_policy(&self) -> &::std::option::Option<crate::types::FairsharePolicy> {
++    pub fn get_fairshare_policy(&self) -> &::std::option::Option<super::types::FairsharePolicy> {
+         &self.fairshare_policy
+     }
+     /// Adds a key-value pair to `tags`.
+@@ -120,10 +120,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::create_scheduling_policy::CreateSchedulingPolicyInput,
++        super::operation::create_scheduling_policy::CreateSchedulingPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::create_scheduling_policy::CreateSchedulingPolicyInput {
++        ::std::result::Result::Ok(super::operation::create_scheduling_policy::CreateSchedulingPolicyInput {
+             name: self.name,
+             quota_share_policy: self.quota_share_policy,
+             fairshare_policy: self.fairshare_policy,

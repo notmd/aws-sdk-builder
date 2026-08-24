@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl StaticValue {
+     /// Creates a new builder-style object to manufacture [`StaticValue`](crate::types::StaticValue).
+-    pub fn builder() -> crate::types::builders::StaticValueBuilder {
+-        crate::types::builders::StaticValueBuilder::default()
++    pub fn builder() -> super::types::builders::StaticValueBuilder {
++        super::types::builders::StaticValueBuilder::default()
+     }
+ }
+
+@@ -51,8 +51,8 @@
+     /// Consumes the builder and constructs a [`StaticValue`](crate::types::StaticValue).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`values`](crate::types::builders::StaticValueBuilder::values)
+-    pub fn build(self) -> ::std::result::Result<crate::types::StaticValue, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::StaticValue {
++    pub fn build(self) -> ::std::result::Result<super::types::StaticValue, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::StaticValue {
+             values: self.values.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "values",

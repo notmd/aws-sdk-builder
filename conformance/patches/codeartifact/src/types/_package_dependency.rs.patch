@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -77,8 +77,8 @@
+ }
+ impl PackageDependency {
+     /// Creates a new builder-style object to manufacture [`PackageDependency`](crate::types::PackageDependency).
+-    pub fn builder() -> crate::types::builders::PackageDependencyBuilder {
+-        crate::types::builders::PackageDependencyBuilder::default()
++    pub fn builder() -> super::types::builders::PackageDependencyBuilder {
++        super::types::builders::PackageDependencyBuilder::default()
+     }
+ }
+
+@@ -215,8 +215,8 @@
+         &self.version_requirement
+     }
+     /// Consumes the builder and constructs a [`PackageDependency`](crate::types::PackageDependency).
+-    pub fn build(self) -> crate::types::PackageDependency {
+-        crate::types::PackageDependency {
++    pub fn build(self) -> super::types::PackageDependency {
++        super::types::PackageDependency {
+             namespace: self.namespace,
+             package: self.package,
+             dependency_type: self.dependency_type,

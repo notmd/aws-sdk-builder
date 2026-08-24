@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>The total number of active shares in the fairshare scheduling job queue that are currently utilizing capacity.</p>
+     pub active_share_count: ::std::option::Option<i64>,
+     /// <p>A list of the top 20 shares with the highest capacity utilization, ordered by usage amount.</p>
+-    pub top_capacity_utilization: ::std::option::Option<::std::vec::Vec<crate::types::FairshareCapacityUtilization>>,
++    pub top_capacity_utilization: ::std::option::Option<::std::vec::Vec<super::types::FairshareCapacityUtilization>>,
+ }
+ impl FairshareUtilizationDetail {
+     /// <p>The total number of active shares in the fairshare scheduling job queue that are currently utilizing capacity.</p>
+@@ -17,14 +17,14 @@
+     /// <p>A list of the top 20 shares with the highest capacity utilization, ordered by usage amount.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.top_capacity_utilization.is_none()`.
+-    pub fn top_capacity_utilization(&self) -> &[crate::types::FairshareCapacityUtilization] {
++    pub fn top_capacity_utilization(&self) -> &[super::types::FairshareCapacityUtilization] {
+         self.top_capacity_utilization.as_deref().unwrap_or_default()
+     }
+ }
+ impl FairshareUtilizationDetail {
+     /// Creates a new builder-style object to manufacture [`FairshareUtilizationDetail`](crate::types::FairshareUtilizationDetail).
+-    pub fn builder() -> crate::types::builders::FairshareUtilizationDetailBuilder {
+-        crate::types::builders::FairshareUtilizationDetailBuilder::default()
++    pub fn builder() -> super::types::builders::FairshareUtilizationDetailBuilder {
++        super::types::builders::FairshareUtilizationDetailBuilder::default()
+     }
+ }
+
+@@ -33,7 +33,7 @@
+ #[non_exhaustive]
+ pub struct FairshareUtilizationDetailBuilder {
+     pub(crate) active_share_count: ::std::option::Option<i64>,
+-    pub(crate) top_capacity_utilization: ::std::option::Option<::std::vec::Vec<crate::types::FairshareCapacityUtilization>>,
++    pub(crate) top_capacity_utilization: ::std::option::Option<::std::vec::Vec<super::types::FairshareCapacityUtilization>>,
+ }
+ impl FairshareUtilizationDetailBuilder {
+     /// <p>The total number of active shares in the fairshare scheduling job queue that are currently utilizing capacity.</p>
+@@ -55,7 +55,7 @@
+     /// To override the contents of this collection use [`set_top_capacity_utilization`](Self::set_top_capacity_utilization).
+     ///
+     /// <p>A list of the top 20 shares with the highest capacity utilization, ordered by usage amount.</p>
+-    pub fn top_capacity_utilization(mut self, input: crate::types::FairshareCapacityUtilization) -> Self {
++    pub fn top_capacity_utilization(mut self, input: super::types::FairshareCapacityUtilization) -> Self {
+         let mut v = self.top_capacity_utilization.unwrap_or_default();
+         v.push(input);
+         self.top_capacity_utilization = ::std::option::Option::Some(v);
+@@ -62,17 +62,17 @@
+         self
+     }
+     /// <p>A list of the top 20 shares with the highest capacity utilization, ordered by usage amount.</p>
+-    pub fn set_top_capacity_utilization(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FairshareCapacityUtilization>>) -> Self {
++    pub fn set_top_capacity_utilization(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FairshareCapacityUtilization>>) -> Self {
+         self.top_capacity_utilization = input;
+         self
+     }
+     /// <p>A list of the top 20 shares with the highest capacity utilization, ordered by usage amount.</p>
+-    pub fn get_top_capacity_utilization(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FairshareCapacityUtilization>> {
++    pub fn get_top_capacity_utilization(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FairshareCapacityUtilization>> {
+         &self.top_capacity_utilization
+     }
+     /// Consumes the builder and constructs a [`FairshareUtilizationDetail`](crate::types::FairshareUtilizationDetail).
+-    pub fn build(self) -> crate::types::FairshareUtilizationDetail {
+-        crate::types::FairshareUtilizationDetail {
++    pub fn build(self) -> super::types::FairshareUtilizationDetail {
++        super::types::FairshareUtilizationDetail {
+             active_share_count: self.active_share_count,
+             top_capacity_utilization: self.top_capacity_utilization,
+         }

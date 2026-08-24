@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+     _value: &'a [u8],
+     depth: u32,
+ ) -> ::std::result::Result<
+-    Option<::std::vec::Vec<crate::types::ListJobsByConsumableResourceSummary>>,
++    Option<::std::vec::Vec<super::types::ListJobsByConsumableResourceSummary>>,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ >
+ where
+@@ -27,7 +27,7 @@
+                     }
+                     _ => {
+                         let value =
+-                            crate::protocol_serde::shape_list_jobs_by_consumable_resource_summary::de_list_jobs_by_consumable_resource_summary(
++                            super::protocol_serde::shape_list_jobs_by_consumable_resource_summary::de_list_jobs_by_consumable_resource_summary(
+                                 tokens,
+                                 _value,
+                                 depth + 1,

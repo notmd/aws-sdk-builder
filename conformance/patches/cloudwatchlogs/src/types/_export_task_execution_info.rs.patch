@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl ExportTaskExecutionInfo {
+     /// Creates a new builder-style object to manufacture [`ExportTaskExecutionInfo`](crate::types::ExportTaskExecutionInfo).
+-    pub fn builder() -> crate::types::builders::ExportTaskExecutionInfoBuilder {
+-        crate::types::builders::ExportTaskExecutionInfoBuilder::default()
++    pub fn builder() -> super::types::builders::ExportTaskExecutionInfoBuilder {
++        super::types::builders::ExportTaskExecutionInfoBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.completion_time
+     }
+     /// Consumes the builder and constructs a [`ExportTaskExecutionInfo`](crate::types::ExportTaskExecutionInfo).
+-    pub fn build(self) -> crate::types::ExportTaskExecutionInfo {
+-        crate::types::ExportTaskExecutionInfo {
++    pub fn build(self) -> super::types::ExportTaskExecutionInfo {
++        super::types::ExportTaskExecutionInfo {
+             creation_time: self.creation_time,
+             completion_time: self.completion_time,
+         }

@@ -1,0 +1,133 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::batch_get_resource_config::BatchGetResourceConfigOutput,
+-    crate::operation::batch_get_resource_config::BatchGetResourceConfigError,
++    super::operation::batch_get_resource_config::BatchGetResourceConfigOutput,
++    super::operation::batch_get_resource_config::BatchGetResourceConfigError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled(
++            return Err(super::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled(
+                 generic,
+             ))
+         }
+@@ -25,12 +25,12 @@
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+         "NoAvailableConfigurationRecorderException" => {
+-            crate::operation::batch_get_resource_config::BatchGetResourceConfigError::NoAvailableConfigurationRecorderException({
++            super::operation::batch_get_resource_config::BatchGetResourceConfigError::NoAvailableConfigurationRecorderException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_no_available_configuration_recorder_exception::de_no_available_configuration_recorder_exception_json_err(_response_body, output).map_err(crate::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled)?;
++                    let mut output = super::types::error::builders::NoAvailableConfigurationRecorderExceptionBuilder::default();
++                    output = super::protocol_serde::shape_no_available_configuration_recorder_exception::de_no_available_configuration_recorder_exception_json_err(_response_body, output).map_err(super::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -40,13 +40,13 @@
+                 tmp
+             })
+         }
+-        "ValidationException" => crate::operation::batch_get_resource_config::BatchGetResourceConfigError::ValidationException({
++        "ValidationException" => super::operation::batch_get_resource_config::BatchGetResourceConfigError::ValidationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled)?;
++                let mut output = super::types::error::builders::ValidationExceptionBuilder::default();
++                output = super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
++                    .map_err(super::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -55,7 +55,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::batch_get_resource_config::BatchGetResourceConfigError::generic(generic),
++        _ => super::operation::batch_get_resource_config::BatchGetResourceConfigError::generic(generic),
+     })
+ }
+
+@@ -65,14 +65,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::batch_get_resource_config::BatchGetResourceConfigOutput,
+-    crate::operation::batch_get_resource_config::BatchGetResourceConfigError,
++    super::operation::batch_get_resource_config::BatchGetResourceConfigOutput,
++    super::operation::batch_get_resource_config::BatchGetResourceConfigError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigOutputBuilder::default();
+-        output = crate::protocol_serde::shape_batch_get_resource_config::de_batch_get_resource_config(_response_body, output)
+-            .map_err(crate::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled)?;
++        let mut output = super::operation::batch_get_resource_config::builders::BatchGetResourceConfigOutputBuilder::default();
++        output = super::protocol_serde::shape_batch_get_resource_config::de_batch_get_resource_config(_response_body, output)
++            .map_err(super::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -79,11 +79,11 @@
+ }
+
+ pub fn ser_batch_get_resource_config_input(
+-    input: &crate::operation::batch_get_resource_config::BatchGetResourceConfigInput,
++    input: &super::operation::batch_get_resource_config::BatchGetResourceConfigInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_batch_get_resource_config_input::ser_batch_get_resource_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_batch_get_resource_config_input::ser_batch_get_resource_config_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -90,12 +90,12 @@
+
+ pub(crate) fn de_batch_get_resource_config(
+     _value: &[u8],
+-    mut builder: crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigOutputBuilder,
++    mut builder: super::operation::batch_get_resource_config::builders::BatchGetResourceConfigOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigOutputBuilder,
++    super::operation::batch_get_resource_config::builders::BatchGetResourceConfigOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;
+@@ -106,11 +106,11 @@
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "baseConfigurationItems" => {
+                     builder = builder.set_base_configuration_items(
+-                        crate::protocol_serde::shape_base_configuration_items::de_base_configuration_items(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_base_configuration_items::de_base_configuration_items(tokens, _value, depth + 1)?,
+                     );
+                 }
+                 "unprocessedResourceKeys" => {
+-                    builder = builder.set_unprocessed_resource_keys(crate::protocol_serde::shape_resource_keys::de_resource_keys(
++                    builder = builder.set_unprocessed_resource_keys(super::protocol_serde::shape_resource_keys::de_resource_keys(
+                         tokens,
+                         _value,
+                         depth + 1,

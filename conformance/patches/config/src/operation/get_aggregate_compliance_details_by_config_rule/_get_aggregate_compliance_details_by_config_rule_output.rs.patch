@@ -1,0 +1,76 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GetAggregateComplianceDetailsByConfigRuleOutput {
+     /// <p>Returns an AggregateEvaluationResults object.</p>
+-    pub aggregate_evaluation_results: ::std::option::Option<::std::vec::Vec<crate::types::AggregateEvaluationResult>>,
++    pub aggregate_evaluation_results: ::std::option::Option<::std::vec::Vec<super::types::AggregateEvaluationResult>>,
+     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+     pub next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -13,7 +13,7 @@
+     /// <p>Returns an AggregateEvaluationResults object.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aggregate_evaluation_results.is_none()`.
+-    pub fn aggregate_evaluation_results(&self) -> &[crate::types::AggregateEvaluationResult] {
++    pub fn aggregate_evaluation_results(&self) -> &[super::types::AggregateEvaluationResult] {
+         self.aggregate_evaluation_results.as_deref().unwrap_or_default()
+     }
+     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+@@ -29,8 +29,8 @@
+ impl GetAggregateComplianceDetailsByConfigRuleOutput {
+     /// Creates a new builder-style object to manufacture [`GetAggregateComplianceDetailsByConfigRuleOutput`](crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput).
+     pub fn builder(
+-    ) -> crate::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleOutputBuilder {
+-        crate::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleOutputBuilder::default()
++    ) -> super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleOutputBuilder {
++        super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleOutputBuilder::default()
+     }
+ }
+
+@@ -38,7 +38,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GetAggregateComplianceDetailsByConfigRuleOutputBuilder {
+-    pub(crate) aggregate_evaluation_results: ::std::option::Option<::std::vec::Vec<crate::types::AggregateEvaluationResult>>,
++    pub(crate) aggregate_evaluation_results: ::std::option::Option<::std::vec::Vec<super::types::AggregateEvaluationResult>>,
+     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+@@ -48,7 +48,7 @@
+     /// To override the contents of this collection use [`set_aggregate_evaluation_results`](Self::set_aggregate_evaluation_results).
+     ///
+     /// <p>Returns an AggregateEvaluationResults object.</p>
+-    pub fn aggregate_evaluation_results(mut self, input: crate::types::AggregateEvaluationResult) -> Self {
++    pub fn aggregate_evaluation_results(mut self, input: super::types::AggregateEvaluationResult) -> Self {
+         let mut v = self.aggregate_evaluation_results.unwrap_or_default();
+         v.push(input);
+         self.aggregate_evaluation_results = ::std::option::Option::Some(v);
+@@ -57,13 +57,13 @@
+     /// <p>Returns an AggregateEvaluationResults object.</p>
+     pub fn set_aggregate_evaluation_results(
+         mut self,
+-        input: ::std::option::Option<::std::vec::Vec<crate::types::AggregateEvaluationResult>>,
++        input: ::std::option::Option<::std::vec::Vec<super::types::AggregateEvaluationResult>>,
+     ) -> Self {
+         self.aggregate_evaluation_results = input;
+         self
+     }
+     /// <p>Returns an AggregateEvaluationResults object.</p>
+-    pub fn get_aggregate_evaluation_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregateEvaluationResult>> {
++    pub fn get_aggregate_evaluation_results(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AggregateEvaluationResult>> {
+         &self.aggregate_evaluation_results
+     }
+     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+@@ -90,8 +90,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetAggregateComplianceDetailsByConfigRuleOutput`](crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput).
+-    pub fn build(self) -> crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput {
+-        crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput {
++    pub fn build(self) -> super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput {
++        super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput {
+             aggregate_evaluation_results: self.aggregate_evaluation_results,
+             next_token: self.next_token,
+             _request_id: self._request_id,

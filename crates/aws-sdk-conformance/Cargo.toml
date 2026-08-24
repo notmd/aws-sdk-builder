@@ -9,17 +9,24 @@ publish = false
 
 [dependencies]
 aws-sdk-builder = { path = "../aws-sdk-builder" }
+aws-sdk-builder-batch = { path = "../aws-sdk-builder-batch" }
+aws-sdk-builder-bedrockruntime = { path = "../aws-sdk-builder-bedrockruntime" }
+aws-sdk-builder-cloudwatchlogs = { path = "../aws-sdk-builder-cloudwatchlogs" }
+aws-sdk-builder-codeartifact = { path = "../aws-sdk-builder-codeartifact" }
+aws-sdk-builder-cognitoidentityprovider = { path = "../aws-sdk-builder-cognitoidentityprovider" }
+aws-sdk-builder-config = { path = "../aws-sdk-builder-config" }
 aws-sdk-builder-dynamodb = { path = "../aws-sdk-builder-dynamodb" }
 aws-sdk-builder-iam = { path = "../aws-sdk-builder-iam" }
 aws-sdk-builder-kms = { path = "../aws-sdk-builder-kms" }
 aws-sdk-builder-lambda = { path = "../aws-sdk-builder-lambda" }
 aws-sdk-builder-s3 = { path = "../aws-sdk-builder-s3" }
+aws-sdk-builder-sesv2 = { path = "../aws-sdk-builder-sesv2" }
 aws-sdk-builder-sns = { path = "../aws-sdk-builder-sns" }
 aws-sdk-builder-sqs = { path = "../aws-sdk-builder-sqs" }
 aws-sdk-builder-sts = { path = "../aws-sdk-builder-sts" }
 diffy = { version = "0.5.1", features = ["std"] }
 serde = { version = "1", features = ["derive"] }
-serde_json = "1"
+serde_json = { version = "1", features = ["preserve_order"] }
 syn = { version = "3", features = ["full", "parsing", "visit"] }
 proc-macro2 = { version = "1", features = ["span-locations"] }
 tempfile = "3"

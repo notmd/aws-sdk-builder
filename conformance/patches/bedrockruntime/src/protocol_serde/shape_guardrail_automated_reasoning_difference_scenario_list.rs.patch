@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+     _value: &'a [u8],
+     depth: u32,
+ ) -> ::std::result::Result<
+-    Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningScenario>>,
++    Option<::std::vec::Vec<super::types::GuardrailAutomatedReasoningScenario>>,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ >
+ where
+@@ -26,7 +26,7 @@
+                         break;
+                     }
+                     _ => {
+-                        let value = crate::protocol_serde::shape_guardrail_automated_reasoning_scenario::de_guardrail_automated_reasoning_scenario(
++                        let value = super::protocol_serde::shape_guardrail_automated_reasoning_scenario::de_guardrail_automated_reasoning_scenario(
+                             tokens,
+                             _value,
+                             depth + 1,

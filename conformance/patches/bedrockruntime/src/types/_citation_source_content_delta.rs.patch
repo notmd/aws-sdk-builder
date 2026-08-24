@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl CitationSourceContentDelta {
+     /// Creates a new builder-style object to manufacture [`CitationSourceContentDelta`](crate::types::CitationSourceContentDelta).
+-    pub fn builder() -> crate::types::builders::CitationSourceContentDeltaBuilder {
+-        crate::types::builders::CitationSourceContentDeltaBuilder::default()
++    pub fn builder() -> super::types::builders::CitationSourceContentDeltaBuilder {
++        super::types::builders::CitationSourceContentDeltaBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+         &self.text
+     }
+     /// Consumes the builder and constructs a [`CitationSourceContentDelta`](crate::types::CitationSourceContentDelta).
+-    pub fn build(self) -> crate::types::CitationSourceContentDelta {
+-        crate::types::CitationSourceContentDelta { text: self.text }
++    pub fn build(self) -> super::types::CitationSourceContentDelta {
++        super::types::CitationSourceContentDelta { text: self.text }
+     }
+ }

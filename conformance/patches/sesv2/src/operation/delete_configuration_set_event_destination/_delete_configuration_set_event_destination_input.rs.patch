@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl DeleteConfigurationSetEventDestinationInput {
+     /// Creates a new builder-style object to manufacture [`DeleteConfigurationSetEventDestinationInput`](crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput).
+-    pub fn builder() -> crate::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationInputBuilder {
+-        crate::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationInputBuilder::default()
++    pub fn builder() -> super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationInputBuilder {
++        super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationInputBuilder::default()
+     }
+ }
+
+@@ -68,11 +68,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
++        super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput {
++            super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput {
+                 configuration_set_name: self.configuration_set_name,
+                 event_destination_name: self.event_destination_name,
+             },

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -13,8 +13,8 @@
+ }
+ impl CancelExportJobOutput {
+     /// Creates a new builder-style object to manufacture [`CancelExportJobOutput`](crate::operation::cancel_export_job::CancelExportJobOutput).
+-    pub fn builder() -> crate::operation::cancel_export_job::builders::CancelExportJobOutputBuilder {
+-        crate::operation::cancel_export_job::builders::CancelExportJobOutputBuilder::default()
++    pub fn builder() -> super::operation::cancel_export_job::builders::CancelExportJobOutputBuilder {
++        super::operation::cancel_export_job::builders::CancelExportJobOutputBuilder::default()
+     }
+ }
+
+@@ -35,8 +35,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CancelExportJobOutput`](crate::operation::cancel_export_job::CancelExportJobOutput).
+-    pub fn build(self) -> crate::operation::cancel_export_job::CancelExportJobOutput {
+-        crate::operation::cancel_export_job::CancelExportJobOutput {
++    pub fn build(self) -> super::operation::cancel_export_job::CancelExportJobOutput {
++        super::operation::cancel_export_job::CancelExportJobOutput {
+             _request_id: self._request_id,
+         }
+     }

@@ -1,0 +1,74 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     pub integration_name: ::std::option::Option<::std::string::String>,
+     /// <p>The status of the integration that you just created.</p>
+     /// <p>After you create an integration, it takes a few minutes to complete. During this time, you'll see the status as <code>PROVISIONING</code>.</p>
+-    pub integration_status: ::std::option::Option<crate::types::IntegrationStatus>,
++    pub integration_status: ::std::option::Option<super::types::IntegrationStatus>,
+     _request_id: Option<String>,
+ }
+ impl PutIntegrationOutput {
+@@ -17,7 +17,7 @@
+     }
+     /// <p>The status of the integration that you just created.</p>
+     /// <p>After you create an integration, it takes a few minutes to complete. During this time, you'll see the status as <code>PROVISIONING</code>.</p>
+-    pub fn integration_status(&self) -> ::std::option::Option<&crate::types::IntegrationStatus> {
++    pub fn integration_status(&self) -> ::std::option::Option<&super::types::IntegrationStatus> {
+         self.integration_status.as_ref()
+     }
+ }
+@@ -28,8 +28,8 @@
+ }
+ impl PutIntegrationOutput {
+     /// Creates a new builder-style object to manufacture [`PutIntegrationOutput`](crate::operation::put_integration::PutIntegrationOutput).
+-    pub fn builder() -> crate::operation::put_integration::builders::PutIntegrationOutputBuilder {
+-        crate::operation::put_integration::builders::PutIntegrationOutputBuilder::default()
++    pub fn builder() -> super::operation::put_integration::builders::PutIntegrationOutputBuilder {
++        super::operation::put_integration::builders::PutIntegrationOutputBuilder::default()
+     }
+ }
+
+@@ -38,7 +38,7 @@
+ #[non_exhaustive]
+ pub struct PutIntegrationOutputBuilder {
+     pub(crate) integration_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) integration_status: ::std::option::Option<crate::types::IntegrationStatus>,
++    pub(crate) integration_status: ::std::option::Option<super::types::IntegrationStatus>,
+     _request_id: Option<String>,
+ }
+ impl PutIntegrationOutputBuilder {
+@@ -58,19 +58,19 @@
+     }
+     /// <p>The status of the integration that you just created.</p>
+     /// <p>After you create an integration, it takes a few minutes to complete. During this time, you'll see the status as <code>PROVISIONING</code>.</p>
+-    pub fn integration_status(mut self, input: crate::types::IntegrationStatus) -> Self {
++    pub fn integration_status(mut self, input: super::types::IntegrationStatus) -> Self {
+         self.integration_status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The status of the integration that you just created.</p>
+     /// <p>After you create an integration, it takes a few minutes to complete. During this time, you'll see the status as <code>PROVISIONING</code>.</p>
+-    pub fn set_integration_status(mut self, input: ::std::option::Option<crate::types::IntegrationStatus>) -> Self {
++    pub fn set_integration_status(mut self, input: ::std::option::Option<super::types::IntegrationStatus>) -> Self {
+         self.integration_status = input;
+         self
+     }
+     /// <p>The status of the integration that you just created.</p>
+     /// <p>After you create an integration, it takes a few minutes to complete. During this time, you'll see the status as <code>PROVISIONING</code>.</p>
+-    pub fn get_integration_status(&self) -> &::std::option::Option<crate::types::IntegrationStatus> {
++    pub fn get_integration_status(&self) -> &::std::option::Option<super::types::IntegrationStatus> {
+         &self.integration_status
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -83,8 +83,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutIntegrationOutput`](crate::operation::put_integration::PutIntegrationOutput).
+-    pub fn build(self) -> crate::operation::put_integration::PutIntegrationOutput {
+-        crate::operation::put_integration::PutIntegrationOutput {
++    pub fn build(self) -> super::operation::put_integration::PutIntegrationOutput {
++        super::operation::put_integration::PutIntegrationOutput {
+             integration_name: self.integration_name,
+             integration_status: self.integration_status,
+             _request_id: self._request_id,

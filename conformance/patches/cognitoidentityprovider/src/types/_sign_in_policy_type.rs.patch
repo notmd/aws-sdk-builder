@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.</p><note>
+     /// <p><code>SOFTWARE_TOKEN</code> is not currently supported as a first auth factor. Do not include this value in <code>AllowedFirstAuthFactors</code>.</p>
+     /// </note>
+-    pub allowed_first_auth_factors: ::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>>,
++    pub allowed_first_auth_factors: ::std::option::Option<::std::vec::Vec<super::types::AuthFactorType>>,
+ }
+ impl SignInPolicyType {
+     /// <p>The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.</p><note>
+@@ -15,14 +15,14 @@
+     /// </note>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.allowed_first_auth_factors.is_none()`.
+-    pub fn allowed_first_auth_factors(&self) -> &[crate::types::AuthFactorType] {
++    pub fn allowed_first_auth_factors(&self) -> &[super::types::AuthFactorType] {
+         self.allowed_first_auth_factors.as_deref().unwrap_or_default()
+     }
+ }
+ impl SignInPolicyType {
+     /// Creates a new builder-style object to manufacture [`SignInPolicyType`](crate::types::SignInPolicyType).
+-    pub fn builder() -> crate::types::builders::SignInPolicyTypeBuilder {
+-        crate::types::builders::SignInPolicyTypeBuilder::default()
++    pub fn builder() -> super::types::builders::SignInPolicyTypeBuilder {
++        super::types::builders::SignInPolicyTypeBuilder::default()
+     }
+ }
+
+@@ -30,7 +30,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct SignInPolicyTypeBuilder {
+-    pub(crate) allowed_first_auth_factors: ::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>>,
++    pub(crate) allowed_first_auth_factors: ::std::option::Option<::std::vec::Vec<super::types::AuthFactorType>>,
+ }
+ impl SignInPolicyTypeBuilder {
+     /// Appends an item to `allowed_first_auth_factors`.
+@@ -40,7 +40,7 @@
+     /// <p>The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.</p><note>
+     /// <p><code>SOFTWARE_TOKEN</code> is not currently supported as a first auth factor. Do not include this value in <code>AllowedFirstAuthFactors</code>.</p>
+     /// </note>
+-    pub fn allowed_first_auth_factors(mut self, input: crate::types::AuthFactorType) -> Self {
++    pub fn allowed_first_auth_factors(mut self, input: super::types::AuthFactorType) -> Self {
+         let mut v = self.allowed_first_auth_factors.unwrap_or_default();
+         v.push(input);
+         self.allowed_first_auth_factors = ::std::option::Option::Some(v);
+@@ -49,7 +49,7 @@
+     /// <p>The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.</p><note>
+     /// <p><code>SOFTWARE_TOKEN</code> is not currently supported as a first auth factor. Do not include this value in <code>AllowedFirstAuthFactors</code>.</p>
+     /// </note>
+-    pub fn set_allowed_first_auth_factors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>>) -> Self {
++    pub fn set_allowed_first_auth_factors(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AuthFactorType>>) -> Self {
+         self.allowed_first_auth_factors = input;
+         self
+     }
+@@ -56,12 +56,12 @@
+     /// <p>The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.</p><note>
+     /// <p><code>SOFTWARE_TOKEN</code> is not currently supported as a first auth factor. Do not include this value in <code>AllowedFirstAuthFactors</code>.</p>
+     /// </note>
+-    pub fn get_allowed_first_auth_factors(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>> {
++    pub fn get_allowed_first_auth_factors(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AuthFactorType>> {
+         &self.allowed_first_auth_factors
+     }
+     /// Consumes the builder and constructs a [`SignInPolicyType`](crate::types::SignInPolicyType).
+-    pub fn build(self) -> crate::types::SignInPolicyType {
+-        crate::types::SignInPolicyType {
++    pub fn build(self) -> super::types::SignInPolicyType {
++        super::types::SignInPolicyType {
+             allowed_first_auth_factors: self.allowed_first_auth_factors,
+         }
+     }

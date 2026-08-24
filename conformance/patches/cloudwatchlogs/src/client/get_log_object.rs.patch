@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// - On success, responds with [`GetLogObjectOutput`](crate::operation::get_log_object::GetLogObjectOutput) with field(s):
+     ///   - [`field_stream(EventReceiver<GetLogObjectResponseStream, GetLogObjectResponseStreamError>)`](crate::operation::get_log_object::GetLogObjectOutput::field_stream): <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
+     /// - On failure, responds with [`SdkError<GetLogObjectError>`](crate::operation::get_log_object::GetLogObjectError)
+-    pub fn get_log_object(&self) -> crate::operation::get_log_object::builders::GetLogObjectFluentBuilder {
+-        crate::operation::get_log_object::builders::GetLogObjectFluentBuilder::new(self.handle.clone())
++    pub fn get_log_object(&self) -> super::operation::get_log_object::builders::GetLogObjectFluentBuilder {
++        super::operation::get_log_object::builders::GetLogObjectFluentBuilder::new(self.handle.clone())
+     }
+ }

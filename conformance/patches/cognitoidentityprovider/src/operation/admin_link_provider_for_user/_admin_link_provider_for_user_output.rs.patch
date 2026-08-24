@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl AdminLinkProviderForUserOutput {
+     /// Creates a new builder-style object to manufacture [`AdminLinkProviderForUserOutput`](crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserOutput).
+-    pub fn builder() -> crate::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserOutputBuilder {
+-        crate::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserOutputBuilder::default()
++    pub fn builder() -> super::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserOutputBuilder {
++        super::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`AdminLinkProviderForUserOutput`](crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserOutput).
+-    pub fn build(self) -> crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserOutput {
+-        crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserOutput {
++    pub fn build(self) -> super::operation::admin_link_provider_for_user::AdminLinkProviderForUserOutput {
++        super::operation::admin_link_provider_for_user::AdminLinkProviderForUserOutput {
+             _request_id: self._request_id,
+         }
+     }

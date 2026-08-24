@@ -1,0 +1,207 @@
+--- original
++++ modified
+@@ -5,28 +5,28 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::describe_service_job::DescribeServiceJobOutput,
+-    crate::operation::describe_service_job::DescribeServiceJobError,
++    super::operation::describe_service_job::DescribeServiceJobOutput,
++    super::operation::describe_service_job::DescribeServiceJobError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::describe_service_job::DescribeServiceJobError::unhandled(generic)),
++        None => return Err(super::operation::describe_service_job::DescribeServiceJobError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ClientException" => crate::operation::describe_service_job::DescribeServiceJobError::ClientException({
++        "ClientException" => super::operation::describe_service_job::DescribeServiceJobError::ClientException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ClientExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_client_exception::de_client_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
++                let mut output = super::types::error::builders::ClientExceptionBuilder::default();
++                output = super::protocol_serde::shape_client_exception::de_client_exception_json_err(_response_body, output)
++                    .map_err(super::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "ServerException" => crate::operation::describe_service_job::DescribeServiceJobError::ServerException({
++        "ServerException" => super::operation::describe_service_job::DescribeServiceJobError::ServerException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServerExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_server_exception::de_server_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
++                let mut output = super::types::error::builders::ServerExceptionBuilder::default();
++                output = super::protocol_serde::shape_server_exception::de_server_exception_json_err(_response_body, output)
++                    .map_err(super::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,7 +50,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::describe_service_job::DescribeServiceJobError::generic(generic),
++        _ => super::operation::describe_service_job::DescribeServiceJobError::generic(generic),
+     })
+ }
+
+@@ -60,25 +60,25 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::describe_service_job::DescribeServiceJobOutput,
+-    crate::operation::describe_service_job::DescribeServiceJobError,
++    super::operation::describe_service_job::DescribeServiceJobOutput,
++    super::operation::describe_service_job::DescribeServiceJobError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::default();
+-        output = crate::protocol_serde::shape_describe_service_job::de_describe_service_job(_response_body, output)
+-            .map_err(crate::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
++        let mut output = super::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::default();
++        output = super::protocol_serde::shape_describe_service_job::de_describe_service_job(_response_body, output)
++            .map_err(super::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+-        crate::serde_util::describe_service_job_output_output_correct_errors(output).build()
++        super::serde_util::describe_service_job_output_output_correct_errors(output).build()
+     })
+ }
+
+ pub fn ser_describe_service_job_input(
+-    input: &crate::operation::describe_service_job::DescribeServiceJobInput,
++    input: &super::operation::describe_service_job::DescribeServiceJobInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_describe_service_job_input::ser_describe_service_job_input_input(&mut object, input)?;
++    super::protocol_serde::shape_describe_service_job_input::ser_describe_service_job_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -85,12 +85,12 @@
+
+ pub(crate) fn de_describe_service_job(
+     _value: &[u8],
+-    mut builder: crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder,
++    mut builder: super::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder,
++    super::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;
+@@ -100,7 +100,7 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "attempts" => {
+-                    builder = builder.set_attempts(crate::protocol_serde::shape_service_job_attempt_details::de_service_job_attempt_details(
++                    builder = builder.set_attempts(super::protocol_serde::shape_service_job_attempt_details::de_service_job_attempt_details(
+                         tokens,
+                         _value,
+                         depth + 1,
+@@ -108,7 +108,7 @@
+                 }
+                 "capacityUsage" => {
+                     builder = builder.set_capacity_usage(
+-                        crate::protocol_serde::shape_service_job_capacity_usage_detail_list::de_service_job_capacity_usage_detail_list(
++                        super::protocol_serde::shape_service_job_capacity_usage_detail_list::de_service_job_capacity_usage_detail_list(
+                             tokens,
+                             _value,
+                             depth + 1,
+@@ -154,7 +154,7 @@
+                     );
+                 }
+                 "latestAttempt" => {
+-                    builder = builder.set_latest_attempt(crate::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(
++                    builder = builder.set_latest_attempt(super::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(
+                         tokens,
+                         _value,
+                         depth + 1,
+@@ -162,7 +162,7 @@
+                 }
+                 "preemptionConfiguration" => {
+                     builder = builder.set_preemption_configuration(
+-                        crate::protocol_serde::shape_service_job_preemption_configuration::de_service_job_preemption_configuration(
++                        super::protocol_serde::shape_service_job_preemption_configuration::de_service_job_preemption_configuration(
+                             tokens,
+                             _value,
+                             depth + 1,
+@@ -171,7 +171,7 @@
+                 }
+                 "preemptionSummary" => {
+                     builder = builder.set_preemption_summary(
+-                        crate::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(tokens, _value, depth + 1)?,
+                     );
+                 }
+                 "quotaShareName" => {
+@@ -182,7 +182,7 @@
+                     );
+                 }
+                 "retryStrategy" => {
+-                    builder = builder.set_retry_strategy(crate::protocol_serde::shape_service_job_retry_strategy::de_service_job_retry_strategy(
++                    builder = builder.set_retry_strategy(super::protocol_serde::shape_service_job_retry_strategy::de_service_job_retry_strategy(
+                         tokens,
+                         _value,
+                         depth + 1,
+@@ -205,7 +205,7 @@
+                 "serviceJobType" => {
+                     builder = builder.set_service_job_type(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| crate::types::ServiceJobType::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::ServiceJobType::from(u.as_ref())))
+                             .transpose()?,
+                     );
+                 }
+@@ -233,7 +233,7 @@
+                 "status" => {
+                     builder = builder.set_status(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| crate::types::ServiceJobStatus::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::ServiceJobStatus::from(u.as_ref())))
+                             .transpose()?,
+                     );
+                 }
+@@ -252,7 +252,7 @@
+                     );
+                 }
+                 "tags" => {
+-                    builder = builder.set_tags(crate::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
++                    builder = builder.set_tags(super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
+                         tokens,
+                         _value,
+                         depth + 1,
+@@ -259,7 +259,7 @@
+                     )?);
+                 }
+                 "timeoutConfig" => {
+-                    builder = builder.set_timeout_config(crate::protocol_serde::shape_service_job_timeout::de_service_job_timeout(
++                    builder = builder.set_timeout_config(super::protocol_serde::shape_service_job_timeout::de_service_job_timeout(
+                         tokens,
+                         _value,
+                         depth + 1,

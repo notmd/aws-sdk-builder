@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -19,7 +19,7 @@
+     /// - On failure, responds with [`SdkError<AdminRespondToAuthChallengeError>`](crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError)
+     pub fn admin_respond_to_auth_challenge(
+         &self,
+-    ) -> crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder {
+-        crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder {
++        super::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder::new(self.handle.clone())
+     }
+ }

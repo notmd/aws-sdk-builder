@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -27,8 +27,8 @@
+ }
+ impl SendQuota {
+     /// Creates a new builder-style object to manufacture [`SendQuota`](crate::types::SendQuota).
+-    pub fn builder() -> crate::types::builders::SendQuotaBuilder {
+-        crate::types::builders::SendQuotaBuilder::default()
++    pub fn builder() -> super::types::builders::SendQuotaBuilder {
++        super::types::builders::SendQuotaBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         &self.sent_last24_hours
+     }
+     /// Consumes the builder and constructs a [`SendQuota`](crate::types::SendQuota).
+-    pub fn build(self) -> crate::types::SendQuota {
+-        crate::types::SendQuota {
++    pub fn build(self) -> super::types::SendQuota {
++        super::types::SendQuota {
+             max24_hour_send: self.max24_hour_send.unwrap_or_default(),
+             max_send_rate: self.max_send_rate.unwrap_or_default(),
+             sent_last24_hours: self.sent_last24_hours.unwrap_or_default(),

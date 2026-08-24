@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     /// - On success, responds with [`PutDeliverySourceOutput`](crate::operation::put_delivery_source::PutDeliverySourceOutput) with field(s):
+     ///   - [`delivery_source(Option<DeliverySource>)`](crate::operation::put_delivery_source::PutDeliverySourceOutput::delivery_source): <p>A structure containing information about the delivery source that was just created or updated.</p>
+     /// - On failure, responds with [`SdkError<PutDeliverySourceError>`](crate::operation::put_delivery_source::PutDeliverySourceError)
+-    pub fn put_delivery_source(&self) -> crate::operation::put_delivery_source::builders::PutDeliverySourceFluentBuilder {
+-        crate::operation::put_delivery_source::builders::PutDeliverySourceFluentBuilder::new(self.handle.clone())
++    pub fn put_delivery_source(&self) -> super::operation::put_delivery_source::builders::PutDeliverySourceFluentBuilder {
++        super::operation::put_delivery_source::builders::PutDeliverySourceFluentBuilder::new(self.handle.clone())
+     }
+ }

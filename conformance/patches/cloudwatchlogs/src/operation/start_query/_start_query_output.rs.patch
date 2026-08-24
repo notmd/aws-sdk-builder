@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl StartQueryOutput {
+     /// Creates a new builder-style object to manufacture [`StartQueryOutput`](crate::operation::start_query::StartQueryOutput).
+-    pub fn builder() -> crate::operation::start_query::builders::StartQueryOutputBuilder {
+-        crate::operation::start_query::builders::StartQueryOutputBuilder::default()
++    pub fn builder() -> super::operation::start_query::builders::StartQueryOutputBuilder {
++        super::operation::start_query::builders::StartQueryOutputBuilder::default()
+     }
+ }
+
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`StartQueryOutput`](crate::operation::start_query::StartQueryOutput).
+-    pub fn build(self) -> crate::operation::start_query::StartQueryOutput {
+-        crate::operation::start_query::StartQueryOutput {
++    pub fn build(self) -> super::operation::start_query::StartQueryOutput {
++        super::operation::start_query::StartQueryOutput {
+             query_id: self.query_id,
+             _request_id: self._request_id,
+         }

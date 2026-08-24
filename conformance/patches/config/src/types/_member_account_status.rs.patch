@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -30,7 +30,7 @@
+     /// <li>
+     /// <p><code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</p></li>
+     /// </ul>
+-    pub member_account_rule_status: crate::types::MemberAccountRuleStatus,
++    pub member_account_rule_status: super::types::MemberAccountRuleStatus,
+     /// <p>An error code that is returned when Config rule creation or deletion failed in the member account.</p>
+     pub error_code: ::std::option::Option<::std::string::String>,
+     /// <p>An error message indicating that Config rule account creation or deletion has failed due to an error in the member account.</p>
+@@ -71,7 +71,7 @@
+     /// <li>
+     /// <p><code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</p></li>
+     /// </ul>
+-    pub fn member_account_rule_status(&self) -> &crate::types::MemberAccountRuleStatus {
++    pub fn member_account_rule_status(&self) -> &super::types::MemberAccountRuleStatus {
+         &self.member_account_rule_status
+     }
+     /// <p>An error code that is returned when Config rule creation or deletion failed in the member account.</p>
+@@ -89,8 +89,8 @@
+ }
+ impl MemberAccountStatus {
+     /// Creates a new builder-style object to manufacture [`MemberAccountStatus`](crate::types::MemberAccountStatus).
+-    pub fn builder() -> crate::types::builders::MemberAccountStatusBuilder {
+-        crate::types::builders::MemberAccountStatusBuilder::default()
++    pub fn builder() -> super::types::builders::MemberAccountStatusBuilder {
++        super::types::builders::MemberAccountStatusBuilder::default()
+     }
+ }
+
+@@ -100,7 +100,7 @@
+ pub struct MemberAccountStatusBuilder {
+     pub(crate) account_id: ::std::option::Option<::std::string::String>,
+     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) member_account_rule_status: ::std::option::Option<crate::types::MemberAccountRuleStatus>,
++    pub(crate) member_account_rule_status: ::std::option::Option<super::types::MemberAccountRuleStatus>,
+     pub(crate) error_code: ::std::option::Option<::std::string::String>,
+     pub(crate) error_message: ::std::option::Option<::std::string::String>,
+     pub(crate) last_update_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+@@ -159,7 +159,7 @@
+     /// <p><code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</p></li>
+     /// </ul>
+     /// This field is required.
+-    pub fn member_account_rule_status(mut self, input: crate::types::MemberAccountRuleStatus) -> Self {
++    pub fn member_account_rule_status(mut self, input: super::types::MemberAccountRuleStatus) -> Self {
+         self.member_account_rule_status = ::std::option::Option::Some(input);
+         self
+     }
+@@ -185,7 +185,7 @@
+     /// <li>
+     /// <p><code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</p></li>
+     /// </ul>
+-    pub fn set_member_account_rule_status(mut self, input: ::std::option::Option<crate::types::MemberAccountRuleStatus>) -> Self {
++    pub fn set_member_account_rule_status(mut self, input: ::std::option::Option<super::types::MemberAccountRuleStatus>) -> Self {
+         self.member_account_rule_status = input;
+         self
+     }
+@@ -211,7 +211,7 @@
+     /// <li>
+     /// <p><code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</p></li>
+     /// </ul>
+-    pub fn get_member_account_rule_status(&self) -> &::std::option::Option<crate::types::MemberAccountRuleStatus> {
++    pub fn get_member_account_rule_status(&self) -> &::std::option::Option<super::types::MemberAccountRuleStatus> {
+         &self.member_account_rule_status
+     }
+     /// <p>An error code that is returned when Config rule creation or deletion failed in the member account.</p>
+@@ -261,8 +261,8 @@
+     /// - [`account_id`](crate::types::builders::MemberAccountStatusBuilder::account_id)
+     /// - [`config_rule_name`](crate::types::builders::MemberAccountStatusBuilder::config_rule_name)
+     /// - [`member_account_rule_status`](crate::types::builders::MemberAccountStatusBuilder::member_account_rule_status)
+-    pub fn build(self) -> ::std::result::Result<crate::types::MemberAccountStatus, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::MemberAccountStatus {
++    pub fn build(self) -> ::std::result::Result<super::types::MemberAccountStatus, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::MemberAccountStatus {
+             account_id: self.account_id.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "account_id",

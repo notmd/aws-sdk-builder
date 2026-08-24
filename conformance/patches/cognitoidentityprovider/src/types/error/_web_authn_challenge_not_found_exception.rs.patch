@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for WebAuthnChallengeNotFoundException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::WebAuthnChallengeNotFoundException {
++impl ::aws_types::request_id::RequestId for super::types::error::WebAuthnChallengeNotFoundException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl WebAuthnChallengeNotFoundException {
+     /// Creates a new builder-style object to manufacture [`WebAuthnChallengeNotFoundException`](crate::types::error::WebAuthnChallengeNotFoundException).
+-    pub fn builder() -> crate::types::error::builders::WebAuthnChallengeNotFoundExceptionBuilder {
+-        crate::types::error::builders::WebAuthnChallengeNotFoundExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::WebAuthnChallengeNotFoundExceptionBuilder {
++        super::types::error::builders::WebAuthnChallengeNotFoundExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`WebAuthnChallengeNotFoundException`](crate::types::error::WebAuthnChallengeNotFoundException).
+-    pub fn build(self) -> crate::types::error::WebAuthnChallengeNotFoundException {
+-        crate::types::error::WebAuthnChallengeNotFoundException {
++    pub fn build(self) -> super::types::error::WebAuthnChallengeNotFoundException {
++        super::types::error::WebAuthnChallengeNotFoundException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl DescribeUserPoolInput {
+     /// Creates a new builder-style object to manufacture [`DescribeUserPoolInput`](crate::operation::describe_user_pool::DescribeUserPoolInput).
+-    pub fn builder() -> crate::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder {
+-        crate::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder::default()
++    pub fn builder() -> super::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder {
++        super::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder::default()
+     }
+ }
+
+@@ -45,8 +45,8 @@
+     /// Consumes the builder and constructs a [`DescribeUserPoolInput`](crate::operation::describe_user_pool::DescribeUserPoolInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::describe_user_pool::DescribeUserPoolInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::describe_user_pool::DescribeUserPoolInput {
++    ) -> ::std::result::Result<super::operation::describe_user_pool::DescribeUserPoolInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::describe_user_pool::DescribeUserPoolInput {
+             user_pool_id: self.user_pool_id,
+         })
+     }

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl Content {
+     /// Creates a new builder-style object to manufacture [`Content`](crate::types::Content).
+-    pub fn builder() -> crate::types::builders::ContentBuilder {
+-        crate::types::builders::ContentBuilder::default()
++    pub fn builder() -> super::types::builders::ContentBuilder {
++        super::types::builders::ContentBuilder::default()
+     }
+ }
+
+@@ -67,8 +67,8 @@
+     /// Consumes the builder and constructs a [`Content`](crate::types::Content).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`data`](crate::types::builders::ContentBuilder::data)
+-    pub fn build(self) -> ::std::result::Result<crate::types::Content, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::Content {
++    pub fn build(self) -> ::std::result::Result<super::types::Content, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::Content {
+             data: self.data.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "data",

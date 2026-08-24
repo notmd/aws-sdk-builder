@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -32,8 +32,8 @@
+ }
+ impl RegisterJobDefinitionOutput {
+     /// Creates a new builder-style object to manufacture [`RegisterJobDefinitionOutput`](crate::operation::register_job_definition::RegisterJobDefinitionOutput).
+-    pub fn builder() -> crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder {
+-        crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::default()
++    pub fn builder() -> super::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder {
++        super::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::default()
+     }
+ }
+
+@@ -102,8 +102,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`RegisterJobDefinitionOutput`](crate::operation::register_job_definition::RegisterJobDefinitionOutput).
+-    pub fn build(self) -> crate::operation::register_job_definition::RegisterJobDefinitionOutput {
+-        crate::operation::register_job_definition::RegisterJobDefinitionOutput {
++    pub fn build(self) -> super::operation::register_job_definition::RegisterJobDefinitionOutput {
++        super::operation::register_job_definition::RegisterJobDefinitionOutput {
+             job_definition_name: self.job_definition_name,
+             job_definition_arn: self.job_definition_arn,
+             revision: self.revision,

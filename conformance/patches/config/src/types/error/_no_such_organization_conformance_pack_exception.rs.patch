@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -27,7 +27,7 @@
+     }
+ }
+ impl ::std::error::Error for NoSuchOrganizationConformancePackException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::NoSuchOrganizationConformancePackException {
++impl ::aws_types::request_id::RequestId for super::types::error::NoSuchOrganizationConformancePackException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -40,8 +40,8 @@
+ }
+ impl NoSuchOrganizationConformancePackException {
+     /// Creates a new builder-style object to manufacture [`NoSuchOrganizationConformancePackException`](crate::types::error::NoSuchOrganizationConformancePackException).
+-    pub fn builder() -> crate::types::error::builders::NoSuchOrganizationConformancePackExceptionBuilder {
+-        crate::types::error::builders::NoSuchOrganizationConformancePackExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::NoSuchOrganizationConformancePackExceptionBuilder {
++        super::types::error::builders::NoSuchOrganizationConformancePackExceptionBuilder::default()
+     }
+ }
+
+@@ -79,8 +79,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`NoSuchOrganizationConformancePackException`](crate::types::error::NoSuchOrganizationConformancePackException).
+-    pub fn build(self) -> crate::types::error::NoSuchOrganizationConformancePackException {
+-        crate::types::error::NoSuchOrganizationConformancePackException {
++    pub fn build(self) -> super::types::error::NoSuchOrganizationConformancePackException {
++        super::types::error::NoSuchOrganizationConformancePackException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

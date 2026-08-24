@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     pub user_mfa_setting_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     /// <p>The authentication types that are available to the user with <code>USER_AUTH</code> sign-in, for example <code>\["PASSWORD", "WEB_AUTHN"\]</code>.</p>
+     /// <p><code>PASSWORD</code> can only be used as a first authentication factor. <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor. <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code> is available as an MFA factor only when passkey MFA is enabled at the user pool level.</p>
+-    pub configured_user_auth_factors: ::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>>,
++    pub configured_user_auth_factors: ::std::option::Option<::std::vec::Vec<super::types::AuthFactorType>>,
+     _request_id: Option<String>,
+ }
+ impl AdminGetUserAuthFactorsOutput {
+@@ -34,7 +34,7 @@
+     /// <p><code>PASSWORD</code> can only be used as a first authentication factor. <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor. <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code> is available as an MFA factor only when passkey MFA is enabled at the user pool level.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.configured_user_auth_factors.is_none()`.
+-    pub fn configured_user_auth_factors(&self) -> &[crate::types::AuthFactorType] {
++    pub fn configured_user_auth_factors(&self) -> &[super::types::AuthFactorType] {
+         self.configured_user_auth_factors.as_deref().unwrap_or_default()
+     }
+ }
+@@ -56,8 +56,8 @@
+ }
+ impl AdminGetUserAuthFactorsOutput {
+     /// Creates a new builder-style object to manufacture [`AdminGetUserAuthFactorsOutput`](crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsOutput).
+-    pub fn builder() -> crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsOutputBuilder {
+-        crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsOutputBuilder::default()
++    pub fn builder() -> super::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsOutputBuilder {
++        super::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsOutputBuilder::default()
+     }
+ }
+
+@@ -68,7 +68,7 @@
+     pub(crate) username: ::std::option::Option<::std::string::String>,
+     pub(crate) preferred_mfa_setting: ::std::option::Option<::std::string::String>,
+     pub(crate) user_mfa_setting_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+-    pub(crate) configured_user_auth_factors: ::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>>,
++    pub(crate) configured_user_auth_factors: ::std::option::Option<::std::vec::Vec<super::types::AuthFactorType>>,
+     _request_id: Option<String>,
+ }
+ impl AdminGetUserAuthFactorsOutputBuilder {
+@@ -127,7 +127,7 @@
+     ///
+     /// <p>The authentication types that are available to the user with <code>USER_AUTH</code> sign-in, for example <code>\["PASSWORD", "WEB_AUTHN"\]</code>.</p>
+     /// <p><code>PASSWORD</code> can only be used as a first authentication factor. <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor. <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code> is available as an MFA factor only when passkey MFA is enabled at the user pool level.</p>
+-    pub fn configured_user_auth_factors(mut self, input: crate::types::AuthFactorType) -> Self {
++    pub fn configured_user_auth_factors(mut self, input: super::types::AuthFactorType) -> Self {
+         let mut v = self.configured_user_auth_factors.unwrap_or_default();
+         v.push(input);
+         self.configured_user_auth_factors = ::std::option::Option::Some(v);
+@@ -135,13 +135,13 @@
+     }
+     /// <p>The authentication types that are available to the user with <code>USER_AUTH</code> sign-in, for example <code>\["PASSWORD", "WEB_AUTHN"\]</code>.</p>
+     /// <p><code>PASSWORD</code> can only be used as a first authentication factor. <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor. <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code> is available as an MFA factor only when passkey MFA is enabled at the user pool level.</p>
+-    pub fn set_configured_user_auth_factors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>>) -> Self {
++    pub fn set_configured_user_auth_factors(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AuthFactorType>>) -> Self {
+         self.configured_user_auth_factors = input;
+         self
+     }
+     /// <p>The authentication types that are available to the user with <code>USER_AUTH</code> sign-in, for example <code>\["PASSWORD", "WEB_AUTHN"\]</code>.</p>
+     /// <p><code>PASSWORD</code> can only be used as a first authentication factor. <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor. <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code> is available as an MFA factor only when passkey MFA is enabled at the user pool level.</p>
+-    pub fn get_configured_user_auth_factors(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>> {
++    pub fn get_configured_user_auth_factors(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AuthFactorType>> {
+         &self.configured_user_auth_factors
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -159,10 +159,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsOutput,
++        super::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsOutput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsOutput {
++        ::std::result::Result::Ok(super::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsOutput {
+             username: self.username.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "username",

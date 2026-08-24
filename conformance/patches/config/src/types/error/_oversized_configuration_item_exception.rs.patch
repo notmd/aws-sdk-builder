@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for OversizedConfigurationItemException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::OversizedConfigurationItemException {
++impl ::aws_types::request_id::RequestId for super::types::error::OversizedConfigurationItemException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl OversizedConfigurationItemException {
+     /// Creates a new builder-style object to manufacture [`OversizedConfigurationItemException`](crate::types::error::OversizedConfigurationItemException).
+-    pub fn builder() -> crate::types::error::builders::OversizedConfigurationItemExceptionBuilder {
+-        crate::types::error::builders::OversizedConfigurationItemExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::OversizedConfigurationItemExceptionBuilder {
++        super::types::error::builders::OversizedConfigurationItemExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`OversizedConfigurationItemException`](crate::types::error::OversizedConfigurationItemException).
+-    pub fn build(self) -> crate::types::error::OversizedConfigurationItemException {
+-        crate::types::error::OversizedConfigurationItemException {
++    pub fn build(self) -> super::types::error::OversizedConfigurationItemException {
++        super::types::error::OversizedConfigurationItemException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

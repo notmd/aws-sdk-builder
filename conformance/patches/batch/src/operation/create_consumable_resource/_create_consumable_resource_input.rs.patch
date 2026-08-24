@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -44,8 +44,8 @@
+ }
+ impl CreateConsumableResourceInput {
+     /// Creates a new builder-style object to manufacture [`CreateConsumableResourceInput`](crate::operation::create_consumable_resource::CreateConsumableResourceInput).
+-    pub fn builder() -> crate::operation::create_consumable_resource::builders::CreateConsumableResourceInputBuilder {
+-        crate::operation::create_consumable_resource::builders::CreateConsumableResourceInputBuilder::default()
++    pub fn builder() -> super::operation::create_consumable_resource::builders::CreateConsumableResourceInputBuilder {
++        super::operation::create_consumable_resource::builders::CreateConsumableResourceInputBuilder::default()
+     }
+ }
+
+@@ -144,10 +144,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::create_consumable_resource::CreateConsumableResourceInput,
++        super::operation::create_consumable_resource::CreateConsumableResourceInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::create_consumable_resource::CreateConsumableResourceInput {
++        ::std::result::Result::Ok(super::operation::create_consumable_resource::CreateConsumableResourceInput {
+             consumable_resource_name: self.consumable_resource_name,
+             total_quantity: self.total_quantity,
+             resource_type: self.resource_type,

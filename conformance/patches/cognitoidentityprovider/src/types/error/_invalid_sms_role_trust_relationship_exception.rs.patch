@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for InvalidSmsRoleTrustRelationshipException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidSmsRoleTrustRelationshipException {
++impl ::aws_types::request_id::RequestId for super::types::error::InvalidSmsRoleTrustRelationshipException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl InvalidSmsRoleTrustRelationshipException {
+     /// Creates a new builder-style object to manufacture [`InvalidSmsRoleTrustRelationshipException`](crate::types::error::InvalidSmsRoleTrustRelationshipException).
+-    pub fn builder() -> crate::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder {
+-        crate::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder {
++        super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`InvalidSmsRoleTrustRelationshipException`](crate::types::error::InvalidSmsRoleTrustRelationshipException).
+-    pub fn build(self) -> crate::types::error::InvalidSmsRoleTrustRelationshipException {
+-        crate::types::error::InvalidSmsRoleTrustRelationshipException {
++    pub fn build(self) -> super::types::error::InvalidSmsRoleTrustRelationshipException {
++        super::types::error::InvalidSmsRoleTrustRelationshipException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

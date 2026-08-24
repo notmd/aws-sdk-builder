@@ -1,0 +1,85 @@
+--- original
++++ modified
+@@ -123,24 +123,24 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ChallengeResponseType {
+     /// <p>The type of challenge that your previous authentication request returned in the parameter <code>ChallengeName</code>, for example <code>SMS_MFA</code>.</p>
+-    pub challenge_name: ::std::option::Option<crate::types::ChallengeName>,
++    pub challenge_name: ::std::option::Option<super::types::ChallengeName>,
+     /// <p>The set of key-value pairs that provides a response to the requested challenge.</p>
+-    pub challenge_response: ::std::option::Option<crate::types::ChallengeResponse>,
++    pub challenge_response: ::std::option::Option<super::types::ChallengeResponse>,
+ }
+ impl ChallengeResponseType {
+     /// <p>The type of challenge that your previous authentication request returned in the parameter <code>ChallengeName</code>, for example <code>SMS_MFA</code>.</p>
+-    pub fn challenge_name(&self) -> ::std::option::Option<&crate::types::ChallengeName> {
++    pub fn challenge_name(&self) -> ::std::option::Option<&super::types::ChallengeName> {
+         self.challenge_name.as_ref()
+     }
+     /// <p>The set of key-value pairs that provides a response to the requested challenge.</p>
+-    pub fn challenge_response(&self) -> ::std::option::Option<&crate::types::ChallengeResponse> {
++    pub fn challenge_response(&self) -> ::std::option::Option<&super::types::ChallengeResponse> {
+         self.challenge_response.as_ref()
+     }
+ }
+ impl ChallengeResponseType {
+     /// Creates a new builder-style object to manufacture [`ChallengeResponseType`](crate::types::ChallengeResponseType).
+-    pub fn builder() -> crate::types::builders::ChallengeResponseTypeBuilder {
+-        crate::types::builders::ChallengeResponseTypeBuilder::default()
++    pub fn builder() -> super::types::builders::ChallengeResponseTypeBuilder {
++        super::types::builders::ChallengeResponseTypeBuilder::default()
+     }
+ }
+
+@@ -148,41 +148,41 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ChallengeResponseTypeBuilder {
+-    pub(crate) challenge_name: ::std::option::Option<crate::types::ChallengeName>,
+-    pub(crate) challenge_response: ::std::option::Option<crate::types::ChallengeResponse>,
++    pub(crate) challenge_name: ::std::option::Option<super::types::ChallengeName>,
++    pub(crate) challenge_response: ::std::option::Option<super::types::ChallengeResponse>,
+ }
+ impl ChallengeResponseTypeBuilder {
+     /// <p>The type of challenge that your previous authentication request returned in the parameter <code>ChallengeName</code>, for example <code>SMS_MFA</code>.</p>
+-    pub fn challenge_name(mut self, input: crate::types::ChallengeName) -> Self {
++    pub fn challenge_name(mut self, input: super::types::ChallengeName) -> Self {
+         self.challenge_name = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The type of challenge that your previous authentication request returned in the parameter <code>ChallengeName</code>, for example <code>SMS_MFA</code>.</p>
+-    pub fn set_challenge_name(mut self, input: ::std::option::Option<crate::types::ChallengeName>) -> Self {
++    pub fn set_challenge_name(mut self, input: ::std::option::Option<super::types::ChallengeName>) -> Self {
+         self.challenge_name = input;
+         self
+     }
+     /// <p>The type of challenge that your previous authentication request returned in the parameter <code>ChallengeName</code>, for example <code>SMS_MFA</code>.</p>
+-    pub fn get_challenge_name(&self) -> &::std::option::Option<crate::types::ChallengeName> {
++    pub fn get_challenge_name(&self) -> &::std::option::Option<super::types::ChallengeName> {
+         &self.challenge_name
+     }
+     /// <p>The set of key-value pairs that provides a response to the requested challenge.</p>
+-    pub fn challenge_response(mut self, input: crate::types::ChallengeResponse) -> Self {
++    pub fn challenge_response(mut self, input: super::types::ChallengeResponse) -> Self {
+         self.challenge_response = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The set of key-value pairs that provides a response to the requested challenge.</p>
+-    pub fn set_challenge_response(mut self, input: ::std::option::Option<crate::types::ChallengeResponse>) -> Self {
++    pub fn set_challenge_response(mut self, input: ::std::option::Option<super::types::ChallengeResponse>) -> Self {
+         self.challenge_response = input;
+         self
+     }
+     /// <p>The set of key-value pairs that provides a response to the requested challenge.</p>
+-    pub fn get_challenge_response(&self) -> &::std::option::Option<crate::types::ChallengeResponse> {
++    pub fn get_challenge_response(&self) -> &::std::option::Option<super::types::ChallengeResponse> {
+         &self.challenge_response
+     }
+     /// Consumes the builder and constructs a [`ChallengeResponseType`](crate::types::ChallengeResponseType).
+-    pub fn build(self) -> crate::types::ChallengeResponseType {
+-        crate::types::ChallengeResponseType {
++    pub fn build(self) -> super::types::ChallengeResponseType {
++        super::types::ChallengeResponseType {
+             challenge_name: self.challenge_name,
+             challenge_response: self.challenge_response,
+         }

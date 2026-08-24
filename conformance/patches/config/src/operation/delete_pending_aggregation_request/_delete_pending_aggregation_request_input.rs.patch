@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl DeletePendingAggregationRequestInput {
+     /// Creates a new builder-style object to manufacture [`DeletePendingAggregationRequestInput`](crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestInput).
+-    pub fn builder() -> crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder {
+-        crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder::default()
++    pub fn builder() -> super::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder {
++        super::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder::default()
+     }
+ }
+
+@@ -67,11 +67,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestInput,
++        super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestInput {
++            super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestInput {
+                 requester_account_id: self.requester_account_id,
+                 requester_aws_region: self.requester_aws_region,
+             },

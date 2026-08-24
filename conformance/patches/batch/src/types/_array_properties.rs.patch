@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl ArrayProperties {
+     /// Creates a new builder-style object to manufacture [`ArrayProperties`](crate::types::ArrayProperties).
+-    pub fn builder() -> crate::types::builders::ArrayPropertiesBuilder {
+-        crate::types::builders::ArrayPropertiesBuilder::default()
++    pub fn builder() -> super::types::builders::ArrayPropertiesBuilder {
++        super::types::builders::ArrayPropertiesBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+         &self.size
+     }
+     /// Consumes the builder and constructs a [`ArrayProperties`](crate::types::ArrayProperties).
+-    pub fn build(self) -> crate::types::ArrayProperties {
+-        crate::types::ArrayProperties { size: self.size }
++    pub fn build(self) -> super::types::ArrayProperties {
++        super::types::ArrayProperties { size: self.size }
+     }
+ }

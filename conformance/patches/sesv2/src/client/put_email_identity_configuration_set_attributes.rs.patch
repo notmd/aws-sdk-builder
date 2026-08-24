@@ -1,0 +1,13 @@
+--- original
++++ modified
+@@ -9,8 +9,8 @@
+     /// - On failure, responds with [`SdkError<PutEmailIdentityConfigurationSetAttributesError>`](crate::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError)
+     pub fn put_email_identity_configuration_set_attributes(
+         &self,
+-    ) -> crate::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder {
+-        crate::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder::new(
++    ) -> super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder {
++        super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder::new(
+             self.handle.clone(),
+         )
+     }

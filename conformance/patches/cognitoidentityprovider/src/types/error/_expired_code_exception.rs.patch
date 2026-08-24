@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for ExpiredCodeException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::ExpiredCodeException {
++impl ::aws_types::request_id::RequestId for super::types::error::ExpiredCodeException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl ExpiredCodeException {
+     /// Creates a new builder-style object to manufacture [`ExpiredCodeException`](crate::types::error::ExpiredCodeException).
+-    pub fn builder() -> crate::types::error::builders::ExpiredCodeExceptionBuilder {
+-        crate::types::error::builders::ExpiredCodeExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::ExpiredCodeExceptionBuilder {
++        super::types::error::builders::ExpiredCodeExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ExpiredCodeException`](crate::types::error::ExpiredCodeException).
+-    pub fn build(self) -> crate::types::error::ExpiredCodeException {
+-        crate::types::error::ExpiredCodeException {
++    pub fn build(self) -> super::types::error::ExpiredCodeException {
++        super::types::error::ExpiredCodeException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

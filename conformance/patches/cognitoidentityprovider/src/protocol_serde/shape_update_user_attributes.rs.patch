@@ -1,0 +1,461 @@
+--- original
++++ modified
+@@ -5,28 +5,28 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::update_user_attributes::UpdateUserAttributesOutput,
+-    crate::operation::update_user_attributes::UpdateUserAttributesError,
++    super::operation::update_user_attributes::UpdateUserAttributesOutput,
++    super::operation::update_user_attributes::UpdateUserAttributesError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled(generic)),
++        None => return Err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AliasExistsException" => crate::operation::update_user_attributes::UpdateUserAttributesError::AliasExistsException({
++        "AliasExistsException" => super::operation::update_user_attributes::UpdateUserAttributesError::AliasExistsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::AliasExistsExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_alias_exists_exception::de_alias_exists_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::AliasExistsExceptionBuilder::default();
++                output = super::protocol_serde::shape_alias_exists_exception::de_alias_exists_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,14 +35,14 @@
+             }
+             tmp
+         }),
+-        "CodeDeliveryFailureException" => crate::operation::update_user_attributes::UpdateUserAttributesError::CodeDeliveryFailureException({
++        "CodeDeliveryFailureException" => super::operation::update_user_attributes::UpdateUserAttributesError::CodeDeliveryFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
++                let mut output = super::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
+                 output =
+-                    crate::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                    super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(_response_body, output)
++                        .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -51,13 +51,13 @@
+             }
+             tmp
+         }),
+-        "CodeMismatchException" => crate::operation::update_user_attributes::UpdateUserAttributesError::CodeMismatchException({
++        "CodeMismatchException" => super::operation::update_user_attributes::UpdateUserAttributesError::CodeMismatchException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::CodeMismatchExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_code_mismatch_exception::de_code_mismatch_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::CodeMismatchExceptionBuilder::default();
++                output = super::protocol_serde::shape_code_mismatch_exception::de_code_mismatch_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -66,13 +66,13 @@
+             }
+             tmp
+         }),
+-        "ExpiredCodeException" => crate::operation::update_user_attributes::UpdateUserAttributesError::ExpiredCodeException({
++        "ExpiredCodeException" => super::operation::update_user_attributes::UpdateUserAttributesError::ExpiredCodeException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ExpiredCodeExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_expired_code_exception::de_expired_code_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::ExpiredCodeExceptionBuilder::default();
++                output = super::protocol_serde::shape_expired_code_exception::de_expired_code_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -81,13 +81,13 @@
+             }
+             tmp
+         }),
+-        "ForbiddenException" => crate::operation::update_user_attributes::UpdateUserAttributesError::ForbiddenException({
++        "ForbiddenException" => super::operation::update_user_attributes::UpdateUserAttributesError::ForbiddenException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ForbiddenExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::ForbiddenExceptionBuilder::default();
++                output = super::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -96,13 +96,13 @@
+             }
+             tmp
+         }),
+-        "InternalErrorException" => crate::operation::update_user_attributes::UpdateUserAttributesError::InternalErrorException({
++        "InternalErrorException" => super::operation::update_user_attributes::UpdateUserAttributesError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -112,12 +112,12 @@
+             tmp
+         }),
+         "InvalidEmailRoleAccessPolicyException" => {
+-            crate::operation::update_user_attributes::UpdateUserAttributesError::InvalidEmailRoleAccessPolicyException({
++            super::operation::update_user_attributes::UpdateUserAttributesError::InvalidEmailRoleAccessPolicyException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                    let mut output = super::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
++                    output = super::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -127,16 +127,16 @@
+                 tmp
+             })
+         }
+-        "InvalidLambdaResponseException" => crate::operation::update_user_attributes::UpdateUserAttributesError::InvalidLambdaResponseException({
++        "InvalidLambdaResponseException" => super::operation::update_user_attributes::UpdateUserAttributesError::InvalidLambdaResponseException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
++                let mut output = super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -145,13 +145,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameterException" => crate::operation::update_user_attributes::UpdateUserAttributesError::InvalidParameterException({
++        "InvalidParameterException" => super::operation::update_user_attributes::UpdateUserAttributesError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -161,17 +161,17 @@
+             tmp
+         }),
+         "InvalidSmsRoleAccessPolicyException" => {
+-            crate::operation::update_user_attributes::UpdateUserAttributesError::InvalidSmsRoleAccessPolicyException({
++            super::operation::update_user_attributes::UpdateUserAttributesError::InvalidSmsRoleAccessPolicyException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
++                    let mut output = super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
+                     output =
+-                        crate::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
++                        super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                             _response_body,
+                             output,
+                         )
+-                        .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                        .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -182,12 +182,12 @@
+             })
+         }
+         "InvalidSmsRoleTrustRelationshipException" => {
+-            crate::operation::update_user_attributes::UpdateUserAttributesError::InvalidSmsRoleTrustRelationshipException({
++            super::operation::update_user_attributes::UpdateUserAttributesError::InvalidSmsRoleTrustRelationshipException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                    let mut output = super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
++                    output = super::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -197,13 +197,13 @@
+                 tmp
+             })
+         }
+-        "NotAuthorizedException" => crate::operation::update_user_attributes::UpdateUserAttributesError::NotAuthorizedException({
++        "NotAuthorizedException" => super::operation::update_user_attributes::UpdateUserAttributesError::NotAuthorizedException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -212,14 +212,14 @@
+             }
+             tmp
+         }),
+-        "OperationNotEnabledException" => crate::operation::update_user_attributes::UpdateUserAttributesError::OperationNotEnabledException({
++        "OperationNotEnabledException" => super::operation::update_user_attributes::UpdateUserAttributesError::OperationNotEnabledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                 output =
+-                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                    super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
++                        .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -228,16 +228,16 @@
+             }
+             tmp
+         }),
+-        "PasswordResetRequiredException" => crate::operation::update_user_attributes::UpdateUserAttributesError::PasswordResetRequiredException({
++        "PasswordResetRequiredException" => super::operation::update_user_attributes::UpdateUserAttributesError::PasswordResetRequiredException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
++                let mut output = super::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
++                output = super::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -246,13 +246,13 @@
+             }
+             tmp
+         }),
+-        "ResourceNotFoundException" => crate::operation::update_user_attributes::UpdateUserAttributesError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::operation::update_user_attributes::UpdateUserAttributesError::ResourceNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -261,13 +261,13 @@
+             }
+             tmp
+         }),
+-        "TooManyRequestsException" => crate::operation::update_user_attributes::UpdateUserAttributesError::TooManyRequestsException({
++        "TooManyRequestsException" => super::operation::update_user_attributes::UpdateUserAttributesError::TooManyRequestsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -276,13 +276,13 @@
+             }
+             tmp
+         }),
+-        "UnexpectedLambdaException" => crate::operation::update_user_attributes::UpdateUserAttributesError::UnexpectedLambdaException({
++        "UnexpectedLambdaException" => super::operation::update_user_attributes::UpdateUserAttributesError::UnexpectedLambdaException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
++                output = super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -291,16 +291,16 @@
+             }
+             tmp
+         }),
+-        "UserLambdaValidationException" => crate::operation::update_user_attributes::UpdateUserAttributesError::UserLambdaValidationException({
++        "UserLambdaValidationException" => super::operation::update_user_attributes::UpdateUserAttributesError::UserLambdaValidationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::UserLambdaValidationExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
++                let mut output = super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
++                output = super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -309,13 +309,13 @@
+             }
+             tmp
+         }),
+-        "UserNotConfirmedException" => crate::operation::update_user_attributes::UpdateUserAttributesError::UserNotConfirmedException({
++        "UserNotConfirmedException" => super::operation::update_user_attributes::UpdateUserAttributesError::UserNotConfirmedException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::UserNotConfirmedExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
++                output = super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -324,13 +324,13 @@
+             }
+             tmp
+         }),
+-        "UserNotFoundException" => crate::operation::update_user_attributes::UpdateUserAttributesError::UserNotFoundException({
++        "UserNotFoundException" => super::operation::update_user_attributes::UpdateUserAttributesError::UserNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::UserNotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -339,7 +339,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::update_user_attributes::UpdateUserAttributesError::generic(generic),
++        _ => super::operation::update_user_attributes::UpdateUserAttributesError::generic(generic),
+     })
+ }
+
+@@ -349,14 +349,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::update_user_attributes::UpdateUserAttributesOutput,
+-    crate::operation::update_user_attributes::UpdateUserAttributesError,
++    super::operation::update_user_attributes::UpdateUserAttributesOutput,
++    super::operation::update_user_attributes::UpdateUserAttributesError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::update_user_attributes::builders::UpdateUserAttributesOutputBuilder::default();
+-        output = crate::protocol_serde::shape_update_user_attributes::de_update_user_attributes(_response_body, output)
+-            .map_err(crate::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
++        let mut output = super::operation::update_user_attributes::builders::UpdateUserAttributesOutputBuilder::default();
++        output = super::protocol_serde::shape_update_user_attributes::de_update_user_attributes(_response_body, output)
++            .map_err(super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -363,11 +363,11 @@
+ }
+
+ pub fn ser_update_user_attributes_input(
+-    input: &crate::operation::update_user_attributes::UpdateUserAttributesInput,
++    input: &super::operation::update_user_attributes::UpdateUserAttributesInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_update_user_attributes_input::ser_update_user_attributes_input_input(&mut object, input)?;
++    super::protocol_serde::shape_update_user_attributes_input::ser_update_user_attributes_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -374,12 +374,12 @@
+
+ pub(crate) fn de_update_user_attributes(
+     _value: &[u8],
+-    mut builder: crate::operation::update_user_attributes::builders::UpdateUserAttributesOutputBuilder,
++    mut builder: super::operation::update_user_attributes::builders::UpdateUserAttributesOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::update_user_attributes::builders::UpdateUserAttributesOutputBuilder,
++    super::operation::update_user_attributes::builders::UpdateUserAttributesOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;
+@@ -390,7 +390,7 @@
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "CodeDeliveryDetailsList" => {
+                     builder = builder.set_code_delivery_details_list(
+-                        crate::protocol_serde::shape_code_delivery_details_list_type::de_code_delivery_details_list_type(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_code_delivery_details_list_type::de_code_delivery_details_list_type(tokens, _value, depth + 1)?,
+                     );
+                 }
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

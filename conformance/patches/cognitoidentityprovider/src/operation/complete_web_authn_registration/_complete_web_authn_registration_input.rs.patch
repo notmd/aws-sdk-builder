@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -28,8 +28,8 @@
+ }
+ impl CompleteWebAuthnRegistrationInput {
+     /// Creates a new builder-style object to manufacture [`CompleteWebAuthnRegistrationInput`](crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput).
+-    pub fn builder() -> crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder {
+-        crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder::default()
++    pub fn builder() -> super::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder {
++        super::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder::default()
+     }
+ }
+
+@@ -75,10 +75,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput,
++        super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput {
++        ::std::result::Result::Ok(super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput {
+             access_token: self.access_token,
+             credential: self.credential,
+         })

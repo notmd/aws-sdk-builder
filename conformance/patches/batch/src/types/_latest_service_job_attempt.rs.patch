@@ -1,0 +1,58 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct LatestServiceJobAttempt {
+     /// <p>The service resource identifier associated with the service job attempt.</p>
+-    pub service_resource_id: ::std::option::Option<crate::types::ServiceResourceId>,
++    pub service_resource_id: ::std::option::Option<super::types::ServiceResourceId>,
+ }
+ impl LatestServiceJobAttempt {
+     /// <p>The service resource identifier associated with the service job attempt.</p>
+-    pub fn service_resource_id(&self) -> ::std::option::Option<&crate::types::ServiceResourceId> {
++    pub fn service_resource_id(&self) -> ::std::option::Option<&super::types::ServiceResourceId> {
+         self.service_resource_id.as_ref()
+     }
+ }
+ impl LatestServiceJobAttempt {
+     /// Creates a new builder-style object to manufacture [`LatestServiceJobAttempt`](crate::types::LatestServiceJobAttempt).
+-    pub fn builder() -> crate::types::builders::LatestServiceJobAttemptBuilder {
+-        crate::types::builders::LatestServiceJobAttemptBuilder::default()
++    pub fn builder() -> super::types::builders::LatestServiceJobAttemptBuilder {
++        super::types::builders::LatestServiceJobAttemptBuilder::default()
+     }
+ }
+
+@@ -24,26 +24,26 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct LatestServiceJobAttemptBuilder {
+-    pub(crate) service_resource_id: ::std::option::Option<crate::types::ServiceResourceId>,
++    pub(crate) service_resource_id: ::std::option::Option<super::types::ServiceResourceId>,
+ }
+ impl LatestServiceJobAttemptBuilder {
+     /// <p>The service resource identifier associated with the service job attempt.</p>
+-    pub fn service_resource_id(mut self, input: crate::types::ServiceResourceId) -> Self {
++    pub fn service_resource_id(mut self, input: super::types::ServiceResourceId) -> Self {
+         self.service_resource_id = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The service resource identifier associated with the service job attempt.</p>
+-    pub fn set_service_resource_id(mut self, input: ::std::option::Option<crate::types::ServiceResourceId>) -> Self {
++    pub fn set_service_resource_id(mut self, input: ::std::option::Option<super::types::ServiceResourceId>) -> Self {
+         self.service_resource_id = input;
+         self
+     }
+     /// <p>The service resource identifier associated with the service job attempt.</p>
+-    pub fn get_service_resource_id(&self) -> &::std::option::Option<crate::types::ServiceResourceId> {
++    pub fn get_service_resource_id(&self) -> &::std::option::Option<super::types::ServiceResourceId> {
+         &self.service_resource_id
+     }
+     /// Consumes the builder and constructs a [`LatestServiceJobAttempt`](crate::types::LatestServiceJobAttempt).
+-    pub fn build(self) -> crate::types::LatestServiceJobAttempt {
+-        crate::types::LatestServiceJobAttempt {
++    pub fn build(self) -> super::types::LatestServiceJobAttempt {
++        super::types::LatestServiceJobAttempt {
+             service_resource_id: self.service_resource_id,
+         }
+     }

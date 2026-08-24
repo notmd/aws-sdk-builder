@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -19,7 +19,7 @@
+     /// - On success, responds with [`ConverseStreamOutput`](crate::operation::converse_stream::ConverseStreamOutput) with field(s):
+     ///   - [`stream(EventReceiver<ConverseStreamOutput, ConverseStreamOutputError>)`](crate::operation::converse_stream::ConverseStreamOutput::stream): <p>The output stream that the model generated.</p>
+     /// - On failure, responds with [`SdkError<ConverseStreamError>`](crate::operation::converse_stream::ConverseStreamError)
+-    pub fn converse_stream(&self) -> crate::operation::converse_stream::builders::ConverseStreamFluentBuilder {
+-        crate::operation::converse_stream::builders::ConverseStreamFluentBuilder::new(self.handle.clone())
++    pub fn converse_stream(&self) -> super::operation::converse_stream::builders::ConverseStreamFluentBuilder {
++        super::operation::converse_stream::builders::ConverseStreamFluentBuilder::new(self.handle.clone())
+     }
+ }

@@ -597,7 +597,9 @@ pub(crate) mod shape_image_config_response;
 
 pub(crate) mod shape_instance_requirements;
 
-pub(crate) mod shape_invoke_with_response_stream_response_event;
+pub(crate) mod shape_invoke_response_stream_update;
+
+pub(crate) mod shape_invoke_with_response_stream_complete_event;
 
 pub(crate) mod shape_layer_version_content_input;
 
@@ -702,10 +704,6 @@ pub(crate) mod shape_function_versions_by_capacity_provider_list_item;
 pub(crate) mod shape_headers_list;
 
 pub(crate) mod shape_image_config_error;
-
-pub(crate) mod shape_invoke_response_stream_update;
-
-pub(crate) mod shape_invoke_with_response_stream_complete_event;
 
 pub(crate) mod shape_kafka_schema_registry_config;
 

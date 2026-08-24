@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -5,11 +5,11 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GuardrailContentPolicyAssessment {
+     /// <p>The content policy filters.</p>
+-    pub filters: ::std::vec::Vec<crate::types::GuardrailContentFilter>,
++    pub filters: ::std::vec::Vec<super::types::GuardrailContentFilter>,
+ }
+ impl GuardrailContentPolicyAssessment {
+     /// <p>The content policy filters.</p>
+-    pub fn filters(&self) -> &[crate::types::GuardrailContentFilter] {
++    pub fn filters(&self) -> &[super::types::GuardrailContentFilter] {
+         use std::ops::Deref;
+         self.filters.deref()
+     }
+@@ -16,8 +16,8 @@
+ }
+ impl GuardrailContentPolicyAssessment {
+     /// Creates a new builder-style object to manufacture [`GuardrailContentPolicyAssessment`](crate::types::GuardrailContentPolicyAssessment).
+-    pub fn builder() -> crate::types::builders::GuardrailContentPolicyAssessmentBuilder {
+-        crate::types::builders::GuardrailContentPolicyAssessmentBuilder::default()
++    pub fn builder() -> super::types::builders::GuardrailContentPolicyAssessmentBuilder {
++        super::types::builders::GuardrailContentPolicyAssessmentBuilder::default()
+     }
+ }
+
+@@ -25,7 +25,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GuardrailContentPolicyAssessmentBuilder {
+-    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>>,
++    pub(crate) filters: ::std::option::Option<::std::vec::Vec<super::types::GuardrailContentFilter>>,
+ }
+ impl GuardrailContentPolicyAssessmentBuilder {
+     /// Appends an item to `filters`.
+@@ -33,7 +33,7 @@
+     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
+     ///
+     /// <p>The content policy filters.</p>
+-    pub fn filters(mut self, input: crate::types::GuardrailContentFilter) -> Self {
++    pub fn filters(mut self, input: super::types::GuardrailContentFilter) -> Self {
+         let mut v = self.filters.unwrap_or_default();
+         v.push(input);
+         self.filters = ::std::option::Option::Some(v);
+@@ -40,19 +40,19 @@
+         self
+     }
+     /// <p>The content policy filters.</p>
+-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>>) -> Self {
++    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GuardrailContentFilter>>) -> Self {
+         self.filters = input;
+         self
+     }
+     /// <p>The content policy filters.</p>
+-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>> {
++    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GuardrailContentFilter>> {
+         &self.filters
+     }
+     /// Consumes the builder and constructs a [`GuardrailContentPolicyAssessment`](crate::types::GuardrailContentPolicyAssessment).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`filters`](crate::types::builders::GuardrailContentPolicyAssessmentBuilder::filters)
+-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailContentPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::GuardrailContentPolicyAssessment {
++    pub fn build(self) -> ::std::result::Result<super::types::GuardrailContentPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::GuardrailContentPolicyAssessment {
+             filters: self.filters.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "filters",

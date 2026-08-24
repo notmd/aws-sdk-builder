@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+ pub enum OutputFormatStructure {
+     /// <p>A JSON schema structure that the model's output must adhere to.</p>
+-    JsonSchema(crate::types::JsonSchemaDefinition),
++    JsonSchema(super::types::JsonSchemaDefinition),
+     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
+     /// An unknown enum variant
+     ///
+@@ -20,7 +20,7 @@
+     #[allow(irrefutable_let_patterns)]
+     /// Tries to convert the enum instance into [`JsonSchema`](crate::types::OutputFormatStructure::JsonSchema), extracting the inner [`JsonSchemaDefinition`](crate::types::JsonSchemaDefinition).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_json_schema(&self) -> ::std::result::Result<&crate::types::JsonSchemaDefinition, &Self> {
++    pub fn as_json_schema(&self) -> ::std::result::Result<&super::types::JsonSchemaDefinition, &Self> {
+         if let OutputFormatStructure::JsonSchema(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {

@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -6,8 +6,8 @@
+ pub struct AutoToolChoice {}
+ impl AutoToolChoice {
+     /// Creates a new builder-style object to manufacture [`AutoToolChoice`](crate::types::AutoToolChoice).
+-    pub fn builder() -> crate::types::builders::AutoToolChoiceBuilder {
+-        crate::types::builders::AutoToolChoiceBuilder::default()
++    pub fn builder() -> super::types::builders::AutoToolChoiceBuilder {
++        super::types::builders::AutoToolChoiceBuilder::default()
+     }
+ }
+
+@@ -17,7 +17,7 @@
+ pub struct AutoToolChoiceBuilder {}
+ impl AutoToolChoiceBuilder {
+     /// Consumes the builder and constructs a [`AutoToolChoice`](crate::types::AutoToolChoice).
+-    pub fn build(self) -> crate::types::AutoToolChoice {
+-        crate::types::AutoToolChoice {}
++    pub fn build(self) -> super::types::AutoToolChoice {
++        super::types::AutoToolChoice {}
+     }
+ }

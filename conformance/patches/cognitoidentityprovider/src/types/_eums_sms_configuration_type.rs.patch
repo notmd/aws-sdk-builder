@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -74,8 +74,8 @@
+ }
+ impl EumsSmsConfigurationType {
+     /// Creates a new builder-style object to manufacture [`EumsSmsConfigurationType`](crate::types::EumsSmsConfigurationType).
+-    pub fn builder() -> crate::types::builders::EumsSmsConfigurationTypeBuilder {
+-        crate::types::builders::EumsSmsConfigurationTypeBuilder::default()
++    pub fn builder() -> super::types::builders::EumsSmsConfigurationTypeBuilder {
++        super::types::builders::EumsSmsConfigurationTypeBuilder::default()
+     }
+ }
+
+@@ -227,8 +227,8 @@
+     /// Consumes the builder and constructs a [`EumsSmsConfigurationType`](crate::types::EumsSmsConfigurationType).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`caller_arn`](crate::types::builders::EumsSmsConfigurationTypeBuilder::caller_arn)
+-    pub fn build(self) -> ::std::result::Result<crate::types::EumsSmsConfigurationType, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::EumsSmsConfigurationType {
++    pub fn build(self) -> ::std::result::Result<super::types::EumsSmsConfigurationType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::EumsSmsConfigurationType {
+             caller_arn: self.caller_arn.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "caller_arn",

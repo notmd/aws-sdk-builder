@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl CancelExportJobInput {
+     /// Creates a new builder-style object to manufacture [`CancelExportJobInput`](crate::operation::cancel_export_job::CancelExportJobInput).
+-    pub fn builder() -> crate::operation::cancel_export_job::builders::CancelExportJobInputBuilder {
+-        crate::operation::cancel_export_job::builders::CancelExportJobInputBuilder::default()
++    pub fn builder() -> super::operation::cancel_export_job::builders::CancelExportJobInputBuilder {
++        super::operation::cancel_export_job::builders::CancelExportJobInputBuilder::default()
+     }
+ }
+
+@@ -45,7 +45,7 @@
+     /// Consumes the builder and constructs a [`CancelExportJobInput`](crate::operation::cancel_export_job::CancelExportJobInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::cancel_export_job::CancelExportJobInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::cancel_export_job::CancelExportJobInput { job_id: self.job_id })
++    ) -> ::std::result::Result<super::operation::cancel_export_job::CancelExportJobInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::cancel_export_job::CancelExportJobInput { job_id: self.job_id })
+     }
+ }

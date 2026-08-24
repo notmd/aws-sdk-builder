@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for ModelTimeoutException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::ModelTimeoutException {
++impl ::aws_types::request_id::RequestId for super::types::error::ModelTimeoutException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl ModelTimeoutException {
+     /// Creates a new builder-style object to manufacture [`ModelTimeoutException`](crate::types::error::ModelTimeoutException).
+-    pub fn builder() -> crate::types::error::builders::ModelTimeoutExceptionBuilder {
+-        crate::types::error::builders::ModelTimeoutExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::ModelTimeoutExceptionBuilder {
++        super::types::error::builders::ModelTimeoutExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ModelTimeoutException`](crate::types::error::ModelTimeoutException).
+-    pub fn build(self) -> crate::types::error::ModelTimeoutException {
+-        crate::types::error::ModelTimeoutException {
++    pub fn build(self) -> super::types::error::ModelTimeoutException {
++        super::types::error::ModelTimeoutException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

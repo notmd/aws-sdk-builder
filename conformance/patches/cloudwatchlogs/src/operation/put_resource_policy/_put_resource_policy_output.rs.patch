@@ -1,0 +1,70 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct PutResourcePolicyOutput {
+     /// <p>The new policy.</p>
+-    pub resource_policy: ::std::option::Option<crate::types::ResourcePolicy>,
++    pub resource_policy: ::std::option::Option<super::types::ResourcePolicy>,
+     /// <p>The revision ID of the created or updated resource policy. Only returned for resource-scoped policies.</p>
+     pub revision_id: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -11,7 +11,7 @@
+ }
+ impl PutResourcePolicyOutput {
+     /// <p>The new policy.</p>
+-    pub fn resource_policy(&self) -> ::std::option::Option<&crate::types::ResourcePolicy> {
++    pub fn resource_policy(&self) -> ::std::option::Option<&super::types::ResourcePolicy> {
+         self.resource_policy.as_ref()
+     }
+     /// <p>The revision ID of the created or updated resource policy. Only returned for resource-scoped policies.</p>
+@@ -26,8 +26,8 @@
+ }
+ impl PutResourcePolicyOutput {
+     /// Creates a new builder-style object to manufacture [`PutResourcePolicyOutput`](crate::operation::put_resource_policy::PutResourcePolicyOutput).
+-    pub fn builder() -> crate::operation::put_resource_policy::builders::PutResourcePolicyOutputBuilder {
+-        crate::operation::put_resource_policy::builders::PutResourcePolicyOutputBuilder::default()
++    pub fn builder() -> super::operation::put_resource_policy::builders::PutResourcePolicyOutputBuilder {
++        super::operation::put_resource_policy::builders::PutResourcePolicyOutputBuilder::default()
+     }
+ }
+
+@@ -35,23 +35,23 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct PutResourcePolicyOutputBuilder {
+-    pub(crate) resource_policy: ::std::option::Option<crate::types::ResourcePolicy>,
++    pub(crate) resource_policy: ::std::option::Option<super::types::ResourcePolicy>,
+     pub(crate) revision_id: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+ }
+ impl PutResourcePolicyOutputBuilder {
+     /// <p>The new policy.</p>
+-    pub fn resource_policy(mut self, input: crate::types::ResourcePolicy) -> Self {
++    pub fn resource_policy(mut self, input: super::types::ResourcePolicy) -> Self {
+         self.resource_policy = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The new policy.</p>
+-    pub fn set_resource_policy(mut self, input: ::std::option::Option<crate::types::ResourcePolicy>) -> Self {
++    pub fn set_resource_policy(mut self, input: ::std::option::Option<super::types::ResourcePolicy>) -> Self {
+         self.resource_policy = input;
+         self
+     }
+     /// <p>The new policy.</p>
+-    pub fn get_resource_policy(&self) -> &::std::option::Option<crate::types::ResourcePolicy> {
++    pub fn get_resource_policy(&self) -> &::std::option::Option<super::types::ResourcePolicy> {
+         &self.resource_policy
+     }
+     /// <p>The revision ID of the created or updated resource policy. Only returned for resource-scoped policies.</p>
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutResourcePolicyOutput`](crate::operation::put_resource_policy::PutResourcePolicyOutput).
+-    pub fn build(self) -> crate::operation::put_resource_policy::PutResourcePolicyOutput {
+-        crate::operation::put_resource_policy::PutResourcePolicyOutput {
++    pub fn build(self) -> super::operation::put_resource_policy::PutResourcePolicyOutput {
++        super::operation::put_resource_policy::PutResourcePolicyOutput {
+             resource_policy: self.resource_policy,
+             revision_id: self.revision_id,
+             _request_id: self._request_id,

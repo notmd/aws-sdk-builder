@@ -1,0 +1,211 @@
+--- original
++++ modified
+@@ -5,28 +5,28 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
+-    crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
++    super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
++    super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled(generic)),
++        None => return Err(super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InternalErrorException" => crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::InternalErrorException({
++        "InternalErrorException" => super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
++                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
++                    .map_err(super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameterException" => crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::InvalidParameterException({
++        "InvalidParameterException" => super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
++                    .map_err(super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "NotAuthorizedException" => crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::NotAuthorizedException({
++        "NotAuthorizedException" => super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::NotAuthorizedException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
++                let mut output = super::types::error::builders::NotAuthorizedExceptionBuilder::default();
++                output = super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
++                    .map_err(super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -66,16 +66,16 @@
+             tmp
+         }),
+         "OperationNotEnabledException" => {
+-            crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::OperationNotEnabledException({
++            super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::OperationNotEnabledException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
++                    let mut output = super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
++                    output = super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
++                    .map_err(super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -86,16 +86,16 @@
+             })
+         }
+         "PasswordResetRequiredException" => {
+-            crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::PasswordResetRequiredException({
++            super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::PasswordResetRequiredException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
++                    let mut output = super::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
++                    output = super::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
++                    .map_err(super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -105,13 +105,13 @@
+                 tmp
+             })
+         }
+-        "ResourceNotFoundException" => crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::ResourceNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
++                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -120,13 +120,13 @@
+             }
+             tmp
+         }),
+-        "UserNotConfirmedException" => crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::UserNotConfirmedException({
++        "UserNotConfirmedException" => super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::UserNotConfirmedException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::UserNotConfirmedExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
++                let mut output = super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
++                output = super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
++                    .map_err(super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -135,13 +135,13 @@
+             }
+             tmp
+         }),
+-        "UserNotFoundException" => crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::UserNotFoundException({
++        "UserNotFoundException" => super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::UserNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
++                let mut output = super::types::error::builders::UserNotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -150,7 +150,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::generic(generic),
++        _ => super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::generic(generic),
+     })
+ }
+
+@@ -160,12 +160,12 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
+-    crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
++    super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput,
++    super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceOutputBuilder::default();
++        let mut output = super::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceOutputBuilder::default();
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -172,11 +172,11 @@
+ }
+
+ pub fn ser_admin_set_user_mfa_preference_input(
+-    input: &crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput,
++    input: &super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_admin_set_user_mfa_preference_input::ser_admin_set_user_mfa_preference_input_input(&mut object, input)?;
++    super::protocol_serde::shape_admin_set_user_mfa_preference_input::ser_admin_set_user_mfa_preference_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }

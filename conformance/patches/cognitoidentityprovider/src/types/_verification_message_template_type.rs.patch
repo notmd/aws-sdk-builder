@@ -1,0 +1,68 @@
+--- original
++++ modified
+@@ -16,7 +16,7 @@
+     pub email_subject_by_link: ::std::option::Option<::std::string::String>,
+     /// <p>The configuration of verification emails to contain a clickable link or a verification code.</p>
+     /// <p>For link, your template body must contain link text in the format <code>{##Click here##}</code>. "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format <code>{####}</code>.</p>
+-    pub default_email_option: ::std::option::Option<crate::types::DefaultEmailOptionType>,
++    pub default_email_option: ::std::option::Option<super::types::DefaultEmailOptionType>,
+ }
+ impl VerificationMessageTemplateType {
+     /// <p>The template for SMS messages that Amazon Cognito sends to your users.</p>
+@@ -41,14 +41,14 @@
+     }
+     /// <p>The configuration of verification emails to contain a clickable link or a verification code.</p>
+     /// <p>For link, your template body must contain link text in the format <code>{##Click here##}</code>. "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format <code>{####}</code>.</p>
+-    pub fn default_email_option(&self) -> ::std::option::Option<&crate::types::DefaultEmailOptionType> {
++    pub fn default_email_option(&self) -> ::std::option::Option<&super::types::DefaultEmailOptionType> {
+         self.default_email_option.as_ref()
+     }
+ }
+ impl VerificationMessageTemplateType {
+     /// Creates a new builder-style object to manufacture [`VerificationMessageTemplateType`](crate::types::VerificationMessageTemplateType).
+-    pub fn builder() -> crate::types::builders::VerificationMessageTemplateTypeBuilder {
+-        crate::types::builders::VerificationMessageTemplateTypeBuilder::default()
++    pub fn builder() -> super::types::builders::VerificationMessageTemplateTypeBuilder {
++        super::types::builders::VerificationMessageTemplateTypeBuilder::default()
+     }
+ }
+
+@@ -61,7 +61,7 @@
+     pub(crate) email_subject: ::std::option::Option<::std::string::String>,
+     pub(crate) email_message_by_link: ::std::option::Option<::std::string::String>,
+     pub(crate) email_subject_by_link: ::std::option::Option<::std::string::String>,
+-    pub(crate) default_email_option: ::std::option::Option<crate::types::DefaultEmailOptionType>,
++    pub(crate) default_email_option: ::std::option::Option<super::types::DefaultEmailOptionType>,
+ }
+ impl VerificationMessageTemplateTypeBuilder {
+     /// <p>The template for SMS messages that Amazon Cognito sends to your users.</p>
+@@ -136,24 +136,24 @@
+     }
+     /// <p>The configuration of verification emails to contain a clickable link or a verification code.</p>
+     /// <p>For link, your template body must contain link text in the format <code>{##Click here##}</code>. "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format <code>{####}</code>.</p>
+-    pub fn default_email_option(mut self, input: crate::types::DefaultEmailOptionType) -> Self {
++    pub fn default_email_option(mut self, input: super::types::DefaultEmailOptionType) -> Self {
+         self.default_email_option = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The configuration of verification emails to contain a clickable link or a verification code.</p>
+     /// <p>For link, your template body must contain link text in the format <code>{##Click here##}</code>. "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format <code>{####}</code>.</p>
+-    pub fn set_default_email_option(mut self, input: ::std::option::Option<crate::types::DefaultEmailOptionType>) -> Self {
++    pub fn set_default_email_option(mut self, input: ::std::option::Option<super::types::DefaultEmailOptionType>) -> Self {
+         self.default_email_option = input;
+         self
+     }
+     /// <p>The configuration of verification emails to contain a clickable link or a verification code.</p>
+     /// <p>For link, your template body must contain link text in the format <code>{##Click here##}</code>. "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format <code>{####}</code>.</p>
+-    pub fn get_default_email_option(&self) -> &::std::option::Option<crate::types::DefaultEmailOptionType> {
++    pub fn get_default_email_option(&self) -> &::std::option::Option<super::types::DefaultEmailOptionType> {
+         &self.default_email_option
+     }
+     /// Consumes the builder and constructs a [`VerificationMessageTemplateType`](crate::types::VerificationMessageTemplateType).
+-    pub fn build(self) -> crate::types::VerificationMessageTemplateType {
+-        crate::types::VerificationMessageTemplateType {
++    pub fn build(self) -> super::types::VerificationMessageTemplateType {
++        super::types::VerificationMessageTemplateType {
+             sms_message: self.sms_message,
+             email_message: self.email_message,
+             email_subject: self.email_subject,

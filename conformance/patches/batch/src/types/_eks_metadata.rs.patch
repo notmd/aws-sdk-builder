@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -67,8 +67,8 @@
+ }
+ impl EksMetadata {
+     /// Creates a new builder-style object to manufacture [`EksMetadata`](crate::types::EksMetadata).
+-    pub fn builder() -> crate::types::builders::EksMetadataBuilder {
+-        crate::types::builders::EksMetadataBuilder::default()
++    pub fn builder() -> super::types::builders::EksMetadataBuilder {
++        super::types::builders::EksMetadataBuilder::default()
+     }
+ }
+
+@@ -199,8 +199,8 @@
+         &self.namespace
+     }
+     /// Consumes the builder and constructs a [`EksMetadata`](crate::types::EksMetadata).
+-    pub fn build(self) -> crate::types::EksMetadata {
+-        crate::types::EksMetadata {
++    pub fn build(self) -> super::types::EksMetadata {
++        super::types::EksMetadata {
+             labels: self.labels,
+             annotations: self.annotations,
+             namespace: self.namespace,

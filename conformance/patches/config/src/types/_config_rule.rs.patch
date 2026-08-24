@@ -1,0 +1,256 @@
+--- original
++++ modified
+@@ -18,9 +18,9 @@
+     /// <p>The description that you provide for the Config rule.</p>
+     pub description: ::std::option::Option<::std::string::String>,
+     /// <p>Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.</p>
+-    pub scope: ::std::option::Option<crate::types::Scope>,
++    pub scope: ::std::option::Option<super::types::Scope>,
+     /// <p>Provides the rule owner (<code>Amazon Web Services</code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your Amazon Web Services resources.</p>
+-    pub source: ::std::option::Option<crate::types::Source>,
++    pub source: ::std::option::Option<super::types::Source>,
+     /// <p>A string, in JSON format, that is passed to the Config rule Lambda function.</p>
+     pub input_parameters: ::std::option::Option<::std::string::String>,
+     /// <p>The maximum frequency with which Config runs evaluations for a rule. You can specify a value for <code>MaximumExecutionFrequency</code> when:</p>
+@@ -32,20 +32,20 @@
+     /// </ul><note>
+     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
+     /// </note>
+-    pub maximum_execution_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
++    pub maximum_execution_frequency: ::std::option::Option<super::types::MaximumExecutionFrequency>,
+     /// <p>Indicates whether the Config rule is active or is currently being deleted by Config. It can also indicate the evaluation status for the Config rule.</p>
+     /// <p>Config sets the state of the rule to <code>EVALUATING</code> temporarily after you use the <code>StartConfigRulesEvaluation</code> request to evaluate your resources against the Config rule.</p>
+     /// <p>Config sets the state of the rule to <code>DELETING_RESULTS</code> temporarily after you use the <code>DeleteEvaluationResults</code> request to delete the current evaluation results for the Config rule.</p>
+     /// <p>Config temporarily sets the state of a rule to <code>DELETING</code> after you use the <code>DeleteConfigRule</code> request to delete the rule. After Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.</p>
+-    pub config_rule_state: ::std::option::Option<crate::types::ConfigRuleState>,
++    pub config_rule_state: ::std::option::Option<super::types::ConfigRuleState>,
+     /// <p>Service principal name of the service that created the rule.</p><note>
+     /// <p>The field is populated only if the service-linked rule is created by a service. The field is empty if you create your own rule.</p>
+     /// </note>
+     pub created_by: ::std::option::Option<::std::string::String>,
+     /// <p>The modes the Config rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.</p>
+-    pub evaluation_modes: ::std::option::Option<::std::vec::Vec<crate::types::EvaluationModeConfiguration>>,
++    pub evaluation_modes: ::std::option::Option<::std::vec::Vec<super::types::EvaluationModeConfiguration>>,
+     /// <p>Indicates whether you can get <code>Evaluation</code>s for the Config rule. You can get <code>Evaluation</code>s for the Amazon Web Services Config rule if this value is <code>EXTERNAL</code>. You cannot get <code>Evaluation</code>s for the Amazon Web Services Config rule if this value is <code>INTERNAL</code>.</p>
+-    pub rule_evaluation_visibility: ::std::option::Option<crate::types::RuleEvaluationVisibility>,
++    pub rule_evaluation_visibility: ::std::option::Option<super::types::RuleEvaluationVisibility>,
+ }
+ impl ConfigRule {
+     /// <p>The name that you assign to the Config rule. The name is required if you are adding a new rule.</p>
+@@ -65,11 +65,11 @@
+         self.description.as_deref()
+     }
+     /// <p>Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.</p>
+-    pub fn scope(&self) -> ::std::option::Option<&crate::types::Scope> {
++    pub fn scope(&self) -> ::std::option::Option<&super::types::Scope> {
+         self.scope.as_ref()
+     }
+     /// <p>Provides the rule owner (<code>Amazon Web Services</code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your Amazon Web Services resources.</p>
+-    pub fn source(&self) -> ::std::option::Option<&crate::types::Source> {
++    pub fn source(&self) -> ::std::option::Option<&super::types::Source> {
+         self.source.as_ref()
+     }
+     /// <p>A string, in JSON format, that is passed to the Config rule Lambda function.</p>
+@@ -85,7 +85,7 @@
+     /// </ul><note>
+     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
+     /// </note>
+-    pub fn maximum_execution_frequency(&self) -> ::std::option::Option<&crate::types::MaximumExecutionFrequency> {
++    pub fn maximum_execution_frequency(&self) -> ::std::option::Option<&super::types::MaximumExecutionFrequency> {
+         self.maximum_execution_frequency.as_ref()
+     }
+     /// <p>Indicates whether the Config rule is active or is currently being deleted by Config. It can also indicate the evaluation status for the Config rule.</p>
+@@ -92,7 +92,7 @@
+     /// <p>Config sets the state of the rule to <code>EVALUATING</code> temporarily after you use the <code>StartConfigRulesEvaluation</code> request to evaluate your resources against the Config rule.</p>
+     /// <p>Config sets the state of the rule to <code>DELETING_RESULTS</code> temporarily after you use the <code>DeleteEvaluationResults</code> request to delete the current evaluation results for the Config rule.</p>
+     /// <p>Config temporarily sets the state of a rule to <code>DELETING</code> after you use the <code>DeleteConfigRule</code> request to delete the rule. After Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.</p>
+-    pub fn config_rule_state(&self) -> ::std::option::Option<&crate::types::ConfigRuleState> {
++    pub fn config_rule_state(&self) -> ::std::option::Option<&super::types::ConfigRuleState> {
+         self.config_rule_state.as_ref()
+     }
+     /// <p>Service principal name of the service that created the rule.</p><note>
+@@ -104,18 +104,18 @@
+     /// <p>The modes the Config rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.evaluation_modes.is_none()`.
+-    pub fn evaluation_modes(&self) -> &[crate::types::EvaluationModeConfiguration] {
++    pub fn evaluation_modes(&self) -> &[super::types::EvaluationModeConfiguration] {
+         self.evaluation_modes.as_deref().unwrap_or_default()
+     }
+     /// <p>Indicates whether you can get <code>Evaluation</code>s for the Config rule. You can get <code>Evaluation</code>s for the Amazon Web Services Config rule if this value is <code>EXTERNAL</code>. You cannot get <code>Evaluation</code>s for the Amazon Web Services Config rule if this value is <code>INTERNAL</code>.</p>
+-    pub fn rule_evaluation_visibility(&self) -> ::std::option::Option<&crate::types::RuleEvaluationVisibility> {
++    pub fn rule_evaluation_visibility(&self) -> ::std::option::Option<&super::types::RuleEvaluationVisibility> {
+         self.rule_evaluation_visibility.as_ref()
+     }
+ }
+ impl ConfigRule {
+     /// Creates a new builder-style object to manufacture [`ConfigRule`](crate::types::ConfigRule).
+-    pub fn builder() -> crate::types::builders::ConfigRuleBuilder {
+-        crate::types::builders::ConfigRuleBuilder::default()
++    pub fn builder() -> super::types::builders::ConfigRuleBuilder {
++        super::types::builders::ConfigRuleBuilder::default()
+     }
+ }
+
+@@ -127,14 +127,14 @@
+     pub(crate) config_rule_arn: ::std::option::Option<::std::string::String>,
+     pub(crate) config_rule_id: ::std::option::Option<::std::string::String>,
+     pub(crate) description: ::std::option::Option<::std::string::String>,
+-    pub(crate) scope: ::std::option::Option<crate::types::Scope>,
+-    pub(crate) source: ::std::option::Option<crate::types::Source>,
++    pub(crate) scope: ::std::option::Option<super::types::Scope>,
++    pub(crate) source: ::std::option::Option<super::types::Source>,
+     pub(crate) input_parameters: ::std::option::Option<::std::string::String>,
+-    pub(crate) maximum_execution_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
+-    pub(crate) config_rule_state: ::std::option::Option<crate::types::ConfigRuleState>,
++    pub(crate) maximum_execution_frequency: ::std::option::Option<super::types::MaximumExecutionFrequency>,
++    pub(crate) config_rule_state: ::std::option::Option<super::types::ConfigRuleState>,
+     pub(crate) created_by: ::std::option::Option<::std::string::String>,
+-    pub(crate) evaluation_modes: ::std::option::Option<::std::vec::Vec<crate::types::EvaluationModeConfiguration>>,
+-    pub(crate) rule_evaluation_visibility: ::std::option::Option<crate::types::RuleEvaluationVisibility>,
++    pub(crate) evaluation_modes: ::std::option::Option<::std::vec::Vec<super::types::EvaluationModeConfiguration>>,
++    pub(crate) rule_evaluation_visibility: ::std::option::Option<super::types::RuleEvaluationVisibility>,
+ }
+ impl ConfigRuleBuilder {
+     /// <p>The name that you assign to the Config rule. The name is required if you are adding a new rule.</p>
+@@ -194,32 +194,32 @@
+         &self.description
+     }
+     /// <p>Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.</p>
+-    pub fn scope(mut self, input: crate::types::Scope) -> Self {
++    pub fn scope(mut self, input: super::types::Scope) -> Self {
+         self.scope = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.</p>
+-    pub fn set_scope(mut self, input: ::std::option::Option<crate::types::Scope>) -> Self {
++    pub fn set_scope(mut self, input: ::std::option::Option<super::types::Scope>) -> Self {
+         self.scope = input;
+         self
+     }
+     /// <p>Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.</p>
+-    pub fn get_scope(&self) -> &::std::option::Option<crate::types::Scope> {
++    pub fn get_scope(&self) -> &::std::option::Option<super::types::Scope> {
+         &self.scope
+     }
+     /// <p>Provides the rule owner (<code>Amazon Web Services</code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your Amazon Web Services resources.</p>
+     /// This field is required.
+-    pub fn source(mut self, input: crate::types::Source) -> Self {
++    pub fn source(mut self, input: super::types::Source) -> Self {
+         self.source = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Provides the rule owner (<code>Amazon Web Services</code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your Amazon Web Services resources.</p>
+-    pub fn set_source(mut self, input: ::std::option::Option<crate::types::Source>) -> Self {
++    pub fn set_source(mut self, input: ::std::option::Option<super::types::Source>) -> Self {
+         self.source = input;
+         self
+     }
+     /// <p>Provides the rule owner (<code>Amazon Web Services</code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your Amazon Web Services resources.</p>
+-    pub fn get_source(&self) -> &::std::option::Option<crate::types::Source> {
++    pub fn get_source(&self) -> &::std::option::Option<super::types::Source> {
+         &self.source
+     }
+     /// <p>A string, in JSON format, that is passed to the Config rule Lambda function.</p>
+@@ -245,7 +245,7 @@
+     /// </ul><note>
+     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
+     /// </note>
+-    pub fn maximum_execution_frequency(mut self, input: crate::types::MaximumExecutionFrequency) -> Self {
++    pub fn maximum_execution_frequency(mut self, input: super::types::MaximumExecutionFrequency) -> Self {
+         self.maximum_execution_frequency = ::std::option::Option::Some(input);
+         self
+     }
+@@ -258,7 +258,7 @@
+     /// </ul><note>
+     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
+     /// </note>
+-    pub fn set_maximum_execution_frequency(mut self, input: ::std::option::Option<crate::types::MaximumExecutionFrequency>) -> Self {
++    pub fn set_maximum_execution_frequency(mut self, input: ::std::option::Option<super::types::MaximumExecutionFrequency>) -> Self {
+         self.maximum_execution_frequency = input;
+         self
+     }
+@@ -271,7 +271,7 @@
+     /// </ul><note>
+     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
+     /// </note>
+-    pub fn get_maximum_execution_frequency(&self) -> &::std::option::Option<crate::types::MaximumExecutionFrequency> {
++    pub fn get_maximum_execution_frequency(&self) -> &::std::option::Option<super::types::MaximumExecutionFrequency> {
+         &self.maximum_execution_frequency
+     }
+     /// <p>Indicates whether the Config rule is active or is currently being deleted by Config. It can also indicate the evaluation status for the Config rule.</p>
+@@ -278,7 +278,7 @@
+     /// <p>Config sets the state of the rule to <code>EVALUATING</code> temporarily after you use the <code>StartConfigRulesEvaluation</code> request to evaluate your resources against the Config rule.</p>
+     /// <p>Config sets the state of the rule to <code>DELETING_RESULTS</code> temporarily after you use the <code>DeleteEvaluationResults</code> request to delete the current evaluation results for the Config rule.</p>
+     /// <p>Config temporarily sets the state of a rule to <code>DELETING</code> after you use the <code>DeleteConfigRule</code> request to delete the rule. After Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.</p>
+-    pub fn config_rule_state(mut self, input: crate::types::ConfigRuleState) -> Self {
++    pub fn config_rule_state(mut self, input: super::types::ConfigRuleState) -> Self {
+         self.config_rule_state = ::std::option::Option::Some(input);
+         self
+     }
+@@ -286,7 +286,7 @@
+     /// <p>Config sets the state of the rule to <code>EVALUATING</code> temporarily after you use the <code>StartConfigRulesEvaluation</code> request to evaluate your resources against the Config rule.</p>
+     /// <p>Config sets the state of the rule to <code>DELETING_RESULTS</code> temporarily after you use the <code>DeleteEvaluationResults</code> request to delete the current evaluation results for the Config rule.</p>
+     /// <p>Config temporarily sets the state of a rule to <code>DELETING</code> after you use the <code>DeleteConfigRule</code> request to delete the rule. After Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.</p>
+-    pub fn set_config_rule_state(mut self, input: ::std::option::Option<crate::types::ConfigRuleState>) -> Self {
++    pub fn set_config_rule_state(mut self, input: ::std::option::Option<super::types::ConfigRuleState>) -> Self {
+         self.config_rule_state = input;
+         self
+     }
+@@ -294,7 +294,7 @@
+     /// <p>Config sets the state of the rule to <code>EVALUATING</code> temporarily after you use the <code>StartConfigRulesEvaluation</code> request to evaluate your resources against the Config rule.</p>
+     /// <p>Config sets the state of the rule to <code>DELETING_RESULTS</code> temporarily after you use the <code>DeleteEvaluationResults</code> request to delete the current evaluation results for the Config rule.</p>
+     /// <p>Config temporarily sets the state of a rule to <code>DELETING</code> after you use the <code>DeleteConfigRule</code> request to delete the rule. After Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.</p>
+-    pub fn get_config_rule_state(&self) -> &::std::option::Option<crate::types::ConfigRuleState> {
++    pub fn get_config_rule_state(&self) -> &::std::option::Option<super::types::ConfigRuleState> {
+         &self.config_rule_state
+     }
+     /// <p>Service principal name of the service that created the rule.</p><note>
+@@ -322,7 +322,7 @@
+     /// To override the contents of this collection use [`set_evaluation_modes`](Self::set_evaluation_modes).
+     ///
+     /// <p>The modes the Config rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.</p>
+-    pub fn evaluation_modes(mut self, input: crate::types::EvaluationModeConfiguration) -> Self {
++    pub fn evaluation_modes(mut self, input: super::types::EvaluationModeConfiguration) -> Self {
+         let mut v = self.evaluation_modes.unwrap_or_default();
+         v.push(input);
+         self.evaluation_modes = ::std::option::Option::Some(v);
+@@ -329,31 +329,31 @@
+         self
+     }
+     /// <p>The modes the Config rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.</p>
+-    pub fn set_evaluation_modes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EvaluationModeConfiguration>>) -> Self {
++    pub fn set_evaluation_modes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EvaluationModeConfiguration>>) -> Self {
+         self.evaluation_modes = input;
+         self
+     }
+     /// <p>The modes the Config rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.</p>
+-    pub fn get_evaluation_modes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EvaluationModeConfiguration>> {
++    pub fn get_evaluation_modes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EvaluationModeConfiguration>> {
+         &self.evaluation_modes
+     }
+     /// <p>Indicates whether you can get <code>Evaluation</code>s for the Config rule. You can get <code>Evaluation</code>s for the Amazon Web Services Config rule if this value is <code>EXTERNAL</code>. You cannot get <code>Evaluation</code>s for the Amazon Web Services Config rule if this value is <code>INTERNAL</code>.</p>
+-    pub fn rule_evaluation_visibility(mut self, input: crate::types::RuleEvaluationVisibility) -> Self {
++    pub fn rule_evaluation_visibility(mut self, input: super::types::RuleEvaluationVisibility) -> Self {
+         self.rule_evaluation_visibility = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Indicates whether you can get <code>Evaluation</code>s for the Config rule. You can get <code>Evaluation</code>s for the Amazon Web Services Config rule if this value is <code>EXTERNAL</code>. You cannot get <code>Evaluation</code>s for the Amazon Web Services Config rule if this value is <code>INTERNAL</code>.</p>
+-    pub fn set_rule_evaluation_visibility(mut self, input: ::std::option::Option<crate::types::RuleEvaluationVisibility>) -> Self {
++    pub fn set_rule_evaluation_visibility(mut self, input: ::std::option::Option<super::types::RuleEvaluationVisibility>) -> Self {
+         self.rule_evaluation_visibility = input;
+         self
+     }
+     /// <p>Indicates whether you can get <code>Evaluation</code>s for the Config rule. You can get <code>Evaluation</code>s for the Amazon Web Services Config rule if this value is <code>EXTERNAL</code>. You cannot get <code>Evaluation</code>s for the Amazon Web Services Config rule if this value is <code>INTERNAL</code>.</p>
+-    pub fn get_rule_evaluation_visibility(&self) -> &::std::option::Option<crate::types::RuleEvaluationVisibility> {
++    pub fn get_rule_evaluation_visibility(&self) -> &::std::option::Option<super::types::RuleEvaluationVisibility> {
+         &self.rule_evaluation_visibility
+     }
+     /// Consumes the builder and constructs a [`ConfigRule`](crate::types::ConfigRule).
+-    pub fn build(self) -> crate::types::ConfigRule {
+-        crate::types::ConfigRule {
++    pub fn build(self) -> super::types::ConfigRule {
++        super::types::ConfigRule {
+             config_rule_name: self.config_rule_name,
+             config_rule_arn: self.config_rule_arn,
+             config_rule_id: self.config_rule_id,

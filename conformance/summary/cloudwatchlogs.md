@@ -1,0 +1,4002 @@
+# AWS SDK Conformance Report: cloudwatchlogs
+
+Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+
+## cloudwatchlogs
+**Progress:** `1287/1287` files compared · `1194` matched · `91` mismatches · `2` missing · `0` extra · `92.77%` match (100.00% means fully matched)
+
+### `src/config.rs`
+
+```diff
+--- reference/src/config.rs
++++ generated/src/config.rs
+@@ -145,7 +145,7 @@
+     /// The signing service may be overridden by the `Endpoint`, or by specifying a custom
+     /// [`SigningName`](aws_types::SigningName) during operation construction
+     pub fn signing_name(&self) -> &'static str {
+-        "logs"
++        "cloudwatchlogs"
+     }
+     /// Returns the AWS region, if it was provided.
+     pub fn region(&self) -> ::std::option::Option<&super::config::Region> {
+@@ -1402,7 +1402,7 @@
+                 .set_time_source(::std::option::Option::Some(::std::default::Default::default()));
+         }
+         layer.store_put(super::meta::API_METADATA.clone());
+-        layer.store_put(::aws_types::SigningName::from_static("logs"));
++        layer.store_put(::aws_types::SigningName::from_static("cloudwatchlogs"));
+         layer
+             .load::<::aws_types::region::Region>()
+             .cloned()
+```
+
+### `src/error_meta.rs`
+
+```diff
+--- reference/src/error_meta.rs
++++ generated/src/error_meta.rs
+@@ -2251,7 +2251,6 @@
+             super::operation::get_log_object::GetLogObjectError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+             super::operation::get_log_object::GetLogObjectError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+             super::operation::get_log_object::GetLogObjectError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+-            super::operation::get_log_object::GetLogObjectError::InternalStreamingException(inner) => Error::InternalStreamingException(inner),
+             super::operation::get_log_object::GetLogObjectError::Unhandled(inner) => Error::Unhandled(inner),
+         }
+     }
+@@ -3515,8 +3514,6 @@
+             super::operation::start_live_tail::StartLiveTailError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+             super::operation::start_live_tail::StartLiveTailError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+             super::operation::start_live_tail::StartLiveTailError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+-            super::operation::start_live_tail::StartLiveTailError::SessionTimeoutException(inner) => Error::SessionTimeoutException(inner),
+-            super::operation::start_live_tail::StartLiveTailError::SessionStreamingException(inner) => Error::SessionStreamingException(inner),
+             super::operation::start_live_tail::StartLiveTailError::Unhandled(inner) => Error::Unhandled(inner),
+         }
+     }
+@@ -3897,7 +3894,6 @@
+ impl From<super::types::error::GetLogObjectResponseStreamError> for Error {
+     fn from(err: super::types::error::GetLogObjectResponseStreamError) -> Self {
+         match err {
+-            super::types::error::GetLogObjectResponseStreamError::InternalStreamingException(inner) => Error::InternalStreamingException(inner),
+             super::types::error::GetLogObjectResponseStreamError::Unhandled(inner) => Error::Unhandled(inner),
+         }
+     }
+@@ -3919,8 +3915,6 @@
+ impl From<super::types::error::StartLiveTailResponseStreamError> for Error {
+     fn from(err: super::types::error::StartLiveTailResponseStreamError) -> Self {
+         match err {
+-            super::types::error::StartLiveTailResponseStreamError::SessionTimeoutException(inner) => Error::SessionTimeoutException(inner),
+-            super::types::error::StartLiveTailResponseStreamError::SessionStreamingException(inner) => Error::SessionStreamingException(inner),
+             super::types::error::StartLiveTailResponseStreamError::Unhandled(inner) => Error::Unhandled(inner),
+         }
+     }
+```
+
+### `src/event_stream_serde.rs`
+
+```diff
+--- reference/src/event_stream_serde.rs
++++ generated/src/event_stream_serde.rs
+@@ -21,11 +21,23 @@
+             "event" => match response_headers.smithy_type.as_str() {
+                 "fields" => {
+                     let parsed = super::protocol_serde::shape_fields_data::de_fields_data_payload(&message.payload()[..])
+-                        .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall Fields: {err}")))?;
++                        .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall fields: {err}")))?;
+                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                         super::types::GetLogObjectResponseStream::Fields(parsed),
+                     ))
+                 }
++                "InternalStreamingException" => {
++                    let parsed =
++                        super::protocol_serde::shape_internal_streaming_exception::de_internal_streaming_exception_payload(&message.payload()[..])
++                            .map_err(|err| {
++                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
++                                    "failed to unmarshall InternalStreamingException: {err}"
++                                ))
++                            })?;
++                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
++                        super::types::GetLogObjectResponseStream::InternalStreamingException(parsed),
++                    ))
++                }
+                 _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                     super::types::GetLogObjectResponseStream::Unknown,
+                 )),
+@@ -39,20 +51,6 @@
+                         ))
+                     }
+                 };
+-                if response_headers.smithy_type.as_str() == "InternalStreamingException" {
+-                    let mut builder = super::types::error::builders::InternalStreamingExceptionBuilder::default();
+-                    builder = super::protocol_serde::shape_internal_streaming_exception::de_internal_streaming_exception_json_err(
+-                        &message.payload()[..],
+-                        builder,
+-                    )
+-                    .map_err(|err| {
+-                        ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall InternalStreamingException: {err}"))
+-                    })?;
+-                    builder.set_meta(Some(generic));
+-                    return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+-                        super::types::error::GetLogObjectResponseStreamError::InternalStreamingException(builder.build()),
+-                    ));
+-                }
+                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                     super::types::error::GetLogObjectResponseStreamError::generic(generic),
+                 ))
+@@ -65,7 +63,6 @@
+         }
+     }
+ }
+-
+ #[non_exhaustive]
+ #[derive(Debug)]
+ pub struct StartLiveTailResponseStreamUnmarshaller;
+@@ -88,7 +85,7 @@
+             "event" => match response_headers.smithy_type.as_str() {
+                 "sessionStart" => {
+                     let parsed = super::protocol_serde::shape_live_tail_session_start::de_live_tail_session_start_payload(&message.payload()[..])
+-                        .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionStart: {err}")))?;
++                        .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall sessionStart: {err}")))?;
+                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                         super::types::StartLiveTailResponseStream::SessionStart(parsed),
+                     ))
+@@ -96,12 +93,33 @@
+                 "sessionUpdate" => {
+                     let parsed = super::protocol_serde::shape_live_tail_session_update::de_live_tail_session_update_payload(&message.payload()[..])
+                         .map_err(|err| {
+-                        ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionUpdate: {err}"))
++                        ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall sessionUpdate: {err}"))
+                     })?;
+                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                         super::types::StartLiveTailResponseStream::SessionUpdate(parsed),
+                     ))
+                 }
++                "SessionTimeoutException" => {
++                    let parsed = super::protocol_serde::shape_session_timeout_exception::de_session_timeout_exception_payload(&message.payload()[..])
++                        .map_err(|err| {
++                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionTimeoutException: {err}"))
++                        })?;
++                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
++                        super::types::StartLiveTailResponseStream::SessionTimeoutException(parsed),
++                    ))
++                }
++                "SessionStreamingException" => {
++                    let parsed =
++                        super::protocol_serde::shape_session_streaming_exception::de_session_streaming_exception_payload(&message.payload()[..])
++                            .map_err(|err| {
++                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
++                                    "failed to unmarshall SessionStreamingException: {err}"
++                                ))
++                            })?;
++                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
++                        super::types::StartLiveTailResponseStream::SessionStreamingException(parsed),
++                    ))
++                }
+                 _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                     super::types::StartLiveTailResponseStream::Unknown,
+                 )),
+@@ -115,37 +133,6 @@
+                         ))
+                     }
+                 };
+-                match response_headers.smithy_type.as_str() {
+-                    "SessionTimeoutException" => {
+-                        let mut builder = super::types::error::builders::SessionTimeoutExceptionBuilder::default();
+-                        builder = super::protocol_serde::shape_session_timeout_exception::de_session_timeout_exception_json_err(
+-                            &message.payload()[..],
+-                            builder,
+-                        )
+-                        .map_err(|err| {
+-                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionTimeoutException: {err}"))
+-                        })?;
+-                        builder.set_meta(Some(generic));
+-                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+-                            super::types::error::StartLiveTailResponseStreamError::SessionTimeoutException(builder.build()),
+-                        ));
+-                    }
+-                    "SessionStreamingException" => {
+-                        let mut builder = super::types::error::builders::SessionStreamingExceptionBuilder::default();
+-                        builder = super::protocol_serde::shape_session_streaming_exception::de_session_streaming_exception_json_err(
+-                            &message.payload()[..],
+-                            builder,
+-                        )
+-                        .map_err(|err| {
+-                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionStreamingException: {err}"))
+-                        })?;
+-                        builder.set_meta(Some(generic));
+-                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+-                            super::types::error::StartLiveTailResponseStreamError::SessionStreamingException(builder.build()),
+-                        ));
+-                    }
+-                    _ => {}
+-                }
+                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                     super::types::error::StartLiveTailResponseStreamError::generic(generic),
+                 ))
+```
+
+### `src/lib.rs`
+
+```diff
+--- reference/src/lib.rs
++++ generated/src/lib.rs
+@@ -214,11 +214,11 @@
+
+ mod lens;
+
+-mod event_stream_serde;
+-
+ mod json_errors;
+
+ mod serde_util;
+
++mod event_stream_serde;
++
+ #[doc(inline)]
+ pub use client::Client;
+```
+
+### `src/operation/delete_integration/_delete_integration_input.rs`
+
+```diff
+--- reference/src/operation/delete_integration/_delete_integration_input.rs
++++ generated/src/operation/delete_integration/_delete_integration_input.rs
+@@ -73,7 +73,7 @@
+     ) -> ::std::result::Result<super::operation::delete_integration::DeleteIntegrationInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::operation::delete_integration::DeleteIntegrationInput {
+             integration_name: self.integration_name,
+-            force: self.force,
++            force: self.force.unwrap_or_default(),
+         })
+     }
+ }
+```
+
+### `src/operation/describe_lookup_tables/_describe_lookup_tables_input.rs`
+
+```diff
+--- reference/src/operation/describe_lookup_tables/_describe_lookup_tables_input.rs
++++ generated/src/operation/describe_lookup_tables/_describe_lookup_tables_input.rs
+@@ -89,7 +89,7 @@
+     {
+         ::std::result::Result::Ok(super::operation::describe_lookup_tables::DescribeLookupTablesInput {
+             lookup_table_name_prefix: self.lookup_table_name_prefix,
+-            max_results: self.max_results,
++            max_results: self.max_results.unwrap_or_default(),
+             next_token: self.next_token,
+         })
+     }
+```
+
+### `src/operation/filter_log_events/_filter_log_events_input.rs`
+
+```diff
+--- reference/src/operation/filter_log_events/_filter_log_events_input.rs
++++ generated/src/operation/filter_log_events/_filter_log_events_input.rs
+@@ -380,7 +380,7 @@
+             limit: self.limit,
+             start_from_head: self.start_from_head,
+             interleaved: self.interleaved,
+-            unmask: self.unmask,
++            unmask: self.unmask.unwrap_or_default(),
+         })
+     }
+ }
+```
+
+### `src/operation/get_log_events/_get_log_events_input.rs`
+
+```diff
+--- reference/src/operation/get_log_events/_get_log_events_input.rs
++++ generated/src/operation/get_log_events/_get_log_events_input.rs
+@@ -262,7 +262,7 @@
+             next_token: self.next_token,
+             limit: self.limit,
+             start_from_head: self.start_from_head,
+-            unmask: self.unmask,
++            unmask: self.unmask.unwrap_or_default(),
+         })
+     }
+ }
+```
+
+### `src/operation/get_log_object/_get_log_object_input.rs`
+
+```diff
+--- reference/src/operation/get_log_object/_get_log_object_input.rs
++++ generated/src/operation/get_log_object/_get_log_object_input.rs
+@@ -68,7 +68,7 @@
+         self,
+     ) -> ::std::result::Result<super::operation::get_log_object::GetLogObjectInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::operation::get_log_object::GetLogObjectInput {
+-            unmask: self.unmask,
++            unmask: self.unmask.unwrap_or_default(),
+             log_object_pointer: self.log_object_pointer,
+         })
+     }
+```
+
+### `src/operation/get_log_object/_get_log_object_output.rs`
+
+```diff
+--- reference/src/operation/get_log_object/_get_log_object_output.rs
++++ generated/src/operation/get_log_object/_get_log_object_output.rs
+@@ -27,10 +27,6 @@
+     pub fn builder() -> super::operation::get_log_object::builders::GetLogObjectOutputBuilder {
+         super::operation::get_log_object::builders::GetLogObjectOutputBuilder::default()
+     }
+-    #[allow(unused)]
+-    pub(crate) fn into_builder(self) -> super::operation::get_log_object::builders::GetLogObjectOutputBuilder {
+-        Self::builder().field_stream(self.field_stream)
+-    }
+ }
+
+ /// A builder for [`GetLogObjectOutput`](crate::operation::get_log_object::GetLogObjectOutput).
+```
+
+### `src/operation/get_log_object/builders.rs`
+
+```diff
+--- reference/src/operation/get_log_object/builders.rs
++++ generated/src/operation/get_log_object/builders.rs
+@@ -25,12 +25,6 @@
+ /// <p>Retrieves a large logging object (LLO) and streams it back. This API is used to fetch the content of large portions of log events that have been ingested through the PutOpenTelemetryLogs API. When log events contain fields that would cause the total event size to exceed 1MB, CloudWatch Logs automatically processes up to 10 fields, starting with the largest fields. Each field is truncated as needed to keep the total event size as close to 1MB as possible. The excess portions are stored as Large Log Objects (LLOs) and these fields are processed separately and LLO reference system fields (in the format <code>@ptr.$\[path.to.field\]</code>) are added. The path in the reference field reflects the original JSON structure where the large field was located. For example, this could be <code>@ptr.$\['input'\]\['message'\]</code>, <code>@ptr.$\['AAA'\]\['BBB'\]\['CCC'\]\['DDD'\]</code>, <code>@ptr.$\['AAA'\]</code>, or any other path matching your log structure.</p><note>
+ /// <p>The <code>GetLogObject</code> API routes requests using SDK host prefix injection. SDK versions released before April 1, 2026 route to <code>streaming-logs.<i>Region</i>.amazonaws.com</code>, which does not support VPC endpoints. SDK versions released on or after April 1, 2026 route to <code>stream-logs.<i>Region</i>.amazonaws.com</code>, which supports VPC endpoints. To set up a VPC endpoint for this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs">Creating a VPC endpoint for CloudWatch Logs </a>.</p>
+ /// </note>
+-///
+-/// [`GetLogObjectOutput`](crate::operation::get_log_object::GetLogObjectOutput) contains an event stream field as well as one or more non-event stream fields.
+-/// Due to its current implementation, the non-event stream fields are not fully deserialized
+-/// until the [`send`](Self::send) method completes. As a result, accessing these fields of the operation
+-/// output struct within an interceptor may return uninitialized values.
+-///
+ #[derive(::std::clone::Clone, ::std::fmt::Debug)]
+ pub struct GetLogObjectFluentBuilder {
+     handle: ::std::sync::Arc<super::client::Handle>,
+@@ -94,37 +88,7 @@
+             &self.handle.conf,
+             self.config_override,
+         );
+-        let mut output = super::operation::get_log_object::GetLogObject::orchestrate(&runtime_plugins, input).await?;
+-
+-        // Converts any error encountered beyond this point into an `SdkError` response error
+-        // with an `HttpResponse`. However, since we have already exited the `orchestrate`
+-        // function, the original `HttpResponse` is no longer available and cannot be restored.
+-        // This means that header information from the original response has been lost.
+-        //
+-        // Note that the response body would have been consumed by the deserializer
+-        // regardless, even if the initial message was hypothetically processed during
+-        // the orchestrator's deserialization phase but later resulted in an error.
+-        fn response_error(
+-            err: impl ::std::convert::Into<::aws_smithy_runtime_api::box_error::BoxError>,
+-        ) -> ::aws_smithy_runtime_api::client::result::SdkError<
+-            super::operation::get_log_object::GetLogObjectError,
+-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+-        > {
+-            ::aws_smithy_runtime_api::client::result::SdkError::response_error(
+-                err,
+-                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse::new(
+-                    ::aws_smithy_runtime_api::http::StatusCode::try_from(200).expect("valid successful code"),
+-                    ::aws_smithy_types::body::SdkBody::empty(),
+-                ),
+-            )
+-        }
+-
+-        let message = output.field_stream.try_recv_initial_response().await.map_err(response_error)?;
+-
+-        match message {
+-            ::std::option::Option::Some(_message) => ::std::result::Result::Ok(output),
+-            ::std::option::Option::None => ::std::result::Result::Ok(output),
+-        }
++        super::operation::get_log_object::GetLogObject::orchestrate(&runtime_plugins, input).await
+     }
+
+     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+```
+
+### `src/operation/get_log_object.rs`
+
+```diff
+--- reference/src/operation/get_log_object.rs
++++ generated/src/operation/get_log_object.rs
+@@ -130,6 +130,9 @@
+                 GetLogObjectTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
++            ))
++            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 GetLogObjectEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+@@ -192,35 +195,23 @@
+ #[derive(Debug)]
+ struct GetLogObjectResponseDeserializer;
+ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetLogObjectResponseDeserializer {
+-    fn deserialize_streaming(
+-        &self,
+-        response: &mut ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+-    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
+-        #[allow(unused_mut)]
+-        let mut force_error = false;
+-        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+-
+-        // If this is an error, defer to the non-streaming parser
+-        if (!response.status().is_success() && response.status().as_u16() != 200) || force_error {
+-            return ::std::option::Option::None;
+-        }
+-        ::std::option::Option::Some(super::protocol_serde::type_erase_result(
+-            super::protocol_serde::shape_get_log_object::de_get_log_object_http_response(response),
+-        ))
+-    }
+-
+     fn deserialize_nonstreaming_with_config(
+         &self,
+         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         _cfg: &::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
+-        // For streaming operations, we only hit this case if its an error
++        let (success, status) = (response.status().is_success(), response.status().as_u16());
++        let headers = response.headers();
+         let body = response.body().bytes().expect("body loaded");
+-        super::protocol_serde::type_erase_result(super::protocol_serde::shape_get_log_object::de_get_log_object_http_error(
+-            response.status().as_u16(),
+-            response.headers(),
+-            body,
+-        ))
++        #[allow(unused_mut)]
++        let mut force_error = false;
++        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
++        let parse_result = if !success && status != 200 || force_error {
++            super::protocol_serde::shape_get_log_object::de_get_log_object_http_error(status, headers, body)
++        } else {
++            super::protocol_serde::shape_get_log_object::de_get_log_object_http_response(status, headers, body)
++        };
++        super::protocol_serde::type_erase_result(parse_result)
+     }
+ }
+ #[derive(Debug)]
+@@ -299,7 +290,7 @@
+             .downcast_ref::<GetLogObjectInput>()
+             .ok_or("failed to downcast to GetLogObjectInput")?;
+
+-        let endpoint_prefix = ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-").map_err(|err| {
++        let endpoint_prefix = { ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-") }.map_err(|err| {
+             ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint prefix could not be built", err)
+         })?;
+         cfg.interceptor_state().store_put(endpoint_prefix);
+@@ -336,8 +327,6 @@
+     LimitExceededException(super::types::error::LimitExceededException),
+     /// <p>The specified resource does not exist.</p>
+     ResourceNotFoundException(super::types::error::ResourceNotFoundException),
+-    /// <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
+-    InternalStreamingException(super::types::error::InternalStreamingException),
+     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+     variable wildcard pattern and check `.code()`:
+@@ -376,7 +365,6 @@
+             Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+             Self::LimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+             Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+-            Self::InternalStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+             Self::Unhandled(e) => &e.meta,
+         }
+     }
+@@ -400,10 +388,6 @@
+     pub fn is_resource_not_found_exception(&self) -> bool {
+         matches!(self, Self::ResourceNotFoundException(_))
+     }
+-    /// Returns `true` if the error kind is `GetLogObjectError::InternalStreamingException`.
+-    pub fn is_internal_streaming_exception(&self) -> bool {
+-        matches!(self, Self::InternalStreamingException(_))
+-    }
+ }
+ impl ::std::error::Error for GetLogObjectError {
+     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
+@@ -413,7 +397,6 @@
+             Self::InvalidParameterException(_inner) => ::std::option::Option::Some(_inner),
+             Self::LimitExceededException(_inner) => ::std::option::Option::Some(_inner),
+             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
+-            Self::InternalStreamingException(_inner) => ::std::option::Option::Some(_inner),
+             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
+         }
+     }
+@@ -426,7 +409,6 @@
+             Self::InvalidParameterException(_inner) => _inner.fmt(f),
+             Self::LimitExceededException(_inner) => _inner.fmt(f),
+             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
+-            Self::InternalStreamingException(_inner) => _inner.fmt(f),
+             Self::Unhandled(_inner) => {
+                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                     write!(f, "unhandled error ({code})")
+@@ -453,7 +435,6 @@
+             Self::InvalidParameterException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+             Self::LimitExceededException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+             Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+-            Self::InternalStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+             Self::Unhandled(_inner) => &_inner.meta,
+         }
+     }
+```
+
+### `src/operation/get_log_record/_get_log_record_input.rs`
+
+```diff
+--- reference/src/operation/get_log_record/_get_log_record_input.rs
++++ generated/src/operation/get_log_record/_get_log_record_input.rs
+@@ -73,7 +73,7 @@
+     ) -> ::std::result::Result<super::operation::get_log_record::GetLogRecordInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::operation::get_log_record::GetLogRecordInput {
+             log_record_pointer: self.log_record_pointer,
+-            unmask: self.unmask,
++            unmask: self.unmask.unwrap_or_default(),
+         })
+     }
+ }
+```
+
+### `src/operation/get_storage_tier_policy.rs`
+
+```diff
+--- reference/src/operation/get_storage_tier_policy.rs
++++ generated/src/operation/get_storage_tier_policy.rs
+@@ -218,9 +218,7 @@
+             );
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_storage_tier_policy::ser_get_storage_tier_policy_input(
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from("");
+
+         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+     }
+```
+
+### `src/operation/list_syslog_configurations/_list_syslog_configurations_input.rs`
+
+```diff
+--- reference/src/operation/list_syslog_configurations/_list_syslog_configurations_input.rs
++++ generated/src/operation/list_syslog_configurations/_list_syslog_configurations_input.rs
+@@ -114,7 +114,7 @@
+             log_group_identifier: self.log_group_identifier,
+             vpc_endpoint_id: self.vpc_endpoint_id,
+             next_token: self.next_token,
+-            max_results: self.max_results,
++            max_results: self.max_results.unwrap_or_default(),
+         })
+     }
+ }
+```
+
+### `src/operation/put_account_policy/builders.rs`
+
+```diff
+--- reference/src/operation/put_account_policy/builders.rs
++++ generated/src/operation/put_account_policy/builders.rs
+@@ -89,7 +89,7 @@
+ /// <p><b>Field index policy</b></p>
+ /// <p>You can use field index policies to create indexes on fields found in log events for a log group or data source name and type combination. Creating field indexes can help lower the scan volume for CloudWatch Logs Insights queries that reference those fields, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields or values that match only a small fraction of the total log events. Common examples of indexes include request ID, session ID, user IDs, or instance IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create field indexes to improve query performance and reduce costs</a></p>
+ /// <p>To find the fields that are in your log group events, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html">GetLogGroupFields</a> operation. To find the fields for a data source use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogFields.html">GetLogFields</a> operation.</p>
+-/// <p>For example, suppose you have created a field index for <code>requestId</code>. Then, any CloudWatch Logs Insights query on that log group that includes <code>requestId = <i>value</i> </code> or <code>requestId in \[value, value, ...\]</code> will attempt to process only the log events where the indexed field matches the specified value.</p>
++/// <p>For example, suppose you have created a field index for <code>requestId</code>. Then, any CloudWatch Logs Insights query on that log group that includes <code>requestId = <i>value</i> </code> or <code>requestId in \[<i>value</i>, <i>value</i>, ...\]</code> will attempt to process only the log events where the indexed field matches the specified value.</p>
+ /// <p>Matches of log events to the names of indexed fields are case-sensitive. For example, an indexed field of <code>RequestId</code> won't match a log event containing <code>requestId</code>.</p>
+ /// <p>You can have one account-level field index policy that applies to all log groups in the account. Or you can create as many as 20 account-level field index policies that are each scoped to a subset of log groups using <code>LogGroupNamePrefix</code> with the <code>selectionCriteria</code> parameter. You can have another 20 account-level field index policies using <code>DataSourceName</code> and <code>DataSourceType</code> for the <code>selectionCriteria</code> parameter. If you have multiple account-level index policies with <code>LogGroupNamePrefix</code> selection criteria, no two of them can use the same or overlapping log group name prefixes. For example, if you have one policy filtered to log groups that start with <i>my-log</i>, you can't have another field index policy filtered to <i>my-logpprod</i> or <i>my-logging</i>. Similarly, if you have multiple account-level index policies with <code>DataSourceName</code> and <code>DataSourceType</code> selection criteria, no two of them can use the same data source name and type combination. For example, if you have one policy filtered to the data source name <code>amazon_vpc</code> and data source type <code>flow</code> you cannot create another policy with this combination.</p>
+ /// <p>If you create an account-level field index policy in a monitoring account in cross-account observability, the policy is applied only to the monitoring account and not to any source accounts.</p>
+```
+
+### `src/operation/put_index_policy/builders.rs`
+
+```diff
+--- reference/src/operation/put_index_policy/builders.rs
++++ generated/src/operation/put_index_policy/builders.rs
+@@ -26,7 +26,7 @@
+ /// <p>You can use field index policies to create <i>field indexes</i> on fields found in log events in the log group. Creating field indexes speeds up and lowers the costs for CloudWatch Logs Insights queries that reference those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields or values that match only a small fraction of the total log events. Common examples of indexes include request ID, session ID, userID, and instance IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create field indexes to improve query performance and reduce costs</a>.</p>
+ /// <p>You can configure indexed fields as <i>facets</i> to enable interactive exploration and filtering of your logs in the CloudWatch Logs Insights console. Facets allow you to view value distributions and counts for indexed fields without running queries. When you create a field index, you can optionally set it as a facet to enable this interactive analysis capability. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Facets.html">Use facets to group and explore logs</a>.</p>
+ /// <p>To find the fields that are in your log group events, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html">GetLogGroupFields</a> operation.</p>
+-/// <p>For example, suppose you have created a field index for <code>requestId</code>. Then, any CloudWatch Logs Insights query on that log group that includes <code>requestId = <i>value</i> </code> or <code>requestId IN \[value, value, ...\]</code> will process fewer log events to reduce costs, and have improved performance.</p>
++/// <p>For example, suppose you have created a field index for <code>requestId</code>. Then, any CloudWatch Logs Insights query on that log group that includes <code>requestId = <i>value</i> </code> or <code>requestId IN \[<i>value</i>, <i>value</i>, ...\]</code> will process fewer log events to reduce costs, and have improved performance.</p>
+ /// <p>CloudWatch Logs provides default field indexes for all log groups in the Standard log class. Default field indexes are automatically available for the following fields:</p>
+ /// <ul>
+ /// <li>
+```
+
+### `src/operation/put_metric_filter/_put_metric_filter_input.rs`
+
+```diff
+--- reference/src/operation/put_metric_filter/_put_metric_filter_input.rs
++++ generated/src/operation/put_metric_filter/_put_metric_filter_input.rs
+@@ -199,7 +199,7 @@
+             filter_name: self.filter_name,
+             filter_pattern: self.filter_pattern,
+             metric_transformations: self.metric_transformations,
+-            apply_on_transformed_logs: self.apply_on_transformed_logs,
++            apply_on_transformed_logs: self.apply_on_transformed_logs.unwrap_or_default(),
+             field_selection_criteria: self.field_selection_criteria,
+             emit_system_field_dimensions: self.emit_system_field_dimensions,
+         })
+```
+
+### `src/operation/put_subscription_filter/_put_subscription_filter_input.rs`
+
+```diff
+--- reference/src/operation/put_subscription_filter/_put_subscription_filter_input.rs
++++ generated/src/operation/put_subscription_filter/_put_subscription_filter_input.rs
+@@ -292,7 +292,7 @@
+             destination_arn: self.destination_arn,
+             role_arn: self.role_arn,
+             distribution: self.distribution,
+-            apply_on_transformed_logs: self.apply_on_transformed_logs,
++            apply_on_transformed_logs: self.apply_on_transformed_logs.unwrap_or_default(),
+             field_selection_criteria: self.field_selection_criteria,
+             emit_system_fields: self.emit_system_fields,
+         })
+```
+
+### `src/operation/start_live_tail/_start_live_tail_output.rs`
+
+```diff
+--- reference/src/operation/start_live_tail/_start_live_tail_output.rs
++++ generated/src/operation/start_live_tail/_start_live_tail_output.rs
+@@ -26,10 +26,6 @@
+     pub fn builder() -> super::operation::start_live_tail::builders::StartLiveTailOutputBuilder {
+         super::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default()
+     }
+-    #[allow(unused)]
+-    pub(crate) fn into_builder(self) -> super::operation::start_live_tail::builders::StartLiveTailOutputBuilder {
+-        Self::builder().response_stream(self.response_stream)
+-    }
+ }
+
+ /// A builder for [`StartLiveTailOutput`](crate::operation::start_live_tail::StartLiveTailOutput).
+```
+
+### `src/operation/start_live_tail/builders.rs`
+
+```diff
+--- reference/src/operation/start_live_tail/builders.rs
++++ generated/src/operation/start_live_tail/builders.rs
+@@ -43,12 +43,6 @@
+ /// <p>You can end a session before it times out by closing the session stream or by closing the client that is receiving the stream. The session also ends if the established connection between the client and the server breaks.</p>
+ /// </important>
+ /// <p>For examples of using an SDK to start a Live Tail session, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/example_cloudwatch-logs_StartLiveTail_section.html"> Start a Live Tail session using an Amazon Web Services SDK</a>.</p>
+-///
+-/// [`StartLiveTailOutput`](crate::operation::start_live_tail::StartLiveTailOutput) contains an event stream field as well as one or more non-event stream fields.
+-/// Due to its current implementation, the non-event stream fields are not fully deserialized
+-/// until the [`send`](Self::send) method completes. As a result, accessing these fields of the operation
+-/// output struct within an interceptor may return uninitialized values.
+-///
+ #[derive(::std::clone::Clone, ::std::fmt::Debug)]
+ pub struct StartLiveTailFluentBuilder {
+     handle: ::std::sync::Arc<super::client::Handle>,
+@@ -112,37 +106,7 @@
+             &self.handle.conf,
+             self.config_override,
+         );
+-        let mut output = super::operation::start_live_tail::StartLiveTail::orchestrate(&runtime_plugins, input).await?;
+-
+-        // Converts any error encountered beyond this point into an `SdkError` response error
+-        // with an `HttpResponse`. However, since we have already exited the `orchestrate`
+-        // function, the original `HttpResponse` is no longer available and cannot be restored.
+-        // This means that header information from the original response has been lost.
+-        //
+-        // Note that the response body would have been consumed by the deserializer
+-        // regardless, even if the initial message was hypothetically processed during
+-        // the orchestrator's deserialization phase but later resulted in an error.
+-        fn response_error(
+-            err: impl ::std::convert::Into<::aws_smithy_runtime_api::box_error::BoxError>,
+-        ) -> ::aws_smithy_runtime_api::client::result::SdkError<
+-            super::operation::start_live_tail::StartLiveTailError,
+-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+-        > {
+-            ::aws_smithy_runtime_api::client::result::SdkError::response_error(
+-                err,
+-                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse::new(
+-                    ::aws_smithy_runtime_api::http::StatusCode::try_from(200).expect("valid successful code"),
+-                    ::aws_smithy_types::body::SdkBody::empty(),
+-                ),
+-            )
+-        }
+-
+-        let message = output.response_stream.try_recv_initial_response().await.map_err(response_error)?;
+-
+-        match message {
+-            ::std::option::Option::Some(_message) => ::std::result::Result::Ok(output),
+-            ::std::option::Option::None => ::std::result::Result::Ok(output),
+-        }
++        super::operation::start_live_tail::StartLiveTail::orchestrate(&runtime_plugins, input).await
+     }
+
+     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+```
+
+### `src/operation/start_live_tail.rs`
+
+```diff
+--- reference/src/operation/start_live_tail.rs
++++ generated/src/operation/start_live_tail.rs
+@@ -130,6 +130,9 @@
+                 StartLiveTailTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
++            ))
++            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 StartLiveTailEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+@@ -192,35 +195,23 @@
+ #[derive(Debug)]
+ struct StartLiveTailResponseDeserializer;
+ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for StartLiveTailResponseDeserializer {
+-    fn deserialize_streaming(
+-        &self,
+-        response: &mut ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+-    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
+-        #[allow(unused_mut)]
+-        let mut force_error = false;
+-        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+-
+-        // If this is an error, defer to the non-streaming parser
+-        if (!response.status().is_success() && response.status().as_u16() != 200) || force_error {
+-            return ::std::option::Option::None;
+-        }
+-        ::std::option::Option::Some(super::protocol_serde::type_erase_result(
+-            super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_response(response),
+-        ))
+-    }
+-
+     fn deserialize_nonstreaming_with_config(
+         &self,
+         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         _cfg: &::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
+-        // For streaming operations, we only hit this case if its an error
++        let (success, status) = (response.status().is_success(), response.status().as_u16());
++        let headers = response.headers();
+         let body = response.body().bytes().expect("body loaded");
+-        super::protocol_serde::type_erase_result(super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_error(
+-            response.status().as_u16(),
+-            response.headers(),
+-            body,
+-        ))
++        #[allow(unused_mut)]
++        let mut force_error = false;
++        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
++        let parse_result = if !success && status != 200 || force_error {
++            super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_error(status, headers, body)
++        } else {
++            super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_response(status, headers, body)
++        };
++        super::protocol_serde::type_erase_result(parse_result)
+     }
+ }
+ #[derive(Debug)]
+@@ -299,7 +290,7 @@
+             .downcast_ref::<StartLiveTailInput>()
+             .ok_or("failed to downcast to StartLiveTailInput")?;
+
+-        let endpoint_prefix = ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-").map_err(|err| {
++        let endpoint_prefix = { ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-") }.map_err(|err| {
+             ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint prefix could not be built", err)
+         })?;
+         cfg.interceptor_state().store_put(endpoint_prefix);
+@@ -336,10 +327,6 @@
+     LimitExceededException(super::types::error::LimitExceededException),
+     /// <p>The specified resource does not exist.</p>
+     ResourceNotFoundException(super::types::error::ResourceNotFoundException),
+-    /// <p>This exception is returned in a Live Tail stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
+-    SessionTimeoutException(super::types::error::SessionTimeoutException),
+-    /// <p>This exception is returned if an unknown error occurs during a Live Tail session.</p>
+-    SessionStreamingException(super::types::error::SessionStreamingException),
+     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+     variable wildcard pattern and check `.code()`:
+@@ -378,8 +365,6 @@
+             Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+             Self::LimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+             Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+-            Self::SessionTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+-            Self::SessionStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+             Self::Unhandled(e) => &e.meta,
+         }
+     }
+@@ -403,14 +388,6 @@
+     pub fn is_resource_not_found_exception(&self) -> bool {
+         matches!(self, Self::ResourceNotFoundException(_))
+     }
+-    /// Returns `true` if the error kind is `StartLiveTailError::SessionTimeoutException`.
+-    pub fn is_session_timeout_exception(&self) -> bool {
+-        matches!(self, Self::SessionTimeoutException(_))
+-    }
+-    /// Returns `true` if the error kind is `StartLiveTailError::SessionStreamingException`.
+-    pub fn is_session_streaming_exception(&self) -> bool {
+-        matches!(self, Self::SessionStreamingException(_))
+-    }
+ }
+ impl ::std::error::Error for StartLiveTailError {
+     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
+@@ -420,8 +397,6 @@
+             Self::InvalidParameterException(_inner) => ::std::option::Option::Some(_inner),
+             Self::LimitExceededException(_inner) => ::std::option::Option::Some(_inner),
+             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
+-            Self::SessionTimeoutException(_inner) => ::std::option::Option::Some(_inner),
+-            Self::SessionStreamingException(_inner) => ::std::option::Option::Some(_inner),
+             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
+         }
+     }
+@@ -434,8 +409,6 @@
+             Self::InvalidParameterException(_inner) => _inner.fmt(f),
+             Self::LimitExceededException(_inner) => _inner.fmt(f),
+             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
+-            Self::SessionTimeoutException(_inner) => _inner.fmt(f),
+-            Self::SessionStreamingException(_inner) => _inner.fmt(f),
+             Self::Unhandled(_inner) => {
+                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                     write!(f, "unhandled error ({code})")
+@@ -462,8 +435,6 @@
+             Self::InvalidParameterException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+             Self::LimitExceededException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+             Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+-            Self::SessionTimeoutException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+-            Self::SessionStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+             Self::Unhandled(_inner) => &_inner.meta,
+         }
+     }
+```
+
+### `src/primitives.rs`
+
+```diff
+--- reference/src/primitives.rs
++++ generated/src/primitives.rs
+@@ -1,4 +1,12 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
++pub use ::aws_smithy_types::body::SdkBody;
++pub use ::aws_smithy_types::byte_stream::error::Error as ByteStreamError;
++pub use ::aws_smithy_types::byte_stream::AggregatedBytes;
++pub use ::aws_smithy_types::byte_stream::ByteStream;
++#[cfg(feature = "rt-tokio")]
++pub use ::aws_smithy_types::byte_stream::FsBuilder;
++#[cfg(feature = "rt-tokio")]
++pub use ::aws_smithy_types::byte_stream::Length;
+ pub use ::aws_smithy_types::date_time::Format as DateTimeFormat;
+ pub use ::aws_smithy_types::Blob;
+ pub use ::aws_smithy_types::DateTime;
+```
+
+### `src/protocol_serde/shape_add_key_entry.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_add_key_entry.rs
++++ generated/src/protocol_serde/shape_add_key_entry.rs
+@@ -9,7 +9,7 @@
+     {
+         object.key("value").string(input.value.as_str());
+     }
+-    if input.overwrite_if_exists {
++    {
+         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
+     }
+     Ok(())
+```
+
+### `src/protocol_serde/shape_associate_kms_key.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_associate_kms_key.rs
++++ generated/src/protocol_serde/shape_associate_kms_key.rs
+@@ -105,3 +105,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_associate_kms_key(
++    _value: &[u8],
++    mut builder: super::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_cancel_export_task.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_cancel_export_task.rs
++++ generated/src/protocol_serde/shape_cancel_export_task.rs
+@@ -105,3 +105,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_cancel_export_task(
++    _value: &[u8],
++    mut builder: super::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_configuration_template.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_configuration_template.rs
++++ generated/src/protocol_serde/shape_configuration_template.rs
+@@ -50,9 +50,7 @@
+                             );
+                         }
+                         "defaultDeliveryConfigValues" => {
+-                            builder = builder.set_default_delivery_config_values(
+-                                    super::protocol_serde::shape_configuration_template_delivery_config_values::de_configuration_template_delivery_config_values(tokens, _value, depth + 1)?
+-                                );
++                            builder = builder.set_default_delivery_config_values(super::protocol_serde::shape_configuration_template_delivery_config_values::de_configuration_template_delivery_config_values(tokens, _value, depth + 1)?);
+                         }
+                         "allowedFields" => {
+                             builder = builder.set_allowed_fields(super::protocol_serde::shape_allowed_fields::de_allowed_fields(
+```
+
+### `src/protocol_serde/shape_copy_value_entry.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_copy_value_entry.rs
++++ generated/src/protocol_serde/shape_copy_value_entry.rs
+@@ -9,7 +9,7 @@
+     {
+         object.key("target").string(input.target.as_str());
+     }
+-    if input.overwrite_if_exists {
++    {
+         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
+     }
+     Ok(())
+```
+
+### `src/protocol_serde/shape_create_log_group.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_create_log_group.rs
++++ generated/src/protocol_serde/shape_create_log_group.rs
+@@ -123,3 +123,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_create_log_group(
++    _value: &[u8],
++    mut builder: super::operation::create_log_group::builders::CreateLogGroupOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::create_log_group::builders::CreateLogGroupOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_create_log_stream.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_create_log_stream.rs
++++ generated/src/protocol_serde/shape_create_log_stream.rs
+@@ -108,3 +108,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_create_log_stream(
++    _value: &[u8],
++    mut builder: super::operation::create_log_stream::builders::CreateLogStreamOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::create_log_stream::builders::CreateLogStreamOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_account_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_account_policy.rs
++++ generated/src/protocol_serde/shape_delete_account_policy.rs
+@@ -111,3 +111,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_account_policy(
++    _value: &[u8],
++    mut builder: super::operation::delete_account_policy::builders::DeleteAccountPolicyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_account_policy::builders::DeleteAccountPolicyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_data_protection_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_data_protection_policy.rs
++++ generated/src/protocol_serde/shape_delete_data_protection_policy.rs
+@@ -113,3 +113,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_data_protection_policy(
++    _value: &[u8],
++    mut builder: super::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_delivery.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_delivery.rs
++++ generated/src/protocol_serde/shape_delete_delivery.rs
+@@ -138,3 +138,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_delivery(
++    _value: &[u8],
++    mut builder: super::operation::delete_delivery::builders::DeleteDeliveryOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_delivery::builders::DeleteDeliveryOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_delivery_destination.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_delivery_destination.rs
++++ generated/src/protocol_serde/shape_delete_delivery_destination.rs
+@@ -152,3 +152,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_delivery_destination(
++    _value: &[u8],
++    mut builder: super::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_delivery_destination_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_delivery_destination_policy.rs
++++ generated/src/protocol_serde/shape_delete_delivery_destination_policy.rs
+@@ -116,3 +116,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_delivery_destination_policy(
++    _value: &[u8],
++    mut builder: super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_delivery_source.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_delivery_source.rs
++++ generated/src/protocol_serde/shape_delete_delivery_source.rs
+@@ -144,3 +144,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_delivery_source(
++    _value: &[u8],
++    mut builder: super::operation::delete_delivery_source::builders::DeleteDeliverySourceOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_delivery_source::builders::DeleteDeliverySourceOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_destination.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_destination.rs
++++ generated/src/protocol_serde/shape_delete_destination.rs
+@@ -107,3 +107,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_destination(
++    _value: &[u8],
++    mut builder: super::operation::delete_destination::builders::DeleteDestinationOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_destination::builders::DeleteDestinationOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_index_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_index_policy.rs
++++ generated/src/protocol_serde/shape_delete_index_policy.rs
+@@ -122,3 +122,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_index_policy(
++    _value: &[u8],
++    mut builder: super::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_integration.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_integration.rs
++++ generated/src/protocol_serde/shape_delete_integration.rs
+@@ -107,3 +107,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_integration(
++    _value: &[u8],
++    mut builder: super::operation::delete_integration::builders::DeleteIntegrationOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_integration::builders::DeleteIntegrationOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_log_anomaly_detector.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_log_anomaly_detector.rs
++++ generated/src/protocol_serde/shape_delete_log_anomaly_detector.rs
+@@ -115,3 +115,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_log_anomaly_detector(
++    _value: &[u8],
++    mut builder: super::operation::delete_log_anomaly_detector::builders::DeleteLogAnomalyDetectorOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_log_anomaly_detector::builders::DeleteLogAnomalyDetectorOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_log_group.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_log_group.rs
++++ generated/src/protocol_serde/shape_delete_log_group.rs
+@@ -120,3 +120,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_log_group(
++    _value: &[u8],
++    mut builder: super::operation::delete_log_group::builders::DeleteLogGroupOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_log_group::builders::DeleteLogGroupOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_log_stream.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_log_stream.rs
++++ generated/src/protocol_serde/shape_delete_log_stream.rs
+@@ -120,3 +120,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_log_stream(
++    _value: &[u8],
++    mut builder: super::operation::delete_log_stream::builders::DeleteLogStreamOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_log_stream::builders::DeleteLogStreamOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_lookup_table.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_lookup_table.rs
++++ generated/src/protocol_serde/shape_delete_lookup_table.rs
+@@ -107,3 +107,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_lookup_table(
++    _value: &[u8],
++    mut builder: super::operation::delete_lookup_table::builders::DeleteLookupTableOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_lookup_table::builders::DeleteLookupTableOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_metric_filter.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_metric_filter.rs
++++ generated/src/protocol_serde/shape_delete_metric_filter.rs
+@@ -111,3 +111,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_metric_filter(
++    _value: &[u8],
++    mut builder: super::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_resource_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_resource_policy.rs
++++ generated/src/protocol_serde/shape_delete_resource_policy.rs
+@@ -111,3 +111,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_resource_policy(
++    _value: &[u8],
++    mut builder: super::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_retention_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_retention_policy.rs
++++ generated/src/protocol_serde/shape_delete_retention_policy.rs
+@@ -111,3 +111,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_retention_policy(
++    _value: &[u8],
++    mut builder: super::operation::delete_retention_policy::builders::DeleteRetentionPolicyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_retention_policy::builders::DeleteRetentionPolicyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_scheduled_query.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_scheduled_query.rs
++++ generated/src/protocol_serde/shape_delete_scheduled_query.rs
+@@ -125,3 +125,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_scheduled_query(
++    _value: &[u8],
++    mut builder: super::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_subscription_filter.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_subscription_filter.rs
++++ generated/src/protocol_serde/shape_delete_subscription_filter.rs
+@@ -115,3 +115,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_subscription_filter(
++    _value: &[u8],
++    mut builder: super::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_syslog_configuration.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_syslog_configuration.rs
++++ generated/src/protocol_serde/shape_delete_syslog_configuration.rs
+@@ -162,3 +162,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_syslog_configuration(
++    _value: &[u8],
++    mut builder: super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_transformer.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_transformer.rs
++++ generated/src/protocol_serde/shape_delete_transformer.rs
+@@ -122,3 +122,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_transformer(
++    _value: &[u8],
++    mut builder: super::operation::delete_transformer::builders::DeleteTransformerOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::delete_transformer::builders::DeleteTransformerOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delivery_source_configuration_schema.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delivery_source_configuration_schema.rs
++++ generated/src/protocol_serde/shape_delivery_source_configuration_schema.rs
+@@ -46,9 +46,7 @@
+                             );
+                         }
+                         "supportedValues" => {
+-                            builder = builder.set_supported_values(
+-                                    super::protocol_serde::shape_delivery_source_configuration_supported_values::de_delivery_source_configuration_supported_values(tokens, _value, depth + 1)?
+-                                );
++                            builder = builder.set_supported_values(super::protocol_serde::shape_delivery_source_configuration_supported_values::de_delivery_source_configuration_supported_values(tokens, _value, depth + 1)?);
+                         }
+                         "minValue" => {
+                             builder = builder.set_min_value(
+```
+
+### `src/protocol_serde/shape_disassociate_kms_key.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_disassociate_kms_key.rs
++++ generated/src/protocol_serde/shape_disassociate_kms_key.rs
+@@ -111,3 +111,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_disassociate_kms_key(
++    _value: &[u8],
++    mut builder: super::operation::disassociate_kms_key::builders::DisassociateKmsKeyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::disassociate_kms_key::builders::DisassociateKmsKeyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_fields_data.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_fields_data.rs
++++ generated/src/protocol_serde/shape_fields_data.rs
+@@ -1,21 +1,4 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+-pub(crate) fn de_fields_data_payload(
+-    _value: &[u8],
+-) -> ::std::result::Result<super::types::FieldsData, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    let tokens = &mut tokens_owned;
+-    #[allow(unused_variables)]
+-    let depth = 0u32;
+-    let result = super::protocol_serde::shape_fields_data::de_fields_data(tokens, _value, depth + 1)?
+-        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
+-    if tokens.next().is_some() {
+-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+-            "found more JSON tokens after completing parsing",
+-        ));
+-    }
+-    result
+-}
+-
+ pub(crate) fn de_fields_data<'a, I>(
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+```
+
+### `src/protocol_serde/shape_get_log_object.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_log_object.rs
++++ generated/src/protocol_serde/shape_get_log_object.rs
+@@ -1,26 +1,5 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+ #[allow(clippy::unnecessary_wraps)]
+-pub fn de_get_log_object_http_response(
+-    response: &mut ::aws_smithy_runtime_api::http::Response,
+-) -> std::result::Result<super::operation::get_log_object::GetLogObjectOutput, super::operation::get_log_object::GetLogObjectError> {
+-    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+-    std::mem::swap(&mut _response_body, response.body_mut());
+-    let _response_body = &mut _response_body;
+-
+-    let _response_status = response.status().as_u16();
+-    let _response_headers = response.headers();
+-    Ok({
+-        #[allow(unused_mut)]
+-        let mut output = super::operation::get_log_object::builders::GetLogObjectOutputBuilder::default();
+-        output = output.set_field_stream(Some(super::protocol_serde::shape_get_log_object_output::de_field_stream_payload(
+-            _response_body,
+-        )?));
+-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+-        output.build().map_err(super::operation::get_log_object::GetLogObjectError::unhandled)?
+-    })
+-}
+-
+-#[allow(clippy::unnecessary_wraps)]
+ pub fn de_get_log_object_http_error(
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+@@ -113,25 +92,26 @@
+             }
+             tmp
+         }),
+-        "InternalStreamingException" => super::operation::get_log_object::GetLogObjectError::InternalStreamingException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
+-                #[allow(unused_mut)]
+-                let mut output = super::types::error::builders::InternalStreamingExceptionBuilder::default();
+-                output = super::protocol_serde::shape_internal_streaming_exception::de_internal_streaming_exception_json_err(_response_body, output)
+-                    .map_err(super::operation::get_log_object::GetLogObjectError::unhandled)?;
+-                let output = output.meta(generic);
+-                output.build()
+-            };
+-            if tmp.message.is_none() {
+-                tmp.message = _error_message;
+-            }
+-            tmp
+-        }),
+         _ => super::operation::get_log_object::GetLogObjectError::generic(generic),
+     })
+ }
+
++#[allow(clippy::unnecessary_wraps)]
++pub fn de_get_log_object_http_response(
++    _response_status: u16,
++    _response_headers: &::aws_smithy_runtime_api::http::Headers,
++    _response_body: &[u8],
++) -> std::result::Result<super::operation::get_log_object::GetLogObjectOutput, super::operation::get_log_object::GetLogObjectError> {
++    Ok({
++        #[allow(unused_mut)]
++        let mut output = super::operation::get_log_object::builders::GetLogObjectOutputBuilder::default();
++        output = super::protocol_serde::shape_get_log_object::de_get_log_object(_response_body, output)
++            .map_err(super::operation::get_log_object::GetLogObjectError::unhandled)?;
++        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
++        output.build()
++    })
++}
++
+ pub fn ser_get_log_object_input(
+     input: &super::operation::get_log_object::GetLogObjectInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+@@ -141,3 +121,41 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_get_log_object(
++    _value: &[u8],
++    mut builder: super::operation::get_log_object::builders::GetLogObjectOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::get_log_object::builders::GetLogObjectOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                "fieldStream" => {
++                    builder = builder.set_field_stream(
++                        super::protocol_serde::shape_get_log_object_response_stream::de_get_log_object_response_stream(tokens, _value, depth + 1)?,
++                    );
++                }
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_integration_details.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_integration_details.rs
++++ generated/src/protocol_serde/shape_integration_details.rs
+@@ -19,9 +19,7 @@
+             match tokens.next().transpose()? {
+                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
+-                        tokens.peek()
+-                    {
++                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
+                         let _ = tokens.next().expect("peek returned a token")?;
+                         continue;
+                     }
+```
+
+### `src/protocol_serde/shape_internal_streaming_exception.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_internal_streaming_exception.rs
++++ generated/src/protocol_serde/shape_internal_streaming_exception.rs
+@@ -1,38 +1,46 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+-pub(crate) fn de_internal_streaming_exception_json_err(
+-    _value: &[u8],
+-    mut builder: super::types::error::builders::InternalStreamingExceptionBuilder,
+-) -> ::std::result::Result<super::types::error::builders::InternalStreamingExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++pub(crate) fn de_internal_streaming_exception<'a, I>(
++    tokens: &mut ::std::iter::Peekable<I>,
++    _value: &'a [u8],
++    depth: u32,
++) -> ::std::result::Result<Option<super::types::InternalStreamingException>, ::aws_smithy_json::deserialize::error::DeserializeError>
++where
++    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    let tokens = &mut tokens_owned;
+-    #[allow(unused_variables)]
+-    let depth = 0u32;
+-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
+-    loop {
+-        match tokens.next().transpose()? {
+-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                "message" => {
+-                    builder = builder.set_message(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
++    if depth >= 128u32 {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "maximum nesting depth exceeded",
++        ));
++    }
++    match tokens.next().transpose()? {
++        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
++        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
++            #[allow(unused_mut)]
++            let mut builder = super::types::builders::InternalStreamingExceptionBuilder::default();
++            loop {
++                match tokens.next().transpose()? {
++                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "message" => {
++                            builder = builder.set_message(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
++                    other => {
++                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                            "expected object key or end object, found: {other:?}"
++                        )))
++                    }
+                 }
+-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-            },
+-            other => {
+-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+-                    "expected object key or end object, found: {other:?}"
+-                )))
+             }
++            Ok(Some(builder.build()))
+         }
++        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "expected start object or null",
++        )),
+     }
+-    if tokens.next().is_some() {
+-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+-            "found more JSON tokens after completing parsing",
+-        ));
+-    }
+-    Ok(builder)
+ }
+```
+
+### `src/protocol_serde/shape_list_to_map.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_to_map.rs
++++ generated/src/protocol_serde/shape_list_to_map.rs
+@@ -15,7 +15,7 @@
+     if let Some(var_2) = &input.target {
+         object.key("target").string(var_2.as_str());
+     }
+-    if input.flatten {
++    {
+         object.key("flatten").boolean(input.flatten);
+     }
+     if let Some(var_3) = &input.flattened_element {
+```
+
+### `src/protocol_serde/shape_live_tail_session_start.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_live_tail_session_start.rs
++++ generated/src/protocol_serde/shape_live_tail_session_start.rs
+@@ -1,21 +1,4 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+-pub(crate) fn de_live_tail_session_start_payload(
+-    _value: &[u8],
+-) -> ::std::result::Result<super::types::LiveTailSessionStart, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    let tokens = &mut tokens_owned;
+-    #[allow(unused_variables)]
+-    let depth = 0u32;
+-    let result = super::protocol_serde::shape_live_tail_session_start::de_live_tail_session_start(tokens, _value, depth + 1)?
+-        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
+-    if tokens.next().is_some() {
+-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+-            "found more JSON tokens after completing parsing",
+-        ));
+-    }
+-    result
+-}
+-
+ pub(crate) fn de_live_tail_session_start<'a, I>(
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+```
+
+### `src/protocol_serde/shape_live_tail_session_update.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_live_tail_session_update.rs
++++ generated/src/protocol_serde/shape_live_tail_session_update.rs
+@@ -1,21 +1,4 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+-pub(crate) fn de_live_tail_session_update_payload(
+-    _value: &[u8],
+-) -> ::std::result::Result<super::types::LiveTailSessionUpdate, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    let tokens = &mut tokens_owned;
+-    #[allow(unused_variables)]
+-    let depth = 0u32;
+-    let result = super::protocol_serde::shape_live_tail_session_update::de_live_tail_session_update(tokens, _value, depth + 1)?
+-        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
+-    if tokens.next().is_some() {
+-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+-            "found more JSON tokens after completing parsing",
+-        ));
+-    }
+-    result
+-}
+-
+ pub(crate) fn de_live_tail_session_update<'a, I>(
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+```
+
+### `src/protocol_serde/shape_log_field_type.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_log_field_type.rs
++++ generated/src/protocol_serde/shape_log_field_type.rs
+@@ -29,9 +29,7 @@
+                             );
+                         }
+                         "element" => {
+-                            builder = builder.set_element(
+-                                super::protocol_serde::shape_log_field_type::de_log_field_type(tokens, _value, depth + 1)?.map(Box::new),
+-                            );
++                            builder = builder.set_element(super::protocol_serde::shape_log_field_type::de_log_field_type(tokens, _value, depth + 1)?);
+                         }
+                         "fields" => {
+                             builder = builder.set_fields(super::protocol_serde::shape_log_fields_list::de_log_fields_list(
+```
+
+### `src/protocol_serde/shape_move_key_entry.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_move_key_entry.rs
++++ generated/src/protocol_serde/shape_move_key_entry.rs
+@@ -9,7 +9,7 @@
+     {
+         object.key("target").string(input.target.as_str());
+     }
+-    if input.overwrite_if_exists {
++    {
+         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
+     }
+     Ok(())
+```
+
+### `src/protocol_serde/shape_parse_key_value.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_parse_key_value.rs
++++ generated/src/protocol_serde/shape_parse_key_value.rs
+@@ -21,7 +21,7 @@
+     if let Some(var_6) = &input.non_match_value {
+         object.key("nonMatchValue").string(var_6.as_str());
+     }
+-    if input.overwrite_if_exists {
++    {
+         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
+     }
+     Ok(())
+```
+
+### `src/protocol_serde/shape_put_bearer_token_authentication.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_put_bearer_token_authentication.rs
++++ generated/src/protocol_serde/shape_put_bearer_token_authentication.rs
+@@ -155,3 +155,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_put_bearer_token_authentication(
++    _value: &[u8],
++    mut builder: super::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_put_destination_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_put_destination_policy.rs
++++ generated/src/protocol_serde/shape_put_destination_policy.rs
+@@ -96,3 +96,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_put_destination_policy(
++    _value: &[u8],
++    mut builder: super::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_put_log_group_deletion_protection.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_put_log_group_deletion_protection.rs
++++ generated/src/protocol_serde/shape_put_log_group_deletion_protection.rs
+@@ -155,3 +155,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_put_log_group_deletion_protection(
++    _value: &[u8],
++    mut builder: super::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_put_metric_filter.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_put_metric_filter.rs
++++ generated/src/protocol_serde/shape_put_metric_filter.rs
+@@ -135,3 +135,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_put_metric_filter(
++    _value: &[u8],
++    mut builder: super::operation::put_metric_filter::builders::PutMetricFilterOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::put_metric_filter::builders::PutMetricFilterOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_put_retention_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_put_retention_policy.rs
++++ generated/src/protocol_serde/shape_put_retention_policy.rs
+@@ -111,3 +111,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_put_retention_policy(
++    _value: &[u8],
++    mut builder: super::operation::put_retention_policy::builders::PutRetentionPolicyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::put_retention_policy::builders::PutRetentionPolicyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_put_subscription_filter.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_put_subscription_filter.rs
++++ generated/src/protocol_serde/shape_put_subscription_filter.rs
+@@ -141,3 +141,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_put_subscription_filter(
++    _value: &[u8],
++    mut builder: super::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_put_syslog_configuration.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_put_syslog_configuration.rs
++++ generated/src/protocol_serde/shape_put_syslog_configuration.rs
+@@ -160,3 +160,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_put_syslog_configuration(
++    _value: &[u8],
++    mut builder: super::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_put_transformer.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_put_transformer.rs
++++ generated/src/protocol_serde/shape_put_transformer.rs
+@@ -135,3 +135,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_put_transformer(
++    _value: &[u8],
++    mut builder: super::operation::put_transformer::builders::PutTransformerOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::put_transformer::builders::PutTransformerOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_rename_key_entry.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_rename_key_entry.rs
++++ generated/src/protocol_serde/shape_rename_key_entry.rs
+@@ -9,7 +9,7 @@
+     {
+         object.key("renameTo").string(input.rename_to.as_str());
+     }
+-    if input.overwrite_if_exists {
++    {
+         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
+     }
+     Ok(())
+```
+
+### `src/protocol_serde/shape_resource_config.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_resource_config.rs
++++ generated/src/protocol_serde/shape_resource_config.rs
+@@ -1,12 +1,12 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+ pub fn ser_resource_config(
+-    object_3: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
++    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
+     input: &super::types::ResourceConfig,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     match input {
+         super::types::ResourceConfig::OpenSearchResourceConfig(inner) => {
+             #[allow(unused_mut)]
+-            let mut object_1 = object_3.key("openSearchResourceConfig").start_object();
++            let mut object_1 = object.key("openSearchResourceConfig").start_object();
+             super::protocol_serde::shape_open_search_resource_config::ser_open_search_resource_config(&mut object_1, inner)?;
+             object_1.finish();
+         }
+```
+
+### `src/protocol_serde/shape_session_streaming_exception.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_session_streaming_exception.rs
++++ generated/src/protocol_serde/shape_session_streaming_exception.rs
+@@ -1,37 +1,46 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+-pub(crate) fn de_session_streaming_exception_json_err(
+-    _value: &[u8],
+-    mut builder: super::types::error::builders::SessionStreamingExceptionBuilder,
+-) -> ::std::result::Result<super::types::error::builders::SessionStreamingExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    let tokens = &mut tokens_owned;
+-    #[allow(unused_variables)]
+-    let depth = 0u32;
+-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
+-    loop {
+-        match tokens.next().transpose()? {
+-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                "message" => {
+-                    builder = builder.set_message(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
++pub(crate) fn de_session_streaming_exception<'a, I>(
++    tokens: &mut ::std::iter::Peekable<I>,
++    _value: &'a [u8],
++    depth: u32,
++) -> ::std::result::Result<Option<super::types::SessionStreamingException>, ::aws_smithy_json::deserialize::error::DeserializeError>
++where
++    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
++{
++    if depth >= 128u32 {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "maximum nesting depth exceeded",
++        ));
++    }
++    match tokens.next().transpose()? {
++        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
++        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
++            #[allow(unused_mut)]
++            let mut builder = super::types::builders::SessionStreamingExceptionBuilder::default();
++            loop {
++                match tokens.next().transpose()? {
++                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "message" => {
++                            builder = builder.set_message(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
++                    other => {
++                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                            "expected object key or end object, found: {other:?}"
++                        )))
++                    }
+                 }
+-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-            },
+-            other => {
+-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+-                    "expected object key or end object, found: {other:?}"
+-                )))
+             }
++            Ok(Some(builder.build()))
+         }
++        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "expected start object or null",
++        )),
+     }
+-    if tokens.next().is_some() {
+-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+-            "found more JSON tokens after completing parsing",
+-        ));
+-    }
+-    Ok(builder)
+ }
+```
+
+### `src/protocol_serde/shape_session_timeout_exception.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_session_timeout_exception.rs
++++ generated/src/protocol_serde/shape_session_timeout_exception.rs
+@@ -1,37 +1,46 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+-pub(crate) fn de_session_timeout_exception_json_err(
+-    _value: &[u8],
+-    mut builder: super::types::error::builders::SessionTimeoutExceptionBuilder,
+-) -> ::std::result::Result<super::types::error::builders::SessionTimeoutExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+-    let tokens = &mut tokens_owned;
+-    #[allow(unused_variables)]
+-    let depth = 0u32;
+-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
+-    loop {
+-        match tokens.next().transpose()? {
+-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+-                "message" => {
+-                    builder = builder.set_message(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
++pub(crate) fn de_session_timeout_exception<'a, I>(
++    tokens: &mut ::std::iter::Peekable<I>,
++    _value: &'a [u8],
++    depth: u32,
++) -> ::std::result::Result<Option<super::types::SessionTimeoutException>, ::aws_smithy_json::deserialize::error::DeserializeError>
++where
++    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
++{
++    if depth >= 128u32 {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "maximum nesting depth exceeded",
++        ));
++    }
++    match tokens.next().transpose()? {
++        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
++        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
++            #[allow(unused_mut)]
++            let mut builder = super::types::builders::SessionTimeoutExceptionBuilder::default();
++            loop {
++                match tokens.next().transpose()? {
++                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                        "message" => {
++                            builder = builder.set_message(
++                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                    .transpose()?,
++                            );
++                        }
++                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                    },
++                    other => {
++                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                            "expected object key or end object, found: {other:?}"
++                        )))
++                    }
+                 }
+-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+-            },
+-            other => {
+-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+-                    "expected object key or end object, found: {other:?}"
+-                )))
+             }
++            Ok(Some(builder.build()))
+         }
++        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "expected start object or null",
++        )),
+     }
+-    if tokens.next().is_some() {
+-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+-            "found more JSON tokens after completing parsing",
+-        ));
+-    }
+-    Ok(builder)
+ }
+```
+
+### `src/protocol_serde/shape_start_live_tail.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_start_live_tail.rs
++++ generated/src/protocol_serde/shape_start_live_tail.rs
+@@ -1,26 +1,5 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+ #[allow(clippy::unnecessary_wraps)]
+-pub fn de_start_live_tail_http_response(
+-    response: &mut ::aws_smithy_runtime_api::http::Response,
+-) -> std::result::Result<super::operation::start_live_tail::StartLiveTailOutput, super::operation::start_live_tail::StartLiveTailError> {
+-    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+-    std::mem::swap(&mut _response_body, response.body_mut());
+-    let _response_body = &mut _response_body;
+-
+-    let _response_status = response.status().as_u16();
+-    let _response_headers = response.headers();
+-    Ok({
+-        #[allow(unused_mut)]
+-        let mut output = super::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default();
+-        output = output.set_response_stream(Some(super::protocol_serde::shape_start_live_tail_output::de_response_stream_payload(
+-            _response_body,
+-        )?));
+-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+-        output.build().map_err(super::operation::start_live_tail::StartLiveTailError::unhandled)?
+-    })
+-}
+-
+-#[allow(clippy::unnecessary_wraps)]
+ pub fn de_start_live_tail_http_error(
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+@@ -113,40 +92,26 @@
+             }
+             tmp
+         }),
+-        "SessionTimeoutException" => super::operation::start_live_tail::StartLiveTailError::SessionTimeoutException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
+-                #[allow(unused_mut)]
+-                let mut output = super::types::error::builders::SessionTimeoutExceptionBuilder::default();
+-                output = super::protocol_serde::shape_session_timeout_exception::de_session_timeout_exception_json_err(_response_body, output)
+-                    .map_err(super::operation::start_live_tail::StartLiveTailError::unhandled)?;
+-                let output = output.meta(generic);
+-                output.build()
+-            };
+-            if tmp.message.is_none() {
+-                tmp.message = _error_message;
+-            }
+-            tmp
+-        }),
+-        "SessionStreamingException" => super::operation::start_live_tail::StartLiveTailError::SessionStreamingException({
+-            #[allow(unused_mut)]
+-            let mut tmp = {
+-                #[allow(unused_mut)]
+-                let mut output = super::types::error::builders::SessionStreamingExceptionBuilder::default();
+-                output = super::protocol_serde::shape_session_streaming_exception::de_session_streaming_exception_json_err(_response_body, output)
+-                    .map_err(super::operation::start_live_tail::StartLiveTailError::unhandled)?;
+-                let output = output.meta(generic);
+-                output.build()
+-            };
+-            if tmp.message.is_none() {
+-                tmp.message = _error_message;
+-            }
+-            tmp
+-        }),
+         _ => super::operation::start_live_tail::StartLiveTailError::generic(generic),
+     })
+ }
+
++#[allow(clippy::unnecessary_wraps)]
++pub fn de_start_live_tail_http_response(
++    _response_status: u16,
++    _response_headers: &::aws_smithy_runtime_api::http::Headers,
++    _response_body: &[u8],
++) -> std::result::Result<super::operation::start_live_tail::StartLiveTailOutput, super::operation::start_live_tail::StartLiveTailError> {
++    Ok({
++        #[allow(unused_mut)]
++        let mut output = super::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default();
++        output = super::protocol_serde::shape_start_live_tail::de_start_live_tail(_response_body, output)
++            .map_err(super::operation::start_live_tail::StartLiveTailError::unhandled)?;
++        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
++        output.build()
++    })
++}
++
+ pub fn ser_start_live_tail_input(
+     input: &super::operation::start_live_tail::StartLiveTailInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+@@ -156,3 +121,41 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_start_live_tail(
++    _value: &[u8],
++    mut builder: super::operation::start_live_tail::builders::StartLiveTailOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::start_live_tail::builders::StartLiveTailOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                "responseStream" => {
++                    builder = builder.set_response_stream(
++                        super::protocol_serde::shape_start_live_tail_response_stream::de_start_live_tail_response_stream(tokens, _value, depth + 1)?,
++                    );
++                }
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_suppression_period.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_suppression_period.rs
++++ generated/src/protocol_serde/shape_suppression_period.rs
+@@ -3,7 +3,7 @@
+     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
+     input: &super::types::SuppressionPeriod,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+-    if input.value != 0 {
++    {
+         object.key("value").number(
+             #[allow(clippy::useless_conversion)]
+             ::aws_smithy_types::Number::NegInt((input.value).into()),
+```
+
+### `src/protocol_serde/shape_tag_log_group.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tag_log_group.rs
++++ generated/src/protocol_serde/shape_tag_log_group.rs
+@@ -74,3 +74,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_tag_log_group(
++    _value: &[u8],
++    mut builder: super::operation::tag_log_group::builders::TagLogGroupOutputBuilder,
++) -> ::std::result::Result<super::operation::tag_log_group::builders::TagLogGroupOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_tag_resource.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tag_resource.rs
++++ generated/src/protocol_serde/shape_tag_resource.rs
+@@ -105,3 +105,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_tag_resource(
++    _value: &[u8],
++    mut builder: super::operation::tag_resource::builders::TagResourceOutputBuilder,
++) -> ::std::result::Result<super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_untag_log_group.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_untag_log_group.rs
++++ generated/src/protocol_serde/shape_untag_log_group.rs
+@@ -59,3 +59,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_untag_log_group(
++    _value: &[u8],
++    mut builder: super::operation::untag_log_group::builders::UntagLogGroupOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::untag_log_group::builders::UntagLogGroupOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_untag_resource.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_untag_resource.rs
++++ generated/src/protocol_serde/shape_untag_resource.rs
+@@ -90,3 +90,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_untag_resource(
++    _value: &[u8],
++    mut builder: super::operation::untag_resource::builders::UntagResourceOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_update_anomaly.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_update_anomaly.rs
++++ generated/src/protocol_serde/shape_update_anomaly.rs
+@@ -105,3 +105,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_update_anomaly(
++    _value: &[u8],
++    mut builder: super::operation::update_anomaly::builders::UpdateAnomalyOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::update_anomaly::builders::UpdateAnomalyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_update_delivery_configuration.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_update_delivery_configuration.rs
++++ generated/src/protocol_serde/shape_update_delivery_configuration.rs
+@@ -146,3 +146,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_update_delivery_configuration(
++    _value: &[u8],
++    mut builder: super::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_update_log_anomaly_detector.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_update_log_anomaly_detector.rs
++++ generated/src/protocol_serde/shape_update_log_anomaly_detector.rs
+@@ -115,3 +115,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_update_log_anomaly_detector(
++    _value: &[u8],
++    mut builder: super::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorOutputBuilder,
++) -> ::std::result::Result<
++    super::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde.rs`
+
+```diff
+--- reference/src/protocol_serde.rs
++++ generated/src/protocol_serde.rs
+@@ -405,8 +405,6 @@
+
+ pub(crate) mod shape_get_log_object_input;
+
+-pub(crate) mod shape_get_log_object_output;
+-
+ pub(crate) mod shape_get_log_record_input;
+
+ pub(crate) mod shape_get_lookup_table_input;
+@@ -511,8 +509,6 @@
+
+ pub(crate) mod shape_start_live_tail_input;
+
+-pub(crate) mod shape_start_live_tail_output;
+-
+ pub(crate) mod shape_start_query_input;
+
+ pub(crate) mod shape_stop_query_input;
+@@ -547,12 +543,6 @@
+
+ pub(crate) mod shape_validation_exception;
+
+-pub fn parse_event_stream_error_metadata(
+-    payload: &::bytes::Bytes,
+-) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    super::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
+-}
+-
+ pub(crate) mod shape_account_policies;
+
+ pub(crate) mod shape_account_policy;
+@@ -595,6 +585,8 @@
+
+ pub(crate) mod shape_field_indexes;
+
++pub(crate) mod shape_fields_data;
++
+ pub(crate) mod shape_filtered_log_events;
+
+ pub(crate) mod shape_import_batch_list;
+@@ -615,6 +607,10 @@
+
+ pub(crate) mod shape_integration_summaries;
+
++pub(crate) mod shape_live_tail_session_start;
++
++pub(crate) mod shape_live_tail_session_update;
++
+ pub(crate) mod shape_log_fields_list;
+
+ pub(crate) mod shape_log_group_arn_list;
+@@ -717,8 +713,6 @@
+
+ pub(crate) mod shape_field_index;
+
+-pub(crate) mod shape_fields_data;
+-
+ pub(crate) mod shape_filtered_log_event;
+
+ pub(crate) mod shape_grok;
+@@ -727,13 +721,15 @@
+
+ pub(crate) mod shape_import_batch;
+
++pub(crate) mod shape_input_log_stream_names;
++
+ pub(crate) mod shape_integration_summary;
+
+ pub(crate) mod shape_list_to_map;
+
+-pub(crate) mod shape_live_tail_session_start;
++pub(crate) mod shape_live_tail_session_metadata;
+
+-pub(crate) mod shape_live_tail_session_update;
++pub(crate) mod shape_live_tail_session_results;
+
+ pub(crate) mod shape_log_fields_list_item;
+
+@@ -803,6 +799,8 @@
+
+ pub(crate) mod shape_split_string;
+
++pub(crate) mod shape_start_live_tail_log_group_identifiers;
++
+ pub(crate) mod shape_subscription_filter;
+
+ pub(crate) mod shape_substitute_string;
+@@ -845,6 +843,8 @@
+
+ pub(crate) mod shape_inherited_properties;
+
++pub(crate) mod shape_live_tail_session_log_event;
++
+ pub(crate) mod shape_log_field_type;
+
+ pub(crate) mod shape_log_group_names;
+@@ -905,12 +905,6 @@
+
+ pub(crate) mod shape_grouping_identifier;
+
+-pub(crate) mod shape_input_log_stream_names;
+-
+-pub(crate) mod shape_live_tail_session_metadata;
+-
+-pub(crate) mod shape_live_tail_session_results;
+-
+ pub(crate) mod shape_log_event;
+
+ pub(crate) mod shape_lower_case_string_with_keys;
+@@ -931,8 +925,6 @@
+
+ pub(crate) mod shape_split_string_entries;
+
+-pub(crate) mod shape_start_live_tail_log_group_identifiers;
+-
+ pub(crate) mod shape_substitute_string_entries;
+
+ pub(crate) mod shape_trim_string_with_keys;
+@@ -946,5 +938,3 @@
+ pub(crate) mod shape_dimensions;
+
+ pub(crate) mod shape_enumerations;
+-
+-pub(crate) mod shape_live_tail_session_log_event;
+```
+
+### `src/types/_get_log_object_response_stream.rs`
+
+```diff
+--- reference/src/types/_get_log_object_response_stream.rs
++++ generated/src/types/_get_log_object_response_stream.rs
+@@ -4,6 +4,8 @@
+ #[non_exhaustive]
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub enum GetLogObjectResponseStream {
++    /// <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
++    InternalStreamingException(super::types::InternalStreamingException),
+     /// <p>A structure containing the extracted fields from a log event. These fields are extracted based on the log format and can be used for structured querying and analysis.</p>
+     Fields(super::types::FieldsData),
+     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
+@@ -17,7 +19,19 @@
+     Unknown,
+ }
+ impl GetLogObjectResponseStream {
+-    #[allow(irrefutable_let_patterns)]
++    /// Tries to convert the enum instance into [`InternalStreamingException`](crate::types::GetLogObjectResponseStream::InternalStreamingException), extracting the inner [`InternalStreamingException`](crate::types::InternalStreamingException).
++    /// Returns `Err(&Self)` if it can't be converted.
++    pub fn as_internal_streaming_exception(&self) -> ::std::result::Result<&super::types::InternalStreamingException, &Self> {
++        if let GetLogObjectResponseStream::InternalStreamingException(val) = &self {
++            ::std::result::Result::Ok(val)
++        } else {
++            ::std::result::Result::Err(self)
++        }
++    }
++    /// Returns true if this is a [`InternalStreamingException`](crate::types::GetLogObjectResponseStream::InternalStreamingException).
++    pub fn is_internal_streaming_exception(&self) -> bool {
++        self.as_internal_streaming_exception().is_ok()
++    }
+     /// Tries to convert the enum instance into [`Fields`](crate::types::GetLogObjectResponseStream::Fields), extracting the inner [`FieldsData`](crate::types::FieldsData).
+     /// Returns `Err(&Self)` if it can't be converted.
+     pub fn as_fields(&self) -> ::std::result::Result<&super::types::FieldsData, &Self> {
+```
+
+### `src/types/_log_field_type.rs`
+
+```diff
+--- reference/src/types/_log_field_type.rs
++++ generated/src/types/_log_field_type.rs
+@@ -7,7 +7,7 @@
+     /// <p>The data type of the log field.</p>
+     pub r#type: ::std::option::Option<::std::string::String>,
+     /// <p>For array or collection types, specifies the element type information.</p>
+-    pub element: ::std::option::Option<::std::boxed::Box<super::types::LogFieldType>>,
++    pub element: ::std::option::Option<super::types::LogFieldType>,
+     /// <p>For complex types, contains the nested field definitions.</p>
+     pub fields: ::std::option::Option<::std::vec::Vec<super::types::LogFieldsListItem>>,
+ }
+@@ -18,7 +18,7 @@
+     }
+     /// <p>For array or collection types, specifies the element type information.</p>
+     pub fn element(&self) -> ::std::option::Option<&super::types::LogFieldType> {
+-        self.element.as_deref()
++        self.element.as_ref()
+     }
+     /// <p>For complex types, contains the nested field definitions.</p>
+     ///
+@@ -39,7 +39,7 @@
+ #[non_exhaustive]
+ pub struct LogFieldTypeBuilder {
+     pub(crate) r#type: ::std::option::Option<::std::string::String>,
+-    pub(crate) element: ::std::option::Option<::std::boxed::Box<super::types::LogFieldType>>,
++    pub(crate) element: ::std::option::Option<super::types::LogFieldType>,
+     pub(crate) fields: ::std::option::Option<::std::vec::Vec<super::types::LogFieldsListItem>>,
+ }
+ impl LogFieldTypeBuilder {
+@@ -58,17 +58,17 @@
+         &self.r#type
+     }
+     /// <p>For array or collection types, specifies the element type information.</p>
+-    pub fn element(mut self, input: impl ::std::convert::Into<::std::boxed::Box<super::types::LogFieldType>>) -> Self {
+-        self.element = ::std::option::Option::Some(input.into());
++    pub fn element(mut self, input: super::types::LogFieldType) -> Self {
++        self.element = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>For array or collection types, specifies the element type information.</p>
+-    pub fn set_element(mut self, input: ::std::option::Option<::std::boxed::Box<super::types::LogFieldType>>) -> Self {
++    pub fn set_element(mut self, input: ::std::option::Option<super::types::LogFieldType>) -> Self {
+         self.element = input;
+         self
+     }
+     /// <p>For array or collection types, specifies the element type information.</p>
+-    pub fn get_element(&self) -> &::std::option::Option<::std::boxed::Box<super::types::LogFieldType>> {
++    pub fn get_element(&self) -> &::std::option::Option<super::types::LogFieldType> {
+         &self.element
+     }
+     /// Appends an item to `fields`.
+```
+
+### `src/types/_query_status.rs`
+
+```diff
+--- reference/src/types/_query_status.rs
++++ generated/src/types/_query_status.rs
+@@ -18,7 +18,7 @@
+ ///     QueryStatus::Running => { /* ... */ },
+ ///     QueryStatus::Scheduled => { /* ... */ },
+ ///     QueryStatus::Timeout => { /* ... */ },
+-///     QueryStatus::UnknownValue => { /* ... */ },
++///     QueryStatus::Unknown => { /* ... */ },
+ ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
+ ///     _ => { /* ... */ },
+ /// }
+@@ -41,8 +41,7 @@
+ /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
+ /// - It might inadvertently shadow other intended match arms.
+ ///
+-///
+-/// _Note: `QueryStatus::Unknown` has been renamed to `::UnknownValue`._
++#[allow(missing_docs)] // documentation missing in model
+ #[non_exhaustive]
+ #[derive(
+     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+@@ -60,9 +59,8 @@
+     Scheduled,
+     #[allow(missing_docs)] // documentation missing in model
+     Timeout,
+-    ///
+-    /// _Note: `::Unknown` has been renamed to `::UnknownValue`._
+-    UnknownValue,
++    #[allow(missing_docs)] // documentation missing in model
++    Unknown,
+     /// `Unknown` contains new variants that have been added since this code was generated.
+     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+     Unknown(super::primitives::sealed_enum_unknown::UnknownVariantValue),
+@@ -76,7 +74,7 @@
+             "Running" => QueryStatus::Running,
+             "Scheduled" => QueryStatus::Scheduled,
+             "Timeout" => QueryStatus::Timeout,
+-            "Unknown" => QueryStatus::UnknownValue,
++            "Unknown" => QueryStatus::Unknown,
+             other => QueryStatus::Unknown(super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+         }
+     }
+@@ -98,7 +96,7 @@
+             QueryStatus::Running => "Running",
+             QueryStatus::Scheduled => "Scheduled",
+             QueryStatus::Timeout => "Timeout",
+-            QueryStatus::UnknownValue => "Unknown",
++            QueryStatus::Unknown => "Unknown",
+             QueryStatus::Unknown(value) => value.as_str(),
+         }
+     }
+@@ -133,7 +131,7 @@
+             QueryStatus::Running => write!(f, "Running"),
+             QueryStatus::Scheduled => write!(f, "Scheduled"),
+             QueryStatus::Timeout => write!(f, "Timeout"),
+-            QueryStatus::UnknownValue => write!(f, "Unknown"),
++            QueryStatus::Unknown => write!(f, "Unknown"),
+             QueryStatus::Unknown(value) => write!(f, "{value}"),
+         }
+     }
+```
+
+### `src/types/_start_live_tail_response_stream.rs`
+
+```diff
+--- reference/src/types/_start_live_tail_response_stream.rs
++++ generated/src/types/_start_live_tail_response_stream.rs
+@@ -4,6 +4,10 @@
+ #[non_exhaustive]
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub enum StartLiveTailResponseStream {
++    /// <p>This exception is returned if an unknown error occurs.</p>
++    SessionStreamingException(super::types::SessionStreamingException),
++    /// <p>This exception is returned in the stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
++    SessionTimeoutException(super::types::SessionTimeoutException),
+     /// <p>This object contains information about this Live Tail session, including the log groups included and the log stream filters, if any.</p>
+     SessionStart(super::types::LiveTailSessionStart),
+     /// <p>This object contains the log events and session metadata.</p>
+@@ -19,6 +23,32 @@
+     Unknown,
+ }
+ impl StartLiveTailResponseStream {
++    /// Tries to convert the enum instance into [`SessionStreamingException`](crate::types::StartLiveTailResponseStream::SessionStreamingException), extracting the inner [`SessionStreamingException`](crate::types::SessionStreamingException).
++    /// Returns `Err(&Self)` if it can't be converted.
++    pub fn as_session_streaming_exception(&self) -> ::std::result::Result<&super::types::SessionStreamingException, &Self> {
++        if let StartLiveTailResponseStream::SessionStreamingException(val) = &self {
++            ::std::result::Result::Ok(val)
++        } else {
++            ::std::result::Result::Err(self)
++        }
++    }
++    /// Returns true if this is a [`SessionStreamingException`](crate::types::StartLiveTailResponseStream::SessionStreamingException).
++    pub fn is_session_streaming_exception(&self) -> bool {
++        self.as_session_streaming_exception().is_ok()
++    }
++    /// Tries to convert the enum instance into [`SessionTimeoutException`](crate::types::StartLiveTailResponseStream::SessionTimeoutException), extracting the inner [`SessionTimeoutException`](crate::types::SessionTimeoutException).
++    /// Returns `Err(&Self)` if it can't be converted.
++    pub fn as_session_timeout_exception(&self) -> ::std::result::Result<&super::types::SessionTimeoutException, &Self> {
++        if let StartLiveTailResponseStream::SessionTimeoutException(val) = &self {
++            ::std::result::Result::Ok(val)
++        } else {
++            ::std::result::Result::Err(self)
++        }
++    }
++    /// Returns true if this is a [`SessionTimeoutException`](crate::types::StartLiveTailResponseStream::SessionTimeoutException).
++    pub fn is_session_timeout_exception(&self) -> bool {
++        self.as_session_timeout_exception().is_ok()
++    }
+     /// Tries to convert the enum instance into [`SessionStart`](crate::types::StartLiveTailResponseStream::SessionStart), extracting the inner [`LiveTailSessionStart`](crate::types::LiveTailSessionStart).
+     /// Returns `Err(&Self)` if it can't be converted.
+     pub fn as_session_start(&self) -> ::std::result::Result<&super::types::LiveTailSessionStart, &Self> {
+```
+
+### `src/types/_substitute_string_entry.rs`
+
+```diff
+--- reference/src/types/_substitute_string_entry.rs
++++ generated/src/types/_substitute_string_entry.rs
+@@ -6,7 +6,7 @@
+ pub struct SubstituteStringEntry {
+     /// <p>The key to modify</p>
+     pub source: ::std::string::String,
+-    /// <p>The regular expression string to be replaced. Special regex characters such as \[ and \] must be escaped using \\ when using double quotes and with \ when using single quotes. For more information, see Class Pattern on the Oracle web site.</p>
++    /// <p>The regular expression string to be replaced. Special regex characters such as \[ and \] must be escaped using \\ when using double quotes and with \ when using single quotes. For more information, see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html"> Class Pattern</a> on the Oracle web site.</p>
+     pub from: ::std::string::String,
+     /// <p>The string to be substituted for each match of <code>from</code></p>
+     pub to: ::std::string::String,
+@@ -17,7 +17,7 @@
+         use std::ops::Deref;
+         self.source.deref()
+     }
+-    /// <p>The regular expression string to be replaced. Special regex characters such as \[ and \] must be escaped using \\ when using double quotes and with \ when using single quotes. For more information, see Class Pattern on the Oracle web site.</p>
++    /// <p>The regular expression string to be replaced. Special regex characters such as \[ and \] must be escaped using \\ when using double quotes and with \ when using single quotes. For more information, see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html"> Class Pattern</a> on the Oracle web site.</p>
+     pub fn from(&self) -> &str {
+         use std::ops::Deref;
+         self.from.deref()
+@@ -59,18 +59,18 @@
+     pub fn get_source(&self) -> &::std::option::Option<::std::string::String> {
+         &self.source
+     }
+-    /// <p>The regular expression string to be replaced. Special regex characters such as \[ and \] must be escaped using \\ when using double quotes and with \ when using single quotes. For more information, see Class Pattern on the Oracle web site.</p>
++    /// <p>The regular expression string to be replaced. Special regex characters such as \[ and \] must be escaped using \\ when using double quotes and with \ when using single quotes. For more information, see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html"> Class Pattern</a> on the Oracle web site.</p>
+     /// This field is required.
+     pub fn from(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+         self.from = ::std::option::Option::Some(input.into());
+         self
+     }
+-    /// <p>The regular expression string to be replaced. Special regex characters such as \[ and \] must be escaped using \\ when using double quotes and with \ when using single quotes. For more information, see Class Pattern on the Oracle web site.</p>
++    /// <p>The regular expression string to be replaced. Special regex characters such as \[ and \] must be escaped using \\ when using double quotes and with \ when using single quotes. For more information, see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html"> Class Pattern</a> on the Oracle web site.</p>
+     pub fn set_from(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+         self.from = input;
+         self
+     }
+-    /// <p>The regular expression string to be replaced. Special regex characters such as \[ and \] must be escaped using \\ when using double quotes and with \ when using single quotes. For more information, see Class Pattern on the Oracle web site.</p>
++    /// <p>The regular expression string to be replaced. Special regex characters such as \[ and \] must be escaped using \\ when using double quotes and with \ when using single quotes. For more information, see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html"> Class Pattern</a> on the Oracle web site.</p>
+     pub fn get_from(&self) -> &::std::option::Option<::std::string::String> {
+         &self.from
+     }
+```
+
+### `src/types/error/builders.rs`
+
+```diff
+--- reference/src/types/error/builders.rs
++++ generated/src/types/error/builders.rs
+@@ -25,8 +25,6 @@
+
+ pub use super::types::error::_resource_already_exists_exception::ResourceAlreadyExistsExceptionBuilder;
+
+-pub use super::types::error::_internal_streaming_exception::InternalStreamingExceptionBuilder;
+-
+ pub use super::types::error::_data_already_accepted_exception::DataAlreadyAcceptedExceptionBuilder;
+
+ pub use super::types::error::_invalid_sequence_token_exception::InvalidSequenceTokenExceptionBuilder;
+@@ -33,10 +31,12 @@
+
+ pub use super::types::error::_unrecognized_client_exception::UnrecognizedClientExceptionBuilder;
+
+-pub use super::types::error::_session_timeout_exception::SessionTimeoutExceptionBuilder;
++pub use super::types::error::_malformed_query_exception::MalformedQueryExceptionBuilder;
++
++pub use super::types::error::_too_many_tags_exception::TooManyTagsExceptionBuilder;
++
++pub use super::types::error::_internal_streaming_exception::InternalStreamingExceptionBuilder;
+
+ pub use super::types::error::_session_streaming_exception::SessionStreamingExceptionBuilder;
+
+-pub use super::types::error::_malformed_query_exception::MalformedQueryExceptionBuilder;
+-
+-pub use super::types::error::_too_many_tags_exception::TooManyTagsExceptionBuilder;
++pub use super::types::error::_session_timeout_exception::SessionTimeoutExceptionBuilder;
+```
+
+### `src/types/error.rs`
+
+```diff
+--- reference/src/types/error.rs
++++ generated/src/types/error.rs
+@@ -25,8 +25,6 @@
+
+ pub use super::types::error::_resource_already_exists_exception::ResourceAlreadyExistsException;
+
+-pub use super::types::error::_internal_streaming_exception::InternalStreamingException;
+-
+ pub use super::types::error::_data_already_accepted_exception::DataAlreadyAcceptedException;
+
+ pub use super::types::error::_invalid_sequence_token_exception::InvalidSequenceTokenException;
+@@ -33,20 +31,20 @@
+
+ pub use super::types::error::_unrecognized_client_exception::UnrecognizedClientException;
+
+-pub use super::types::error::_session_timeout_exception::SessionTimeoutException;
+-
+-pub use super::types::error::_session_streaming_exception::SessionStreamingException;
+-
+ pub use super::types::error::_malformed_query_exception::MalformedQueryException;
+
+ pub use super::types::error::_too_many_tags_exception::TooManyTagsException;
+
++pub use super::types::error::_internal_streaming_exception::InternalStreamingException;
++
++pub use super::types::error::_session_streaming_exception::SessionStreamingException;
++
++pub use super::types::error::_session_timeout_exception::SessionTimeoutException;
++
+ /// Error type for the `GetLogObjectResponseStreamError` operation.
+ #[non_exhaustive]
+ #[derive(::std::fmt::Debug)]
+ pub enum GetLogObjectResponseStreamError {
+-    /// <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
+-    InternalStreamingException(super::types::error::InternalStreamingException),
+     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+     variable wildcard pattern and check `.code()`:
+@@ -80,19 +78,13 @@
+     ///
+     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+         match self {
+-            Self::InternalStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+             Self::Unhandled(e) => &e.meta,
+         }
+     }
+-    /// Returns `true` if the error kind is `GetLogObjectResponseStreamError::InternalStreamingException`.
+-    pub fn is_internal_streaming_exception(&self) -> bool {
+-        matches!(self, Self::InternalStreamingException(_))
+-    }
+ }
+ impl ::std::error::Error for GetLogObjectResponseStreamError {
+     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
+         match self {
+-            Self::InternalStreamingException(_inner) => ::std::option::Option::Some(_inner),
+             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
+         }
+     }
+@@ -100,7 +92,6 @@
+ impl ::std::fmt::Display for GetLogObjectResponseStreamError {
+     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+         match self {
+-            Self::InternalStreamingException(_inner) => _inner.fmt(f),
+             Self::Unhandled(_inner) => {
+                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                     write!(f, "unhandled error ({code})")
+@@ -122,7 +113,6 @@
+ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetLogObjectResponseStreamError {
+     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+         match self {
+-            Self::InternalStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+             Self::Unhandled(_inner) => &_inner.meta,
+         }
+     }
+@@ -138,6 +128,11 @@
+         })
+     }
+ }
++impl super::s3_request_id::RequestIdExt for super::types::error::GetLogObjectResponseStreamError {
++    fn extended_request_id(&self) -> Option<&str> {
++        self.meta().extended_request_id()
++    }
++}
+ impl ::aws_types::request_id::RequestId for super::types::error::GetLogObjectResponseStreamError {
+     fn request_id(&self) -> Option<&str> {
+         self.meta().request_id()
+@@ -148,10 +143,6 @@
+ #[non_exhaustive]
+ #[derive(::std::fmt::Debug)]
+ pub enum StartLiveTailResponseStreamError {
+-    /// <p>This exception is returned in a Live Tail stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
+-    SessionTimeoutException(super::types::error::SessionTimeoutException),
+-    /// <p>This exception is returned if an unknown error occurs during a Live Tail session.</p>
+-    SessionStreamingException(super::types::error::SessionStreamingException),
+     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+     variable wildcard pattern and check `.code()`:
+@@ -185,25 +176,13 @@
+     ///
+     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+         match self {
+-            Self::SessionTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+-            Self::SessionStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+             Self::Unhandled(e) => &e.meta,
+         }
+     }
+-    /// Returns `true` if the error kind is `StartLiveTailResponseStreamError::SessionTimeoutException`.
+-    pub fn is_session_timeout_exception(&self) -> bool {
+-        matches!(self, Self::SessionTimeoutException(_))
+-    }
+-    /// Returns `true` if the error kind is `StartLiveTailResponseStreamError::SessionStreamingException`.
+-    pub fn is_session_streaming_exception(&self) -> bool {
+-        matches!(self, Self::SessionStreamingException(_))
+-    }
+ }
+ impl ::std::error::Error for StartLiveTailResponseStreamError {
+     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
+         match self {
+-            Self::SessionTimeoutException(_inner) => ::std::option::Option::Some(_inner),
+-            Self::SessionStreamingException(_inner) => ::std::option::Option::Some(_inner),
+             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
+         }
+     }
+@@ -211,8 +190,6 @@
+ impl ::std::fmt::Display for StartLiveTailResponseStreamError {
+     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+         match self {
+-            Self::SessionTimeoutException(_inner) => _inner.fmt(f),
+-            Self::SessionStreamingException(_inner) => _inner.fmt(f),
+             Self::Unhandled(_inner) => {
+                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                     write!(f, "unhandled error ({code})")
+@@ -234,8 +211,6 @@
+ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for StartLiveTailResponseStreamError {
+     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+         match self {
+-            Self::SessionTimeoutException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+-            Self::SessionStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+             Self::Unhandled(_inner) => &_inner.meta,
+         }
+     }
+@@ -251,6 +226,11 @@
+         })
+     }
+ }
++impl super::s3_request_id::RequestIdExt for super::types::error::StartLiveTailResponseStreamError {
++    fn extended_request_id(&self) -> Option<&str> {
++        self.meta().extended_request_id()
++    }
++}
+ impl ::aws_types::request_id::RequestId for super::types::error::StartLiveTailResponseStreamError {
+     fn request_id(&self) -> Option<&str> {
+         self.meta().request_id()
+```
+
+### Missing reference files
+
+- `src/protocol_serde/shape_get_log_object_output.rs`
+- `src/protocol_serde/shape_start_live_tail_output.rs`

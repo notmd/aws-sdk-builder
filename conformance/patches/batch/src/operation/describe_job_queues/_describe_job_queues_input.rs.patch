@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -33,8 +33,8 @@
+ }
+ impl DescribeJobQueuesInput {
+     /// Creates a new builder-style object to manufacture [`DescribeJobQueuesInput`](crate::operation::describe_job_queues::DescribeJobQueuesInput).
+-    pub fn builder() -> crate::operation::describe_job_queues::builders::DescribeJobQueuesInputBuilder {
+-        crate::operation::describe_job_queues::builders::DescribeJobQueuesInputBuilder::default()
++    pub fn builder() -> super::operation::describe_job_queues::builders::DescribeJobQueuesInputBuilder {
++        super::operation::describe_job_queues::builders::DescribeJobQueuesInputBuilder::default()
+     }
+ }
+
+@@ -104,8 +104,8 @@
+     /// Consumes the builder and constructs a [`DescribeJobQueuesInput`](crate::operation::describe_job_queues::DescribeJobQueuesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::describe_job_queues::DescribeJobQueuesInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::describe_job_queues::DescribeJobQueuesInput {
++    ) -> ::std::result::Result<super::operation::describe_job_queues::DescribeJobQueuesInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::describe_job_queues::DescribeJobQueuesInput {
+             job_queues: self.job_queues,
+             max_results: self.max_results,
+             next_token: self.next_token,

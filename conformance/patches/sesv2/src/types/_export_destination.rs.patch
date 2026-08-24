@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     /// <li>
+     /// <p><code>JSON</code> - A Json file.</p></li>
+     /// </ul>
+-    pub data_format: crate::types::DataFormat,
++    pub data_format: super::types::DataFormat,
+     /// <p>An Amazon S3 pre-signed URL that points to the generated export file.</p>
+     pub s3_url: ::std::option::Option<::std::string::String>,
+ }
+@@ -23,7 +23,7 @@
+     /// <li>
+     /// <p><code>JSON</code> - A Json file.</p></li>
+     /// </ul>
+-    pub fn data_format(&self) -> &crate::types::DataFormat {
++    pub fn data_format(&self) -> &super::types::DataFormat {
+         &self.data_format
+     }
+     /// <p>An Amazon S3 pre-signed URL that points to the generated export file.</p>
+@@ -33,8 +33,8 @@
+ }
+ impl ExportDestination {
+     /// Creates a new builder-style object to manufacture [`ExportDestination`](crate::types::ExportDestination).
+-    pub fn builder() -> crate::types::builders::ExportDestinationBuilder {
+-        crate::types::builders::ExportDestinationBuilder::default()
++    pub fn builder() -> super::types::builders::ExportDestinationBuilder {
++        super::types::builders::ExportDestinationBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ExportDestinationBuilder {
+-    pub(crate) data_format: ::std::option::Option<crate::types::DataFormat>,
++    pub(crate) data_format: ::std::option::Option<super::types::DataFormat>,
+     pub(crate) s3_url: ::std::option::Option<::std::string::String>,
+ }
+ impl ExportDestinationBuilder {
+@@ -54,7 +54,7 @@
+     /// <p><code>JSON</code> - A Json file.</p></li>
+     /// </ul>
+     /// This field is required.
+-    pub fn data_format(mut self, input: crate::types::DataFormat) -> Self {
++    pub fn data_format(mut self, input: super::types::DataFormat) -> Self {
+         self.data_format = ::std::option::Option::Some(input);
+         self
+     }
+@@ -65,7 +65,7 @@
+     /// <li>
+     /// <p><code>JSON</code> - A Json file.</p></li>
+     /// </ul>
+-    pub fn set_data_format(mut self, input: ::std::option::Option<crate::types::DataFormat>) -> Self {
++    pub fn set_data_format(mut self, input: ::std::option::Option<super::types::DataFormat>) -> Self {
+         self.data_format = input;
+         self
+     }
+@@ -76,7 +76,7 @@
+     /// <li>
+     /// <p><code>JSON</code> - A Json file.</p></li>
+     /// </ul>
+-    pub fn get_data_format(&self) -> &::std::option::Option<crate::types::DataFormat> {
++    pub fn get_data_format(&self) -> &::std::option::Option<super::types::DataFormat> {
+         &self.data_format
+     }
+     /// <p>An Amazon S3 pre-signed URL that points to the generated export file.</p>
+@@ -96,8 +96,8 @@
+     /// Consumes the builder and constructs a [`ExportDestination`](crate::types::ExportDestination).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`data_format`](crate::types::builders::ExportDestinationBuilder::data_format)
+-    pub fn build(self) -> ::std::result::Result<crate::types::ExportDestination, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::ExportDestination {
++    pub fn build(self) -> ::std::result::Result<super::types::ExportDestination, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::ExportDestination {
+             data_format: self.data_format.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "data_format",

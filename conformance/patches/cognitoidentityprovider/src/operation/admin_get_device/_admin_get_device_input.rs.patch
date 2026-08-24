@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -36,8 +36,8 @@
+ }
+ impl AdminGetDeviceInput {
+     /// Creates a new builder-style object to manufacture [`AdminGetDeviceInput`](crate::operation::admin_get_device::AdminGetDeviceInput).
+-    pub fn builder() -> crate::operation::admin_get_device::builders::AdminGetDeviceInputBuilder {
+-        crate::operation::admin_get_device::builders::AdminGetDeviceInputBuilder::default()
++    pub fn builder() -> super::operation::admin_get_device::builders::AdminGetDeviceInputBuilder {
++        super::operation::admin_get_device::builders::AdminGetDeviceInputBuilder::default()
+     }
+ }
+
+@@ -98,8 +98,8 @@
+     /// Consumes the builder and constructs a [`AdminGetDeviceInput`](crate::operation::admin_get_device::AdminGetDeviceInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::admin_get_device::AdminGetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::admin_get_device::AdminGetDeviceInput {
++    ) -> ::std::result::Result<super::operation::admin_get_device::AdminGetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::admin_get_device::AdminGetDeviceInput {
+             device_key: self.device_key,
+             user_pool_id: self.user_pool_id,
+             username: self.username,

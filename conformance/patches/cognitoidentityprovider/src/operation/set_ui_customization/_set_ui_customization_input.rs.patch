@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -42,8 +42,8 @@
+ }
+ impl SetUiCustomizationInput {
+     /// Creates a new builder-style object to manufacture [`SetUiCustomizationInput`](crate::operation::set_ui_customization::SetUiCustomizationInput).
+-    pub fn builder() -> crate::operation::set_ui_customization::builders::SetUiCustomizationInputBuilder {
+-        crate::operation::set_ui_customization::builders::SetUiCustomizationInputBuilder::default()
++    pub fn builder() -> super::operation::set_ui_customization::builders::SetUiCustomizationInputBuilder {
++        super::operation::set_ui_customization::builders::SetUiCustomizationInputBuilder::default()
+     }
+ }
+
+@@ -117,9 +117,9 @@
+     /// Consumes the builder and constructs a [`SetUiCustomizationInput`](crate::operation::set_ui_customization::SetUiCustomizationInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::set_ui_customization::SetUiCustomizationInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::set_ui_customization::SetUiCustomizationInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::set_ui_customization::SetUiCustomizationInput {
++        ::std::result::Result::Ok(super::operation::set_ui_customization::SetUiCustomizationInput {
+             user_pool_id: self.user_pool_id,
+             client_id: self.client_id,
+             css: self.css,

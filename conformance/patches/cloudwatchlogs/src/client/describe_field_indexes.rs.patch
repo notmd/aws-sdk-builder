@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -10,7 +10,7 @@
+     ///   - [`field_indexes(Option<Vec::<FieldIndex>>)`](crate::operation::describe_field_indexes::DescribeFieldIndexesOutput::field_indexes): <p>An array containing the field index information.</p>
+     ///   - [`next_token(Option<String>)`](crate::operation::describe_field_indexes::DescribeFieldIndexesOutput::next_token): <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+     /// - On failure, responds with [`SdkError<DescribeFieldIndexesError>`](crate::operation::describe_field_indexes::DescribeFieldIndexesError)
+-    pub fn describe_field_indexes(&self) -> crate::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder {
+-        crate::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder::new(self.handle.clone())
++    pub fn describe_field_indexes(&self) -> super::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder {
++        super::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder::new(self.handle.clone())
+     }
+ }
