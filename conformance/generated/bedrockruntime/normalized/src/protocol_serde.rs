@@ -103,6 +103,12 @@ pub(crate) mod shape_throttling_exception;
 
 pub(crate) mod shape_validation_exception;
 
+pub fn parse_event_stream_error_metadata(
+    payload: &::bytes::Bytes,
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+    super::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
+}
+
 pub(crate) mod shape_async_invoke_output_data_config;
 
 pub(crate) mod shape_async_invoke_summaries;
@@ -239,9 +245,13 @@ pub(crate) mod shape_tool;
 
 pub(crate) mod shape_tool_choice;
 
+pub(crate) mod shape_any_tool_choice;
+
 pub(crate) mod shape_applied_guardrail_details;
 
 pub(crate) mod shape_audio_block;
+
+pub(crate) mod shape_auto_tool_choice;
 
 pub(crate) mod shape_cache_detail;
 
@@ -431,7 +441,11 @@ pub(crate) mod shape_guardrail_automated_reasoning_impossible_finding;
 
 pub(crate) mod shape_guardrail_automated_reasoning_invalid_finding;
 
+pub(crate) mod shape_guardrail_automated_reasoning_no_translations_finding;
+
 pub(crate) mod shape_guardrail_automated_reasoning_satisfiable_finding;
+
+pub(crate) mod shape_guardrail_automated_reasoning_too_complex_finding;
 
 pub(crate) mod shape_guardrail_automated_reasoning_translation_ambiguous_finding;
 

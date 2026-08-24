@@ -280,12 +280,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeModelW
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+            builder =
+                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/vnd.amazon.eventstream");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream::ser_invoke_model_with_bidirectional_stream_input(&input)?,
-        );
+        let body = ::aws_smithy_types::body::SdkBody::from({
+            let error_marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputInputErrorMarshaller::new();
+            let marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputInputMarshaller::new();
+
+            let (signer, signer_sender) = ::aws_smithy_eventstream::frame::DeferredSigner::new();
+            _cfg.interceptor_state().store_put(signer_sender);
+            ::aws_smithy_types::body::SdkBody::from_body_1_x(::http_body_util::StreamBody::new(input.body.into_body_stream(
+                marshaller,
+                error_marshaller,
+                signer,
+            )))
+        });
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);

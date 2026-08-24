@@ -716,21 +716,21 @@ pub fn de_invoke_http_response(
         let mut output = super::super::operation::invoke::builders::InvokeOutputBuilder::default();
         output = output.set_durable_execution_arn(
             super::super::protocol_serde::shape_invoke_output::de_durable_execution_arn_header(_response_headers).map_err(|_| {
-                super::super::operation::invoke::InvokeError::unhandled("Failed to parse DurableExecutionArn from header `X-Amz-Durable-Execution-Arn`")
+                super::super::operation::invoke::InvokeError::unhandled("Failed to parse DurableExecutionArn from header `X-Amz-Durable-Execution-Arn")
             })?,
         );
         output = output.set_executed_version(
             super::super::protocol_serde::shape_invoke_output::de_executed_version_header(_response_headers).map_err(|_| {
-                super::super::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version`")
+                super::super::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version")
             })?,
         );
         output = output.set_function_error(
             super::super::protocol_serde::shape_invoke_output::de_function_error_header(_response_headers)
-                .map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse FunctionError from header `X-Amz-Function-Error`"))?,
+                .map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse FunctionError from header `X-Amz-Function-Error"))?,
         );
         output = output.set_log_result(
             super::super::protocol_serde::shape_invoke_output::de_log_result_header(_response_headers)
-                .map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse LogResult from header `X-Amz-Log-Result`"))?,
+                .map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse LogResult from header `X-Amz-Log-Result"))?,
         );
         output = output.set_payload(super::super::protocol_serde::shape_invoke_output::de_payload_payload(_response_body)?);
         output = output.set_status_code(Some(_response_status as _));

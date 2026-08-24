@@ -69,55 +69,6 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                         super::types::ConverseStreamOutput::Metadata(parsed),
                     ))
                 }
-                "internalServerException" => {
-                    let parsed = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_payload(&message.payload()[..])
-                        .map_err(|err| {
-                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
-                        })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ConverseStreamOutput::InternalServerException(parsed),
-                    ))
-                }
-                "modelStreamErrorException" => {
-                    let parsed =
-                        super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_payload(&message.payload()[..])
-                            .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                                    "failed to unmarshall modelStreamErrorException: {err}"
-                                ))
-                            })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ConverseStreamOutput::ModelStreamErrorException(parsed),
-                    ))
-                }
-                "validationException" => {
-                    let parsed = super::protocol_serde::shape_validation_exception::de_validation_exception_payload(&message.payload()[..]).map_err(
-                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}")),
-                    )?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ConverseStreamOutput::ValidationException(parsed),
-                    ))
-                }
-                "throttlingException" => {
-                    let parsed = super::protocol_serde::shape_throttling_exception::de_throttling_exception_payload(&message.payload()[..]).map_err(
-                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}")),
-                    )?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ConverseStreamOutput::ThrottlingException(parsed),
-                    ))
-                }
-                "serviceUnavailableException" => {
-                    let parsed =
-                        super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_payload(&message.payload()[..])
-                            .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                                    "failed to unmarshall serviceUnavailableException: {err}"
-                                ))
-                            })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ConverseStreamOutput::ServiceUnavailableException(parsed),
-                    ))
-                }
                 _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                     super::types::ConverseStreamOutput::Unknown,
                 )),
@@ -131,6 +82,75 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                         ))
                     }
                 };
+                match response_headers.smithy_type.as_str() {
+                    "internalServerException" => {
+                        let mut builder = super::types::error::builders::InternalServerExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ConverseStreamOutputError::InternalServerException(builder.build()),
+                        ));
+                    }
+                    "modelStreamErrorException" => {
+                        let mut builder = super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelStreamErrorException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ConverseStreamOutputError::ModelStreamErrorException(builder.build()),
+                        ));
+                    }
+                    "validationException" => {
+                        let mut builder = super::types::error::builders::ValidationExceptionBuilder::default();
+                        builder =
+                            super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(&message.payload()[..], builder)
+                                .map_err(|err| {
+                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}"))
+                                })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ConverseStreamOutputError::ValidationException(builder.build()),
+                        ));
+                    }
+                    "throttlingException" => {
+                        let mut builder = super::types::error::builders::ThrottlingExceptionBuilder::default();
+                        builder =
+                            super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(&message.payload()[..], builder)
+                                .map_err(|err| {
+                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}"))
+                                })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ConverseStreamOutputError::ThrottlingException(builder.build()),
+                        ));
+                    }
+                    "serviceUnavailableException" => {
+                        let mut builder = super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall serviceUnavailableException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ConverseStreamOutputError::ServiceUnavailableException(builder.build()),
+                        ));
+                    }
+                    _ => {}
+                }
                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
                     super::types::error::ConverseStreamOutputError::generic(generic),
                 ))
@@ -145,56 +165,57 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
 }
 #[non_exhaustive]
 #[derive(Debug)]
-pub struct InvokeModelWithBidirectionalStreamInputUnmarshaller;
+pub struct InvokeModelWithBidirectionalStreamInputInputErrorMarshaller;
 
-impl InvokeModelWithBidirectionalStreamInputUnmarshaller {
+impl InvokeModelWithBidirectionalStreamInputInputErrorMarshaller {
     pub fn new() -> Self {
-        InvokeModelWithBidirectionalStreamInputUnmarshaller
+        InvokeModelWithBidirectionalStreamInputInputErrorMarshaller
     }
 }
-impl ::aws_smithy_eventstream::frame::UnmarshallMessage for InvokeModelWithBidirectionalStreamInputUnmarshaller {
-    type Output = super::types::InvokeModelWithBidirectionalStreamInput;
-    type Error = super::types::error::InvokeModelWithBidirectionalStreamInputError;
-    fn unmarshall(
+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputInputErrorMarshaller {
+    type Input = super::types::error::InvokeModelWithBidirectionalStreamInputInputError;
+    fn marshall(
         &self,
-        message: &::aws_smithy_types::event_stream::Message,
-    ) -> std::result::Result<::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>, ::aws_smithy_eventstream::error::Error>
-    {
-        let response_headers = ::aws_smithy_eventstream::smithy::parse_response_headers(message)?;
-        match response_headers.message_type.as_str() {
-            "event" => match response_headers.smithy_type.as_str() {
-                "chunk" => {
-                    let parsed = super::protocol_serde::shape_bidirectional_input_payload_part::de_bidirectional_input_payload_part_payload(
-                        &message.payload()[..],
-                    )
-                    .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall chunk: {err}")))?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::InvokeModelWithBidirectionalStreamInput::Chunk(parsed),
-                    ))
-                }
-                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                    super::types::InvokeModelWithBidirectionalStreamInput::Unknown,
-                )),
-            },
-            "exception" => {
-                let generic = match super::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
-                    Ok(builder) => builder.build(),
-                    Err(err) => {
-                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            super::types::error::InvokeModelWithBidirectionalStreamInputError::unhandled(err),
-                        ))
-                    }
-                };
-                Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                    super::types::error::InvokeModelWithBidirectionalStreamInputError::generic(generic),
-                ))
+        _input: Self::Input,
+    ) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
+        let mut headers = Vec::new();
+        headers.push(::aws_smithy_types::event_stream::Header::new(
+            ":message-type",
+            ::aws_smithy_types::event_stream::HeaderValue::String("exception".into()),
+        ));
+        let payload = ::bytes::Bytes::new();
+        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))
+    }
+}
+
+#[non_exhaustive]
+#[derive(Debug)]
+pub struct InvokeModelWithBidirectionalStreamInputInputMarshaller;
+
+impl InvokeModelWithBidirectionalStreamInputInputMarshaller {
+    pub fn new() -> Self {
+        InvokeModelWithBidirectionalStreamInputInputMarshaller
+    }
+}
+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputInputMarshaller {
+    type Input = super::types::InvokeModelWithBidirectionalStreamInput;
+    fn marshall(&self, input: Self::Input) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
+        let mut headers = Vec::new();
+        headers.push(::aws_smithy_types::event_stream::Header::new(
+            ":message-type",
+            ::aws_smithy_types::event_stream::HeaderValue::String("event".into()),
+        ));
+        let payload = match input {
+            Self::Input::Chunk(inner) => {
+                headers.push(::aws_smithy_types::event_stream::Header::new(":event-type", ::aws_smithy_types::event_stream::HeaderValue::String("chunk".into())));
+                headers.push(::aws_smithy_types::event_stream::Header::new(":content-type", ::aws_smithy_types::event_stream::HeaderValue::String("application/json".into())));
+                ::bytes::Bytes::from(super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input_input::ser_chunk_payload(&inner).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!("{err}")))?)
             }
-            value => {
-                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                    "unrecognized :message-type: {value}"
-                )));
-            }
-        }
+            Self::Input::Unknown => return Err(
+                ::aws_smithy_eventstream::error::Error::marshalling("Cannot serialize `InvokeModelWithBidirectionalStreamInput::Unknown` for the request. The `Unknown` variant is intended for responses only. It occurs when an outdated client is used after a new enum variant was added on the server side.".to_owned())
+            )
+        };
+        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))
     }
 }
 #[non_exhaustive]
@@ -226,64 +247,6 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for InvokeModelWithBidir
                         super::types::InvokeModelWithBidirectionalStreamOutput::Chunk(parsed),
                     ))
                 }
-                "internalServerException" => {
-                    let parsed = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_payload(&message.payload()[..])
-                        .map_err(|err| {
-                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
-                        })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::InvokeModelWithBidirectionalStreamOutput::InternalServerException(parsed),
-                    ))
-                }
-                "modelStreamErrorException" => {
-                    let parsed =
-                        super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_payload(&message.payload()[..])
-                            .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                                    "failed to unmarshall modelStreamErrorException: {err}"
-                                ))
-                            })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::InvokeModelWithBidirectionalStreamOutput::ModelStreamErrorException(parsed),
-                    ))
-                }
-                "validationException" => {
-                    let parsed = super::protocol_serde::shape_validation_exception::de_validation_exception_payload(&message.payload()[..]).map_err(
-                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}")),
-                    )?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::InvokeModelWithBidirectionalStreamOutput::ValidationException(parsed),
-                    ))
-                }
-                "throttlingException" => {
-                    let parsed = super::protocol_serde::shape_throttling_exception::de_throttling_exception_payload(&message.payload()[..]).map_err(
-                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}")),
-                    )?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::InvokeModelWithBidirectionalStreamOutput::ThrottlingException(parsed),
-                    ))
-                }
-                "modelTimeoutException" => {
-                    let parsed = super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_payload(&message.payload()[..])
-                        .map_err(|err| {
-                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelTimeoutException: {err}"))
-                        })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::InvokeModelWithBidirectionalStreamOutput::ModelTimeoutException(parsed),
-                    ))
-                }
-                "serviceUnavailableException" => {
-                    let parsed =
-                        super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_payload(&message.payload()[..])
-                            .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                                    "failed to unmarshall serviceUnavailableException: {err}"
-                                ))
-                            })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::InvokeModelWithBidirectionalStreamOutput::ServiceUnavailableException(parsed),
-                    ))
-                }
                 _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                     super::types::InvokeModelWithBidirectionalStreamOutput::Unknown,
                 )),
@@ -297,6 +260,89 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for InvokeModelWithBidir
                         ))
                     }
                 };
+                match response_headers.smithy_type.as_str() {
+                    "internalServerException" => {
+                        let mut builder = super::types::error::builders::InternalServerExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::InternalServerException(builder.build()),
+                        ));
+                    }
+                    "modelStreamErrorException" => {
+                        let mut builder = super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelStreamErrorException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ModelStreamErrorException(builder.build()),
+                        ));
+                    }
+                    "validationException" => {
+                        let mut builder = super::types::error::builders::ValidationExceptionBuilder::default();
+                        builder =
+                            super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(&message.payload()[..], builder)
+                                .map_err(|err| {
+                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}"))
+                                })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ValidationException(builder.build()),
+                        ));
+                    }
+                    "throttlingException" => {
+                        let mut builder = super::types::error::builders::ThrottlingExceptionBuilder::default();
+                        builder =
+                            super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(&message.payload()[..], builder)
+                                .map_err(|err| {
+                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}"))
+                                })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ThrottlingException(builder.build()),
+                        ));
+                    }
+                    "modelTimeoutException" => {
+                        let mut builder = super::types::error::builders::ModelTimeoutExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelTimeoutException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ModelTimeoutException(builder.build()),
+                        ));
+                    }
+                    "serviceUnavailableException" => {
+                        let mut builder = super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall serviceUnavailableException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ServiceUnavailableException(builder.build()),
+                        ));
+                    }
+                    _ => {}
+                }
                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
                     super::types::error::InvokeModelWithBidirectionalStreamOutputError::generic(generic),
                 ))
@@ -336,64 +382,6 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                         super::types::ResponseStream::Chunk(parsed),
                     ))
                 }
-                "internalServerException" => {
-                    let parsed = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_payload(&message.payload()[..])
-                        .map_err(|err| {
-                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
-                        })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ResponseStream::InternalServerException(parsed),
-                    ))
-                }
-                "modelStreamErrorException" => {
-                    let parsed =
-                        super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_payload(&message.payload()[..])
-                            .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                                    "failed to unmarshall modelStreamErrorException: {err}"
-                                ))
-                            })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ResponseStream::ModelStreamErrorException(parsed),
-                    ))
-                }
-                "validationException" => {
-                    let parsed = super::protocol_serde::shape_validation_exception::de_validation_exception_payload(&message.payload()[..]).map_err(
-                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}")),
-                    )?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ResponseStream::ValidationException(parsed),
-                    ))
-                }
-                "throttlingException" => {
-                    let parsed = super::protocol_serde::shape_throttling_exception::de_throttling_exception_payload(&message.payload()[..]).map_err(
-                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}")),
-                    )?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ResponseStream::ThrottlingException(parsed),
-                    ))
-                }
-                "modelTimeoutException" => {
-                    let parsed = super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_payload(&message.payload()[..])
-                        .map_err(|err| {
-                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelTimeoutException: {err}"))
-                        })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ResponseStream::ModelTimeoutException(parsed),
-                    ))
-                }
-                "serviceUnavailableException" => {
-                    let parsed =
-                        super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_payload(&message.payload()[..])
-                            .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                                    "failed to unmarshall serviceUnavailableException: {err}"
-                                ))
-                            })?;
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        super::types::ResponseStream::ServiceUnavailableException(parsed),
-                    ))
-                }
                 _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                     super::types::ResponseStream::Unknown,
                 )),
@@ -407,6 +395,89 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                         ))
                     }
                 };
+                match response_headers.smithy_type.as_str() {
+                    "internalServerException" => {
+                        let mut builder = super::types::error::builders::InternalServerExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ResponseStreamError::InternalServerException(builder.build()),
+                        ));
+                    }
+                    "modelStreamErrorException" => {
+                        let mut builder = super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelStreamErrorException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ResponseStreamError::ModelStreamErrorException(builder.build()),
+                        ));
+                    }
+                    "validationException" => {
+                        let mut builder = super::types::error::builders::ValidationExceptionBuilder::default();
+                        builder =
+                            super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(&message.payload()[..], builder)
+                                .map_err(|err| {
+                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}"))
+                                })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ResponseStreamError::ValidationException(builder.build()),
+                        ));
+                    }
+                    "throttlingException" => {
+                        let mut builder = super::types::error::builders::ThrottlingExceptionBuilder::default();
+                        builder =
+                            super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(&message.payload()[..], builder)
+                                .map_err(|err| {
+                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}"))
+                                })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ResponseStreamError::ThrottlingException(builder.build()),
+                        ));
+                    }
+                    "modelTimeoutException" => {
+                        let mut builder = super::types::error::builders::ModelTimeoutExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelTimeoutException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ResponseStreamError::ModelTimeoutException(builder.build()),
+                        ));
+                    }
+                    "serviceUnavailableException" => {
+                        let mut builder = super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall serviceUnavailableException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::ResponseStreamError::ServiceUnavailableException(builder.build()),
+                        ));
+                    }
+                    _ => {}
+                }
                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
                     super::types::error::ResponseStreamError::generic(generic),
                 ))

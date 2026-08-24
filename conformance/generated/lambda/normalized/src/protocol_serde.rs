@@ -395,6 +395,12 @@ pub(crate) mod shape_update_function_event_invoke_config_input;
 
 pub(crate) mod shape_update_function_url_config_input;
 
+pub fn parse_event_stream_error_metadata(
+    payload: &::bytes::Bytes,
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+    super::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
+}
+
 pub(crate) mod shape_account_limit;
 
 pub(crate) mod shape_account_usage;
@@ -673,6 +679,8 @@ pub(crate) mod shape_context_details;
 
 pub(crate) mod shape_context_failed_details;
 
+pub(crate) mod shape_context_started_details;
+
 pub(crate) mod shape_context_succeeded_details;
 
 pub(crate) mod shape_endpoint_lists;
@@ -706,6 +714,8 @@ pub(crate) mod shape_signing_profile_version_arns;
 pub(crate) mod shape_step_details;
 
 pub(crate) mod shape_step_failed_details;
+
+pub(crate) mod shape_step_started_details;
 
 pub(crate) mod shape_step_succeeded_details;
 

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `315` matched · `217` mismatches · `4` missing · `0` extra · `58.77%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `322` matched · `214` mismatches · `0` missing · `0` extra · `60.07%` match (100.00% means fully matched)
 
 ### `src/client/converse.rs`
 
@@ -404,7 +404,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                          super::types::ConverseStreamOutput::MessageStop(parsed),
                      ))
-@@ -124,11 +64,60 @@
+@@ -124,7 +64,7 @@
                      let parsed = super::protocol_serde::shape_converse_stream_metadata_event::de_converse_stream_metadata_event_payload(
                          &message.payload()[..],
                      )
@@ -413,199 +413,71 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                          super::types::ConverseStreamOutput::Metadata(parsed),
                      ))
-                 }
-+                "internalServerException" => {
-+                    let parsed = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_payload(&message.payload()[..])
-+                        .map_err(|err| {
-+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
-+                        })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ConverseStreamOutput::InternalServerException(parsed),
-+                    ))
-+                }
-+                "modelStreamErrorException" => {
-+                    let parsed =
-+                        super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_payload(&message.payload()[..])
-+                            .map_err(|err| {
-+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-+                                    "failed to unmarshall modelStreamErrorException: {err}"
-+                                ))
-+                            })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ConverseStreamOutput::ModelStreamErrorException(parsed),
-+                    ))
-+                }
-+                "validationException" => {
-+                    let parsed = super::protocol_serde::shape_validation_exception::de_validation_exception_payload(&message.payload()[..]).map_err(
-+                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}")),
-+                    )?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ConverseStreamOutput::ValidationException(parsed),
-+                    ))
-+                }
-+                "throttlingException" => {
-+                    let parsed = super::protocol_serde::shape_throttling_exception::de_throttling_exception_payload(&message.payload()[..]).map_err(
-+                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}")),
-+                    )?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ConverseStreamOutput::ThrottlingException(parsed),
-+                    ))
-+                }
-+                "serviceUnavailableException" => {
-+                    let parsed =
-+                        super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_payload(&message.payload()[..])
-+                            .map_err(|err| {
-+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-+                                    "failed to unmarshall serviceUnavailableException: {err}"
-+                                ))
-+                            })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ConverseStreamOutput::ServiceUnavailableException(parsed),
-+                    ))
-+                }
-                 _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                     super::types::ConverseStreamOutput::Unknown,
-                 )),
-@@ -142,77 +131,62 @@
-                         ))
-                     }
-                 };
--                match response_headers.smithy_type.as_str() {
--                    "internalServerException" => {
--                        let mut builder = super::types::error::builders::InternalServerExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ConverseStreamOutputError::InternalServerException(builder.build()),
--                        ));
--                    }
--                    "modelStreamErrorException" => {
--                        let mut builder = super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelStreamErrorException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
-+                Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-+                    super::types::error::ConverseStreamOutputError::generic(generic),
-+                ))
+@@ -223,9 +163,63 @@
+         }
+     }
+ }
++#[non_exhaustive]
++#[derive(Debug)]
++pub struct InvokeModelWithBidirectionalStreamInputInputErrorMarshaller;
+
++impl InvokeModelWithBidirectionalStreamInputInputErrorMarshaller {
++    pub fn new() -> Self {
++        InvokeModelWithBidirectionalStreamInputInputErrorMarshaller
++    }
++}
++impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputInputErrorMarshaller {
++    type Input = super::types::error::InvokeModelWithBidirectionalStreamInputInputError;
++    fn marshall(
++        &self,
++        _input: Self::Input,
++    ) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
++        let mut headers = Vec::new();
++        headers.push(::aws_smithy_types::event_stream::Header::new(
++            ":message-type",
++            ::aws_smithy_types::event_stream::HeaderValue::String("exception".into()),
++        ));
++        let payload = ::bytes::Bytes::new();
++        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))
++    }
++}
++
+ #[non_exhaustive]
+ #[derive(Debug)]
++pub struct InvokeModelWithBidirectionalStreamInputInputMarshaller;
++
++impl InvokeModelWithBidirectionalStreamInputInputMarshaller {
++    pub fn new() -> Self {
++        InvokeModelWithBidirectionalStreamInputInputMarshaller
++    }
++}
++impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputInputMarshaller {
++    type Input = super::types::InvokeModelWithBidirectionalStreamInput;
++    fn marshall(&self, input: Self::Input) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
++        let mut headers = Vec::new();
++        headers.push(::aws_smithy_types::event_stream::Header::new(
++            ":message-type",
++            ::aws_smithy_types::event_stream::HeaderValue::String("event".into()),
++        ));
++        let payload = match input {
++            Self::Input::Chunk(inner) => {
++                headers.push(::aws_smithy_types::event_stream::Header::new(":event-type", ::aws_smithy_types::event_stream::HeaderValue::String("chunk".into())));
++                headers.push(::aws_smithy_types::event_stream::Header::new(":content-type", ::aws_smithy_types::event_stream::HeaderValue::String("application/json".into())));
++                ::bytes::Bytes::from(super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input_input::ser_chunk_payload(&inner).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!("{err}")))?)
 +            }
-+            value => {
-+                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-+                    "unrecognized :message-type: {value}"
-+                )));
-+            }
-+        }
++            Self::Input::Unknown => return Err(
++                ::aws_smithy_eventstream::error::Error::marshalling("Cannot serialize `InvokeModelWithBidirectionalStreamInput::Unknown` for the request. The `Unknown` variant is intended for responses only. It occurs when an outdated client is used after a new enum variant was added on the server side.".to_owned())
++            )
++        };
++        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))
 +    }
 +}
 +#[non_exhaustive]
 +#[derive(Debug)]
-+pub struct InvokeModelWithBidirectionalStreamInputUnmarshaller;
-+
-+impl InvokeModelWithBidirectionalStreamInputUnmarshaller {
-+    pub fn new() -> Self {
-+        InvokeModelWithBidirectionalStreamInputUnmarshaller
-+    }
-+}
-+impl ::aws_smithy_eventstream::frame::UnmarshallMessage for InvokeModelWithBidirectionalStreamInputUnmarshaller {
-+    type Output = super::types::InvokeModelWithBidirectionalStreamInput;
-+    type Error = super::types::error::InvokeModelWithBidirectionalStreamInputError;
-+    fn unmarshall(
-+        &self,
-+        message: &::aws_smithy_types::event_stream::Message,
-+    ) -> std::result::Result<::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>, ::aws_smithy_eventstream::error::Error>
-+    {
-+        let response_headers = ::aws_smithy_eventstream::smithy::parse_response_headers(message)?;
-+        match response_headers.message_type.as_str() {
-+            "event" => match response_headers.smithy_type.as_str() {
-+                "chunk" => {
-+                    let parsed = super::protocol_serde::shape_bidirectional_input_payload_part::de_bidirectional_input_payload_part_payload(
-+                        &message.payload()[..],
-+                    )
-+                    .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall chunk: {err}")))?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::InvokeModelWithBidirectionalStreamInput::Chunk(parsed),
-+                    ))
-+                }
-+                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                    super::types::InvokeModelWithBidirectionalStreamInput::Unknown,
-+                )),
-+            },
-+            "exception" => {
-+                let generic = match super::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
-+                    Ok(builder) => builder.build(),
-+                    Err(err) => {
-                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ConverseStreamOutputError::ModelStreamErrorException(builder.build()),
--                        ));
-+                            super::types::error::InvokeModelWithBidirectionalStreamInputError::unhandled(err),
-+                        ))
-                     }
--                    "validationException" => {
--                        let mut builder = super::types::error::builders::ValidationExceptionBuilder::default();
--                        builder =
--                            super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(&message.payload()[..], builder)
--                                .map_err(|err| {
--                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}"))
--                                })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ConverseStreamOutputError::ValidationException(builder.build()),
--                        ));
--                    }
--                    "throttlingException" => {
--                        let mut builder = super::types::error::builders::ThrottlingExceptionBuilder::default();
--                        builder =
--                            super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(&message.payload()[..], builder)
--                                .map_err(|err| {
--                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}"))
--                                })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ConverseStreamOutputError::ThrottlingException(builder.build()),
--                        ));
--                    }
--                    "serviceUnavailableException" => {
--                        let mut builder = super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall serviceUnavailableException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ConverseStreamOutputError::ServiceUnavailableException(builder.build()),
--                        ));
--                    }
--                    _ => {}
--                }
-+                };
-                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                    super::types::error::ConverseStreamOutputError::generic(generic),
-+                    super::types::error::InvokeModelWithBidirectionalStreamInputError::generic(generic),
-                 ))
-             }
-             value => {
-@@ -223,7 +197,6 @@
-         }
-     }
- }
--
- #[non_exhaustive]
- #[derive(Debug)]
  pub struct InvokeModelWithBidirectionalStreamOutputUnmarshaller;
-@@ -248,11 +221,69 @@
+
+ impl InvokeModelWithBidirectionalStreamOutputUnmarshaller {
+@@ -248,7 +242,7 @@
                      let parsed = super::protocol_serde::shape_bidirectional_output_payload_part::de_bidirectional_output_payload_part_payload(
                          &message.payload()[..],
                      )
@@ -614,159 +486,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                          super::types::InvokeModelWithBidirectionalStreamOutput::Chunk(parsed),
                      ))
-                 }
-+                "internalServerException" => {
-+                    let parsed = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_payload(&message.payload()[..])
-+                        .map_err(|err| {
-+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
-+                        })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::InvokeModelWithBidirectionalStreamOutput::InternalServerException(parsed),
-+                    ))
-+                }
-+                "modelStreamErrorException" => {
-+                    let parsed =
-+                        super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_payload(&message.payload()[..])
-+                            .map_err(|err| {
-+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-+                                    "failed to unmarshall modelStreamErrorException: {err}"
-+                                ))
-+                            })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::InvokeModelWithBidirectionalStreamOutput::ModelStreamErrorException(parsed),
-+                    ))
-+                }
-+                "validationException" => {
-+                    let parsed = super::protocol_serde::shape_validation_exception::de_validation_exception_payload(&message.payload()[..]).map_err(
-+                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}")),
-+                    )?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::InvokeModelWithBidirectionalStreamOutput::ValidationException(parsed),
-+                    ))
-+                }
-+                "throttlingException" => {
-+                    let parsed = super::protocol_serde::shape_throttling_exception::de_throttling_exception_payload(&message.payload()[..]).map_err(
-+                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}")),
-+                    )?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::InvokeModelWithBidirectionalStreamOutput::ThrottlingException(parsed),
-+                    ))
-+                }
-+                "modelTimeoutException" => {
-+                    let parsed = super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_payload(&message.payload()[..])
-+                        .map_err(|err| {
-+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelTimeoutException: {err}"))
-+                        })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::InvokeModelWithBidirectionalStreamOutput::ModelTimeoutException(parsed),
-+                    ))
-+                }
-+                "serviceUnavailableException" => {
-+                    let parsed =
-+                        super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_payload(&message.payload()[..])
-+                            .map_err(|err| {
-+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-+                                    "failed to unmarshall serviceUnavailableException: {err}"
-+                                ))
-+                            })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::InvokeModelWithBidirectionalStreamOutput::ServiceUnavailableException(parsed),
-+                    ))
-+                }
-                 _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                     super::types::InvokeModelWithBidirectionalStreamOutput::Unknown,
-                 )),
-@@ -266,89 +297,6 @@
-                         ))
-                     }
-                 };
--                match response_headers.smithy_type.as_str() {
--                    "internalServerException" => {
--                        let mut builder = super::types::error::builders::InternalServerExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::InternalServerException(builder.build()),
--                        ));
--                    }
--                    "modelStreamErrorException" => {
--                        let mut builder = super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelStreamErrorException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ModelStreamErrorException(builder.build()),
--                        ));
--                    }
--                    "validationException" => {
--                        let mut builder = super::types::error::builders::ValidationExceptionBuilder::default();
--                        builder =
--                            super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(&message.payload()[..], builder)
--                                .map_err(|err| {
--                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}"))
--                                })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ValidationException(builder.build()),
--                        ));
--                    }
--                    "throttlingException" => {
--                        let mut builder = super::types::error::builders::ThrottlingExceptionBuilder::default();
--                        builder =
--                            super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(&message.payload()[..], builder)
--                                .map_err(|err| {
--                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}"))
--                                })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ThrottlingException(builder.build()),
--                        ));
--                    }
--                    "modelTimeoutException" => {
--                        let mut builder = super::types::error::builders::ModelTimeoutExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelTimeoutException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ModelTimeoutException(builder.build()),
--                        ));
--                    }
--                    "serviceUnavailableException" => {
--                        let mut builder = super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall serviceUnavailableException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ServiceUnavailableException(builder.build()),
--                        ));
--                    }
--                    _ => {}
--                }
-                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                     super::types::error::InvokeModelWithBidirectionalStreamOutputError::generic(generic),
-                 ))
-@@ -361,7 +309,6 @@
+@@ -361,7 +355,6 @@
          }
      }
  }
@@ -774,7 +494,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(Debug)]
  pub struct ResponseStreamUnmarshaller;
-@@ -384,11 +331,69 @@
+@@ -384,7 +377,7 @@
              "event" => match response_headers.smithy_type.as_str() {
                  "chunk" => {
                      let parsed = super::protocol_serde::shape_payload_part::de_payload_part_payload(&message.payload()[..])
@@ -783,158 +503,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                          super::types::ResponseStream::Chunk(parsed),
                      ))
-                 }
-+                "internalServerException" => {
-+                    let parsed = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_payload(&message.payload()[..])
-+                        .map_err(|err| {
-+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
-+                        })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ResponseStream::InternalServerException(parsed),
-+                    ))
-+                }
-+                "modelStreamErrorException" => {
-+                    let parsed =
-+                        super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_payload(&message.payload()[..])
-+                            .map_err(|err| {
-+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-+                                    "failed to unmarshall modelStreamErrorException: {err}"
-+                                ))
-+                            })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ResponseStream::ModelStreamErrorException(parsed),
-+                    ))
-+                }
-+                "validationException" => {
-+                    let parsed = super::protocol_serde::shape_validation_exception::de_validation_exception_payload(&message.payload()[..]).map_err(
-+                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}")),
-+                    )?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ResponseStream::ValidationException(parsed),
-+                    ))
-+                }
-+                "throttlingException" => {
-+                    let parsed = super::protocol_serde::shape_throttling_exception::de_throttling_exception_payload(&message.payload()[..]).map_err(
-+                        |err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}")),
-+                    )?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ResponseStream::ThrottlingException(parsed),
-+                    ))
-+                }
-+                "modelTimeoutException" => {
-+                    let parsed = super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_payload(&message.payload()[..])
-+                        .map_err(|err| {
-+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelTimeoutException: {err}"))
-+                        })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ResponseStream::ModelTimeoutException(parsed),
-+                    ))
-+                }
-+                "serviceUnavailableException" => {
-+                    let parsed =
-+                        super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_payload(&message.payload()[..])
-+                            .map_err(|err| {
-+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-+                                    "failed to unmarshall serviceUnavailableException: {err}"
-+                                ))
-+                            })?;
-+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-+                        super::types::ResponseStream::ServiceUnavailableException(parsed),
-+                    ))
-+                }
-                 _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                     super::types::ResponseStream::Unknown,
-                 )),
-@@ -402,89 +407,6 @@
-                         ))
-                     }
-                 };
--                match response_headers.smithy_type.as_str() {
--                    "internalServerException" => {
--                        let mut builder = super::types::error::builders::InternalServerExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall internalServerException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ResponseStreamError::InternalServerException(builder.build()),
--                        ));
--                    }
--                    "modelStreamErrorException" => {
--                        let mut builder = super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelStreamErrorException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ResponseStreamError::ModelStreamErrorException(builder.build()),
--                        ));
--                    }
--                    "validationException" => {
--                        let mut builder = super::types::error::builders::ValidationExceptionBuilder::default();
--                        builder =
--                            super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(&message.payload()[..], builder)
--                                .map_err(|err| {
--                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall validationException: {err}"))
--                                })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ResponseStreamError::ValidationException(builder.build()),
--                        ));
--                    }
--                    "throttlingException" => {
--                        let mut builder = super::types::error::builders::ThrottlingExceptionBuilder::default();
--                        builder =
--                            super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(&message.payload()[..], builder)
--                                .map_err(|err| {
--                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall throttlingException: {err}"))
--                                })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ResponseStreamError::ThrottlingException(builder.build()),
--                        ));
--                    }
--                    "modelTimeoutException" => {
--                        let mut builder = super::types::error::builders::ModelTimeoutExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall modelTimeoutException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ResponseStreamError::ModelTimeoutException(builder.build()),
--                        ));
--                    }
--                    "serviceUnavailableException" => {
--                        let mut builder = super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
--                        builder = super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
--                            &message.payload()[..],
--                            builder,
--                        )
--                        .map_err(|err| {
--                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall serviceUnavailableException: {err}"))
--                        })?;
--                        builder.set_meta(Some(generic));
--                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
--                            super::types::error::ResponseStreamError::ServiceUnavailableException(builder.build()),
--                        ));
--                    }
--                    _ => {}
--                }
-                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                     super::types::error::ResponseStreamError::generic(generic),
-                 ))
 ```
 
 ### `src/lib.rs`
@@ -1695,33 +1263,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
          // If this is an error, defer to the non-streaming parser
-@@ -279,22 +280,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/vnd.amazon.eventstream");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+@@ -284,8 +285,8 @@
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from({
+         let body = ::aws_smithy_types::body::SdkBody::from({
 -            let error_marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputErrorMarshaller::new();
 -            let marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputMarshaller::new();
--
--            let (signer, signer_sender) = ::aws_smithy_eventstream::frame::DeferredSigner::new();
--            _cfg.interceptor_state().store_put(signer_sender);
--            ::aws_smithy_types::body::SdkBody::from_body_1_x(::http_body_util::StreamBody::new(input.body.into_body_stream(
--                marshaller,
--                error_marshaller,
--                signer,
--            )))
--        });
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream::ser_invoke_model_with_bidirectional_stream_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++            let error_marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputInputErrorMarshaller::new();
++            let marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputInputMarshaller::new();
+
+             let (signer, signer_sender) = ::aws_smithy_eventstream::frame::DeferredSigner::new();
+             _cfg.interceptor_state().store_put(signer_sender);
 ```
 
 ### `src/operation/invoke_model_with_response_stream/_invoke_model_with_response_stream_input.rs`
@@ -3111,36 +2663,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_converse_stream.rs
 +++ generated/src/protocol_serde/shape_converse_stream.rs
-@@ -1,28 +1,5 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+@@ -21,7 +21,6 @@
+             .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?
+     })
+ }
+-
  #[allow(clippy::unnecessary_wraps)]
--pub fn de_converse_stream_http_response(
--    response: &mut ::aws_smithy_runtime_api::http::Response,
--) -> std::result::Result<super::super::operation::converse_stream::ConverseStreamOutput, super::super::operation::converse_stream::ConverseStreamError> {
--    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
--    std::mem::swap(&mut _response_body, response.body_mut());
--    let _response_body = &mut _response_body;
--
--    let _response_status = response.status().as_u16();
--    let _response_headers = response.headers();
--    Ok({
--        #[allow(unused_mut)]
--        let mut output = super::super::operation::converse_stream::builders::ConverseStreamOutputBuilder::default();
--        output = output.set_stream(Some(super::super::protocol_serde::shape_converse_stream_output::de_stream_payload(
--            _response_body,
--        )?));
--        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        output
--            .build()
--            .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?
--    })
--}
--
--#[allow(clippy::unnecessary_wraps)]
  pub fn de_converse_stream_http_error(
      _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -176,25 +153,31 @@
+@@ -176,21 +175,6 @@
              }
              tmp
          }),
@@ -3162,31 +2693,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          _ => super::super::operation::converse_stream::ConverseStreamError::generic(generic),
      })
  }
-
-+#[allow(clippy::unnecessary_wraps)]
-+pub fn de_converse_stream_http_response(
-+    response: &mut ::aws_smithy_runtime_api::http::Response,
-+) -> std::result::Result<super::super::operation::converse_stream::ConverseStreamOutput, super::super::operation::converse_stream::ConverseStreamError> {
-+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
-+    ::std::mem::swap(&mut _response_body, response.body_mut());
-+    let _response_body = &mut _response_body;
-+
-+    let _response_status = response.status().as_u16();
-+    let _response_headers = response.headers();
-+    Ok({
-+        #[allow(unused_mut)]
-+        let mut output = super::super::operation::converse_stream::builders::ConverseStreamOutputBuilder::default();
-+        output = output.set_stream(Some(super::super::protocol_serde::shape_converse_stream_output::de_stream_payload(
-+            _response_body,
-+        )?));
-+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-+        output.build()
-+    })
-+}
-+
- pub fn ser_converse_stream_input(
-     input: &super::super::operation::converse_stream::ConverseStreamInput,
- ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 ```
 
 ### `src/protocol_serde/shape_converse_stream_input.rs`
@@ -3404,28 +2910,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
-```
-
-### `src/protocol_serde/shape_converse_stream_output.rs`
-
-```diff
---- reference/src/protocol_serde/shape_converse_stream_output.rs
-+++ generated/src/protocol_serde/shape_converse_stream_output.rs
-@@ -1,12 +1,12 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- pub fn de_stream_payload(
-     body: &mut ::aws_smithy_types::body::SdkBody,
--) -> std::result::Result<
-+) -> ::std::result::Result<
-     super::super::event_receiver::EventReceiver<super::super::types::ConverseStreamOutput, super::super::types::error::ConverseStreamOutputError>,
-     super::super::operation::converse_stream::ConverseStreamError,
- > {
-     let unmarshaller = super::super::event_stream_serde::ConverseStreamOutputUnmarshaller::new();
--    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
-+    let body = ::std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
-     let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
-     Ok(receiver)
- }
 ```
 
 ### `src/protocol_serde/shape_converse_tokens_request.rs`
@@ -4108,6 +3592,59 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
                  other => {
                      return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+```
+
+### `src/protocol_serde/shape_guardrail_automated_reasoning_no_translations_finding.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_guardrail_automated_reasoning_no_translations_finding.rs
++++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_no_translations_finding.rs
+@@ -4,7 +4,7 @@
+     _value: &'a [u8],
+     depth: u32,
+ ) -> ::std::result::Result<
+-    Option<super::super::types::GuardrailAutomatedReasoningNoTranslationsFinding>,
++    Option<super::super::types::crate::types::GuardrailAutomatedReasoningNoTranslationsFinding>,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ >
+ where
+@@ -19,7 +19,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = super::super::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder::default();
++            let mut builder = super::super::types::builders::crate::types::GuardrailAutomatedReasoningNoTranslationsFindingBuilder::default();
+             ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;
+             Ok(Some(builder.build()))
+         }
+```
+
+### `src/protocol_serde/shape_guardrail_automated_reasoning_too_complex_finding.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_guardrail_automated_reasoning_too_complex_finding.rs
++++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_too_complex_finding.rs
+@@ -3,7 +3,10 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningTooComplexFinding>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<
++    Option<super::super::types::crate::types::GuardrailAutomatedReasoningTooComplexFinding>,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +19,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = super::super::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder::default();
++            let mut builder = super::super::types::builders::crate::types::GuardrailAutomatedReasoningTooComplexFindingBuilder::default();
+             ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;
+             Ok(Some(builder.build()))
+         }
 ```
 
 ### `src/protocol_serde/shape_guardrail_checks_content_block.rs`
@@ -5018,28 +4555,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_invoke_model.rs
 +++ generated/src/protocol_serde/shape_invoke_model.rs
-@@ -187,18 +187,18 @@
-         output = output.set_body(super::super::protocol_serde::shape_invoke_model_output::de_body_payload(_response_body)?);
-         output = output.set_content_type(
-             super::super::protocol_serde::shape_invoke_model_output::de_content_type_header(_response_headers)
--                .map_err(|_| super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse contentType from header `Content-Type"))?,
-+                .map_err(|_| super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse contentType from header `Content-Type`"))?,
-         );
-         output = output.set_performance_config_latency(
-             super::super::protocol_serde::shape_invoke_model_output::de_performance_config_latency_header(_response_headers).map_err(|_| {
-                 super::super::operation::invoke_model::InvokeModelError::unhandled(
--                    "Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency",
-+                    "Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency`",
-                 )
-             })?,
-         );
-         output = output.set_service_tier(
-             super::super::protocol_serde::shape_invoke_model_output::de_service_tier_header(_response_headers).map_err(|_| {
--                super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier")
-+                super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier`")
-             })?,
-         );
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 @@ -207,98 +207,3 @@
              .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?
      })
@@ -5141,25 +4656,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_invoke_model_output.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invoke_model_output.rs
-+++ generated/src/protocol_serde/shape_invoke_model_output.rs
-@@ -1,10 +1,9 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- pub(crate) fn de_body_payload(
-     body: &[u8],
--) -> std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, super::super::operation::invoke_model::InvokeModelError> {
-+) -> ::std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, super::super::operation::invoke_model::InvokeModelError> {
-     (!body.is_empty()).then(|| Ok(::aws_smithy_types::Blob::new(body))).transpose()
- }
--
- pub(crate) fn de_content_type_header(
-     header_map: &::aws_smithy_runtime_api::http::Headers,
- ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
-```
-
 ### `src/protocol_serde/shape_invoke_model_tokens_request.rs`
 
 ```diff
@@ -5176,91 +4672,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_invoke_model_with_bidirectional_stream.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invoke_model_with_bidirectional_stream.rs
-+++ generated/src/protocol_serde/shape_invoke_model_with_bidirectional_stream.rs
-@@ -1,32 +1,5 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- #[allow(clippy::unnecessary_wraps)]
--pub fn de_invoke_model_with_bidirectional_stream_http_response(
--    response: &mut ::aws_smithy_runtime_api::http::Response,
--) -> std::result::Result<
--    super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
--    super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
--> {
--    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
--    std::mem::swap(&mut _response_body, response.body_mut());
--    let _response_body = &mut _response_body;
--
--    let _response_status = response.status().as_u16();
--    let _response_headers = response.headers();
--    Ok({
--        #[allow(unused_mut)]
--        let mut output =
--            super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
--        output = output.set_body(Some(
--            super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?,
--        ));
--        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        output
--            .build()
--            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
--    })
--}
--
--#[allow(clippy::unnecessary_wraps)]
- pub fn de_invoke_model_with_bidirectional_stream_http_error(
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -243,3 +216,30 @@
-         _ => super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::generic(generic),
-     })
- }
-+
-+#[allow(clippy::unnecessary_wraps)]
-+pub fn de_invoke_model_with_bidirectional_stream_http_response(
-+    response: &mut ::aws_smithy_runtime_api::http::Response,
-+) -> std::result::Result<
-+    super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
-+    super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
-+> {
-+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
-+    ::std::mem::swap(&mut _response_body, response.body_mut());
-+    let _response_body = &mut _response_body;
-+
-+    let _response_status = response.status().as_u16();
-+    let _response_headers = response.headers();
-+    Ok({
-+        #[allow(unused_mut)]
-+        let mut output =
-+            super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
-+        output = output.set_body(Some(
-+            super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?,
-+        ));
-+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-+        super::super::serde_util::invoke_model_with_bidirectional_stream_output_output_correct_errors(output)
-+            .build()
-+            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
-+    })
-+}
-```
-
 ### `src/protocol_serde/shape_invoke_model_with_bidirectional_stream_input.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_invoke_model_with_bidirectional_stream_input.rs
 +++ generated/src/protocol_serde/shape_invoke_model_with_bidirectional_stream_input.rs
-@@ -1,7 +1,14 @@
+@@ -1,7 +1,7 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-+pub fn ser_chunk_http_payload(
-+    payload: &super::super::types::BidirectionalInputPayloadPart,
-+) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {
-+    let payload = payload;
-+    Ok(super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input::ser_chunk_payload(payload)?)
-+}
-+
  pub fn ser_chunk_payload(
      input: &super::super::types::BidirectionalInputPayloadPart,
 -) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
@@ -5270,95 +4688,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      super::super::protocol_serde::shape_bidirectional_input_payload_part::ser_bidirectional_input_payload_part(&mut object, input)?;
 ```
 
-### `src/protocol_serde/shape_invoke_model_with_bidirectional_stream_output.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invoke_model_with_bidirectional_stream_output.rs
-+++ generated/src/protocol_serde/shape_invoke_model_with_bidirectional_stream_output.rs
-@@ -1,7 +1,7 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- pub fn de_body_payload(
-     body: &mut ::aws_smithy_types::body::SdkBody,
--) -> std::result::Result<
-+) -> ::std::result::Result<
-     super::super::event_receiver::EventReceiver<
-         super::super::types::InvokeModelWithBidirectionalStreamOutput,
-         super::super::types::error::InvokeModelWithBidirectionalStreamOutputError,
-@@ -9,7 +9,7 @@
-     super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
- > {
-     let unmarshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamOutputUnmarshaller::new();
--    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
-+    let body = ::std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
-     let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
-     Ok(receiver)
- }
-```
-
 ### `src/protocol_serde/shape_invoke_model_with_response_stream.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_invoke_model_with_response_stream.rs
 +++ generated/src/protocol_serde/shape_invoke_model_with_response_stream.rs
-@@ -1,54 +1,5 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- #[allow(clippy::unnecessary_wraps)]
--pub fn de_invoke_model_with_response_stream_http_response(
--    response: &mut ::aws_smithy_runtime_api::http::Response,
--) -> std::result::Result<
--    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput,
--    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError,
--> {
--    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
--    std::mem::swap(&mut _response_body, response.body_mut());
--    let _response_body = &mut _response_body;
--
--    let _response_status = response.status().as_u16();
--    let _response_headers = response.headers();
--    Ok({
--        #[allow(unused_mut)]
--        let mut output = super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder::default();
--        output = output.set_body(Some(
--            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_body_payload(_response_body)?,
--        ));
--        output = output.set_content_type(
--            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_content_type_header(_response_headers).map_err(|_| {
--                super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
--                    "Failed to parse contentType from header `X-Amzn-Bedrock-Content-Type",
--                )
--            })?,
--        );
--        output = output.set_performance_config_latency(
--            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_performance_config_latency_header(_response_headers).map_err(
--                |_| {
--                    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
--                        "Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency",
--                    )
--                },
--            )?,
--        );
--        output = output.set_service_tier(
--            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_service_tier_header(_response_headers).map_err(|_| {
--                super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
--                    "Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier",
--                )
--            })?,
--        );
--        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+@@ -42,12 +42,11 @@
+             })?,
+         );
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        super::super::serde_util::invoke_model_with_response_stream_output_output_correct_errors(output)
--            .build()
--            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
--    })
--}
--
--#[allow(clippy::unnecessary_wraps)]
- pub fn de_invoke_model_with_response_stream_http_error(
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -256,97 +207,51 @@
++        output
+             .build()
+             .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
      })
  }
-
+-
+ #[allow(clippy::unnecessary_wraps)]
+ pub fn de_invoke_model_with_response_stream_http_error(
+     _response_status: u16,
+@@ -255,98 +254,3 @@
+         _ => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::generic(generic),
+     })
+ }
+-
 -pub fn ser_invoke_model_with_response_stream_headers(
 -    input: &super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
 -    mut builder: ::http_1x::request::Builder,
@@ -5452,80 +4805,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        builder = builder.header("X-Amzn-Bedrock-Request-Metadata", header_value);
 -    }
 -    Ok(builder)
-+#[allow(clippy::unnecessary_wraps)]
-+pub fn de_invoke_model_with_response_stream_http_response(
-+    response: &mut ::aws_smithy_runtime_api::http::Response,
-+) -> std::result::Result<
-+    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput,
-+    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError,
-+> {
-+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
-+    ::std::mem::swap(&mut _response_body, response.body_mut());
-+    let _response_body = &mut _response_body;
-+
-+    let _response_status = response.status().as_u16();
-+    let _response_headers = response.headers();
-+    Ok({
-+        #[allow(unused_mut)]
-+        let mut output = super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder::default();
-+        output = output.set_body(Some(
-+            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_body_payload(_response_body)?,
-+        ));
-+        output = output.set_content_type(
-+            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_content_type_header(_response_headers).map_err(|_| {
-+                super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
-+                    "Failed to parse contentType from header `X-Amzn-Bedrock-Content-Type`",
-+                )
-+            })?,
-+        );
-+        output = output.set_performance_config_latency(
-+            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_performance_config_latency_header(_response_headers).map_err(
-+                |_| {
-+                    super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
-+                        "Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency`",
-+                    )
-+                },
-+            )?,
-+        );
-+        output = output.set_service_tier(
-+            super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_service_tier_header(_response_headers).map_err(|_| {
-+                super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled(
-+                    "Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier`",
-+                )
-+            })?,
-+        );
-+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-+        super::super::serde_util::invoke_model_with_response_stream_output_output_correct_errors(output)
-+            .build()
-+            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
-+    })
- }
-```
-
-### `src/protocol_serde/shape_invoke_model_with_response_stream_output.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invoke_model_with_response_stream_output.rs
-+++ generated/src/protocol_serde/shape_invoke_model_with_response_stream_output.rs
-@@ -1,16 +1,15 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- pub fn de_body_payload(
-     body: &mut ::aws_smithy_types::body::SdkBody,
--) -> std::result::Result<
-+) -> ::std::result::Result<
-     super::super::event_receiver::EventReceiver<super::super::types::ResponseStream, super::super::types::error::ResponseStreamError>,
-     super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError,
- > {
-     let unmarshaller = super::super::event_stream_serde::ResponseStreamUnmarshaller::new();
--    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
-+    let body = ::std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
-     let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
-     Ok(receiver)
- }
--
- pub(crate) fn de_content_type_header(
-     header_map: &::aws_smithy_runtime_api::http::Headers,
- ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+-}
 ```
 
 ### `src/protocol_serde/shape_json_schema_definition.rs`
@@ -7219,20 +6499,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_invoke_model_with_response_stream_output;
 
  pub(crate) mod shape_model_error_exception;
-@@ -103,12 +103,6 @@
-
- pub(crate) mod shape_validation_exception;
-
--pub fn parse_event_stream_error_metadata(
--    payload: &::bytes::Bytes,
--) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    super::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
--}
--
- pub(crate) mod shape_async_invoke_output_data_config;
-
- pub(crate) mod shape_async_invoke_summaries;
-@@ -115,10 +109,20 @@
+@@ -115,10 +115,20 @@
 
  pub(crate) mod shape_bidirectional_input_payload_part;
 
@@ -7253,7 +6520,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_converse_trace;
 
  pub(crate) mod shape_guardrail_assessment_list;
-@@ -147,8 +151,14 @@
+@@ -147,8 +157,14 @@
 
  pub(crate) mod shape_message;
 
@@ -7268,7 +6535,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_performance_configuration;
 
  pub(crate) mod shape_prompt_variable_values;
-@@ -167,8 +177,6 @@
+@@ -167,8 +183,6 @@
 
  pub(crate) mod shape_async_invoke_summary;
 
@@ -7277,7 +6544,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_cache_details_list;
 
  pub(crate) mod shape_cache_point_block;
-@@ -175,13 +183,13 @@
+@@ -175,13 +189,13 @@
 
  pub(crate) mod shape_content_block;
 
@@ -7295,7 +6562,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
  pub(crate) mod shape_converse_tokens_request;
 
-@@ -223,14 +231,8 @@
+@@ -223,14 +237,8 @@
 
  pub(crate) mod shape_invoke_model_tokens_request;
 
@@ -7310,19 +6577,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_prompt_router_trace;
 
  pub(crate) mod shape_tool;
-@@ -237,18 +239,16 @@
-
- pub(crate) mod shape_tool_choice;
-
--pub(crate) mod shape_any_tool_choice;
--
- pub(crate) mod shape_applied_guardrail_details;
-
- pub(crate) mod shape_audio_block;
-
--pub(crate) mod shape_auto_tool_choice;
--
- pub(crate) mod shape_cache_detail;
+@@ -249,6 +257,8 @@
 
  pub(crate) mod shape_citations_content_block;
 
@@ -7331,7 +6586,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_content_blocks;
 
  pub(crate) mod shape_document_block;
-@@ -291,6 +291,10 @@
+@@ -291,6 +301,10 @@
 
  pub(crate) mod shape_image_block;
 
@@ -7342,7 +6597,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_model_outputs;
 
  pub(crate) mod shape_output_format_structure;
-@@ -297,6 +301,8 @@
+@@ -297,6 +311,8 @@
 
  pub(crate) mod shape_reasoning_content_block;
 
@@ -7351,7 +6606,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_search_result_block;
 
  pub(crate) mod shape_specific_tool_choice;
-@@ -309,10 +315,18 @@
+@@ -309,10 +325,18 @@
 
  pub(crate) mod shape_tool_result_block;
 
@@ -7370,7 +6625,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_video_block;
 
  pub(crate) mod shape_audio_source;
-@@ -321,15 +335,11 @@
+@@ -321,16 +345,12 @@
 
  pub(crate) mod shape_citation_generated_content;
 
@@ -7380,16 +6635,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub(crate) mod shape_content_block_delta;
 -
 -pub(crate) mod shape_content_block_start;
--
--pub(crate) mod shape_converse_stream_metrics;
 +pub(crate) mod shape_citation_source_content_list_delta;
 
--pub(crate) mod shape_converse_stream_trace;
+-pub(crate) mod shape_converse_stream_metrics;
 +pub(crate) mod shape_citations_config;
 
+-pub(crate) mod shape_converse_stream_trace;
+-
  pub(crate) mod shape_document_source;
 
-@@ -373,18 +383,24 @@
+ pub(crate) mod shape_error_block;
+@@ -373,18 +393,24 @@
 
  pub(crate) mod shape_tool_reference;
 
@@ -7400,14 +6656,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_video_source;
 
 -pub(crate) mod shape_citation_location;
-+pub(crate) mod shape_citation_source_content;
-
--pub(crate) mod shape_citation_source_content;
-+pub(crate) mod shape_citation_source_content_delta;
+-
+ pub(crate) mod shape_citation_source_content;
 
 -pub(crate) mod shape_citations_delta;
-+pub(crate) mod shape_document_char_location;
++pub(crate) mod shape_citation_source_content_delta;
 
++pub(crate) mod shape_document_char_location;
++
 +pub(crate) mod shape_document_chunk_location;
 +
  pub(crate) mod shape_document_content_block;
@@ -7417,7 +6673,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_guardrail_automated_reasoning_finding;
 
  pub(crate) mod shape_guardrail_content_filter;
-@@ -401,44 +417,22 @@
+@@ -401,34 +427,16 @@
 
  pub(crate) mod shape_guardrail_topic;
 
@@ -7430,12 +6686,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_s3_location;
 
 -pub(crate) mod shape_tool_result_block_start;
--
++pub(crate) mod shape_search_result_location;
+
 -pub(crate) mod shape_tool_result_blocks_delta;
 -
 -pub(crate) mod shape_tool_use_block_delta;
-+pub(crate) mod shape_search_result_location;
-
+-
 -pub(crate) mod shape_tool_use_block_start;
 +pub(crate) mod shape_web_location;
 
@@ -7454,17 +6710,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_guardrail_automated_reasoning_impossible_finding;
 
  pub(crate) mod shape_guardrail_automated_reasoning_invalid_finding;
-
--pub(crate) mod shape_guardrail_automated_reasoning_no_translations_finding;
--
- pub(crate) mod shape_guardrail_automated_reasoning_satisfiable_finding;
-
--pub(crate) mod shape_guardrail_automated_reasoning_too_complex_finding;
--
- pub(crate) mod shape_guardrail_automated_reasoning_translation_ambiguous_finding;
-
- pub(crate) mod shape_guardrail_automated_reasoning_valid_finding;
-@@ -445,16 +439,8 @@
+@@ -445,16 +453,8 @@
 
  pub(crate) mod shape_search_result_content_blocks;
 
@@ -10975,10 +10221,3 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
  pub use super::types::_guardrail_topic_policy_action::GuardrailTopicPolicyAction;
 ```
-
-### Missing reference files
-
-- `src/protocol_serde/shape_any_tool_choice.rs`
-- `src/protocol_serde/shape_auto_tool_choice.rs`
-- `src/protocol_serde/shape_guardrail_automated_reasoning_no_translations_finding.rs`
-- `src/protocol_serde/shape_guardrail_automated_reasoning_too_complex_finding.rs`

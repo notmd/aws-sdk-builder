@@ -187,18 +187,18 @@ pub fn de_invoke_model_http_response(
         output = output.set_body(super::super::protocol_serde::shape_invoke_model_output::de_body_payload(_response_body)?);
         output = output.set_content_type(
             super::super::protocol_serde::shape_invoke_model_output::de_content_type_header(_response_headers)
-                .map_err(|_| super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse contentType from header `Content-Type`"))?,
+                .map_err(|_| super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse contentType from header `Content-Type"))?,
         );
         output = output.set_performance_config_latency(
             super::super::protocol_serde::shape_invoke_model_output::de_performance_config_latency_header(_response_headers).map_err(|_| {
                 super::super::operation::invoke_model::InvokeModelError::unhandled(
-                    "Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency`",
+                    "Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency",
                 )
             })?,
         );
         output = output.set_service_tier(
             super::super::protocol_serde::shape_invoke_model_output::de_service_tier_header(_response_headers).map_err(|_| {
-                super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier`")
+                super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier")
             })?,
         );
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));

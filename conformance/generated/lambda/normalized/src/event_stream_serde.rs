@@ -56,6 +56,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for InvokeWithResponseSt
                         ))
                     }
                 };
+                match response_headers.smithy_type.as_str() {
+                    _ => {}
+                }
                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
                     super::types::error::InvokeWithResponseStreamResponseEventError::generic(generic),
                 ))

@@ -543,6 +543,12 @@ pub(crate) mod shape_update_scheduled_query_input;
 
 pub(crate) mod shape_validation_exception;
 
+pub fn parse_event_stream_error_metadata(
+    payload: &::bytes::Bytes,
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+    super::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
+}
+
 pub(crate) mod shape_account_policies;
 
 pub(crate) mod shape_account_policy;

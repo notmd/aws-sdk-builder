@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `842` matched · `232` mismatches · `2` missing · `1` extra · `78.18%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `842` matched · `234` mismatches · `0` missing · `1` extra · `78.18%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -177,6 +177,38 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On failure, responds with [`SdkError<UpdateFunctionEventInvokeConfigError>`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError)
      pub fn update_function_event_invoke_config(
          &self,
+```
+
+### `src/event_stream_serde.rs`
+
+```diff
+--- reference/src/event_stream_serde.rs
++++ generated/src/event_stream_serde.rs
+@@ -34,10 +34,10 @@
+                 }
+                 "InvokeComplete" => {
+                     let parsed =
+-                            super::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event_payload(&message.payload()[..])
+-                                                .map_err(|err| {
+-                                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall InvokeComplete: {err}"))
+-                                                })?
++                        super::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event_payload(&message.payload()[..])
++                            .map_err(|err| {
++                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall InvokeComplete: {err}"))
++                            })?
+                         ;
+                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                         super::types::InvokeWithResponseStreamResponseEvent::InvokeComplete(parsed),
+@@ -56,6 +56,9 @@
+                         ))
+                     }
+                 };
++                match response_headers.smithy_type.as_str() {
++                    _ => {}
++                }
+                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                     super::types::error::InvokeWithResponseStreamResponseEventError::generic(generic),
+                 ))
 ```
 
 ### `src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs`
@@ -2557,6 +2589,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
+```
+
+### `src/protocol_serde/shape_context_started_details.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_context_started_details.rs
++++ generated/src/protocol_serde/shape_context_started_details.rs
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::ContextStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::crate::types::ContextStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = super::super::types::builders::ContextStartedDetailsBuilder::default();
++            let mut builder = super::super::types::builders::crate::types::ContextStartedDetailsBuilder::default();
+             ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;
+             Ok(Some(builder.build()))
+         }
 ```
 
 ### `src/protocol_serde/shape_cors.rs`
@@ -7445,32 +7502,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  let output = output.meta(generic);
                  output.build()
              };
-@@ -721,21 +716,21 @@
-         let mut output = super::super::operation::invoke::builders::InvokeOutputBuilder::default();
-         output = output.set_durable_execution_arn(
-             super::super::protocol_serde::shape_invoke_output::de_durable_execution_arn_header(_response_headers).map_err(|_| {
--                super::super::operation::invoke::InvokeError::unhandled("Failed to parse DurableExecutionArn from header `X-Amz-Durable-Execution-Arn")
-+                super::super::operation::invoke::InvokeError::unhandled("Failed to parse DurableExecutionArn from header `X-Amz-Durable-Execution-Arn`")
-             })?,
-         );
-         output = output.set_executed_version(
-             super::super::protocol_serde::shape_invoke_output::de_executed_version_header(_response_headers).map_err(|_| {
--                super::super::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version")
-+                super::super::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version`")
-             })?,
-         );
-         output = output.set_function_error(
-             super::super::protocol_serde::shape_invoke_output::de_function_error_header(_response_headers)
--                .map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse FunctionError from header `X-Amz-Function-Error"))?,
-+                .map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse FunctionError from header `X-Amz-Function-Error`"))?,
-         );
-         output = output.set_log_result(
-             super::super::protocol_serde::shape_invoke_output::de_log_result_header(_response_headers)
--                .map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse LogResult from header `X-Amz-Log-Result"))?,
-+                .map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse LogResult from header `X-Amz-Log-Result`"))?,
-         );
-         output = output.set_payload(super::super::protocol_serde::shape_invoke_output::de_payload_payload(_response_body)?);
-         output = output.set_status_code(Some(_response_status as _));
 @@ -743,65 +738,3 @@
          output.build()
      })
@@ -7565,18 +7596,46 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_invoke_output.rs
 +++ generated/src/protocol_serde/shape_invoke_output.rs
-@@ -1,4 +1,9 @@
+@@ -1,34 +1,33 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+-pub(crate) fn de_durable_execution_arn_header(
 +pub(crate) fn de_payload_payload(
 +    body: &[u8],
-+) -> ::std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, super::super::operation::invoke::InvokeError> {
++) -> std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, super::super::operation::invoke::InvokeError> {
 +    (!body.is_empty()).then(|| Ok(::aws_smithy_types::Blob::new(body))).transpose()
 +}
- pub(crate) fn de_durable_execution_arn_header(
++pub(crate) fn de_function_error_header(
      header_map: &::aws_smithy_runtime_api::http::Headers,
  ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
-@@ -26,9 +31,3 @@
-     let headers = header_map.get_all("X-Amz-Log-Result");
+-    let headers = header_map.get_all("X-Amz-Durable-Execution-Arn");
++    let headers = header_map.get_all("X-Amz-Function-Error");
+     ::aws_smithy_http::header::one_or_none(headers)
+ }
+
+-pub(crate) fn de_executed_version_header(
++pub(crate) fn de_log_result_header(
+     header_map: &::aws_smithy_runtime_api::http::Headers,
+ ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+-    let headers = header_map.get_all("X-Amz-Executed-Version");
++    let headers = header_map.get_all("X-Amz-Log-Result");
+     ::aws_smithy_http::header::one_or_none(headers)
+ }
+
+-pub(crate) fn de_function_error_header(
++pub(crate) fn de_executed_version_header(
+     header_map: &::aws_smithy_runtime_api::http::Headers,
+ ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+-    let headers = header_map.get_all("X-Amz-Function-Error");
++    let headers = header_map.get_all("X-Amz-Executed-Version");
+     ::aws_smithy_http::header::one_or_none(headers)
+ }
+
+-pub(crate) fn de_log_result_header(
++pub(crate) fn de_durable_execution_arn_header(
+     header_map: &::aws_smithy_runtime_api::http::Headers,
+ ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+-    let headers = header_map.get_all("X-Amz-Log-Result");
++    let headers = header_map.get_all("X-Amz-Durable-Execution-Arn");
      ::aws_smithy_http::header::one_or_none(headers)
  }
 -
@@ -7592,56 +7651,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_invoke_with_response_stream.rs
 +++ generated/src/protocol_serde/shape_invoke_with_response_stream.rs
-@@ -1,48 +1,5 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+@@ -41,7 +41,6 @@
+             .map_err(super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?
+     })
+ }
+-
  #[allow(clippy::unnecessary_wraps)]
--pub fn de_invoke_with_response_stream_http_response(
--    response: &mut ::aws_smithy_runtime_api::http::Response,
--) -> std::result::Result<
--    super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
--    super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
--> {
--    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
--    std::mem::swap(&mut _response_body, response.body_mut());
--    let _response_body = &mut _response_body;
--
--    let _response_status = response.status().as_u16();
--    let _response_headers = response.headers();
--    Ok({
--        #[allow(unused_mut)]
--        let mut output = super::super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default();
--        output = output.set_event_stream(Some(
--            super::super::protocol_serde::shape_invoke_with_response_stream_output::de_event_stream_payload(_response_body)?,
--        ));
--        output = output.set_executed_version(
--            super::super::protocol_serde::shape_invoke_with_response_stream_output::de_executed_version_header(_response_headers).map_err(|_| {
--                super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
--                    "Failed to parse ExecutedVersion from header `X-Amz-Executed-Version",
--                )
--            })?,
--        );
--        output = output.set_response_stream_content_type(
--            super::super::protocol_serde::shape_invoke_with_response_stream_output::de_response_stream_content_type_header(_response_headers).map_err(
--                |_| {
--                    super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
--                        "Failed to parse ResponseStreamContentType from header `Content-Type",
--                    )
--                },
--            )?,
--        );
--        output = output.set_status_code(Some(_response_status as _));
--        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        output
--            .build()
--            .map_err(super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?
--    })
--}
--
--#[allow(clippy::unnecessary_wraps)]
  pub fn de_invoke_with_response_stream_http_error(
      _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -649,13 +606,6 @@
+@@ -649,13 +648,6 @@
                  let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                  output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?;
@@ -7655,10 +7673,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  let output = output.meta(generic);
                  output.build()
              };
-@@ -688,53 +638,43 @@
+@@ -687,54 +679,3 @@
+         _ => super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::generic(generic),
      })
  }
-
+-
 -pub fn ser_invoke_with_response_stream_headers(
 -    input: &super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
 -    mut builder: ::http_1x::request::Builder,
@@ -7708,46 +7727,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        builder = builder.header("X-Amz-Invocation-Type", header_value);
 -    }
 -    Ok(builder)
-+#[allow(clippy::unnecessary_wraps)]
-+pub fn de_invoke_with_response_stream_http_response(
-+    response: &mut ::aws_smithy_runtime_api::http::Response,
-+) -> std::result::Result<
-+    super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
-+    super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
-+> {
-+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
-+    ::std::mem::swap(&mut _response_body, response.body_mut());
-+    let _response_body = &mut _response_body;
-+
-+    let _response_status = response.status().as_u16();
-+    let _response_headers = response.headers();
-+    Ok({
-+        #[allow(unused_mut)]
-+        let mut output = super::super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default();
-+        output = output.set_event_stream(Some(
-+            super::super::protocol_serde::shape_invoke_with_response_stream_output::de_event_stream_payload(_response_body)?,
-+        ));
-+        output = output.set_executed_version(
-+            super::super::protocol_serde::shape_invoke_with_response_stream_output::de_executed_version_header(_response_headers).map_err(|_| {
-+                super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
-+                    "Failed to parse ExecutedVersion from header `X-Amz-Executed-Version`",
-+                )
-+            })?,
-+        );
-+        output = output.set_response_stream_content_type(
-+            super::super::protocol_serde::shape_invoke_with_response_stream_output::de_response_stream_content_type_header(_response_headers).map_err(
-+                |_| {
-+                    super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
-+                        "Failed to parse ResponseStreamContentType from header `Content-Type`",
-+                    )
-+                },
-+            )?,
-+        );
-+        output = output.set_status_code(Some(_response_status as _));
-+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-+        output.build()
-+    })
- }
+-}
 ```
 
 ### `src/protocol_serde/shape_invoke_with_response_stream_complete_event.rs`
@@ -7781,35 +7761,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_invoke_with_response_stream_complete_event<'a, I>(
      tokens: &mut ::std::iter::Peekable<I>,
      _value: &'a [u8],
-```
-
-### `src/protocol_serde/shape_invoke_with_response_stream_output.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invoke_with_response_stream_output.rs
-+++ generated/src/protocol_serde/shape_invoke_with_response_stream_output.rs
-@@ -1,7 +1,7 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- pub fn de_event_stream_payload(
-     body: &mut ::aws_smithy_types::body::SdkBody,
--) -> std::result::Result<
-+) -> ::std::result::Result<
-     super::super::event_receiver::EventReceiver<
-         super::super::types::InvokeWithResponseStreamResponseEvent,
-         super::super::types::error::InvokeWithResponseStreamResponseEventError,
-@@ -9,11 +9,10 @@
-     super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
- > {
-     let unmarshaller = super::super::event_stream_serde::InvokeWithResponseStreamResponseEventUnmarshaller::new();
--    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
-+    let body = ::std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
-     let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
-     Ok(receiver)
- }
--
- pub(crate) fn de_executed_version_header(
-     header_map: &::aws_smithy_runtime_api::http::Headers,
- ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
 ```
 
 ### `src/protocol_serde/shape_kafka_schema_registry_config.rs`
@@ -9864,6 +9815,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      let output = output.meta(generic);
                      output.build()
                  };
+```
+
+### `src/protocol_serde/shape_step_started_details.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_step_started_details.rs
++++ generated/src/protocol_serde/shape_step_started_details.rs
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<super::super::types::StepStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::super::types::crate::types::StepStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = super::super::types::builders::StepStartedDetailsBuilder::default();
++            let mut builder = super::super::types::builders::crate::types::StepStartedDetailsBuilder::default();
+             ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;
+             Ok(Some(builder.build()))
+         }
 ```
 
 ### `src/protocol_serde/shape_stop_durable_execution.rs`
@@ -12048,20 +12024,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_subnet_ip_address_limit_reached_exception;
 
  pub(crate) mod shape_tag_resource_input;
-@@ -395,12 +395,6 @@
-
- pub(crate) mod shape_update_function_url_config_input;
-
--pub fn parse_event_stream_error_metadata(
--    payload: &::bytes::Bytes,
--) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    super::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
--}
--
- pub(crate) mod shape_account_limit;
-
- pub(crate) mod shape_account_usage;
-@@ -505,6 +499,10 @@
+@@ -505,6 +505,10 @@
 
  pub(crate) mod shape_instance_requirements;
 
@@ -12072,7 +12035,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_layer_version_content_input;
 
  pub(crate) mod shape_layer_version_content_output;
-@@ -609,8 +607,6 @@
+@@ -609,8 +613,6 @@
 
  pub(crate) mod shape_image_config_error;
 
@@ -12081,24 +12044,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_kafka_schema_registry_config;
 
  pub(crate) mod shape_lambda_managed_instances_capacity_provider_config;
-@@ -677,8 +673,6 @@
-
- pub(crate) mod shape_context_failed_details;
-
--pub(crate) mod shape_context_started_details;
--
- pub(crate) mod shape_context_succeeded_details;
-
- pub(crate) mod shape_endpoint_lists;
-@@ -713,8 +707,6 @@
-
- pub(crate) mod shape_step_failed_details;
-
--pub(crate) mod shape_step_started_details;
--
- pub(crate) mod shape_step_succeeded_details;
-
- pub(crate) mod shape_string_list;
 ```
 
 ### `src/serde_util.rs`
@@ -12951,11 +12896,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
  pub use super::types::_kafka_schema_validation_attribute::KafkaSchemaValidationAttribute;
 ```
-
-### Missing reference files
-
-- `src/protocol_serde/shape_context_started_details.rs`
-- `src/protocol_serde/shape_step_started_details.rs`
 
 ### Unexpected generated files
 

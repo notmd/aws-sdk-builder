@@ -13,8 +13,21 @@ type Files = BTreeMap<String, String>;
 
 /// Compose the generated module tree into one inline-module Rust artifact.
 pub(crate) fn compose(files: &Files) -> Result<String, BuildError> {
-    validate_file_plan(files)?;
-    let body = compose_module("src/lib.rs", files, &mut BTreeSet::new())?;
+    let paths = files.keys().cloned().collect::<BTreeSet<_>>();
+    validate_split_plan(&paths).map_err(|message| generated_error(ORIGINAL_FILE, message))?;
+    let plans = files
+        .iter()
+        .map(|(relative, source)| {
+            SourcePlan::parse(relative, source).map(|plan| (relative.clone(), plan))
+        })
+        .collect::<Result<BTreeMap<_, _>, _>>()?;
+    let children_by_parent = build_children_by_parent(&plans);
+    let body = compose_module(
+        "src/lib.rs",
+        &plans,
+        &children_by_parent,
+        &mut BTreeSet::new(),
+    )?;
     // `include!` expands at the caller's item position. Keeping the generated
     // crate attributes and crate documentation inside a real module makes the
     // same canonical file valid both at a crate root and in a caller wrapper.
@@ -24,21 +37,6 @@ pub(crate) fn compose(files: &Files) -> Result<String, BuildError> {
         message: format!("canonical original.rs does not parse: {error}"),
     })?;
     Ok(source)
-}
-
-fn validate_file_plan(files: &Files) -> Result<(), BuildError> {
-    let paths = files.keys().cloned().collect::<BTreeSet<_>>();
-    validate_split_plan(&paths).map_err(|message| BuildError::GeneratedSourceParse {
-        path: PathBuf::from(ORIGINAL_FILE),
-        message,
-    })?;
-    for (relative, source) in files {
-        syn::parse_file(source).map_err(|error| BuildError::GeneratedSourceParse {
-            path: PathBuf::from(relative),
-            message: error.to_string(),
-        })?;
-    }
-    Ok(())
 }
 
 fn validate_split_plan(files: &BTreeSet<String>) -> Result<(), String> {
@@ -53,61 +51,200 @@ fn validate_split_plan(files: &BTreeSet<String>) -> Result<(), String> {
 
 fn compose_module(
     relative: &str,
-    files: &Files,
+    plans: &BTreeMap<String, SourcePlan>,
+    children_by_parent: &BTreeMap<String, Vec<String>>,
     visiting: &mut BTreeSet<String>,
 ) -> Result<String, BuildError> {
     if !visiting.insert(relative.to_owned()) {
         return Err(generated_error(relative, "module tree contains a cycle"));
     }
-    let mut source = files
+    let plan = plans
         .get(relative)
-        .cloned()
         .ok_or_else(|| generated_error(relative, "module plan is missing a source file"))?;
-
-    let depth = module_depth(relative);
-    let base_depth = if relative == "src/lib.rs" { 0 } else { depth };
-    source = rewrite_crate_paths(&source, base_depth, Path::new(relative))?;
-
-    for child in child_files(relative, &files.keys().cloned().collect())
-        .into_iter()
-        .rev()
-    {
-        let module = module_name(&child)?;
-        let bounds = external_module_bounds(&source, &module, relative)?;
-        let child_source = compose_module(&child, files, visiting)?;
-        let declaration = source[bounds.item_start..bounds.item_end]
-            .strip_suffix(';')
-            .ok_or_else(|| {
-                generated_error(relative, format!("module `{module}` has no semicolon"))
-            })?;
+    let children = children_by_parent
+        .get(relative)
+        .map(Vec::as_slice)
+        .unwrap_or_default();
+    let mut replacements = Vec::with_capacity(plan.crate_paths.len() + children.len());
+    let mut module_ranges = Vec::with_capacity(children.len());
+    for child in children {
+        let module = module_name(child)?;
+        let bounds = plan.module_bounds(&module, relative)?;
+        let child_source = compose_module(child, plans, children_by_parent, visiting)?;
+        let declaration_source = plan.rewrite_paths_in(bounds.item_start..bounds.item_end);
+        let declaration = declaration_source.strip_suffix(';').ok_or_else(|| {
+            generated_error(relative, format!("module `{module}` has no semicolon"))
+        })?;
         let replacement = format!("{declaration} {{\n{child_source}}}");
-        source.replace_range(bounds.item_start..bounds.item_end, &replacement);
+        replacements.push(Replacement {
+            start: bounds.item_start,
+            end: bounds.item_end,
+            text: replacement,
+        });
+        module_ranges.push((bounds.item_start, bounds.item_end));
     }
 
+    replacements.extend(
+        plan.crate_paths
+            .iter()
+            .filter(|path| {
+                !module_ranges
+                    .iter()
+                    .any(|(start, end)| *start <= path.start && path.end <= *end)
+            })
+            .map(|path| Replacement {
+                start: path.start,
+                end: path.end,
+                text: path.replacement.clone(),
+            }),
+    );
+    let source = apply_replacements(&plan.source, replacements, relative)?;
     visiting.remove(relative);
     Ok(normalize_source(&source))
 }
 
-fn child_files(relative: &str, files: &BTreeSet<String>) -> Vec<String> {
-    let path = Path::new(relative);
-    let Some(filename) = path.file_name().and_then(|name| name.to_str()) else {
-        return Vec::new();
-    };
-    let module_directory = if filename == "lib.rs" {
-        path.parent().unwrap_or_else(|| Path::new("")).to_owned()
-    } else {
-        path.parent()
-            .unwrap_or_else(|| Path::new(""))
-            .join(filename.strip_suffix(".rs").unwrap_or(filename))
-    };
-    files
-        .iter()
-        .filter(|candidate| {
-            *candidate != relative
-                && Path::new(candidate).parent() == Some(module_directory.as_path())
+fn build_children_by_parent(plans: &BTreeMap<String, SourcePlan>) -> BTreeMap<String, Vec<String>> {
+    let mut children_by_parent = BTreeMap::<String, Vec<String>>::new();
+    for relative in plans.keys().filter(|relative| *relative != "src/lib.rs") {
+        let path = Path::new(relative);
+        let Some(parent) = path.parent() else {
+            continue;
+        };
+        let parent = if parent == Path::new("src") {
+            PathBuf::from("src/lib.rs")
+        } else {
+            parent.with_extension("rs")
+        };
+        children_by_parent
+            .entry(parent.to_string_lossy().into_owned())
+            .or_default()
+            .push(relative.clone());
+    }
+    children_by_parent
+}
+
+struct SourcePlan {
+    source: String,
+    modules: BTreeMap<String, ModuleDeclaration>,
+    crate_paths: Vec<CratePath>,
+}
+
+impl SourcePlan {
+    fn parse(relative: &str, source: &str) -> Result<Self, BuildError> {
+        let file = syn::parse_file(source)
+            .map_err(|error| generated_error(relative, error.to_string()))?;
+        let mut modules = BTreeMap::new();
+        for item in &file.items {
+            let syn::Item::Mod(item) = item else {
+                continue;
+            };
+            let declaration = ModuleDeclaration::from_item(item, source, relative)?;
+            let name = item.ident.to_string();
+            if modules.insert(name.clone(), declaration).is_some() {
+                modules.insert(name, ModuleDeclaration::Duplicate);
+            }
+        }
+
+        let depth = module_depth(relative);
+        let base_depth = if relative == "src/lib.rs" { 0 } else { depth };
+        let mut visitor = CratePathVisitor {
+            base_depth,
+            ..Default::default()
+        };
+        syn::visit::visit_file(&mut visitor, &file);
+        let mut crate_paths = BTreeMap::new();
+        for (span, replacement) in visitor.spans {
+            let start = source_offset_build(source, span.start(), relative)?;
+            let end = start.checked_add("crate".len()).ok_or_else(|| {
+                generated_error(relative, "crate path span exceeds source length")
+            })?;
+            if source.get(start..end) != Some("crate") {
+                return Err(generated_error(
+                    relative,
+                    format!("parsed crate path does not start at byte {start}"),
+                ));
+            }
+            crate_paths.insert(
+                start,
+                CratePath {
+                    start,
+                    end,
+                    replacement,
+                },
+            );
+        }
+
+        Ok(Self {
+            source: source.to_owned(),
+            modules,
+            crate_paths: crate_paths.into_values().collect(),
         })
-        .cloned()
-        .collect()
+    }
+
+    fn module_bounds(&self, module: &str, relative: &str) -> Result<&ModuleBounds, BuildError> {
+        match self.modules.get(module) {
+            Some(ModuleDeclaration::External(bounds)) => Ok(bounds),
+            Some(ModuleDeclaration::Inline) => Err(generated_error(
+                relative,
+                format!("module `{module}` is already inline"),
+            )),
+            Some(ModuleDeclaration::Duplicate) | None => Err(generated_error(
+                relative,
+                format!("no external declaration for module `{module}`"),
+            )),
+        }
+    }
+
+    fn rewrite_paths_in(&self, range: std::ops::Range<usize>) -> String {
+        let local = self
+            .crate_paths
+            .iter()
+            .filter_map(|path| {
+                if range.start <= path.start && path.end <= range.end {
+                    Some(Replacement {
+                        start: path.start - range.start,
+                        end: path.end - range.start,
+                        text: path.replacement.clone(),
+                    })
+                } else {
+                    None
+                }
+            })
+            .collect();
+        apply_replacements_unchecked(&self.source[range], local)
+    }
+}
+
+enum ModuleDeclaration {
+    External(ModuleBounds),
+    Inline,
+    Duplicate,
+}
+
+impl ModuleDeclaration {
+    fn from_item(item: &syn::ItemMod, source: &str, relative: &str) -> Result<Self, BuildError> {
+        if item.content.is_some() {
+            return Ok(Self::Inline);
+        }
+        let ident_start = item.ident.span().start();
+        let item_start_span = item
+            .attrs
+            .first()
+            .filter(|attribute| attribute.pound_token.span.start() <= ident_start)
+            .map(|attribute| attribute.pound_token.span)
+            .unwrap_or_else(|| item.ident.span());
+        let item_end_span = item
+            .semi
+            .as_ref()
+            .map(|semi| semi.span)
+            .unwrap_or_else(|| item.ident.span());
+        let item_start = source_offset_build(source, item_start_span.start(), relative)?;
+        let item_end = source_offset_build(source, item_end_span.end(), relative)?;
+        Ok(Self::External(ModuleBounds {
+            item_start,
+            item_end,
+        }))
+    }
 }
 
 struct ModuleBounds {
@@ -115,100 +252,43 @@ struct ModuleBounds {
     item_end: usize,
 }
 
-fn external_module_bounds(
-    source: &str,
-    module: &str,
-    relative: &str,
-) -> Result<ModuleBounds, BuildError> {
-    let file =
-        syn::parse_file(source).map_err(|error| generated_error(relative, error.to_string()))?;
-    let item = top_level_module(&file, module).ok_or_else(|| {
-        generated_error(
-            relative,
-            format!("no external declaration for module `{module}`"),
-        )
-    })?;
-    if item.content.is_some() {
-        return Err(generated_error(
-            relative,
-            format!("module `{module}` is already inline"),
-        ));
-    }
-    let ident_start = item.ident.span().start();
-    let item_start_span = item
-        .attrs
-        .first()
-        .filter(|attribute| attribute.pound_token.span.start() <= ident_start)
-        .map(|attribute| attribute.pound_token.span)
-        .unwrap_or_else(|| item.ident.span());
-    let item_end_span = item
-        .semi
-        .as_ref()
-        .map(|semi| semi.span)
-        .unwrap_or_else(|| item.ident.span());
-    let item_start = source_offset_build(source, item_start_span.start(), relative)?;
-    let item_end = source_offset_build(source, item_end_span.end(), relative)?;
-    Ok(ModuleBounds {
-        item_start,
-        item_end,
-    })
+struct CratePath {
+    start: usize,
+    end: usize,
+    replacement: String,
 }
 
-fn top_level_module<'ast>(file: &'ast syn::File, module: &str) -> Option<&'ast syn::ItemMod> {
-    let mut found = None;
-    for item in &file.items {
-        if let syn::Item::Mod(item) = item
-            && item.ident == module
-        {
-            if found.is_some() {
-                return None;
-            }
-            found = Some(item);
+struct Replacement {
+    start: usize,
+    end: usize,
+    text: String,
+}
+
+fn apply_replacements(
+    source: &str,
+    mut replacements: Vec<Replacement>,
+    relative: &str,
+) -> Result<String, BuildError> {
+    replacements.sort_by_key(|replacement| std::cmp::Reverse(replacement.start));
+    for pair in replacements.windows(2) {
+        if pair[0].start < pair[1].end {
+            return Err(generated_error(relative, "source replacements overlap"));
         }
     }
-    found
+    let mut rewritten = source.to_owned();
+    for replacement in replacements {
+        rewritten.replace_range(replacement.start..replacement.end, &replacement.text);
+    }
+    Ok(rewritten)
 }
 
-fn rewrite_crate_paths(
-    source: &str,
-    base_depth: usize,
-    relative: &Path,
-) -> Result<String, BuildError> {
-    let file =
-        syn::parse_file(source).map_err(|error| generated_error(relative, error.to_string()))?;
-    let mut visitor = CratePathVisitor {
-        base_depth,
-        ..Default::default()
-    };
-    syn::visit::visit_file(&mut visitor, &file);
-    let starts = visitor
-        .spans
-        .into_iter()
-        .map(|(span, replacement)| {
-            let start = source_offset_build(source, span.start(), relative)?;
-            if source.get(start..start + "crate".len()) != Some("crate") {
-                return Err(generated_error(
-                    relative,
-                    format!("parsed crate path does not start at byte {start}"),
-                ));
-            }
-            Ok((start, replacement))
-        })
-        .collect::<Result<BTreeMap<_, _>, BuildError>>()?;
-    if starts.is_empty() {
-        return Ok(source.to_owned());
-    }
+fn apply_replacements_unchecked(source: &str, mut replacements: Vec<Replacement>) -> String {
+    replacements.sort_by_key(|replacement| std::cmp::Reverse(replacement.start));
     let mut rewritten = source.to_owned();
-    for (start, replacement) in starts.into_iter().rev() {
-        rewritten.replace_range(start..start + "crate".len(), &replacement);
+    for replacement in replacements {
+        rewritten.replace_range(replacement.start..replacement.end, &replacement.text);
     }
-    syn::parse_file(&rewritten).map_err(|error| {
-        generated_error(
-            relative,
-            format!("rewritten canonical module does not parse: {error}"),
-        )
-    })?;
-    Ok(rewritten)
+    rewritten
 }
 
 #[derive(Default)]
@@ -415,10 +495,17 @@ fn source_offset(source: &str, location: LineColumn, relative: &str) -> Result<u
     let line_end = source[line_start..]
         .find('\n')
         .map_or(source.len(), |offset| line_start + offset);
-    let column = source[line_start..line_end]
+    let line_source = &source[line_start..line_end];
+    let Some(column) = line_source
         .char_indices()
         .nth(location.column)
-        .map_or(line_end - line_start, |(offset, _)| offset);
+        .map(|(offset, _)| offset)
+        .or_else(|| (location.column == line_source.chars().count()).then_some(line_source.len()))
+    else {
+        return Err(format!(
+            "invalid parsed source location in {relative}: {location:?}"
+        ));
+    };
     let offset = line_start + column;
     if offset > source.len() || !source.is_char_boundary(offset) {
         Err(format!(
@@ -470,5 +557,72 @@ mod tests {
         let original = compose(&files).unwrap();
         assert!(original.contains("#[cfg(feature = \"x\")]\npub mod outer {"));
         assert!(original.contains("#![allow(dead_code)]\npub struct Value;"));
+    }
+
+    #[test]
+    fn composes_multiple_children_bottom_up_in_source_order() {
+        let files = Files::from([
+            (
+                "src/lib.rs".to_owned(),
+                "mod zeta;\nmod alpha;\nmod beta;\n".to_owned(),
+            ),
+            (
+                "src/zeta.rs".to_owned(),
+                "pub mod deep;\npub const ZETA: u8 = 1;\n".to_owned(),
+            ),
+            (
+                "src/zeta/deep.rs".to_owned(),
+                "pub const DEEP: u8 = 2;\npub use crate::zeta::ZETA;\n".to_owned(),
+            ),
+            (
+                "src/alpha.rs".to_owned(),
+                "pub const ALPHA: u8 = 3;\n".to_owned(),
+            ),
+            (
+                "src/beta.rs".to_owned(),
+                "pub const BETA: u8 = 4;\n".to_owned(),
+            ),
+        ]);
+
+        let original = compose(&files).unwrap();
+        let alpha = original.find("mod alpha {").unwrap();
+        let beta = original.find("mod beta {").unwrap();
+        let zeta = original.find("mod zeta {").unwrap();
+        assert!(zeta < alpha && alpha < beta);
+        assert!(original.contains("pub mod deep {\npub const DEEP: u8 = 2;"));
+        assert!(original.contains("pub use super::super::zeta::ZETA;"));
+        syn::parse_file(&original).unwrap();
+    }
+
+    #[test]
+    fn rewrites_crate_paths_after_unicode_without_reparsing() {
+        let files = Files::from([
+            (
+                "src/lib.rs".to_owned(),
+                "const LABEL: &str = \"café\"; pub use crate::outer::Value;\nmod outer;\n"
+                    .to_owned(),
+            ),
+            ("src/outer.rs".to_owned(), "pub struct Value;\n".to_owned()),
+        ]);
+
+        let original = compose(&files).unwrap();
+        assert!(original.contains("pub use self::outer::Value;"));
+        syn::parse_file(&original).unwrap();
+    }
+
+    #[test]
+    fn planning_parse_reports_invalid_physical_source() {
+        let files = Files::from([
+            ("src/lib.rs".to_owned(), "mod child;\n".to_owned()),
+            ("src/child.rs".to_owned(), "pub fn broken( {\n".to_owned()),
+        ]);
+
+        let error = compose(&files).unwrap_err();
+        match error {
+            BuildError::GeneratedSourceParse { path, .. } => {
+                assert_eq!(path, PathBuf::from("src/child.rs"));
+            }
+            other => panic!("unexpected error: {other:?}"),
+        }
     }
 }

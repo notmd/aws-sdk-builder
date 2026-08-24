@@ -1,4 +1,3 @@
-use proc_macro2::LineColumn;
 use serde_json::Value;
 use sha2::{Digest, Sha256};
 use std::{
@@ -382,7 +381,7 @@ pub(crate) fn generate(
         }
         let mut canonical_files = BTreeMap::new();
         for (relative_path, source) in service_files {
-            let rendered_source = normalize_generated_source(&source, Path::new(&relative_path))?;
+            let rendered_source = normalize_source(&source);
 
             canonical_files.insert(relative_path, rendered_source);
         }
@@ -424,154 +423,6 @@ fn is_query_protocol(protocol: ProtocolKind) -> bool {
 
 fn normalize_source(source: &str) -> String {
     format!("{}\n", source.trim_end_matches('\n'))
-}
-
-fn normalize_generated_source(source: &str, relative_path: &Path) -> Result<String, BuildError> {
-    let source = if relative_path
-        .extension()
-        .and_then(|extension| extension.to_str())
-        == Some("rs")
-    {
-        drop_inline_unit_tests(source, relative_path)?
-    } else {
-        source.to_owned()
-    };
-    Ok(normalize_source(&source))
-}
-
-/// Remove test-only modules from generated source. The bundled Smithy-RS
-/// support assets contain their own unit tests, and generated SDKs are
-/// intentionally runtime-only source trees.
-fn drop_inline_unit_tests(source: &str, relative_path: &Path) -> Result<String, BuildError> {
-    let source = normalize_source(source);
-    let file = syn::parse_file(&source).map_err(|error| BuildError::GeneratedSourceParse {
-        path: relative_path.to_owned(),
-        message: error.to_string(),
-    })?;
-    let mut visitor = InlineUnitTestVisitor::default();
-    syn::visit::visit_file(&mut visitor, &file);
-    if visitor.spans.is_empty() {
-        return Ok(source);
-    }
-
-    let mut ranges = visitor
-        .spans
-        .into_iter()
-        .map(|span| {
-            let mut start = source_offset(&source, span.start(), relative_path)?;
-            let mut end = source_offset(&source, span.end(), relative_path)?;
-            loop {
-                while start > 0 && matches!(source.as_bytes()[start - 1], b' ' | b'\t') {
-                    start -= 1;
-                }
-                if start > 0 && source.as_bytes()[start - 1] == b'\n' {
-                    start -= 1;
-                }
-                let line_start = source[..start].rfind('\n').map_or(0, |index| index + 1);
-                let previous_line = source[line_start..start].trim();
-                if previous_line.starts_with("#[") {
-                    start = line_start;
-                } else {
-                    break;
-                }
-            }
-            if end < source.len() && source.as_bytes()[end] == b'\n' {
-                end += 1;
-            }
-            Ok((start, end))
-        })
-        .collect::<Result<Vec<_>, BuildError>>()?;
-    ranges.sort_by_key(|(start, _)| std::cmp::Reverse(*start));
-    ranges.dedup();
-
-    let mut normalized = source;
-    for (start, end) in ranges {
-        normalized.replace_range(start..end, "");
-    }
-    syn::parse_file(&normalized).map_err(|error| BuildError::GeneratedSourceParse {
-        path: relative_path.to_owned(),
-        message: format!("normalized source no longer parses: {error}"),
-    })?;
-    Ok(normalized)
-}
-
-#[derive(Default)]
-struct InlineUnitTestVisitor {
-    spans: Vec<proc_macro2::Span>,
-}
-
-impl<'ast> syn::visit::Visit<'ast> for InlineUnitTestVisitor {
-    fn visit_item_mod(&mut self, item: &'ast syn::ItemMod) {
-        if item.attrs.iter().any(is_cfg_test) {
-            use syn::spanned::Spanned;
-            self.spans.push(item.span());
-            return;
-        }
-        syn::visit::visit_item_mod(self, item);
-    }
-}
-
-fn is_cfg_test(attribute: &syn::Attribute) -> bool {
-    let syn::Meta::List(meta) = &attribute.meta else {
-        return false;
-    };
-    if !meta.path.is_ident("cfg") {
-        return false;
-    }
-    syn::parse2::<syn::Meta>(meta.tokens.clone())
-        .map(|meta| cfg_meta_contains_test(&meta))
-        .unwrap_or(false)
-}
-
-fn cfg_meta_contains_test(meta: &syn::Meta) -> bool {
-    use syn::parse::Parser;
-
-    match meta {
-        syn::Meta::Path(path) => path.is_ident("test"),
-        syn::Meta::List(list) if list.path.is_ident("all") || list.path.is_ident("any") => {
-            let parser = syn::punctuated::Punctuated::<syn::Meta, syn::Token![,]>::parse_terminated;
-            parser
-                .parse2(list.tokens.clone())
-                .map(|metas| metas.iter().any(cfg_meta_contains_test))
-                .unwrap_or(false)
-        }
-        syn::Meta::List(_) | syn::Meta::NameValue(_) => false,
-    }
-}
-
-fn source_offset(
-    source: &str,
-    location: LineColumn,
-    relative_path: &Path,
-) -> Result<usize, BuildError> {
-    let line = location
-        .line
-        .checked_sub(1)
-        .ok_or_else(|| BuildError::GeneratedSourceParse {
-            path: relative_path.to_owned(),
-            message: format!("invalid zero line in parsed source location: {location:?}"),
-        })?;
-    let line_start = source
-        .split_inclusive('\n')
-        .take(line)
-        .map(str::len)
-        .sum::<usize>();
-    let line_end = source[line_start..]
-        .find('\n')
-        .map_or(source.len(), |offset| line_start + offset);
-    let column = source[line_start..line_end]
-        .char_indices()
-        .nth(location.column)
-        .map_or(line_end - line_start, |(offset, _)| offset);
-    let offset = line_start + column;
-    if offset > source.len() || !source.is_char_boundary(offset) {
-        Err(BuildError::GeneratedSourceParse {
-            path: relative_path.to_owned(),
-            message: format!("invalid parsed source location: {location:?}"),
-        })
-    } else {
-        Ok(offset)
-    }
 }
 
 #[derive(Clone, Copy, Debug, Default)]
@@ -1623,7 +1474,7 @@ fn render_serde_util_correction(
                     format!("Some({result}{build})")
                 };
                 writeln!(
-                &mut payload_output,
+                output,
                 "        builder.{field} = {{\n            let builder = {nested_builder}::default();\n            {value}\n        }}"
             )
             .unwrap();
@@ -1867,7 +1718,7 @@ fn render_event_stream_serde_file(selected: &SelectedModel) -> String {
                     &mut output,
                     selected,
                     &union_name,
-                    member_name,
+                    &member_name,
                     target,
                 );
             }
@@ -1935,7 +1786,7 @@ fn render_event_stream_marshaller(
     .unwrap();
     let type_name = format!("crate::types::{union_name}");
     for (member_name, member) in members(shape) {
-        let variant = rust_type_name(member_name);
+        let variant = rust_type_name(&member_name);
         let target = member_target(member).unwrap_or("smithy.api#Unit");
         let target_shape = selected.model.shapes.get(target);
         let target_kind = protocol_shape_kind(selected, target);
@@ -1955,7 +1806,7 @@ fn render_event_stream_marshaller(
             output,
             selected,
             union_id,
-            member_name,
+            &member_name,
             target,
             target_shape,
             has_inner,
@@ -2127,7 +1978,7 @@ fn render_event_stream_explicit_payload(
                 "                    let content_type = response_headers.content_type().unwrap_or_default();\n                    if content_type != \"application/octet-stream\" {\n                        return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(\n                            \"expected :content-type to be 'application/octet-stream', but was '{content_type}'\"\n                        )));\n                    }\n",
             );
             writeln!(
-                &mut payload_output,
+                output,
                 "                    builder = builder.set_{field}(Some(::aws_smithy_types::Blob::from_maybe_shared(message.payload().clone())));"
             )
             .unwrap();
@@ -2137,7 +1988,7 @@ fn render_event_stream_explicit_payload(
                 "                    let content_type = response_headers.content_type().unwrap_or_default();\n                    if content_type != \"text/plain\" {\n                        return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(\n                            \"expected :content-type to be 'text/plain', but was '{content_type}'\"\n                        )));\n                    }\n",
             );
             writeln!(
-                &mut payload_output,
+                output,
                 "                    builder = builder.set_{field}(Some(::std::str::from_utf8(message.payload()).map_err(|_| ::aws_smithy_eventstream::error::Error::unmarshalling(\"message payload is not valid UTF-8\"))?.to_owned()));"
             )
             .unwrap();
@@ -2145,7 +1996,7 @@ fn render_event_stream_explicit_payload(
         _ => {
             let module = names::rust_module_name(terminal(event_name));
             writeln!(
-                &mut payload_output,
+                output,
                 "                    builder = builder.set_{field}(Some(\n                        crate::protocol_serde::shape_{module}::de_{field}(&message.payload()[..])\n                            .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!(\"failed to unmarshall {field}: {{err}}\")))?,\n                    ));"
             )
             .unwrap();
@@ -3344,7 +3195,7 @@ fn render_service_error_metadata(selected: &SelectedModel) -> String {
         for error_id in &error_ids {
             let name = rust_type_name(terminal(error_id));
             writeln!(
-                &mut payload_output,
+                output,
                 "            Self::{name}(e) => e.extended_request_id(),"
             )
             .unwrap();
@@ -8936,7 +8787,7 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
             .into_iter()
             .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
     });
-    let streaming_output = output_payload.is_some_and(|(_, member)| {
+    let streaming_output = output_payload.as_ref().is_some_and(|(_, member)| {
         member_target(member).is_some_and(|target| {
             selected
                 .model
@@ -9048,9 +8899,11 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
             writeln!(output, "        {correction}.build()\n    }})\n}}\n").unwrap();
         }
     } else if streaming_event {
-        output.push_str(
-            "        output\n            .build()\n            .map_err({error_path}::unhandled)?\n    }})\n}}\n",
-        );
+        writeln!(
+            output,
+            "        output\n            .build()\n            .map_err({error_path}::unhandled)?\n    }})\n}}"
+        )
+        .unwrap();
     } else {
         output.push_str("        output.build()\n    })\n}\n");
     }

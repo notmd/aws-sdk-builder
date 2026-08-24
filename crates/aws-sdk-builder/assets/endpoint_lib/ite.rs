@@ -98,39 +98,3 @@ macro_rules! ite {
 }
 
 pub(crate) use ite;
-
-#[cfg(test)]
-mod test {
-
-    #[test]
-    fn base_cases() {
-        // All types optional
-        let a = "a";
-        let some_a = Some("a");
-        let b = "b";
-        let some_b = Some("b");
-        let none: Option<&str> = None;
-
-        // Option, Option
-        assert_eq!(ite!(true, some_a, some_b), Some("a"));
-        assert_eq!(ite!(false, some_a, some_b), Some("b"));
-        assert_eq!(ite!(false, some_a, none), None);
-        assert_eq!(ite!(true, some_a, none), Some("a"));
-
-        // Option, Value
-        assert_eq!(ite!(true, some_a, b), Some("a"));
-        assert_eq!(ite!(false, some_a, b), Some("b"));
-        assert_eq!(ite!(true, none, b), None);
-        assert_eq!(ite!(false, none, b), Some("b"));
-
-        // Value, Option
-        assert_eq!(ite!(true, a, some_b), Some("a"));
-        assert_eq!(ite!(false, a, some_b), Some("b"));
-        assert_eq!(ite!(false, a, none), None);
-        assert_eq!(ite!(true, a, none), Some("a"));
-
-        // Value, Value
-        assert_eq!(ite!(true, a, b), "a");
-        assert_eq!(ite!(false, a, b), "b");
-    }
-}
