@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1057` matched · `19` mismatches · `0` missing · `1` extra · `98.14%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `1059` matched · `17` mismatches · `0` missing · `1` extra · `98.33%` match (100.00% means fully matched)
 
 ### `src/operation/invoke.rs`
 
@@ -721,38 +721,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -    Ok(builder)
 -}
-```
-
-### `src/protocol_serde/shape_send_durable_execution_callback_failure_input.rs`
-
-```diff
---- reference/src/protocol_serde/shape_send_durable_execution_callback_failure_input.rs
-+++ generated/src/protocol_serde/shape_send_durable_execution_callback_failure_input.rs
-@@ -11,7 +11,7 @@
-
- pub fn ser_error_payload(
-     input: &super::super::types::ErrorObject,
--) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
-+) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-     super::super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
-```
-
-### `src/protocol_serde/shape_stop_durable_execution_input.rs`
-
-```diff
---- reference/src/protocol_serde/shape_stop_durable_execution_input.rs
-+++ generated/src/protocol_serde/shape_stop_durable_execution_input.rs
-@@ -11,7 +11,7 @@
-
- pub fn ser_error_payload(
-     input: &super::super::types::ErrorObject,
--) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
-+) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-     super::super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
 ```
 
 ### `src/protocol_serde.rs`

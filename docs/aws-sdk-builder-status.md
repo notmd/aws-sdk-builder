@@ -25,6 +25,27 @@ full audit trail.
 - Next action: continue with the next narrowly evidenced generic JSON/protocol
   mismatch in Bedrock Runtime.
 
+### Checkpoint: 2026-08-25 — Match Smithy JSON payload result qualification
+- State: in progress
+- Changed: JSON structure payload serializers now use Smithy-RS's relative
+  `std::result::Result` spelling for the inner serialization payload function while
+  retaining the absolute runtime paths in HTTP wrapper functions. The shared template
+  applies to event-stream and HTTP-payload structure helpers without service branches.
+- Evidence: compared the pinned Smithy-RS JSON serializer templates at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; the focused event-stream payload
+  regression passes. Workspace tests (61), Clippy with `-D warnings`, formatting, and
+  `git diff --check` pass. `just conformance` regenerated 15 services and 1,133
+  operations, formatted all 13,166 generated Rust files, and produced no parse errors.
+- Conformance: `13,031/13,168` exact, `134` mismatches, `2` missing, and `1` extra
+  (`98.77%`) -> `13,034/13,168` exact, `131` mismatches, `2` missing, and `1` extra
+  (`98.79%`). Bedrock Runtime improved from `515/21` to `516/20` mismatches; Lambda
+  improved from `1,057/19` to `1,059/17` mismatches.
+- Blocker: `just conformance` still exits 1 because broader Bedrock Runtime,
+  Lambda, SESv2, and shared protocol/shape parity gaps remain; no blocker in this
+  payload-signature implementation.
+- Next action: continue with the next narrowly evidenced generic JSON/protocol
+  mismatch in Bedrock Runtime.
+
 ### Checkpoint: 2026-08-25 — Match Smithy URI-label encoding
 - State: in progress
 - Changed: standalone HTTP URI-label serialization now classifies each label from its

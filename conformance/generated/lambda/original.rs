@@ -140591,7 +140591,7 @@ pub fn ser_error_http_payload(
 
 pub fn ser_error_payload(
     input: &super::super::types::ErrorObject,
-) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
+) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     super::super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
@@ -140928,7 +140928,7 @@ pub fn ser_error_http_payload(
 
 pub fn ser_error_payload(
     input: &super::super::types::ErrorObject,
-) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
+) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     super::super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;

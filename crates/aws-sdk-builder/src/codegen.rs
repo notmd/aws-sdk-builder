@@ -10050,7 +10050,7 @@ fn render_json_payload_serializer(
     if !http_payload {
         writeln!(
             output,
-            "pub fn ser_{field}_payload(\n    input: &crate::types::{target_name},\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {{\n    let mut out = String::new();\n    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);\n    crate::protocol_serde::shape_{target_module}::ser_{target_module}(&mut object, input)?;\n    object.finish();\n    Ok(out.into_bytes())\n}}"
+            "pub fn ser_{field}_payload(\n    input: &crate::types::{target_name},\n) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {{\n    let mut out = String::new();\n    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);\n    crate::protocol_serde::shape_{target_module}::ser_{target_module}(&mut object, input)?;\n    object.finish();\n    Ok(out.into_bytes())\n}}"
         )
         .unwrap();
         return;
@@ -10074,7 +10074,7 @@ fn render_json_payload_serializer(
     };
     writeln!(
         output,
-        "pub fn ser_{field}_http_payload(\n    payload: {payload_type},\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {{\n    {payload_binding}\n    Ok(crate::protocol_serde::shape_{operation_module}_input::ser_{field}_payload(payload)?)\n}}\n\npub fn ser_{field}_payload(\n    input: &crate::types::{target_name},\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {{\n    let mut out = String::new();\n    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);\n    crate::protocol_serde::shape_{target_module}::ser_{target_module}(&mut object, input)?;\n    object.finish();\n    Ok(out.into_bytes())\n}}",
+        "pub fn ser_{field}_http_payload(\n    payload: {payload_type},\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {{\n    {payload_binding}\n    Ok(crate::protocol_serde::shape_{operation_module}_input::ser_{field}_payload(payload)?)\n}}\n\npub fn ser_{field}_payload(\n    input: &crate::types::{target_name},\n) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {{\n    let mut out = String::new();\n    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);\n    crate::protocol_serde::shape_{target_module}::ser_{target_module}(&mut object, input)?;\n    object.finish();\n    Ok(out.into_bytes())\n}}",
     )
     .unwrap();
 }
@@ -18473,6 +18473,19 @@ mod tests {
         let event_stream = render_event_stream_serde_file(&selected);
         assert!(event_stream.contains("shape_input_events::ser_chunk_payload"));
         assert!(!event_stream.contains("shape_input_events_input::ser_chunk_payload"));
+
+        let mut payload = String::new();
+        render_json_payload_serializer(
+            &mut payload,
+            &selected,
+            "invoke",
+            "chunk",
+            "example#Chunk",
+            false,
+            false,
+        );
+        assert!(payload.contains(") -> std::result::Result<::std::vec::Vec<u8>"));
+        assert!(!payload.contains(") -> ::std::result::Result<::std::vec::Vec<u8>"));
     }
 
     #[test]
