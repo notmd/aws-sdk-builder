@@ -112,9 +112,9 @@ impl ListSSHPublicKeysFluentBuilder {
     }
     /// Create a paginator for this request
     ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_ssh_public_keys::paginator::ListSSHPublicKeysPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::list_ssh_public_keys::paginator::ListSSHPublicKeysPaginator {
-        super::super::super::operation::list_ssh_public_keys::paginator::ListSSHPublicKeysPaginator::new(self.handle, self.inner)
+    /// Paginators are used by calling [`send().await`](crate::operation::list_ssh_public_keys::paginator::ListSshPublicKeysPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> super::super::super::operation::list_ssh_public_keys::paginator::ListSshPublicKeysPaginator {
+        super::super::super::operation::list_ssh_public_keys::paginator::ListSshPublicKeysPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the IAM user to list SSH public keys for. If none is specified, the <code>UserName</code> field is determined implicitly based on the Amazon Web Services access key used to sign the request.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

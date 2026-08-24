@@ -7288,7 +7288,7 @@ fn render_paginator_file(selected: &SelectedModel, operation_name: &str) -> Stri
     let operation_module = names::snake_case(operation_name);
     let operation_type = operation_error_type_name(operation_name);
     let shape_type = rust_type_name(operation_name);
-    let paginator_name = format!("{operation_type}Paginator");
+    let paginator_name = format!("{shape_type}Paginator");
     let operation_path = format!("crate::operation::{operation_module}");
     let output_token_suffix = info
         .output_token
@@ -7683,6 +7683,7 @@ fn render_standalone_fluent_operation_builder_file(
     let module = names::snake_case(operation_name);
     let operation_type = operation_error_type_name(operation_name);
     let shape_type = rust_type_name(operation_name);
+    let paginator_type = format!("{}Paginator", rust_type_name(operation_name));
     let input_builder_path =
         format!("crate::operation::{module}::builders::{shape_type}InputBuilder");
     let output_path = format!("crate::operation::{module}::{shape_type}Output");
@@ -7781,7 +7782,7 @@ fn render_standalone_fluent_operation_builder_file(
     if operation_pagination_info(selected, operation_name).is_some() {
         writeln!(
             output,
-            "    /// Create a paginator for this request\n    ///\n    /// Paginators are used by calling [`send().await`](crate::operation::{module}::paginator::{operation_type}Paginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).\n    pub fn into_paginator(self) -> crate::operation::{module}::paginator::{operation_type}Paginator {{\n        crate::operation::{module}::paginator::{operation_type}Paginator::new(self.handle, self.inner)\n    }}"
+            "    /// Create a paginator for this request\n    ///\n    /// Paginators are used by calling [`send().await`](crate::operation::{module}::paginator::{paginator_type}::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).\n    pub fn into_paginator(self) -> crate::operation::{module}::paginator::{paginator_type} {{\n        crate::operation::{module}::paginator::{paginator_type}::new(self.handle, self.inner)\n    }}"
         )
         .unwrap();
     }

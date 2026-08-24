@@ -111,9 +111,9 @@ impl ListSMSSandboxPhoneNumbersFluentBuilder {
     }
     /// Create a paginator for this request
     ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_sms_sandbox_phone_numbers::paginator::ListSMSSandboxPhoneNumbersPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::list_sms_sandbox_phone_numbers::paginator::ListSMSSandboxPhoneNumbersPaginator {
-        super::super::super::operation::list_sms_sandbox_phone_numbers::paginator::ListSMSSandboxPhoneNumbersPaginator::new(self.handle, self.inner)
+    /// Paginators are used by calling [`send().await`](crate::operation::list_sms_sandbox_phone_numbers::paginator::ListSmsSandboxPhoneNumbersPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> super::super::super::operation::list_sms_sandbox_phone_numbers::paginator::ListSmsSandboxPhoneNumbersPaginator {
+        super::super::super::operation::list_sms_sandbox_phone_numbers::paginator::ListSmsSandboxPhoneNumbersPaginator::new(self.handle, self.inner)
     }
     /// <p>Token that the previous <code>ListSMSSandboxPhoneNumbersInput</code> request returns.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

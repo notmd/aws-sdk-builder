@@ -4,6 +4,23 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy paginator naming
+- State: in progress
+- Changed: paginator symbols now use the generator's normalized Rust type casing,
+  matching Smithy-RS's `PaginatorGenerator`. Fluent builder paginator docs, return
+  types, and constructors use the same normalized symbol while operation and error
+  symbols remain unchanged.
+- Evidence: compared the pinned Smithy-RS `PaginatorGenerator.kt` at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. `just conformance` regenerated
+  and formatted all `13,166` snapshots and compiled the selected service crates.
+- Conformance: `12,997/13,168` exact, `168` mismatches, `2` missing, and `1` extra
+  (`98.57%`) -> `13,011/13,168` exact, `154` mismatches, `2` missing, and `1` extra
+  (`98.65%`). IAM improved from `1,602/24` to `1,614/12` mismatches; SNS from
+  `432/13` to `434/11`.
+- Blocker: `just conformance` still exits 1 because unrelated parity gaps remain.
+- Next action: continue investigating the remaining generic mismatches after this
+  checkpoint.
+
 ### Checkpoint: 2026-08-25 — Box recursive structure and union members
 - State: in progress
 - Changed: the model-selection transform now mirrors Smithy-RS's recursive-shape

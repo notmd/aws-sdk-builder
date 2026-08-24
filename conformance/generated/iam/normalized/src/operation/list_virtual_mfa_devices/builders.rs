@@ -113,9 +113,9 @@ impl ListVirtualMFADevicesFluentBuilder {
     }
     /// Create a paginator for this request
     ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_virtual_mfa_devices::paginator::ListVirtualMFADevicesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::list_virtual_mfa_devices::paginator::ListVirtualMFADevicesPaginator {
-        super::super::super::operation::list_virtual_mfa_devices::paginator::ListVirtualMFADevicesPaginator::new(self.handle, self.inner)
+    /// Paginators are used by calling [`send().await`](crate::operation::list_virtual_mfa_devices::paginator::ListVirtualMfaDevicesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> super::super::super::operation::list_virtual_mfa_devices::paginator::ListVirtualMfaDevicesPaginator {
+        super::super::super::operation::list_virtual_mfa_devices::paginator::ListVirtualMfaDevicesPaginator::new(self.handle, self.inner)
     }
     /// <p>The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list. If you do not specify an <code>AssignmentStatus</code>, the operation defaults to <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</p>
     pub fn assignment_status(mut self, input: super::super::super::types::AssignmentStatusType) -> Self {

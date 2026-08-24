@@ -111,9 +111,9 @@ impl ListOpenIDConnectProviderTagsFluentBuilder {
     }
     /// Create a paginator for this request
     ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIDConnectProviderTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIDConnectProviderTagsPaginator {
-        super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIDConnectProviderTagsPaginator::new(self.handle, self.inner)
+    /// Paginators are used by calling [`send().await`](crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator {
+        super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator::new(self.handle, self.inner)
     }
     /// <p>The ARN of the OpenID Connect (OIDC) identity provider whose tags you want to see.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
