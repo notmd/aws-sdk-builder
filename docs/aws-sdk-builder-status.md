@@ -4,6 +4,31 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Emit JSON event-stream payload parsers
+- State: in progress
+- Changed: JSON protocol shape modules now emit Smithy-RS's generic
+  `de_<shape>_payload` wrapper for non-error structure and union shapes used as
+  output event-stream members without an explicit `eventPayload` member. The
+  wrapper tokenizes the event payload, rejects null and trailing tokens, and
+  delegates to the shared shape parser. The predicate is model-driven and keeps
+  modeled event-stream errors on their dedicated `de_*_json_err` path. A focused
+  regression covers both ordinary event members and promoted event-stream errors.
+  This follows the pinned Smithy-RS `JsonParserGenerator.payloadParser` and
+  `EventStreamUnmarshallerGenerator` at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: focused event-stream regressions, `just conformance` regeneration and
+  parsing, formatting, and `git diff --check` pass. Conformance formatted all
+  `13,164` generated Rust files and reported no generated-source parse errors;
+  `just conformance` exits 1 only because broader parity gaps remain.
+- Conformance: `12,759/13,168` exact, `404` mismatches, `4` missing, and `1` extra
+  -> `12,767/13,168` exact, `396` mismatches, `4` missing, and `1` extra
+  (`96.67%`). Bedrock Runtime improved from `455/81` to `462/74`, and Lambda from
+  `1,017/59` to `1,018/58`.
+- Blocker: remaining generic protocol, streaming, shape, and runtime parity gaps
+  remain; no blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic protocol or shape
+  parity mismatch.
+
 ### Checkpoint: 2026-08-25 — Sign input event streams with an empty payload
 - State: in progress
 - Changed: SigV4 operation signing now uses Smithy-RS's model-driven

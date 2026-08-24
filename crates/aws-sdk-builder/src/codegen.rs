@@ -10092,6 +10092,11 @@ fn render_json_protocol_shape_file(
     let shape = selected.model.shapes.get(shape_id).expect("protocol shape");
     let mut output = String::new();
     client_operation_header(&mut output);
+    let event_stream_payload =
+        roles.deserialize && json_event_stream_output_payload_shape(selected, shape_id);
+    if event_stream_payload {
+        render_json_event_stream_payload_deserializer(&mut output, selected, shape_id);
+    }
     if roles.serialize {
         match protocol_shape_kind(selected, shape_id) {
             "structure" => {
@@ -10124,6 +10129,45 @@ fn render_json_protocol_shape_file(
         output = output.replace(&old, &new);
     }
     output
+}
+
+fn json_event_stream_output_payload_shape(selected: &SelectedModel, shape_id: &str) -> bool {
+    if !matches!(
+        protocol_shape_kind(selected, shape_id),
+        "structure" | "union"
+    ) {
+        return false;
+    }
+    let Some(shape) = selected.model.shapes.get(shape_id) else {
+        return false;
+    };
+    if is_error_shape(shape) || event_payload_member(shape).is_some() {
+        return false;
+    }
+    event_stream_output_union_ids(selected)
+        .into_iter()
+        .any(|union_id| {
+            selected.model.shapes.get(&union_id).is_some_and(|union| {
+                members(union)
+                    .into_iter()
+                    .filter_map(|(_, member)| member_target(member))
+                    .any(|target| target == shape_id)
+            })
+        })
+}
+
+fn render_json_event_stream_payload_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+) {
+    let module = names::rust_module_name(terminal(shape_id));
+    let type_name = protocol_shape_type(selected, shape_id);
+    writeln!(
+        output,
+        "pub(crate) fn de_{module}_payload(\n    _value: &[u8],\n) -> ::std::result::Result<{type_name}, ::aws_smithy_json::deserialize::error::DeserializeError> {{\n    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();\n    let tokens = &mut tokens_owned;\n    #[allow(unused_variables)]\n    let depth = 0u32;\n    let result = crate::protocol_serde::shape_{module}::de_{module}(tokens, _value, depth + 1)?\n        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom(\"expected payload member value\"));\n    if tokens.next().is_some() {{\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"found more JSON tokens after completing parsing\",\n        ));\n    }}\n    result\n}}"
+    )
+    .unwrap();
 }
 
 fn render_json_shared_structure_serializer(
@@ -17343,6 +17387,13 @@ mod tests {
 
         assert!(!exception.contains("match response_headers.smithy_type.as_str()"));
         assert!(!exception.contains("if response_headers.smithy_type.as_str()"));
+
+        let roles = json_protocol_serde_roles(&selected);
+        let chunk_roles = roles.get("example#Chunk").copied().unwrap();
+        let chunk = render_json_protocol_shape_file(&selected, "example#Chunk", chunk_roles);
+        assert!(chunk.contains("pub(crate) fn de_chunk_payload("));
+        assert!(chunk.contains("expected payload member value"));
+        assert!(chunk.contains("found more JSON tokens after completing parsing"));
     }
 
     #[test]
@@ -17421,6 +17472,11 @@ mod tests {
 
         let event_stream = render_event_stream_serde_file(&selected);
         assert!(event_stream.contains("failed to unmarshall Chunk: {err}"));
+
+        let roles = json_protocol_serde_roles(&selected);
+        let failure_roles = roles.get("example#Failure").copied().unwrap();
+        let failure = render_json_protocol_shape_file(&selected, "example#Failure", failure_roles);
+        assert!(!failure.contains("de_failure_payload"));
     }
 
     #[test]
